@@ -1,5 +1,6 @@
 # macOS
 .DS_Store
+**/.DS_Store
 
 # LaTeX
 *.aux
@@ -9,6 +10,15 @@
 *.synctex.gz
 *.fls
 *.fdb_latexmk
+*.nav
+*.snm
+*.vrb
+*.lof
+*.lot
+*.bbl
+*.blg
+*.run.xml
+*_minted*/
 
 # Python
 __pycache__/
@@ -24,3 +34,7 @@ __pycache__/
 
 # VS Code
 .vscode/
+
+# Build artifacts
+build/
+dist/
