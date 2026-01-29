@@ -1,0 +1,744 @@
+% !TEX root = ./adlt_homework_8.tex
+\documentclass[12pt]{article}
+
+% --- Core math + proof tools ---
+\usepackage{amsmath, amssymb, amsthm}
+
+% --- Lists and spacing ---
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=\textbf{(\alph*)}, leftmargin=2em, itemsep=0.25em}
+\setlist[itemize]{leftmargin=1.5em, itemsep=0.25em}
+\setlength{\parskip}{0.35em}
+\setlength{\parindent}{0pt}
+
+% --- Page geometry + header/footer ---
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{csquotes} % to use blockquotes
+\usepackage{graphicx} % for figures
+\graphicspath{{images/}} % tells LaTeX to look in the “images” folder
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MATH 421 — 003, Fall 2025}
+\lhead{Homework 10}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% --- Links (nice for references, stays subtle) ---
+
+\usepackage[hidelinks]{hyperref}
+\setcounter{tocdepth}{1}
+
+% --- Colored definition/theorem boxes ---
+\usepackage[most]{tcolorbox}
+
+% Reusable styles for boxes
+\tcbset{
+  definitionstyle/.style={
+    enhanced,
+    colback=blue!3!white,
+    colframe=blue!60!black,
+    fonttitle=\bfseries,
+    attach boxed title to top left={yshift=-2mm,xshift=2mm},
+    boxed title style={colback=blue!60!black, colframe=blue!60!black},
+    coltitle=white,
+    rounded corners,
+    shadow={0.7mm}{-0.7mm}{0mm}{black!20!white},
+    breakable,
+  },
+  theoremstyle/.style={
+    enhanced,
+    colback=green!3!white,
+    colframe=green!50!black,
+    fonttitle=\bfseries,
+    attach boxed title to top left={yshift=-2mm,xshift=2mm},
+    boxed title style={colback=green!50!black, colframe=green!50!black},
+    coltitle=white,
+    rounded corners,
+    shadow={0.7mm}{-0.7mm}{0mm}{black!20!white},
+    breakable,
+  }
+}
+
+% Environments you can use in discussions
+\newenvironment{definitionbox}[1][]% optional title
+{\begin{tcolorbox}[definitionstyle,title={#1}]}%
+{\end{tcolorbox}}
+
+\newenvironment{theorembox}[1][]% optional title
+{\begin{tcolorbox}[theoremstyle,title={#1}]}%
+{\end{tcolorbox}}
+
+% --- Title info ---
+\title{Homework 10}
+\author{Alejandro De La Torre \\ MATH 421 — The Theory of Single Variable Calculus \\ Section 003 \\ Instructor: Grace Work}
+\date{December 2025}
+
+% --- proof environments that might be relevant ---
+\newtheorem*{claim}{Claim}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{remark}{Remark}
+
+% --- Convenience: a Problem header command (section-like with TOC/bookmarks) ---
+% Usage: \problem[Optional short title]{<number>}
+\makeatletter
+\newcommand{\problem}[2][]{%
+  \def\prob@title{Problem #2\if\relax\detokenize{#1}\relax\else\ (\textit{#1})\fi}%
+  \phantomsection%
+  \pdfbookmark[1]{\prob@title}{prob#2}%
+  \addcontentsline{toc}{section}{\prob@title}%
+  \section*{\prob@title}%
+  \vspace{-0.25em}\hrule\vspace{0.8em}%
+}
+\makeatother
+
+% --- Convenience: an ignore command to comment out blocks ---
+\newcommand{\ignore}[1]{}
+
+
+\begin{document}
+\maketitle
+
+% ------------------ collaboration + sources ------------------
+\section*{Collaboration Statement}
+% (List any classmates you collaborated with here, or write ``I worked alone'' if you did not collaborate with anyone.)
+I worked on this homework independently. No outside collaborators or resources were used.
+
+\tableofcontents
+\bigskip
+\hrule
+\bigskip
+
+\newpage
+
+
+% ------------------ problems ------------------
+\problem[Ross Chapter 3 18.5 (a)]{1}
+Let $f$ and $g$ be continuous functions in $[a,b]$ such that $f(a) \geq g(a)$ and $f(b) \leq g(b)$. Prove $f(x_0) = g(x_0)$ for at least one $x_0$ in $[a,b]$.
+\vspace{0.75em}
+
+\textbf{Discussion.}\\
+We want a point where $f(x_0) = g(x_0)$.  This is equivalent to $f(x_0) - g(x_0) = 0$, so it is natural to consider the difference $h(x) = f(x) - g(x)$.  Since $f$ and $g$ are continuous, $h$ is continuous on $[a,b]$.  The inequalities $f(a)\ge g(a)$ and $f(b)\le g(b)$ then say $h(a)\ge 0$ and $h(b)\le 0$, so $0$ lies between $h(a)$ and $h(b)$.  By the Intermediate Value Theorem applied to $h$, there is some $x_0\in [a,b]$ with $h(x_0)=0$, i.e.\ $f(x_0)=g(x_0)$.
+\vspace{0.25em}
+
+\textbf{Proof.}\\
+Define $h : [a,b] \to \mathbb{R}$ by
+\[
+  h(x) = f(x) - g(x).
+\]
+Since $f$ and $g$ are continuous on $[a,b]$ and the difference of two continuous
+functions is continuous, it follows that $h$ is continuous on $[a,b]$.
+
+From the hypotheses we have
+\[
+  f(a) \ge g(a) \quad\Longrightarrow\quad h(a) = f(a) - g(a) \ge 0,
+\]
+and
+\[
+  f(b) \le g(b) \quad\Longrightarrow\quad h(b) = f(b) - g(b) \le 0.
+\]
+Thus $0$ lies between $h(a)$ and $h(b)$; equivalently, $h(b) \le 0 \le h(a)$.
+
+By the \hyperref[thm:18.2]{Intermediate Value Theorem}, since $h$ is continuous
+on $[a,b]$ and $0$ lies between $h(a)$ and $h(b)$, there exists some $x_0 \in [a,b]$
+such that
+\[
+  h(x_0) = 0.
+\]
+By the definition of $h$ this means
+\[
+  f(x_0) - g(x_0) = 0,
+\]
+so $f(x_0) = g(x_0)$.
+
+Therefore there exists at least one $x_0 \in [a,b]$ with $f(x_0) = g(x_0)$, as required. \qed
+
+\newpage
+
+\problem[Ross Chapter 3 18.10]{2}
+Suppose $f$ is continuous on $[0,2]$ and $f(0)=f(2)$. Prove there exist $x,y$ in $[0,2]$ such that $|y-x|=1$ and $f(x)=f(y)$. \textit{Hint}: Consider $g(x) = f(x+1)-f(x)$ on $[0,1]$.
+\vspace{0.75em}
+
+\textbf{Discussion.} \\
+We want two points $x,y$ with $|y-x|=1$ and $f(x)=f(y)$.  Writing $y=x+1$, this is
+equivalent to finding $x\in[0,1]$ such that
+\[
+f(x+1)-f(x)=0.
+\]
+So it is natural to define
+\[
+g(x)=f(x+1)-f(x) \text{, for }x\in[0,1].
+\]
+Because $f$ is continuous on $[0,2]$, both $f(x+1)$ and $f(x)$ are continuous on $[0,1]$,
+so their difference $g$ is continuous on $[0,1]$.  The condition $f(0)=f(2)$ then forces
+\[
+g(0)=f(1)-f(0),\qquad g(1)=f(2)-f(1)=f(0)-f(1)=-g(0),
+\]
+so either $g(0)=0$ or $g(0)$ and $g(1)$ have opposite signs.  In either case, $0$ lies between $g(0)$ and $g(1)$, so by the \hyperref[thm:18.2]{Intermediate Value Theorem} there is some $x\in[0,1]$ with $g(x)=0$, i.e.\ $f(x+1)=f(x)$ and $| (x+1)-x|=1$.
+
+\textit{\textbf{TL;DR}}: We basically have to translate the statement we are trying to prove to make it in terms of just $x$ (which we do by defining $g$) to then make the question about applying the IVT to $g$ to prove that it has a zero, which then maps back to the original statement we are trying to prove about $f$.
+
+\vspace{0.25em}
+
+\textbf{Proof.}\\
+Let $g$ be a function defined on $[0,1]$ as
+\[
+g(x)=f(x+1)-f(x).
+\]
+Since $f$ is continuous on $[0,2]$ (and $[0,1] \subset [0,2]$), then $g$ must be continuous on $[0,1]$.
+
+We compute the endpoint values of $g$:
+\[
+g(0)=f(1)-f(0),
+\]
+and, using $f(0)=f(2)$,
+\[
+g(1)=f(2)-f(1)=f(0)-f(1)=-g(0).
+\]
+
+If $g(0)=0$, then taking $x=0$ and $y=1$ gives
+\[
+|y-x|=|1-0|=1,\qquad f(x)=f(0)=f(1)=f(y),
+\]
+so the desired property holds.
+
+Otherwise $g(0)\neq 0$, so $g(1)=-g(0)$ has the opposite sign. Thus
+\[
+g(0)\cdot g(1)<0,
+\]
+which means $0$ lies strictly between $g(0)$ and $g(1)$. Since $g$ is continuous on $[0,1]$, the \hyperref[thm:18.2]{Intermediate Value Theorem} guarantees the existence of some $x\in(0,1)$ such that
+\[
+g(x)=0.
+\]
+For this $x$, set $y=x+1$.  Then $x,y\in[0,2]$, we have
+\[
+|y-x|=|x+1-x|=1,
+\]
+and
+\[
+f(y)=f(x+1)=f(x),
+\]
+because $g(x)=f(x+1)-f(x)=0$.
+
+Therefore there exist $x,y\in[0,2]$ with $|y-x|=1$ and $f(x)=f(y)$, as required. \qed
+
+\newpage
+
+\problem[Ross Chapter 3 19.6 (b)]{3}
+\label{thm:3}
+\textit{(From Part (a):) Let $f(x) = \sqrt{x}$ for $x \geq 0$. Show $f'$ is unbounded on $(0,1]$ but $f$ is nevertheless uniformly continuous on $(0,1]$ Compare with Theorem 19.6.}
+
+(b) Show that $f$ is uniformly continuous on $[1,\infty)$.
+\vspace{0.75em}
+
+\textbf{Discussion.} \\
+We want to prove that $f(x) = \sqrt{x}$ is \emph{uniformly} continuous on $[1,\infty)$.
+By \hyperref[def:19.1]{Definition 19.1}, this means:
+
+\[
+\text{for each } \varepsilon > 0 \text{ there exists } \delta > 0 \text{ such that }
+x,y \in [1,\infty),\ |x-y| < \delta \Longrightarrow |\sqrt{x} - \sqrt{y}| < \varepsilon.
+\]
+
+So the game is: fix an arbitrary $\varepsilon>0$ and then cook up a $\delta$ that depends
+\emph{only} on $\varepsilon$, not on a particular choice of $x$ or $y$.
+
+A standard trick for square roots is to use the algebraic identity
+\[
+|\sqrt{x}-\sqrt{y}|
+ = \left|\frac{x-y}{\sqrt{x}+\sqrt{y}}\right|.
+\]
+On our domain $[1,\infty)$ we always have $\sqrt{x} \ge 1$ and $\sqrt{y} \ge 1$, so
+\[
+\sqrt{x} + \sqrt{y} \ge 2.
+\]
+That means we can bound the difference by
+\[
+|\sqrt{x}-\sqrt{y}| \le \frac{|x-y|}{2}.
+\]
+
+This is the key estimate: on $[1,\infty)$, the function $\sqrt{x}$ cannot change
+faster than ``slope $\tfrac12$'' in the sense that
+\[
+|\sqrt{x}-\sqrt{y}| \le \frac12\,|x-y|.
+\]
+Once we have this, the $\varepsilon$–$\delta$ choice is easy: if we make
+$|x-y|$ smaller than $2\varepsilon$, then $\frac12|x-y|$ will automatically be
+smaller than $\varepsilon$. So in the proof we will take
+\[
+\delta = 2\varepsilon
+\]
+and then check that this choice satisfies the definition of uniform continuity
+on $[1,\infty)$.
+\vspace{0.25em}
+
+\textbf{Proof.}\\
+Let $\varepsilon > 0$, and $\delta = 2\varepsilon$. From \hyperref[def:19.1]{Definition 19.1} let $x,y \in S$ with $|x-y| < \delta$.
+Then,
+\[
+|\sqrt{x} - \sqrt{y}|
+  = \left|\frac{x-y}{\sqrt{x} + \sqrt{y}}\right|.
+\]
+
+Because $x,y \in [1,\infty)$, we have $\sqrt{x} \ge 1$ and $\sqrt{y} \ge 1$, so
+\[
+\sqrt{x} + \sqrt{y} \ge 2.
+\]
+Therefore
+\[
+|\sqrt{x} - \sqrt{y}|
+  = \frac{|x-y|}{\sqrt{x} + \sqrt{y}}
+  \le \frac{|x-y|}{2}.
+\]
+
+Using $|x-y| < \delta = 2\varepsilon$, we obtain
+\[
+|\sqrt{x} - \sqrt{y}|
+  \le \frac{|x-y|}{2}
+  < \frac{2\varepsilon}{2}
+  = \varepsilon.
+\]
+
+Since $\varepsilon>0$ was arbitrary, by \hyperref[def:19.1]{Definition 19.1}, $f(x)=\sqrt{x}$ is uniformly continuous on $[1,\infty)$. 
+\qed
+
+\newpage
+
+\problem[Ross Chapter 3 19.7]{4}
+(a) Let $f$ be a continuous function on $[0, \infty)$. Prove that if $f$ is uniformly continuous on $[k, \infty)$ for some $k$, then $f$ is uniformly continuous on $[0,\infty).$
+
+(b) Use (a) and Exercise 19.6(b) to show that $f(x) = \sqrt{x}$ is uniformly continuous on $[0, \infty)$.
+\vspace{0.75em}
+
+\textbf{Discussion.} \\
+Part (a) seems like it is asking us to sorta glue together two pieces of information about $f$. We know that $f$ is continuous on $[0,\infty)$, and that for some fixed $k > 0$, $f$ is uniformly continuous on $[k,\infty)$ (i.e. $k=1$ as we proved in \hyperref[thm:3]{Problem 3}).
+
+To prove that $f$ is uniformly continuous on all of $[0,\infty)$, we want to use \hyperref[thm:19.2]{Theorem 19.2}, and the given hypothesis that $f$ is already uniformly continuous on $[k,\infty)$ in tandem to then be able to conclude that $f$ too is uniformly continuous on $[0,\infty)$.
+
+The key idea/innovation is to split the domain into two overlapping pieces:
+\[
+[0,\infty) = [0,k+1] \,\cup\, [k,\infty).
+\]
+Because $f$ is continuous on $[0,\infty)$, it is also (by nature of $[0,k+1] \subseteq [0,\infty)$) continuous on the closed interval $[0,k+1]$. From there we can then say, by \hyperref[thm:19.2]{Theorem 19.2}, $f$ is uniformly continuous on $[0,k+1]$ (which could be like $[0,1]$). Together with the hypothesis, this gives us uniform continuity on $[0,k+1]$ and $[k,\infty)$.
+
+But because $[0,k+1]$ and $[k,\infty)$ are distinct, we need to be careful and sorta believe that they are distinct deltas, so that together with the hypothesis we get:
+\begin{itemize}
+  \item uniform continuity on $[0,k+1]$ with some $\delta_1$ for each $\varepsilon$;
+  \item uniform continuity on $[k,\infty)$ with some $\delta_2$ for each $\varepsilon$.
+\end{itemize}
+
+The main subtlety (hard part) is: how do we turn these two local pieces into a single $\delta$ that works for \emph{all} $x,y \in [0,\infty)$ at once?
+
+So after sheding a good tear, we then arrive at the trick. The trick is to choose a $\delta$ that is small enough to force any two points $x,y$ with $|x-y|<\delta$ to lie entirely inside \emph{one} of the two regions where we already know $f$ is uniformly continuous.  Notice that if $|x-y|<1$, then it is impossible for one point to lie at or below $k$ and the other to lie at or above $k+1$ (that would give $|x-y|\ge 1$). So whenever $|x-y|<1$, either
+\[
+x,y \in [0,k+1]  \quad\text{or}\quad  x,y \in [k,\infty).
+\]
+
+Therefore, given $\varepsilon>0$, we can:
+\begin{enumerate}[label=(\roman*)]
+  \item Get $\delta_1>0$ from uniform continuity of $f$ on $[0,k+1]$.
+  \item Get $\delta_2>0$ from uniform continuity of $f$ on $[k,\infty)$.
+  \item Set
+        \[
+        \delta = \min\{1,\delta_1,\delta_2\}.
+        \]
+\end{enumerate}
+Then for any $x,y\in[0,\infty)$ with $|x-y|<\delta$, we automatically have
+$|x-y|<1$, so $x$ and $y$ lie in the same piece: either both in $[0,k+1]$ or both
+in $[k,\infty)$.  In the first case we can use $\delta_1$; in the second we use
+$\delta_2$.  Either way we get $|f(x)-f(y)|<\varepsilon$, which is exactly the
+definition of uniform continuity on $[0,\infty)$.
+
+For part (b), we simply apply (a) to the specific function $f(x)=\sqrt{x}$.
+From Exercise 19.6(b) \hyperref[thm:3]{(Problem 3)} we already know that $f$ is uniformly continuous on $[1,\infty)$.  Since $f$ is continuous on $[0,\infty)$ and is uniformly continuous on $[1,\infty)$, part (a) with $k=1$ tells us that $f(x)=\sqrt{x}$ is uniformly continuous on $[0,\infty)$.
+\vspace{0.25em}
+
+\textbf{Proof.}\\
+\textbf{(a)} 
+Let $\varepsilon>0$. We want to find a single $\delta>0$ that works for
+all $x,y\in[0,\infty)$ in the sense of \hyperref[def:19.1]{Definition 19.1}.
+
+Because $f$ is continuous on $[0,\infty)$, its restriction to the closed interval
+$[0,k+1]$ is continuous.  Hence, by \hyperref[thm:19.2]{Theorem 19.2}, $f$ is
+uniformly continuous on $[0,k+1]$.  Thus there exists $\delta_1>0$ such that
+\[
+x,y\in[0,k+1],\ |x-y|<\delta_1 \implies |f(x)-f(y)|<\varepsilon.
+\]
+
+By hypothesis, $f$ is uniformly continuous on $[k,\infty)$, so there exists
+$\delta_2>0$ such that
+\[
+x,y\in[k,\infty),\ |x-y|<\delta_2 \implies |f(x)-f(y)|<\varepsilon.
+\]
+
+Now define
+\[
+\delta=\min\{1,\delta_1,\delta_2\}.
+\]
+We claim that this $\delta$ works for all of $[0,\infty)$.
+
+Let $x,y\in[0,\infty)$ satisfy $|x-y|<\delta$.  Then automatically
+$|x-y|<1$, so it is impossible for one of $x,y$ to lie at or below $k$ while
+the other lies at or above $k+1$ (that would force $|x-y|\ge1$).  Hence we
+must be in one of two cases:
+
+\begin{itemize}
+  \item \emph{Case 1:} $x,y\in[0,k+1]$.  
+    Then $|x-y|<\delta\le\delta_1$, so by the choice of $\delta_1$ we have
+    \[
+      |f(x)-f(y)|<\varepsilon.
+    \]
+  \item \emph{Case 2:} $x,y\in[k,\infty)$.  
+    Then $|x-y|<\delta\le\delta_2$, so by the choice of $\delta_2$ we have
+    \[
+      |f(x)-f(y)|<\varepsilon.
+    \]
+\end{itemize}
+
+In either case, whenever $x,y\in[0,\infty)$ satisfy $|x-y|<\delta$, we obtain
+$|f(x)-f(y)|<\varepsilon$.  Since $\varepsilon>0$ was arbitrary, this is exactly
+the statement that $f$ is uniformly continuous on $[0,\infty)$.
+
+\medskip
+
+\textbf{(b)} Let $f(x)=\sqrt{x}$ on $[0,\infty)$. From \hyperref[thm:3]{Problem 3} (Exercise 19.6(b)) we already know that $f$ is uniformly continuous on $[1,\infty)$, so we can apply part (a) with $k=1$.  
+
+
+
+The function $f(x)=\sqrt{x}$ is continuous on $[0,\infty)$ which includes the closed interval $[0,1]$. In other words, $f$ is continuous on the closed interval $[0,1]$, and by \hyperref[thm:19.2]{Theorem 19.2} we conclude that $f$ is uniformly continuous on $[0,1]$. 
+
+We have proven in \hyperref[thm:3]{Problem 3} that $f$ is uniformly continuous on $[1,\infty)$. So $f$ is uniformly continuous on both $[0,1]$ and $[1,\infty)$. Therefore $f$ is uniformly continuous on $[0,\infty)$.
+\qed
+
+\newpage
+
+\problem[Uniform Continuity of $f$]{5}
+%\textit{(Problem statement goes here if needed.)}
+Suppose $f : \mathbb{R} \mapsto \mathbb{R}$. Prove that if there exists a real number $M \geq 0$ such that $f(x) - f(y)| \leq M|x-y|$ for all $x,y \in \mathbb{R}$, then $f$ is uniformly continuous on $\mathbb{R}$.
+\vspace{0.75em}
+
+\textbf{Discussion.} \\
+The hypothesis says that there is some fixed constant $M \ge 0$ so that
+\[
+  |f(x) - f(y)| \le M|x-y| \quad \text{for every pair } x,y \in \mathbb{R}.
+\]
+To my understanding, this inequality says: whenever I move $x$ and $y$ a certain horizontal distance apart, the vertical change in the function values $f(x)$ and $f(y)$ is at most $M$ times that horizontal distance. So the function is never allowed to change ``too fast'' (non-linearly/in-a-non-uniform-fashion).
+
+To show that $f$ is uniformly continuous on $\mathbb{R}$, I need to line up with \hyperref[def:19.1]{Definition 19.1}: given any $\varepsilon > 0$, I must find a $\delta > 0$ so that
+\[
+  |x-y| < \delta \quad \Longrightarrow \quad |f(x) - f(y)| < \varepsilon
+\]
+for \emph{all} real numbers $x$ and $y$ at once.
+
+The useful part of the hypothesis is that it already compares $|f(x)-f(y)|$ directly to $|x-y|$:
+\[
+  |f(x) - f(y)| \le M|x-y|.
+\]
+If I can make $M|x-y|$ smaller than $\varepsilon$, then automatically $|f(x)-f(y)|$ will also be smaller than $\varepsilon$.  So I want to force
+\[
+  M|x-y| < \varepsilon.
+\]
+When $M>0$, this inequality will hold whenever
+\[
+  |x-y| < \frac{\varepsilon}{M}.
+\]
+That suggests a very natural choice:
+\[
+  \delta = \frac{\varepsilon}{M}.
+\]
+
+There is one special case to think about: if $M = 0$, then the inequality becomes
+\[
+  |f(x) - f(y)| \le 0 \cdot |x-y| = 0,
+\]
+so in fact $|f(x) - f(y)| = 0$ for all $x,y$.  That means $f(x)$ is the same number for every $x$; in other words, $f$ has to be a constant function. A constant function is automatically uniformly continuous, because $|f(x)-f(y)| = 0$ no matter how we choose $\delta$.
+
+So the plan of the proof is:
+\begin{itemize}
+  \item First notice that if $M = 0$, then $f$ is constant and therefore uniformly continuous.
+  \item If $M > 0$, then for a given $\varepsilon > 0$ we set $\delta = \varepsilon/M$ and use the inequality $|f(x)-f(y)| \le M|x-y|$ to verify that $|x-y|<\delta$ implies $|f(x)-f(y)|<\varepsilon$.
+\end{itemize}
+This will match the definition of uniform continuity on $\mathbb{R}$.
+
+\vspace{0.25em}
+
+\textbf{Proof.}\\
+Let $\varepsilon>0$. Let $M \geq 0$ be such that:
+
+\emph{Case 1: $M=0$.}  
+Then for all $x,y\in\mathbb{R}$ we have
+\[
+|f(x)-f(y)| \le 0\cdot|x-y| = 0,
+\]
+so $|f(x)-f(y)|=0$ and hence $f(x)=f(y)$ for all $x,y$. Thus $f$ is constant, and
+for any choice of $\delta>0$ and any $x,y\in\mathbb{R}$ with $|x-y|<\delta$ we have
+\[
+|f(x)-f(y)| = 0 < \varepsilon.
+\]
+So $f$ is uniformly continuous on $\mathbb{R}$.
+
+\emph{Case 2: $M>0$.}  
+Set
+\[
+\delta = \frac{\varepsilon}{M}.
+\]
+Let $x,y\in\mathbb{R}$ satisfy $|x-y|<\delta$. Then, using the hypothesis,
+\[
+|f(x)-f(y)|
+  \le M|x-y|
+  < M\delta
+  = M\cdot\frac{\varepsilon}{M}
+  = \varepsilon.
+\]
+Since $\varepsilon>0$ was arbitrary, this shows that for each $\varepsilon>0$
+there exists $\delta>0$ (namely $\delta=\varepsilon/M$) such that
+\[
+x,y\in\mathbb{R},\ |x-y|<\delta \;\Longrightarrow\; |f(x)-f(y)|<\varepsilon.
+\]
+By \hyperref[def:19.1]{Definition 19.1}, $f$ is uniformly continuous on $\mathbb{R}$. \qed
+
+\newpage
+
+
+\problem[Differentiability of $f$]{6}
+Suppose that $0 \in (a,b)$ and $f(x)=xg(x)$ for some function $g: (a,b) \mapsto \mathbb{R}$ which is continuous at $x=0$. Prove that $f$ is differentiable at $x=0$, and find $f'(0)$ in terms of $g$.
+
+\textit{Hint: Note that you cannot use the product rule, since $g(x)$ is not guaranteed to be differentiable at $x=0$}
+
+\vspace{0.75em}
+
+\textbf{Discussion.} \\
+To show that $f(x)=xg(x)$ is differentiable at $x=0$, we use the definition of the derivative ()\hyperref[def:28.1]{Definition 28.1}) directly. Like the hint says, we can't use the product rule because $g$ is only assumed to be continuous at $0$, not differentiable (the converse of \hyperref[thm:28.2]{Theorem 28.2} is not true; differentiability $\implies$ continuity, but not the other way around). So we apply \hyperref[def:28.1]{Definition 28.1}:
+\[
+\frac{f(x)-f(0)}{x-0}.
+\]
+Since $f(0)=0\cdot g(0)=0$, this becomes
+\[
+\frac{xg(x)-0}{x}=g(x)
+\quad (x\ne 0).
+\]
+So the entire derivative computation reduces to studying the limit $\lim_{x\to 0} g(x)$. Because $g$ is continuous at $0$, we know that
+\[
+\lim_{x\to 0} g(x) = g(0).
+\]
+Thus the derivative exists and equals $g(0)$. The key idea is that continuity of $g$ gives us that the limit exists and thus $f$ is differentiable directly from the defintion of a derivative, which simplifies in a way that avoids product rule entirely. #winning
+\vspace{0.25em}
+
+\textbf{Proof.}\\
+Since $f(0)=0\cdot g(0)=0$, for $x\ne 0$ we compute
+\[
+\frac{f(x)-f(0)}{x-0}=\frac{xg(x)}{x}=g(x).
+\]
+Taking limits,
+\[
+\lim_{x\to 0}\frac{f(x)-f(0)}{x-0}
+ = \lim_{x\to 0} g(x)
+ = g(0),
+\]
+where the last equality follows from continuity of $g$ at $0$. Therefore $f$ is differentiable at $0$, and
+\[
+f'(0)=g(0).
+\]
+\qed
+
+
+\newpage
+\appendix
+\section*{Appendix: Theorems}
+\addcontentsline{toc}{section}{Appendix: Theorems Used}
+
+Misc theorems potentially relevant to the homework problems that I thought I might use.
+% ===============================
+% 17.2 Theorem — ε–δ definition of continuity
+% ===============================
+\begin{theorembox}[Theorem 17.2]
+\label{thm:17.2}
+Let $f$ be a real-valued function whose domain is a subset of $\mathbb{R}$.  
+Then $f$ is continuous at $x_{0} \in \mathrm{dom}(f)$ if and only if  
+\[
+\begin{gathered}
+\text{for each } \varepsilon > 0 \text{ there exists } \delta > 0 \text{ such that } 
+x \in \mathrm{dom}(f) \text{ and}\\[0.4em]
+|x - x_{0}| < \delta \;\Longrightarrow\; |f(x) - f(x_{0})| < \varepsilon.
+\end{gathered}
+\]
+\end{theorembox}
+
+% ===============================
+% 18.1 Theorem Extreme Value Theorem
+% ===============================
+\begin{theorembox}[Theorem 18.1 — Extreme Value Theorem]
+\label{thm:18.1}
+Let $f$ be a continuous real-valued function on a closed interval $[a,b]$.  
+Then $f$ is a bounded function. Moreover, $f$ assumes its maximum and minimum
+values on $[a,b]$; that is, there exist $x_{0}, y_{0}$ in $[a,b]$ such that  
+\[
+  f(x_{0}) \le f(x) \le f(y_{0}) \quad \text{for all } x \in [a,b].
+\]
+\end{theorembox}
+
+% ===============================
+% 18.2 Intermediate Value Theorem
+% ===============================
+\begin{theorembox}[Theorem 18.2 — Intermediate Value Theorem]
+\label{thm:18.2}
+If $f$ is a continuous real-valued function on an interval $I$, then $f$ has  
+the intermediate value property on $I$: Whenever $a,b \in I$, $a < b$, and $y$  
+lies between $f(a)$ and $f(b)$ (i.e., $f(a) < y < f(b)$ or $f(b) < y < f(a)$),  
+there exists at least one $x$ in $(a,b)$ such that  
+\[
+  f(x) = y.
+\]
+\end{theorembox}
+
+% ===============================
+% 18.3 Corollary
+% ===============================
+\begin{theorembox}[Corollary 18.3]
+\label{thm:18.3}
+If $f$ is a continuous real-valued function on an interval $I$, then the set  
+\[
+  f(I) = \{ f(x) : x \in I \}
+\]
+is also an interval or a single point.
+\end{theorembox}
+
+% ===============================
+% 19.1 Definition — Uniform Continuity
+% ===============================
+\begin{definitionbox}[Definition 19.1 — Uniform Continuity]
+\label{def:19.1}
+Let $f$ be a real-valued function defined on a set $S \subseteq \mathbb{R}$.  
+Then $f$ is \emph{uniformly continuous} on $S$ if  
+
+\[
+\text{for each } \varepsilon > 0 \text{ there exists } \delta > 0 \text{ such that }  
+x,y \in S \text{ and } |x-y| < \delta \;\Rightarrow\; |f(x)-f(y)| < \varepsilon.
+\]
+
+We will say $f$ is \emph{uniformly continuous} if $f$ is uniformly continuous  
+on $\mathrm{dom}(f)$.
+\end{definitionbox}
+
+% ===============================
+% 19.2 Theorem — Uniform Continuity on [a,b]
+% ===============================
+\begin{theorembox}[Theorem 19.2]
+\label{thm:19.2}
+If $f$ is continuous on a closed interval $[a,b]$,  
+then $f$ is uniformly continuous on $[a,b]$.
+\end{theorembox}
+
+
+% ===============================
+% 19.3 Discussion
+% ===============================
+\begin{definitionbox}[Discussion 19.3]
+Example 5 illustrates the power of Theorem~\ref{thm:19.2}, but it still may  
+not be clear why uniform continuity is worth studying. One of the important  
+applications of uniform continuity concerns the integrability of continuous  
+functions on closed intervals.
+
+To see the relevance of uniform continuity, consider a continuous nonnegative  
+real-valued function $f$ on $[0,1]$. For $n \in \mathbb{N}$ and  
+$i = 0,1,2,\ldots,n-1$, let  
+\[
+M_{i,n} = \sup\{f(x) : x \in [\tfrac{i}{n}, \tfrac{i+1}{n}]\},  
+\qquad
+m_{i,n} = \inf\{f(x) : x \in [\tfrac{i}{n}, \tfrac{i+1}{n}]\}.
+\]
+
+Then the upper sum and lower sum are given by  
+\[
+U_n = \frac{1}{n} \sum_{i=0}^{n-1} M_{i,n},
+\qquad
+L_n = \frac{1}{n} \sum_{i=0}^{n-1} m_{i,n}.
+\]
+
+The function $f$ would be Riemann integrable provided $U_n - L_n \to 0$, i.e.,
+\[
+\lim_{n\to\infty}(U_n - L_n) = 0.
+\]
+
+Since $f$ is uniformly continuous on $[0,1]$ by Theorem~\ref{thm:19.2},  
+there exists $\delta>0$ such that  
+\[
+x,y\in[0,1], \ |x-y|<\delta \quad\Rightarrow\quad |f(x)-f(y)|<\varepsilon.
+\]
+Choosing $N$ such that $\tfrac{1}{N}<\delta$ and $n>N$ gives
+\[
+0 \le U_n - L_n
+  = \frac{1}{n} \sum_{i=0}^{n-1} (M_{i,n} - m_{i,n})
+  < \varepsilon.
+\]
+
+This proves the claim. The next two theorems show uniformly continuous  
+functions have nice properties.
+\end{definitionbox}
+
+
+% ===============================
+% 28.1 Definition — Differentiability at a point
+% ===============================
+\begin{definitionbox}[Definition 28.1 — Differentiability]
+\label{def:28.1}
+Let $f$ be a real-valued function defined on an open interval that contains a point $a$.  
+We say that $f$ is \emph{differentiable at $a$}, or that $f$ \emph{has a derivative at $a$}, if the limit
+\[
+\lim_{x \to a} \frac{f(x)-f(a)}{x-a}
+\]
+exists (as a finite real number).
+\end{definitionbox}
+
+% ===============================
+% 28.2 Theorem — Differentiability implies continuity
+% ===============================
+\begin{theorembox}[Theorem 28.2]
+\label{thm:28.2}
+If $f$ is differentiable at a point $a$, then $f$ is continuous at $a$.
+\end{theorembox}
+
+% ===============================
+% 28.3 Theorem — Algebra rules for derivatives
+% ===============================
+\begin{theorembox}[Theorem 28.3 — Algebra Rules]
+\label{thm:28.3}
+Let $f$ and $g$ be functions that are differentiable at a point $a$, and let $c$ be a real constant.  
+Then each of the following functions is differentiable at $a$ (whenever it is defined), and their derivatives
+are given by:
+\begin{enumerate}[(i)]
+  \item \textbf{Constant multiple:}
+        \[
+        (cf)'(a) = c \cdot f'(a).
+        \]
+  \item \textbf{Sum:}
+        \[
+        (f+g)'(a) = f'(a) + g'(a).
+        \]
+  \item \textbf{Product rule:}
+        \[
+        (fg)'(a) = f(a)g'(a) + f'(a)g(a).
+        \]
+  \item \textbf{Quotient rule:} If $g(a) \neq 0$, then $f/g$ is differentiable at $a$ and
+        \[
+        \biggl(\frac{f}{g}\biggr)'(a)
+          = \frac{g(a)f'(a) - f(a)g'(a)}{[g(a)]^{2}}.
+        \]
+\end{enumerate}
+\end{theorembox}
+
+% ===============================
+% 28.4 Theorem — Chain Rule
+% ===============================
+\begin{theorembox}[Theorem 28.4 — Chain Rule]
+\label{thm:28.4}
+Assume $f$ is differentiable at $a$ and $g$ is differentiable at $f(a)$.  
+Then the composite function $g \circ f$ is differentiable at $a$, and
+\[
+(g \circ f)'(a) = g'\bigl(f(a)\bigr)\, f'(a).
+\]
+\end{theorembox}
+
+\end{document}

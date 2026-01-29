@@ -1,0 +1,115 @@
+% --------------------------------------------------------------
+% This part is the preamble, which you don't have to worry about
+% To type your solutions, scroll down to where it says "Start here"
+% --------------------------------------------------------------
+
+% This defines the formatting for the document
+\documentclass[12pt]{article}
+\usepackage[left=1in,top=1in,right=1in,bottom=1in]{geometry}
+\usepackage{enumitem}
+\setlist{noitemsep}
+\setlist[enumerate,1]{label=(\alph*)}
+\setlist[enumerate,2]{label=(\roman*)}
+
+% This imports the packages which we will need to type math symbols
+\usepackage{amsmath,amssymb}
+
+% This defines the "problem" and "solution" environments
+\usepackage{amsthm}
+\theoremstyle{definition}\newtheorem{problem}{Problem}
+\newenvironment{solution}{\begin{proof}[\bfseries\textup{Solution:}]}{\end{proof}}
+
+\begin{document}
+
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+
+% This is the title:
+\begin{center}
+\bfseries Math 521, Section 2
+\\ 
+Homework 1
+\\ 
+(Name) % Fill in your name here
+\\ [24pt] 
+\end{center}
+
+% Problem 1 -----------------------------------------------------
+\begin{problem}
+Using induction, prove that for all $n\in\mathbb{N}$ we have
+\begin{equation*}
+3+11+\dots +(8n-5)=4n^2-n.
+\end{equation*}
+\end{problem}
+\begin{solution}
+(Type your solution to problem 1 here.)
+\end{solution}
+
+% Problem 2 -----------------------------------------------------
+\newpage
+\begin{problem}
+Compute the following sum:
+\begin{equation*}
+\frac{1}{1\cdot 4} + \frac{1}{4\cdot 7} + \dots + \frac{1}{(3n-2)(3n+1)} .
+\end{equation*}
+Prove that your answer is true for all $n\in\mathbb{N}$ using induction.
+\end{problem}
+\begin{solution}
+(Type your solution to problem 2 here.)
+\end{solution}
+
+% Problem 3 -----------------------------------------------------
+\newpage
+\begin{problem}
+Let $f:A\to B$ be a function.  
+\begin{enumerate}
+\item Prove that $f$ is injective if and only if $f^{-1}(f(X)) = X$ for all $X\subseteq A$.
+\item Prove that $f$ is surjective if and only if $f(f^{-1}(Y)) = Y$ for all $Y\subseteq B$.
+\end{enumerate}
+\end{problem}
+\begin{solution}
+(a) (Type your solution to problem 3a here.)
+
+(b) (Type your solution to problem 3b here.)
+
+(You may want to use the following symbols: `for all' $\forall$, `there exists' $\exists$, and `in' $\in$.)
+% The dollar signs "$" start and end inline math mode; these symbols can only be used in math mode. 
+\end{solution}
+
+% Problem 4 -----------------------------------------------------
+\newpage
+\begin{problem}
+Let $f : A\to B$ be a function.  Prove that the following two statements are equivalent:
+\begin{enumerate}
+\item The function $f$ is surjective.
+\item For any set $C$ and for any functions $g: B \to C$ and $h : B \to C$ such that $g\circ f = h\circ f$, we have $g = h$.
+\end{enumerate}
+\end{problem}
+\begin{solution}
+(Type your solution to problem 4 here.)
+\end{solution}
+
+% Problem 5 -----------------------------------------------------
+\newpage
+\begin{problem}
+Let $f : B\to C$ be a function.  Prove that the following two statements are equivalent:
+\begin{enumerate}
+\item The function $f$ is injective.
+\item For any set $A$ and for any functions $g: A \to B$ and $h : A \to B$ such that $f\circ g = f\circ h$, we have $g = h$.
+\end{enumerate}
+\end{problem}
+\begin{solution}
+(Type your solution to problem 5 here.)
+\end{solution}
+
+% Problem 6 -----------------------------------------------------
+\newpage
+\begin{problem}
+Let $f:A\to B$ be a function.  Suppose that there exists a function $g:B\to A$ such that $(g\circ f)(a) = a$ for all $a\in A$ and $(f\circ g)(b) = b$ for all $b\in B$.  Prove that $f$ is bijective.
+\end{problem}
+\begin{solution}
+(Type your solution to problem 6 here.)
+\end{solution}
+
+\end{document}
