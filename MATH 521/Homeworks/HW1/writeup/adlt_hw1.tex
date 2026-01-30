@@ -464,22 +464,22 @@ such that $(g \circ f)(a) = a$ for all $a \in A$ and $(f \circ g)(b) = b$ for al
 bijective.
 
 \begin{scratch}
-The hypotheses say that $g$ is simultaneously a \emph{left inverse} and a \emph{right inverse}
-for $f$:
+The hypotheses say that $g$ undoes the action of $f$ on both sides:
 \[
-g\circ f = \mathrm{id}_A
-\qquad\text{and}\qquad
-f\circ g = \mathrm{id}_B.
+(g\circ f)(a)=a \quad \text{for all } a\in A,
+\qquad
+(f\circ g)(b)=b \quad \text{for all } b\in B.
 \]
-A left inverse forces injectivity (apply $g$ to $f(a_1)=f(a_2)$), and a right inverse forces
-surjectivity (every $b\in B$ equals $f(g(b))$).
+From the first identity, applying $g$ to an equality $f(a_1)=f(a_2)$ forces $a_1=a_2$,
+which implies injectivity. From the second identity, every $b\in B$ can be written as
+$b=f(g(b))$, which implies surjectivity.
 \end{scratch}
 
 \textbf{Proof.}\\
 Let $f:A\to B$ and suppose there exists $g:B\to A$ such that
 \[
 (g\circ f)(a)=a \quad \text{for all } a\in A,
-\qquad\text{and}\qquad
+\qquad
 (f\circ g)(b)=b \quad \text{for all } b\in B.
 \]
 We show that $f$ is injective and surjective.
@@ -488,7 +488,7 @@ We show that $f$ is injective and surjective.
 \[
 g(f(a_1))=g(f(a_2)).
 \]
-Using $g\circ f=\mathrm{id}_A$, this becomes $a_1=a_2$. Hence $f$ is injective.
+But by the first hypothesis, $g(f(a))=a$ for any $a\in A$, so $a_1=a_2$. Hence $f$ is injective.
 
 \emph{Surjective.} Let $b\in B$. Set $a=g(b)\in A$. Then
 \[
