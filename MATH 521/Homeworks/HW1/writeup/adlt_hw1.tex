@@ -145,7 +145,7 @@ Instructor: \Instructor}
 \hrule
 \bigskip
 
-\newpage
+\newpage 
 
 % ============================================================
 % Problems (duplicate blocks as needed)
@@ -157,12 +157,40 @@ Using induction, prove that for all $n \in \mathbb{N}$ we have
   3 + 11 + \cdots + (8n - 5) = 4n^2 - n.
 \]
 
-\begin{scratch}
-% Outline the strategy, key definitions, lemmas, or a proof sketch.
-\end{scratch}
-
 \textbf{Proof.}\\
-% Write your proof here.
+For $n\in\mathbb{N}$, let $P(n)$ denote the statement
+\[
+  3 + 11 + \cdots + (8n-5) = 4n^2 - n.
+\]
+We argue by induction.
+
+\emph{Base case.} For $n=1$, the left-hand side is $3$, while the right-hand side is $4\cdot 1^2-1=3$. Hence $P(1)$ holds.
+
+\emph{Inductive step.} Assume $P(n)$ holds for some $n\in\mathbb{N}$, i.e.
+\[
+  3 + 11 + \cdots + (8n-5) = 4n^2 - n.
+\]
+We must show that $P(n+1)$ holds. Observe that the next term in the sum is
+\[
+  8(n+1)-5 = 8n+3.
+\]
+Adding this term to both sides of the inductive hypothesis gives
+\[
+  3 + 11 + \cdots + (8n-5) + (8n+3) = (4n^2-n) + (8n+3).
+\]
+The left-hand side is exactly the sum $3+11+\cdots + (8(n+1)-5)$, and the right-hand side simplifies to
+\[
+  (4n^2-n) + (8n+3) = 4n^2 + 7n + 3.
+\]
+On the other hand,
+\[
+  4(n+1)^2-(n+1) = 4(n^2+2n+1) - n - 1 = 4n^2 + 7n + 3.
+\]
+Therefore
+\[
+  3 + 11 + \cdots + (8(n+1)-5) = 4(n+1)^2-(n+1),
+\]
+so $P(n+1)$ holds. By the Principle of Mathematical Induction, $P(n)$ is true for all $n\in\mathbb{N}$.
 \qed
 
 \newpage
@@ -175,9 +203,72 @@ Compute the following sum:
 Prove that your answer is true for all $n \in \mathbb{N}$ using induction.
 
 \begin{scratch}
+We first compute the sum in closed form. For $k \in \mathbb{N}$,
+\[
+  \frac{1}{(3k-2)(3k+1)} = \frac{A}{3k-2} + \frac{B}{3k+1}.
+\]
+Solving
+\[
+  1 = A(3k+1) + B(3k-2)
+\]
+gives $A=\tfrac13$ and $B=-\tfrac13$. Hence
+\[
+  \frac{1}{(3k-2)(3k+1)}
+  = \frac13\!\left(\frac{1}{3k-2} - \frac{1}{3k+1}\right).
+\]
+
+Therefore the partial sums telescope:
+\[
+  \sum_{k=1}^n \frac{1}{(3k-2)(3k+1)}
+  = \frac13\left(1 - \frac{1}{3n+1}\right)
+  = \frac{n}{3n+1}.
+\]
+We now prove this identity by induction.
 \end{scratch}
 
 \textbf{Proof.}\\
+For $n \in \mathbb{N}$, let $P(n)$ denote the statement
+\[
+  \frac{1}{1\cdot 4} + \frac{1}{4\cdot 7} + \cdots + \frac{1}{(3n-2)(3n+1)}
+  = \frac{n}{3n+1}.
+\]
+We will prove that $P(n)$ is true for all $n \in \mathbb{N}$ using induction.
+
+\emph{Base case.}  
+$P(1)$ is the statement
+\[
+  \frac{1}{1\cdot 4} = \frac{1}{3\cdot 1 + 1},
+\]
+which is true.
+
+\emph{Inductive step.}  
+Assume $P(n)$ is true for some $n \in \mathbb{N}$, that is,
+\[
+  \frac{1}{1\cdot 4} + \frac{1}{4\cdot 7} + \cdots + \frac{1}{(3n-2)(3n+1)}
+  = \frac{n}{3n+1}.
+\]
+Adding the next term $\dfrac{1}{(3n+1)(3n+4)}$ to both sides, we obtain
+\[
+  \frac{1}{1\cdot 4} + \cdots + \frac{1}{(3n-2)(3n+1)} + \frac{1}{(3n+1)(3n+4)}
+  = \frac{n}{3n+1} + \frac{1}{(3n+1)(3n+4)}.
+\]
+The left-hand side is exactly the sum in $P(n+1)$. On the right-hand side,
+\[
+  \frac{n}{3n+1} + \frac{1}{(3n+1)(3n+4)}
+  = \frac{1}{3n+1}\left(n + \frac{1}{3n+4}\right)
+  = \frac{1}{3n+1}\cdot\frac{n(3n+4)+1}{3n+4}.
+\]
+Since
+\[
+  n(3n+4)+1 = 3n^2+4n+1 = (3n+1)(n+1),
+\]
+we obtain
+\[
+  \frac{n}{3n+1} + \frac{1}{(3n+1)(3n+4)}
+  = \frac{n+1}{3n+4}
+  = \frac{n+1}{3(n+1)+1}.
+\]
+Thus $P(n+1)$ is true. By the Principle of Mathematical Induction, $P(n)$ is true for all $n \in \mathbb{N}$.
 \qed
 
 \newpage
