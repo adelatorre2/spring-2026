@@ -1,17 +1,17 @@
 % !TEX program = pdflatex
 % ------------------------------------------------------------
-% MATH 431 Homework Template (plug-and-chug friendly)
+% MATH 431 Homework 1
 %
-% Goals:
-% - Same clean header style as your MATH 521 template.
-% - Easy “Problem -> Solution” workflow.
-% - Lightweight (no tcolorbox); uses mdframed for optional boxes.
-% - Good for probability homework: sample space, probability measure, events.
+% Solve the following problems from the textbook:
 %
-% Quick use:
-%   1) Edit the Metadata block.
-%   2) For each exercise, use \problem{<section>.<number>} and paste the prompt.
-%   3) Write your solution in the solution environment.
+% 1.2, 1.4, 1.6, 1.10, 1.11, 1.22, 1.28
+%
+% Please upload your solutions here by the deadline as a single PDF file. (Have a look at the posted tips for scanning your work.) Please make sure that your submission is readable.
+%
+% Here is a list of additional practice exercises. You do not need to submit these problems!
+%
+% 1.1, 1.3, 1.5, 1.7, 1.20, 1.21, 1.25, 1.26,  1.29, 1.31
+%
 % ------------------------------------------------------------
 
 \documentclass[12pt]{article}
@@ -95,7 +95,7 @@
 
 \newcommand{\OmegaSpace}{\Omega}
 \newcommand{\FField}{\mathcal{F}}
-\newcommand{\PMeasure}{\mathbb{P}}
+\newcommand{\PMeasure}{\mathbb{P}} % Probability measure in case it is relevant or want to distinguish it from P(A)
 \newcommand{\E}{\mathbb{E}}
 
 \newcommand{\given}{\,\middle|\,}
@@ -136,8 +136,11 @@
   \begin{boxnote}\textbf{Scratch / Setup.}\ \small
 }{\end{boxnote}}
 
-% Optional “final answer” line
-\newcommand{\finalanswer}[1]{\par\medskip\noindent\textbf{Final:}\ \fbox{#1}\par}
+% Final answer command: expects math only (no $$ or \[ \])
+\newcommand{\finalanswer}[1]{%
+  \par\medskip
+  \noindent\textbf{Final:}\ \fbox{$#1$}\par
+} % AGAIN: MATH ONLY INSIDE THE BOX; if word answer, use \text{} inside or use \fbox{TEXT} or \framebox
 
 % =========================
 % 10) Title block
@@ -166,45 +169,162 @@ Instructor: \Instructor}
 
 \problem{1.2}
 For breakfast Bob has three options: cereal, eggs or fruit. He has to choose exactly two items out of the three available.
-\begin{enumerate}[(a)]
+\begin{enumerate}[label=(\alph*)]
   \item Describe the sample space of this experiment.\\
   \emph{Hint.} What are the different possible outcomes for Bob's breakfast?
   \item Let $A$ be the event that Bob's breakfast includes cereal. Express $A$ as a subset of the sample space.
 \end{enumerate}
 
 \begin{solution}
+We model the experiment by specifying a probability space
+\[
+(\OmegaSpace, \FField, \PMeasure).
+\]
+
+\begin{scratch}
+Bob must choose exactly two items from the set
+\[
+\{\text{cereal},\ \text{eggs},\ \text{fruit}\}.
+\]
+Thus, each outcome corresponds to an unordered pair of distinct items.
+
+The sample space is
+\[
+\OmegaSpace = \{\{\text{cereal},\ \text{eggs}\},\ \{\text{cereal},\ \text{fruit}\},\ \{\text{eggs},\ \text{fruit}\}\}.
+\]
+We take the $\sigma$-field to be the power set $\FField = 2^{\OmegaSpace}$. Since there is no reason to favor one breakfast over another, we assign equal probability to each outcome.
+\end{scratch}
+
+Each outcome in $\OmegaSpace$ is equally likely, so
+\[
+\PMeasure(\{\omega\}) = \frac{1}{3} \quad \text{for all } \omega \in \OmegaSpace.
+\]
+
+Let $A$ be the event that Bob's breakfast includes cereal. Then
+\[
+A = \{\{\text{cereal},\ \text{eggs}\},\ \{\text{cereal},\ \text{fruit}\}\} \subseteq \OmegaSpace.
+\]
+
+\finalanswer{A = \{\{\text{cereal},\ \text{eggs}\},\ \{\text{cereal},\ \text{fruit}\}\}}
 \end{solution}
 
 \newpage
 
 \problem{1.4}
 Every day a kindergarten class chooses randomly one of the 50 state flags to hang on the wall, without regard to previous choices. We are interested in the flags that are chosen on Monday, Tuesday and Wednesday of next week.
-\begin{enumerate}[(a)]
+\begin{enumerate}[label=(\alph*)]
   \item Describe a sample space $\Omega$ and a probability measure $P$ to model this experiment.
   \item What is the probability that the class hangs Wisconsin's flag on Monday, Michigan's flag on Tuesday, and California's flag on Wednesday?
   \item What is the probability that Wisconsin's flag will be hung at least two of the three days?
 \end{enumerate}
 
 \begin{solution}
+We model the experiment using a probability space
+\[
+(\OmegaSpace, \FField, \PMeasure).
+\]
+
+\begin{scratch}
+Each day (Monday, Tuesday, Wednesday) the class selects one of the 50 state flags, and the choices are made \emph{without regard to previous choices}. Thus we model the outcome as an \emph{ordered} triple of flags.
+
+Let $S$ be the set of the 50 state flags. Define
+\[
+\OmegaSpace = S^3 = \{(x_1,x_2,x_3) : x_i \in S\},
+\]
+where $x_1$ is the flag chosen on Monday, $x_2$ on Tuesday, and $x_3$ on Wednesday.
+
+Since $\OmegaSpace$ is finite, we take the event space to be the power set
+\[
+\FField = 2^{\OmegaSpace}.
+\]
+Because each day the choice is uniform over the 50 flags and independent of the other days, all $50^3$ outcomes in $\OmegaSpace$ are equally likely, so
+\[
+\PMeasure(\{\omega\}) = \frac{1}{50^3} \quad \text{for all } \omega \in \OmegaSpace.
+\]
+Equivalently, for any event $A \subseteq \OmegaSpace$,
+\[
+\PMeasure(A) = \frac{|A|}{50^3}.
+\]
+\end{scratch}
+
+\begin{enumerate}[label=(\alph*)]
+\item The probability space is
+\[
+\OmegaSpace = S^3, \qquad \FField = 2^{\OmegaSpace}, \qquad \PMeasure(\{\omega\})=\frac{1}{50^3}\ \text{for all }\omega\in\OmegaSpace.
+\]
+
+\item The event that Monday is Wisconsin, Tuesday is Michigan, and Wednesday is California is the singleton
+\[
+\{(\text{WI},\text{MI},\text{CA})\} \subseteq \OmegaSpace,
+\]
+so
+\[
+\PMeasure\bigl((\text{WI},\text{MI},\text{CA})\bigr)=\frac{1}{50^3}.
+\]
+
+\item Let $W$ denote Wisconsin's flag. The event that $W$ appears on at least two of the three days is
+\[
+A = \{(x_1,x_2,x_3)\in S^3 : \#\{i\in\{1,2,3\}: x_i = W\} \ge 2\}.
+\]
+We compute by cases:
+\begin{itemize}
+  \item Exactly two days are $W$: choose which two days ($\binom{3}{2}=3$ ways), and on the remaining day choose any of the other 49 flags. Thus there are $3\cdot 49$ outcomes.
+  \item All three days are $W$: there is $1$ outcome.
+\end{itemize}
+Hence $|A| = 3\cdot 49 + 1 = 148$, and therefore
+\[
+\PMeasure(A) = \frac{148}{50^3}.
+\]
+
+\finalanswer{\PMeasure(A)=\dfrac{148}{50^3}}
+\end{enumerate}
 \end{solution}
 
 \newpage
 
 \problem{1.6}
 We have an urn with 3 green and 4 yellow balls. We choose 2 balls randomly without replacement. Let $A$ be the event that we have two different colored balls in our sample.
-\begin{enumerate}[(a)]
+\begin{enumerate}[label=(\alph*)]
   \item Describe a possible sample space with equally likely outcomes, and the event $A$ in your sample space.
   \item Compute $P(A)$.
 \end{enumerate}
 
 \begin{solution}
+We model the experiment using a probability space
+\[
+(\OmegaSpace, \FField, \PMeasure).
+\]
+
+Label the green balls $G_1,G_2,G_3$ and the yellow balls $Y_1,Y_2,Y_3,Y_4$. Since we draw two balls \emph{without replacement} and in sequence, a natural sample space with equally likely outcomes is the set of ordered pairs of distinct balls:
+\[
+\OmegaSpace = \{(b_1,b_2) : b_1,b_2 \in \{G_1,G_2,G_3,Y_1,Y_2,Y_3,Y_4\},\ b_1\neq b_2\}.
+\]
+Then $|\OmegaSpace| = 7\cdot 6 = 42$, we take $\FField = 2^{\OmegaSpace}$, and assign
+\[
+\PMeasure(\{\omega\}) = \frac{1}{42} \quad \text{for all } \omega\in\OmegaSpace.
+\]
+
+Let $A$ be the event that the two drawn balls have different colors. In this sample space,
+\[
+A = \{(G_i,Y_j): 1\le i\le 3,\ 1\le j\le 4\}\ \cup\ \{(Y_j,G_i): 1\le j\le 4,\ 1\le i\le 3\}.
+\]
+Thus
+\[
+|A| = (3\cdot 4) + (4\cdot 3) = 24,
+\]
+and therefore
+\[
+\PMeasure(A) = \frac{|A|}{|\OmegaSpace|} = \frac{24}{42} = \frac{4}{7}.
+\]
+
+\finalanswer{\PMeasure(A)=\dfrac{4}{7}}
 \end{solution}
 
 \newpage
 
 \problem{1.10}
 We roll a fair die repeatedly until we see the number four appear and then we stop. The outcome of the experiment is the number of rolls.
-\begin{enumerate}[(a)]
+\begin{enumerate}[label=(\alph*)]
   \item Following Example 1.16 describe a sample space $\Omega$ and a probability measure $P$ to model this situation.
   \item Calculate the probability that the number four never appears.
 \end{enumerate}
@@ -224,7 +344,7 @@ We throw a dart at a square shaped board of side length 20 inches. Assume that t
 
 \problem{1.22}
 We pick a card uniformly at random from a standard deck of 52 cards. (If you are unfamiliar with the deck of 52 cards, see the description above Example C.19 in Appendix C.)
-\begin{enumerate}[(a)]
+\begin{enumerate}[label=(\alph*)]
   \item Describe the sample space $\Omega$ and the probability measure $P$ that model this experiment.
   \item Give an example of an event in this probability space with probability $\frac{3}{52}$.
   \item Show that there is no event in this probability space with probability $\frac{1}{5}$.
@@ -237,7 +357,7 @@ We pick a card uniformly at random from a standard deck of 52 cards. (If you are
 
 \problem{1.28}
 We have an urn with $m$ green balls and $n$ yellow balls. Two balls are drawn at random. What is the probability that the two balls have the same color?
-\begin{enumerate}[(a)]
+\begin{enumerate}[label=(\alph*)]
   \item Assume that the balls are sampled without replacement.
   \item Assume that the balls are sampled with replacement.
   \item When is the answer to part (b) larger than the answer to part (a)? Justify your answer. Can you give an intuitive explanation for what the calculation tells you?
