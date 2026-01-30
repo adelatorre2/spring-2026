@@ -159,63 +159,55 @@ Instructor: \Instructor}
 \bigskip
 \hrule
 \bigskip
+\newpage
 
 % ============================================================
 % Problems (duplicate blocks as needed)
 % ============================================================
 
-\problem{1.2}
-% Paste the problem statement here.
+
+% Here's an example problem and solution:
+\problem[Sample space and probability]{1.4}
+State the problem here (paste from PDF).
 
 \begin{solution}
+
+We model the experiment using a probability space
+\[
+(\OmegaSpace, \FField, \PMeasure).
+\]
+
+\begin{scratch}
+The sample space is
+\[
+\OmegaSpace = \{H,T\}^3,
+\]
+the set of all length–3 sequences of coin flips.  
+The $\sigma$-field is the power set $\FField = 2^{\OmegaSpace}$.
+
+Assuming the coin is fair, we assign equal probability to each outcome:
+\[
+\PMeasure(\{\omega\}) = 2^{-3} \quad \text{for all } \omega \in \OmegaSpace.
+\]
+\end{scratch}
+
+Let
+\[
+A = \{\omega \in \OmegaSpace : \text{exactly two heads occur}\}.
+\]
+There are $\binom{3}{2} = 3$ such outcomes, so $|A| = 3$ and
+\[
+|\OmegaSpace| = 2^3 = 8.
+\]
+
+Since all outcomes are equally likely,
+\[
+\PMeasure(A) = \frac{|A|}{|\OmegaSpace|} = \frac{3}{8}.
+\]
+
+\finalanswer{\PMeasure(A) = \frac{3}{8}}
+
 \end{solution}
 
-\newpage
-
-\problem{1.4}
-% Paste the problem statement here.
-
-\begin{solution}
-\end{solution}
-
-\newpage
-
-\problem{1.6}
-% Paste the problem statement here.
-
-\begin{solution}
-\end{solution}
-
-\newpage
-
-\problem{1.10}
-% Paste the problem statement here.
-
-\begin{solution}
-\end{solution}
-
-\newpage
-
-\problem{1.11}
-% Paste the problem statement here.
-
-\begin{solution}
-\end{solution}
-
-\newpage
-
-\problem{1.22}
-% Paste the problem statement here.
-
-\begin{solution}
-\end{solution}
-
-\newpage
-
-\problem{1.28}
-% Paste the problem statement here.
-
-\begin{solution}
-\end{solution}
 
 \end{document}
