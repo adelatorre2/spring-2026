@@ -330,6 +330,43 @@ We roll a fair die repeatedly until we see the number four appear and then we st
 \end{enumerate}
 
 \begin{solution}
+We model the experiment using a probability space
+\[
+(\OmegaSpace, \FField, \PMeasure).
+\]
+
+\begin{scratch}
+The experiment consists of rolling a fair die repeatedly until the first appearance of the number $4$. The outcome is the total number of rolls required.
+
+Thus each outcome is a positive integer $k\in\N$, corresponding to the event that the first $k-1$ rolls are not equal to $4$ and the $k$th roll is equal to $4$.
+\end{scratch}
+
+\begin{enumerate}[label=(\alph*)]
+\item A natural sample space is
+\[
+\OmegaSpace = \N = \{1,2,3,\dots\}.
+\]
+We take the $\sigma$-field $\FField = 2^{\OmegaSpace}$. Since the die is fair and the rolls are independent, the probability that the first $k-1$ rolls are not $4$ and the $k$th roll is $4$ is
+\[
+\PMeasure(\{k\}) = \left(\frac{5}{6}\right)^{k-1}\frac{1}{6}, \qquad k\in\OmegaSpace.
+\]
+This defines a valid probability measure on $\OmegaSpace$.
+
+\item The event that the number four never appears corresponds to the event that the experiment never terminates. Its probability is
+\[
+\PMeasure(\text{no 4 ever appears}) = \lim_{n\to\infty}\PMeasure(\text{no 4 in the first $n$ rolls}).
+\]
+Since each roll is independent,
+\[
+\PMeasure(\text{no 4 in the first $n$ rolls}) = \left(\frac{5}{6}\right)^n.
+\]
+Taking the limit gives
+\[
+\lim_{n\to\infty}\left(\frac{5}{6}\right)^n = 0.
+\]
+
+\finalanswer{\PMeasure(\text{four never appears}) = 0}
+\end{enumerate}
 \end{solution}
 
 \newpage
@@ -338,6 +375,22 @@ We roll a fair die repeatedly until we see the number four appear and then we st
 We throw a dart at a square shaped board of side length 20 inches. Assume that the dart hits the board at a uniformly chosen random point. Find the probability that the dart is within 2 inches of the center of the board.
 
 \begin{solution}
+  We model the experiment by choosing a point uniformly at random from the square board. Since the board has side length $20$, its area is
+\[
+\text{Area(board)} = 20\cdot 20 = 400.
+\]
+
+The event that the dart is within $2$ inches of the center is the disk of radius $2$ centered at the board's center. Since $2<10$, this disk lies entirely inside the square, and its area is
+\[
+\text{Area(disk)} = \pi\cdot 2^2 = 4\pi.
+\]
+
+By uniformity, the desired probability is the ratio of areas:
+\[
+\PMeasure(\text{within 2 inches of center}) = \frac{4\pi}{400} = \frac{\pi}{100}.
+\]
+
+\finalanswer{\PMeasure(\text{within 2 inches of center}) = \dfrac{\pi}{100}}
 \end{solution}
 
 \newpage
@@ -351,6 +404,49 @@ We pick a card uniformly at random from a standard deck of 52 cards. (If you are
 \end{enumerate}
 
 \begin{solution}
+  We model the experiment using a probability space
+\[
+(\OmegaSpace, \FField, \PMeasure).
+\]
+
+\begin{enumerate}[label=(\alph*)]
+\item Let $D$ denote the standard deck of 52 cards. A natural sample space is
+\[
+\OmegaSpace = D,
+\]
+whose outcomes are the individual cards. Since $\OmegaSpace$ is finite, we take
+\[
+\FField = 2^{\OmegaSpace}.
+\]
+Because the card is chosen uniformly at random, each outcome has probability $1/52$:
+\[
+\PMeasure(\{\omega\}) = \frac{1}{52} \quad \text{for all } \omega\in\OmegaSpace.
+\]
+Equivalently, for any event $A\subseteq\OmegaSpace$,
+
+\finalanswer{\PMeasure(A) = \frac{|A|}{52}}
+
+\item For example, let
+\[
+A = \{\text{Ace of Spades},\ \text{Ace of Hearts},\ \text{Ace of Diamonds}\} \subseteq \OmegaSpace.
+\]
+Then $|A|=3$, so
+\[
+\PMeasure(A) = \frac{3}{52}.
+\]
+
+\finalanswer{\text{One example is }A=\{\text{AS},\text{AH},\text{AD}\}\text{ with }\PMeasure(A)=\dfrac{3}{52}}
+
+\item Suppose, for contradiction, that there is an event $B\subseteq\OmegaSpace$ with $\PMeasure(B)=\frac{1}{5}$. Since every event satisfies $\PMeasure(B)=\frac{|B|}{52}$ for some integer $|B|\in\{0,1,\dots,52\}$, we would have
+\[
+\frac{|B|}{52} = \frac{1}{5}
+\quad\Longrightarrow\quad
+|B| = \frac{52}{5},
+\]
+which is not an integer. This is a contradiction. Hence no such event exists.
+
+\finalanswer{\text{There is no event with probability }\dfrac{1}{5}\text{ in this space.}}
+\end{enumerate}
 \end{solution}
 
 \newpage
@@ -364,6 +460,55 @@ We have an urn with $m$ green balls and $n$ yellow balls. Two balls are drawn at
 \end{enumerate}
 
 \begin{solution}
+  We compute the probability that the two drawn balls have the same color.
+
+\begin{enumerate}[label=(\alph*)]
+\item (Without replacement.) There are $m+n$ balls total. Using equally likely \emph{unordered} samples of size $2$,
+\[
+|\OmegaSpace| = \binom{m+n}{2}.
+\]
+The event that the two balls have the same color consists of drawing two green balls or two yellow balls, so the number of favorable outcomes is
+\[
+\binom{m}{2} + \binom{n}{2}.
+\]
+Therefore
+\
+\[
+\PMeasure(\text{same color}) = \frac{\binom{m}{2}+\binom{n}{2}}{\binom{m+n}{2}}.
+\]
+\finalanswer{\PMeasure_{\text{w/o repl.}}(\text{same color}) = \dfrac{\binom{m}{2}+\binom{n}{2}}{\binom{m+n}{2}}}
+
+\item (With replacement.) Now the two draws are independent, and the probability of green on any draw is $\frac{m}{m+n}$ while the probability of yellow is $\frac{n}{m+n}$. Thus
+\
+\[
+\PMeasure(\text{same color})
+= \left(\frac{m}{m+n}\right)^2 + \left(\frac{n}{m+n}\right)^2
+= \frac{m^2+n^2}{(m+n)^2}.
+\]
+\finalanswer{\PMeasure_{\text{with repl.}}(\text{same color}) = \dfrac{m^2+n^2}{(m+n)^2}}
+
+\item We compare the answers in (a) and (b). Let $T\defeq m+n$ and $S\defeq m^2+n^2$. From (a) and (b),
+\[
+\PMeasure_{\text{w/o repl.}} = \frac{\binom{m}{2}+\binom{n}{2}}{\binom{T}{2}} = \frac{S-T}{T(T-1)},
+\qquad
+\PMeasure_{\text{with repl.}} = \frac{S}{T^2}.
+\]
+Then
+\[
+\PMeasure_{\text{with repl.}} > \PMeasure_{\text{w/o repl.}}
+\iff
+\frac{S}{T^2} > \frac{S-T}{T(T-1)}
+\iff
+S < T^2.
+\]
+But $T^2=(m+n)^2=m^2+2mn+n^2$, so $S<T^2$ holds exactly when $2mn>0$, i.e. when $mn>0$.
+
+\finalanswer{\text{The answer in (b) is larger than in (a) exactly when }m>0\text{ and }n>0.}
+
+\begin{scratch}
+\emph{Intuition.} If both colors are present, sampling \emph{without} replacement creates negative dependence: after drawing (say) a green ball, there are fewer green balls left, so the second draw is slightly \emph{less} likely to match the first color. With replacement the composition resets, so matching the first color is more likely; hence the probability of ``same color'' is larger with replacement.
+\end{scratch}
+\end{enumerate}
 \end{solution}
 
 \end{document}
