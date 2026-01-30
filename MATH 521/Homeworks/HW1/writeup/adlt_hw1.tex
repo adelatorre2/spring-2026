@@ -281,9 +281,55 @@ Let $f : A \to B$ be a function.
 \end{enumerate}
 
 \begin{scratch}
+Key facts (true for any function $f:A\to B$):
+\[
+X \subseteq f^{-1}(f(X)) \quad \text{for all } X\subseteq A,
+\qquad
+f\bigl(f^{-1}(Y)\bigr) \subseteq Y \quad \text{for all } Y\subseteq B.
+\]
+The nontrivial directions use injectivity/surjectivity.
 \end{scratch}
 
 \textbf{Proof.}\\
+Let $f:A\to B$ be a function.
+
+\begin{enumerate}
+\item[(a)] (\(\Rightarrow\)) Assume $f$ is injective. Let $X\subseteq A$.
+We prove $f^{-1}(f(X))=X$ by double inclusion.
+
+First, if $x\in X$, then $f(x)\in f(X)$, so by definition of preimage, $x\in f^{-1}(f(X))$.
+Hence $X\subseteq f^{-1}(f(X))$.
+
+Conversely, let $a\in f^{-1}(f(X))$. Then $f(a)\in f(X)$, so there exists $x\in X$ with
+$f(a)=f(x)$. Since $f$ is injective, $a=x\in X$. Thus $f^{-1}(f(X))\subseteq X$.
+
+Therefore $f^{-1}(f(X))=X$.
+
+(\(\Leftarrow\)) Assume that for all $X\subseteq A$ we have $f^{-1}(f(X))=X$.
+To show $f$ is injective, let $a_1,a_2\in A$ and suppose $f(a_1)=f(a_2)$.
+Set $X=\{a_1\}$. Then $f(a_2)=f(a_1)\in f(X)$, so $a_2\in f^{-1}(f(X))=X=\{a_1\}$.
+Hence $a_2=a_1$. Therefore $f$ is injective.
+
+\item[(b)] (\(\Rightarrow\)) Assume $f$ is surjective. Let $Y\subseteq B$.
+We prove $f(f^{-1}(Y))=Y$ by double inclusion.
+
+First, if $b\in f(f^{-1}(Y))$, then by definition there exists $a\in f^{-1}(Y)$ with $f(a)=b$.
+But $a\in f^{-1}(Y)$ means $f(a)\in Y$, so $b\in Y$. Hence $f(f^{-1}(Y))\subseteq Y$.
+
+Conversely, let $y\in Y$. Since $f$ is surjective, there exists $a\in A$ such that $f(a)=y$.
+Then $f(a)=y\in Y$, so $a\in f^{-1}(Y)$, and therefore $y=f(a)\in f(f^{-1}(Y))$.
+Thus $Y\subseteq f(f^{-1}(Y))$.
+
+Therefore $f(f^{-1}(Y))=Y$.
+
+(\(\Leftarrow\)) Assume that for all $Y\subseteq B$ we have $f(f^{-1}(Y))=Y$.
+Take $Y=B$. Then
+\[
+f(f^{-1}(B))=B.
+\]
+But $f^{-1}(B)=A$ (every $a\in A$ satisfies $f(a)\in B$), so this reads $f(A)=B$.
+Hence $f$ is surjective.
+\end{enumerate}
 \qed
 
 \newpage
@@ -297,9 +343,52 @@ Let $f : A \to B$ be a function. Prove that the following two statements are equ
 \end{enumerate}
 
 \begin{scratch}
+This is the “right-cancellation” property: $f$ is surjective iff precomposition with $f$
+detects equality of functions $B\to C$. The forward direction uses surjectivity to pull
+back an arbitrary $b\in B$ to some $a\in A$. The reverse direction is proved by
+contradiction: if $f$ is not surjective, choose $b_0\in B\setminus f(A)$ and build two
+functions $g,h:B\to C$ that agree on $f(A)$ but differ at $b_0$.
 \end{scratch}
 
 \textbf{Proof.}\\
+Let $f:A\to B$ be a function.
+
+\medskip
+(\(\Rightarrow\)) Assume that $f$ is surjective. Let $C$ be any set, and let $g,h:B\to C$
+satisfy $g\circ f = h\circ f$. We show that $g=h$.
+
+Fix $b\in B$. Since $f$ is surjective, there exists $a\in A$ such that $f(a)=b$.
+Then
+\[
+g(b)=g(f(a))=(g\circ f)(a)=(h\circ f)(a)=h(f(a))=h(b).
+\]
+Since $b\in B$ was arbitrary, we conclude $g=h$.
+
+\medskip
+(\(\Leftarrow\)) Assume that for every set $C$ and all functions $g,h:B\to C$,
+\[
+g\circ f = h\circ f \quad \Longrightarrow \quad g=h.
+\]
+We prove that $f$ is surjective. Suppose, for contradiction, that $f$ is not surjective.
+Then there exists $b_0\in B\setminus f(A)$.
+
+Let $C=\{0,1\}$, and define $g,h:B\to C$ by
+\[
+g(b)=0 \ \text{for all } b\in B,
+\qquad
+h(b)=
+\begin{cases}
+1, & b=b_0,\\
+0, & b\neq b_0.
+\end{cases}
+\]
+Then $g\neq h$ (since $g(b_0)=0$ but $h(b_0)=1$). However, for every $a\in A$ we have
+$f(a)\neq b_0$ (because $b_0\notin f(A)$), so $h(f(a))=0=g(f(a))$. Hence
+\[
+(g\circ f)(a)=g(f(a))=0=h(f(a))=(h\circ f)(a)\quad \text{for all } a\in A,
+\]
+which implies $g\circ f = h\circ f$. By the assumed property, this would force $g=h$,
+a contradiction. Therefore $f$ must be surjective.
 \qed
 
 \newpage
@@ -313,9 +402,58 @@ Let $f : B \to C$ be a function. Prove that the following two statements are equ
 \end{enumerate}
 
 \begin{scratch}
+This is the “left-cancellation” property: $f$ is injective iff postcomposition with $f$
+detects equality of functions $A\to B$. The forward direction uses injectivity to cancel
+$f$ from the equation $f\circ g = f\circ h$ pointwise. The reverse direction is proved by
+contradiction: if $f$ is not injective, pick $b_1\neq b_2$ with $f(b_1)=f(b_2)$ and build
+two functions $g,h:A\to B$ that differ at one point but become equal after applying $f$.
 \end{scratch}
 
 \textbf{Proof.}\\
+Let $f:B\to C$ be a function.
+
+\medskip
+(\(\Rightarrow\)) Assume that $f$ is injective. Let $A$ be any set, and let $g,h:A\to B$
+satisfy $f\circ g = f\circ h$. We show that $g=h$.
+
+Fix $a\in A$. Then
+\[
+f(g(a))=(f\circ g)(a)=(f\circ h)(a)=f(h(a)).
+\]
+Since $f$ is injective, this implies $g(a)=h(a)$. Because $a\in A$ was arbitrary, we
+conclude $g=h$.
+
+\medskip
+(\(\Leftarrow\)) Assume that for every set $A$ and all functions $g,h:A\to B$,
+\[
+f\circ g = f\circ h \quad \Longrightarrow \quad g=h.
+\]
+We prove that $f$ is injective. Suppose, for contradiction, that $f$ is not injective.
+Then there exist $b_1,b_2\in B$ with $b_1\neq b_2$ and $f(b_1)=f(b_2)$.
+
+Let $A=\{0,1\}$ and define $g,h:A\to B$ by
+\[
+g(0)=b_1,\quad g(1)=b_1,
+\qquad
+h(0)=b_1,\quad h(1)=b_2.
+\]
+Then $g\neq h$ (since $g(1)=b_1\neq b_2=h(1)$). However, for each $a\in A$ we have
+\[
+(f\circ g)(a)=f(g(a))=
+\begin{cases}
+f(b_1), & a=0,\\
+f(b_1), & a=1,
+\end{cases}
+\qquad
+(f\circ h)(a)=f(h(a))=
+\begin{cases}
+f(b_1), & a=0,\\
+f(b_2), & a=1,
+\end{cases}
+\]
+and since $f(b_1)=f(b_2)$, it follows that $(f\circ g)(a)=(f\circ h)(a)$ for all $a\in A$.
+Thus $f\circ g = f\circ h$. By the assumed property, this would force $g=h$, a
+contradiction. Therefore $f$ must be injective.
 \qed
 
 \newpage
@@ -326,9 +464,39 @@ such that $(g \circ f)(a) = a$ for all $a \in A$ and $(f \circ g)(b) = b$ for al
 bijective.
 
 \begin{scratch}
+The hypotheses say that $g$ is simultaneously a \emph{left inverse} and a \emph{right inverse}
+for $f$:
+\[
+g\circ f = \mathrm{id}_A
+\qquad\text{and}\qquad
+f\circ g = \mathrm{id}_B.
+\]
+A left inverse forces injectivity (apply $g$ to $f(a_1)=f(a_2)$), and a right inverse forces
+surjectivity (every $b\in B$ equals $f(g(b))$).
 \end{scratch}
 
 \textbf{Proof.}\\
+Let $f:A\to B$ and suppose there exists $g:B\to A$ such that
+\[
+(g\circ f)(a)=a \quad \text{for all } a\in A,
+\qquad\text{and}\qquad
+(f\circ g)(b)=b \quad \text{for all } b\in B.
+\]
+We show that $f$ is injective and surjective.
+
+\emph{Injective.} Let $a_1,a_2\in A$ and assume $f(a_1)=f(a_2)$. Applying $g$ to both sides gives
+\[
+g(f(a_1))=g(f(a_2)).
+\]
+Using $g\circ f=\mathrm{id}_A$, this becomes $a_1=a_2$. Hence $f$ is injective.
+
+\emph{Surjective.} Let $b\in B$. Set $a=g(b)\in A$. Then
+\[
+f(a)=f(g(b))=(f\circ g)(b)=b.
+\]
+Thus every $b\in B$ is hit by $f$, so $f$ is surjective.
+
+Since $f$ is both injective and surjective, $f$ is bijective.
 \qed
 
 % ============================================================
