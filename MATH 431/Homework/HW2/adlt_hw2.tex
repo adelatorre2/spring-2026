@@ -174,6 +174,22 @@ We roll a fair die repeatedly until we see the number four appear and then we st
 \end{enumerate}
 
 \begin{solution}
+\begin{enumerate}
+\item Let $N$ be the roll on which the first 4 appears. Then $N$ is geometric with $p=1/6$.
+\[
+P(N \le 3)=1-P(\text{no 4 in first 3 rolls})=1-\left(\frac{5}{6}\right)^3.
+\]
+\finalanswer{1-\left(\frac{5}{6}\right)^3}
+\item
+\[
+P(N \text{ is even})=\sum_{k=1}^\infty P(N=2k)=\sum_{k=1}^\infty \left(\frac{5}{6}\right)^{2k-1}\frac{1}{6}.
+\]
+This is a geometric series with ratio $(5/6)^2$, so
+\[
+P(N \text{ is even})=\frac{\frac{1}{6}\cdot \frac{5}{6}}{1-\left(\frac{5}{6}\right)^2}=\frac{5}{11}.
+\]
+\finalanswer{\frac{5}{11}}
+\end{enumerate}
 \end{solution}
 \newpage
 
@@ -181,6 +197,15 @@ We roll a fair die repeatedly until we see the number four appear and then we st
 Assume that $P(A) = 0.4$ and $P(B) = 0.7$. Making no further assumptions on $A$ and $B$, show that $P(AB)$ satisfies $0.1 \le P(AB) \le 0.4$.
 
 \begin{solution}
+By inclusion--exclusion,
+\[
+P(A\cup B)=P(A)+P(B)-P(AB)\le 1,
+\]
+so $P(AB)\ge P(A)+P(B)-1=0.4+0.7-1=0.1$. Also,
+\[
+P(AB)\le \min\{P(A),P(B)\}=\min\{0.4,0.7\}=0.4.
+\]
+\finalanswer{0.1\le P(AB)\le 0.4}
 \end{solution}
 \newpage
 
@@ -188,6 +213,19 @@ Assume that $P(A) = 0.4$ and $P(B) = 0.7$. Making no further assumptions on $A$ 
 We flip a fair coin five times. For every heads you pay me \$1 and for every tails I pay you \$1. Let $X$ denote my net winnings at the end of five flips. Find the possible values and the probability mass function of $X$.
 
 \begin{solution}
+Let $H$ be the number of heads in 5 flips. Then $H\sim \text{Binomial}(5,1/2)$ and
+\[
+X=(\#\text{heads})-(\#\text{tails})=H-(5-H)=2H-5.
+\]
+Thus the possible values are
+\[
+X\in\{-5,-3,-1,1,3,5\},
+\]
+with probability mass function
+\[
+P(X=2h-5)=P(H=h)=\binom{5}{h}2^{-5},\qquad h=0,1,2,3,4,5.
+\]
+\finalanswer{P(X=2h-5)=\binom{5}{h}/2^{5},\ h=0,\dots,5}
 \end{solution}
 \newpage
 
@@ -199,18 +237,41 @@ SOME DOGS ARE BROWN
 has 16 letters. Choose one of the 16 letters uniformly at random. Let $X$ denote the length of the \emph{word} containing the chosen letter. Determine the possible values and probability mass function of $X$.
 
 \begin{solution}
+The words and their lengths are: SOME (4), DOGS (4), ARE (3), BROWN (5). Since 16 letters are equally likely,
+\[
+P(X=3)=\frac{3}{16},\quad P(X=4)=\frac{8}{16}=\frac12,\quad P(X=5)=\frac{5}{16}.
+\]
+\finalanswer{X\in\{3,4,5\},\ P(X=3)=\frac{3}{16},\ P(X=4)=\frac12,\ P(X=5)=\frac{5}{16}}
 \end{solution}
 \newpage
 
 \problem{1.32}
 You are dealt five cards from a standard deck of 52. Find the probability of being dealt a \emph{full house}. (This means that you have three cards of one face value and two cards of a different face value. An example would be three queens and two fours. See Exercise C.10 in Appendix C for a description of all the poker hands.)
 \begin{solution}
+Count full houses and divide by total hands. Choose the rank of the triple, then its suits, then the rank and suits of the pair:
+\[
+N_{\text{fh}}=13\binom{4}{3}\cdot 12\binom{4}{2}=13\cdot 4\cdot 12\cdot 6=3744.
+\]
+Total 5-card hands are $\binom{52}{5}$, so
+\[
+P(\text{full house})=\frac{3744}{\binom{52}{5}}=\frac{6}{4165}.
+\]
+\finalanswer{\frac{6}{4165}}
 \end{solution}
 \newpage
 
 \problem{1.34}
 Pick a uniformly chosen random point inside a unit square (a square of sidelength 1) and draw a circle of radius $1/3$ around the point. Find the probability that the circle lies entirely inside the square.
 \begin{solution}
+For the circle of radius $1/3$ to lie inside the unit square, the center must be at least $1/3$ from each side. Thus the center must lie in
+\[
+\left[\frac13,\frac23\right]\times\left[\frac13,\frac23\right],
+\]
+a square of side length $1-2\cdot\frac13=\frac13$, area $1/9$. By uniformity,
+\[
+P(\text{circle inside})=\frac{1}{9}.
+\]
+\finalanswer{\frac{1}{9}}
 \end{solution}
 \newpage
 
@@ -224,6 +285,18 @@ Let $0 \le a < b \le 1$. Find the probability $P(a < X < b)$, that is, the proba
 \item What is the probability $P(|X - Y| \le 1/4)$?
 \end{enumerate}
 \begin{solution}
+\begin{enumerate}
+\item The event $\{a<X<b\}$ corresponds to the vertical strip $(a,b)\times[0,1]$, which has area $b-a$. Since the point is uniform,
+\[
+P(a<X<b)=b-a.
+\]
+\finalanswer{b-a}
+\item The condition $|X-Y|\le \frac14$ is the band between the lines $y=x\pm \frac14$ in the unit square. The excluded regions are two right triangles, each with legs of length $3/4$, so each has area $\frac12\left(\frac34\right)\left(\frac34\right)=\frac{9}{32}$. Hence
+\[
+P(|X-Y|\le \tfrac14)=1-2\cdot\frac{9}{32}=1-\frac{9}{16}=\frac{7}{16}.
+\]
+\finalanswer{\frac{7}{16}}
+\end{enumerate}
 \end{solution}
 \newpage
 
@@ -232,6 +305,24 @@ An urn contains 1 green ball, 1 red ball, 1 yellow ball and 1 white ball. I draw
 
 Hint. Use inclusion--exclusion with events $G = \{\text{exactly two balls are green}\}$, $R = \{\text{exactly two balls are red}\}$, etc.
 \begin{solution}
+There are $4^4=256$ equally likely sequences. Let $G$ be the event that exactly two balls are green, and similarly $R,Y,W$.
+For $G$, choose the two green positions and fill the other two positions with any of the other 3 colors:
+\[
+|G|=\binom{4}{2}3^2=6\cdot 9=54.
+\]
+Thus $\sum |G|=4\cdot 54=216$. For a pair, say $G\cap R$, we need exactly two greens and two reds, so
+\[
+|G\cap R|=\binom{4}{2}=6,
+\]
+and there are $\binom{4}{2}=6$ such pairs, giving $\sum |G\cap R|=36$. No triple intersections are possible. By inclusion--exclusion,
+\[
+|\cup G|=216-36=180.
+\]
+Therefore
+\[
+P(\text{at least one color appears exactly twice})=\frac{180}{256}=\frac{45}{64}.
+\]
+\finalanswer{\frac{45}{64}}
 \end{solution}
 
 
