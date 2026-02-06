@@ -33,7 +33,7 @@
 \newcommand{\Semester}{Spring 2026}
 \newcommand{\Instructor}{Thierry Laurens}
 \newcommand{\MeetingInfo}{MWF 1:20--2:10 \;|\; Van Vleck B119} % optional
-\newcommand{\HomeworkNumber}{1} % <-- change each week
+\newcommand{\HomeworkNumber}{2} % <-- change each week
 \newcommand{\YourName}{Alejandro De La Torre}
 \newcommand{\DueDate}{\today} % <-- or set e.g. January 31, 2026
 
@@ -157,11 +157,48 @@ $A \cup B$ is countable. (Hint: We proved that $\mathbb{Z}$ is countable in clas
 using a similar idea here.)
 
 \begin{scratch}
-% Outline the strategy, key definitions, lemmas, or a proof sketch.
+Because $A$ and $B$ are countable, there exist enumerations
+\[
+A = \{a_1,a_2,a_3,\dots\}, \qquad B = \{b_1,b_2,b_3,\dots\}.
+\]
+Intuitively, this means we can list the elements of $A$ and $B$ in a sequence. To show that
+$A \cup B$ is countable, we want to construct a single list that contains every element of
+$A$ and $B$ exactly once. The idea is to interleave the two lists, alternating between
+an element of $A$ and an element of $B$. The assumption $A \cap B = \varnothing$ ensures
+that no element appears in both lists, so this alternating procedure never produces
+duplicates.
 \end{scratch}
 
 \textbf{Proof.}\\
-% Write your proof here.
+Since $A$ and $B$ are countable, there exist bijections
+\[
+f : \mathbb{N} \to A \quad \text{and} \quad g : \mathbb{N} \to B.
+\]
+Write $a_n = f(n)$ and $b_n = g(n)$, so that
+\[
+A = \{a_1,a_2,a_3,\dots\} \quad \text{and} \quad B = \{b_1,b_2,b_3,\dots\}.
+\]
+
+Define a function $h : \mathbb{N} \to A \cup B$ by
+\[
+h(2n-1) = a_n \quad \text{and} \quad h(2n) = b_n \qquad (n \in \mathbb{N}).
+\]
+
+We show that $h$ is bijective.
+
+First, $h$ is surjective. Let $x \in A \cup B$. If $x \in A$, then $x = a_n$ for some $n$,
+and hence $x = h(2n-1)$. If $x \in B$, then $x = b_n$ for some $n$, and hence
+$x = h(2n)$. Thus every element of $A \cup B$ is in the image of $h$.
+
+Next, $h$ is injective. Suppose that $h(k) = h(\ell)$. If $k$ and $\ell$ have different
+parity, then one of $h(k)$ lies in $A$ and the other lies in $B$, which is impossible
+because $A \cap B = \varnothing$. Hence $k$ and $\ell$ must have the same parity.
+If $k = 2m-1$ and $\ell = 2n-1$, then $a_m = a_n$, and since $f$ is injective, we have
+$m = n$, so $k = \ell$. If $k = 2m$ and $\ell = 2n$, then $b_m = b_n$, and since $g$
+is injective, we again obtain $m = n$, so $k = \ell$.
+
+Therefore $h$ is a bijection from $\mathbb{N}$ onto $A \cup B$. It follows that
+$A \cup B$ is countable.
 \qed
 
 \newpage
@@ -173,9 +210,53 @@ $A = A_1 \cup A_2 \cup A_3 \cup \cdots$ is countable. (Hint: We proved that
 $\mathbb{N} \times \mathbb{N}$ is countable in class. Try using a similar idea here.)
 
 \begin{scratch}
+Because each $A_n$ is countable, we can ``list'' its elements as
+\[
+A_n = \{a_{n,1}, a_{n,2}, a_{n,3}, \dots\}.
+\]
+So every element of the big union $A = \bigcup_{n\in\mathbb{N}} A_n$ comes with two pieces of information:
+(1) which set $A_n$ it belongs to, and (2) its position in the list of $A_n$.
+
+That suggests encoding an element of $A$ by a pair $(n,k)\in\mathbb{N}\times\mathbb{N}$, where $n$ tells us 
+which $A_n$ we are in, and $k$ tells us which element of $A_n$ we chose. Since we proved in class that 
+$\mathbb{N}\times\mathbb{N}$ is countable, we can list all pairs $(n,k)$ in a single sequence. If we map 
+$(n,k)$ to the $k$-th element of $A_n$, we get a single list that hits every element of $A$.
+
+The disjointness assumption $A_m\cap A_n=\varnothing$ for $m\neq n$ is what prevents duplicates from 
+coming from different $A_n$'s.
 \end{scratch}
 
 \textbf{Proof.}\\
+For each $n\in\mathbb{N}$, the set $A_n$ is countable, so there exists a bijection
+\[
+f_n: \mathbb{N} \to A_n.
+\]
+Define a function $h: \mathbb{N}\times\mathbb{N} \to A$ by
+\[
+h(n,k) := f_n(k) \qquad ((n,k)\in\mathbb{N}\times\mathbb{N}).
+\]
+We claim that $h$ is bijective.
+
+\emph{Surjectivity.} Let $x\in A$. By definition of $A=\bigcup_{n\in\mathbb{N}}A_n$, there exists some $n\in\mathbb{N}$ 
+such that $x\in A_n$. Since $f_n$ is surjective onto $A_n$, there exists $k\in\mathbb{N}$ with $f_n(k)=x$. 
+Thus $h(n,k)=x$, so $h$ is surjective.
+
+\emph{Injectivity.} Suppose $h(n,k)=h(m,\ell)$. Then
+\[
+f_n(k)=f_m(\ell).
+\]
+The left-hand side lies in $A_n$ and the right-hand side lies in $A_m$. If $n\neq m$, then this would imply 
+$A_n\cap A_m\neq\varnothing$, contradicting the hypothesis that the $A_n$ are pairwise disjoint. Hence $n=m$. 
+With $n=m$, we have $f_n(k)=f_n(\ell)$, and since $f_n$ is injective, it follows that $k=\ell$. Therefore 
+$(n,k)=(m,\ell)$, and $h$ is injective.
+
+So $h$ is a bijection $\mathbb{N}\times\mathbb{N} \to A$.
+
+Finally, we proved in class that $\mathbb{N}\times\mathbb{N}$ is countable, i.e. there exists a bijection
+\[
+\varphi: \mathbb{N} \to \mathbb{N}\times\mathbb{N}.
+\]
+Then the composition $h\circ\varphi : \mathbb{N}\to A$ is a bijection. Therefore $A$ is countable.
 \qed
 
 \newpage
@@ -185,9 +266,41 @@ Recall that given two sets $A$ and $B$, we write $A \sim B$ if and only if there
 a bijective function $f : A \to B$. Prove that $\sim$ is an equivalence relation.
 
 \begin{scratch}
+We want to prove that $\sim$ is an equivalence relation, so we must check three properties:
+reflexivity, symmetry, and transitivity.
+
+The definition says $A\sim B$ means ``there exists a bijection $f:A\to B$.''
+  
+\begin{itemize}
+  \item \textbf{Reflexive:} any set $A$ is in bijection with itself via the identity function
+defined by $f:A\to A$ with $f(a)=a$ for all $a\in A$.
+
+  \item \textbf{Symmetric:} if $A\sim B$, there is a bijection $f:A\to B$. A bijection has an
+  inverse function $f^{-1}:B\to A$, and $f^{-1}$ is also a bijection, so $B\sim A$.
+
+  \item \textbf{Transitive:} if $A\sim B$ and $B\sim C$, then there are bijections
+  $f:A\to B$ and $g:B\to C$. Their composition $g\circ f:A\to C$ is again a bijection,
+  so $A\sim C$.
+\end{itemize}
+
+So the whole proof is basically: identity gives reflexive, inverse gives symmetric,
+and composition gives transitive.
 \end{scratch}
 
 \textbf{Proof.}\\
+We verify the three defining properties.
+
+\emph{(Reflexivity).} Let $A$ be a set. Define a function $f:A\to A$ by $f(a)=a$ for all $a\in A$.
+Then $f$ is bijective. Hence $A\sim A$.
+
+\emph{(Symmetry).} Suppose $A\sim B$. Then there exists a bijection $f:A\to B$. Since $f$ is
+bijective, it has an inverse function $f^{-1}:B\to A$, and $f^{-1}$ is bijective.
+Therefore $B\sim A$.
+
+\emph{(Transitivity).} Suppose $A\sim B$ and $B\sim C$. Then there exist bijections
+$f:A\to B$ and $g:B\to C$. The composition $g\circ f:A\to C$ is bijective, so $A\sim C$.
+
+Thus $\sim$ is reflexive, symmetric, and transitive; hence it is an equivalence relation.
 \qed
 
 \newpage
@@ -200,12 +313,55 @@ For $a, b \in \mathbb{Z}$, define $a \sim b$ if and only if $b - a$ is divisible
 \end{enumerate}
 
 \begin{scratch}
+\textbf{Big picture.} The relation is saying that two integers are equivalent when they have the \emph{same parity} (both even or both odd). Another way to say this is that $a\sim b$ exactly when $a$ and $b$ differ by an \emph{even} integer.
+
+To prove that $\sim$ is an equivalence relation, we check the three properties from the notes:
+\begin{itemize}
+  \item \textbf{Reflexive:} always true because $a-a=0$ is divisible by $2$.
+  \item \textbf{Symmetric:} if $b-a$ is divisible by $2$, then $a-b=-(b-a)$ is also divisible by $2$.
+  \item \textbf{Transitive:} if $b-a$ and $c-b$ are divisible by $2$, then adding them gives $c-a=(c-b)+(b-a)$, also divisible by $2$.
+\end{itemize}
+
+For part (b), once you realize this is “same parity,” there should be exactly two equivalence classes: the evens and the odds. Concretely:
+\[
+[0]=\{\text{even integers}\}=\{2k:k\in\mathbb{Z}\}=2\mathbb{Z},\qquad
+[1]=\{\text{odd integers}\}=\{2k+1:k\in\mathbb{Z}\}=2\mathbb{Z}+1.
+\]
+Any even integer is equivalent to $0$, and any odd integer is equivalent to $1$.
 \end{scratch}
 
 \textbf{Proof.}\\
+\emph{(a)} We show that $\sim$ is reflexive, symmetric, and transitive on $\mathbb{Z}$.
+
+\emph{Reflexive.} Let $a\in\mathbb{Z}$. Then $a-a=0$, and $0$ is divisible by $2$. Hence $a\sim a$.
+
+\emph{Symmetric.} Suppose $a\sim b$. By definition, $b-a$ is divisible by $2$, so $b-a=2k$ for some $k\in\mathbb{Z}$. Then
+\[
+ a-b = -(b-a) = -2k = 2(-k),
+\]
+so $a-b$ is divisible by $2$. Thus $b\sim a$.
+
+\emph{Transitive.} Suppose $a\sim b$ and $b\sim c$. Then $b-a=2k$ and $c-b=2\ell$ for some $k,\ell\in\mathbb{Z}$. Adding,
+\[
+ c-a = (c-b)+(b-a) = 2\ell + 2k = 2(k+\ell),
+\]
+which is divisible by $2$. Hence $a\sim c$.
+
+Therefore $\sim$ is an equivalence relation on $\mathbb{Z}$.
+
+\emph{(b)} The equivalence classes are exactly the parity classes. First, if $n\in\mathbb{Z}$ is even, then $n-0=n$ is divisible by $2$, so $n\sim 0$; hence every even integer lies in $[0]$. Conversely, if $n\in[0]$, then $n\sim 0$, so $n-0=n$ is divisible by $2$, which means $n$ is even. Thus
+\[
+[0]=\{2k:k\in\mathbb{Z}\}=2\mathbb{Z}.
+\]
+Similarly, if $n\in\mathbb{Z}$ is odd then $n-1$ is even (hence divisible by $2$), so $n\sim 1$ and $n\in[1]$; and if $n\in[1]$, then $n\sim 1$ so $n-1$ is divisible by $2$, meaning $n$ is odd. Hence
+\[
+[1]=\{2k+1:k\in\mathbb{Z}\}=2\mathbb{Z}+1.
+\]
+These are the two equivalence classes.
 \qed
 
 \newpage
+
 
 \problem[]{5}
 Let $(F, +, \cdot)$ be a field.
@@ -217,9 +373,64 @@ Let $(F, +, \cdot)$ be a field.
 \end{enumerate}
 
 \begin{scratch}
+\textbf{Big picture.} In a field, ``adding a fixed element'' and ``multiplying by a fixed nonzero element'' are reversible operations.
+
+\begin{itemize}
+  \item For (a), if we define $f(y)=x+y$, then we can undo it by adding the additive inverse $-x$:
+  \[
+  f(y) = x+y \quad \Longrightarrow \quad y = (-x) + f(y).
+  \]
+  So the inverse candidate is $F\to F$, $y\mapsto (-x)+y$.
+
+  \item For (b), if $x\neq 0$ and we define $g(y)=x\cdot y$, then we can undo it by multiplying by $x^{-1}$:
+  \[
+  g(y)=x\cdot y \quad \Longrightarrow \quad y = x^{-1}\cdot g(y).
+  \]
+  So the inverse candidate is $F\to F$, $y\mapsto x^{-1}\cdot y$.
+
+\end{itemize}
+
+Once we exhibit an inverse function (and verify the two composition identities), bijectivity follows.
 \end{scratch}
 
 \textbf{Proof.}\\
+\emph{(a)} Fix $x\in F$ and define $f:F\to F$ by $f(y)=x+y$. Define $h:F\to F$ by
+\[
+h(y)=(-x)+y.
+\]
+We show that $h$ is the inverse of $f$ by checking both compositions.
+
+For any $y\in F$,
+\[
+(h\circ f)(y)=h(f(y))=h(x+y)=(-x)+(x+y)=\bigl((-x)+x\bigr)+y=0+y=y,
+\]
+using associativity of $+$, the definition of $-x$, and the additive identity.
+
+For any $y\in F$,
+\[
+(f\circ h)(y)=f(h(y))=f((-x)+y)=x+((-x)+y)=(x+(-x))+y=0+y=y,
+\]
+again by associativity and the definition of additive inverse.
+
+Thus $h=f^{-1}$, so $f$ is bijective.
+
+\medskip
+\emph{(b)} Fix $x\in F\setminus\{0\}$ and define $g:F\to F$ by $g(y)=x\cdot y$. Since $x\neq 0$, there exists
+$x^{-1}\in F$ such that $x\cdot x^{-1}=x^{-1}\cdot x=1$. Define $k:F\to F$ by
+\[
+k(y)=x^{-1}\cdot y.
+\]
+We again check both compositions. For any $y\in F$,
+\[
+(k\circ g)(y)=k(g(y))=k(x\cdot y)=x^{-1}\cdot (x\cdot y)=(x^{-1}\cdot x)\cdot y=1\cdot y=y,
+\]
+using associativity of $\cdot$ and the multiplicative identity.
+
+For any $y\in F$,
+\[
+(g\circ k)(y)=g(k(y))=g(x^{-1}\cdot y)=x\cdot (x^{-1}\cdot y)=(x\cdot x^{-1})\cdot y=1\cdot y=y.
+\]
+Thus $k=g^{-1}$, so $g$ is bijective.
 \qed
 
 \newpage
@@ -251,10 +462,98 @@ contains every element of $F$ exactly once, like a Sudoku puzzle. Show that the 
 true for the nonzero rows and columns of the multiplication table. Note that for each
 entry, there is only one correct answer.)
 
+
 \begin{scratch}
+\textbf{Strategy.} We know $F=\{0,1,a,b\}$ is a field, so $(F,+)$ is an abelian group of order $4$ and
+$F\setminus\{0\}=\{1,a,b\}$ is an abelian group under $\cdot$ of order $3$.
+
+\medskip
+\textbf{Addition table.} Since $|F|=4=2^2$, the characteristic of $F$ must be $2$ (the characteristic of a field is a prime $p$ and $|F|$ is a power of $p$). Hence
+\[
+1+1=0.
+\]
+In fact, in an additive group of order $4$ with characteristic $2$, every element satisfies $x+x=0$.
+So
+\[
+1+1=a+a=b+b=0.
+\]
+Now use the “Sudoku” constraint: for each fixed $x\in F$, the map $y\mapsto x+y$ is a bijection (Problem 5 style), so each row/column of the addition table contains each element of $F$ exactly once.
+For example, in the row for $1$, the entries are $1+0=1$ and $1+1=0$, so the remaining two entries must be $a$ and $b$.
+Also $1+a$ cannot be $0$ (else $a=-1=1$) and cannot be $1$ (else $a=0$) and cannot be $a$ (else $1=0$), so necessarily $1+a=b$. Similarly $1+b=a$, and then $a+b=1$.
+
+\medskip
+\textbf{Multiplication table.} The nonzero elements form a group of order $3$, so it is cyclic. In particular, for any $x\in\{a,b\}$, we have $x^3=1$ and $x\neq 1$.
+Thus if we pick $a\neq 1$, then $a^2\neq 1$ and must equal the remaining nonzero element $b$.
+Then $a^3=a\cdot a^2=a\cdot b=1$, so $ab=1$. Commutativity gives $ba=1$.
+Also $b=a^2$ implies $b^2=a^4=a$ (since $a^3=1$), and the row/column “Sudoku” constraint for multiplication by a nonzero element gives that each nonzero row/column is a permutation of $\{1,a,b\}$.
+Finally, $0$ times anything is $0$.
 \end{scratch}
 
 \textbf{Proof.}\\
+We determine the operation tables using only field axioms and the hint.
+
+\medskip
+\textbf{Step 1: the addition table.}
+Since $F$ is a field with $|F|=4$, its characteristic is a prime $p$ and $|F|=p^n$ for some $n\in\mathbb{N}$. Hence $4=p^n$ forces $p=2$. Therefore
+\[
+1+1=0.
+\]
+More generally, for any $x\in F$ we have $x+x=(1+1)x=0\cdot x=0$, so
+\[
+1+1=a+a=b+b=0.
+\]
+Now fix any $x\in F$. By Problem 5(a) (applied in the additive group), the map $T_x:F\to F$ given by $T_x(y)=x+y$ is bijective. Hence each row and column of the addition table contains every element of $F$ exactly once.
+
+We already know the $0$-row and $0$-column are identities: $0+y=y$ and $x+0=x$.
+In the $1$-row we have $1+0=1$ and $1+1=0$, so $1+a$ and $1+b$ must be the remaining two elements $a$ and $b$.
+But $1+a$ cannot equal $0,1,$ or $a$ (each would force a contradiction), so $1+a=b$.
+Then the remaining entry is $1+b=a$.
+Finally, using commutativity, $a+b=b+a$, and using $1+a=b$ we get
+\[
+a+b=1 \quad\text{(since adding $a$ to both sides of $1+a=b$ gives $1+(a+a)=b+a$, i.e. $1=b+a$).}
+\]
+Thus the addition table is
+\[
+\begin{array}{c|cccc}
+  + & 0 & 1 & a & b \\ \hline
+  0 & 0 & 1 & a & b \\
+  1 & 1 & 0 & b & a \\
+  a & a & b & 0 & 1 \\
+  b & b & a & 1 & 0 \\
+\end{array}
+\]
+
+\medskip
+\textbf{Step 2: the multiplication table.}
+The set $F\setminus\{0\}=\{1,a,b\}$ is an abelian group under $\cdot$ of order $3$, hence cyclic.
+So the two elements $a$ and $b$ are the two non-identity elements of this cyclic group.
+In particular, $a\neq 1$ and $a^3=1$.
+Since $a^2\neq 1$ (otherwise $a$ would have order $2$, impossible in a group of order $3$), we must have
+\[
+a^2=b.
+\]
+Then
+\[
+a\cdot b=a\cdot a^2=a^3=1,
+\]
+so $ab=1$. By commutativity, $ba=1$.
+Also $b=a^2$ implies
+\[
+b^2=a^4=a\cdot a^3=a.
+\]
+As usual in a field, $0\cdot x=0$ for all $x\in F$.
+Therefore the multiplication table is
+\[
+\begin{array}{c|cccc}
+  \cdot & 0 & 1 & a & b \\ \hline
+  0 & 0 & 0 & 0 & 0 \\
+  1 & 0 & 1 & a & b \\
+  a & 0 & a & b & 1 \\
+  b & 0 & b & 1 & a \\
+\end{array}
+\]
+
+These tables are uniquely determined by the field axioms and the “Sudoku” constraints in the hint.
 \qed
 
 % ============================================================
@@ -264,6 +563,187 @@ entry, there is only one correct answer.)
 \appendix
 \section*{Appendix: Toolbox}
 \addcontentsline{toc}{section}{Appendix: Toolbox}
+
+
+% ------------------------------------------------------------
+% Week 1 recap (up through preimage + injective/surjective)
+% ------------------------------------------------------------
+\subsection*{Week 1 Recap: Induction and Functions}
+
+\paragraph{Natural numbers and induction.}
+We use
+\[
+\mathbb{N} = \{1,2,3,\dots\}.
+\]
+\textbf{Principle of Mathematical Induction.} Let $P(n)$ be a statement defined for all $n\in\mathbb{N}$. If
+\begin{enumerate}[label=\textbf{(\alph*)}]
+  \item $P(1)$ is true, and
+  \item for all $n\in\mathbb{N}$, $P(n)\Rightarrow P(n+1)$,
+\end{enumerate}
+then $P(n)$ is true for all $n\in\mathbb{N}$.
+
+\paragraph{Functions.}
+Let $A,B$ be nonempty sets. A \emph{function} $f:A\to B$ assigns to each $a\in A$ exactly one element $f(a)\in B$. The set $A$ is the \emph{domain} and $B$ is the \emph{codomain}.
+
+\paragraph{Composition.}
+If $f:A\to B$ and $g:B\to C$ are functions, their \emph{composition} is the function $g\circ f:A\to C$ given by
+\[
+(g\circ f)(a) = g(f(a)) \qquad (a\in A).
+\]
+
+\paragraph{Image and preimage.}
+Let $f:A\to B$.
+\begin{itemize}
+  \item For $X\subseteq A$, the \emph{image} of $X$ under $f$ is
+  \[
+  f(X)=\{f(x):x\in X\}.
+  \]
+  \item For $Y\subseteq B$, the \emph{preimage} of $Y$ under $f$ is
+  \[
+  f^{-1}(Y)=\{a\in A: f(a)\in Y\}.
+  \]
+\end{itemize}
+\emph{Remark.} For a general function $f:A\to B$, the notation $f^{-1}(Y)$ denotes a preimage and does \emph{not} require $f$ to be invertible.
+
+\paragraph{Injective / Surjective / Bijective.}
+Let $f:A\to B$.
+\begin{itemize}
+  \item $f$ is \emph{injective} if for all $a_1,a_2\in A$,
+  \[
+  f(a_1)=f(a_2)\Rightarrow a_1=a_2.
+  \]
+  \item $f$ is \emph{surjective} if $f(A)=B$, i.e. for every $b\in B$ there exists $a\in A$ such that $f(a)=b$.
+  \item $f$ is \emph{bijective} if it is both injective and surjective.
+\end{itemize}
+\emph{Remark.} These properties depend on both the rule defining $f$ and the choice of domain $A$ and codomain $B$.
+
+% ------------------------------------------------------------
+% Week 2: Countability
+% ------------------------------------------------------------
+\subsection*{Countability}
+
+\paragraph{Finite and countable.}
+A set $S$ is \emph{finite} if $S=\varnothing$ or there exists $n\in\mathbb{N}$ and a bijection $\{1,2,\dots,n\}\to S$.
+A set $S$ is \emph{countably infinite} if there exists a bijection $\mathbb{N}\to S$.
+A set $S$ is \emph{countable} if it is finite or countably infinite.
+
+\paragraph{Equivalent characterizations.}
+The following are standard and often useful:
+\begin{itemize}
+  \item $S$ is countable $\iff$ there exists an injection $S\hookrightarrow \mathbb{N}$.
+  \item $S$ is countable $\iff$ there exists a surjection $\mathbb{N}\twoheadrightarrow S$.
+\end{itemize}
+
+\paragraph{Countability of $\mathbb{N}\times\mathbb{N}$.}
+There are many explicit bijections $\mathbb{N}\times\mathbb{N}\to\mathbb{N}$ (e.g. ``diagonal'' enumeration / pairing functions). In proofs, we often use the fact that
+\[
+\mathbb{N}\times\mathbb{N}\text{ is countable}.
+\]
+
+\paragraph{Disjoint unions.}
+If $A$ and $B$ are countable and $A\cap B=\varnothing$, then $A\cup B$ is countable (one can interleave enumerations, or inject $A\cup B$ into $\mathbb{N}\times\{1,2\}$).
+More generally, if $(A_n)_{n\in\mathbb{N}}$ are countable and pairwise disjoint, then
+\[
+\bigcup_{n\in\mathbb{N}} A_n\text{ is countable}
+\]
+by coding an element $x\in A_n$ as the pair $(n,k)$ where $k$ is its index in an enumeration of $A_n$.
+
+% ------------------------------------------------------------
+% Week 2: Relations and equivalence relations
+% ------------------------------------------------------------
+\subsection*{Relations and Equivalence Relations}
+
+\paragraph{Binary relations.}
+A (binary) relation $\mathcal{R}$ on a set $X$ is a subset $\mathcal{R}\subseteq X\times X$. We write $x\,\mathcal{R}\,y$ instead of $(x,y)\in\mathcal{R}$.
+
+\paragraph{Equivalence relation.}
+A relation $\sim$ on $X$ is an \emph{equivalence relation} if it is:
+\begin{itemize}
+  \item \emph{Reflexive:} $x\sim x$ for all $x\in X$.
+  \item \emph{Symmetric:} $x\sim y \Rightarrow y\sim x$.
+  \item \emph{Transitive:} $x\sim y$ and $y\sim z \Rightarrow x\sim z$.
+\end{itemize}
+
+\paragraph{Equivalence classes.}
+If $\sim$ is an equivalence relation on $X$ and $x\in X$, the \emph{equivalence class} of $x$ is
+\[
+[x] := \{y\in X : y\sim x\}.
+\]
+The set of all equivalence classes is denoted $X/\!\sim$.
+
+\paragraph{Partition property.}
+Equivalence relations and partitions are two sides of the same coin:
+\begin{itemize}
+  \item The equivalence classes $\{[x]:x\in X\}$ form a partition of $X$ (classes are disjoint and their union is $X$).
+  \item Conversely, any partition of $X$ defines an equivalence relation (declare two elements equivalent iff they lie in the same block).
+\end{itemize}
+
+\paragraph{Example: congruence mod $2$ on $\mathbb{Z}$.}
+For $a,b\in\mathbb{Z}$, define $a\sim b$ iff $b-a$ is divisible by $2$. Then $\sim$ is an equivalence relation and the equivalence classes are the \emph{even} and \emph{odd} integers:
+\[
+[0]=2\mathbb{Z},\qquad [1]=2\mathbb{Z}+1.
+\]
+
+% ------------------------------------------------------------
+% Week 2: Fields (as in Rudin Ch. 1)
+% ------------------------------------------------------------
+\subsection*{Fields}
+
+\paragraph{Definition (Field).}
+A triple $(F,+,\cdot)$ is a \emph{field} if $F$ is a set with at least two elements and $+$ and $\cdot$ are operations on $F$ satisfying:
+
+\textbf{Addition axioms.}
+\begin{enumerate}[label=\textbf{(A\arabic*)}, leftmargin=3em]
+  \item (Closure) If $a,b\in F$, then $a+b\in F$.
+  \item (Commutativity) If $a,b\in F$, then $a+b=b+a$.
+  \item (Associativity) If $a,b,c\in F$, then $(a+b)+c=a+(b+c)$.
+  \item (Identity) There exists $0\in F$ such that $a+0=0+a=a$ for all $a\in F$.
+  \item (Inverses) For every $a\in F$ there exists $-a\in F$ such that $a+(-a)=(-a)+a=0$.
+\end{enumerate}
+
+\textbf{Multiplication axioms.}
+\begin{enumerate}[label=\textbf{(M\arabic*)}, leftmargin=3em]
+  \item (Closure) If $a,b\in F$, then $a\cdot b\in F$.
+  \item (Commutativity) If $a,b\in F$, then $a\cdot b=b\cdot a$.
+  \item (Associativity) If $a,b,c\in F$, then $(a\cdot b)\cdot c=a\cdot (b\cdot c)$.
+  \item (Identity) There exists $1\in F$ such that $a\cdot 1=1\cdot a=a$ for all $a\in F$.
+  \item (Inverses) For every $a\in F\setminus\{0\}$ there exists $a^{-1}\in F$ such that $a\cdot a^{-1}=a^{-1}\cdot a=1$.
+\end{enumerate}
+
+\textbf{Distributivity.}
+\begin{enumerate}[label=\textbf{(D)}, leftmargin=3em]
+  \item For all $a,b,c\in F$, $(a+b)\cdot c = a\cdot c + b\cdot c$.
+\end{enumerate}
+
+\paragraph{Basic consequences (often used without comment).}
+Let $(F,+,\cdot)$ be a field.
+\begin{itemize}
+  \item The additive and multiplicative identities $0$ and $1$ are unique.
+  \item Additive inverses and multiplicative inverses (for $a\neq 0$) are unique.
+  \item \emph{Additive cancellation:} if $a+b=a+c$, then $b=c$.
+  \item \emph{Multiplicative cancellation:} if $a\neq 0$ and $a\cdot b=a\cdot c$, then $b=c$.
+  \item $a\cdot 0=0$ for all $a\in F$.
+  \item $(-a)(-b)=ab$ and $a(-b)=-(ab)$ for all $a,b\in F$.
+\end{itemize}
+
+\paragraph{Translation and dilation maps}
+Fix $x\in F$.
+\begin{itemize}
+  \item The map $T_x:F\to F$ defined by $T_x(y)=x+y$ has inverse $T_{-x}$.
+  \item If $x\neq 0$, the map $M_x:F\to F$ defined by $M_x(y)=x\cdot y$ has inverse $M_{x^{-1}}$.
+\end{itemize}
+
+% ------------------------------------------------------------
+% (Optional) Tiny table tip for Problem 6
+% ------------------------------------------------------------
+\subsection*{A Note on Finite Field Tables}
+In a field, $(F,+)$ is an abelian group and $(F\setminus\{0\},\cdot)$ is an abelian group.
+Consequently:
+\begin{itemize}
+  \item In the addition table, each row/column is a permutation of $F$.
+  \item In the multiplication table, each \emph{nonzero} row/column is a permutation of $F\setminus\{0\}$.
+\end{itemize}
+This is the ``Sudoku'' constraint your hint refers to.
 
 
 \end{document}
