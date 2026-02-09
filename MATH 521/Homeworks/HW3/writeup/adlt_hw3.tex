@@ -1,0 +1,274 @@
+% !TEX program = pdflatex
+% ------------------------------------------------------------
+% MATH 521 Homework Template (adapted from your MATH 421 HW10)
+%
+% HOW TO USE (quick):
+%   1) Edit the Metadata block (HW number / due date especially).
+%   2) Paste each problem statement under \problem[]{<n>}.
+%   3) Write in the Scratch/Discussion box if you want.
+%   4) Write your proof under "Proof." and end with \qed (or \qedhere).
+%
+% Notes:
+% - Keeps theorem/definition boxes (tcolorbox).
+% - Keeps ToC + PDF bookmarks for each problem.
+% - Adds a Scratch/Discussion box per problem (optional).
+% - Header bar has course + meeting info (left) and HW number (right).
+% ------------------------------------------------------------
+
+% TROUBLESHOOTING NOTE:
+% If you ever see errors like `\tcb@insert@after@part` or other tcolorbox internals being
+% an "Undefined control sequence", that usually means LaTeX is accidentally loading a
+% DIFFERENT (often older) `tcolorbox.sty` from your project folder or local texmf tree.
+% Fix: search your repo for `tcolorbox.sty` and delete/rename any local copy so TeX uses
+% the TeX Live version. Also try "Clean" in LaTeX Workshop to remove stale .aux/.toc/.out.
+
+\documentclass[12pt]{article}
+
+% =========================
+% 0) Metadata (EDIT ME)
+% =========================
+\newcommand{\CourseCode}{MATH 521}
+\newcommand{\CourseTitle}{Analysis I}
+\newcommand{\CourseSection}{LEC 002}
+\newcommand{\Semester}{Spring 2026}
+\newcommand{\Instructor}{Thierry Laurens}
+\newcommand{\MeetingInfo}{MWF 1:20--2:10 \;|\; Van Vleck B119} % optional
+\newcommand{\HomeworkNumber}{3} % <-- change each week
+\newcommand{\YourName}{Alejandro De La Torre}
+\newcommand{\DueDate}{February 13, 2026} % <-- or set e.g. January 31, 2026
+
+% =========================
+% 1) Core math + proof tools
+% =========================
+\usepackage{amsmath, amssymb, amsthm}
+
+% =========================
+% 2) Lists and spacing
+% =========================
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=\textbf{(\alph*)}, leftmargin=2em, itemsep=0.25em}
+\setlist[itemize]{leftmargin=1.5em, itemsep=0.25em}
+\setlength{\parskip}{0.35em}
+\setlength{\parindent}{0pt}
+
+% =========================
+% 3) Page geometry + header/footer
+% =========================
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\CourseCode\ --- \CourseSection, \Semester \;(\MeetingInfo)}
+\rhead{Homework \HomeworkNumber}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+% Fixes common fancyhdr warning about header height:
+\setlength{\headheight}{15pt}
+% Optional: reclaim a bit of vertical space after increasing headheight
+\addtolength{\topmargin}{-2pt}
+
+% =========================
+% 4) Links (subtle)
+% =========================
+\usepackage[hidelinks]{hyperref}
+\setcounter{tocdepth}{1}
+
+% =========================
+% 5) Quotes / figures
+% =========================
+\usepackage{csquotes}
+\usepackage{graphicx}
+\graphicspath{{images/}} % put figures in ./images/
+
+% =========================
+% 6) Simple scratch box (no tcolorbox)
+% =========================
+% A lightweight environment for brief planning / scratch work.
+% This avoids any tcolorbox dependencies.
+\newenvironment{scratch}{%
+  \par\smallskip
+  \noindent\textbf{Discussion \& Scratch Work}\begin{quote}\small
+}{%
+  \end{quote}\smallskip
+}
+
+% =========================
+% 7) Lightweight theorem-like environments (optional)
+% =========================
+\newtheorem*{claim}{Claim}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{remark}{Remark}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{exercise}{Exercise}
+
+% =========================
+% 8) Problem header command (with TOC + PDF bookmarks)
+% Usage: \problem[Optional short title]{<number>}
+% =========================
+\makeatletter
+\newcommand{\problem}[2][]{%
+  \def\prob@title{Problem #2\if\relax\detokenize{#1}\relax\else\ (\textit{#1})\fi}%
+  \phantomsection%
+  \pdfbookmark[1]{\prob@title}{prob#2}%
+  \addcontentsline{toc}{section}{\prob@title}%
+  \section*{\prob@title}%
+  \vspace{-0.25em}\hrule\vspace{0.8em}%
+}
+\makeatother
+
+% =========================
+% 9) Title block
+% =========================
+\title{Homework \HomeworkNumber}
+\author{\YourName \\
+\CourseCode\ --- \CourseTitle \\
+\CourseSection \\
+Instructor: \Instructor}
+\date{\DueDate}
+
+\begin{document}
+\maketitle
+
+% ------------------ collaboration + sources ------------------
+% \section*{Collaboration Statement}
+% Write “I worked alone” or list collaborators / external resources.
+% "I worked on this homework independently. No outside collaborators or resources were used."
+
+\tableofcontents
+\bigskip
+\hrule
+\bigskip
+
+\newpage
+
+% ============================================================
+% Problems (duplicate blocks as needed)
+% ============================================================
+
+\problem[]{1}
+Let $(F, +, \cdot)$ be a field.
+\begin{enumerate}
+\item Prove that the multiplicative identity is unique: If $b \in F$ satisfies $b \cdot a = a \cdot b = a$ for all $a \in F$, then $b = 1$.
+\item Prove that multiplicative inverses are unique: If $a \in F \setminus \{0\}$ and $b \in F$ satisfy $b \cdot a = a \cdot b = 1$, then $b = a^{-1}$.
+\item Prove that if $a \cdot b = a \cdot c$ and $a \neq 0$, then $b = c$.
+\item Prove that if $a, b \in F$ then $-a + (-b) = -(a + b)$.
+\item Prove that if $a, b \in F$ and $a, b \neq 0$, then $a^{-1} \cdot b^{-1} = (ab)^{-1}$.
+\end{enumerate}
+
+\begin{scratch}
+% Outline the strategy, key definitions, lemmas, or a proof sketch.
+\end{scratch}
+
+\textbf{Proof.}\\
+% Write your proof here.
+\qed
+
+\newpage
+
+\problem[]{2}
+Given two points $(x_1, y_1)$ and $(x_2, y_2)$ in $\mathbb{R}^2 = \{(x,y) : x,y \in \mathbb{R}\}$, we write
+\[
+(x_1, y_1) < (x_2, y_2) \Leftrightarrow x_1 < x_2 \text{ or } (x_1 = x_2 \text{ and } y_1 < y_2).
+\]
+\begin{enumerate}
+\item Prove that $<$ is an order relation on $\mathbb{R}^2$.
+\item Prove that $(\mathbb{R}^2, <)$ does not satisfy the least upper bound property. (Hint: Consider the set of all points on the y-axis.)
+\end{enumerate}
+
+\begin{scratch}
+\end{scratch}
+
+\textbf{Proof.}\\
+\qed
+
+\newpage
+
+\problem[]{3}
+Recall that the set of complex numbers $\mathbb{C}$ consists of all numbers of the form $a + ib$ for $a, b \in \mathbb{R}$. We can add and multiply complex numbers as follows:
+\[
+(a + ib) + (c + id) = (a + c) + i(b + d) \quad \text{and} \quad (a + ib)\cdot(c + id) = (ac - bd) + i(ad + bc).
+\]
+With these operations, it turns out $(\mathbb{C}, +, \cdot)$ is a field (but you do not need to prove this).
+\begin{enumerate}
+\item The definition of a field says that for any $a + ib \neq 0 + i0$, there exists $c + id \in \mathbb{C}$ so that $(a + ib)\cdot(c + id) = 1 + i0$. What are $c, d \in \mathbb{R}$ in terms of $a, b \in \mathbb{R}$? Prove your answer.
+\item Prove that there is no order relation $<$ on $\mathbb{C}$ that makes $(\mathbb{C}, +, \cdot, <)$ an ordered field. (Hint: Can $i = 0 + i1$ be positive? Negative? Zero?)
+\end{enumerate}
+
+\begin{scratch}
+\end{scratch}
+
+\textbf{Proof.}\\
+\qed
+
+\newpage
+
+\problem[]{4}
+Let $A \subseteq \mathbb{R}$ be a nonempty and bounded set, let $c \in \mathbb{R}$ be a number, and define
+\[
+B = \{c \cdot a : a \in A\}.
+\]
+\begin{enumerate}
+\item Prove that if $c > 0$, then $\sup B = c \cdot \sup A$.
+\item Prove that if $c < 0$, then $\sup B = c \cdot \inf A$.
+\end{enumerate}
+
+\begin{scratch}
+\end{scratch}
+
+\textbf{Proof.}\\
+\qed
+
+\newpage
+
+\problem[]{5}
+Let $A, B \subseteq \mathbb{R}$ be nonempty and bounded sets, and define
+\[
+S = \{a + b : a \in A \text{ and } b \in B\}.
+\]
+Prove that $\sup S = \sup A + \sup B$.
+
+\begin{scratch}
+\end{scratch}
+
+\textbf{Proof.}\\
+\qed
+
+\newpage
+
+\problem[]{6}
+Let $A, B \subseteq \mathbb{R}$ be nonempty and bounded sets. Prove or disprove the following statements:
+\begin{enumerate}
+\item If $a \le b$ for all $a \in A$ and for all $b \in B$, then $\sup A \le \inf B$.
+\item If $a < b$ for all $a \in A$ and for all $b \in B$, then $\sup A < \inf B$.
+\end{enumerate}
+
+\begin{scratch}
+\end{scratch}
+
+\textbf{Proof.}\\
+\qed
+
+% ============================================================
+% Optional appendix: keep a personal toolbox of definitions/theorems
+% ============================================================
+\newpage
+\appendix
+\section*{Appendix: Toolbox (optional)}
+\addcontentsline{toc}{section}{Appendix: Toolbox (optional)}
+
+% Example (using amsthm environments instead of boxed tcolorboxes):
+% \begin{definition}
+% A metric space is ...
+% \end{definition}
+%
+% \begin{theorem}[Heine--Borel]
+% ...
+% \end{theorem}
+
+\end{document}
