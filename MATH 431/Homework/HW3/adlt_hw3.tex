@@ -168,49 +168,157 @@ Instructor: \Instructor}
 % Problems (duplicate blocks as needed)
 % ============================================================
 
-
-% Here's an example problem and solution:
-\problem[Sample space and probability]{1.4}
-State the problem here (paste from PDF).
+\problem{2.4}
+We have two urns. The first urn contains two balls labeled 1 and 2. The second urn contains three balls labeled 3, 4 and 5. We choose one of the urns at random (with equal probability) and then sample one ball (uniformly at random) from the chosen urn. What is the probability that we picked the ball labeled 5?
 
 \begin{solution}
-
-We model the experiment using a probability space
-\[
-(\OmegaSpace, \FField, \PMeasure).
-\]
+% write solution here
 
 \begin{scratch}
-The sample space is
-\[
-\OmegaSpace = \{H,T\}^3,
-\]
-the set of all length–3 sequences of coin flips.  
-The $\sigma$-field is the power set $\FField = 2^{\OmegaSpace}$.
-
-Assuming the coin is fair, we assign equal probability to each outcome:
-\[
-\PMeasure(\{\omega\}) = 2^{-3} \quad \text{for all } \omega \in \OmegaSpace.
-\]
+% optional: setup / definitions / plan
 \end{scratch}
 
-Let
-\[
-A = \{\omega \in \OmegaSpace : \text{exactly two heads occur}\}.
-\]
-There are $\binom{3}{2} = 3$ such outcomes, so $|A| = 3$ and
-\[
-|\OmegaSpace| = 2^3 = 8.
-\]
-
-Since all outcomes are equally likely,
-\[
-\PMeasure(A) = \frac{|A|}{|\OmegaSpace|} = \frac{3}{8}.
-\]
-
-\finalanswer{\PMeasure(A) = \frac{3}{8}}
-
+% write full solution here; use \finalanswer{...} at the end if appropriate
 \end{solution}
 
+\newpage
+
+\problem{2.10}
+I have a bag with 3 fair dice. One is 4-sided, one is 6-sided, and one is 12-sided. I reach into the bag, pick one die at random and roll it. The outcome of the roll is 4. What is the probability that I pulled out the 6-sided die?
+
+\begin{solution}
+% write solution here
+
+\begin{scratch}
+% optional: setup / definitions / plan
+\end{scratch}
+
+% write full solution here; use \finalanswer{...} at the end if appropriate
+\end{solution}
+
+\newpage
+
+\problem{2.14}
+Let $A$ and $B$ be two disjoint events. Under what condition are they independent?
+
+\begin{solution}
+% write solution here
+
+\begin{scratch}
+% optional: setup / definitions / plan
+\end{scratch}
+
+% write full solution here; use \finalanswer{...} at the end if appropriate
+\end{solution}
+
+\newpage
+
+\problem{2.16}
+We flip a fair coin three times. For $i=1,2,3$, let $A_i$ be the event that among the first $i$ coin flips we have an odd number of heads. Check whether the events $A_1, A_2, A_3$ are independent or not.
+
+\begin{solution}
+% write solution here
+
+\begin{scratch}
+% optional: setup / definitions / plan
+\end{scratch}
+
+% write full solution here; use \finalanswer{...} at the end if appropriate
+\end{solution}
+
+\newpage
+
+\problem{2.18}
+We choose a number from the set $\{10, 11, 12, \ldots, 99\}$ uniformly at random.
+\begin{enumerate}[label=(\alph*)]
+\item Let $X$ be the first digit and $Y$ the second digit of the chosen number. Show that $X$ and $Y$ are independent random variables.
+\item Let $X$ be the first digit of the chosen number and $Z$ the sum of the two digits. Show that $X$ and $Z$ are not independent.
+\end{enumerate}
+
+\begin{solution}
+% write solution here
+
+\begin{scratch}
+% optional: setup / definitions / plan
+\end{scratch}
+
+% write full solution here; use \finalanswer{...} at the end if appropriate
+\end{solution}
+
+\newpage
+
+\problem{2.30}
+Assume that $1/3$ of all twins are identical twins. You learn that Miranda is expecting twins, but you have no other information.
+\begin{enumerate}[label=(\alph*)]
+\item Find the probability that Miranda will have two girls.
+\item You learn that Miranda gave birth to two girls. What is the probability that the girls are identical twins?
+\end{enumerate}
+Explain any assumptions you make.
+
+\begin{solution}
+% write solution here
+
+\begin{scratch}
+% optional: setup / definitions / plan
+\end{scratch}
+
+% write full solution here; use \finalanswer{...} at the end if appropriate
+\end{solution}
+
+\newpage
+
+\problem{2.34}
+You play the following game against your friend. You have two urns and three balls. One of the balls is marked. You get to place the balls in the two urns any way you please, including leaving one urn empty. Your friend will choose one urn at random and then draw a ball from that urn. (If he chose an empty urn, there is no ball.) His goal is to draw the marked ball.
+\begin{enumerate}[label=(\alph*)]
+\item How would you arrange the balls in the urns to minimize his chances of drawing the marked ball?
+\item How would your friend arrange the balls in the urns to maximize his chances of drawing the marked ball?
+\item Repeat (a) and (b) for the case of $n$ balls with one marked ball.
+\end{enumerate}
+
+\begin{solution}
+% write solution here
+
+\begin{scratch}
+% optional: setup / definitions / plan
+\end{scratch}
+
+% write full solution here; use \finalanswer{...} at the end if appropriate
+\end{solution}
+
+\newpage
+
+\problem{2.52}
+Suppose that $P(A)=0.3$, $P(B)=0.2$, and $P(C)=0.1$. Further, $P(A \cup B)=0.44$, $P(A^c C)=0.07$, $P(BC)=0.02$, and $P(A \cup B \cup C)=0.496$. Decide whether $A$, $B$, and $C$ are mutually independent.
+
+\begin{solution}
+% write solution here
+
+\begin{scratch}
+% optional: setup / definitions / plan
+\end{scratch}
+
+% write full solution here; use \finalanswer{...} at the end if appropriate
+\end{solution}
+
+\newpage
+
+\problem{2.54}
+Let $A$ and $B$ be events with these properties: $0 < P(B) < 1$ and $P(A|B)=P(A|B^c)=1/3$.
+\begin{enumerate}[label=(\alph*)]
+\item Is it possible to calculate $P(A)$ from this information? Either declare that it is not possible, or find the value of $P(A)$.
+\item Are $A$ and $B$ independent, not independent, or is it impossible to determine?
+\end{enumerate}
+
+\begin{solution}
+% write solution here
+
+\begin{scratch}
+% optional: setup / definitions / plan
+\end{scratch}
+
+% write full solution here; use \finalanswer{...} at the end if appropriate
+\end{solution}
+
+\newpage
 
 \end{document}
