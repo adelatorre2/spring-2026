@@ -355,9 +355,65 @@ With these operations, it turns out $(\mathbb{C}, +, \cdot)$ is a field (but you
 \end{enumerate}
 
 \begin{scratch}
+\textbf{Main ideas.}
+
+\begin{itemize}
+\item \textbf{(a)} To find $(a+ib)^{-1}$, write an unknown inverse as $c+id$ and expand
+$(a+ib)(c+id)=(ac-bd)+i(ad+bc)$. Matching real and imaginary parts with $1+i0$ gives a $2\times 2$ linear system.
+Solve it to get
+\[c=\frac{a}{a^2+b^2},\qquad d=-\frac{b}{a^2+b^2}.
+\]
+The key point is that $a^2+b^2\neq 0$ whenever $a+ib\neq 0$.
+
+\item \textbf{(b)} In an ordered field, we always have $1>0$ and $x\neq 0 \Rightarrow x^2>0$ (Appendix, \textbf{(P3)}).
+But in $\mathbb{C}$ we have $i^2=-1$. Trichotomy forces $i>0$, $i=0$, or $i<0$; each case contradicts $x^2>0$ together with $1>0$.
+So no order can make $\mathbb{C}$ into an ordered field.
+\end{itemize}
 \end{scratch}
 
 \textbf{Proof.}\\
+\textbf{(a)} Let $a+ib\in\mathbb{C}$ with $a+ib\neq 0+i0$. We seek $c+id\in\mathbb{C}$ such that
+\[(a+ib)(c+id)=1+i0.
+\]
+Using the given multiplication rule,
+\[(a+ib)(c+id)=(ac-bd)+i(ad+bc).
+\]
+Thus we require
+\begin{equation}\label{eq:real-imag-system}
+ac-bd=1,\qquad ad+bc=0.
+\end{equation}
+Multiply the first equation in \eqref{eq:real-imag-system} by $a$ and the second by $b$, then add:
+\[a(ac-bd)+b(ad+bc)=a.
+\]
+The left-hand side simplifies to $(a^2+b^2)c$, so
+\[(a^2+b^2)c=a.
+\]
+Similarly, multiply the second equation by $a$ and the first by $b$, then subtract:
+\[a(ad+bc)-b(ac-bd)=0-b,
+\]
+whose left-hand side simplifies to $(a^2+b^2)d$, so
+\[(a^2+b^2)d=-b.
+\]
+Because $a+ib\neq 0$, we have $(a,b)\neq (0,0)$, hence $a^2+b^2>0$ and in particular $a^2+b^2\neq 0$.
+Therefore we may divide by $a^2+b^2$ to obtain
+\[c=\frac{a}{a^2+b^2},\qquad d=-\frac{b}{a^2+b^2}.
+\]
+A direct substitution into \eqref{eq:real-imag-system} (or into $(ac-bd)+i(ad+bc)$) shows that these values indeed yield
+$(a+ib)(c+id)=1+i0$. This proves the claimed formula for the multiplicative inverse.
+
+\medskip
+\textbf{(b)} Suppose, for contradiction, that there exists an order relation $<$ on $\mathbb{C}$ such that
+$(\mathbb{C},+,\cdot,<)$ is an ordered field.
+By Appendix \textbf{(P3)}, we have $1>0$ and, for any $x\in\mathbb{C}$, $x\neq 0 \Rightarrow x^2>0$.
+
+By trichotomy, exactly one of $i>0$, $i=0$, or $i<0$ holds.
+We treat each case:
+\begin{itemize}
+\item If $i=0$, then $i^2=0$, contradicting $i^2=-1$.
+\item If $i>0$, then $i\neq 0$, so Appendix \textbf{(P3)} implies $i^2>0$. But $i^2=-1$, so $-1>0$, hence $1<0$, contradicting $1>0$.
+\item If $i<0$, then $-i>0$ (using Appendix \textbf{(P1)} with $a=i$). Since $-i\neq 0$, Appendix \textbf{(P3)} gives $(-i)^2>0$. But $(-i)^2=i^2=-1$, leading again to $-1>0$ and hence $1<0$, a contradiction.
+\end{itemize}
+All cases contradict the ordered-field consequences, so no such order relation exists.
 \qed
 
 \newpage
@@ -373,9 +429,80 @@ B = \{c \cdot a : a \in A\}.
 \end{enumerate}
 
 \begin{scratch}
+\textbf{Main idea.} We prove an equality of suprema by showing the candidate value is (i) an upper bound for $B$ and
+(ii) the \emph{least} such upper bound. The only subtlety is that we may multiply inequalities by a positive number
+without changing the direction (ordered-field axiom \textbf{(O2)}), while multiplying by a negative number reverses the
+inequality (Appendix \textbf{(P2)}).
+
+\begin{itemize}
+\item If $c>0$, then $a\le \sup A$ implies $ca\le c\sup A$, so $c\sup A$ is an upper bound for $B$. For leastness, any
+upper bound $M$ of $B$ yields $ca\le M$ for all $a\in A$, hence $a\le M/c$ after multiplying by $c^{-1}>0$, so $M/c$ is an
+upper bound for $A$ and $\sup A\le M/c$.
+\item If $c<0$, then $\inf A\le a$ implies $c\inf A\ge ca$, so $c\inf A$ is an upper bound for $B$. For leastness, if
+$ca\le M$ for all $a\in A$, multiplying by $c^{-1}<0$ reverses the inequality and gives $a\ge M/c$, so $M/c$ is a lower
+bound for $A$ and hence $M/c\le \inf A$.
+\end{itemize}
 \end{scratch}
 
 \textbf{Proof.}\\
+Let $A\subseteq\mathbb{R}$ be nonempty and bounded, let $c\in\mathbb{R}$, and set $B=\{ca:a\in A\}$. We use the
+definitions of $\sup$ and $\inf$ from the Appendix.
+
+\medskip
+\textbf{(a) Assume $c>0$.} We prove $\sup B=c\,\sup A$.
+
+\emph{Step 1: $c\,\sup A$ is an upper bound for $B$.} Let $b\in B$. Then $b=ca$ for some $a\in A$. Because $\sup A$ is an
+upper bound for $A$, we have $a\le \sup A$. Since $c>0$, multiplying by $c$ preserves the inequality (ordered-field axiom
+\textbf{(O2)}), so
+\[
+ca\le c\,\sup A.
+\]
+Thus $b\le c\,\sup A$, and $c\,\sup A$ is an upper bound for $B$.
+
+\emph{Step 2: $c\,\sup A$ is the least upper bound for $B$.} Let $M\in\mathbb{R}$ be any upper bound for $B$. Then for every
+$a\in A$, we have $ca\in B$, hence
+\[
+ca\le M.
+\]
+Because $c>0$, we have $c\neq 0$ and $c^{-1}>0$. Multiplying by $c^{-1}$ preserves the inequality (\textbf{(O2)}), giving
+\[
+a\le c^{-1}M = \frac{M}{c} \quad \text{for all } a\in A.
+\]
+So $M/c$ is an upper bound for $A$. By definition of $\sup A$, this implies $\sup A\le M/c$. Multiplying by $c>0$ again
+preserves the inequality (\textbf{(O2)}), so
+\[
+c\,\sup A\le M.
+\]
+Therefore $c\,\sup A$ is the least upper bound of $B$, i.e. $\sup B=c\,\sup A$.
+
+\medskip
+\textbf{(b) Assume $c<0$.} We prove $\sup B=c\,\inf A$.
+
+\emph{Step 1: $c\,\inf A$ is an upper bound for $B$.} Let $b\in B$, so $b=ca$ for some $a\in A$. Because $\inf A$ is a
+lower bound for $A$, we have $\inf A\le a$. Since $c<0$, multiplying by $c$ reverses the inequality (Appendix
+\textbf{(P2)}), hence
+\[
+c\,\inf A \ge ca.
+\]
+Equivalently, $ca\le c\,\inf A$, so $b\le c\,\inf A$. Thus $c\,\inf A$ is an upper bound for $B$.
+
+\emph{Step 2: $c\,\inf A$ is the least upper bound for $B$.} Let $M\in\mathbb{R}$ be any upper bound for $B$. Then for every
+$a\in A$,
+\[
+ca\le M.
+\]
+Because $c<0$, we have $c\neq 0$ and $c^{-1}<0$. Multiplying by $c^{-1}$ reverses the inequality (Appendix \textbf{(P2)}),
+so
+\[
+a\ge c^{-1}M = \frac{M}{c} \quad \text{for all } a\in A.
+\]
+Thus $M/c$ is a lower bound for $A$. By definition of $\inf A$ (greatest lower bound), we get $M/c\le \inf A$.
+Multiplying by $c<0$ reverses the inequality again (Appendix \textbf{(P2)}), yielding
+\[
+M\ge c\,\inf A.
+\]
+So every upper bound $M$ of $B$ satisfies $c\,\inf A\le M$, hence $c\,\inf A$ is the least upper bound of $B$. Therefore
+$\sup B=c\,\inf A$.
 \qed
 
 \newpage
@@ -450,30 +577,142 @@ $a\cdot a^{-1}=a^{-1}\cdot a=1$.
 \item If $a\cdot b=0$, then $a=0$ or $b=0$.
 \end{enumerate}
 
+
 \subsection*{Order relations and ordered fields (Lectures 7--8)}
 
-\paragraph{Order relation on a set.}
-Let $A$ be a nonempty set. A relation $<$ on $A$ is an \emph{order relation} if it satisfies:
+\subsubsection*{Order relations}
+\textbf{Definition (Order relation).}
+Let $A$ be a nonempty set. An \emph{order relation} (or \emph{inequality}) on $A$ is a relation $<$ on $A$ such that:
+\begin{enumerate}[label=\textbf{(OR\arabic*)}, leftmargin=3em, itemsep=0.25em]
+\item \textbf{(Trichotomy)} If $a,b\in A$, then exactly one of the following holds: $a<b$, or $a=b$, or $b<a$.
+\item \textbf{(Transitivity)} If $a,b,c\in A$ satisfy $a<b$ and $b<c$, then $a<c$.
+\end{enumerate}
+
+\textbf{Notation.}
+\begin{itemize}[leftmargin=2em, itemsep=0.25em]
+\item $a>b$ means $b<a$.
+\item $a\le b$ means $(a<b)$ or $(a=b)$.
+\item $a\ge b$ means $(b<a)$ or $(a=b)$.
+\end{itemize}
+
+\subsubsection*{Ordered fields}
+\textbf{Definition (Ordered field).}
+Let $(F,+,\cdot)$ be a field. We say that $(F,+,\cdot,<)$ is an \emph{ordered field} if it is equipped with an order relation $<$ on $F$ such that:
 \begin{enumerate}[label=\textbf{(O\arabic*)}, leftmargin=3em, itemsep=0.25em]
-\item \textbf{(Trichotomy)} For all $a,b\in A$, exactly one of $a<b$, $a=b$, or $b<a$ holds.
-\item \textbf{(Transitivity)} For all $a,b,c\in A$, if $a<b$ and $b<c$, then $a<c$.
-\end{enumerate}
-We write $a\le b$ to mean $(a<b)$ or $(a=b)$.
-
-\paragraph{Ordered field.}
-An \emph{ordered field} is a field $(F,+,\cdot)$ equipped with an order relation $<$ on $F$ such that:
-\begin{enumerate}[label=\textbf{(OF\arabic*)}, leftmargin=3em, itemsep=0.25em]
-\item If $a<b$, then $a+c<b+c$ for all $c\in F$.
-\item If $a<b$ and $0<c$, then $ac<bc$.
+\item If $a,b,c\in F$ satisfy $a<b$, then $a+c<b+c$.
+\item If $a,b,c\in F$ satisfy $a<b$ and $0<c$, then $a\cdot c<b\cdot c$.
 \end{enumerate}
 
-\paragraph{Useful consequences (proved in Lecture 8).}
+\textbf{Useful consequences (proved in Lecture 8).}
 Let $(F,+,\cdot,<)$ be an ordered field.
 \begin{enumerate}[label=\textbf{(P\arabic*)}, leftmargin=3em, itemsep=0.25em]
-\item $a>0$ if and only if $-a<0$.
-\item If $a<b$ and $c<0$, then $ac>bc$.
-\item If $a\neq 0$, then $a^2>0$ (in particular, $1>0$).
-\item If $0<a<b$, then $0<b^{-1}<a^{-1}$.
+\item $a>0\iff -a<0$.
+\item If $a,b,c\in F$ satisfy $a<b$ and $c<0$, then $a\cdot c>b\cdot c$.
+\item If $a\in F$ satisfies $a\neq 0$, then $a^2=a\cdot a>0$. In particular, $1>0$.
+\item If $a,b\in F$ satisfy $0<a<b$, then $0<b^{-1}<a^{-1}$.
 \end{enumerate}
+
+
+\subsection*{Bounds, maxima/minima, and suprema/infima (Lecture 8)}
+
+\subsubsection*{Bounds and extrema}
+\textbf{Definition (Bounds; max/min).}
+Let $(F,+,\cdot,<)$ be an ordered field, and let $A\subseteq F$ be nonempty.
+\begin{enumerate}[label=\textbf{(B\arabic*)}, leftmargin=3em, itemsep=0.25em]
+\item $A$ is \emph{bounded above} if there exists $M\in F$ such that $a\le M$ for all $a\in A$. Any such $M$ is an \emph{upper bound} for $A$. If, in addition, $M\in A$, then $M$ is the \emph{maximum} of $A$.
+\item $A$ is \emph{bounded below} if there exists $m\in F$ such that $m\le a$ for all $a\in A$. Any such $m$ is a \emph{lower bound} for $A$. If, in addition, $m\in A$, then $m$ is the \emph{minimum} of $A$.
+\item $A$ is \emph{bounded} if it is both bounded above and bounded below.
+\end{enumerate}
+
+\textbf{Remark (Max/min need not exist; uniqueness).}
+Some sets do not have a maximum (or a minimum). If a maximum exists, then it is unique: if $M,M'\in A$ both satisfy
+$a\le M$ for all $a\in A$ and $a\le M'$ for all $a\in A$, then $M\le M'$ and $M'\le M$, hence $M=M'$.
+(The same statement holds for minima.)
+
+\textbf{Remark.}
+Even if a set does not have a maximum, it may still have (at least one) upper bound.
+
+\subsubsection*{Least upper bounds and greatest lower bounds}
+\textbf{Definition (Supremum/infimum).}
+Let $(F,+,\cdot,<)$ be an ordered field, and let $A\subseteq F$ be nonempty.
+\begin{enumerate}[label=\textbf{(S\arabic*)}, leftmargin=3em, itemsep=0.25em]
+\item A number $L\in F$ is the \emph{least upper bound} (or \emph{supremum}) of $A$ if:
+  \begin{itemize}[leftmargin=2em, itemsep=0.25em]
+  \item $L$ is an upper bound for $A$, and
+  \item if $M$ is an upper bound for $A$, then $L\le M$.
+  \end{itemize}
+  When this is true, we write $L=\sup A$.
+\item A number $\ell\in F$ is the \emph{greatest lower bound} (or \emph{infimum}) of $A$ if:
+  \begin{itemize}[leftmargin=2em, itemsep=0.25em]
+  \item $\ell$ is a lower bound for $A$, and
+  \item if $m$ is a lower bound for $A$, then $m\le \ell$.
+  \end{itemize}
+  When this is true, we write $\ell=\inf A$.
+\end{enumerate}
+
+\textbf{Lemma (Uniqueness of the supremum).}
+If $A\subseteq F$ has a least upper bound, then it is unique.
+
+\textbf{Proof.}
+Suppose $L,M\in F$ are both least upper bounds for $A$.
+Then $L$ is an upper bound and, since $M$ is a least upper bound, we have $M\le L$.
+Similarly, $M$ is an upper bound and, since $L$ is a least upper bound, we have $L\le M$.
+Therefore $L=M$.\qed
+
+
+\subsection*{Bounds, maxima/minima, and suprema/infima (Lecture 8)}
+
+\subsubsection*{Bounds and extrema}
+\begin{definition}
+Let $(F,+,\cdot,<)$ be an ordered field, and let $A\subseteq F$ be nonempty.
+\begin{enumerate}[label=\textbf{(B\arabic*)}, leftmargin=3em, itemsep=0.25em]
+\item We say that $A$ is \emph{bounded above} if there exists $M\in F$ such that $a\le M$ for all $a\in A$. Any such $M$ is called an \emph{upper bound} for $A$.
+If, in addition, $M\in A$, then $M$ is called the \emph{maximum} of $A$.
+\item We say that $A$ is \emph{bounded below} if there exists $m\in F$ such that $m\le a$ for all $a\in A$. Any such $m$ is called an \emph{lower bound} for $A$.
+If, in addition, $m\in A$, then $m$ is called the \emph{minimum} of $A$.
+\item We say that $A$ is \emph{bounded} if it is both bounded above and bounded below.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Some sets do not have a maximum (or a minimum). If a maximum exists, then it is unique: if $M,M'\in A$ both satisfy
+$a\le M$ for all $a\in A$ and $a\le M'$ for all $a\in A$, then $M\le M'$ and $M'\le M$, hence $M=M'$.
+(The same statement holds for minima.)
+\end{remark}
+
+\begin{remark}
+Even if a set does not have a maximum, it may still have (at least one) upper bound.
+\end{remark}
+
+\subsubsection*{Least upper bounds and greatest lower bounds}
+\begin{definition}
+Let $(F,+,\cdot,<)$ be an ordered field, and let $A\subseteq F$ be nonempty.
+\begin{enumerate}[label=\textbf{(S\arabic*)}, leftmargin=3em, itemsep=0.25em]
+\item A number $L\in F$ is called the \emph{least upper bound} (or \emph{supremum}) of $A$ if:
+  \begin{itemize}
+  \item $L$ is an upper bound for $A$, and
+  \item if $M$ is an upper bound for $A$, then $L\le M$.
+  \end{itemize}
+  When this is true, we write $L=\sup A$.
+\item A number $\ell\in F$ is called the \emph{greatest lower bound} (or \emph{infimum}) of $A$ if:
+  \begin{itemize}
+  \item $\ell$ is a lower bound for $A$, and
+  \item if $m$ is a lower bound for $A$, then $m\le \ell$.
+  \end{itemize}
+  When this is true, we write $\ell=\inf A$.
+\end{enumerate}
+\end{definition}
+
+\begin{lemma}
+The least upper bound of a set is unique, if it exists.
+\end{lemma}
+
+\begin{proof}
+Suppose $A\subseteq F$ and $L,M\in F$ are both least upper bounds for $A$.
+Because $L$ is a least upper bound, it is an upper bound; because $M$ is a least upper bound, it is an upper bound.
+Since $L$ is the \emph{least} upper bound and $M$ is an upper bound, we have $L\le M$.
+Similarly, since $M$ is the \emph{least} upper bound and $L$ is an upper bound, we have $M\le L$.
+Therefore $L=M$.
+\end{proof}
 
 \end{document}
