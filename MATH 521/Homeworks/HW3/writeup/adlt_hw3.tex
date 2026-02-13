@@ -288,9 +288,57 @@ Given two points $(x_1, y_1)$ and $(x_2, y_2)$ in $\mathbb{R}^2 = \{(x,y) : x,y 
 \end{enumerate}
 
 \begin{scratch}
+\textbf{Main ideas.}
+This is the \emph{lexicographic order} on $\mathbb{R}^2$.
+
+\begin{itemize}
+\item \textbf{(a)} To prove $<$ is an order relation on $\mathbb{R}^2$, verify the two defining properties:
+\textbf{trichotomy} and \textbf{transitivity}. The proofs reduce to the corresponding properties of the usual order on $\mathbb{R}$ by splitting into cases on the first coordinates.
+\item \textbf{(b)} To show the least upper bound property fails, use the set
+$A=\{(0,y): y\in\mathbb{R}\}$ (the $y$-axis). It is bounded above (e.g. by $(1,0)$), but any upper bound must have first coordinate $>0$, and then you can always find a strictly smaller upper bound by decreasing the first coordinate (e.g. replace $(x,y)$ by $(x/2,0)$). Hence no least upper bound exists.
+\end{itemize}
 \end{scratch}
 
 \textbf{Proof.}\\
+Let $p=(x_1,y_1)$, $q=(x_2,y_2)$, and $r=(x_3,y_3)$ be points in $\mathbb{R}^2$.
+
+\medskip
+\textbf{(a)} We prove that $<$ is an order relation on $\mathbb{R}^2$ in the sense of the lecture definition.
+
+\emph{Trichotomy.} By trichotomy of the usual order on $\mathbb{R}$, exactly one of $x_1<x_2$, $x_1=x_2$, or $x_2<x_1$ holds.
+
+\begin{itemize}
+\item If $x_1<x_2$, then $p<q$ by definition.
+\item If $x_2<x_1$, then $q<p$ by definition.
+\item If $x_1=x_2$, then by trichotomy on $\mathbb{R}$ applied to $y_1,y_2$, exactly one of $y_1<y_2$, $y_1=y_2$, or $y_2<y_1$ holds. In the first case, $p<q$; in the second, $p=q$; in the third, $q<p$.
+\end{itemize}
+Therefore exactly one of $p<q$, $p=q$, or $q<p$ holds.
+
+\emph{Transitivity.} Assume $p<q$ and $q<r$. We show $p<r$.
+
+If $x_1<x_2$, then from $q<r$ we have either $x_2<x_3$ or $x_2=x_3$. In both cases $x_2\le x_3$, hence $x_1<x_3$, so $p<r$ by definition.
+
+If instead $x_1=x_2$, then $p<q$ forces $y_1<y_2$. Now consider $q<r$:
+\begin{itemize}
+\item If $x_2<x_3$, then $x_1=x_2<x_3$, so $p<r$.
+\item If $x_2=x_3$, then $q<r$ forces $y_2<y_3$, and by transitivity in $\mathbb{R}$ we get $y_1<y_3$, so (since $x_1=x_3$) we conclude $p<r$.
+\end{itemize}
+Thus $<$ is transitive.
+
+Since $<$ satisfies trichotomy and transitivity, it is an order relation on $\mathbb{R}^2$.
+
+\medskip
+\textbf{(b)} Let
+\[
+A:=\{(0,y): y\in\mathbb{R}\}\subseteq\mathbb{R}^2.
+\]
+Then $A$ is nonempty (for example $(0,0)\in A$). We claim $A$ is bounded above in $(\mathbb{R}^2,<)$. Indeed, $(1,0)$ is an upper bound, because for any $(0,y)\in A$ we have $0<1$, hence $(0,y)<(1,0)$ by the definition of $<$.
+
+We show $A$ has \emph{no} least upper bound. First note that if $(u,v)$ is any upper bound of $A$, then necessarily $u>0$. If $u<0$, then $(0,0)\in A$ would satisfy $(u,v)<(0,0)$, so $(u,v)$ could not be an upper bound. If $u=0$, then being an upper bound would require $y\le v$ for all $y\in\mathbb{R}$, which is impossible.
+
+Now take any upper bound $(u,v)$ of $A$; then $u>0$. Define $w:=(u/2,0)$. For any $(0,y)\in A$ we have $0<u/2$, hence $(0,y)<(u/2,0)=w$, so $w$ is also an upper bound of $A$. But $w<(u,v)$ because $u/2<u$.
+
+Therefore every upper bound of $A$ is strictly larger than some other upper bound of $A$, so no least upper bound exists. Hence $(\mathbb{R}^2,<)$ does not satisfy the least upper bound property.
 \qed
 
 \newpage
@@ -400,6 +448,32 @@ $a\cdot a^{-1}=a^{-1}\cdot a=1$.
 \item For all $a,b\in F$, we have $(-a)\cdot b=a\cdot(-b)=-(a\cdot b)$.
 \item For all $a,b\in F$, we have $(-a)\cdot(-b)=a\cdot b$.
 \item If $a\cdot b=0$, then $a=0$ or $b=0$.
+\end{enumerate}
+
+\subsection*{Order relations and ordered fields (Lectures 7--8)}
+
+\paragraph{Order relation on a set.}
+Let $A$ be a nonempty set. A relation $<$ on $A$ is an \emph{order relation} if it satisfies:
+\begin{enumerate}[label=\textbf{(O\arabic*)}, leftmargin=3em, itemsep=0.25em]
+\item \textbf{(Trichotomy)} For all $a,b\in A$, exactly one of $a<b$, $a=b$, or $b<a$ holds.
+\item \textbf{(Transitivity)} For all $a,b,c\in A$, if $a<b$ and $b<c$, then $a<c$.
+\end{enumerate}
+We write $a\le b$ to mean $(a<b)$ or $(a=b)$.
+
+\paragraph{Ordered field.}
+An \emph{ordered field} is a field $(F,+,\cdot)$ equipped with an order relation $<$ on $F$ such that:
+\begin{enumerate}[label=\textbf{(OF\arabic*)}, leftmargin=3em, itemsep=0.25em]
+\item If $a<b$, then $a+c<b+c$ for all $c\in F$.
+\item If $a<b$ and $0<c$, then $ac<bc$.
+\end{enumerate}
+
+\paragraph{Useful consequences (proved in Lecture 8).}
+Let $(F,+,\cdot,<)$ be an ordered field.
+\begin{enumerate}[label=\textbf{(P\arabic*)}, leftmargin=3em, itemsep=0.25em]
+\item $a>0$ if and only if $-a<0$.
+\item If $a<b$ and $c<0$, then $ac>bc$.
+\item If $a\neq 0$, then $a^2>0$ (in particular, $1>0$).
+\item If $0<a<b$, then $0<b^{-1}<a^{-1}$.
 \end{enumerate}
 
 \end{document}
