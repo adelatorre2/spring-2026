@@ -568,9 +568,50 @@ Let $A, B \subseteq \mathbb{R}$ be nonempty and bounded sets. Prove or disprove 
 \end{enumerate}
 
 \begin{scratch}
+\textbf{Main ideas.}
+Let $A,B\subseteq\mathbb{R}$ be nonempty and bounded.
+
+\begin{itemize}
+\item \textbf{(a) True.} The hypothesis
+\[a\le b\quad\text{for all }a\in A\text{ and all }b\in B\]
+says: \emph{every element of $B$ is an upper bound for $A$}. By the definition of supremum, $\sup A$ is \emph{below every} upper bound of $A$, hence $\sup A\le b$ for all $b\in B$. That means $\sup A$ is a \emph{lower bound} for $B$, so by the definition of infimum (greatest lower bound), $\sup A\le \inf B$.
+
+\item \textbf{(b) False in general.} Even if $a<b$ for all $a\in A$ and $b\in B$, it can still happen that $\sup A=\inf B$ because $\sup A$ need not belong to $A$. A clean counterexample is
+\[A=(0,1),\qquad B=\{1\}.
+\]
+Then $a<1$ for all $a\in(0,1)$, but $\sup A=1$ and $\inf B=1$.
+\end{itemize}
 \end{scratch}
 
 \textbf{Proof.}\\
+Let $A,B\subseteq\mathbb{R}$ be nonempty and bounded.
+
+\medskip
+\textbf{(a)} Assume that $a\le b$ for all $a\in A$ and all $b\in B$. We prove that $\sup A\le \inf B$.
+
+Fix any $b\in B$. By the hypothesis, $a\le b$ for every $a\in A$, so $b$ is an upper bound for $A$ (Appendix, Definition \textbf{(B1)}). Let $\alpha:=\sup A$. By the defining property of the supremum (Appendix, Definition \textbf{(S1)}), we have
+\[
+\alpha\le b.
+\]
+Because $b\in B$ was arbitrary, we conclude that $\alpha\le b$ for all $b\in B$, i.e. $\alpha$ is a lower bound for $B$ (Appendix, Definition \textbf{(B2)}).
+
+Let $\beta:=\inf B$. By the defining property of the infimum (Appendix, Definition \textbf{(S2)}), $\beta$ is the \emph{greatest} lower bound of $B$, so every lower bound of $B$ is $\le\beta$. In particular, since $\alpha$ is a lower bound of $B$, we obtain
+\[
+\sup A=\alpha\le \beta=\inf B.
+\]
+
+\medskip
+\textbf{(b)} The statement is \emph{false}. Consider
+\[
+A:=(0,1),\qquad B:=\{1\}.
+\]
+Then $A$ and $B$ are nonempty and bounded subsets of $\mathbb{R}$. Moreover, for every $a\in A$ and every $b\in B$ we have $b=1$ and $0<a<1$, hence $a<b$.
+
+However, $\sup A=1$ (because $1$ is an upper bound for $(0,1)$ and any smaller number fails to be an upper bound), and clearly $\inf B=1$ because $B$ consists of the single element $1$. Therefore
+\[
+\sup A=1=\inf B,
+\]
+so it is \emph{not} true that $\sup A<\inf B$ in general.
 \qed
 
 % ============================================================
