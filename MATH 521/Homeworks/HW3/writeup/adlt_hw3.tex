@@ -162,9 +162,17 @@ Let $(F, +, \cdot)$ be a field.
 \end{enumerate}
 
 \begin{scratch}
-For (a), use the defining property of $b$ with $a=1$ (the multiplicative identity given by the
-field axioms). Then compare $b\cdot 1$ computed in two ways: (i) by the hypothesis on $b$ and
-(ii) by the fact that $1$ is a multiplicative identity in $F$.
+\textbf{Main ideas (and why we cannot “just divide”).}
+In a general field, “division” is not a primitive operation. Instead, we justify any division-like step
+by introducing multiplicative inverses via \textbf{(M5)} and then using associativity \textbf{(M3)} and the identity \textbf{(M4)}.
+
+\begin{itemize}
+\item \textbf{(a)} Compare $b\cdot 1$ computed from the hypothesis and from \textbf{(M4)}.
+\item \textbf{(b)} Insert $1=a\cdot a^{-1}$ (from \textbf{(M5)}) and reassociate (by \textbf{(M3)}) to force $b=a^{-1}$.
+\item \textbf{(c)} Prove cancellation by multiplying $a\cdot b=a\cdot c$ on the left by $a^{-1}$ (existence from \textbf{(M5)}), then use \textbf{(M3)} and \textbf{(M4)}.
+\item \textbf{(d)} Show $(-a)+(-b)$ is an additive inverse of $(a+b)$ by checking $(a+b)+((-a)+(-b))=0$ using \textbf{(A2)}, \textbf{(A3)}, \textbf{(A4)}, \textbf{(A5)}. Conclude it equals $-(a+b)$ by uniqueness of additive inverses (proved from the axioms, as in lecture).
+\item \textbf{(e)} Show $a^{-1}\cdot b^{-1}$ is an inverse of $ab$ using commutativity \textbf{(M2)}, associativity \textbf{(M3)}, and \textbf{(M5)}. Then apply (b) to conclude $a^{-1}b^{-1}=(ab)^{-1}$.
+\end{itemize}
 \end{scratch}
 
 \textbf{Proof.}\\
@@ -175,25 +183,96 @@ Let $(F,+,\cdot)$ be a field.
 \[
 b\cdot a = a\cdot b = a \quad \text{for all } a\in F.
 \]
-Let $1\in F$ denote the multiplicative identity provided by the field axioms. Plugging in $a=1$
-gives
+Let $1\in F$ be the multiplicative identity whose existence is guaranteed by \textbf{(M4)}.
+Setting $a=1$ in the hypothesis gives
 \[
 b\cdot 1 = 1.
 \]
-On the other hand, since $1$ is a multiplicative identity, we also have $b\cdot 1 = b$.
-Therefore $b=1$, proving that the multiplicative identity is unique.
+But by \textbf{(M4)} (applied with $a=b$), we also have $b\cdot 1=b$. Therefore $b=1$, so the
+multiplicative identity is unique.
 
 \medskip
-\textbf{(b)} \emph{TODO.}
+\textbf{(b)} Suppose $a\in F\setminus\{0\}$ and $b\in F$ satisfy
+\[
+b\cdot a = a\cdot b = 1.
+\]
+By the multiplicative inverse axiom \textbf{(M5)}, there exists $a^{-1}\in F$ such that
+\[
+a\cdot a^{-1} = a^{-1}\cdot a = 1.
+\]
+We prove that $b=a^{-1}$. Using the multiplicative identity axiom \textbf{(M4)}, we have
+\[
+b = b\cdot 1.
+\]
+Substituting $1=a\cdot a^{-1}$ from \textbf{(M5)} gives
+\[
+b = b\cdot (a\cdot a^{-1}).
+\]
+By associativity of multiplication \textbf{(M3)},
+\[
+b\cdot (a\cdot a^{-1}) = (b\cdot a)\cdot a^{-1}.
+\]
+Using the hypothesis $b\cdot a=1$, this becomes
+\[
+(b\cdot a)\cdot a^{-1} = 1\cdot a^{-1}.
+\]
+Finally, by \textbf{(M4)} we have $1\cdot a^{-1}=a^{-1}$. Therefore $b=a^{-1}$, so the
+multiplicative inverse of $a$ is unique.
 
 \medskip
-\textbf{(c)} \emph{TODO.}
+\textbf{(c)} Suppose $a,b,c\in F$ satisfy $a\cdot b=a\cdot c$ and $a\neq 0$. By \textbf{(M5)}, there exists
+$a^{-1}\in F$ such that $a^{-1}\cdot a=1$. Multiply the equality $a\cdot b=a\cdot c$ on the left by $a^{-1}$:
+\[
+a^{-1}\cdot (a\cdot b)=a^{-1}\cdot (a\cdot c).
+\]
+By associativity \textbf{(M3)},
+\[
+(a^{-1}\cdot a)\cdot b=(a^{-1}\cdot a)\cdot c.
+\]
+Using $a^{-1}\cdot a=1$ (from \textbf{(M5)}) and the identity axiom \textbf{(M4)}, we get
+\[
+1\cdot b=1\cdot c \quad\Rightarrow\quad b=c.
+\]
 
 \medskip
-\textbf{(d)} \emph{TODO.}
+\textbf{(d)} We claim that $-a+(-b)$ is the additive inverse of $a+b$, hence equals $-(a+b)$.
+First compute, using associativity \textbf{(A3)} and commutativity \textbf{(A2)} of $+$,
+\begin{align*}
+(a+b)+\bigl((-a)+(-b)\bigr)
+&= a+\Bigl(b+\bigl((-a)+(-b)\bigr)\Bigr) \quad \text{by \textbf{(A3)}}\\
+&= a+\Bigl(\bigl(b+(-b)\bigr)+(-a)\Bigr) \quad \text{by \textbf{(A3)} and \textbf{(A2)}}\\
+&= a+\bigl(0+(-a)\bigr) \quad \text{by \textbf{(A5)}}\\
+&= a+(-a) \quad \text{by \textbf{(A4)}}\\
+&= 0 \quad \text{by \textbf{(A5)}}.
+\end{align*}
+Thus $(-a)+(-b)$ is an additive inverse of $a+b$.
+
+\emph{Uniqueness of additive inverses (from axioms).} If $x,y\in F$ both satisfy $(a+b)+x=0$ and $(a+b)+y=0$,
+then adding $-(a+b)$ to both sides and using \textbf{(A3)}, \textbf{(A4)}, \textbf{(A5)} yields $x=y$ (as in lecture).
+Therefore the additive inverse of $a+b$ is unique, and since $-(a+b)$ denotes that unique inverse, we conclude
+\[
+-a+(-b)=(-a)+(-b)=-(a+b).
+\]
 
 \medskip
-\textbf{(e)} \emph{TODO.}
+\textbf{(e)} Assume $a,b\in F$ with $a\neq 0$ and $b\neq 0$. By \textbf{(M5)}, there exist $a^{-1},b^{-1}\in F$ such that
+$a\cdot a^{-1}=1$ and $b\cdot b^{-1}=1$. Consider
+\[
+(ab)\cdot (a^{-1}\cdot b^{-1}).
+\]
+By associativity \textbf{(M3)} and commutativity \textbf{(M2)},
+\[
+(ab)\cdot (a^{-1}b^{-1}) = a\cdot b\cdot a^{-1}\cdot b^{-1}
+= (a\cdot a^{-1})\cdot (b\cdot b^{-1}).
+\]
+Using \textbf{(M5)} and then \textbf{(M4)}, this equals $1\cdot 1=1$. Similarly,
+\[
+(a^{-1}b^{-1})\cdot (ab)=1.
+\]
+Hence $a^{-1}b^{-1}$ is a multiplicative inverse of $ab$. By part \textbf{(b)} (uniqueness of inverses),
+\[
+a^{-1}\cdot b^{-1}=(ab)^{-1}.
+\]
 \qed
 
 \newpage
@@ -286,16 +365,41 @@ Let $A, B \subseteq \mathbb{R}$ be nonempty and bounded sets. Prove or disprove 
 % ============================================================
 \newpage
 \appendix
-\section*{Appendix: Toolbox (optional)}
+\section*{Appendix: Toolbox}
 \addcontentsline{toc}{section}{Appendix: Toolbox (optional)}
 
-% Example (using amsthm environments instead of boxed tcolorboxes):
-% \begin{definition}
-% A metric space is ...
-% \end{definition}
-%
-% \begin{theorem}[Heine--Borel]
-% ...
-% \end{theorem}
+\subsection*{Field axioms (as used in lecture)}
+\begin{enumerate}[label=\textbf{(A\arabic*)}, leftmargin=3em, itemsep=0.25em]
+\item \textbf{(Closure for $+$)} If $a,b\in F$, then $a+b\in F$.
+\item \textbf{(Commutativity of $+$)} If $a,b\in F$, then $a+b=b+a$.
+\item \textbf{(Associativity of $+$)} If $a,b,c\in F$, then $(a+b)+c=a+(b+c)$.
+\item \textbf{(Additive identity)} There exists $0\in F$ such that $a+0=0+a=a$ for all $a\in F$.
+\item \textbf{(Additive inverses)} For each $a\in F$ there exists $-a\in F$ such that
+$a+(-a)=(-a)+a=0$.
+\end{enumerate}
+
+\begin{enumerate}[label=\textbf{(M\arabic*)}, leftmargin=3em, itemsep=0.25em]
+\item \textbf{(Closure for $\cdot$)} If $a,b\in F$, then $a\cdot b\in F$.
+\item \textbf{(Commutativity of $\cdot$)} If $a,b\in F$, then $a\cdot b=b\cdot a$.
+\item \textbf{(Associativity of $\cdot$)} If $a,b,c\in F$, then $(a\cdot b)\cdot c=a\cdot(b\cdot c)$.
+\item \textbf{(Multiplicative identity)} There exists $1\in F$ such that $a\cdot 1=1\cdot a=a$ for all $a\in F$.
+\item \textbf{(Multiplicative inverses)} For each $a\in F\setminus\{0\}$ there exists $a^{-1}\in F$ such that
+$a\cdot a^{-1}=a^{-1}\cdot a=1$.
+\end{enumerate}
+
+\begin{enumerate}[label=\textbf{(D)}, leftmargin=3em, itemsep=0.25em]
+\item \textbf{(Distributivity)} If $a,b,c\in F$, then $(a+b)\cdot c=a\cdot c+b\cdot c$.
+\end{enumerate}
+
+\subsection*{Derived properties of fields (proved from the axioms in Lecture 7)} % (Feb 6, 2026)
+\begin{enumerate}[label=\textbf{(\arabic*)}, leftmargin=3em, itemsep=0.25em]
+\item The additive and multiplicative identities are unique.
+\item Additive and multiplicative inverses are unique.
+\item If $a,b,c\in F$ satisfy $a+b=a+c$, then $b=c$. If $a,b,c\in F$ satisfy $a\cdot b=a\cdot c$ and $a\neq 0$, then $b=c$.
+\item For all $a\in F$, we have $a\cdot 0=0\cdot a=0$.
+\item For all $a,b\in F$, we have $(-a)\cdot b=a\cdot(-b)=-(a\cdot b)$.
+\item For all $a,b\in F$, we have $(-a)\cdot(-b)=a\cdot b$.
+\item If $a\cdot b=0$, then $a=0$ or $b=0$.
+\end{enumerate}
 
 \end{document}
