@@ -333,10 +333,13 @@ Since $<$ satisfies trichotomy and transitivity, it is an order relation on $\ma
 A:=\{(0,y): y\in\mathbb{R}\}\subseteq\mathbb{R}^2.
 \]
 Then $A$ is nonempty (for example $(0,0)\in A$). We claim $A$ is bounded above in $(\mathbb{R}^2,<)$. Indeed, $(1,0)$ is an upper bound, because for any $(0,y)\in A$ we have $0<1$, hence $(0,y)<(1,0)$ by the definition of $<$.
+\vspace{1em}
 
-We show $A$ has \emph{no} least upper bound. First note that if $(u,v)$ is any upper bound of $A$, then necessarily $u>0$. If $u<0$, then $(0,0)\in A$ would satisfy $(u,v)<(0,0)$, so $(u,v)$ could not be an upper bound. If $u=0$, then being an upper bound would require $y\le v$ for all $y\in\mathbb{R}$, which is impossible.
+We show $A$ has \emph{no} least upper bound. First note that if $(u,v)$ is any upper bound of $A$, then necessarily $u>0$. If $u<0$, then $(0,0)\in A$ would satisfy $(u,v)<(0,0)$, so $(u,v)$ could not be an upper bound. If $u=0$, then being an upper bound would require $y\le v$ for all $y\in\mathbb{R}$, which is impossible since $A$ contains all points $(0,y)$ with $y \in \mathbb{R}$ and $\mathbb{R}$ is unbounded above.
+\vspace{1em}
 
 Now take any upper bound $(u,v)$ of $A$; then $u>0$. Define $w:=(u/2,0)$. For any $(0,y)\in A$ we have $0<u/2$, hence $(0,y)<(u/2,0)=w$, so $w$ is also an upper bound of $A$. But $w<(u,v)$ because $u/2<u$.
+\vspace{1em}
 
 Therefore every upper bound of $A$ is strictly larger than some other upper bound of $A$, so no least upper bound exists. Hence $(\mathbb{R}^2,<)$ does not satisfy the least upper bound property.
 \qed
@@ -394,7 +397,7 @@ Similarly, multiply the second equation by $a$ and the first by $b$, then subtra
 whose left-hand side simplifies to $(a^2+b^2)d$, so
 \[(a^2+b^2)d=-b.
 \]
-Because $a+ib\neq 0$, we have $(a,b)\neq (0,0)$, hence $a^2+b^2>0$ and in particular $a^2+b^2\neq 0$.
+Because $a+ib\neq 0$, we have $(a,b)\neq (0,0)$, hence $a^2+b^2>0$ (since $a^2 \geq 0$ and $b^2 \geq 0$, and not both are zero, we have $a^2 + b^2 > 0$) and in particular $a^2+b^2\neq 0$.
 Therefore we may divide by $a^2+b^2$ to obtain
 \[c=\frac{a}{a^2+b^2},\qquad d=-\frac{b}{a^2+b^2}.
 \]
@@ -534,15 +537,15 @@ S:=\{a+b: a\in A\text{ and } b\in B\}.
 \]
 Let $\alpha:=\sup A$ and $\beta:=\sup B$.
 
-\emph{Step 1: $\alpha+\beta$ is an upper bound for $S$.}
+%\emph{Step 1: $\alpha+\beta$ is an upper bound for $S$.}
 Let $s\in S$. Then there exist $a\in A$ and $b\in B$ with $s=a+b$. Since $\alpha$ is an upper bound for $A$ and $\beta$ is an upper bound for $B$, we have $a\le \alpha$ and $b\le \beta$. Adding these inequalities gives
 \[
 a+b\le \alpha+\beta,
 \]
 so $s\le \alpha+\beta$. Hence $\alpha+\beta$ is an upper bound for $S$.
 
-\emph{Step 2: $\alpha+\beta$ is the least upper bound for $S$.}
-Let $M\in\mathbb{R}$ be any upper bound for $S$. Fix $b\in B$. For every $a\in A$, we have $a+b\in S$, hence $a+b\le M$. Subtracting $b$ from both sides yields $a\le M-b$ for all $a\in A$, so $M-b$ is an upper bound for $A$. By definition of $\alpha=\sup A$, we get
+%\emph{Step 2: $\alpha+\beta$ is the least upper bound for $S$.}
+Let $M\in\mathbb{R}$ be any upper bound for $S$. Fix $b\in B$. For every $a\in A$, we have $a+b\in S$, hence $a+b\le M$. Adding $-b$ to both sides (by \textbf{(O1)}) yields $a\le M-b$ for all $a\in A$, so $M-b$ is an upper bound for $A$. By definition of $\alpha=\sup A$, we get
 \[
 \alpha\le M-b,
 \]
@@ -620,9 +623,9 @@ so it is \emph{not} true that $\sup A<\inf B$ in general.
 \newpage
 \appendix
 \section*{Appendix: Toolbox}
-\addcontentsline{toc}{section}{Appendix: Toolbox (optional)}
-
-\subsection*{Field axioms (as used in lecture)}
+\addcontentsline{toc}{section}{Appendix: Toolbox}
+Basically a summary of lectures 6---9; something like a little cheatsheet review. Anyways, below is the good stuff.
+\subsection*{Field axioms}
 \begin{enumerate}[label=\textbf{(A\arabic*)}, leftmargin=3em, itemsep=0.25em]
 \item \textbf{(Closure for $+$)} If $a,b\in F$, then $a+b\in F$.
 \item \textbf{(Commutativity of $+$)} If $a,b\in F$, then $a+b=b+a$.
