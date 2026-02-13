@@ -515,9 +515,47 @@ S = \{a + b : a \in A \text{ and } b \in B\}.
 Prove that $\sup S = \sup A + \sup B$.
 
 \begin{scratch}
+\textbf{Main idea.} Let $\alpha:=\sup A$ and $\beta:=\sup B$. We show
+\[\sup S=\alpha+\beta\]
+by the standard two-step pattern for suprema:
+
+\begin{itemize}
+\item \textbf{Upper bound:} For any $s\in S$, write $s=a+b$ with $a\in A$, $b\in B$. Since $a\le \alpha$ and $b\le \beta$, we get $s\le \alpha+\beta$. Hence $\alpha+\beta$ is an upper bound for $S$.
+\item \textbf{Leastness:} If $M$ is any upper bound for $S$, then for each fixed $b\in B$ we have $a+b\le M$ for all $a\in A$, hence $a\le M-b$. Thus $M-b$ is an upper bound for $A$, so $\alpha\le M-b$, i.e. $\alpha+b\le M$ for all $b\in B$. Therefore $M-\alpha$ is an upper bound for $B$, so $\beta\le M-\alpha$, which gives $\alpha+\beta\le M$.
+\end{itemize}
+
+This proves $\alpha+\beta$ is the least upper bound of $S$.
 \end{scratch}
 
 \textbf{Proof.}\\
+Let $A,B\subseteq\mathbb{R}$ be nonempty and bounded, and set
+\[
+S:=\{a+b: a\in A\text{ and } b\in B\}.
+\]
+Let $\alpha:=\sup A$ and $\beta:=\sup B$.
+
+\emph{Step 1: $\alpha+\beta$ is an upper bound for $S$.}
+Let $s\in S$. Then there exist $a\in A$ and $b\in B$ with $s=a+b$. Since $\alpha$ is an upper bound for $A$ and $\beta$ is an upper bound for $B$, we have $a\le \alpha$ and $b\le \beta$. Adding these inequalities gives
+\[
+a+b\le \alpha+\beta,
+\]
+so $s\le \alpha+\beta$. Hence $\alpha+\beta$ is an upper bound for $S$.
+
+\emph{Step 2: $\alpha+\beta$ is the least upper bound for $S$.}
+Let $M\in\mathbb{R}$ be any upper bound for $S$. Fix $b\in B$. For every $a\in A$, we have $a+b\in S$, hence $a+b\le M$. Subtracting $b$ from both sides yields $a\le M-b$ for all $a\in A$, so $M-b$ is an upper bound for $A$. By definition of $\alpha=\sup A$, we get
+\[
+\alpha\le M-b,
+\]
+which implies $\alpha+b\le M$. Because this holds for every $b\in B$, we have $b\le M-\alpha$ for all $b\in B$, so $M-\alpha$ is an upper bound for $B$. By definition of $\beta=\sup B$, we obtain
+\[
+\beta\le M-\alpha.
+\]
+Adding $\alpha$ to both sides gives $\alpha+\beta\le M$.
+
+Since $\alpha+\beta$ is an upper bound for $S$ and is $\le$ every upper bound $M$ of $S$, it is the least upper bound. Therefore
+\[
+\sup S=\alpha+\beta=\sup A+\sup B.
+\]
 \qed
 
 \newpage
@@ -660,59 +698,69 @@ Similarly, $M$ is an upper bound and, since $L$ is a least upper bound, we have 
 Therefore $L=M$.\qed
 
 
-\subsection*{Bounds, maxima/minima, and suprema/infima (Lecture 8)}
 
-\subsubsection*{Bounds and extrema}
-\begin{definition}
-Let $(F,+,\cdot,<)$ be an ordered field, and let $A\subseteq F$ be nonempty.
-\begin{enumerate}[label=\textbf{(B\arabic*)}, leftmargin=3em, itemsep=0.25em]
-\item We say that $A$ is \emph{bounded above} if there exists $M\in F$ such that $a\le M$ for all $a\in A$. Any such $M$ is called an \emph{upper bound} for $A$.
-If, in addition, $M\in A$, then $M$ is called the \emph{maximum} of $A$.
-\item We say that $A$ is \emph{bounded below} if there exists $m\in F$ such that $m\le a$ for all $a\in A$. Any such $m$ is called an \emph{lower bound} for $A$.
-If, in addition, $m\in A$, then $m$ is called the \emph{minimum} of $A$.
-\item We say that $A$ is \emph{bounded} if it is both bounded above and bounded below.
-\end{enumerate}
-\end{definition}
+\subsection*{Completeness and the real numbers (Lectures 8--9)}
 
-\begin{remark}
-Some sets do not have a maximum (or a minimum). If a maximum exists, then it is unique: if $M,M'\in A$ both satisfy
-$a\le M$ for all $a\in A$ and $a\le M'$ for all $a\in A$, then $M\le M'$ and $M'\le M$, hence $M=M'$.
-(The same statement holds for minima.)
-\end{remark}
-
-\begin{remark}
-Even if a set does not have a maximum, it may still have (at least one) upper bound.
-\end{remark}
-
-\subsubsection*{Least upper bounds and greatest lower bounds}
-\begin{definition}
-Let $(F,+,\cdot,<)$ be an ordered field, and let $A\subseteq F$ be nonempty.
-\begin{enumerate}[label=\textbf{(S\arabic*)}, leftmargin=3em, itemsep=0.25em]
-\item A number $L\in F$ is called the \emph{least upper bound} (or \emph{supremum}) of $A$ if:
-  \begin{itemize}
-  \item $L$ is an upper bound for $A$, and
-  \item if $M$ is an upper bound for $A$, then $L\le M$.
-  \end{itemize}
-  When this is true, we write $L=\sup A$.
-\item A number $\ell\in F$ is called the \emph{greatest lower bound} (or \emph{infimum}) of $A$ if:
-  \begin{itemize}
-  \item $\ell$ is a lower bound for $A$, and
-  \item if $m$ is a lower bound for $A$, then $m\le \ell$.
-  \end{itemize}
-  When this is true, we write $\ell=\inf A$.
-\end{enumerate}
-\end{definition}
-
-\begin{lemma}
-The least upper bound of a set is unique, if it exists.
-\end{lemma}
+\begin{proposition}[Irrationality of $\sqrt{2}$]
+We have $\sqrt{2}\notin\mathbb{Q}$.
+\end{proposition}
 
 \begin{proof}
-Suppose $A\subseteq F$ and $L,M\in F$ are both least upper bounds for $A$.
-Because $L$ is a least upper bound, it is an upper bound; because $M$ is a least upper bound, it is an upper bound.
-Since $L$ is the \emph{least} upper bound and $M$ is an upper bound, we have $L\le M$.
-Similarly, since $M$ is the \emph{least} upper bound and $L$ is an upper bound, we have $M\le L$.
-Therefore $L=M$.
+Suppose, for contradiction, that $\sqrt{2}\in\mathbb{Q}$. Then we may write
+\[\sqrt{2}=\frac{a}{b}\]
+for some integers $a\in\mathbb{Z}$ and $b\in\mathbb{N}$ with no common factors (i.e. the fraction is in lowest terms).
+Squaring gives
+\[2=\frac{a^2}{b^2}\qquad\Rightarrow\qquad 2b^2=a^2.
+\]
+Thus $a^2$ is even, hence $a$ is even. Write $a=2k$ for some $k\in\mathbb{Z}$. Substituting yields
+\[2b^2=(2k)^2=4k^2\qquad\Rightarrow\qquad b^2=2k^2.
+\]
+So $b^2$ is even, hence $b$ is even. Therefore both $a$ and $b$ are even, contradicting that $a/b$ was in lowest terms.
+Hence $\sqrt{2}\notin\mathbb{Q}$.
 \end{proof}
+
+\begin{definition}[Least upper bound property]
+Let $<$ be an order relation on a set $F$. We say that $F$ has the \emph{least upper bound property} if for every nonempty subset
+$A\subseteq F$ that is bounded above, there exists a least upper bound of $A$ that belongs to $F$ (i.e. $\sup A\in F$).
+\end{definition}
+
+\begin{remark}
+The ordered field $(\mathbb{Q},+,\cdot,<)$ does \emph{not} have the least upper bound property. For example,
+\[A:=\{x\in\mathbb{Q}: x^2<2\}\]
+is nonempty and bounded above in $\mathbb{Q}$, but $A$ has no supremum in $\mathbb{Q}$ (its “expected” supremum would be $\sqrt{2}$,
+which is not rational).
+\end{remark}
+
+\begin{theorem}[Existence and uniqueness of $\mathbb{R}$ as a complete ordered field]
+There exists an ordered field with the least upper bound property. We denote it by
+\[(\mathbb{R},+,\cdot,<).
+\]
+This ordered field is unique up to order-preserving field isomorphism, and moreover $\mathbb{R}$ contains $\mathbb{Q}$ as a subfield.
+\end{theorem}
+
+\begin{proposition}[Existence of infima in $\mathbb{R}$]
+If $A\subseteq\mathbb{R}$ is nonempty and bounded below, then $\inf A$ exists in $\mathbb{R}$.
+\end{proposition}
+
+\begin{proof}
+Assume $A\subseteq\mathbb{R}$ is nonempty and bounded below. Define
+\[-A:=\{-a: a\in A\}.
+\]
+Then $-A$ is nonempty, and $-A$ is bounded above (if $m$ is a lower bound for $A$, then $-m$ is an upper bound for $-A$).
+By the least upper bound property of $\mathbb{R}$, $\sup(-A)$ exists in $\mathbb{R}$. We claim that
+\[\inf A=-\sup(-A).
+\]
+Let $L:=\sup(-A)$. For any $a\in A$ we have $-a\in -A$, hence $-a\le L$, i.e. $-L\le a$. So $-L$ is a lower bound for $A$.
+If $m$ is any lower bound for $A$, then $m\le a$ for all $a\in A$, so $-a\le -m$ for all $a\in A$, meaning $-m$ is an upper bound for $-A$.
+By definition of $L=\sup(-A)$, we have $L\le -m$, hence $m\le -L$.
+Thus $-L$ is the greatest lower bound of $A$, so $\inf A=-L=-\sup(-A)$.
+\end{proof}
+
+\begin{remark}[A useful identity]
+For any nonempty $A\subseteq\mathbb{R}$ that is bounded below,
+\[\inf A=-\sup(-A),\qquad \text{where } -A:=\{-a:a\in A\}.
+\]
+Conceptually: turning a lower-bound problem for $A$ into an upper-bound problem for $-A$ lets us apply completeness (the LUB property).
+\end{remark}
 
 \end{document}
