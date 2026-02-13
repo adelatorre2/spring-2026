@@ -95,7 +95,6 @@
 
 \newcommand{\OmegaSpace}{\Omega}
 \newcommand{\FField}{\mathcal{F}}
-\newcommand{\PMeasure}{\mathbb{P}} % Probability measure in case it is relevant or want to distinguish it from P(A)
 \newcommand{\E}{\mathbb{E}}
 
 \newcommand{\given}{\,\middle|\,}
@@ -159,6 +158,11 @@ Instructor: \Instructor}
 % (Optional) Write “I worked alone” or list collaborators/resources.
 
 \tableofcontents
+\begingroup
+\renewcommand{\thefootnote}{}
+\footnotetext{Notation: We sometimes use the standard shorthand for intersections of events: $AB$ means $A\cap B$, $A^cB$ means $A^c\cap B$, and $ABC$ means $A\cap B\cap C$. This shorthand is used consistently throughout.}
+\endgroup
+\setcounter{footnote}{0}
 \bigskip
 \hrule
 \bigskip
@@ -172,13 +176,16 @@ Instructor: \Instructor}
 We have two urns. The first urn contains two balls labeled 1 and 2. The second urn contains three balls labeled 3, 4 and 5. We choose one of the urns at random (with equal probability) and then sample one ball (uniformly at random) from the chosen urn. What is the probability that we picked the ball labeled 5?
 
 \begin{solution}
-% write solution here
-
 \begin{scratch}
-% optional: setup / definitions / plan
+Let $U_1$ be the event we choose urn 1, $U_2$ the event we choose urn 2. Let $F$ be the event that we pick ball 5. Use the law of total probability over $U_1, U_2$.
 \end{scratch}
 
-% write full solution here; use \finalanswer{...} at the end if appropriate
+We have $P(U_1)=P(U_2)=\tfrac12$. Also $P\!\left(F \given U_1\right)=0$ and $P\!\left(F \given U_2\right)=\tfrac13$. Therefore,
+\[
+P(F)=P\!\left(F \given U_1\right)P(U_1)+P\!\left(F \given U_2\right)P(U_2)
+=0\cdot \tfrac12+\tfrac13\cdot \tfrac12=\tfrac16.
+\]
+\finalanswer{\tfrac16}
 \end{solution}
 
 \newpage
@@ -187,13 +194,18 @@ We have two urns. The first urn contains two balls labeled 1 and 2. The second u
 I have a bag with 3 fair dice. One is 4-sided, one is 6-sided, and one is 12-sided. I reach into the bag, pick one die at random and roll it. The outcome of the roll is 4. What is the probability that I pulled out the 6-sided die?
 
 \begin{solution}
-% write solution here
-
 \begin{scratch}
-% optional: setup / definitions / plan
+Let $D_4, D_6, D_{12}$ be the events that the 4-, 6-, or 12-sided die is chosen. Let $R$ be the event that the roll is 4. Use Bayes' rule.
 \end{scratch}
 
-% write full solution here; use \finalanswer{...} at the end if appropriate
+Each die is chosen with probability $1/3$. Likelihoods: $P\!\left(R \given D_4\right)=\tfrac14$, $P\!\left(R \given D_6\right)=\tfrac16$, $P\!\left(R \given D_{12}\right)=\tfrac1{12}$. Hence
+\[
+P\!\left(D_6 \given R\right)=\frac{P\!\left(R \given D_6\right)P(D_6)}
+{P\!\left(R \given D_4\right)P(D_4)+P\!\left(R \given D_6\right)P(D_6)+P\!\left(R \given D_{12}\right)P(D_{12})}
+=\frac{\tfrac16\cdot \tfrac13}{\tfrac14\cdot \tfrac13+\tfrac16\cdot \tfrac13+\tfrac1{12}\cdot \tfrac13}
+=\tfrac13.
+\]
+\finalanswer{\tfrac13}
 \end{solution}
 
 \newpage
@@ -202,13 +214,12 @@ I have a bag with 3 fair dice. One is 4-sided, one is 6-sided, and one is 12-sid
 Let $A$ and $B$ be two disjoint events. Under what condition are they independent?
 
 \begin{solution}
-% write solution here
-
 \begin{scratch}
-% optional: setup / definitions / plan
+Disjoint means $A\cap B=\varnothing$, so $P(AB)=0$. Independence requires $P(AB)=P(A)P(B)$.
 \end{scratch}
 
-% write full solution here; use \finalanswer{...} at the end if appropriate
+Since $A$ and $B$ are disjoint, $P(AB)=0$. Independence requires $P(A)P(B)=0$, which happens iff at least one of $P(A)$ or $P(B)$ is zero. 
+\finalanswer{P(A)=0\ \text{or}\ P(B)=0}
 \end{solution}
 
 \newpage
@@ -217,13 +228,26 @@ Let $A$ and $B$ be two disjoint events. Under what condition are they independen
 We flip a fair coin three times. For $i=1,2,3$, let $A_i$ be the event that among the first $i$ coin flips we have an odd number of heads. Check whether the events $A_1, A_2, A_3$ are independent or not.
 
 \begin{solution}
-% write solution here
-
 \begin{scratch}
-% optional: setup / definitions / plan
+Let $\Omega=\{H,T\}^3$ with $|\Omega|=8$. Compute $P(A_i)$ and all intersections of the $A_i$.
 \end{scratch}
 
-% write full solution here; use \finalanswer{...} at the end if appropriate
+We have $P(A_1)=P(\text{first flip is }H)=\tfrac12$, $P(A_2)=\tfrac12$ (odd heads among first two), and $P(A_3)=\tfrac12$ (odd heads among three).
+
+Intersections: 
+\[
+P(A_1A_2)=P(HT)=\tfrac14,\quad
+P(A_1A_3)=P(\{HHH,HTT\})=\tfrac14,
+\]
+\[
+P(A_2A_3)=P(\{HTT,THT\})=\tfrac14,\quad
+P(A_1A_2A_3)=P(HTT)=\tfrac18.
+\]
+
+Each pair satisfies $P(A_iA_j)=P(A_i)P(A_j)=\tfrac14$, and the triple satisfies
+$P(A_1A_2A_3)=P(A_1)P(A_2)P(A_3)=\tfrac18$.
+Therefore the events are mutually independent.
+\finalanswer{\text{$A_1, A_2, A_3$ are mutually independent}}
 \end{solution}
 
 \newpage
@@ -236,13 +260,26 @@ We choose a number from the set $\{10, 11, 12, \ldots, 99\}$ uniformly at random
 \end{enumerate}
 
 \begin{solution}
-% write solution here
-
 \begin{scratch}
-% optional: setup / definitions / plan
+There are $90$ equally likely numbers. For (a), compute $P(X=x)$, $P(Y=y)$, and $P(X=x,Y=y)$. For (b), give a specific $(x,z)$ where factorization fails.
 \end{scratch}
 
-% write full solution here; use \finalanswer{...} at the end if appropriate
+(a) For $x\in\{1,\ldots,9\}$ and $y\in\{0,\ldots,9\}$, there is exactly one number with first digit $x$ and second digit $y$. Thus
+\[
+P(X=x,Y=y)=\tfrac1{90}.
+\]
+Also $P(X=x)=\tfrac{10}{90}=\tfrac19$ and $P(Y=y)=\tfrac{9}{90}=\tfrac1{10}$. Hence
+\[
+P(X=x,Y=y)=\tfrac1{90}=\tfrac19\cdot\tfrac1{10}=P(X=x)P(Y=y),
+\]
+so $X$ and $Y$ are independent.
+
+(b) Take $x=1$ and $z=1$. Then $Z=1$ occurs only for the number $10$, so $P(Z=1)=\tfrac1{90}$. We have
+\[
+P(X=1,Z=1)=\tfrac1{90},\quad P(X=1)P(Z=1)=\tfrac19\cdot\tfrac1{90}=\tfrac1{810},
+\]
+which are not equal. Thus $X$ and $Z$ are not independent.
+\finalanswer{\text{$X$ and $Y$ are independent; $X$ and $Z$ are not independent}}
 \end{solution}
 
 \newpage
@@ -256,13 +293,25 @@ Assume that $1/3$ of all twins are identical twins. You learn that Miranda is ex
 Explain any assumptions you make.
 
 \begin{solution}
-% write solution here
-
 \begin{scratch}
-% optional: setup / definitions / plan
+Assume identical twins have the same sex, with boy/girl equally likely; fraternal twins have independent sexes with boy/girl equally likely. Let $I$ be identical, $F$ fraternal, and $G$ be the event of two girls.
 \end{scratch}
 
-% write full solution here; use \finalanswer{...} at the end if appropriate
+We have $P(I)=\tfrac13$ and $P(F)=\tfrac23$. Under the assumptions, $P\!\left(G \given I\right)=\tfrac12$ and $P\!\left(G \given F\right)=\tfrac14$.
+
+(a) By total probability,
+\[
+P(G)=P\!\left(G \given I\right)P(I)+P\!\left(G \given F\right)P(F)
+=\tfrac12\cdot\tfrac13+\tfrac14\cdot\tfrac23=\tfrac13.
+\]
+\finalanswer{P(G)=\tfrac13}
+
+(b) By Bayes' rule,
+\[
+P\!\left(I \given G\right)=\frac{P\!\left(G \given I\right)P(I)}{P(G)}
+=\frac{\tfrac12\cdot\tfrac13}{\tfrac13}=\tfrac12.
+\]
+\finalanswer{P\!\left(I \given G\right)=\tfrac12}
 \end{solution}
 
 \newpage
@@ -270,34 +319,61 @@ Explain any assumptions you make.
 \problem{2.34}
 You play the following game against your friend. You have two urns and three balls. One of the balls is marked. You get to place the balls in the two urns any way you please, including leaving one urn empty. Your friend will choose one urn at random and then draw a ball from that urn. (If he chose an empty urn, there is no ball.) His goal is to draw the marked ball.
 \begin{enumerate}[label=(\alph*)]
-\item How would you arrange the balls in the urns to minimize his chances of drawing the marked ball?
-\item How would your friend arrange the balls in the urns to maximize his chances of drawing the marked ball?
+\item How would you arrange the balls in the urns to \emph{minimize} his chances of drawing the marked ball?
+\item How would your friend arrange the balls in the urns to \emph{maximize} his chances of drawing the marked ball?
 \item Repeat (a) and (b) for the case of $n$ balls with one marked ball.
 \end{enumerate}
 
 \begin{solution}
-% write solution here
-
 \begin{scratch}
-% optional: setup / definitions / plan
+Let $M$ be the event the marked ball is drawn. If the marked ball is in an urn with $k$ unmarked balls (so $k+1$ total), and the other urn has the remaining balls (possibly empty), then $P(M)=\tfrac12\cdot \tfrac1{k+1}$.
 \end{scratch}
 
-% write full solution here; use \finalanswer{...} at the end if appropriate
+If the marked ball is in an urn with $k$ unmarked balls, then the friend chooses that urn with probability $\tfrac12$ and, conditional on that, draws the marked ball with probability $\tfrac1{k+1}$. Hence
+\[
+P(M)=\tfrac12\cdot \tfrac1{k+1}.
+\]
+(a) To minimize $P(M)$ we maximize $k$. With three balls total, the best is to put all three balls in one urn and leave the other empty ($k=2$), giving $P(M)=\tfrac12\cdot \tfrac13=\tfrac16$.
+
+(b) To maximize $P(M)$ we minimize $k$, so put the marked ball alone in one urn and the two unmarked balls in the other ($k=0$), giving $P(M)=\tfrac12$.
+
+(c) With $n$ balls total, the same calculation gives $P(M)=\tfrac12\cdot \tfrac1{k+1}$ when the marked ball is grouped with $k$ unmarked balls. Thus
+\[
+\text{minimize: }k=n-1\Rightarrow P(M)=\tfrac1{2n},\qquad
+\text{maximize: }k=0\Rightarrow P(M)=\tfrac12.
+\]
+\finalanswer{\text{minimize } P(M)=\tfrac1{2n}\ \text{(all balls together); maximize } P(M)=\tfrac12\ \text{(marked ball alone)}}
 \end{solution}
 
 \newpage
 
 \problem{2.52}
-Suppose that $P(A)=0.3$, $P(B)=0.2$, and $P(C)=0.1$. Further, $P(A \cup B)=0.44$, $P(A^c C)=0.07$, $P(BC)=0.02$, and $P(A \cup B \cup C)=0.496$. Decide whether $A$, $B$, and $C$ are mutually independent.
+Suppose that $P(A)=0.3$, $P(B)=0.2$, and $P(C)=0.1$. Further, $P(A \cup B)=0.44$, $P(A^cC)=0.07$, $P(BC)=0.02$, and $P(A \cup B \cup C)=0.496$. Decide whether $A$, $B$, and $C$ are mutually independent.
 
 \begin{solution}
-% write solution here
-
 \begin{scratch}
-% optional: setup / definitions / plan
+Compute $P(AB)$ from $P(A\cup B)$, compute $P(AC)$ from $P(A^cC)$, and compare pairwise products. Then use inclusion--exclusion to compute $P(ABC)$ and compare to $P(A)P(B)P(C)$.
 \end{scratch}
 
-% write full solution here; use \finalanswer{...} at the end if appropriate
+First,
+\[
+P(AB)=P(A)+P(B)-P(A\cup B)=0.3+0.2-0.44=0.06.
+\]
+Also $P(A^cC)=0.07$, so $P(AC)=P(C)-P(A^cC)=0.1-0.07=0.03$.
+We are given $P(BC)=0.02$.
+
+These match pairwise products: $0.3\cdot 0.2=0.06$, $0.3\cdot 0.1=0.03$, and $0.2\cdot 0.1=0.02$.
+
+Now use inclusion--exclusion:
+\[
+P(A\cup B\cup C)=P(A)+P(B)+P(C)-P(AB)-P(AC)-P(BC)+P(ABC).
+\]
+Thus
+\[
+P(ABC)=0.496-(0.3+0.2+0.1)+(0.06+0.03+0.02)=0.006.
+\]
+Since $P(A)P(B)P(C)=0.3\cdot 0.2\cdot 0.1=0.006$, the triple also factorizes. Hence the events are mutually independent.
+\finalanswer{\text{$A,B,C$ are mutually independent}}
 \end{solution}
 
 \newpage
@@ -310,13 +386,19 @@ Let $A$ and $B$ be events with these properties: $0 < P(B) < 1$ and $P(A|B)=P(A|
 \end{enumerate}
 
 \begin{solution}
-% write solution here
-
 \begin{scratch}
-% optional: setup / definitions / plan
+Use the law of total probability for $P(A)$, then compare $P\!\left(A \given B\right)$ to $P(A)$ for independence.
 \end{scratch}
 
-% write full solution here; use \finalanswer{...} at the end if appropriate
+(a) By total probability,
+\[
+P(A)=P\!\left(A \given B\right)P(B)+P\!\left(A \given B^c\right)P(B^c)
+=\tfrac13 P(B)+\tfrac13 P(B^c)=\tfrac13.
+\]
+\finalanswer{P(A)=\tfrac13}
+
+(b) Since $P\!\left(A \given B\right)=\tfrac13=P(A)$, the events are independent.
+\finalanswer{\text{$A$ and $B$ are independent}}
 \end{solution}
 
 \newpage

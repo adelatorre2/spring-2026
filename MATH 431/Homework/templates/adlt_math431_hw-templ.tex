@@ -95,7 +95,8 @@
 
 \newcommand{\OmegaSpace}{\Omega}
 \newcommand{\FField}{\mathcal{F}}
-\newcommand{\PMeasure}{\mathbb{P}} % Probability measure in case it is relevant or want to distinguish it from P(A)
+% Probability measure in case it is relevant or want to distinguish it from P(A)
+%\newcommand{\PMeasure}{\mathbb{P}} 
 \newcommand{\E}{\mathbb{E}}
 
 \newcommand{\given}{\,\middle|\,}
@@ -177,7 +178,7 @@ State the problem here (paste from PDF).
 
 We model the experiment using a probability space
 \[
-(\OmegaSpace, \FField, \PMeasure).
+(\OmegaSpace, \FField, P).
 \]
 
 \begin{scratch}
@@ -190,7 +191,7 @@ The $\sigma$-field is the power set $\FField = 2^{\OmegaSpace}$.
 
 Assuming the coin is fair, we assign equal probability to each outcome:
 \[
-\PMeasure(\{\omega\}) = 2^{-3} \quad \text{for all } \omega \in \OmegaSpace.
+P(\{\omega\}) = 2^{-3} \quad \text{for all } \omega \in \OmegaSpace.
 \]
 \end{scratch}
 
@@ -205,10 +206,10 @@ There are $\binom{3}{2} = 3$ such outcomes, so $|A| = 3$ and
 
 Since all outcomes are equally likely,
 \[
-\PMeasure(A) = \frac{|A|}{|\OmegaSpace|} = \frac{3}{8}.
+P(A) = \frac{|A|}{|\OmegaSpace|} = \frac{3}{8}.
 \]
 
-\finalanswer{\PMeasure(A) = \frac{3}{8}}
+\finalanswer{P(A) = \frac{3}{8}}
 
 \end{solution}
 
