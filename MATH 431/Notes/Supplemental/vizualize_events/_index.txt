@@ -1,0 +1,21 @@
+Generated event diagrams:
+
+- omega.png: Ω (certain event)
+- empty.png: ∅ (impossible event)
+- A.png: A
+- B.png: B
+- Ac.png: Aᶜ
+- Bc.png: Bᶜ
+- A_union_B.png: A ∪ B
+- A_inter_B.png: A ∩ B
+- A_minus_B.png: A \ B
+- B_minus_A.png: B \ A
+- A_symdiff_B.png: A △ B  (symmetric difference)
+- demorgan1_left.png: (A ∪ B)ᶜ
+- demorgan1_right.png: Aᶜ ∩ Bᶜ
+- demorgan2_left.png: (A ∩ B)ᶜ
+- demorgan2_right.png: Aᶜ ∪ Bᶜ
+- A_union_Bc.png: A ∪ Bᶜ
+- Ac_inter_B.png: Aᶜ ∩ B
+- Ac_union_B.png: Aᶜ ∪ B
+- Ac_inter_Bc.png: Aᶜ ∩ Bᶜ
