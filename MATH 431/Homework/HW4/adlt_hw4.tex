@@ -27,7 +27,7 @@
 \newcommand{\MeetingInfo}{MWF 9:55--10:45, 6102 Sewell Social Sciences} % LEC 001 default; update if in 002/003
 \newcommand{\HomeworkNumber}{1}
 \newcommand{\YourName}{Alejandro De La Torre}
-\newcommand{\DueDate}{\today} % or e.g. February 2, 2026
+\newcommand{\DueDate}{February 20, 2026} % or e.g. February 2, 2026
 
 % =========================
 % 1) Core math tools
@@ -166,50 +166,233 @@ Instructor: \Instructor}
 \newpage
 
 % ============================================================
-% Problems (duplicate blocks as needed)
+% Problems 
 % ============================================================
 
-
-% Here's an example problem and solution:
-\problem[Sample space and probability]{1.4}
-State the problem here (paste from PDF).
+\problem{2.20}
+A fair die is rolled repeatedly. Use precise notation of probabilities of events and random variables for the solutions to the questions below.
+\begin{enumerate}
+\item Write down a precise sum expression for the probability that the first five rolls give a three at most two times.
+\item Calculate the probability that the first three does not appear before the fifth roll.
+\item Calculate the probability that the first three appears before the twentieth roll but not before the fifth roll.
+\end{enumerate}
 
 \begin{solution}
 
-We model the experiment using a probability space
-\[
-(\OmegaSpace, \FField, P).
-\]
-
 \begin{scratch}
-The sample space is
-\[
-\OmegaSpace = \{H,T\}^3,
-\]
-the set of all length–3 sequences of coin flips.  
-The $\sigma$-field is the power set $\FField = 2^{\OmegaSpace}$.
-
-Assuming the coin is fair, we assign equal probability to each outcome:
-\[
-P(\{\omega\}) = 2^{-3} \quad \text{for all } \omega \in \OmegaSpace.
-\]
+% space for scratch work
 \end{scratch}
 
-Let
-\[
-A = \{\omega \in \OmegaSpace : \text{exactly two heads occur}\}.
-\]
-There are $\binom{3}{2} = 3$ such outcomes, so $|A| = 3$ and
-\[
-|\OmegaSpace| = 2^3 = 8.
-\]
+% space for final solution
 
-Since all outcomes are equally likely,
-\[
-P(A) = \frac{|A|}{|\OmegaSpace|} = \frac{3}{8}.
-\]
+\end{solution}
 
-\finalanswer{P(A) = \frac{3}{8}}
+\newpage
+
+\problem{2.58}
+Suppose that a person's birthday is a uniformly random choice from the 365 days of a year (leap years are ignored), and one person's birthday is independent of the birthdays of other people. Alex, Betty and Conlin are comparing birthdays. Define these three events:
+\[
+A=\{\text{Alex and Betty have the same birthday}\},
+\]
+\[
+B=\{\text{Betty and Conlin have the same birthday}\},
+\]
+\[
+C=\{\text{Conlin and Alex have the same birthday}\}.
+\]
+\begin{enumerate}
+\item Are events $A$, $B$ and $C$ pairwise independent? (See the definition of pairwise independence on page 54 and Example 2.25 for illustration.)
+\item Are events $A$, $B$ and $C$ independent?
+\end{enumerate}
+
+\begin{solution}
+
+\begin{scratch}
+% space for scratch work
+\end{scratch}
+
+% space for final solution
+
+\end{solution}
+
+\newpage
+
+\problem{2.61}
+Suppose an urn has 3 green balls and 4 red balls.
+\begin{enumerate}
+\item Nine draws are made with replacement. Let $X$ be the number of times a green ball appeared. Identify by name the probability distribution of $X$. Find the probabilities $P(X\ge 1)$ and $P(X\le 5)$.
+\item Draws with replacement are made until the first green ball appears. Let $N$ be the number of draws that were needed. Identify by name the probability distribution of $N$. Find the probability $P(N\le 9)$.
+\item Compare $P(X\ge 1)$ and $P(N\le 9)$. Is there a reason these should be the same?
+\end{enumerate}
+
+\begin{solution}
+
+\begin{scratch}
+% space for scratch work
+\end{scratch}
+
+% space for final solution
+
+\end{solution}
+
+\newpage
+
+\problem{2.70}
+Flip a coin three times. Assume the probability of tails is $p$ and that successive flips are independent. Let $A$ be the event that we have exactly one tails among the first two coin flips and $B$ the event that we have exactly one tails among the last two coin flips. For which values of $p$ are events $A$ and $B$ independent? (This generalizes Example 2.18.)
+
+\begin{solution}
+
+\begin{scratch}
+% space for scratch work
+\end{scratch}
+
+% space for final solution
+
+\end{solution}
+
+\newpage
+
+\problem{2.71 (a)-(c)}
+As in Example 2.38, assume that 90\% of the coins in circulation are fair, and the remaining 10\% are biased coins that give tails with probability $3/5$. I hold a randomly chosen coin and begin to flip it.
+\begin{enumerate}
+\item After one flip that results in tails, what is the probability that the coin I hold is a biased coin? After two flips that both give tails? After $n$ flips that all come out tails?
+\item After how many straight tails can we say that with 90\% probability the coin I hold is biased?
+\item After $n$ straight tails, what is the probability that the next flip is also tails?
+\item Suppose we have flipped a very large number of times (think number of flips $n$ tending to infinity), and each time gotten tails. What are the chances that the next flip again yields tails?
+\end{enumerate}
+
+\begin{solution}
+
+\begin{scratch}
+% space for scratch work
+\end{scratch}
+
+% space for final solution
+
+\end{solution}
+
+\newpage
+
+\problem{3.2}
+Suppose the random variable $X$ has possible values $\{1, 2, 3, 4, 5, 6\}$ and probability mass function of the form $p(k)=ck$.
+\begin{enumerate}
+\item Find $c$.
+\item Find the probability that $X$ is odd.
+\end{enumerate}
+
+\begin{solution}
+
+\begin{scratch}
+% space for scratch work
+\end{scratch}
+
+% space for final solution
+
+\end{solution}
+
+\newpage
+
+\problem{3.4}
+Let $X\sim \mathrm{Unif}[4,10]$.
+\begin{enumerate}
+\item Calculate $P(X<6)$.
+\item Calculate $P(|X-7|>1)$.
+\item For $4\le t\le 6$, calculate $P(X<t\mid X<6)$.
+\end{enumerate}
+
+\begin{solution}
+
+\begin{scratch}
+% space for scratch work
+\end{scratch}
+
+% space for final solution
+
+\end{solution}
+
+\newpage
+
+\problem{3.25}
+In each of the following cases find all values of $b$ for which the given function is a probability density function.
+\begin{enumerate}
+\item
+\[
+f(x)=
+\begin{cases}
+x^2-b, & \text{if } 1\le x\le 3,\\
+0, & \text{otherwise.}
+\end{cases}
+\]
+\item
+\[
+h(x)=
+\begin{cases}
+\cos x, & \text{if } -b\le x\le b,\\
+0, & \text{otherwise.}
+\end{cases}
+\]
+\end{enumerate}
+
+\begin{solution}
+
+\begin{scratch}
+% space for scratch work
+\end{scratch}
+
+% space for final solution
+
+\end{solution}
+
+\newpage
+
+\problem{3.26 (a)}
+Suppose that $X$ is a discrete random variable with possible values $\{1, 2,\ldots\}$, and probability mass function
+\[
+p_X(k)=\frac{c}{k(k+1)}
+\]
+with some constant $c>0$.
+\begin{enumerate}
+\item What is the value of $c$?
+
+Hint. $\frac{1}{k(k+1)}=\frac{1}{k}-\frac{1}{k+1}$.
+\end{enumerate}
+
+\begin{solution}
+
+\begin{scratch}
+% space for scratch work
+\end{scratch}
+
+% space for final solution
+
+\end{solution}
+
+\newpage
+
+\problem{3.31 (a)-(d)}
+Suppose a random variable $X$ has density function
+\[
+f(x)=
+\begin{cases}
+cx^{-4}, & \text{if } x\ge 1,\\
+0, & \text{else},
+\end{cases}
+\]
+where $c$ is a constant.
+\begin{enumerate}
+\item What must be the value of $c$?
+\item Find $P(0.5<X<1)$.
+\item Find $P(0.5<X<2)$.
+\item Find $P(2<X<4)$.
+\end{enumerate}
+
+\begin{solution}
+
+\begin{scratch}
+% space for scratch work
+\end{scratch}
+
+% space for final solution
 
 \end{solution}
 
