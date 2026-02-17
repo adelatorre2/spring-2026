@@ -180,10 +180,33 @@ A fair die is rolled repeatedly. Use precise notation of probabilities of events
 \begin{solution}
 
 \begin{scratch}
-% space for scratch work
+Let $S_5$ be the number of threes among the first five rolls. Let $N$ be the
+roll on which the first three appears. Then $S_5\sim\text{Bin}(5,1/6)$ and
+$N\sim\text{Geom}(1/6)$ with support $\{1,2,\ldots\}$.
 \end{scratch}
 
-% space for final solution
+\begin{enumerate}
+\item
+\[
+P(S_5\le 2)=\sum_{k=0}^{2}\binom{5}{k}\left(\frac{1}{6}\right)^k\left(\frac{5}{6}\right)^{5-k}.
+\]
+\item
+\[
+P(N>4)=P(\text{no three in the first four rolls})=\left(\frac{5}{6}\right)^4.
+\]
+\item
+\[
+P(5\le N\le 20)=P(\text{no three in the first four rolls})\cdot P(\text{at least one three in rolls }5\text{--}20)
+\]
+\[
+\qquad=\left(\frac{5}{6}\right)^4\!\left(1-\left(\frac{5}{6}\right)^{16}\right)
+\;=\;\left(\frac{5}{6}\right)^4-\left(\frac{5}{6}\right)^{20}.
+\]
+\end{enumerate}
+
+\finalanswer{\text{(a)}\ \sum_{k=0}^{2}\binom{5}{k}\left(\frac{1}{6}\right)^k\left(\frac{5}{6}\right)^{5-k},\;
+\text{(b)}\ \left(\frac{5}{6}\right)^4,\;
+\text{(c)}\ \left(\frac{5}{6}\right)^4-\left(\frac{5}{6}\right)^{20}}
 
 \end{solution}
 
@@ -208,10 +231,26 @@ C=\{\text{Conlin and Alex have the same birthday}\}.
 \begin{solution}
 
 \begin{scratch}
-% space for scratch work
+Let birthdays be independent and uniform on $\{1,\dots,365\}$. Then
+$P(A)=P(B)=P(C)=1/365$. Also $A\cap B$ means all three share a birthday.
 \end{scratch}
 
-% space for final solution
+\begin{enumerate}
+\item
+\[
+P(A\cap B)=P(\text{all three match})=\frac{1}{365^2}
+ = P(A)P(B).
+\]
+Similarly $P(A\cap C)=P(B\cap C)=1/365^2$, so $A,B,C$ are pairwise independent.
+\item
+\[
+P(A\cap B\cap C)=\frac{1}{365^2}\neq \left(\frac{1}{365}\right)^3
+ = P(A)P(B)P(C),
+\]
+so they are not mutually independent.
+\end{enumerate}
+
+\finalanswer{\text{Pairwise independent, but not mutually independent}}
 
 \end{solution}
 
@@ -228,10 +267,29 @@ Suppose an urn has 3 green balls and 4 red balls.
 \begin{solution}
 
 \begin{scratch}
-% space for scratch work
+Let $p=3/7$ (green) and $q=4/7$ (red).
+For nine draws with replacement, $X\sim\mathrm{Bin}(9,p)$.
+For the waiting time until the first green, $N\sim\mathrm{Geom}(p)$.
 \end{scratch}
 
-% space for final solution
+\begin{enumerate}
+\item $X\sim\mathrm{Bin}(9,3/7)$.
+\[
+P(X\ge 1)=1-P(X=0)=1-\left(\frac{4}{7}\right)^9,
+\]
+\[
+P(X\le 5)=\sum_{k=0}^{5}\binom{9}{k}\left(\frac{3}{7}\right)^k\left(\frac{4}{7}\right)^{9-k}.
+\]
+\item $N\sim\mathrm{Geom}(3/7)$ with support $\{1,2,\ldots\}$.
+\[
+P(N\le 9)=1-P(N>9)=1-\left(\frac{4}{7}\right)^9.
+\]
+\item The events $\{X\ge 1\}$ and $\{N\le 9\}$ both mean
+``at least one green in the first 9 draws,'' hence they are equal.
+\end{enumerate}
+
+\finalanswer{\text{(a)}\ X\sim\mathrm{Bin}(9,3/7),\ P(X\ge1)=1-(4/7)^9,\ P(X\le5)=\sum_{k=0}^{5}\binom{9}{k}(3/7)^k(4/7)^{9-k}}
+\finalanswer{\text{(b)}\ N\sim\mathrm{Geom}(3/7),\ P(N\le9)=1-(4/7)^9}
 
 \end{solution}
 
@@ -243,10 +301,24 @@ Flip a coin three times. Assume the probability of tails is $p$ and that success
 \begin{solution}
 
 \begin{scratch}
-% space for scratch work
+Let $p=P(T)$ and $q=1-p$. Then
+\[
+P(A)=P(\text{exactly one tail in flips 1--2})=2pq,\qquad
+P(B)=2pq.
+\]
+Compute $P(A\cap B)$ by enumerating 3-flip sequences.
 \end{scratch}
 
-% space for final solution
+The only sequences satisfying both events are $HTH$ and $THT$, so
+\[
+P(A\cap B)=p q^2+p^2 q=pq.
+\]
+Independence requires $pq=(2pq)^2=4p^2q^2$. Thus either $pq=0$
+(i.e., $p=0$ or $p=1$) or, for $0<p<1$,
+\[
+1=4pq \quad\Longrightarrow\quad p(1-p)=\frac14 \quad\Longrightarrow\quad p=\frac12.
+\]
+\finalanswer{p\in\{0,\tfrac12,1\}\ (\text{nontrivial case }p=\tfrac12)}
 
 \end{solution}
 
@@ -264,10 +336,41 @@ As in Example 2.38, assume that 90\% of the coins in circulation are fair, and t
 \begin{solution}
 
 \begin{scratch}
-% space for scratch work
+Let $B$ be the event the coin is biased and $F$ the event it is fair.
+$P(B)=0.1$, $P(F)=0.9$, $P(T\mid B)=3/5$, $P(T\mid F)=1/2$.
+For $n$ straight tails, use Bayes' rule.
 \end{scratch}
 
-% space for final solution
+\begin{enumerate}
+\item For $n\ge 1$,
+\[
+P(B\mid T^n)=\frac{0.1(3/5)^n}{0.1(3/5)^n+0.9(1/2)^n}
+ =\frac{1}{1+9(5/6)^n}.
+\]
+In particular,
+\[
+P(B\mid T)=\frac{2}{17},\qquad
+P(B\mid T^2)=\frac{4}{29}.
+\]
+\item We need $P(B\mid T^n)\ge 0.9$, i.e.
+\[
+\frac{1}{1+9(5/6)^n}\ge 0.9
+\;\Longleftrightarrow\;
+\left(\frac{5}{6}\right)^n\le \frac{1}{81}.
+\]
+The smallest integer satisfying this is $n=25$.
+\item The predictive probability is
+\[
+P(T_{n+1}\mid T^n)=\frac12\bigl(1-P(B\mid T^n)\bigr)+\frac35 P(B\mid T^n)
+=\frac12+\frac{1}{10}\cdot\frac{1}{1+9(5/6)^n}.
+\]
+\end{enumerate}
+
+\textit{Part (d) not assigned for HW4.}
+
+\finalanswer{\text{(a)}\ P(B\mid T^n)=\frac{1}{1+9(5/6)^n}}
+\finalanswer{\text{(b)}\ n=25}
+\finalanswer{\text{(c)}\ P(T_{n+1}\mid T^n)=\frac12+\frac{1}{10}\cdot\frac{1}{1+9(5/6)^n}}
 
 \end{solution}
 
@@ -283,10 +386,21 @@ Suppose the random variable $X$ has possible values $\{1, 2, 3, 4, 5, 6\}$ and p
 \begin{solution}
 
 \begin{scratch}
-% space for scratch work
+Normalize: $\sum_{k=1}^{6} ck = 1$.
 \end{scratch}
 
-% space for final solution
+\begin{enumerate}
+\item
+\[
+c=\frac{1}{1+2+3+4+5+6}=\frac{1}{21}.
+\]
+\item
+\[
+P(X\ \text{odd})=c(1+3+5)=\frac{9}{21}=\frac{3}{7}.
+\]
+\end{enumerate}
+
+\finalanswer{c=\frac{1}{21},\quad P(X\ \text{odd})=\frac{3}{7}}
 
 \end{solution}
 
@@ -303,10 +417,25 @@ Let $X\sim \mathrm{Unif}[4,10]$.
 \begin{solution}
 
 \begin{scratch}
-% space for scratch work
+For $X\sim\mathrm{Unif}[4,10]$, $P(X\in[a,b])=(b-a)/6$.
 \end{scratch}
 
-% space for final solution
+\begin{enumerate}
+\item
+\[
+P(X<6)=\frac{6-4}{10-4}=\frac{1}{3}.
+\]
+\item $|X-7|>1$ means $X<6$ or $X>8$:
+\[
+P(|X-7|>1)=\frac{2+2}{6}=\frac{2}{3}.
+\]
+\item For $4\le t\le 6$,
+\[
+P(X<t\mid X<6)=\frac{P(4\le X<t)}{P(4\le X<6)}=\frac{t-4}{2}.
+\]
+\end{enumerate}
+
+\finalanswer{\text{(a)}\ \frac13,\ \text{(b)}\ \frac23,\ \text{(c)}\ \frac{t-4}{2}}
 
 \end{solution}
 
@@ -336,10 +465,24 @@ h(x)=
 \begin{solution}
 
 \begin{scratch}
-% space for scratch work
+For a p.d.f., we need nonnegativity on the support and total integral $=1$.
 \end{scratch}
 
-% space for final solution
+\begin{enumerate}
+\item
+\[
+\int_{1}^{3}(x^2-b)\,dx=\frac{26}{3}-2b=1 \;\Longrightarrow\; b=\frac{23}{6}.
+\]
+But nonnegativity requires $x^2-b\ge 0$ for $x\in[1,3]$, hence $b\le 1$.
+These conditions are incompatible, so no value of $b$ works.
+\item
+\[
+\int_{-b}^{b}\cos x\,dx=2\sin b=1 \;\Longrightarrow\; \sin b=\frac12.
+\]
+To keep $\cos x\ge 0$ on $[-b,b]$ we need $b\le \pi/2$, so $b=\pi/6$.
+\end{enumerate}
+
+\finalanswer{\text{(a) no solution},\quad \text{(b)}\ b=\frac{\pi}{6}}
 
 \end{solution}
 
@@ -360,10 +503,14 @@ Hint. $\frac{1}{k(k+1)}=\frac{1}{k}-\frac{1}{k+1}$.
 \begin{solution}
 
 \begin{scratch}
-% space for scratch work
+Use the telescoping sum $\frac{1}{k(k+1)}=\frac{1}{k}-\frac{1}{k+1}$.
 \end{scratch}
 
-% space for final solution
+\[
+1=\sum_{k=1}^{\infty} \frac{c}{k(k+1)}
+=c\sum_{k=1}^{\infty}\left(\frac{1}{k}-\frac{1}{k+1}\right)=c.
+\]
+\finalanswer{c=1}
 
 \end{solution}
 
@@ -389,10 +536,31 @@ where $c$ is a constant.
 \begin{solution}
 
 \begin{scratch}
-% space for scratch work
+Normalize $f$ on $[1,\infty)$ and integrate for the probabilities.
 \end{scratch}
 
-% space for final solution
+\begin{enumerate}
+\item
+\[
+1=\int_{1}^{\infty} c x^{-4}\,dx=c\cdot\frac{1}{3}\quad\Longrightarrow\quad c=3.
+\]
+\item Since the support is $[1,\infty)$,
+\[
+P(0.5<X<1)=0.
+\]
+\item
+\[
+P(0.5<X<2)=\int_{1}^{2}3x^{-4}\,dx
+=3\left[\frac{-1}{3}x^{-3}\right]_{1}^{2}=\frac{7}{8}.
+\]
+\item
+\[
+P(2<X<4)=\int_{2}^{4}3x^{-4}\,dx
+=3\left[\frac{-1}{3}x^{-3}\right]_{2}^{4}=\frac{7}{64}.
+\]
+\end{enumerate}
+
+\finalanswer{\text{(a)}\ c=3,\ \text{(b)}\ 0,\ \text{(c)}\ \frac{7}{8},\ \text{(d)}\ \frac{7}{64}}
 
 \end{solution}
 
