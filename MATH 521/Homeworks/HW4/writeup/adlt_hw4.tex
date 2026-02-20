@@ -33,9 +33,9 @@
 \newcommand{\Semester}{Spring 2026}
 \newcommand{\Instructor}{Thierry Laurens}
 \newcommand{\MeetingInfo}{MWF 1:20--2:10 \;|\; Van Vleck B119} % optional
-\newcommand{\HomeworkNumber}{1} % <-- change each week
+\newcommand{\HomeworkNumber}{4} % <-- change each week
 \newcommand{\YourName}{Alejandro De La Torre}
-\newcommand{\DueDate}{\today} % <-- or set e.g. January 31, 2026
+\newcommand{\DueDate}{Feburary 20 by 1:20 PM CDT} % <-- or set e.g. January 31, 2026
 
 % =========================
 % 1) Core math + proof tools
@@ -159,12 +159,34 @@ Let $\{a_n\}_{n\ge 1}$ be a sequence.
 \end{enumerate}
 
 \begin{scratch}
-% Outline the strategy, key definitions, lemmas, or a proof sketch.
+\begin{itemize}
+\item \textbf{(a)} The idea is: if $a_n\to a$, then eventually $a_n$ is very close to $a$.
+The absolute value function is ``distance from $0$,'' so if two numbers are close, their distances
+from $0$ are also close. The key inequality is
+\[
+\bigl||x|-|y|\bigr|\le |x-y|,
+\]
+which lets us bound $\bigl||a_n|-|a|\bigr|$ by $|a_n-a|$ and then use the definition of convergence.
+\item \textbf{(b)} To make $|a_n|$ converge while $a_n$ diverges, we can alternate signs:
+take $a_n=(-1)^n$. Then $|a_n|=1$ for all $n$ (so it converges), but $a_n$ oscillates between $1$
+and $-1$ (so it cannot converge).
+\end{itemize}
 \end{scratch}
 
 \textbf{Proof.}\\
-% Write your proof here.
-\qed
+\textbf{(a)} Assume $a_n\to a$. Let $\varepsilon>0$ be given. By convergence, there exists
+$N\in\mathbb{N}$ such that for all $n\ge N$ we have $|a_n-a|<\varepsilon$.
+Using the inequality $\bigl||x|-|y|\bigr|\le |x-y|$ (valid for all $x,y\in\mathbb{R}$), with
+$x=a_n$ and $y=a$, we obtain for all $n\ge N$:
+\[
+\bigl||a_n|-|a|\bigr|\le |a_n-a|<\varepsilon.
+\]
+Hence, by the definition of convergence, $|a_n|$ converges to $ |a|$.
+
+\textbf{(b)} Define $a_n:=(-1)^n$. Then $|a_n|=1$ for all $n$, so $\{|a_n|\}$ converges to $1$.
+However, $\{a_n\}$ does not converge: if it converged to some $L\in\mathbb{R}$, then the subsequences
+$a_{2k}=1$ and $a_{2k+1}=-1$ would both have to converge to $L$, forcing $1=L=-1$, a contradiction.
+Therefore $\{|a_n|\}$ converges while $\{a_n\}$ diverges. \qed
 
 \newpage
 
@@ -172,9 +194,42 @@ Let $\{a_n\}_{n\ge 1}$ be a sequence.
 (Squeeze theorem). Prove that if $\{a_n\}_{n\ge 1}$, $\{b_n\}_{n\ge 1}$, and $\{c_n\}_{n\ge 1}$ are sequences such that $a_n \le b_n \le c_n$ for all $n\ge 1$ and $\lim_{n\to\infty} a_n = L = \lim_{n\to\infty} c_n$, then $\{b_n\}_{n\ge 1}$ converges and $\lim_{n\to\infty} b_n = L$.
 
 \begin{scratch}
+\begin{itemize}
+\item Intuition: $b_n$ is ``trapped'' between $a_n$ and $c_n$. If both outer sequences converge to the
+same limit $L$, then for any small tolerance $\varepsilon>0$, eventually both $a_n$ and $c_n$ lie inside
+the interval $(L-\varepsilon,\,L+\varepsilon)$. Since $a_n\le b_n\le c_n$, the middle term must also lie
+in that same interval, forcing $b_n\to L$.
+
+\item We will use the definition of convergence:
+\[
+a_n\to L \iff \forall\varepsilon>0\ \exists N\in\mathbb{N}\ \text{s.t. } \forall n\ge N,\ |a_n-L|<\varepsilon,
+\]
+(and similarly for $c_n$). The only ``construction'' step is choosing a single index after which \emph{both}
+conditions hold; we do this by taking a maximum.
+\end{itemize}
 \end{scratch}
 
 \textbf{Proof.}\\
+Assume that $a_n\le b_n\le c_n$ for all $n\ge 1$, and that $\lim_{n\to\infty}a_n=L=\lim_{n\to\infty}c_n$.
+We prove that $b_n\to L$.
+
+Let $\varepsilon>0$ be given. Since $a_n\to L$, there exists $N_1\in\mathbb{N}$ such that for all $n\ge N_1$,
+\[
+|a_n-L|<\varepsilon \quad\Longrightarrow\quad L-\varepsilon<a_n<L+\varepsilon.
+\]
+Similarly, since $c_n\to L$, there exists $N_2\in\mathbb{N}$ such that for all $n\ge N_2$,
+\[
+|c_n-L|<\varepsilon \quad\Longrightarrow\quad L-\varepsilon<c_n<L+\varepsilon.
+\]
+Set $N:=\max\{N_1,N_2\}$. Then for all $n\ge N$, both inequalities hold, and we have
+\[
+L-\varepsilon<a_n\le b_n\le c_n<L+\varepsilon.
+\]
+In particular, for all $n\ge N$,
+\[
+L-\varepsilon<b_n<L+\varepsilon,
+\]
+which is equivalent to $|b_n-L|<\varepsilon$. Since $\varepsilon>0$ was arbitrary, this proves that $b_n\to L$.
 \qed
 
 \newpage
@@ -187,10 +242,38 @@ Suppose that the sequence $\{a_n\}_{n\ge 1}$ converges.
 \end{enumerate}
 
 \begin{scratch}
+\begin{itemize}
+\item The key idea is: convergence prevents the sequence from staying \emph{strictly below} a number that it is eventually always above. If $a_n\to \ell$ and (eventually) $a_n\ge m$, then the limit \emph{cannot} satisfy $\ell<m$, because choosing $\varepsilon=\frac{m-\ell}{2}$ would force $a_n<\ell+\varepsilon<m$ for all large $n$, contradicting $a_n\ge m$ for all large $n$.
+\item Part (b) is the symmetric argument: if (eventually) $a_n\le M$, then the limit cannot be $>M$.
+\end{itemize}
 \end{scratch}
 
 \textbf{Proof.}\\
-\qed
+Let $\ell:=\lim_{n\to\infty} a_n$.
+
+\textbf{(a)} Assume that $a_n\ge m$ for all but finitely many $n$. Then there exists $N_0\in\mathbb{N}$ such that
+\[
+ a_n\ge m\quad\text{for all }n\ge N_0.
+\]
+We claim that $\ell\ge m$. Suppose for contradiction that $\ell<m$. Set
+\[
+\varepsilon:=\frac{m-\ell}{2}>0.
+\]
+Since $a_n\to \ell$, there exists $N_1\in\mathbb{N}$ such that for all $n\ge N_1$,
+\[
+|a_n-\ell|<\varepsilon\quad\Longrightarrow\quad a_n<\ell+\varepsilon=\frac{\ell+m}{2}<m.
+\]
+Let $N:=\max\{N_0,N_1\}$. Then for all $n\ge N$ we have simultaneously $a_n\ge m$ and $a_n<m$, a contradiction. Hence $\ell\ge m$.
+
+\textbf{(b)} Assume that $a_n\le M$ for all but finitely many $n$. Then there exists $N_0\in\mathbb{N}$ such that $a_n\le M$ for all $n\ge N_0$. We claim that $\ell\le M$. Suppose for contradiction that $\ell>M$. Set
+\
+\varepsilon:=\frac{\ell-M}{2}>0.
+\]
+Since $a_n\to \ell$, there exists $N_1\in\mathbb{N}$ such that for all $n\ge N_1$,
+\[
+|a_n-\ell|<\varepsilon\quad\Longrightarrow\quad a_n>\ell-\varepsilon=\frac{\ell+M}{2}>M.
+\]
+Let $N:=\max\{N_0,N_1\}$. Then for all $n\ge N$ we have simultaneously $a_n\le M$ and $a_n>M$, a contradiction. Hence $\ell\le M$.\qed
 
 \newpage
 
@@ -202,10 +285,39 @@ Suppose that the sequence $\{a_n\}_{n\ge 1}$ converges. Prove or disprove the fo
 \end{enumerate}
 
 \begin{scratch}
+\begin{itemize}
+\item \textbf{Key idea.} Part (a) smells suspicious because the hypothesis allows equality:
+$\lim a_n \ge m$ includes the borderline case $\lim a_n = m$. Convergence to $m$ does \emph{not} force
+the tail of the sequence to lie on one side of $m$; it only forces the tail to lie \emph{near} $m$.
+So we should try to build a convergent sequence with limit $m$ that stays strictly below $m$ forever.
+
+\item Part (b) replaces $\ge$ by $>$, which creates a positive gap $L-m$. If $a_n\to L$ and $L>m$,
+then choosing $\varepsilon$ smaller than this gap forces $a_n$ to eventually lie in $(L-\varepsilon,L+\varepsilon)$,
+which sits entirely above $m$. So (b) should be true, and the proof will be a direct $\varepsilon$--$N$ argument.
+\end{itemize}
 \end{scratch}
 
 \textbf{Proof.}\\
-\qed
+Let $\ell:=\lim_{n\to\infty} a_n$.
+
+\textbf{(a) Disprove.} The statement is false. Fix $m\in\mathbb{R}$ and define
+\[
+a_n:=m-\frac{1}{n}\qquad (n\ge 1).
+\]
+Then $a_n\to m$ as $n\to\infty$, so $\lim_{n\to\infty}a_n=m\ge m$ holds. However, for every $n\ge 1$ we have
+$a_n=m-\frac{1}{n}<m$, so there is \emph{no} $N\in\mathbb{N}$ such that $a_n\ge m$ for all $n\ge N$.
+Hence (a) is false.
+
+\textbf{(b) Prove.} Assume $\ell>m$. Set
+\[
+\varepsilon:=\frac{\ell-m}{2}>0.
+\]
+Since $a_n\to \ell$, there exists $N\in\mathbb{N}$ such that for all $n\ge N$,
+\[
+|a_n-\ell|<\varepsilon \quad\Longrightarrow\quad a_n>\ell-\varepsilon
+= \ell-\frac{\ell-m}{2}=\frac{\ell+m}{2}>m.
+\]
+Therefore $a_n>m$ for all $n\ge N$, as desired. \qed
 
 \newpage
 
@@ -213,10 +325,37 @@ Suppose that the sequence $\{a_n\}_{n\ge 1}$ converges. Prove or disprove the fo
 Prove that if $\{a_n\}_{n\ge 1}$ is a sequence of positive numbers that converges to $a > 0$, then the sequence $\{\sqrt{a_n}\}_{n\ge 1}$ converges to $\sqrt{a}$.
 
 \begin{scratch}
+\begin{itemize}
+\item The main trick is to rewrite the difference of square-roots by “rationalizing”:
+\[
+|\sqrt{x}-\sqrt{y}|=\frac{|x-y|}{\sqrt{x}+\sqrt{y}}\qquad (x,y\ge 0).
+\]
+Here we will take $x=a_n$ and $y=a$.
+
+\item Because $a>0$, the denominator $\sqrt{a_n}+\sqrt{a}$ is always at least $\sqrt{a}$ (since $a_n>0\Rightarrow \sqrt{a_n}\ge 0$). So we can control $|\sqrt{a_n}-\sqrt{a}|$ directly by controlling $|a_n-a|$.
+
+\item Concretely, given $\varepsilon>0$, it suffices to make $|a_n-a|<\varepsilon\sqrt{a}$.
+\end{itemize}
 \end{scratch}
 
 \textbf{Proof.}\\
-\qed
+Let $\varepsilon>0$ be given. Since $a_n\to a$, there exists $N\in\mathbb{N}$ such that for all $n\ge N$,
+\[
+|a_n-a|<\varepsilon\sqrt{a}.
+\]
+For $n\ge N$, we have $a_n>0$ and $a>0$, so $\sqrt{a_n}$ and $\sqrt{a}$ are defined and nonnegative. Using
+\[
+(\sqrt{a_n}-\sqrt{a})(\sqrt{a_n}+\sqrt{a})=a_n-a,
+\]
+we obtain
+\[
+|\sqrt{a_n}-\sqrt{a}|=\frac{|a_n-a|}{\sqrt{a_n}+\sqrt{a}}\le \frac{|a_n-a|}{\sqrt{a}}.
+\]
+Therefore, for all $n\ge N$,
+\[
+|\sqrt{a_n}-\sqrt{a}|\le \frac{|a_n-a|}{\sqrt{a}}<\frac{\varepsilon\sqrt{a}}{\sqrt{a}}=\varepsilon.
+\]
+Since $\varepsilon>0$ was arbitrary, it follows that $\sqrt{a_n}\to \sqrt{a}$. \qed
 
 \newpage
 
@@ -229,9 +368,58 @@ Consider the following sequence: $a_1 = \sqrt{2}$ and $a_{n+1} = \sqrt{2 + a_n}$
 \end{enumerate}
 
 \begin{scratch}
+\begin{itemize}
+\item \textbf{What we need.} To show the sequence is \emph{bounded}, we need to find real numbers $m,M$ such that
+$m\le a_n\le M$ for all $n\ge 1$ (equivalently: bounded below and bounded above). To show it is \emph{increasing}, we need $a_n\le a_{n+1}$ for all $n\ge 1$.
+
+\item \textbf{Boundedness idea.} Because $a_{n+1}=\sqrt{2+a_n}$, a natural guess is that the sequence stays below $2$:
+if $a_n\le 2$, then $a_{n+1}=\sqrt{2+a_n}\le \sqrt{4}=2$. Also $a_n\ge 0$ implies $a_{n+1}\ge 0$. Since $a_1=\sqrt2\in(0,2)$, induction should give $0<a_n\le 2$ for all $n$.
+
+\item \textbf{Monotonicity idea.} Since all terms are positive, we can compare $a_{n+1}$ and $a_n$ by squaring:
+\[
+ a_{n+1}\ge a_n \iff \sqrt{2+a_n}\ge a_n \iff 2+a_n\ge a_n^2.
+\]
+The last inequality is $(a_n-2)(a_n+1)\le 0$, which is true whenever $-1\le a_n\le 2$. Our boundedness work gives $0<a_n\le 2$, so this will force $a_{n+1}\ge a_n$.
+
+\item \textbf{Convergence + limit.} Once we know $\{a_n\}$ is increasing and bounded, we may invoke the Monotone Convergence Theorem (proved in lecture): the sequence converges. If $a_n\to L$, then passing to the limit in the recursion gives
+$L=\sqrt{2+L}$, so $L^2-L-2=0$ and $L\in\{2,-1\}$. Since $L\ge 0$, we conclude $L=2$.
+\end{itemize}
 \end{scratch}
 
 \textbf{Proof.}\\
+\textbf{(a) Boundedness.} We first show that $0<a_n\le 2$ for all $n\ge 1$.
+
+\emph{Base case.} We have $a_1=\sqrt2$, hence $0<a_1\le 2$.
+
+\emph{Inductive step.} Assume $0<a_n\le 2$ for some $n\ge 1$. Then $2+a_n\le 4$, so
+\[
+ a_{n+1}=\sqrt{2+a_n}\le \sqrt4=2.
+\]
+Also $2+a_n>0$, so $a_{n+1}=\sqrt{2+a_n}>0$. Thus $0<a_{n+1}\le 2$.
+
+By induction, $0<a_n\le 2$ for all $n\ge 1$. In particular, the sequence is bounded (below by $0$ and above by $2$).
+
+\textbf{(b) Increasing.} Fix $n\ge 1$. From part (a), $a_n>0$, so we may square inequalities without changing direction. We compute:
+\[
+ a_{n+1}\ge a_n
+ \iff \sqrt{2+a_n}\ge a_n
+ \iff 2+a_n\ge a_n^2
+ \iff a_n^2-a_n-2\le 0
+ \iff (a_n-2)(a_n+1)\le 0.
+\]
+But part (a) gives $0<a_n\le 2$, hence $a_n-2\le 0$ and $a_n+1>0$, so indeed $(a_n-2)(a_n+1)\le 0$. Therefore $a_{n+1}\ge a_n$ for all $n\ge 1$, and the sequence is increasing.
+
+\textbf{(c) Convergence and limit.} By parts (a) and (b), $\{a_n\}$ is bounded and increasing, so by the Monotone Convergence Theorem it converges. Let
+\[L:=\lim_{n\to\infty} a_n.\]
+Because $a_{n+1}=\sqrt{2+a_n}$ and the square-root function is continuous on $(0,\infty)$, we may take limits on both sides to obtain
+\[
+L=\lim_{n\to\infty} a_{n+1}=\lim_{n\to\infty}\sqrt{2+a_n}=\sqrt{2+\lim_{n\to\infty}a_n}=\sqrt{2+L}.
+\]
+Squaring gives $L^2=2+L$, i.e.
+\[
+L^2-L-2=0 \quad\Longrightarrow\quad (L-2)(L+1)=0.
+\]
+Thus $L\in\{2,-1\}$. Since each $a_n>0$, we have $L\ge 0$, so $L\ne -1$ and therefore $L=2$.
 \qed
 
 % ============================================================
