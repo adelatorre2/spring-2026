@@ -235,20 +235,196 @@ Consider the following sequence: $a_1 = \sqrt{2}$ and $a_{n+1} = \sqrt{2 + a_n}$
 \qed
 
 % ============================================================
-% Optional appendix: keep a personal toolbox of definitions/theorems
+% Appendix for Lectures 10-12 summarizing the key results and concepts we proved in class.
 % ============================================================
 \newpage
 \appendix
-\section*{Appendix: Toolbox (optional)}
-\addcontentsline{toc}{section}{Appendix: Toolbox (optional)}
+\section*{Appendix: Toolbox}
+\addcontentsline{toc}{section}{Appendix: Toolbox}
 
-% Example (using amsthm environments instead of boxed tcolorboxes):
-% \begin{definition}
-% A metric space is ...
-% \end{definition}
-%
-% \begin{theorem}[Heine--Borel]
-% ...
-% \end{theorem}
+\subsection*{Completeness / Real numbers}
+
+\begin{proposition}[Archimedean property]
+For every $x\in\mathbb{R}$, there exists $n\in\mathbb{N}$ such that $n>x$.
+\end{proposition}
+
+\begin{corollary}
+For every $\varepsilon>0$, there exists $n\in\mathbb{N}$ such that $\frac{1}{n}<\varepsilon$.
+\end{corollary}
+
+\begin{lemma}[Integer ``sandwich'']
+For every $a\in\mathbb{R}$, there exists $N\in\mathbb{Z}$ such that
+\[
+N\le a < N+1.
+\]
+\end{lemma}
+
+\begin{proposition}[$\mathbb{Q}$ is dense in $\mathbb{R}$]
+If $x,y\in\mathbb{R}$ satisfy $x<y$, then there exists $q\in\mathbb{Q}$ such that
+\[
+x<q<y.
+\]
+\end{proposition}
+
+\begin{corollary}[$\mathbb{R}\setminus\mathbb{Q}$ is dense in $\mathbb{R}$]
+If $x,y\in\mathbb{R}$ satisfy $x<y$, then there exists $r\in\mathbb{R}\setminus\mathbb{Q}$ such that
+\[
+x<r<y.
+\]
+\end{corollary}
+
+\subsection*{Countability}
+
+\begin{proposition}[Uncountability via Cantor diagonal]
+Let
+\[
+A:=\{f:\mathbb{N}\to\{0,1\}\}.
+\]
+Then $A$ is uncountable.
+\end{proposition}
+
+\begin{remark}[Cantor's diagonal argument (what is happening conceptually)]
+If we (incorrectly) assume $A$ is countable, we can list its elements as
+\[
+A=\{f_1,f_2,f_3,\dots\},\qquad f_k:\mathbb{N}\to\{0,1\}.
+\]
+Think of this as an infinite table whose $(k,n)$-entry is $f_k(n)\in\{0,1\}$.  We then \emph{define a new function}
+\[
+g:\mathbb{N}\to\{0,1\},\qquad g(n):=1-f_n(n).
+\]
+This flips the diagonal entries.  For each $n\in\mathbb{N}$ we have
+\[
+g(n)\ne f_n(n),
+\]
+so $g\ne f_n$ for every $n$ (they differ at input $n$).  Thus $g\in A$ but $g$ is not in our purported enumeration, contradicting that the list contained all of $A$.
+\end{remark}
+
+\begin{corollary}
+The interval $(0,1)=\{x\in\mathbb{R}:0<x<1\}$ is uncountable.
+\end{corollary}
+
+\subsection*{Sequences and limits}
+
+\begin{definition}[Sequence]
+A \emph{sequence of real numbers} is a function $f:\mathbb{N}\to\mathbb{R}$.  We write $a_n:=f(n)$ and denote the sequence by
+\[
+(a_n)_{n\ge 1}\quad\text{or}\quad \{a_n\}_{n\ge 1}.
+\]
+\end{definition}
+
+\begin{definition}[Absolute value]
+For $x\in\mathbb{R}$,
+\[
+|x|=
+\begin{cases}
+ x & \text{if }x\ge 0,\\
+ -x & \text{if }x<0.
+\end{cases}
+\]
+\end{definition}
+
+\begin{exercise}[Basic properties of $|\cdot|$]
+For all $x,y\in\mathbb{R}$:
+\begin{enumerate}
+\item $|x|\ge 0$.
+\item $|x|=0\iff x=0$.
+\item $|x+y|\le |x|+|y|$ \;(triangle inequality).
+\item $\bigl||x|-|y|\bigr|\le |x-y|$.
+\item $|xy|=|x||y|$.
+\end{enumerate}
+\end{exercise}
+
+\begin{definition}[Limit / convergence]
+We say that the sequence $\{a_n\}_{n\ge 1}$ \emph{converges} to $a\in\mathbb{R}$ if
+\[
+\forall\varepsilon>0\ \exists N\in\mathbb{N}\ \text{s.t.}\ \forall n\ge N,\ |a_n-a|<\varepsilon.
+\]
+In this case we write $\lim_{n\to\infty} a_n=a$ or $a_n\to a$ as $n\to\infty$.
+\end{definition}
+
+\begin{definition}[Divergence]
+A sequence \emph{diverges} if it does not converge.
+\end{definition}
+
+\begin{lemma}[Uniqueness of limits]
+If $\{a_n\}_{n\ge1}$ converges, then its limit is unique.
+\end{lemma}
+
+\begin{lemma}[Convergent $\Rightarrow$ bounded]
+If $\{a_n\}_{n\ge1}$ converges, then it is bounded.
+\end{lemma}
+
+\begin{definition}[Bounded sequence]
+We say $\{a_n\}_{n\ge1}$ is bounded above / bounded below / bounded if the set $\{a_n:n\ge1\}$ is bounded above / bounded below / bounded in $\mathbb{R}$.
+\end{definition}
+
+\begin{theorem}[Scalar multiple]
+If $a_n\to a$ in $\mathbb{R}$ and $k\in\mathbb{R}$, then $(ka_n)\to ka$.
+\end{theorem}
+
+\begin{theorem}[Limit laws]
+If $a_n\to a$ and $b_n\to b$, then:
+\begin{enumerate}
+\item $a_n+b_n\to a+b$.
+\item $a_n b_n\to ab$.
+\item If $b\ne 0$ and $b_n\ne 0$ for all $n$, then $\displaystyle \frac{a_n}{b_n}\to \frac{a}{b}$.
+\end{enumerate}
+\end{theorem}
+
+\begin{definition}[Monotone sequences]
+A sequence $\{a_n\}_{n\ge1}$ is
+\begin{enumerate}
+\item \emph{increasing} if $a_n\le a_{n+1}$ for all $n\ge1$,
+\item \emph{strictly increasing} if $a_n<a_{n+1}$ for all $n\ge1$,
+\item \emph{decreasing} if $a_n\ge a_{n+1}$ for all $n\ge1$,
+\item \emph{strictly decreasing} if $a_n>a_{n+1}$ for all $n\ge1$,
+\item \emph{monotone} if it is increasing or decreasing.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Monotone convergence theorem]
+If $\{a_n\}_{n\ge1}$ is monotone and bounded, then it converges.
+\end{theorem}
+
+\subsection*{Cauchy sequences and subsequences}
+
+\begin{definition}[Cauchy sequence]
+A sequence $\{a_n\}_{n\ge1}$ is \emph{Cauchy} if
+\[
+\forall\varepsilon>0\ \exists N\in\mathbb{N}\ \text{s.t.}\ \forall n,m\ge N,\ |a_n-a_m|<\varepsilon.
+\]
+\end{definition}
+
+\begin{theorem}[Cauchy criterion]
+A sequence of real numbers is Cauchy if and only if it converges.
+\end{theorem}
+
+\begin{lemma}[Cauchy $\Rightarrow$ bounded]
+If $\{a_n\}_{n\ge1}$ is Cauchy, then it is bounded.
+\end{lemma}
+
+\begin{definition}[Subsequence]
+Let $\{a_n\}_{n\ge1}$ be a sequence.  We say $\{a_{h_n}\}_{n\ge1}$ is a \emph{subsequence} of $\{a_n\}_{n\ge1}$ if $\{h_n\}_{n\ge1}$ is a strictly increasing sequence of natural numbers (i.e. $h_n\in\mathbb{N}$ and $h_n<h_{n+1}$ for all $n$).
+\end{definition}
+
+\begin{lemma}
+If $\{h_n\}_{n\ge1}$ is strictly increasing in $\mathbb{N}$, then $h_n\ge n$ for all $n\ge1$.
+\end{lemma}
+
+\begin{example}[Subsequences]
+\begin{enumerate}
+\item If $h_n=n$, then $\{a_{h_n}\}$ is the original sequence.
+\item If $h_n=2n$, then $\{a_{2n}\}$ is the even-index subsequence.
+\item If $a_n=(-1)^n$, then the subsequence $a_{2n}=1$ converges (even though $a_n$ diverges).
+\end{enumerate}
+\end{example}
+
+\begin{theorem}[Subsequence of a convergent sequence]
+If $a_n\to a$ and $\{a_{h_n}\}$ is any subsequence, then $a_{h_n}\to a$.
+\end{theorem}
+
+\begin{theorem}[Convergence detected by subsequences]
+A sequence $\{a_n\}$ converges to $a$ if and only if every subsequence of $\{a_n\}$ converges to $a$.
+\end{theorem}
 
 \end{document}
