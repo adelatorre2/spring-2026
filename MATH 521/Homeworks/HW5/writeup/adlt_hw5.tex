@@ -198,13 +198,185 @@ $\limsup_{n\to\infty} |a_n| = 0$ if and only if $\lim_{n\to\infty} a_n = 0$.
 \section*{Appendix: Toolbox}
 \addcontentsline{toc}{section}{Appendix: Toolbox}
 
-% Example (using amsthm environments instead of boxed tcolorboxes):
-% \begin{definition}
-% A metric space is ...
-% \end{definition}
-%
-% \begin{theorem}[Heine--Borel]
-% ...
-% \end{theorem}
+\subsection*{Sequences and Cauchy}
+\begin{definition}
+We say that $\{a_n\}_{n\ge 1}$ is a Cauchy sequence if:
+for all $\varepsilon>0$ there exists $N\in\mathbb{N}$ such that
+$|a_n-a_m|<\varepsilon$ for all $m,n\ge N$.
+\end{definition}
+
+\begin{theorem}[Cauchy criterion]
+Let $\{a_n\}_{n\ge 1}$ be a sequence. The sequence $\{a_n\}_{n\ge 1}$ is
+Cauchy if and only if it converges.
+\end{theorem}
+
+\begin{proposition}
+If $\{a_n\}_{n\ge 1}$ converges, then it is Cauchy.
+\end{proposition}
+
+\begin{lemma}
+If $\{a_n\}_{n\ge 1}$ is a Cauchy sequence, then it is bounded.
+\end{lemma}
+
+\begin{proposition}
+If $\{a_n\}_{n\ge 1}$ is a Cauchy sequence, then it converges.
+\end{proposition}
+
+\subsection*{Subsequences}
+\begin{definition}
+Let $\{a_n\}_{n\ge 1}$ be a sequence. We say $\{a_{k_n}\}_{n\ge 1}$ is a
+subsequence of $\{a_n\}_{n\ge 1}$ if $\{k_n\}_{n\ge 1}$ is a strictly increasing
+sequence of natural numbers: $k_n\in\mathbb{N}$ and $k_n<k_{n+1}$ for all
+$n\in\mathbb{N}$.
+\end{definition}
+
+\begin{remark}
+Any such $\{k_n\}_{n\ge 1}$ must satisfy $k_n\ge n$ for all $n\ge 1$.
+This is easy to prove by induction. (Exercise.)
+\end{remark}
+
+\begin{theorem}
+Let $\{a_n\}_{n\ge 1}$ be a sequence and $a\in\mathbb{R}$. The sequence
+$\{a_n\}_{n\ge 1}$ converges to $a$ if and only if every subsequence
+$\{a_{k_n}\}_{n\ge 1}$ converges to $a$.
+\end{theorem}
+
+\subsection*{Monotone Subsequences}
+\begin{proposition}
+For any sequence, there is a subsequence that is monotone.
+\end{proposition}
+
+\begin{theorem}[Bolzano--Weierstrass]
+For any bounded sequence, there exists a subsequence that converges.
+\end{theorem}
+
+\subsection*{Divergence to $\pm\infty$}
+\begin{definition}
+Let $\{a_n\}_{n\ge 1}$ be a sequence. We say:
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+\item $\{a_n\}_{n\ge 1}$ diverges to $+\infty$ if for all $M>0$ there exists
+$N\in\mathbb{N}$ such that $a_n>M$ for all $n\ge N$. When this is true, we write
+$\lim_{n\to\infty} a_n=+\infty$.
+\item $\{a_n\}_{n\ge 1}$ diverges to $-\infty$ if for all $m<0$ there exists
+$N\in\mathbb{N}$ such that $a_n<m$ for all $n\ge N$. When this is true, we write
+$\lim_{n\to\infty} a_n=-\infty$.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}
+If $\{a_n\}_{n\ge 1}$ is unbounded and increasing (decreasing), then
+$\{a_n\}_{n\ge 1}$ diverges to $+\infty$ ($-\infty$, respectively).
+\end{proposition}
+
+\begin{remark}
+If a sequence is increasing, there are only two possibilities:
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+\item bounded $\Rightarrow$ converges;
+\item unbounded $\Rightarrow$ diverges to $+\infty$.
+\end{enumerate}
+\end{remark}
+
+\begin{remark}
+``$\lim a_n$'' only sometimes makes sense:
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+\item converges $\Rightarrow \lim_{n\to\infty} a_n=a\in\mathbb{R}$;
+\item diverges: diverges to $\pm\infty \Rightarrow \lim_{n\to\infty} a_n=\pm\infty$,
+else $\lim_{n\to\infty} a_n$ does not exist.
+\end{enumerate}
+\end{remark}
+
+\subsection*{Limit Superior and Limit Inferior}
+\begin{definition}
+Let $\{a_n\}_{n\ge 1}$ be a sequence (convergent or not). Case 1:
+$\{a_n\}_{n\ge 1}$ is bounded. Fix any $N\in\mathbb{N}$. Then the set
+$\{a_n:n\ge N\}$ is nonempty and bounded, so
+\[
+u_N=\inf\{a_n:n\ge N\},\qquad v_N=\sup\{a_n:n\ge N\}
+\]
+both exist. We automatically have $u_N\le v_N$ for all $N$.
+\end{definition}
+
+\begin{proposition}
+With $u_N$ and $v_N$ as above, $\{u_N\}_{N\ge 1}$ is increasing and
+$\{v_N\}_{N\ge 1}$ is decreasing. In particular,
+\[
+u_1\le u_2\le \cdots \le u_N \le v_N \le \cdots \le v_2 \le v_1
+\quad\text{for all }N\ge 1.
+\]
+\end{proposition}
+
+\begin{proposition}
+The sequences $\{u_N\}_{N\ge 1}$ and $\{v_N\}_{N\ge 1}$ are both monotone and
+bounded, and therefore converge. Set
+\[
+u=\lim_{N\to\infty} u_N
+\qquad\text{and}\qquad
+v=\lim_{N\to\infty} v_N.
+\]
+Then $u\le v$. Moreover, if $\lim_{n\to\infty} a_n=a$ exists, then
+$u\le a\le v$.
+\end{proposition}
+
+\begin{definition}
+Let $\{a_n\}_{n\ge 1}$ be a bounded sequence. We define
+\[
+\limsup_{n\to\infty} a_n=\lim_{N\to\infty} v_N
+=\lim_{N\to\infty}\Big(\sup\{a_n:n\ge N\}\Big)
+\]
+and
+\[
+\liminf_{n\to\infty} a_n=\lim_{N\to\infty} u_N
+=\lim_{N\to\infty}\Big(\inf\{a_n:n\ge N\}\Big).
+\]
+\end{definition}
+
+\begin{corollary}
+If $\{a_n\}_{n\ge 1}$ is bounded, then
+\[
+\liminf_{n\to\infty} a_n \le \limsup_{n\to\infty} a_n.
+\]
+\end{corollary}
+
+\begin{definition}
+If $\{a_n\}_{n\ge 1}$ is not bounded above, then we define
+\[
+\limsup_{n\to\infty} a_n=+\infty.
+\]
+If $\{a_n\}_{n\ge 1}$ is not bounded below, then we define
+\[
+\liminf_{n\to\infty} a_n=-\infty.
+\]
+\end{definition}
+
+\begin{remark}
+So $\limsup$ and $\liminf$ make sense for any sequence, but their values are in
+$\mathbb{R}\cup\{\pm\infty\}$.
+\end{remark}
+
+\begin{corollary}
+For any sequence $\{a_n\}_{n\ge 1}$, we have
+\[
+\liminf_{n\to\infty} a_n \le \limsup_{n\to\infty} a_n.
+\]
+\end{corollary}
+
+\begin{theorem}
+Let $\{a_n\}_{n\ge 1}$ be a sequence.
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+\item If $\lim_{n\to\infty} a_n$ exists in $\mathbb{R}\cup\{\pm\infty\}$, then
+\[
+\liminf_{n\to\infty} a_n=\lim_{n\to\infty} a_n=\limsup_{n\to\infty} a_n.
+\]
+\item If $\liminf_{n\to\infty} a_n=\limsup_{n\to\infty} a_n$ in
+$\mathbb{R}\cup\{\pm\infty\}$, then $\lim_{n\to\infty} a_n$ exists and equals
+this value.
+\end{enumerate}
+\end{theorem}
+
+\begin{remark}
+Here, ``$\lim_{n\to\infty} a_n$ exists in $\mathbb{R}\cup\{\pm\infty\}$'' just
+means ``$\{a_n\}_{n\ge 1}$ converges, or diverges to $+\infty$, or diverges to
+$-\infty$.''
+\end{remark}
 
 \end{document}
