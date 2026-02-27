@@ -38,3 +38,6 @@ __pycache__/
 # Build artifacts
 build/
 dist/
+
+# Other
+MATH 431/Homework/templates/prompts/
