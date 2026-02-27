@@ -137,11 +137,51 @@ $\lim_{n\to\infty} a_n = +\infty$ if and only if
 $\lim_{n\to\infty} \frac{1}{a_n} = 0$.
 
 \begin{scratch}
-% Outline the strategy, key definitions, lemmas, or a proof sketch.
+This is an ``if and only if'' statement, so we prove both directions using the
+definitions.
+
+Because $a_n>0$ for all $n$, the reciprocal $\frac{1}{a_n}$ is well-defined and
+positive. The key observation is that for positive numbers, taking reciprocals
+reverses inequalities: for $x>0$ and $M>0$,
+\[
+x > M \quad \Longleftrightarrow \quad \frac{1}{x} < \frac{1}{M}.
+\]
+So ``$a_n$ eventually exceeds every $M$'' is the same as
+``$\frac{1}{a_n}$ eventually falls below every $\varepsilon$'' (after choosing
+$\varepsilon = 1/M$ or $M=1/\varepsilon$).
 \end{scratch}
 
 \textbf{Proof.}\\
-% Write your proof here.
+($\Rightarrow$) Assume $\lim_{n\to\infty} a_n = +\infty$. By definition, for every
+$M>0$ there exists $N\in\mathbb{N}$ such that $a_n > M$ for all $n\ge N$.
+Let $\varepsilon>0$ be given and choose $M = 1/\varepsilon$ (note $M>0$).
+Then there exists $N$ such that for all $n\ge N$,
+\[
+a_n > \frac{1}{\varepsilon}.
+\]
+Since $a_n>0$, taking reciprocals yields
+\[
+\frac{1}{a_n} < \varepsilon \qquad \text{for all } n\ge N.
+\]
+Thus for all $n\ge N$ we have $\left|\frac{1}{a_n}-0\right|=\frac{1}{a_n}<\varepsilon$,
+which shows $\lim_{n\to\infty}\frac{1}{a_n}=0$.
+
+($\Leftarrow$) Assume $\lim_{n\to\infty}\frac{1}{a_n}=0$. By definition, for every
+$\varepsilon>0$ there exists $N\in\mathbb{N}$ such that for all $n\ge N$,
+\[
+\left|\frac{1}{a_n}-0\right|<\varepsilon.
+\]
+Because $\frac{1}{a_n}>0$, this is the same as $\frac{1}{a_n}<\varepsilon$.
+Now let $M>0$ be given and choose $\varepsilon = 1/M$ (note $\varepsilon>0$).
+Then there exists $N$ such that for all $n\ge N$,
+\[
+\frac{1}{a_n} < \frac{1}{M}.
+\]
+Since $a_n>0$, taking reciprocals reverses the inequality and gives
+\[
+a_n > M \qquad \text{for all } n\ge N.
+\]
+This is exactly the definition of $\lim_{n\to\infty} a_n = +\infty$.
 \qed
 
 \newpage
@@ -158,9 +198,73 @@ $\limsup_{n\to\infty} a_n = +\infty$. However, the proof is much easier in
 these cases.)
 
 \begin{scratch}
+The core idea is: compare each subsequence term $a_{k_n}$ to the \emph{tail} bounds of the original sequence.
+Fix a tail starting at $N$. Then
+\[
+u_N := \inf\{a_m:m\ge N\}\quad\text{and}\quad v_N:=\sup\{a_m:m\ge N\}
+\]
+satisfy $u_N \le a_m \le v_N$ for every $m\ge N$.
+
+Now use the fact that $k_n\to\infty$ (because $\{k_n\}$ is strictly increasing), so for any fixed $N$,
+eventually $k_n\ge N$. Hence for all large $n$,
+\[
+u_N \le a_{k_n} \le v_N.
+\]
+Taking $n\to\infty$ gives $u_N \le L \le v_N$ for each $N$.
+Finally, let $N\to\infty$: by definition,
+\[
+\liminf_{n\to\infty} a_n=\lim_{N\to\infty}u_N,\qquad
+\limsup_{n\to\infty} a_n=\lim_{N\to\infty}v_N,
+\]
+and passing to the limit preserves the inequalities.
+(If $\liminf=-\infty$ or $\limsup=+\infty$, the corresponding inequality is automatic.)
 \end{scratch}
 
 \textbf{Proof.}\\
+Let $\{a_{k_n}\}_{n\ge 1}$ be a subsequence of $\{a_n\}_{n\ge 1}$ and suppose
+\[
+\lim_{n\to\infty} a_{k_n}=L\in\mathbb{R}.
+\]
+
+\emph{Case 1:} $\liminf_{n\to\infty} a_n=-\infty$.  
+Then $\liminf_{n\to\infty} a_n \le L$ holds automatically, since $-\infty\le L$.
+
+\emph{Case 2:} $\limsup_{n\to\infty} a_n=+\infty$.  
+Then $L\le \limsup_{n\to\infty} a_n$ holds automatically, since $L\le +\infty$.
+
+So assume from now on that $\{a_n\}$ is bounded (equivalently, both $\liminf a_n$ and $\limsup a_n$
+are finite real numbers). For each $N\in\mathbb{N}$ define the tail infimum and tail supremum
+\[
+u_N=\inf\{a_m:m\ge N\},\qquad v_N=\sup\{a_m:m\ge N\}.
+\]
+By definition of infimum and supremum, for every $m\ge N$ we have
+\[
+u_N \le a_m \le v_N.
+\]
+
+Fix $N\in\mathbb{N}$. Because $\{k_n\}$ is strictly increasing, we have $k_n\ge n$ for all $n$,
+and in particular there exists $n_0$ such that $k_n\ge N$ for all $n\ge n_0$.
+Therefore, for all $n\ge n_0$,
+\[
+u_N \le a_{k_n} \le v_N.
+\]
+Now take the limit as $n\to\infty$. Since $u_N$ and $v_N$ are constants (in $n$) and
+$a_{k_n}\to L$, we obtain
+\[
+u_N \le L \le v_N\qquad\text{for every }N\in\mathbb{N}.
+\]
+
+Finally, let $N\to\infty$. By definition,
+\[
+\liminf_{n\to\infty} a_n=\lim_{N\to\infty}u_N,
+\qquad
+\limsup_{n\to\infty} a_n=\lim_{N\to\infty}v_N.
+\]
+Taking limits in the inequality $u_N\le L\le v_N$ gives
+\[
+\liminf_{n\to\infty} a_n \le L \le \limsup_{n\to\infty} a_n,
+\]
+as desired.
 \qed
 
 \newpage
@@ -173,9 +277,99 @@ that
 \]
 
 \begin{scratch}
+We work directly from the definition of $\limsup$ via tail suprema. We know that they exist for $a_n$ and $b_n$ because the sequences are bounded. We also know they exist for $a_n+b_n$ because the sum of two bounded sequences is bounded (which I think we prove by considering the definition of bounded; if $a_n$ is bounded, then there exists $M_1>0$ such that $|a_n| \leq M$ for all $n$, and similarly for $b_n$ which is bounded by $M_2$, so $|a_n+b_n| \leq |a_n|+|b_n| \leq $ by the triangle inequality so so $a_n+b_n$ is bounded by $M_1 + M_2$ which we could call $K \in \mathbb{R}$ s.t. $\forall n\in\mathbb{N}, |a_n+b_n| \leq K$ and thus $a_n +b_n$ is bounded). Anyway, check out these definitions:
+
+Since $\{a_n\}$ and $\{b_n\}$ are bounded, for each $N\in\mathbb{N}$ we define
+
+\[
+v_N^{(a)} = \sup\{a_n : n \ge N\},
+\qquad
+v_N^{(b)} = \sup\{b_n : n \ge N\},
+\]
+
+and
+
+\[
+v_N^{(a+b)} = \sup\{a_n + b_n : n \ge N\}.
+\]
+
+For every $n \ge N$, we have
+\[
+a_n \le v_N^{(a)}
+\quad\text{and}\quad
+b_n \le v_N^{(b)}.
+\]
+
+Adding these inequalities gives
+\[
+a_n + b_n \le v_N^{(a)} + v_N^{(b)}.
+\]
+
+Since this holds for all $n \ge N$, the supremum satisfies
+\[
+v_N^{(a+b)} \le v_N^{(a)} + v_N^{(b)}.
+\]
+
+Now take limits as $N\to\infty$ and use the definition of $\limsup$.
+
+(Please don't make us prove this again this was so saucey)
 \end{scratch}
 
 \textbf{Proof.}\\
+Since $\{a_n\}$ and $\{b_n\}$ are bounded sequences, for each $N\in\mathbb{N}$ the sets
+$\{a_n:n\ge N\}$ and $\{b_n:n\ge N\}$ are nonempty and bounded.
+Define
+\[
+v_N^{(a)}=\sup\{a_n:n\ge N\}, 
+\qquad
+v_N^{(b)}=\sup\{b_n:n\ge N\},
+\]
+and
+\[
+v_N^{(a+b)}=\sup\{a_n+b_n:n\ge N\}.
+\]
+
+For every $n\ge N$, we have
+\[
+a_n \le v_N^{(a)}
+\quad\text{and}\quad
+b_n \le v_N^{(b)}.
+\]
+Therefore
+\[
+a_n + b_n \le v_N^{(a)} + v_N^{(b)}.
+\]
+Since this inequality holds for all $n\ge N$, taking the supremum over $n\ge N$
+gives
+\[
+v_N^{(a+b)} \le v_N^{(a)} + v_N^{(b)}.
+\]
+
+Now take limits as $N\to\infty$. By definition,
+\[
+\limsup_{n\to\infty}(a_n+b_n)
+=
+\lim_{N\to\infty} v_N^{(a+b)},
+\]
+\[
+\limsup_{n\to\infty} a_n
+=
+\lim_{N\to\infty} v_N^{(a)},
+\qquad
+\limsup_{n\to\infty} b_n
+=
+\lim_{N\to\infty} v_N^{(b)}.
+\]
+Passing to the limit in the inequality
+$v_N^{(a+b)} \le v_N^{(a)} + v_N^{(b)}$
+yields
+\[
+\limsup_{n\to\infty}(a_n+b_n)
+\le
+\limsup_{n\to\infty} a_n
++
+\limsup_{n\to\infty} b_n.
+\]
 \qed
 
 \newpage
@@ -185,9 +379,56 @@ Let $\{a_n\}_{n\ge 1}$ be a sequence. Prove that
 $\limsup_{n\to\infty} |a_n| = 0$ if and only if $\lim_{n\to\infty} a_n = 0$.
 
 \begin{scratch}
+This is another ``if and only if'' statement, so we prove both directions.
+
+A helpful way to think about $\limsup$ is via 
+\[
+\limsup_{n\to\infty} x_n \,=\, \lim_{N\to\infty} \Big(\sup\{x_n:n\ge N\}\Big)
+\]
+whenever the sequence $\{x_n\}$ is bounded above (and if it is not bounded above, the $\limsup$ is $+\infty$).
+
+Here $x_n=|a_n|\ge 0$ always. So:
+
+\begin{itemize}
+\item If $a_n\to 0$, then eventually $|a_n|$ is small; consequently every tail supremum $\sup\{|a_n|:n\ge N\}$ must also be small, forcing $\limsup |a_n|=0$.
+\item Conversely, if the tail suprema of $|a_n|$ tend to $0$, then in particular each term $|a_n|$ in the tail is bounded by something $<\varepsilon$, which is exactly the definition of $a_n\to 0$.
+\end{itemize}
 \end{scratch}
 
 \textbf{Proof.}\\
+($\Rightarrow$) Assume $\lim_{n\to\infty} a_n=0$. Let $\varepsilon>0$ be given. By definition of convergence, there exists $N_0\in\mathbb{N}$ such that
+\[
+|a_n-0|=|a_n|<\varepsilon \qquad \text{for all } n\ge N_0.
+\]
+Fix any $N\ge N_0$. Then for every $n\ge N$ we have $|a_n|<\varepsilon$, and hence
+\[
+\sup\{|a_n|:n\ge N\}\le \varepsilon.
+\]
+Define $v_N:=\sup\{|a_n|:n\ge N\}$. The inequality above shows that for all $N\ge N_0$, $v_N\le \varepsilon$.
+Taking $N\to\infty$ yields
+\[
+\limsup_{n\to\infty}|a_n| 
+= \lim_{N\to\infty} v_N 
+\le \varepsilon.
+\]
+Because $\varepsilon>0$ was arbitrary and $\limsup_{n\to\infty}|a_n|\ge 0$ (since $|a_n|\ge 0$), we conclude
+$\limsup_{n\to\infty}|a_n|=0$.
+
+($\Leftarrow$) Assume $\limsup_{n\to\infty}|a_n|=0$. Set again
+\[
+v_N:=\sup\{|a_n|:n\ge N\}.
+\]
+By definition of $\limsup$ (and since $|a_n|\ge 0$ is bounded above whenever $\limsup |a_n|=0$ is finite), we have
+$\lim_{N\to\infty} v_N=0$.
+Let $\varepsilon>0$ be given. Then there exists $N_0\in\mathbb{N}$ such that
+\[
+v_{N_0}<\varepsilon.
+\]
+But for every $n\ge N_0$, we have $|a_n|\le v_{N_0}$ (because $v_{N_0}$ is the supremum of the tail $\{|a_n|:n\ge N_0\}$). Therefore, for all $n\ge N_0$,
+\[
+|a_n|\le v_{N_0}<\varepsilon.
+\]
+This is exactly the definition of $a_n\to 0$. Hence $\lim_{n\to\infty} a_n=0$.
 \qed
 
 % ============================================================
