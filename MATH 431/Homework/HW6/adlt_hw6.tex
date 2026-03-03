@@ -1,0 +1,402 @@
+% !TEX program = pdflatex
+% ------------------------------------------------------------
+% MATH 431 Homework Template (plug-and-chug friendly)
+%
+% Goals:
+% - Same clean header style as your MATH 521 template.
+% - Easy “Problem -> Solution” workflow.
+% - Lightweight (no tcolorbox); uses mdframed for optional boxes.
+% - Good for probability homework: sample space, probability measure, events.
+%
+% Quick use:
+%   1) Edit the Metadata block.
+%   2) For each exercise, use \problem{<section>.<number>} and paste the prompt.
+%   3) Write your solution in the solution environment.
+% ------------------------------------------------------------
+
+\documentclass[12pt]{article}
+
+% =========================
+% 0) Metadata (EDIT ME)
+% =========================
+\newcommand{\CourseCode}{MATH 431}
+\newcommand{\CourseTitle}{Introduction to Probability}
+\newcommand{\CourseSection}{LEC 002} % change to 001 or 003 if needed
+\newcommand{\Semester}{Spring 2026}
+\newcommand{\Instructor}{Sarah Tammen} % LEC 001: Ander Aguirre | LEC 002: Sarah Tammen | LEC 003: Nicholas Derr
+\newcommand{\MeetingInfo}{MWF 9:55--10:45, 6102 Sewell Social Sciences} % LEC 001 default; update if in 002/003
+\newcommand{\HomeworkNumber}{6}
+\newcommand{\YourName}{Alejandro De La Torre}
+\newcommand{\DueDate}{March 6, 2026} % or e.g. February 2, 2026
+
+% =========================
+% 1) Core math tools
+% =========================
+\usepackage{amsmath, amssymb, amsthm}
+
+% =========================
+% 2) Lists and spacing
+% =========================
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=\textbf{(\alph*)}, leftmargin=2em, itemsep=0.25em}
+\setlist[itemize]{leftmargin=1.5em, itemsep=0.25em}
+\setlength{\parskip}{0.35em}
+\setlength{\parindent}{0pt}
+
+% =========================
+% 3) Page geometry + header/footer
+% =========================
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\CourseCode\ --- \CourseSection, \Semester}
+\rhead{Homework \HomeworkNumber}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\headheight}{15pt}
+\addtolength{\topmargin}{-2pt}
+
+% =========================
+% 4) Links (subtle)
+% =========================
+\usepackage[hidelinks]{hyperref}
+\setcounter{tocdepth}{1}
+
+% =========================
+% 5) Figures (optional)
+% =========================
+\usepackage{graphicx}
+\graphicspath{{images/}}
+
+% =========================
+% 6) Lightweight boxes (optional)
+% =========================
+\usepackage{mdframed}
+\newmdenv[
+  skipabove=0.6\baselineskip,
+  skipbelow=0.6\baselineskip,
+  linewidth=0.6pt,
+  roundcorner=4pt,
+  innerleftmargin=10pt,
+  innerrightmargin=10pt,
+  innertopmargin=8pt,
+  innerbottommargin=8pt
+]{boxnote}
+
+% =========================
+% 7) Probability / notation macros
+% =========================
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newcommand{\OmegaSpace}{\Omega}
+\newcommand{\FField}{\mathcal{F}}
+% Probability measure in case it is relevant or want to distinguish it from P(A)
+%\newcommand{\PMeasure}{\mathbb{P}} 
+\newcommand{\E}{\mathbb{E}}
+
+\newcommand{\given}{\,\middle|\,}
+\newcommand{\ind}{\mathbf{1}}
+
+% Common “defined as” symbol
+\newcommand{\defeq}{\vcentcolon=}
+
+% =========================
+% 8) Problem command (TOC + PDF bookmarks)
+% Usage:
+%   \problem{<label>}
+%   \problem[Short title]{<label>}
+% Example:
+%   \problem{1.4}
+%   \problem[Sample space]{1.4}
+% =========================
+\makeatletter
+\newcommand{\problem}[2][]{%
+  \def\prob@title{Problem #2\if\relax\detokenize{#1}\relax\else\ (\textit{#1})\fi}%
+  \phantomsection%
+  \pdfbookmark[1]{\prob@title}{prob#2}%
+  \addcontentsline{toc}{section}{\prob@title}%
+  \section*{\prob@title}%
+  \vspace{-0.25em}\hrule\vspace{0.8em}%
+}
+\makeatother
+
+% =========================
+% 9) Solution environment
+% =========================
+\newenvironment{solution}{%
+  \noindent\textbf{Solution.}\ \ignorespaces
+}{\par}
+
+% Optional scratch / planning block
+\newenvironment{scratch}{%
+  \begin{boxnote}\textbf{Scratch / Setup.}\ \small
+}{\end{boxnote}}
+
+% Final answer command: expects math only (no $$ or \[ \])
+\newcommand{\finalanswer}[1]{%
+  \par\medskip
+  \noindent\textbf{Final:}\ \fbox{$#1$}\par
+} % AGAIN: MATH ONLY INSIDE THE BOX; if word answer, use \text{} inside or use \fbox{TEXT} or \framebox
+
+% =========================
+% 10) Title block
+% =========================
+\title{Homework \HomeworkNumber}
+\author{\YourName \\
+\CourseCode\ --- \CourseTitle \\
+\CourseSection \\
+Instructor: \Instructor}
+\date{Due: \DueDate}
+
+\begin{document}
+\maketitle
+
+% \section*{Collaboration / Resources}
+% (Optional) Write “I worked alone” or list collaborators/resources.
+
+\tableofcontents
+\bigskip
+\hrule
+\bigskip
+\newpage
+
+% ============================================================
+% Problems (duplicate blocks as needed)
+% ============================================================
+
+
+\problem{3.16}
+Let $Z$ have the following density function
+\[
+f_Z(z)=
+\begin{cases}
+\frac{1}{7}, & 1 \le z \le 2,\\
+\frac{3}{7}, & 5 \le z \le 7,\\
+0, & \text{otherwise}.
+\end{cases}
+\]
+Compute both $E[Z]$ and $\mathrm{Var}(Z)$.
+
+\begin{solution}
+\begin{scratch}
+Support: $z\in[1,2]\cup[5,7]$, with $f_Z(z)=\frac{1}{7}$ on $[1,2]$ and $f_Z(z)=\frac{3}{7}$ on $[5,7]$.
+Plan: compute $E[Z]=\int z f_Z(z)\,dz$ and $E[Z^2]=\int z^2 f_Z(z)\,dz$ over those intervals, then $\mathrm{Var}(Z)=E[Z^2]-(E[Z])^2$.
+\end{scratch}
+
+\[
+E[Z]=\int_{-\infty}^{\infty} z f_Z(z)\,dz
+= \frac{1}{7}\int_{1}^{2} z\,dz + \frac{3}{7}\int_{5}^{7} z\,dz
+= \frac{1}{7}\cdot\frac{2^2-1^2}{2} + \frac{3}{7}\cdot\frac{7^2-5^2}{2}
+= \frac{75}{14}.
+\]
+
+\[
+E[Z^2]=\int_{-\infty}^{\infty} z^2 f_Z(z)\,dz
+= \frac{1}{7}\int_{1}^{2} z^2\,dz + \frac{3}{7}\int_{5}^{7} z^2\,dz
+= \frac{1}{7}\cdot\frac{2^3-1^3}{3} + \frac{3}{7}\cdot\frac{7^3-5^3}{3}
+= \frac{661}{21}.
+\]
+
+\[
+\mathrm{Var}(Z)=E[Z^2]-(E[Z])^2=\frac{661}{21}-\left(\frac{75}{14}\right)^2=\frac{1633}{588}.
+\]
+
+\finalanswer{E[Z]=\frac{75}{14},\ \mathrm{Var}(Z)=\frac{1633}{588}}
+\end{solution}
+
+\newpage
+
+\problem{3.18}
+Let $X$ be a normal random variable with mean $3$ and variance $4$.
+\begin{enumerate}[label=(\alph*)]
+\item Find the probability $P(2 < X < 6)$.
+\item Find the value $c$ such that $P(X > c) = 0.33$.
+\item Find $E(X^2)$.
+\end{enumerate}
+Hint. You can integrate with the density function, but it is quicker to relate $E(X^2)$ to the mean and variance.
+
+\begin{solution}
+\begin{scratch}
+$\mu=3$, $\sigma=2$. Standardize: $Z=\frac{X-\mu}{\sigma}\sim N(0,1)$ with CDF $\Phi$.
+(a) Compute $\Phi(1.5)-\Phi(-0.5)$.
+(b) Solve $\Phi\!\left(\frac{c-3}{2}\right)=0.67$, so $c=3+2z_{0.67}$.
+(c) Use $E(X^2)=\mathrm{Var}(X)+(E[X])^2$.
+\end{scratch}
+
+\textbf{(a)}
+\[
+P(2<X<6)=P\!\left(\frac{2-3}{2}<Z<\frac{6-3}{2}\right)=P\left(-\tfrac{1}{2}<Z<\tfrac{3}{2}\right)
+=\Phi(1.5)-\Phi(-0.5).
+\]
+Using $\Phi(1.5)\approx0.9332$ and $\Phi(0.5)\approx0.6915$,
+\[
+P(2<X<6)\approx 0.9332-(1-0.6915)=0.6247.
+\]
+
+\textbf{(b)} We need $c$ such that
+\[
+0.33=P(X>c)=P\!\left(Z>\frac{c-3}{2}\right)=1-\Phi\!\left(\frac{c-3}{2}\right).
+\]
+Thus $\Phi\!\left(\frac{c-3}{2}\right)=0.67$. Let $z_{0.67}$ satisfy $\Phi(z_{0.67})=0.67$; from the table $z_{0.67}\approx0.44$.
+Hence $c=3+2z_{0.67}\approx 3+2(0.44)=3.88$.
+
+\textbf{(c)}
+\[
+E(X^2)=\mathrm{Var}(X)+(E[X])^2=4+3^2=13.
+\]
+
+\finalanswer{P(2<X<6)\approx0.6247,\ c\approx3.88,\ E(X^2)=13}
+\end{solution}
+
+\newpage
+
+\problem{3.23}
+Ten thousand people each buy a lottery ticket. Each lottery ticket costs \$1. 100 people are chosen as winners. Of those 100 people, 80 will win \$2, 19 will win \$100, and one lucky winner will win \$7000. Let $X$ denote the profit ($\text{profit} = \text{winnings} - \text{cost}$) of a randomly chosen player of this game.
+\begin{enumerate}[label=(\alph*)]
+\item Give both the possible values and probability mass function for $X$.
+\item Find $P(X \ge 100)$.
+\item Compute $E[X]$ and $\mathrm{Var}(X)$.
+\end{enumerate}
+
+\begin{solution}
+\begin{scratch}
+Possible winnings: $0,2,100,7000$. Profit $X=\text{winnings}-1$ so values are $-1,1,99,6999$.
+Probabilities: 9900 nonwinners, 80 win $\$2$, 19 win $\$100$, 1 win $\$7000$ out of 10,000.
+Compute $E[X]$, $E[X^2]$, then $\mathrm{Var}(X)=E[X^2]-(E[X])^2$.
+\end{scratch}
+
+\textbf{(a)} There are 10{,}000 tickets and 100 winners. Hence
+\[
+P(X=-1)=\frac{9900}{10000}=\frac{99}{100},\quad
+P(X=1)=\frac{80}{10000}=\frac{1}{125},
+\]
+\[
+P(X=99)=\frac{19}{10000},\quad
+P(X=6999)=\frac{1}{10000}.
+\]
+
+\textbf{(b)} Since $99<100$, the only value with $X\ge100$ is $6999$:
+\[
+P(X\ge100)=P(X=6999)=\frac{1}{10000}.
+\]
+
+\textbf{(c)}
+\[
+E[X]=(-1)\frac{99}{100}+1\cdot\frac{1}{125}+99\cdot\frac{19}{10000}+6999\cdot\frac{1}{10000}
+= -\frac{47}{500}\approx-0.094.
+\]
+\[
+E[X^2]=1\cdot\frac{99}{100}+1\cdot\frac{1}{125}+99^2\cdot\frac{19}{10000}+6999^2\cdot\frac{1}{10000}
+=\frac{245911}{50}=4918.22.
+\]
+\[
+\mathrm{Var}(X)=E[X^2]-(E[X])^2=\frac{245911}{50}-\left(\frac{47}{500}\right)^2\approx 4918.211.
+\]
+
+\finalanswer{E[X]=-\frac{47}{500},\ \mathrm{Var}(X)\approx 4918.211,\ P(X\ge100)=\frac{1}{10000}}
+\end{solution}
+
+\newpage
+
+\problem{3.28}
+There are five closed boxes on a table. Three of the boxes have nice prizes inside. The other two do not. You open boxes one at a time until you find a prize. Let $X$ be the number of boxes you open.
+\begin{enumerate}[label=(\alph*)]
+\item Find the probability mass function of $X$.
+\item Find $E[X]$.
+\item Find $\mathrm{Var}(X)$.
+\item Suppose the prize inside each of the three good boxes is \$100, but each empty box you open costs you \$100. What is your expected gain or loss in this game?
+\end{enumerate}
+Hint. Express the gain or loss as a function of $X$.
+
+\begin{solution}
+\begin{scratch}
+$X$ = number of boxes opened until first prize. Possible values: $1,2,3$.
+P($X=1$): first box good. P($X=2$): first empty, then good. P($X=3$): two empties, then good.
+Then compute $E[X]$, $E[X^2]$, and $\mathrm{Var}(X)=E[X^2]-(E[X])^2$.
+For (d) let gain/loss $W=100(2-X)$ and use $E[aX+b]=aE[X]+b$.
+\end{scratch}
+
+\textbf{(a)}
+\[
+P(X=1)=\frac{3}{5},\quad
+P(X=2)=\frac{2}{5}\cdot\frac{3}{4}=\frac{3}{10},\quad
+P(X=3)=\frac{2}{5}\cdot\frac{1}{4}\cdot\frac{3}{3}=\frac{1}{10}.
+\]
+
+\textbf{(b)}
+\[
+E[X]=1\cdot\frac{3}{5}+2\cdot\frac{3}{10}+3\cdot\frac{1}{10}=\frac{3}{2}.
+\]
+
+\textbf{(c)}
+\[
+E[X^2]=1^2\cdot\frac{3}{5}+2^2\cdot\frac{3}{10}+3^2\cdot\frac{1}{10}=\frac{27}{10},
+\]
+\[
+\mathrm{Var}(X)=E[X^2]-(E[X])^2=\frac{27}{10}-\left(\frac{3}{2}\right)^2=\frac{9}{20}.
+\]
+
+\textbf{(d)} Each empty box costs \$100 and the prize is \$100, so the gain/loss is
+\[
+W=100-100(X-1)=100(2-X).
+\]
+By linearity,
+\[
+E[W]=100(2-E[X])=100\left(2-\frac{3}{2}\right)=50.
+\]
+
+\finalanswer{P(X=1,2,3)=\left(\frac{3}{5},\frac{3}{10},\frac{1}{10}\right),\ E[X]=\frac{3}{2},\ \mathrm{Var}(X)=\frac{9}{20},\ E[W]=50}
+\end{solution}
+
+\newpage
+
+\problem{3.66}
+Let $X$ be a normal random variable with mean $8$ and variance $3$. Find the value of $\alpha$ such that $P(X > \alpha) = 0.15$.
+
+\begin{solution}
+\begin{scratch}
+$\mu=8$, $\sigma=\sqrt{3}$. Let $Z=\frac{X-8}{\sqrt{3}}\sim N(0,1)$.
+Solve $P(Z>(\alpha-8)/\sqrt{3})=0.15$, so $\Phi((\alpha-8)/\sqrt{3})=0.85$.
+\end{scratch}
+
+\[
+0.15=P(X>\alpha)=P\!\left(Z>\frac{\alpha-8}{\sqrt{3}}\right)=1-\Phi\!\left(\frac{\alpha-8}{\sqrt{3}}\right).
+\]
+Thus $\Phi\!\left(\frac{\alpha-8}{\sqrt{3}}\right)=0.85$. From the table, $z_{0.85}\approx1.04$.
+Therefore
+\[
+\alpha=8+\sqrt{3}\,z_{0.85}\approx 8+\sqrt{3}(1.04)\approx 9.80.
+\]
+
+\finalanswer{\alpha=8+\sqrt{3}\,z_{0.85}\approx 9.80}
+\end{solution}
+
+\newpage
+
+\problem{3.71}
+My bus is scheduled to depart at noon. However, in reality the departure time varies randomly, with average departure time 12 o'clock noon and a standard deviation of 6 minutes. Assume the departure time is normally distributed. If I get to the bus stop 5 minutes past noon, what is the probability that the bus has not yet departed?
+
+\begin{solution}
+\begin{scratch}
+Let $X$ be the departure time in minutes relative to noon. Then $X\sim N(0,36)$ and $Z=X/6\sim N(0,1)$.
+We need $P(X>5)=P(Z>5/6)$ and relate to $\Phi$.
+\end{scratch}
+
+\[
+P(\text{bus not yet departed})=P(X>5)=P\!\left(Z>\frac{5}{6}\right)=1-\Phi\!\left(\frac{5}{6}\right).
+\]
+Using $\Phi(0.83)\approx0.7967$,
+\[
+P(X>5)\approx 1-0.7967=0.2033.
+\]
+
+\finalanswer{P(X>5)=1-\Phi(5/6)\approx 0.2033}
+\end{solution}
+
+
+\end{document}
