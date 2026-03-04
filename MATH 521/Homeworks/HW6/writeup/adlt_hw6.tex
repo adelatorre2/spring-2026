@@ -262,20 +262,75 @@ answer.
 \qed
 
 % ============================================================
-% Optional appendix: keep a personal toolbox of definitions/theorems
+% Appendix
 % ============================================================
 \newpage
 \appendix
-\section*{Appendix: Toolbox (optional)}
-\addcontentsline{toc}{section}{Appendix: Toolbox (optional)}
+\section*{Appendix: Toolbox}
+\addcontentsline{toc}{section}{Appendix: Toolbox}
+\subsection*{Ces\`aro--Stolz}
+\textbf{Theorem (Ces\`aro--Stolz).} Let $\{a_n\}_{n\ge 1}$ be a sequence of
+nonzero real numbers. Then
+\[
+\liminf_{n\to\infty}\left|\frac{a_{n+1}}{a_n}\right|
+\le \liminf_{n\to\infty} |a_n|^{1/n}
+\le \limsup_{n\to\infty} |a_n|^{1/n}
+\le \limsup_{n\to\infty}\left|\frac{a_{n+1}}{a_n}\right|.
+\]
 
-% Example (using amsthm environments instead of boxed tcolorboxes):
-% \begin{definition}
-% A metric space is ...
-% \end{definition}
-%
-% \begin{theorem}[Heine--Borel]
-% ...
-% \end{theorem}
+\textbf{Lemma.} If $r>0$, then $\lim_{n\to\infty} r^{1/n}=1$.
 
+\subsection*{Series: Definitions and Basic Facts}
+\textbf{Definition (Series).} Let $\{a_n\}_{n\ge 1}$ be a sequence of real
+numbers. The series $\sum_{n=1}^{\infty} a_n$ converges/diverges if the sequence
+of partial sums $s_n=a_1+\cdots+a_n$ converges/diverges.
+
+\textbf{Definition (Absolute Convergence).} The series $\sum_{n=1}^{\infty} a_n$
+converges absolutely if the series $\sum_{n=1}^{\infty} |a_n|$ converges.
+
+\textbf{Remark.} As $|a_n|\ge 0$, the sequence
+$s_n=|a_1|+\cdots+|a_n|$ is increasing, so either
+$\sum_{n=1}^{\infty} |a_n|$ converges or diverges to $+\infty$.
+
+\textbf{Corollary.} If $\sum_{n=1}^{\infty} a_n$ converges, then
+$\lim_{n\to\infty} a_n=0$.
+
+\textbf{Remark (Geometric Series).} The series $\sum_{n=0}^{\infty} r^n$
+converges if $|r|<1$ and
+\[
+\sum_{n=0}^{\infty} r^n=\frac{1}{1-r}.
+\]
+If $|r|\ge 1$, then $\sum_{n=0}^{\infty} r^n$ diverges.
+
+\subsection*{Cauchy Criterion for Series}
+\textbf{Theorem (Cauchy criterion).} The series $\sum_{n=1}^{\infty} a_n$
+converges if and only if for all $\varepsilon>0$ there exists $N\in\mathbb{N}$
+such that
+\[
+\left|\sum_{k=m}^{n} a_k\right|<\varepsilon
+\quad\text{for all } n\ge m\ge N.
+\]
+
+\subsection*{Absolute Convergence}
+\textbf{Corollary.} If $\sum_{n=1}^{\infty} a_n$ converges absolutely, then it
+converges.
+
+\subsection*{Comparison Test}
+\textbf{Theorem (Comparison test).} Let $\sum_{n=1}^{\infty} a_n$ be a series
+with $a_n\ge 0$ for all $n\ge 1$.
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+\item If $\sum_{n=1}^{\infty} a_n$ converges and $|b_n|\le a_n$ for all $n\ge 1$,
+then $\sum_{n=1}^{\infty} b_n$ converges.
+\item If $\sum_{n=1}^{\infty} a_n$ diverges and $b_n\ge a_n$ for all $n\ge 1$,
+then $\sum_{n=1}^{\infty} b_n$ diverges.
+\end{enumerate}
+
+\subsection*{Dyadic Criterion}
+\textbf{Theorem (Dyadic criterion).} Let $\{a_n\}_{n\ge 1}$ be a decreasing
+sequence with $a_n\ge 0$ for all $n\ge 1$. The series
+$\sum_{n=1}^{\infty} a_n$ converges if and only if the series
+$\sum_{n=0}^{\infty} 2^n a_{2^n}$ converges.
+
+\textbf{Corollary.} The series $\sum_{n=1}^{\infty} \frac{1}{n^{\alpha}}$
+converges if and only if $\alpha>1$.
 \end{document}
