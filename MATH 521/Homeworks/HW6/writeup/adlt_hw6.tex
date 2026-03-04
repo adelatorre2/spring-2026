@@ -159,11 +159,45 @@ Prove that the series
 converges, and find its value. (Hint: You computed the partial sums on Homework 1.)
 
 \begin{scratch}
-% Outline the strategy, key definitions, lemmas, or a proof sketch.
+We want to show the series converges and compute its sum. The hint suggests
+computing the partial sums and looking for a telescoping form. A standard move
+is to use partial fractions:
+\[
+\frac{1}{(3n-2)(3n+1)} = \frac{1}{3}\left(\frac{1}{3n-2}-\frac{1}{3n+1}\right),
+\]
+which should make the partial sums collapse.
 \end{scratch}
 
 \textbf{Proof.}\\
-% Write your proof here.
+Let
+\[
+a_n := \frac{1}{(3n-2)(3n+1)} \qquad (n\in\mathbb{N}).
+\]
+For $N\in\mathbb{N}$ define the $N$th partial sum
+\[
+S_N := \sum_{n=1}^{N} a_n.
+\]
+Using partial fractions,
+\[
+\frac{1}{(3n-2)(3n+1)}
+= \frac{1}{3}\left(\frac{1}{3n-2}-\frac{1}{3n+1}\right).
+\]
+Hence
+\[
+S_N
+= \frac{1}{3}\sum_{n=1}^{N}\left(\frac{1}{3n-2}-\frac{1}{3n+1}\right)
+= \frac{1}{3}\Bigg[\left(1-\frac{1}{4}\right)+\left(\frac{1}{4}-\frac{1}{7}\right)+\cdots+\left(\frac{1}{3N-2}-\frac{1}{3N+1}\right)\Bigg].
+\]
+All intermediate terms cancel, so
+\[
+S_N = \frac{1}{3}\left(1-\frac{1}{3N+1}\right)=\frac{N}{3N+1}.
+\]
+Therefore
+\[
+\lim_{N\to\infty} S_N = \lim_{N\to\infty}\frac{N}{3N+1}=\frac{1}{3}.
+\]
+Since the sequence of partial sums $(S_N)$ converges, the series
+$\sum_{n=1}^{\infty} \frac{1}{(3n-2)(3n+1)}$ converges, and its value is $\frac{1}{3}$.
 \qed
 
 \newpage
