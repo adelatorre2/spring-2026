@@ -217,9 +217,75 @@ converges and
 \end{enumerate}
 
 \begin{scratch}
+We will work entirely with partial sums.
+
+Let
+\[
+ s_n := \sum_{k=1}^{n} a_k, \qquad t_n := \sum_{k=1}^{n} b_k \qquad (n\in\mathbb{N}).
+\]
+Because $\sum_{n=1}^{\infty} a_n$ and $\sum_{n=1}^{\infty} b_n$ converge, there exist $s,t\in\mathbb{R}$ such that
+\[
+ s_n \to s \quad\text{and}\quad t_n \to t.
+\]
+
+(a) For fixed $k\in\mathbb{R}$, the partial sums of $\sum_{n=1}^{\infty} k a_n$ are
+\[
+ p_n := \sum_{j=1}^{n} k a_j = k\sum_{j=1}^{n} a_j = k s_n.
+\]
+Hence $p_n \to ks$ by the limit laws, so $\sum k a_n$ converges and its sum is $ks$.
+
+(b) The partial sums of $\sum_{n=1}^{\infty} (a_n+b_n)$ are
+\[
+ u_n := \sum_{j=1}^{n} (a_j+b_j) = \sum_{j=1}^{n} a_j + \sum_{j=1}^{n} b_j = s_n + t_n.
+\]
+Hence $u_n \to s+t$, so the series converges and its sum is $s+t$.
 \end{scratch}
 
 \textbf{Proof.}\\
+Let $\sum_{n=1}^{\infty} a_n$ and $\sum_{n=1}^{\infty} b_n$ be convergent series, and define their partial sums
+\[
+ s_n := \sum_{k=1}^{n} a_k, \qquad t_n := \sum_{k=1}^{n} b_k \qquad (n\in\mathbb{N}).
+\]
+By convergence, there exist $s,t\in\mathbb{R}$ such that $s_n\to s$ and $t_n\to t$.
+
+\textbf{(a)} Fix $k\in\mathbb{R}$ and define
+\[
+ p_n := \sum_{j=1}^{n} k a_j \qquad (n\in\mathbb{N}).
+\]
+Then for every $n$,
+\[
+ p_n = \sum_{j=1}^{n} k a_j = k\sum_{j=1}^{n} a_j = k s_n.
+\]
+Since $s_n\to s$, the limit laws imply $p_n = k s_n \to ks$. Hence the sequence of partial sums $(p_n)$ converges, so the series $\sum_{n=1}^{\infty} k a_n$ converges. Moreover, by definition of the sum of a series,
+\[
+\sum_{n=1}^{\infty} k a_n
+:= \lim_{n\to\infty} p_n
+= \lim_{n\to\infty} (k s_n)
+= k\,\lim_{n\to\infty} s_n
+= ks
+= k\sum_{n=1}^{\infty} a_n.
+\]
+
+\textbf{(b)} Define
+\[
+ u_n := \sum_{j=1}^{n} (a_j+b_j) \qquad (n\in\mathbb{N}).
+\]
+Then for every $n$,
+\[
+ u_n
+= \sum_{j=1}^{n} (a_j+b_j)
+= \sum_{j=1}^{n} a_j + \sum_{j=1}^{n} b_j
+= s_n + t_n.
+\]
+Since $s_n\to s$ and $t_n\to t$, again by the limit laws we have $u_n = s_n+t_n \to s+t$. Therefore $\sum_{n=1}^{\infty} (a_n+b_n)$ converges, and
+\[
+\sum_{n=1}^{\infty} (a_n+b_n)
+:= \lim_{n\to\infty} u_n
+= \lim_{n\to\infty} (s_n+t_n)
+= \lim_{n\to\infty} s_n + \lim_{n\to\infty} t_n
+= s+t
+= \sum_{n=1}^{\infty} a_n + \sum_{n=1}^{\infty} b_n.
+\]
 \qed
 
 \newpage
