@@ -304,9 +304,92 @@ Since $s_n\to s$ and $t_n\to t$, again by the limit laws we have $u_n = s_n+t_n 
 \end{enumerate}
 
 \begin{scratch}
+For part (a), I use the given identity to rewrite the summand in a telescoping form. After writing out the first several terms of the corresponding partial sums, everything cancels except the first positive term and the last negative term. This gives an explicit formula for the partial sums, and then I take the limit.
+
+For part (b), I rewrite
+\[
+\frac{n}{2^n} = 2\cdot \frac{n-1}{2^{n+1}} + \frac{1}{2^n}.
+\]
+Then I use part (a) together with the geometric series
+\[
+\sum_{n=1}^{\infty} \frac{1}{2^n} = 1
+\]
+to compute the sum.
 \end{scratch}
 
 \textbf{Proof.}\\
+\textbf{(a)} Consider the series
+\[
+\sum_{n=1}^{\infty} a_n := \sum_{n=1}^{\infty} \frac{n-1}{2^{n+1}},
+\qquad \text{where } a_n = \frac{n-1}{2^{n+1}}.
+\]
+Let the sequence of partial sums be
+\[
+S_N := \sum_{n=1}^{N} \frac{n-1}{2^{n+1}}.
+\]
+Using the given identity with $k=n$, we may rewrite the summand as
+\[
+\frac{n-1}{2^{n+1}} = \frac{n}{2^n} - \frac{n+1}{2^{n+1}}.
+\]
+Hence
+\[
+S_N = \sum_{n=1}^{N} \left(\frac{n}{2^n} - \frac{n+1}{2^{n+1}}\right).
+\]
+Writing out the first several terms, we obtain
+\[
+S_N
+= \left(\frac{1}{2} - \frac{2}{2^2}\right)
++ \left(\frac{2}{2^2} - \frac{3}{2^3}\right)
++ \left(\frac{3}{2^3} - \frac{4}{2^4}\right)
++ \cdots
++ \left(\frac{N}{2^N} - \frac{N+1}{2^{N+1}}\right).
+\]
+This is a telescoping sum, so all intermediate terms cancel and we are left with
+\[
+S_N = \frac{1}{2} - \frac{N+1}{2^{N+1}}.
+\]
+Now take the limit as $N\to\infty$:
+\[
+\lim_{N\to\infty} S_N
+= \lim_{N\to\infty} \left(\frac{1}{2} - \frac{N+1}{2^{N+1}}\right)
+= \frac{1}{2} - \lim_{N\to\infty} \frac{N+1}{2^{N+1}}
+= \frac{1}{2}.
+\]
+Therefore the sequence of partial sums $\{S_N\}_{N\ge 1}$ converges, so by definition the series converges. Since
+\[
+\sum_{n=1}^{\infty} \frac{n-1}{2^{n+1}} := \lim_{N\to\infty} S_N,
+\]
+we conclude that
+\[
+\sum_{n=1}^{\infty} \frac{n-1}{2^{n+1}} = \frac{1}{2}.
+\]
+
+\textbf{(b)} For each $n\ge 1$,
+\[
+\frac{n}{2^n}
+= \frac{(n-1)+1}{2^n}
+= \frac{n-1}{2^n} + \frac{1}{2^n}
+= 2\cdot \frac{n-1}{2^{n+1}} + \frac{1}{2^n}.
+\]
+Therefore,
+\[
+\sum_{n=1}^{\infty} \frac{n}{2^n}
+= 2\sum_{n=1}^{\infty} \frac{n-1}{2^{n+1}} + \sum_{n=1}^{\infty} \frac{1}{2^n}.
+\]
+By part (a),
+\[
+\sum_{n=1}^{\infty} \frac{n-1}{2^{n+1}} = \frac{1}{2},
+\]
+and since $\sum_{n=1}^{\infty} \frac{1}{2^n}$ is a geometric series with ratio $\frac{1}{2}$,
+\[
+\sum_{n=1}^{\infty} \frac{1}{2^n} = 1.
+\]
+Hence
+\[
+\sum_{n=1}^{\infty} \frac{n}{2^n}
+= 2\left(\frac{1}{2}\right) + 1
+= 2.
+\]
 \qed
 
 \newpage
@@ -317,9 +400,75 @@ $\{b_n\}_{n\ge 1}$ is a bounded sequence, then the series
 $\sum_{n=1}^{\infty} a_n b_n$ also converges. (Hint: Use the Cauchy criterion.)
 
 \begin{scratch}
+The goal is to use the Cauchy criterion for series.
+
+Since $\sum_{n=1}^{\infty} a_n$ converges absolutely, the series
+\[
+\sum_{n=1}^{\infty} |a_n|
+\]
+converges. Therefore, by the Cauchy criterion, for every $\varepsilon>0$ there exists $N\in\mathbb{N}$ such that
+\[
+\sum_{k=m}^{n} |a_k| < \varepsilon
+\qquad \text{for all } n\ge m\ge N.
+\]
+
+Also, since $\{b_n\}_{n\ge 1}$ is bounded, there exists $M\ge 0$ such that
+\[
+|b_n|\le M \qquad \text{for all } n\in\mathbb{N}.
+\]
+
+To prove that $\sum_{n=1}^{\infty} a_n b_n$ converges, I apply the Cauchy criterion again. So I must estimate
+\[
+\left|\sum_{k=m}^{n} a_k b_k\right|
+\]
+in terms of the convergent tail sums of $\sum |a_n|$. The boundedness of $b_n$ gives
+\[
+|a_k b_k| = |a_k|\,|b_k| \le M|a_k|,
+\]
+so the tail of $\sum a_n b_n$ is controlled by the tail of $\sum |a_n|$.
 \end{scratch}
 
 \textbf{Proof.}\\
+Since $\sum_{n=1}^{\infty} a_n$ converges absolutely, the series
+\[
+\sum_{n=1}^{\infty} |a_n|
+\]
+converges. By the Cauchy criterion for series, given $\varepsilon>0$, there exists $N\in\mathbb{N}$ such that
+\[
+\sum_{k=m}^{n} |a_k| < \frac{\varepsilon}{M+1}
+\qquad \text{for all } n\ge m\ge N,
+\]
+where $M\ge 0$ is chosen so that
+\[
+|b_n|\le M \qquad \text{for all } n\in\mathbb{N}.
+\]
+(Such an $M$ exists because $\{b_n\}$ is bounded.)
+
+Now let $n\ge m\ge N$. Then
+\[
+\left|\sum_{k=m}^{n} a_k b_k\right|
+\le \sum_{k=m}^{n} |a_k b_k|
+= \sum_{k=m}^{n} |a_k|\,|b_k|
+\le \sum_{k=m}^{n} |a_k|\,M
+= M\sum_{k=m}^{n} |a_k|.
+\]
+Therefore,
+\[
+\left|\sum_{k=m}^{n} a_k b_k\right|
+\le M\sum_{k=m}^{n} |a_k|
+< M\cdot \frac{\varepsilon}{M+1}
+< \varepsilon.
+\]
+Thus, for every $\varepsilon>0$, there exists $N\in\mathbb{N}$ such that
+\[
+\left|\sum_{k=m}^{n} a_k b_k\right|<\varepsilon
+\qquad \text{for all } n\ge m\ge N.
+\]
+By the Cauchy criterion for series, it follows that
+\[
+\sum_{n=1}^{\infty} a_n b_n
+\]
+converges.
 \qed
 
 \newpage
@@ -333,9 +482,96 @@ $\sum_{n=1}^{\infty} a_n^2$ converges.
 \end{enumerate}
 
 \begin{scratch}
+For part (a), I want to compare $|a_n|^2$ to $|a_n|$. Since $\sum |a_n|$ converges, I know that $a_n\to 0$, so eventually $|a_n|<1$. For all sufficiently large $n$, this gives
+\[
+|a_n|^2 \le |a_n|.
+\]
+Then the comparison test shows that
+\[
+\sum |a_n|^2
+\]
+converges, which means exactly that
+\[
+\sum a_n^2
+\]
+converges absolutely, hence converges.
+
+For part (b), I need an example where $\sum a_n$ diverges but $\sum a_n^2$ converges. A standard choice is
+\[
+a_n = \frac{1}{n}.
+\]
+Then
+\[
+\sum_{n=1}^{\infty} a_n = \sum_{n=1}^{\infty} \frac{1}{n}
+\]
+diverges (harmonic series), while
+\[
+\sum_{n=1}^{\infty} a_n^2 = \sum_{n=1}^{\infty} \frac{1}{n^2}
+\]
+converges, since this is a $p$-series with $p=2>1$.
 \end{scratch}
 
 \textbf{Proof.}\\
+\textbf{(a)} Assume that $\sum_{n=1}^{\infty} a_n$ converges absolutely. Then by definition,
+\[
+\sum_{n=1}^{\infty} |a_n|
+\]
+converges. Since every absolutely convergent series converges, it follows that
+\[
+\sum_{n=1}^{\infty} a_n
+\]
+converges, and therefore
+\[
+a_n \to 0.
+\]
+Hence there exists $N\in\mathbb{N}$ such that
+\[
+|a_n|<1 \qquad \text{for all } n\ge N.
+\]
+For such $n$, we have
+\[
+|a_n|^2 \le |a_n|.
+\]
+Now split the series
+\[
+\sum_{n=1}^{\infty} |a_n|^2
+= \sum_{n=1}^{N-1} |a_n|^2 + \sum_{n=N}^{\infty} |a_n|^2.
+\]
+The first sum is finite, and for the tail we have
+\[
+0 \le |a_n|^2 \le |a_n| \qquad \text{for all } n\ge N.
+\]
+Since $\sum_{n=N}^{\infty} |a_n|$ converges, the comparison test implies that
+\[
+\sum_{n=N}^{\infty} |a_n|^2
+\]
+converges. Therefore
+\[
+\sum_{n=1}^{\infty} |a_n|^2
+\]
+converges, so the series
+\[
+\sum_{n=1}^{\infty} a_n^2
+\]
+converges absolutely. In particular, it converges.
+
+\textbf{(b)} Take
+\[
+a_n := \frac{1}{n} \qquad (n\in\mathbb{N}).
+\]
+Then
+\[
+\sum_{n=1}^{\infty} a_n = \sum_{n=1}^{\infty} \frac{1}{n}
+\]
+diverges, since the harmonic series diverges. However,
+\[
+\sum_{n=1}^{\infty} a_n^2 = \sum_{n=1}^{\infty} \frac{1}{n^2}
+\]
+converges, since by the $p$-series criterion the series
+\[
+\sum_{n=1}^{\infty} \frac{1}{n^\alpha}
+\]
+converges whenever $\alpha>1$, and here $\alpha=2$.
 \qed
 
 \newpage
@@ -356,9 +592,100 @@ answer.
 \end{enumerate}
 
 \begin{scratch}
+For part (a), the denominator looks messy because of the $(-1)^n$, but for $n\ge 2$ I still have a simple lower bound:
+\[
+n+(-1)^n \ge n-1.
+\]
+Since $n\ge 2$, I also have $n-1\ge \frac{n}{2}$, so
+\[
+\frac{1}{[n+(-1)^n]^2} \le \frac{1}{(n/2)^2} = \frac{4}{n^2}.
+\]
+This suggests a direct comparison with the convergent $p$-series $\sum 1/n^2$.
+
+For part (b), the terms do not need a comparison test at all. The expression
+\[
+\sqrt{n+1}-\sqrt{n}
+\]
+is already in telescoping form, since consecutive terms cancel in the partial sums.
+
+For part (c), I should first check the necessary condition for convergence of a series: if $\sum a_n$ converges, then $a_n\to 0$. Here the terms are $a_n=(-1)^n$, which do not tend to $0$, so the series must diverge.
 \end{scratch}
 
 \textbf{Proof.}\\
+\textbf{(a)} Consider the series
+\[
+\sum_{n=2}^{\infty} \frac{1}{[n+(-1)^n]^2}.
+\]
+For every $n\ge 2$, we have
+\[
+n+(-1)^n \ge n-1.
+\]
+Also, since $n\ge 2$, we have
+\[
+n-1 \ge \frac{n}{2}.
+\]
+Therefore, for all $n\ge 2$,
+\[
+n+(-1)^n \ge \frac{n}{2},
+\]
+and hence
+\[
+0 < \frac{1}{[n+(-1)^n]^2} \le \frac{1}{(n/2)^2} = \frac{4}{n^2}.
+\]
+Now the series
+\[
+\sum_{n=2}^{\infty} \frac{4}{n^2} = 4\sum_{n=2}^{\infty} \frac{1}{n^2}
+\]
+converges, since $\sum 1/n^2$ is a $p$-series with $p=2>1$. By the comparison test, it follows that
+\[
+\sum_{n=2}^{\infty} \frac{1}{[n+(-1)^n]^2}
+\]
+converges.
+
+\textbf{(b)} Consider the series
+\[
+\sum_{n=1}^{\infty} \left(\sqrt{n+1}-\sqrt{n}\right).
+\]
+Let
+\[
+S_N := \sum_{n=1}^{N} \left(\sqrt{n+1}-\sqrt{n}\right)
+\]
+be the $N$th partial sum. Then
+\[
+S_N
+= (\sqrt{2}-1) + (\sqrt{3}-\sqrt{2}) + (\sqrt{4}-\sqrt{3}) + \cdots + (\sqrt{N+1}-\sqrt{N}).
+\]
+This is a telescoping sum, so all intermediate terms cancel and we obtain
+\[
+S_N = \sqrt{N+1}-1.
+\]
+Now,
+\[
+\lim_{N\to\infty} S_N = \lim_{N\to\infty} (\sqrt{N+1}-1) = +\infty.
+\]
+Therefore the sequence of partial sums does not converge to a real number, so the series
+\[
+\sum_{n=1}^{\infty} \left(\sqrt{n+1}-\sqrt{n}\right)
+\]
+diverges.
+
+\textbf{(c)} Consider the series
+\[
+\sum_{n=1}^{\infty} (-1)^n.
+\]
+Let
+\[
+a_n := (-1)^n.
+\]
+If the series $\sum_{n=1}^{\infty} (-1)^n$ converged, then by the basic necessary condition for convergence of a series, we would have
+\[
+a_n \to 0.
+\]
+But the sequence $\{(-1)^n\}$ oscillates between $-1$ and $1$, so it does not converge to $0$. Therefore the series
+\[
+\sum_{n=1}^{\infty} (-1)^n
+\]
+diverges.
 \qed
 
 % ============================================================
