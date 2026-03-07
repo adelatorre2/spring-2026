@@ -1,0 +1,61 @@
+
+
+\documentclass[12pt]{article}
+
+% Packages
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{parskip}
+
+% Formatting
+\setstretch{1.15}
+\titleformat{\section}{\large\bfseries}{}{0em}{}
+
+% Title information
+\title{Peer Review: Mirana Zhang}
+\author{Alejandro De La Torre \\
+ECON 580 -- Honors Research Tutorial}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Research Question and Motivation}
+
+Mirana Zhang's draft studies how the April 2025 U.S. tariff shock affected local economic outcomes across states with different exposure to the affected goods. The motivation is that this tariff episode was unusually large, abrupt, and national in scope, making it a potentially useful quasi-experiment for studying short-run domestic economic reallocation. The paper argues that, because states differed in their pre-existing industrial composition and reliance on imported goods, the same national tariff change generated heterogeneous local exposure. It then proposes to study two margins of adjustment: local demand responses, such as changes in retail activity and employment in trade-sensitive sectors, and supply-chain reorganization across trading partners. Overall, the question is ambitious and timely, and it connects trade policy to regional heterogeneity in a way that is clearly grounded in modern empirical trade research.
+
+
+\section{Strengths}
+
+This is a strong first draft conceptually. The biggest strength is that the paper is centered on a concrete and highly salient policy event rather than a vague long-run trend. That makes the design immediately legible. A second strength is that the author is already thinking in terms of exposure-based identification rather than simply comparing aggregate outcomes before and after the tariff change. The shift--share framing is sensible because the tariff was national, while states differed in their ex ante exposure. Third, the paper is asking about mechanisms rather than only average treatment effects. Distinguishing between local demand responses and sourcing responses could make the project much more interesting if the empirical design can separately speak to those channels. Finally, the draft is already aware of at least one major identification issue---the possibility that sector-specific trends are correlated with tariff exposure---and it mentions event-study tests for pre-trends, which is a good sign.
+
+
+\section{Suggestions for Improvement}
+
+The first major sticking point is the paper's core identifying assumption. The design assumes that pre-2025 exposure shares are predetermined and therefore plausibly exogenous once state and time fixed effects are included. But that assumption is doing a lot of work. States with high exposure to tariffed goods are not random. They may differ systematically in industrial composition, consumption patterns, politics, trade orientation, port access, income levels, unionization, population growth, and pre-existing economic trajectories. If those same characteristics also shape how states were evolving around 2025, then the interaction of exposure with the post period may pick up more than the tariff shock itself. In other words, the paper needs to confront whether more-exposed states were already on different paths before April 2025, not just whether the event-study coefficients are visually flat.
+
+Relatedly, the draft moves quickly from ``predetermined exposure'' to ``isolating the causal effect of the shock.'' That claim should be softened unless the author can make the identifying assumptions much more explicit and convincing. A shift--share design is not automatically causal just because the shares are measured before the shock. The design still assumes that the cross-state variation induced by those shares is not correlated with omitted changes in local conditions that also affect the outcomes. The practical implication is that the paper will probably need richer controls or interacted pre-trend adjustments, especially if the outcomes are sensitive to state-specific macro conditions.
+
+A second issue is the definition of exposure itself. The draft proposes to use state-level pre-2025 consumption shares by HS product, but then notes that these may not be available and suggests falling back to industry employment shares. That is not a trivial substitution. These two measures capture different economic objects. Consumption exposure is about pass-through to local buyers and real purchasing power. Industry employment shares are more about production structure and perhaps exposure through intermediate inputs or downstream labor-market channels. If the paper switches from one to the other, the estimand changes. The author should therefore decide which channel is primary and then build the exposure measure around that channel. Otherwise the paper risks blending consumer-incidence and producer-incidence stories into one empirical design.
+
+A third issue is that the paper currently bundles together several mechanisms that may operate differently and over different horizons. The argument is that tariffs raise local prices, reduce real purchasing power, change employment in trade-sensitive sectors, and induce sourcing substitution across countries. Each of these is plausible, but they do not necessarily belong in one reduced-form equation without clearer structure. For example, if tariffs raise prices, local demand may fall in some places. But if firms substitute suppliers quickly, the local price effect may be muted. Similarly, employment effects may lag well behind import sourcing responses. The empirical design would be stronger if the paper more clearly stated what the main outcome is, what the primary mechanism is, and what outcomes are secondary corroborating evidence.
+
+Fourth, the timing assumptions deserve more scrutiny. The draft treats April 2025 as a discrete break, but the background itself notes that there were prior signals and policy discussions. If firms, importers, or consumers adjusted in anticipation, then the post dummy may miss part of the effect and the pre-period may already contain behavioral responses. Likewise, the later partial reversal complicates interpretation: is this a sharp temporary shock, a partially anticipated regime change, or a noisy sequence of tariff announcements and revisions? The more the policy path involved anticipation and reversal, the less clean a simple post-April treatment indicator becomes. This does not invalidate the project, but it means the timing structure probably needs to be more event-study based and less dependent on a single post dummy.
+
+Fifth, the geographic unit of analysis may be too coarse for some of the claimed mechanisms. States are large and internally heterogeneous. If the relevant margins of adjustment are retail activity, local prices, sectoral employment, and purchasing power, then metropolitan areas or commuting zones may better capture the local economy than state averages. A state-level analysis may still be workable, but the paper should acknowledge that aggregation could wash out meaningful within-state heterogeneity. This matters especially if exposed industries are concentrated in a few local labor markets rather than spread evenly across a state.
+
+Sixth, the draft should think more carefully about what outcomes can actually be observed at the state-month level with sufficient frequency and quality. ``Retail activity,'' ``consumption-related outcomes,'' and ``employment in trade-sensitive sectors'' are all reasonable ideas, but they differ a lot in data availability and interpretability. If the author cannot observe local consumption directly, then the argument about tariffs acting like a consumption-tax shock may be harder to test than the labor-market channel. The consequence is that the paper may need to prioritize outcomes for which there is a credible, high-frequency panel.
+
+Seventh, the product-country-month sourcing analysis is promising, but it also rests on assumptions that should be made more explicit. If import shares shift away from tariffed countries toward third countries after April 2025, that is consistent with substitution. But it is not automatically evidence of reshoring, nor is it necessarily linked cleanly to local state-level outcomes. The draft currently treats the product-level sourcing exercise as a complement to the state-level analysis, but the bridge between the two remains somewhat loose. The paper would be stronger if it explained whether the sourcing analysis is meant as a national mechanism check, a separate second empirical chapter, or evidence directly tied to the exposure measure used in the state panel.
+
+Finally, I think the literature section should more clearly distinguish between three related but distinct literatures: local exposure to trade shocks, tariff incidence and pass-through, and supply-chain adjustment. Right now those pieces are present, but the draft could do more to say exactly where the contribution lies. Is the paper mainly about local incidence of a national tariff shock? Is it about short-run regional reallocation? Or is it about import substitution across countries after a sharp tariff change? The answer matters because it will determine the appropriate exposure measure, outcomes, and interpretation of the results.
+
+
+\section{Minor Comments}
+
+A few smaller comments may help the next draft. The paper should define ``domestic economic reallocation'' more concretely so the reader knows exactly what counts as reallocation. The notation for the exposure measure and regression is clear enough, but a short verbal explanation of the economic meaning of the coefficient would help. I also think the motivation would benefit from one or two sentences clarifying whether the paper is fundamentally about consumers, firms, local labor markets, or all three. Right now the draft is exciting because it reaches across several channels, but that is also what makes it vulnerable to becoming too diffuse. Narrowing the central claim would make the project more persuasive.
+
+
+\end{document}
