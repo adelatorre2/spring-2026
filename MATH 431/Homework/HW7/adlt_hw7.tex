@@ -1,0 +1,201 @@
+\documentclass[12pt]{article}
+
+% =========================
+% 0) Metadata (EDIT ME)
+% =========================
+\newcommand{\CourseCode}{MATH 431}
+\newcommand{\CourseTitle}{Introduction to Probability}
+\newcommand{\CourseSection}{LEC 002} % change to 001 or 003 if needed
+\newcommand{\Semester}{Spring 2026}
+\newcommand{\Instructor}{Sarah Tammen} % LEC 001: Ander Aguirre | LEC 002: Sarah Tammen | LEC 003: Nicholas Derr
+\newcommand{\MeetingInfo}{MWF 9:55--10:45, 6102 Sewell Social Sciences} % LEC 001 default; update if in 002/003
+\newcommand{\HomeworkNumber}{7}
+\newcommand{\YourName}{Alejandro De La Torre}
+\newcommand{\DueDate}{March 13, 2026} % or e.g. February 2, 2026
+
+% =========================
+% 1) Core math tools
+% =========================
+\usepackage{amsmath, amssymb, amsthm}
+
+% =========================
+% 2) Lists and spacing
+% =========================
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=\textbf{(\alph*)}, leftmargin=2em, itemsep=0.25em}
+\setlist[itemize]{leftmargin=1.5em, itemsep=0.25em}
+\setlength{\parskip}{0.35em}
+\setlength{\parindent}{0pt}
+
+% =========================
+% 3) Page geometry + header/footer
+% =========================
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\CourseCode\ --- \CourseSection, \Semester}
+\rhead{Homework \HomeworkNumber}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\headheight}{15pt}
+\addtolength{\topmargin}{-2pt}
+
+% =========================
+% 4) Links (subtle)
+% =========================
+\usepackage[hidelinks]{hyperref}
+\setcounter{tocdepth}{1}
+
+% =========================
+% 5) Figures (optional)
+% =========================
+\usepackage{graphicx}
+\graphicspath{{images/}}
+
+% =========================
+% 6) Lightweight boxes (optional)
+% =========================
+\usepackage{mdframed}
+\newmdenv[
+  skipabove=0.6\baselineskip,
+  skipbelow=0.6\baselineskip,
+  linewidth=0.6pt,
+  roundcorner=4pt,
+  innerleftmargin=10pt,
+  innerrightmargin=10pt,
+  innertopmargin=8pt,
+  innerbottommargin=8pt
+]{boxnote}
+
+% =========================
+% 7) Probability / notation macros
+% =========================
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newcommand{\OmegaSpace}{\Omega}
+\newcommand{\FField}{\mathcal{F}}
+% Probability measure in case it is relevant or want to distinguish it from P(A)
+%\newcommand{\PMeasure}{\mathbb{P}} 
+\newcommand{\E}{\mathbb{E}}
+
+\newcommand{\given}{\,\middle|\,}
+\newcommand{\ind}{\mathbf{1}}
+
+% Common “defined as” symbol
+\newcommand{\defeq}{\vcentcolon=}
+
+% =========================
+% 8) Problem command (TOC + PDF bookmarks)
+% Usage:
+%   \problem{<label>}
+%   \problem[Short title]{<label>}
+% Example:
+%   \problem{1.4}
+%   \problem[Sample space]{1.4}
+% =========================
+\makeatletter
+\newcommand{\problem}[2][]{%
+  \def\prob@title{Problem #2\if\relax\detokenize{#1}\relax\else\ (\textit{#1})\fi}%
+  \phantomsection%
+  \pdfbookmark[1]{\prob@title}{prob#2}%
+  \addcontentsline{toc}{section}{\prob@title}%
+  \section*{\prob@title}%
+  \vspace{-0.25em}\hrule\vspace{0.8em}%
+}
+\makeatother
+
+% =========================
+% 9) Solution environment
+% =========================
+\newenvironment{solution}{%
+  \noindent\textbf{Solution.}\ \ignorespaces
+}{\par}
+
+% Optional scratch / planning block
+\newenvironment{scratch}{%
+  \begin{boxnote}\textbf{Scratch / Setup.}\ \small
+}{\end{boxnote}}
+
+% Final answer command: expects math only (no $$ or \[ \])
+\newcommand{\finalanswer}[1]{%
+  \par\medskip
+  \noindent\textbf{Final:}\ \fbox{$#1$}\par
+} % AGAIN: MATH ONLY INSIDE THE BOX; if word answer, use \text{} inside or use \fbox{TEXT} or \framebox
+
+% =========================
+% 10) Title block
+% =========================
+\title{Homework \HomeworkNumber}
+\author{\YourName \\
+\CourseCode\ --- \CourseTitle \\
+\CourseSection \\
+Instructor: \Instructor}
+\date{Due: \DueDate}
+
+\begin{document}
+\maketitle
+
+% \section*{Collaboration / Resources}
+% (Optional) Write “I worked alone” or list collaborators/resources.
+
+\tableofcontents
+\bigskip
+\hrule
+\bigskip
+\newpage
+
+% ============================================================
+% Problems (duplicate blocks as needed)
+% ============================================================
+
+
+% Here's an example problem and solution:
+\problem[Sample space and probability]{1.4}
+State the problem here (paste from PDF).
+
+\begin{solution}
+
+We model the experiment using a probability space
+\[
+(\OmegaSpace, \FField, P).
+\]
+
+\begin{scratch}
+The sample space is
+\[
+\OmegaSpace = \{H,T\}^3,
+\]
+the set of all length–3 sequences of coin flips.  
+The $\sigma$-field is the power set $\FField = 2^{\OmegaSpace}$.
+
+Assuming the coin is fair, we assign equal probability to each outcome:
+\[
+P(\{\omega\}) = 2^{-3} \quad \text{for all } \omega \in \OmegaSpace.
+\]
+\end{scratch}
+
+Let
+\[
+A = \{\omega \in \OmegaSpace : \text{exactly two heads occur}\}.
+\]
+There are $\binom{3}{2} = 3$ such outcomes, so $|A| = 3$ and
+\[
+|\OmegaSpace| = 2^3 = 8.
+\]
+
+Since all outcomes are equally likely,
+\[
+P(A) = \frac{|A|}{|\OmegaSpace|} = \frac{3}{8}.
+\]
+
+\finalanswer{P(A) = \frac{3}{8}}
+
+\end{solution}
+
+
+\end{document}
