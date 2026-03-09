@@ -154,47 +154,166 @@ Instructor: \Instructor}
 % ============================================================
 
 
-% Here's an example problem and solution:
-\problem[Sample space and probability]{1.4}
-State the problem here (paste from PDF).
+\problem{4.4}
+Hint. You will need the continuity correction for this.
+Liz is standing on the real number line at position 0. She rolls a die repeatedly. If the roll is 1 or 2, she takes \emph{one} step to the right (in the positive direction). If the roll is 3, 4, 5 or 6, she takes \emph{two} steps to the right. Let $X_n$ be Liz's position after $n$ rolls of the die. Estimate the probability that $X_{90}$ is at least 160.
 
 \begin{solution}
-
-We model the experiment using a probability space
-\[
-(\OmegaSpace, \FField, P).
-\]
-
 \begin{scratch}
-The sample space is
-\[
-\OmegaSpace = \{H,T\}^3,
-\]
-the set of all length–3 sequences of coin flips.  
-The $\sigma$-field is the power set $\FField = 2^{\OmegaSpace}$.
-
-Assuming the coin is fair, we assign equal probability to each outcome:
-\[
-P(\{\omega\}) = 2^{-3} \quad \text{for all } \omega \in \OmegaSpace.
-\]
+Let $Y_i$ be the step on roll $i$: $Y_i=1$ with probability $1/3$ (roll 1 or 2) and $Y_i=2$ with probability $2/3$ (roll 3--6). Then $X_n=\sum_{i=1}^n Y_i$.
+Let $S_n$ be the number of two-steps. Then $S_n\sim\text{Bin}(n,2/3)$ and $X_n = n + S_n$.
+For $n=90$, $E[S_{90}]=60$, $\mathrm{Var}(S_{90})=20$, $\sigma=\sqrt{20}$.
+We need $P(X_{90}\ge160)=P(S_{90}\ge70)$ and use normal approximation with continuity correction.
 \end{scratch}
 
-Let
+Since $X_{90}=90+S_{90}$,
 \[
-A = \{\omega \in \OmegaSpace : \text{exactly two heads occur}\}.
+P(X_{90}\ge 160)=P(S_{90}\ge 70)\approx P\left(\frac{S_{90}-60}{\sqrt{20}}\ge \frac{69.5-60}{\sqrt{20}}\right).
 \]
-There are $\binom{3}{2} = 3$ such outcomes, so $|A| = 3$ and
+Thus
 \[
-|\OmegaSpace| = 2^3 = 8.
-\]
-
-Since all outcomes are equally likely,
-\[
-P(A) = \frac{|A|}{|\OmegaSpace|} = \frac{3}{8}.
+P(X_{90}\ge 160)\approx 1-\Phi(2.12)\approx 0.0168.
 \]
 
-\finalanswer{P(A) = \frac{3}{8}}
+\finalanswer{P(X_{90}\ge160)\approx 0.0168}
+\end{solution}
 
+\newpage
+
+\problem{4.6}
+A pollster would like to estimate the fraction $p$ of people in a population who intend to vote for a particular candidate. How large must a random sample be in order to be at least 95\% certain that the fraction $\hat{p}$ of positive answers in the sample is within 0.02 of the true $p$?
+
+\begin{solution}
+\begin{scratch}
+Let $S_n\sim\text{Bin}(n,p)$ be the number of positive answers and $\hat p=S_n/n$.
+We want $P(|\hat p-p|\le 0.02)\ge 0.95$.
+Use the normal approximation for $\hat p$: 
+$P(|\hat p-p|<\varepsilon)\approx 2\Phi\!
+\left(\dfrac{\varepsilon\sqrt{n}}{\sqrt{p(1-p)}}\right)-1$.
+Since $p(1-p)\le 1/4$, a conservative bound is
+$P(|\hat p-p|<\varepsilon)\gtrsim 2\Phi(2\varepsilon\sqrt{n})-1$.
+\end{scratch}
+
+With $\varepsilon=0.02$, require
+\[
+2\Phi(0.04\sqrt{n})-1\ge 0.95 \quad\Longrightarrow\quad \Phi(0.04\sqrt{n})\ge 0.975.
+\]
+Using $z_{0.975}=1.96$,
+\[
+0.04\sqrt{n}\ge 1.96 \quad\Longrightarrow\quad \sqrt{n}\ge 49 \quad\Longrightarrow\quad n\ge 2401.
+\]
+
+\finalanswer{n\ge 2401}
+\end{solution}
+
+\newpage
+
+\problem{4.8}
+In a million rolls of a biased die the number 6 shows up 180,000 times. Find a 99.9\% confidence interval for the unknown probability that the die rolls 6.
+
+\begin{solution}
+\begin{scratch}
+Let $S\sim\text{Bin}(n,p)$ be the number of 6's in $n=1{,}000{,}000$ rolls and $\hat p=S/n=0.18$.
+For a 99.9\% confidence interval, we want $P(|\hat p-p|<\varepsilon)\approx 0.999$.
+Normal approximation gives
+$P(|\hat p-p|<\varepsilon)\approx 2\Phi\!\left(\dfrac{\varepsilon\sqrt{n}}{\sqrt{p(1-p)}}\right)-1$.
+Using $\sqrt{p(1-p)}\le 1/2$ yields the conservative bound
+$P(|\hat p-p|<\varepsilon)\gtrsim 2\Phi(2\varepsilon\sqrt{n})-1$.
+Set $2\Phi(2\varepsilon\sqrt{n})-1=0.999$ so $2\varepsilon\sqrt{n}=z_{0.9995}\approx 3.29$.
+\end{scratch}
+
+Thus
+\[
+\varepsilon\approx \frac{3.29}{2\sqrt{1{,}000{,}000}}=\frac{3.29}{2000}\approx 0.00165,
+\]
+and the 99.9\% confidence interval is
+\[
+\hat p\pm \varepsilon = 0.18\pm 0.00165=(0.17835,\,0.18165).
+\]
+
+\finalanswer{(0.17835,\,0.18165)}
+\end{solution}
+
+\newpage
+
+\problem{4.10}
+A hockey player scores at least one goal in roughly half of his games. How would you estimate the percentage of games where he scores a hat-trick (three goals)?
+
+\begin{solution}
+\begin{scratch}
+Model goals per game by $G\sim\text{Poisson}(\lambda)$ (rare scoring chances). Then
+$P(G\ge 1)=1-e^{-\lambda}\approx 0.5$ so $\lambda=\ln 2$.
+A hat-trick means exactly three goals, so compute $P(G=3)$.
+\end{scratch}
+
+With $\lambda=\ln 2$,
+\[
+P(G=3)=e^{-\lambda}\frac{\lambda^3}{3!}=\frac{(\ln 2)^3}{6}e^{-\ln 2}
+=\frac{(\ln 2)^3}{12}\approx 0.0278.
+\]
+So the estimate is about $2.8\%$ of games.
+
+\finalanswer{P(\text{hat-trick})\approx 0.0278}
+\end{solution}
+
+\newpage
+
+\problem{4.16}
+We choose 500 numbers uniformly at random from the interval $[1.5, 4.8]$.
+\begin{enumerate}[label=(\alph*)]
+\item Approximate the probability of the event that less than 65 of the numbers start with the digit 1.
+\item Approximate the probability of the event that more than 160 of the numbers start with the digit 3.
+\end{enumerate}
+
+\begin{solution}
+\begin{scratch}
+A number in $[1.5,4.8]$ starts with digit 1 iff it lies in $[1.5,2)$; length $0.5$.
+So $p_1=0.5/(4.8-1.5)=5/33$. Let $S\sim\text{Bin}(500,p_1)$ be the count.
+For digit 3, the interval is $[3,4)$ of length $1$, so $p_3=1/3.3=10/33$.
+Let $T\sim\text{Bin}(500,p_3)$.
+Use normal approximation with continuity correction.
+\end{scratch}
+
+\textbf{(a)} $\mu_S=500\cdot\frac{5}{33}=\frac{2500}{33}\approx 75.76$ and
+$\sigma_S^2=500\cdot\frac{5}{33}\cdot\frac{28}{33}\approx 64.28$, so $\sigma_S\approx 8.02$.
+With continuity correction,
+\[
+P(S<65)=P(S\le 64)\approx \Phi\!\left(\frac{64.5-75.76}{8.02}\right)
+=\Phi(-1.40)\approx 0.080.
+\]
+
+\textbf{(b)} $\mu_T=500\cdot\frac{10}{33}=\frac{5000}{33}\approx 151.52$ and
+$\sigma_T^2=500\cdot\frac{10}{33}\cdot\frac{23}{33}\approx 105.6$, so $\sigma_T\approx 10.28$.
+With continuity correction,
+\[
+P(T>160)=P(T\ge 161)\approx 1-\Phi\!\left(\frac{160.5-151.52}{10.28}\right)
+=1-\Phi(0.87)\approx 0.191.
+\]
+
+\finalanswer{P(S<65)\approx 0.080,\ \ P(T>160)\approx 0.191}
+\end{solution}
+
+\newpage
+
+\problem{4.26}
+100 randomly chosen individuals were interviewed to estimate the unknown fraction $p \in (0, 1)$ of the population that prefers whole milk to skim milk. The resulting estimate is $\hat{p}$. With what level of confidence can we state that the true $p$ lies in the interval $(\hat{p}-0.1,\hat{p}+0.1)$?
+
+\begin{solution}
+\begin{scratch}
+Let $S\sim\text{Bin}(n,p)$ with $n=100$, and $\hat p=S/n$.
+We want the confidence level $P(|\hat p-p|<0.1)$.
+Normal approximation gives
+$P(|\hat p-p|<\varepsilon)\approx 2\Phi\!\left(\dfrac{\varepsilon\sqrt{n}}{\sqrt{p(1-p)}}\right)-1$.
+Since $p(1-p)\le 1/4$, a lower bound is $2\Phi(2\varepsilon\sqrt{n})-1$.
+\end{scratch}
+
+With $\varepsilon=0.1$ and $n=100$,
+\[
+P(|\hat p-p|<0.1)\approx 2\Phi(0.2\sqrt{100})-1=2\Phi(2)-1\approx 0.9545.
+\]
+So the confidence level is about $95.45\%$.
+
+\finalanswer{\text{confidence}\approx 0.9545}
 \end{solution}
 
 

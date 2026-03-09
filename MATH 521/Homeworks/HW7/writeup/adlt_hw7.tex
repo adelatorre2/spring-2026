@@ -128,7 +128,19 @@ Instructor: \Instructor}
 % ============================================================
 
 \problem[]{1}
-% Paste the problem statement here.
+For each of the following series, determine if it converges and prove your
+answer.
+\begin{enumerate}[label=\textbf{(\alph*)}]
+\item \[
+\sum_{n=2}^{\infty} \frac{1}{\log n}
+\]
+\item \[
+\sum_{n=1}^{\infty} \frac{n-1}{n^2}
+\]
+\item \[
+\sum_{n=1}^{\infty} \frac{n^2}{n!}
+\]
+\end{enumerate}
 
 \begin{scratch}
 % Outline the strategy, key definitions, lemmas, or a proof sketch.
@@ -141,7 +153,19 @@ Instructor: \Instructor}
 \newpage
 
 \problem[]{2}
-% Paste the problem statement here.
+For each of the following series, determine if it converges and prove your
+answer.
+\begin{enumerate}[label=\textbf{(\alph*)}]
+\item \[
+\sum_{n=1}^{\infty} \frac{n^4}{4^n}
+\]
+\item \[
+\sum_{n=1}^{\infty} \frac{n!}{n^4+3}
+\]
+\item \[
+\sum_{n=1}^{\infty} \frac{2^n}{n!}
+\]
+\end{enumerate}
 
 \begin{scratch}
 \end{scratch}
@@ -152,7 +176,19 @@ Instructor: \Instructor}
 \newpage
 
 \problem[]{3}
-% Paste the problem statement here.
+For each of the following series, determine if it converges and prove your
+answer.
+\begin{enumerate}[label=\textbf{(\alph*)}]
+\item \[
+\sum_{n=1}^{\infty} \frac{1}{n^n}
+\]
+\item \[
+\sum_{n=1}^{\infty} \frac{n!}{n^n}
+\]
+\item \[
+\sum_{n=1}^{\infty} \frac{(-1)^n n!}{2^n}
+\]
+\end{enumerate}
 
 \begin{scratch}
 \end{scratch}
@@ -160,18 +196,74 @@ Instructor: \Instructor}
 \textbf{Proof.}\\
 \qed
 
-% Add more problems as needed:
-% \newpage
-% \problem[]{4}
-% ...
+\newpage
+
+\problem[]{4}
+Consider the series
+\[
+\sum_{n=1}^{\infty} 2^{(-1)^n-n}
+= \frac{1}{4} + \frac{1}{2} + \frac{1}{16} + \frac{1}{8} + \frac{1}{64}
++ \frac{1}{32} + \cdots.
+\]
+\begin{enumerate}[label=\textbf{(\alph*)}]
+\item Show that the ratio test is inconclusive.
+\item Prove that the series converges using the root test.
+\end{enumerate}
+
+\begin{scratch}
+\end{scratch}
+
+\textbf{Proof.}\\
+\qed
+
+\newpage
+
+\problem[]{5}
+Below are two series $\sum_{n=1}^{\infty} a_n$ and the numbers $s\in\mathbb{R}$
+to which they converge. For each of these series, what is the set of all
+numbers $\tilde{s}\in\mathbb{R}$ such that there exists a rearrangement that
+satisfies $\sum_{n=1}^{\infty} \tilde{a}_n=\tilde{s}$? Prove your answer.
+\begin{enumerate}[label=\textbf{(\alph*)}]
+\item \[
+\sum_{n=1}^{\infty} \frac{(-1)^n}{n} = -\log 2
+\]
+\item \[
+\sum_{n=1}^{\infty} \frac{(-1)^n}{n^2} = -\frac{\pi^2}{12}
+\]
+\end{enumerate}
+(Hint: Your proof should be quite short, because we already did most of the work
+in lecture.)
+
+\begin{scratch}
+\end{scratch}
+
+\textbf{Proof.}\\
+\qed
+
+\newpage
+
+\problem[]{6}
+Prove or disprove the following statements:
+\begin{enumerate}[label=\textbf{(\alph*)}]
+\item If $\sum_{n=1}^{\infty} a_n$ converges, then $\sum_{n=1}^{\infty} a_{2n}$
+converges.
+\item If $\sum_{n=1}^{\infty} a_n$ converges absolutely, then
+$\sum_{n=1}^{\infty} a_{2n}$ converges absolutely.
+\end{enumerate}
+
+\begin{scratch}
+\end{scratch}
+
+\textbf{Proof.}\\
+\qed
 
 % ============================================================
 % Optional appendix: keep a personal toolbox of definitions/theorems
 % ============================================================
 \newpage
 \appendix
-\section*{Appendix: Toolbox (optional)}
-\addcontentsline{toc}{section}{Appendix: Toolbox (optional)}
+\section*{Appendix: Toolbox}
+\addcontentsline{toc}{section}{Appendix: Toolbox}
 
 % Example (using amsthm environments instead of boxed tcolorboxes):
 % \begin{definition}
