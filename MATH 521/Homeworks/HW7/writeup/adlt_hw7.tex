@@ -143,11 +143,107 @@ answer.
 \end{enumerate}
 
 \begin{scratch}
-% Outline the strategy, key definitions, lemmas, or a proof sketch.
+For each part, I first identify the general type of positive-term series and then choose the test that best matches its dominant behavior.
+
+\textbf{(a)} The terms
+\[
+\frac{1}{\log n}
+\]
+go to zero extremely slowly, and they are larger than the harmonic terms $1/n$ for $n\ge 2$. This strongly suggests divergence. A direct comparison with the harmonic series is the cleanest method here, because it proves divergence immediately. The dyadic criterion could also be used, but comparison is shorter and more transparent.
+
+\textbf{(b)} The terms
+\[
+\frac{n-1}{n^2}
+\]
+behave like $1/n$ for large $n$, so I again expect divergence. I could rewrite the term as
+\[
+\frac{1}{n}-\frac{1}{n^2},
+\]
+which suggests that the harmonic part should dominate, but a direct lower comparison with $1/(2n)$ is cleaner. This makes the comparison test the most straightforward choice.
+
+\textbf{(c)} The factorial in the denominator grows much faster than the polynomial $n^2$ in the numerator, so I expect the terms to shrink very rapidly and the series to converge. Because the expression involves a factorial, the ratio test is the natural tool: successive terms simplify nicely, whereas a direct comparison would be less immediate. The ratio tends to $0$, which confirms convergence.
 \end{scratch}
 
+
 \textbf{Proof.}\\
-% Write your proof here.
+\textbf{(a)} Consider the series
+\[
+\sum_{n=2}^{\infty} \frac{1}{\log n}.
+\]
+For every $n\ge 2$, we have
+\[
+\log n \le n.
+\]
+Since both quantities are positive, taking reciprocals yields
+\[
+\frac{1}{\log n} \ge \frac{1}{n}.
+\]
+Now the harmonic series
+\[
+\sum_{n=2}^{\infty} \frac{1}{n}
+\]
+diverges. Therefore, by the comparison test, the series
+\[
+\sum_{n=2}^{\infty} \frac{1}{\log n}
+\]
+also diverges.
+
+\textbf{(b)} Consider the series
+\[
+\sum_{n=1}^{\infty} \frac{n-1}{n^2}.
+\]
+For every $n\ge 2$, we have
+\[
+\frac{n-1}{n^2} \ge \frac{1}{2n}.
+\]
+Indeed,
+\[
+\frac{n-1}{n^2} \ge \frac{1}{2n}
+\quad\Longleftrightarrow\quad
+2(n-1) \ge n
+\quad\Longleftrightarrow\quad
+n\ge 2.
+\]
+Now the series
+\[
+\sum_{n=2}^{\infty} \frac{1}{2n} = \frac{1}{2}\sum_{n=2}^{\infty} \frac{1}{n}
+\]
+diverges, since the harmonic series diverges. Therefore, by the comparison test,
+\[
+\sum_{n=2}^{\infty} \frac{n-1}{n^2}
+\]
+diverges. Adding the first term $\frac{1-1}{1^2}=0$ does not affect convergence, so
+\[
+\sum_{n=1}^{\infty} \frac{n-1}{n^2}
+\]
+diverges.
+
+\textbf{(c)} Consider the series
+\[
+\sum_{n=1}^{\infty} \frac{n^2}{n!}.
+\]
+Set
+\[
+a_n := \frac{n^2}{n!} \qquad (n\ge 1).
+\]
+Then
+\[
+\left|\frac{a_{n+1}}{a_n}\right|
+= \frac{(n+1)^2}{(n+1)!}\cdot \frac{n!}{n^2}
+= \frac{(n+1)^2}{(n+1)n^2}
+= \frac{n+1}{n^2}.
+\]
+Therefore,
+\[
+\lim_{n\to\infty} \left|\frac{a_{n+1}}{a_n}\right|
+= \lim_{n\to\infty} \frac{n+1}{n^2}
+= 0 < 1.
+\]
+By the ratio test, the series
+\[
+\sum_{n=1}^{\infty} \frac{n^2}{n!}
+\]
+converges absolutely. In particular, it converges.
 \qed
 
 \newpage
@@ -168,9 +264,114 @@ answer.
 \end{enumerate}
 
 \begin{scratch}
+For each part, I first look at the dominant growth in the numerator and denominator, and then choose the test that makes that growth comparison easiest to formalize.
+
+\textbf{(a)} The terms
+\[
+\frac{n^4}{4^n}
+\]
+have polynomial growth in the numerator and exponential growth in the denominator. Exponential growth should dominate, so I expect convergence. Since the expression is of the form ``polynomial over exponential,'' the ratio test is natural: passing from $a_n$ to $a_{n+1}$ simplifies cleanly and the ratio should tend to $\frac14<1$. A comparison test could also work, but the ratio test is more direct.
+
+\textbf{(b)} The terms
+\[
+\frac{n!}{n^4+3}
+\]
+have factorial growth in the numerator and only polynomial growth in the denominator. Since factorial growth is much faster, I expect the terms not even to go to $0$, which would force divergence immediately. The ratio test is the cleanest way to confirm this expectation, because it captures the factorial growth very efficiently. A direct term test would also be possible after enough asymptotic work, but the ratio test is more systematic.
+
+\textbf{(c)} The terms
+\[
+\frac{2^n}{n!}
+\]
+have exponential growth in the numerator but factorial growth in the denominator. Since factorial growth dominates exponential growth, I expect convergence. Again, the ratio test is the most natural choice because the factorial causes strong cancellation between successive terms, and the ratio should go to $0<1$.
 \end{scratch}
 
 \textbf{Proof.}\\
+\textbf{(a)} Consider the series
+\[
+\sum_{n=1}^{\infty} \frac{n^4}{4^n}.
+\]
+Set
+\[
+a_n := \frac{n^4}{4^n} \qquad (n\ge 1).
+\]
+Then
+\[
+\left|\frac{a_{n+1}}{a_n}\right|
+= \frac{(n+1)^4}{4^{n+1}}\cdot \frac{4^n}{n^4}
+= \frac{(n+1)^4}{4n^4}
+= \frac{1}{4}\left(\frac{n+1}{n}\right)^4.
+\]
+Therefore,
+\[
+\lim_{n\to\infty} \left|\frac{a_{n+1}}{a_n}\right|
+= \frac{1}{4}\lim_{n\to\infty}\left(\frac{n+1}{n}\right)^4
+= \frac{1}{4}<1.
+\]
+By the ratio test, the series
+\[
+\sum_{n=1}^{\infty} \frac{n^4}{4^n}
+\]
+converges absolutely. In particular, it converges.
+
+\textbf{(b)} Consider the series
+\[
+\sum_{n=1}^{\infty} \frac{n!}{n^4+3}.
+\]
+Set
+\[
+b_n := \frac{n!}{n^4+3} \qquad (n\ge 1).
+\]
+Then
+\[
+\left|\frac{b_{n+1}}{b_n}\right|
+= \frac{(n+1)!}{(n+1)^4+3}\cdot \frac{n^4+3}{n!}
+= (n+1)\frac{n^4+3}{(n+1)^4+3}.
+\]
+Now,
+\[
+\frac{n^4+3}{(n+1)^4+3}
+\to 1
+\qquad \text{as } n\to\infty,
+\]
+so
+\[
+\left|\frac{b_{n+1}}{b_n}\right| \sim n+1,
+\]
+and in particular,
+\[
+\lim_{n\to\infty} \left|\frac{b_{n+1}}{b_n}\right| = +\infty > 1.
+\]
+By the ratio test, the series
+\[
+\sum_{n=1}^{\infty} \frac{n!}{n^4+3}
+\]
+diverges.
+
+\textbf{(c)} Consider the series
+\[
+\sum_{n=1}^{\infty} \frac{2^n}{n!}.
+\]
+Set
+\[
+c_n := \frac{2^n}{n!} \qquad (n\ge 1).
+\]
+Then
+\[
+\left|\frac{c_{n+1}}{c_n}\right|
+= \frac{2^{n+1}}{(n+1)!}\cdot \frac{n!}{2^n}
+= \frac{2}{n+1}.
+\]
+Therefore,
+\[
+\lim_{n\to\infty} \left|\frac{c_{n+1}}{c_n}\right|
+= \lim_{n\to\infty} \frac{2}{n+1}
+= 0<1.
+\]
+By the ratio test, the series
+\[
+\sum_{n=1}^{\infty} \frac{2^n}{n!}
+\]
+converges absolutely. In particular, it converges.
 \qed
 
 \newpage
@@ -191,9 +392,105 @@ answer.
 \end{enumerate}
 
 \begin{scratch}
+For each part, I first compare the general size of the terms to the type of test that is best adapted to them.
+
+\textbf{(a)} The terms
+\[
+\frac{1}{n^n}
+\]
+decay extremely fast, much faster than an ordinary geometric or $p$-series. Since the exponent itself depends on $n$, the root test is the most natural choice: taking the $n$th root removes the varying exponent immediately. A comparison test could be made to work, but the root test is much cleaner.
+
+\textbf{(b)} The terms
+\[
+\frac{n!}{n^n}
+\]
+also involve competing growth rates, now factorial versus power. Because factorial expressions simplify very well under the ratio test, that is the most efficient method here. The ratio should approach $e^{-1}$-type behavior intuitively, and in fact it will tend to a number strictly less than $1$, which proves convergence. The root test is possible too, but the ratio test is more direct.
+
+\textbf{(c)} The terms
+\[
+\frac{(-1)^n n!}{2^n}
+\]
+have alternating sign, but the factorial in the numerator grows much faster than the exponential in the denominator. So before thinking about alternating-series ideas, I should check whether the terms even go to $0$. The ratio test is the cleanest way to capture this growth. Since the absolute ratio will tend to something larger than $1$, the terms cannot go to $0$, so the series must diverge.
 \end{scratch}
 
 \textbf{Proof.}\\
+\textbf{(a)} Consider the series
+\[
+\sum_{n=1}^{\infty} \frac{1}{n^n}.
+\]
+Set
+\[
+a_n := \frac{1}{n^n} \qquad (n\ge 1).
+\]
+Then
+\[
+|a_n|^{1/n} = \left(\frac{1}{n^n}\right)^{1/n} = \frac{1}{n}.
+\]
+Therefore,
+\[
+\lim_{n\to\infty} |a_n|^{1/n} = \lim_{n\to\infty} \frac{1}{n} = 0<1.
+\]
+By the root test, the series
+\[
+\sum_{n=1}^{\infty} \frac{1}{n^n}
+\]
+converges absolutely. In particular, it converges.
+
+\textbf{(b)} Consider the series
+\[
+\sum_{n=1}^{\infty} \frac{n!}{n^n}.
+\]
+Set
+\[
+b_n := \frac{n!}{n^n} \qquad (n\ge 1).
+\]
+Then
+\[
+\left|\frac{b_{n+1}}{b_n}\right|
+= \frac{(n+1)!}{(n+1)^{n+1}}\cdot \frac{n^n}{n!}
+= \frac{(n+1)n^n}{(n+1)^{n+1}}
+= \left(\frac{n}{n+1}\right)^n.
+\]
+Now
+\[
+\left(\frac{n}{n+1}\right)^n = \left(1-\frac{1}{n+1}\right)^n \to e^{-1} < 1
+\qquad \text{as } n\to\infty.
+\]
+Hence
+\[
+\lim_{n\to\infty} \left|\frac{b_{n+1}}{b_n}\right| = e^{-1}<1.
+\]
+By the ratio test, the series
+\[
+\sum_{n=1}^{\infty} \frac{n!}{n^n}
+\]
+converges absolutely. In particular, it converges.
+
+\textbf{(c)} Consider the series
+\[
+\sum_{n=1}^{\infty} \frac{(-1)^n n!}{2^n}.
+\]
+Set
+\[
+c_n := \frac{(-1)^n n!}{2^n} \qquad (n\ge 1).
+\]
+Then
+\[
+\left|\frac{c_{n+1}}{c_n}\right|
+= \left|\frac{(-1)^{n+1}(n+1)!}{2^{n+1}}\cdot \frac{2^n}{(-1)^n n!}\right|
+= \frac{n+1}{2}.
+\]
+Therefore,
+\[
+\lim_{n\to\infty} \left|\frac{c_{n+1}}{c_n}\right|
+= \lim_{n\to\infty} \frac{n+1}{2}
+= +\infty > 1.
+\]
+By the ratio test, the series
+\[
+\sum_{n=1}^{\infty} \frac{(-1)^n n!}{2^n}
+\]
+diverges.
 \qed
 
 \newpage
@@ -211,9 +508,78 @@ Consider the series
 \end{enumerate}
 
 \begin{scratch}
+This problem tells me which tests to use, so the main task is to apply them carefully and explicitly.
+
+\textbf{(a)} To show that the ratio test is inconclusive, I should not just say that the limit does not exist. I need to compute the ratio of consecutive terms and show that its tail behavior crosses both sides of $1$. Because the exponent $(-1)^n$ depends on parity, the ratio will behave differently for even and odd $n$. So the cleanest way is to compute $a_{n+1}/a_n$ and then split into the two parity cases.
+
+\textbf{(b)} Once the ratio test fails, the root test is more natural because the $n$th root interacts well with the factor $2^{-n}$. After taking the $n$th root, the only remaining subtlety is the factor $2^{(-1)^n/n}$, which tends to $1$ since $(-1)^n/n\to 0$. This should give a limit strictly less than $1$, so the series converges absolutely.
 \end{scratch}
 
 \textbf{Proof.}\\
+Let
+\[
+a_n := 2^{(-1)^n-n} \qquad (n\ge 1).
+\]
+Then the given series is
+\[
+\sum_{n=1}^{\infty} a_n.
+\]
+
+\textbf{(a)} We show that the ratio test is inconclusive.
+For each $n\ge 1$,
+\[
+\left|\frac{a_{n+1}}{a_n}\right|
+= 2^{(-1)^{n+1}-(n+1)-\bigl((-1)^n-n\bigr)}
+= 2^{(-1)^{n+1}-(-1)^n-1}.
+\]
+Now split into cases.
+
+If $n$ is even, then $(-1)^n=1$ and $(-1)^{n+1}=-1$, so
+\[
+\left|\frac{a_{n+1}}{a_n}\right| = 2^{-1-1-1} = 2^{-3} = \frac{1}{8}.
+\]
+If $n$ is odd, then $(-1)^n=-1$ and $(-1)^{n+1}=1$, so
+\[
+\left|\frac{a_{n+1}}{a_n}\right| = 2^{1-(-1)-1} = 2^1 = 2.
+\]
+Therefore the sequence
+\[
+\left\{\left|\frac{a_{n+1}}{a_n}\right|\right\}_{n\ge 1}
+\]
+alternates between $\frac18$ and $2$. In particular,
+\[
+\liminf_{n\to\infty} \left|\frac{a_{n+1}}{a_n}\right| = \frac18
+\qquad\text{and}\qquad
+\limsup_{n\to\infty} \left|\frac{a_{n+1}}{a_n}\right| = 2.
+\]
+Hence
+\[
+\liminf_{n\to\infty} \left|\frac{a_{n+1}}{a_n}\right| \le 1 \le
+\limsup_{n\to\infty} \left|\frac{a_{n+1}}{a_n}\right|,
+\]
+so by the remark following the ratio test, the ratio test is inconclusive.
+
+\textbf{(b)} We now apply the root test. For each $n\ge 1$,
+\[
+|a_n|^{1/n} = \left(2^{(-1)^n-n}\right)^{1/n} = 2^{\frac{(-1)^n-n}{n}} = 2^{\frac{(-1)^n}{n}-1}.
+\]
+Since
+\[
+\frac{(-1)^n}{n} \to 0 \qquad \text{as } n\to\infty,
+\]
+it follows that
+\[
+\lim_{n\to\infty} |a_n|^{1/n} = 2^{-1} = \frac12 < 1.
+\]
+Therefore,
+\[
+\limsup_{n\to\infty} |a_n|^{1/n} = \frac12 < 1.
+\]
+By the root test, the series
+\[
+\sum_{n=1}^{\infty} 2^{(-1)^n-n}
+\]
+converges absolutely. In particular, it converges.
 \qed
 
 \newpage
@@ -235,9 +601,79 @@ satisfies $\sum_{n=1}^{\infty} \tilde{a}_n=\tilde{s}$? Prove your answer.
 in lecture.)
 
 \begin{scratch}
+This problem is almost entirely a matter of identifying whether each series is conditionally convergent or absolutely convergent, because Lecture 20 proves that rearrangements behave very differently in those two cases.
+
+\textbf{(a)} The series
+\[
+\sum_{n=1}^{\infty} \frac{(-1)^n}{n}
+\]
+is the alternating harmonic series up to an overall minus sign. It converges by the alternating series test, but it does not converge absolutely because
+\[
+\sum_{n=1}^{\infty} \left|\frac{(-1)^n}{n}\right| = \sum_{n=1}^{\infty} \frac{1}{n}
+\]
+diverges. So this is a conditionally convergent series. By Riemann's rearrangement result from Lecture 20, a conditionally convergent series can be rearranged so that it converges to any prescribed real number. Hence the set of all possible rearranged sums is $\mathbb{R}$.
+
+\textbf{(b)} The series
+\[
+\sum_{n=1}^{\infty} \frac{(-1)^n}{n^2}
+\]
+converges absolutely because
+\[
+\sum_{n=1}^{\infty} \left|\frac{(-1)^n}{n^2}\right| = \sum_{n=1}^{\infty} \frac{1}{n^2}
+\]
+converges. Lecture 20 also proves that every rearrangement of an absolutely convergent series converges to the same sum as the original series. Therefore the only possible rearranged sum is the original value.
 \end{scratch}
 
 \textbf{Proof.}\\
+\textbf{(a)} Let
+\[
+a_n := \frac{(-1)^n}{n} \qquad (n\ge 1).
+\]
+Then
+\[
+\sum_{n=1}^{\infty} a_n = \sum_{n=1}^{\infty} \frac{(-1)^n}{n}
+\]
+converges, since it is the alternating harmonic series up to an overall minus sign. On the other hand,
+\[
+\sum_{n=1}^{\infty} |a_n| = \sum_{n=1}^{\infty} \frac{1}{n}
+\]
+diverges, because the harmonic series diverges. Hence
+\[
+\sum_{n=1}^{\infty} \frac{(-1)^n}{n}
+\]
+converges, but does not converge absolutely. Thus it is conditionally convergent.
+
+By Riemann's rearrangement result, if a series converges but does not converge absolutely, then for any real number $r\in\mathbb{R}$ there exists a rearrangement whose sum is $r$. Therefore the set of all numbers $\tilde{s}\in\mathbb{R}$ such that there exists a rearrangement with
+\[
+\sum_{n=1}^{\infty} \tilde{a}_n = \tilde{s}
+\]
+is exactly
+\[
+\mathbb{R}.
+\]
+
+\textbf{(b)} Let
+\[
+b_n := \frac{(-1)^n}{n^2} \qquad (n\ge 1).
+\]
+Then
+\[
+\sum_{n=1}^{\infty} |b_n| = \sum_{n=1}^{\infty} \frac{1}{n^2}
+\]
+converges, since this is a $p$-series with $p=2>1$. Hence
+\[
+\sum_{n=1}^{\infty} \frac{(-1)^n}{n^2}
+\]
+converges absolutely.
+
+Now Lecture 20 proves that if a series converges absolutely, then every rearrangement converges to the same sum as the original series. Since the original sum is given to be
+\[
+\sum_{n=1}^{\infty} \frac{(-1)^n}{n^2} = -\frac{\pi^2}{12},
+\]
+it follows that the set of all possible rearranged sums is
+\[
+\left\{-\frac{\pi^2}{12}\right\}.
+\]
 \qed
 
 \newpage
@@ -252,13 +688,85 @@ $\sum_{n=1}^{\infty} a_{2n}$ converges absolutely.
 \end{enumerate}
 
 \begin{scratch}
+The key point in both parts is that the series
+\[
+\sum_{n=1}^{\infty} a_{2n}
+\]
+keeps only the even-indexed terms of the original series. So I should ask whether passing to a subsequence of terms preserves convergence.
+
+\textbf{(a)} I do \emph{not} expect ordinary convergence to be preserved, because a convergent series may rely on cancellation between its odd and even terms. If I keep only the even terms, I may destroy that cancellation completely. The alternating harmonic series is the standard example to test this suspicion: the full series converges, but the even terms alone look like a constant multiple of the harmonic series. So this statement should be false, and a counterexample is the right method.
+
+\textbf{(b)} Absolute convergence is much stronger. If
+\[
+\sum_{n=1}^{\infty} |a_n|
+\]
+converges, then throwing away terms should not break convergence, because the remaining terms form a positive subseries of a convergent positive series. So I expect this statement to be true. The cleanest proof is a direct comparison:
+\[
+0\le |a_{2n}| \le \text{(the full positive series } \sum |a_n|\text{)},
+\]
+which shows that the even-indexed absolute-value series also converges.
 \end{scratch}
 
 \textbf{Proof.}\\
+\textbf{(a)} The statement is \emph{false}. Consider the series
+\[
+\sum_{n=1}^{\infty} a_n
+\qquad\text{with}
+\qquad
+ a_n := \frac{(-1)^{n+1}}{n}.
+\]
+Then
+\[
+\sum_{n=1}^{\infty} a_n = 1-\frac12+\frac13-\frac14+\cdots
+\]
+converges by the alternating series test. However, the even-indexed subseries is
+\[
+\sum_{n=1}^{\infty} a_{2n}
+= \sum_{n=1}^{\infty} \frac{(-1)^{2n+1}}{2n}
+= -\sum_{n=1}^{\infty} \frac{1}{2n}
+= -\frac12\sum_{n=1}^{\infty} \frac{1}{n}.
+\]
+Since the harmonic series diverges, it follows that
+\[
+\sum_{n=1}^{\infty} a_{2n}
+\]
+diverges. Therefore the statement in part (a) is false.
+
+\textbf{(b)} The statement is \emph{true}. Assume that
+\[
+\sum_{n=1}^{\infty} a_n
+\]
+converges absolutely. By definition, this means that
+\[
+\sum_{n=1}^{\infty} |a_n|
+\]
+converges.
+
+For each $N\in\mathbb{N}$, set
+\[
+S_N := \sum_{n=1}^{N} |a_n|,
+\qquad
+T_N := \sum_{n=1}^{N} |a_{2n}|.
+\]
+Since all terms are nonnegative, both $\{S_N\}$ and $\{T_N\}$ are increasing sequences. Moreover, for every $N$ we have
+\[
+T_N = |a_2|+|a_4|+\cdots+|a_{2N}| \le |a_1|+|a_2|+\cdots+|a_{2N}| = S_{2N}.
+\]
+Because $\sum_{n=1}^{\infty} |a_n|$ converges, the sequence $\{S_N\}$ is bounded. Hence the subsequence $\{S_{2N}\}$ is also bounded, and therefore $\{T_N\}$ is bounded above as well. Since $\{T_N\}$ is increasing and bounded above, it converges.
+
+Thus the series
+\[
+\sum_{n=1}^{\infty} |a_{2n}|
+\]
+converges, which means exactly that
+\[
+\sum_{n=1}^{\infty} a_{2n}
+\]
+converges absolutely.
 \qed
 
 % ============================================================
-% Optional appendix: keep a personal toolbox of definitions/theorems
+% Appendix for lec 17-20 proof tools
 % ============================================================
 \newpage
 \appendix
