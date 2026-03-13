@@ -1,7 +1,7 @@
 \documentclass[12pt]{article}
 
 % =========================
-% 0) Metadata (EDIT ME)
+% 0) Metadata 
 % =========================
 \newcommand{\CourseCode}{MATH 521}
 \newcommand{\CourseTitle}{Analysis I}
@@ -265,13 +265,171 @@ $\sum_{n=1}^{\infty} a_{2n}$ converges absolutely.
 \section*{Appendix: Toolbox}
 \addcontentsline{toc}{section}{Appendix: Toolbox}
 
-% Example (using amsthm environments instead of boxed tcolorboxes):
-% \begin{definition}
-% A metric space is ...
-% \end{definition}
-%
-% \begin{theorem}[Heine--Borel]
-% ...
-% \end{theorem}
+\subsection*{Series and Convergence}
+
+\begin{definition}[Convergence of a series]
+Let $\sum_{n=1}^{\infty} a_n$ be a series, and for $n\ge 1$ set
+\[
+s_n := \sum_{k=1}^{n} a_k = a_1+\cdots+a_n.
+\]
+We say that $\sum_{n=1}^{\infty} a_n$ converges to $s$ if $s_n\to s$ as
+$n\to\infty$. Equivalently, $\sum_{n=1}^{\infty} a_n$ converges if and only if
+its sequence of partial sums converges.
+\end{definition}
+
+\begin{theorem}[Comparison test]
+Let $\sum_{n=1}^{\infty} a_n$ be a series with $a_n\ge 0$ for all $n\ge 1$.
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+\item If $\sum_{n=1}^{\infty} a_n$ converges and $|b_n|\le a_n$ for all
+      $n\ge 1$, then $\sum_{n=1}^{\infty} b_n$ converges.
+\item If $\sum_{n=1}^{\infty} a_n$ diverges and $b_n\ge a_n$ for all $n\ge 1$,
+      then $\sum_{n=1}^{\infty} b_n$ diverges.
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Dyadic criterion]
+Let $\{a_n\}_{n\ge 1}$ be a decreasing sequence with $a_n\ge 0$ for all
+$n\ge 1$. The series $\sum_{n=1}^{\infty} a_n$ converges if and only if the
+series
+\[
+\sum_{n=0}^{\infty} 2^n a_{2^n}
+\]
+converges.
+\end{theorem}
+
+\subsection*{Root and Ratio Tests}
+
+\begin{theorem}[Root test]
+Let $\sum_{n=1}^{\infty} a_n$ be a series.
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+\item If $\limsup_{n\to\infty} |a_n|^{1/n}<1$, then
+      $\sum_{n=1}^{\infty} a_n$ converges absolutely.
+\item If $\liminf_{n\to\infty} |a_n|^{1/n}>1$, then
+      $\sum_{n=1}^{\infty} a_n$ diverges.
+\end{enumerate}
+\end{theorem}
+
+\begin{remark}
+If
+\[
+\liminf_{n\to\infty} |a_n|^{1/n}\le 1\le \limsup_{n\to\infty} |a_n|^{1/n},
+\]
+then the root test is inconclusive.
+\end{remark}
+
+\begin{theorem}[Ratio test]
+Let $\sum_{n=1}^{\infty} a_n$ be a series of nonzero numbers.
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+\item If $\limsup_{n\to\infty} \left| \frac{a_{n+1}}{a_n} \right|<1$, then
+      $\sum_{n=1}^{\infty} a_n$ converges absolutely.
+\item If $\liminf_{n\to\infty} \left| \frac{a_{n+1}}{a_n} \right|>1$, then
+      $\sum_{n=1}^{\infty} a_n$ diverges.
+\end{enumerate}
+\end{theorem}
+
+\begin{remark}
+If
+\[
+\liminf_{n\to\infty} \left| \frac{a_{n+1}}{a_n} \right|\le 1
+\le \limsup_{n\to\infty} \left| \frac{a_{n+1}}{a_n} \right|,
+\]
+then the ratio test is inconclusive.
+\end{remark}
+
+\subsection*{Dirichlet and Alternating Series}
+
+\begin{theorem}[Dirichlet's criterion]
+Let $\{a_n\}_{n\ge 1}$ and $\{b_n\}_{n\ge 1}$ be sequences. If
+$\{a_n\}_{n\ge 1}$ is decreasing, $\lim_{n\to\infty} a_n=0$, and the sequence
+\[
+\left\{ \sum_{k=1}^{n} b_k \right\}_{n\ge 1}
+\]
+is bounded, then
+\[
+\sum_{n=1}^{\infty} a_n b_n
+\]
+converges.
+\end{theorem}
+
+\begin{remark}[Summation by parts]
+If $t_n:=\sum_{k=1}^{n} b_k$ for $n\ge 1$ and $t_0:=0$, then
+\[
+\sum_{k=m}^{n} a_k b_k
+= -\sum_{k=m}^{n-1} (a_{k+1}-a_k)t_k + a_n t_n - a_m t_{m-1}.
+\]
+This identity is sometimes called ``summation by parts.''
+\end{remark}
+
+\begin{corollary}[Alternating Series Test]
+If $\{a_n\}_{n\ge 1}$ is a decreasing sequence and $\lim_{n\to\infty} a_n=0$,
+then
+\[
+\sum_{n=1}^{\infty} (-1)^n a_n
+\]
+converges.
+\end{corollary}
+
+\subsection*{Rearrangements of Series}
+
+\begin{definition}[Rearrangement of a series]
+Let $\{a_n\}_{n\ge 1}$ be a sequence. We say
+\[
+\sum_{n=1}^{\infty} \tilde{a}_n
+\]
+is a rearrangement of
+\[
+\sum_{n=1}^{\infty} a_n
+\]
+if there exists a bijection $k:\mathbb{N}\to\mathbb{N}$ such that
+\[
+\tilde{a}_n = a_{k(n)}
+\qquad \text{for all } n\ge 1.
+\]
+\end{definition}
+
+\begin{theorem}[Riemann's rearrangement result]
+Let $\sum_{n=1}^{\infty} a_n$ be a series that converges, but does not
+converge absolutely. For any $\alpha,\beta$ satisfying
+\[
+-\infty\le \alpha\le \beta\le \infty,
+\]
+there exists a rearrangement $\sum_{n=1}^{\infty} \tilde{a}_n$ so that the
+partial sums
+\[
+\tilde{s}_n := \sum_{k=1}^{n} \tilde{a}_k
+\]
+obey
+\[
+\liminf_{n\to\infty} \tilde{s}_n = \alpha
+\qquad \text{and} \qquad
+\limsup_{n\to\infty} \tilde{s}_n = \beta.
+\]
+\end{theorem}
+
+\begin{theorem}
+If $\sum_{n=1}^{\infty} a_n$ converges absolutely, then any rearrangement
+$\sum_{n=1}^{\infty} \tilde{a}_n$ converges to $\sum_{n=1}^{\infty} a_n$.
+\end{theorem}
+
+\subsection*{Metric Spaces}
+
+\begin{definition}[Metric]
+Let $X$ be a nonempty set. A metric on $X$ is a function
+\[
+d:X\times X\to \mathbb{R}
+\]
+such that:
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+\item $d(x,y)\ge 0$ for all $x,y\in X$.
+\item $d(x,y)=0$ if and only if $x=y$.
+\item $d(x,y)=d(y,x)$ for all $x,y\in X$.
+\item (Triangle inequality) $d(x,z)\le d(x,y)+d(y,z)$ for all $x,y,z\in X$.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Metric space]
+Let $X$ be a nonempty set and let $d$ be a metric on $X$. Together, we call
+$(X,d)$ a metric space.
+\end{definition}
 
 \end{document}
