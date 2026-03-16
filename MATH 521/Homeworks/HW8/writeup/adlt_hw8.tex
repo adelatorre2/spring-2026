@@ -162,11 +162,126 @@ its interior and prove your answer.
 \end{enumerate}
 
 \begin{scratch}
-% Outline the strategy, key definitions, lemmas, or a proof sketch.
+\begin{scratch}
+For part (a), I want to identify exactly which points of $A=[0,1)$ admit a small open ball that stays entirely inside $A$.
+
+Because the metric is the usual one on $\mathbb{R}$,
+\[
+B_r(x)=\{y\in\mathbb{R}:|x-y|<r\}=(x-r,x+r).
+\]
+So the problem becomes: for which points $x\in[0,1)$ does there exist $r>0$ such that
+\[
+(x-r,x+r)\subseteq [0,1)?
+\]
+
+The natural guess is that
+\[
+A^\circ=(0,1).
+\]
+Indeed, if $x\in(0,1)$, then $x$ has positive distance from both endpoints $0$ and $1$, so I should be able to choose a small radius that stays inside the interval. On the other hand, the endpoint $0$ should fail to be interior, because every open ball around $0$ extends to the left of $0$, hence leaves $A$.
+
+So the proof has two parts:
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+  \item show that every $x\in(0,1)$ is an interior point of $A$ by constructing an explicit radius $r>0$;
+  \item show that $0$ is not an interior point of $A$.
+\end{enumerate}
+Since $A=[0,1)$ contains only the points in $(0,1)$ together with $0$, these two steps will identify the interior completely.
+
+For part (b), I again translate the definition of interior point into balls for the usual metric. Since
+\[
+B_r(n)=(n-r,n+r)
+\]
+for any integer $n\in\mathbb{Z}$, the question is whether there can be some radius $r>0$ for which this entire interval stays inside $\mathbb{Z}$. The natural guess is that this is impossible, because every open interval in $\mathbb{R}$ contains non-integer real numbers. So I expect that no integer is an interior point, and hence
+\[
+\mathbb{Z}^\circ=\varnothing.
+\]
+
+To prove this, I take an arbitrary integer $n$ and an arbitrary radius $r>0$, and then I exhibit a specific point in $B_r(n)$ that is not an integer. This shows that no open ball centered at an integer can stay inside $\mathbb{Z}$, so no point of $\mathbb{Z}$ is interior.
+\end{scratch}
 \end{scratch}
 
 \textbf{Proof.}\\
-% Write your proof here.
+\textbf{(a)} Let $A=[0,1)$. I claim that
+\[
+A^\circ=(0,1).
+\]
+
+First, let $x\in(0,1)$. Define
+\[
+r:=\frac12\min\{x,1-x\}.
+\]
+Since $x>0$ and $1-x>0$, we have $r>0$. Also,
+\[
+r\le \frac{x}{2}
+\qquad\text{and}\qquad
+r\le \frac{1-x}{2},
+\]
+so
+\[
+x-r>0
+\qquad\text{and}\qquad
+x+r<1.
+\]
+Therefore,
+\[
+B_r(x)=(x-r,x+r)\subseteq (0,1)\subseteq [0,1)=A.
+\]
+Hence $x$ is an interior point of $A$. Since $x\in(0,1)$ was arbitrary, it follows that
+\[
+(0,1)\subseteq A^\circ.
+\]
+
+Now we show that $0$ is not an interior point of $A$. Let $r>0$. Then
+\[
+B_r(0)=(-r,r).
+\]
+But
+\[
+-\frac{r}{2}\in (-r,r)
+\qquad\text{and}\qquad
+-\frac{r}{2}\notin [0,1).
+\]
+So
+\[
+B_r(0)\nsubseteq A.
+\]
+Since this happens for every $r>0$, the point $0$ is not an interior point of $A$.
+
+Because the only points of $A=[0,1)$ are the points of $(0,1)$ together with $0$, we conclude that the interior of $A$ is exactly
+\[
+A^\circ=(0,1).
+\]
+\textbf{(b)} Let $A=\mathbb{Z}$. I claim that
+\[
+A^\circ=\varnothing.
+\]
+
+Let $n\in\mathbb{Z}$. We show that $n$ is not an interior point of $A$. Let $r>0$. Then
+\[
+B_r(n)=(n-r,n+r).
+\]
+Now consider the point
+\[
+n+\frac{r}{2}.
+\]
+Since
+\[
+n-r<n+\frac{r}{2}<n+r,
+\]
+we have
+\[
+n+\frac{r}{2}\in B_r(n).
+\]
+But $n+\frac{r}{2}\notin\mathbb{Z}$, so
+\[
+B_r(n)\nsubseteq \mathbb{Z}.
+\]
+Since this happens for every $r>0$, the point $n$ is not an interior point of $\mathbb{Z}$.
+
+Because $n\in\mathbb{Z}$ was arbitrary, no point of $\mathbb{Z}$ is an interior point. Therefore
+\[
+\mathbb{Z}^\circ=\varnothing.
+\]
 \qed
 
 \newpage
