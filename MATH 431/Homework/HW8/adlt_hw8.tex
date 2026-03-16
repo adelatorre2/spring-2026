@@ -1,0 +1,718 @@
+% !TEX program = pdflatex
+% ------------------------------------------------------------
+% MATH 431 Homework Template (plug-and-chug friendly)
+%
+% Goals:
+% - Same clean header style as your MATH 521 template.
+% - Easy “Problem -> Solution” workflow.
+% - Lightweight (no tcolorbox); uses mdframed for optional boxes.
+% - Good for probability homework: sample space, probability measure, events.
+%
+% Quick use:
+%   1) Edit the Metadata block.
+%   2) For each exercise, use \problem{<section>.<number>} and paste the prompt.
+%   3) Write your solution in the solution environment.
+% ------------------------------------------------------------
+
+\documentclass[12pt]{article}
+
+% =========================
+% 0) Metadata (EDIT ME)
+% =========================
+\newcommand{\CourseCode}{MATH 431}
+\newcommand{\CourseTitle}{Introduction to Probability}
+\newcommand{\CourseSection}{LEC 002} % change to 001 or 003 if needed
+\newcommand{\Semester}{Spring 2026}
+\newcommand{\Instructor}{Sarah Tammen}
+\newcommand{\HomeworkNumber}{8}
+\newcommand{\YourName}{Alejandro De La Torre}
+\newcommand{\DueDate}{March 20, 2026} 
+% =========================
+% 1) Core math tools
+% =========================
+\usepackage{amsmath, amssymb, amsthm}
+
+% =========================
+% 2) Lists and spacing
+% =========================
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=\textbf{(\alph*)}, leftmargin=2em, itemsep=0.25em}
+\setlist[itemize]{leftmargin=1.5em, itemsep=0.25em}
+\setlength{\parskip}{0.35em}
+\setlength{\parindent}{0pt}
+
+% =========================
+% 3) Page geometry + header/footer
+% =========================
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\CourseCode\ --- \CourseSection, \Semester}
+\rhead{Homework \HomeworkNumber}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\headheight}{15pt}
+\addtolength{\topmargin}{-2pt}
+
+% =========================
+% 4) Links (subtle)
+% =========================
+\usepackage[hidelinks]{hyperref}
+\setcounter{tocdepth}{1}
+
+% =========================
+% 5) Figures (optional)
+% =========================
+\usepackage{graphicx}
+\graphicspath{{images/}}
+
+% =========================
+% 6) Lightweight boxes (optional)
+% =========================
+\usepackage{mdframed}
+\newmdenv[
+  skipabove=0.6\baselineskip,
+  skipbelow=0.6\baselineskip,
+  linewidth=0.6pt,
+  roundcorner=4pt,
+  innerleftmargin=10pt,
+  innerrightmargin=10pt,
+  innertopmargin=8pt,
+  innerbottommargin=8pt
+]{boxnote}
+
+% =========================
+% 7) Probability / notation macros
+% =========================
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newcommand{\OmegaSpace}{\Omega}
+\newcommand{\FField}{\mathcal{F}}
+% Probability measure in case it is relevant or want to distinguish it from P(A)
+%\newcommand{\PMeasure}{\mathbb{P}} 
+\newcommand{\E}{\mathbb{E}}
+
+\newcommand{\given}{\,\middle|\,}
+\newcommand{\ind}{\mathbf{1}}
+
+% Common “defined as” symbol
+\newcommand{\defeq}{\vcentcolon=}
+
+% =========================
+% 8) Problem command (TOC + PDF bookmarks)
+% Usage:
+%   \problem{<label>}
+%   \problem[Short title]{<label>}
+% Example:
+%   \problem{1.4}
+%   \problem[Sample space]{1.4}
+% =========================
+\makeatletter
+\newcommand{\problem}[2][]{%
+  \def\prob@title{Problem #2\if\relax\detokenize{#1}\relax\else\ (\textit{#1})\fi}%
+  \phantomsection%
+  \pdfbookmark[1]{\prob@title}{prob#2}%
+  \addcontentsline{toc}{section}{\prob@title}%
+  \section*{\prob@title}%
+  \vspace{-0.25em}\hrule\vspace{0.8em}%
+}
+\makeatother
+
+% =========================
+% 9) Solution environment
+% =========================
+\newenvironment{solution}{%
+  \noindent\textbf{Solution.}\ \ignorespaces
+}{\par}
+
+% Optional scratch / planning block
+\newenvironment{scratch}{%
+  \begin{boxnote}\textbf{Scratch / Setup.}\ \small
+}{\end{boxnote}}
+
+% Final answer command: expects math only (no $$ or \[ \])
+\newcommand{\finalanswer}[1]{%
+  \par\medskip
+  \noindent\textbf{Final:}\ \fbox{$#1$}\par
+} % AGAIN: MATH ONLY INSIDE THE BOX; if word answer, use \text{} inside or use \fbox{TEXT} or \framebox
+
+% =========================
+% 10) Title block
+% =========================
+\title{Homework \HomeworkNumber}
+\author{\YourName \\
+\CourseCode\ --- \CourseTitle \\
+\CourseSection \\
+Instructor: \Instructor}
+\date{Due: \DueDate}
+
+\begin{document}
+\maketitle
+
+% \section*{Collaboration / Resources}
+% (Optional) Write “I worked alone” or list collaborators/resources.
+
+\tableofcontents
+\bigskip
+\hrule
+\bigskip
+\newpage
+
+% ============================================================
+% Problems (duplicate blocks as needed)
+% ============================================================
+
+
+\problem{4.34}
+A taxi company has a large fleet of cars. On average, there are 3 accidents each week. What is the probability that at most 2 accidents happen next week? Make some reasonable assumption in order to be able to answer the question. Simplify your answer as much as possible.
+
+\begin{solution}
+\begin{scratch}
+Let $X$ be the number of accidents next week. A standard modeling assumption is:
+each taxi has a small probability of an accident during the week, accidents for
+different taxis are approximately independent, and the fleet is large. Then a
+Poisson model is appropriate, with parameter equal to the weekly mean:
+\[
+X\sim \mathrm{Poisson}(3).
+\]
+\end{scratch}
+
+Assuming accidents occur as independent rare events across a large fleet, the
+number of accidents in one week is well modeled by a Poisson random variable
+with mean $3$. Thus
+\[
+P(X\le 2)=P(X=0)+P(X=1)+P(X=2).
+\]
+Using the Poisson p.m.f.,
+\[
+P(X\le 2)=e^{-3}\left(\frac{3^0}{0!}+\frac{3^1}{1!}+\frac{3^2}{2!}\right)
+=e^{-3}\left(1+3+\frac{9}{2}\right)
+=\frac{17}{2}e^{-3}.
+\]
+
+\finalanswer{P(X\le 2)=\frac{17}{2}e^{-3}}
+
+\end{solution}
+
+\newpage
+
+\problem{4.42}
+On average 20\% of the gadgets produced by a factory are mildly defective. I buy a box of 100 gadgets. Assume this is a random sample from the production of the factory. Let $A$ be the event that less than 15 gadgets in the random sample of 100 are mildly defective.
+\begin{enumerate}[label=(\alph*)]
+\item Give an exact expression for $P(A)$, without attempting to evaluate it.
+\item Use either the normal or the Poisson approximation, whichever is appropriate, to give an approximation of $P(A)$.
+\end{enumerate}
+
+\begin{solution}
+\begin{scratch}
+Let $X$ be the number of mildly defective gadgets in the box. Then
+\[
+X\sim \mathrm{Bin}(100,0.2),
+\qquad
+A=\{X<15\}=\{X\le 14\}.
+\]
+For approximation, compare Poisson and normal:
+\[
+np=20,\qquad np(1-p)=16.
+\]
+The normal approximation is the better choice here. Using continuity correction,
+\[
+P(X\le 14)\approx P\!\left(Z\le \frac{14.5-20}{4}\right)=P(Z\le -1.375).
+\]
+\end{scratch}
+
+\begin{enumerate}[label=(\alph*)]
+\item Since $X\sim\mathrm{Bin}(100,0.2)$,
+\[
+P(A)=P(X\le 14)=\sum_{k=0}^{14}\binom{100}{k}(0.2)^k(0.8)^{100-k}.
+\]
+\item Because the mean $np=20$ and variance $np(1-p)=16$ are both reasonably
+large, the normal approximation is more appropriate than the Poisson
+approximation. Approximating $X$ by $N(20,16)$ and using continuity
+correction,
+\[
+P(A)=P(X\le 14)\approx P\!\left(Z\le \frac{14.5-20}{4}\right)
+=P(Z\le -1.375).
+\]
+Numerically,
+\[
+P(A)\approx \Phi(-1.375)\approx 0.0846.
+\]
+\end{enumerate}
+
+\finalanswer{\text{(a)}\ \sum_{k=0}^{14}\binom{100}{k}(0.2)^k(0.8)^{100-k},\qquad
+\text{(b)}\ P(A)\approx \Phi(-1.375)\approx 0.0846}
+
+\end{solution}
+
+\newpage
+
+\problem{4.46}
+Jessica flips a fair coin 5 times every morning, for 30 days straight. Let $X$ be the number of mornings over these 30 days on which all 5 flips are tails. Use either the normal or the Poisson approximation, whichever is more appropriate, to give an estimate for the probability $P(X=2)$. Justify your choice of approximation.
+
+\begin{solution}
+\begin{scratch}
+For one morning, the probability of getting 5 tails in 5 flips is
+\[
+p=\left(\frac12\right)^5=\frac{1}{32}.
+\]
+If $X$ is the number of such mornings in 30 days, then
+\[
+X\sim \mathrm{Bin}\left(30,\frac{1}{32}\right).
+\]
+Here
+\[
+np=\frac{15}{16},\qquad np^2=\frac{15}{512},
+\]
+so the event is rare and the Poisson approximation is more appropriate than the
+normal approximation.
+\end{scratch}
+
+Let $X$ be the number of mornings, out of 30, on which all 5 flips are tails.
+Then
+\[
+X\sim \mathrm{Bin}\left(30,\frac{1}{32}\right).
+\]
+Since $p=1/32$ is small and $np^2=15/512$ is very small, the Poisson
+approximation is appropriate. We approximate $X$ by
+\[
+Y\sim \mathrm{Poisson}\left(\lambda=\frac{30}{32}\right)
+=\mathrm{Poisson}\left(\frac{15}{16}\right).
+\]
+Therefore,
+\[
+P(X=2)\approx P(Y=2)
+=e^{-15/16}\frac{(15/16)^2}{2!}
+=\frac{225}{512}e^{-15/16}.
+\]
+Numerically,
+\[
+P(X=2)\approx 0.1721.
+\]
+
+\finalanswer{P(X=2)\approx \frac{225}{512}e^{-15/16}\approx 0.1721}
+
+\end{solution}
+
+\newpage
+
+\problem{5.2}
+Suppose that $X$ has moment generating function
+\[
+M_X(t)=\frac{1}{2}+\frac{1}{3}e^{-4t}+\frac{1}{6}e^{5t}.
+\]
+\begin{enumerate}[label=(\alph*)]
+\item Find the mean and variance of $X$ by differentiating the moment generating function to find moments.
+\item Find the probability mass function of $X$. Use the probability mass function to check your answer for part (a).
+\end{enumerate}
+
+\begin{solution}
+\begin{scratch}
+Differentiate the mgf to get moments:
+\[
+M_X'(t)=-\frac{4}{3}e^{-4t}+\frac{5}{6}e^{5t},
+\qquad
+M_X''(t)=\frac{16}{3}e^{-4t}+\frac{25}{6}e^{5t}.
+\]
+Also, because
+\[
+M_X(t)=\sum_x P(X=x)e^{tx},
+\]
+the exponential terms show the support and probabilities directly.
+\end{scratch}
+
+\begin{enumerate}[label=(\alph*)]
+\item Using the mgf,
+\[
+E[X]=M_X'(0)=-\frac{4}{3}+\frac{5}{6}=-\frac{8}{6}+\frac{5}{6}=-\frac{1}{2}.
+\]
+Also,
+\[
+E[X^2]=M_X''(0)=\frac{16}{3}+\frac{25}{6}
+=\frac{32}{6}+\frac{25}{6}=\frac{57}{6}=\frac{19}{2}.
+\]
+Hence
+\[
+\operatorname{Var}(X)=E[X^2]-\bigl(E[X]\bigr)^2
+=\frac{19}{2}-\left(-\frac{1}{2}\right)^2
+=\frac{19}{2}-\frac{1}{4}
+=\frac{37}{4}.
+\]
+\item Since
+\[
+M_X(t)=\frac12+\frac13e^{-4t}+\frac16e^{5t},
+\]
+we read off the distribution:
+\[
+P(X=0)=\frac12,\qquad P(X=-4)=\frac13,\qquad P(X=5)=\frac16.
+\]
+Checking part (a) from the p.m.f.,
+\[
+E[X]=(-4)\cdot \frac13+0\cdot \frac12+5\cdot \frac16=-\frac{4}{3}+\frac{5}{6}=-\frac12,
+\]
+which agrees with the mgf calculation.
+\end{enumerate}
+
+\finalanswer{E[X]=-\frac12,\quad \operatorname{Var}(X)=\frac{37}{4},\quad
+P(X=-4)=\frac13,\ P(X=0)=\frac12,\ P(X=5)=\frac16}
+
+\end{solution}
+
+\newpage
+
+\problem{5.8}
+Let $X\sim\mathrm{Unif}[-1,2]$. Find the probability density function of the random variable $Y=X^2$.
+
+\begin{solution}
+\begin{scratch}
+Let $Y=X^2$. Since $X\sim\mathrm{Unif}[-1,2]$, its density is
+\[
+f_X(x)=\frac13\quad \text{for }-1\le x\le 2.
+\]
+The map $x\mapsto x^2$ is not one-to-one:
+for $0<y<1$, the preimages are $\pm\sqrt y$;
+for $1<y<4$, only $\sqrt y$ lies in $[-1,2]$.
+Use
+\[
+f_Y(y)=\sum_{x:\,x^2=y} f_X(x)\frac{1}{|2x|}.
+\]
+\end{scratch}
+
+The possible values of $Y=X^2$ are $0\le Y\le 4$.
+
+If $0<y<1$, both $\sqrt y$ and $-\sqrt y$ belong to the support of $X$, so
+\[
+f_Y(y)=f_X(\sqrt y)\frac{1}{2\sqrt y}+f_X(-\sqrt y)\frac{1}{2\sqrt y}
+=\frac13\cdot\frac{1}{2\sqrt y}+\frac13\cdot\frac{1}{2\sqrt y}
+=\frac{1}{3\sqrt y}.
+\]
+If $1<y<4$, only $\sqrt y$ belongs to $[-1,2]$, so
+\[
+f_Y(y)=f_X(\sqrt y)\frac{1}{2\sqrt y}
+=\frac13\cdot\frac{1}{2\sqrt y}
+=\frac{1}{6\sqrt y}.
+\]
+Outside $(0,4)$ the density is $0$. Therefore,
+\[
+f_Y(y)=
+\begin{cases}
+\dfrac{1}{3\sqrt y}, & 0<y<1,\\[6pt]
+\dfrac{1}{6\sqrt y}, & 1<y<4,\\[6pt]
+0, & \text{otherwise.}
+\end{cases}
+\]
+The value at $y=1$ is irrelevant for the density.
+
+\finalanswer{f_Y(y)=
+\begin{cases}
+\dfrac{1}{3\sqrt y}, & 0<y<1,\\[4pt]
+\dfrac{1}{6\sqrt y}, & 1<y<4,\\[4pt]
+0, & \text{otherwise}
+\end{cases}}
+
+\end{solution}
+
+\newpage
+
+\problem{5.10}
+Suppose that $X$ has moment generating function
+\[
+M(t)=\left(\frac{1}{5}+\frac{4}{5}e^t\right)^{30}.
+\]
+What is the distribution of $X$?
+
+\emph{Hint.} Do Exercise 5.9 first.
+
+\begin{solution}
+\begin{scratch}
+From Exercise 5.9, the mgf of a binomial random variable is
+\[
+M(t)=(1-p+pe^t)^n.
+\]
+Compare this with
+\[
+\left(\frac15+\frac45 e^t\right)^{30}.
+\]
+\end{scratch}
+
+By the binomial mgf formula,
+\[
+M_X(t)=(1-p+pe^t)^n
+\]
+for $X\sim\mathrm{Bin}(n,p)$. Since
+\[
+M(t)=\left(\frac15+\frac45 e^t\right)^{30},
+\]
+we identify
+\[
+n=30,\qquad p=\frac45.
+\]
+Therefore,
+\[
+X\sim \mathrm{Bin}\left(30,\frac45\right).
+\]
+Equivalently, its p.m.f. is
+\[
+P(X=k)=\binom{30}{k}\left(\frac45\right)^k\left(\frac15\right)^{30-k},
+\qquad k=0,1,\dots,30.
+\]
+
+\finalanswer{X\sim \mathrm{Bin}\left(30,\frac45\right)}
+
+\end{solution}
+
+\newpage
+
+\problem{5.18}
+Let $X\sim\mathrm{Geom}(p)$.
+\begin{enumerate}[label=(\alph*)]
+\item Compute the moment generating function $M_X(t)$ of $X$. Be careful about the possibility that $M_X(t)$ might be infinite.
+\item Use the moment generating function to compute the mean and the variance of $X$.
+\end{enumerate}
+
+\begin{solution}
+\begin{scratch}
+Write $q=1-p$. Then for $X\sim\mathrm{Geom}(p)$ on $\{1,2,\dots\}$,
+\[
+P(X=k)=pq^{k-1}.
+\]
+The mgf becomes a geometric series:
+\[
+M_X(t)=\sum_{k=1}^\infty e^{tk}pq^{k-1}
+=pe^t\sum_{k=0}^\infty (qe^t)^k.
+\]
+\end{scratch}
+
+\begin{enumerate}[label=(\alph*)]
+\item For those $t$ such that $qe^t<1$, the series converges and
+\[
+M_X(t)=pe^t\sum_{k=0}^\infty (qe^t)^k
+=\frac{pe^t}{1-qe^t}
+=\frac{pe^t}{1-(1-p)e^t}.
+\]
+Thus
+\[
+M_X(t)=
+\begin{cases}
+\dfrac{pe^t}{1-(1-p)e^t}, & t<\ln\!\left(\dfrac{1}{1-p}\right),\\[8pt]
+\infty, & t\ge \ln\!\left(\dfrac{1}{1-p}\right).
+\end{cases}
+\]
+\item Differentiate
+\[
+M_X(t)=\frac{pe^t}{1-qe^t}.
+\]
+Then
+\[
+M_X'(t)=\frac{pe^t}{(1-qe^t)^2},
+\]
+so
+\[
+E[X]=M_X'(0)=\frac{p}{(1-q)^2}=\frac{p}{p^2}=\frac{1}{p}.
+\]
+Differentiating once more,
+\[
+M_X''(t)=\frac{pe^t}{(1-qe^t)^2}+\frac{2pq\,e^{2t}}{(1-qe^t)^3},
+\]
+hence
+\[
+E[X^2]=M_X''(0)=\frac{1}{p}+\frac{2(1-p)}{p^2}
+=\frac{2-p}{p^2}.
+\]
+Therefore,
+\[
+\operatorname{Var}(X)=E[X^2]-\bigl(E[X]\bigr)^2
+=\frac{2-p}{p^2}-\frac{1}{p^2}
+=\frac{1-p}{p^2}.
+\]
+\end{enumerate}
+
+\finalanswer{M_X(t)=\frac{pe^t}{1-(1-p)e^t}\ \text{for }t<\ln\!\left(\frac{1}{1-p}\right),\quad
+E[X]=\frac{1}{p},\quad \operatorname{Var}(X)=\frac{1-p}{p^2}}
+
+\end{solution}
+
+\newpage
+
+\problem{5.20}
+Suppose that random variable $X$ has density function $f(x)=\frac{1}{2}e^{-|x|}$.
+\begin{enumerate}[label=(\alph*)]
+\item Compute the moment generating function $M_X(t)$ of $X$. Be careful about the possibility that $M_X(t)$ might be infinite.
+\item Use the moment generating function to compute the $n$th moment of $X$.
+\end{enumerate}
+
+\begin{solution}
+\begin{scratch}
+Split the integral at $0$. For $x\ge 0$, $|x|=x$; for $x<0$, $|x|=-x$.
+So
+\[
+M_X(t)=\frac12\int_0^\infty e^{tx}e^{-x}\,dx
+\;+\;\frac12\int_{-\infty}^0 e^{tx}e^{x}\,dx.
+\]
+Both integrals converge exactly when $-1<t<1$.
+\end{scratch}
+
+\begin{enumerate}[label=(\alph*)]
+\item We compute
+\[
+M_X(t)=\frac12\int_0^\infty e^{-(1-t)x}\,dx+\frac12\int_{-\infty}^0 e^{(1+t)x}\,dx.
+\]
+The first integral converges when $t<1$ and equals $\dfrac{1}{2(1-t)}$.
+The second converges when $t>-1$ and equals $\dfrac{1}{2(1+t)}$.
+Hence
+\[
+M_X(t)=
+\begin{cases}
+\dfrac{1}{2(1-t)}+\dfrac{1}{2(1+t)}=\dfrac{1}{1-t^2}, & -1<t<1,\\[8pt]
+\infty, & |t|\ge 1.
+\end{cases}
+\]
+\item For $|t|<1$,
+\[
+M_X(t)=\frac{1}{1-t^2}=\sum_{k=0}^\infty t^{2k}.
+\]
+Comparing with
+\[
+M_X(t)=\sum_{n=0}^\infty \frac{E[X^n]}{n!}t^n,
+\]
+we see that odd powers do not appear, so
+\[
+E[X^n]=0 \qquad \text{for odd }n.
+\]
+If $n=2k$ is even, the coefficient of $t^{2k}$ is $1$, so
+\[
+\frac{E[X^{2k}]}{(2k)!}=1,
+\qquad\text{hence}\qquad
+E[X^{2k}]=(2k)!.
+\]
+\end{enumerate}
+
+\finalanswer{M_X(t)=\frac{1}{1-t^2}\ \text{for }|t|<1,\qquad
+E[X^n]=
+\begin{cases}
+0, & n\ \text{odd},\\
+n!, & n\ \text{even}
+\end{cases}}
+
+\end{solution}
+
+\newpage
+
+\problem{5.24}
+Let $X\sim N(0,1)$ and $Y=e^X$. $Y$ is called a \emph{log-normal} random variable.
+\begin{enumerate}[label=(\alph*)]
+\item Find the probability density function of $Y$.
+\item Find the $n$th moment $E(Y^n)$ of $Y$.
+\end{enumerate}
+
+\emph{Hint.} Do not compute the moment generating function of $Y$. Instead relate the $n$th moment of $Y$ to an expectation of $X$ that you know.
+
+\begin{solution}
+\begin{scratch}
+Since $Y=e^X$ and the exponential function is increasing, use the cdf method:
+\[
+F_Y(y)=P(Y\le y)=P(e^X\le y).
+\]
+Also $Y>0$ always. For moments,
+\[
+Y^n=e^{nX},
+\]
+so $E[Y^n]$ is the standard normal mgf evaluated at $n$.
+\end{scratch}
+
+\begin{enumerate}[label=(\alph*)]
+\item Because $Y=e^X>0$, we have $F_Y(y)=0$ for $y\le 0$. For $y>0$,
+\[
+F_Y(y)=P(e^X\le y)=P(X\le \ln y)=\Phi(\ln y),
+\]
+where $\Phi$ is the standard normal cdf. Differentiating,
+\[
+f_Y(y)=\Phi'(\ln y)\cdot \frac{1}{y}
+=\frac{1}{\sqrt{2\pi}}e^{-(\ln y)^2/2}\cdot \frac{1}{y},
+\qquad y>0.
+\]
+Thus
+\[
+f_Y(y)=
+\begin{cases}
+\dfrac{1}{y\sqrt{2\pi}}e^{-(\ln y)^2/2}, & y>0,\\[8pt]
+0, & y\le 0.
+\end{cases}
+\]
+\item Since $Y=e^X$,
+\[
+E[Y^n]=E[e^{nX}]=M_X(n).
+\]
+For $X\sim N(0,1)$,
+\[
+M_X(t)=e^{t^2/2},
+\]
+so
+\[
+E[Y^n]=e^{n^2/2}.
+\]
+\end{enumerate}
+
+\finalanswer{f_Y(y)=
+\begin{cases}
+\dfrac{1}{y\sqrt{2\pi}}e^{-(\ln y)^2/2}, & y>0,\\[6pt]
+0, & y\le 0
+\end{cases},
+\qquad E[Y^n]=e^{n^2/2}}
+
+\end{solution}
+
+\newpage
+
+\problem{5.32}
+Suppose that $X$ is a uniform random variable on the interval $(0,1)$ and let $Y=1/X$. Find the probability density function of $Y$.
+
+\begin{solution}
+\begin{scratch}
+Use the cdf. Since $0<X<1$, the transformed variable is
+\[
+Y=\frac{1}{X}>1.
+\]
+For $y>1$,
+\[
+F_Y(y)=P\!\left(\frac1X\le y\right)=P\!\left(X\ge \frac1y\right).
+\]
+\end{scratch}
+
+Because $X$ is uniform on $(0,1)$, its density is $1$ on $(0,1)$. Since
+$Y=1/X$, the support of $Y$ is $(1,\infty)$.
+
+If $y\le 1$, then $F_Y(y)=0$. If $y>1$, then
+\[
+F_Y(y)=P\!\left(\frac1X\le y\right)
+=P\!\left(X\ge \frac1y\right)
+=1-\frac1y.
+\]
+Differentiating for $y>1$ gives
+\[
+f_Y(y)=\frac{d}{dy}\left(1-\frac1y\right)=\frac{1}{y^2}.
+\]
+Therefore,
+\[
+f_Y(y)=
+\begin{cases}
+\dfrac{1}{y^2}, & y>1,\\[6pt]
+0, & y\le 1.
+\end{cases}
+\]
+
+\finalanswer{f_Y(y)=
+\begin{cases}
+\dfrac{1}{y^2}, & y>1,\\[4pt]
+0, & y\le 1
+\end{cases}}
+
+\end{solution}
+
+
+\end{document}
