@@ -257,20 +257,117 @@ A=\bigcup_{i\in I} B_{r_i}(a_i).
 \qed
 
 % ============================================================
-% Optional appendix: keep a personal toolbox of definitions/theorems
+% Lecture 20-22 Material Proven In Class
 % ============================================================
 \newpage
 \appendix
-\section*{Appendix: Toolbox (optional)}
+\section*{Appendix: Toolbox}
 \addcontentsline{toc}{section}{Appendix: Toolbox (optional)}
 
-% Example (using amsthm environments instead of boxed tcolorboxes):
-% \begin{definition}
-% A metric space is ...
-% \end{definition}
-%
-% \begin{theorem}[Heine--Borel]
-% ...
-% \end{theorem}
+\subsection*{Metrics and Metric Spaces}
+\begin{definition}
+Let $X$ be a nonempty set. A metric on $X$ is a function
+$d:X\times X\to\mathbb{R}$ such that
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+  \item $d(x,y)\ge 0$ for all $x,y\in X$.
+  \item $d(x,y)=0$ if and only if $x=y$.
+  \item $d(x,y)=d(y,x)$ for all $x,y\in X$.
+  \item $d(x,z)\le d(x,y)+d(y,z)$ for all $x,y,z\in X$.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}
+If $d$ is a metric on $X$, then $(X,d)$ is called a metric space.
+\end{definition}
+
+\subsection*{$\ell^p$ Metrics on $\mathbb{R}^n$}
+\begin{proposition}[H\"older's inequality]
+Fix $1\le p\le\infty$, and let $1\le q\le\infty$ satisfy
+\[
+\frac{1}{p}+\frac{1}{q}=1.
+\]
+For any $(x_1,\dots,x_n),(y_1,\dots,y_n)\in\mathbb{R}^n$ we have
+\[
+\sum_{k=1}^n |x_k y_k|
+\le
+\left(\sum_{k=1}^n |x_k|^p\right)^{1/p}
+\left(\sum_{k=1}^n |y_k|^q\right)^{1/q}.
+\]
+When $p=\infty$, replace $\left(\sum_{k=1}^n |x_k|^p\right)^{1/p}$ by
+$\max_{k=1,\dots,n} |x_k|$ above.
+\end{proposition}
+
+\begin{remark}
+When $p=2$ (and so $q=2$), we call this the Cauchy--Schwarz inequality.
+\end{remark}
+
+\begin{corollary}[Minkowski's inequality]
+For any $1\le p\le\infty$ and $(x_1,\dots,x_n),(y_1,\dots,y_n)\in\mathbb{R}^n$,
+we have
+\[
+\left(\sum_{k=1}^n |x_k+y_k|^p\right)^{1/p}
+\le
+\left(\sum_{k=1}^n |x_k|^p\right)^{1/p}
++
+\left(\sum_{k=1}^n |y_k|^p\right)^{1/p}.
+\]
+\end{corollary}
+
+\begin{corollary}
+For any $1\le p\le\infty$, the function $d_p:\mathbb{R}^n\times\mathbb{R}^n\to\mathbb{R}$,
+\[
+d_p(x,y)=
+\begin{cases}
+\left(\sum_{k=1}^n |x_k-y_k|^p\right)^{1/p} & \text{if } 1\le p<\infty,\\
+\max_{k=1,\dots,n} |x_k-y_k| & \text{if } p=\infty,
+\end{cases}
+\]
+is a metric on $\mathbb{R}^n$.
+\end{corollary}
+
+\subsection*{Open Balls and Open Sets}
+\begin{definition}
+Let $(X,d)$ be a metric space. The open ball (or neighborhood) of radius $r>0$
+centered at $a\in X$ is
+\[
+B_r(a)=\{x\in X:d(a,x)<r\}.
+\]
+\end{definition}
+
+\begin{definition}
+Let $(X,d)$ be a metric space and $A\subseteq X$. We say:
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+  \item $a\in X$ is an interior point of $A$ if there exists $r>0$ such that
+  $B_r(a)\subseteq A$.
+  \item
+  \[
+  A^\circ=\{a\in X: a \text{ is an interior point of } A\}
+  \]
+  is the interior of $A$.
+  \item $A$ is open if $A^\circ=A$.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Note that $A^\circ\subseteq A$ for any set $A$.
+\end{remark}
+
+\subsection*{Basic Properties of Interior and Open Sets}
+\begin{proposition}
+Let $(X,d)$ be a metric space and $A,B\subseteq X$.
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+  \item If $A\subseteq B$, then $A^\circ\subseteq B^\circ$.
+  \item $A^\circ\cup B^\circ\subseteq (A\cup B)^\circ$.
+  \item $A^\circ\cap B^\circ=(A\cap B)^\circ$.
+  \item $(A^\circ)^\circ=A^\circ$. In particular, $A^\circ$ is an open set.
+  \item $A^\circ$ is the largest open set contained in $A$.
+  \item A finite intersection of open sets is open.
+  \item An arbitrary union of open sets is open.
+\end{enumerate}
+\end{proposition}
+
+\begin{remark}
+An arbitrary intersection of open sets need not be open.
+\end{remark}
 
 \end{document}
