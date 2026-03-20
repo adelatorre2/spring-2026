@@ -1,0 +1,36 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{parskip}
+
+\title{Peer Review: Yiqing Zhang --- Second Draft}
+\author{Alejandro De La Torre}
+\date{March 2026}
+
+\begin{document}
+
+\maketitle
+
+\singlespacing
+
+\textbf{Research Question and Motivation}
+
+This paper studies whether political shocks affecting J. Robert Oppenheimer propagated through his collaboration network and reduced the research productivity of physicists who were closely connected to him. The draft focuses on three historically important events: Oppenheimer's conscription into the Manhattan Project in 1942, the Soviet atomic bomb test in 1949, and the revocation of his Atomic Energy Commission security clearance in 1954. The main idea is that physicists who had directly coauthored with Oppenheimer before these shocks may have been more exposed to political pressure, reputational risk, or professional disruption than more distant physicists. The paper then asks whether this proximity led to lower annual publication output in \textit{Physical Review}. The motivation is interesting because it connects political persecution, scientific networks, and research productivity, and it builds on a literature showing that political disruption can have lasting spillover effects within academic communities.
+
+\textbf{Suggestions for Improvement}
+
+This is a promising topic, and the paper already has a clear historical setting and a plausible network-based mechanism. I would suggest sharpening the framing of the research question and exposition. Right now, the opening sentence is a little hard to follow. Instead of saying ``political shocks to Oppenheimer propagate through his collaboration network,'' I found it clearer to think of it as: ``This paper studies whether major political shocks affecting J. Robert Oppenheimer reduced the research productivity of physicists in his coauthorship network'', (which is what I unnderstood). I think that makes the treatment, the mechanism, and the outcome easier to understand immediately.
+
+Second, I think the paper needs to be more careful about the core identifying assumption. The draft argues that shock timing is exogenous conditional on network membership, but I think that assumption could be discussed a bit more explicitly. The timing of the three historical events may be plausibly external to individual coauthors, but direct coauthorship with Oppenheimer is not random. Scientists who worked with him may have differed systematically from the control group in ability (which is presumably hard to control for beyond what degrees a given person had and so if we just assume it away then it would be worth it to be forward with that), field, institutional prestige, career trajectory, wartime relevance, or baseline productivity even before the shocks. Physicist fixed effects help with time-invariant differences, but they do not fully solve the problem if treated and control scientists were already on different output trends before 1942, 1949, or 1954. Because of this, I would suggest showing pre-trends as clearly as possible (for example, a table or figure), and discussing how comparable the treated and control groups really are.
+
+Relatedly, I think the control group could use a bit more justification. The current draft says the controls were active in broadly similar subfields and had no coauthorship connection to Oppenheimer or his direct coauthors. That is a reasonable start, but the paper should explain more concretely how these scientists were chosen. Why these twenty-six physicists rather than others? Are they matched on field, career stage, pre-period publication rate, institutional affiliation, or prominence? Since the sample is fairly small, the selection of controls matters a great deal for credibility.
+
+I also think the outcome measure could use a bit more reflection. Annual publication counts in \textit{Physical Review} are a sensible and historically grounded proxy, but they may not fully capture research productivity if scientists shifted to other journals, classified work, books, reports, or non-publishable wartime research. This matters especially around the Manhattan Project period, when some of the most important scientific work would not necessarily appear in journal form. The paper does not need to solve this completely, but it should acknowledge that publication counts in one journal may capture only one part of productivity.
+
+I also wondered about the interpretation across the three shocks. The draft treats 1942, 1949, and 1954 as separate incidents, but these events may operate through different mechanisms. The 1942 shock may reflect wartime reallocation into classified government work, the 1949 shock may reflect heightened Cold War political scrutiny, and the 1954 clearance revocation may reflect direct reputational or ideological punishment. If the mechanisms differ, then the meaning of the estimated treatment effect may also differ across windows. I think the paper would be stronger if it explicitly discussed why these three shocks belong in the same conceptual framework and what differences in sign or magnitude across them would mean.
+
+On the empirical side, I would also suggest considering an event-study style presentation in addition to the narrow-window DiD specifications. Since one of the main concerns is whether treated physicists were already evolving differently before each incident, a more flexible dynamic plot could help show whether the estimated effect really appears after the shock rather than before it. Even if the final specification remains difference-in-differences, an event-study figure would make the design more persuasive (even if it's just part of an appendix).
+
+Finally, I found that a bit of light polishing at the sentence level could make the argument even clearer. The core ideas are strong, but a few lines were a little difficult for me to follow on a first read. I think tightening the prose, especially in the introduction and data section, would help the reader more quickly understand what is already a very interesting project.
+
+\end{document}
