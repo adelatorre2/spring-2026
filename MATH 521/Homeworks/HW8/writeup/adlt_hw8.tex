@@ -262,7 +262,7 @@ Because the only points of $A=[0,1)$ are the points of $(0,1)$ together with $0$
 \[
 A^\circ=(0,1).
 \]
-\textbf{(b)} Let $A=\mathbb{Z}$. I claim that
+ \textbf{(b)} Let $A=\mathbb{Z}$. I claim that
 \[
 A^\circ=\varnothing.
 \]
@@ -280,6 +280,11 @@ so
 B_r(n)\nsubseteq \mathbb{Z}.
 \]
 Since this happens for every $r>0$, the point $n$ is not an interior point of $\mathbb{Z}$.
+
+Because $n\in\mathbb{Z}$ was arbitrary, no point of $\mathbb{Z}$ is an interior point. Therefore
+\[
+\mathbb{Z}^\circ=\varnothing.
+\]
 
 \textbf{(c)} Let
 \[
@@ -744,35 +749,13 @@ Suppose first that $A$ is open. Since $A$ is nonempty, for each $a\in A$ there e
 \[
 B_{r_a}(a)\subseteq A.
 \]
-Let
+For each $a\in A$, choose $r_a>0$ such that
 \[
-I:=A,
+B_{r_a}(a)\subseteq A.
 \]
-and for each $i\in I$ define
+Then
 \[
-a_i:=i,
-\qquad
-r_i:=r_i.
-\]
-Then for every $i\in I$,
-\[
-B_{r_i}(a_i)\subseteq A.
-\]
-Hence
-\[
-\bigcup_{i\in I} B_{r_i}(a_i)\subseteq A.
-\]
-On the other hand, if $x\in A$, then taking $i=x\in I$ gives
-\[
-x=a_i\in B_{r_i}(a_i),
-\]
-since $d(a_i,a_i)=0<r_i$. Therefore
-\[
-A\subseteq \bigcup_{i\in I} B_{r_i}(a_i).
-\]
-Combining the two inclusions, we obtain
-\[
-A=\bigcup_{i\in I} B_{r_i}(a_i).
+A=\bigcup_{a\in A} B_{r_a}(a).
 \]
 
 Conversely, suppose there exist a set $I$, positive numbers $r_i>0$, and points $a_i\in X$ such that
