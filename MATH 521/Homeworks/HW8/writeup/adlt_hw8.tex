@@ -80,6 +80,7 @@
 % =========================
 \usepackage{csquotes}
 \usepackage{graphicx}
+\usepackage{float}
 \graphicspath{{images/}} % put figures in ./images/
 
 % =========================
@@ -162,7 +163,6 @@ its interior and prove your answer.
 \end{enumerate}
 
 \begin{scratch}
-\begin{scratch}
 For part (a), I want to identify exactly which points of $A=[0,1)$ admit a small open ball that stays entirely inside $A$.
 
 Because the metric is the usual one on $\mathbb{R}$,
@@ -197,7 +197,18 @@ for any integer $n\in\mathbb{Z}$, the question is whether there can be some radi
 \]
 
 To prove this, I take an arbitrary integer $n$ and an arbitrary radius $r>0$, and then I exhibit a specific point in $B_r(n)$ that is not an integer. This shows that no open ball centered at an integer can stay inside $\mathbb{Z}$, so no point of $\mathbb{Z}$ is interior.
-\end{scratch}
+
+For part (c), I consider
+\[
+A=\{x\in\mathbb{Q}:0<x<1\}.
+\]
+Although the rationals are dense in $\mathbb{R}$, that does not help with interior points. In fact, every open interval in $\mathbb{R}$ contains irrational numbers as well. This suggests that no open ball centered at a rational point can stay entirely inside $A$, since $A$ contains only rationals.
+
+So I suspect that
+\[
+A^\circ=\varnothing.
+\]
+To prove this, I take an arbitrary point $x\in A$ and an arbitrary radius $r>0$, and show that $B_r(x)$ is not contained in $A$. Using the density of the irrationals, I can always find an irrational number inside $(x-r,x+r)$, which will not belong to $A$. This shows that no point of $A$ is an interior point.
 \end{scratch}
 
 \textbf{Proof.}\\
@@ -260,29 +271,49 @@ Let $n\in\mathbb{Z}$. We show that $n$ is not an interior point of $A$. Let $r>0
 \[
 B_r(n)=(n-r,n+r).
 \]
-Now consider the point
+Since $(n-r,n+r)$ is an open interval in $\mathbb{R}$, it contains points that are not integers. In particular, we can choose some $y\in(n-r,n+r)$ with $y\notin\mathbb{Z}$. Then
 \[
-n+\frac{r}{2}.
+y\in B_r(n)\quad\text{but}\quad y\notin \mathbb{Z},
 \]
-Since
-\[
-n-r<n+\frac{r}{2}<n+r,
-\]
-we have
-\[
-n+\frac{r}{2}\in B_r(n).
-\]
-But $n+\frac{r}{2}\notin\mathbb{Z}$, so
+so
 \[
 B_r(n)\nsubseteq \mathbb{Z}.
 \]
 Since this happens for every $r>0$, the point $n$ is not an interior point of $\mathbb{Z}$.
 
-Because $n\in\mathbb{Z}$ was arbitrary, no point of $\mathbb{Z}$ is an interior point. Therefore
+\textbf{(c)} Let
 \[
-\mathbb{Z}^\circ=\varnothing.
+A=\{x\in\mathbb{Q}:0<x<1\}.
+\]
+I claim that
+\[
+A^\circ=\varnothing.
+\]
+
+Let $x\in A$. We show that $x$ is not an interior point of $A$. Let $r>0$. Then
+\[
+B_r(x)=(x-r,x+r).
+\]
+Since $\mathbb{R}\setminus\mathbb{Q}$ is dense in $\mathbb{R}$, there exists an irrational number $y$ such that
+\[
+x-r<y<x+r.
+\]
+Hence
+\[
+y\in B_r(x),
+\]
+but $y\notin A$, since $A\subseteq\mathbb{Q}$. Therefore
+\[
+B_r(x)\nsubseteq A.
+\]
+Since this happens for every $r>0$, the point $x$ is not an interior point of $A$.
+
+Because $x\in A$ was arbitrary, no point of $A$ is an interior point. Thus
+\[
+A^\circ=\varnothing.
 \]
 \qed
+ 
 
 \newpage
 
@@ -304,12 +335,126 @@ Recall that $d_1$ and $d_\infty$ are both metrics on $\mathbb{R}^2$.
 \end{enumerate}
 
 \begin{scratch}
+\textbf{(a)} This part is asking me to compare the two metrics on $\mathbb{R}^2$ pointwise. So for arbitrary points $x=(x_1,x_2)$ and $y=(y_1,y_2)$, I should write out both definitions:
+\[
+d_\infty(x,y)=\max\{|x_1-y_1|,|x_2-y_2|\},
+\qquad
+ d_1(x,y)=|x_1-y_1|+|x_2-y_2|.
+\]
+The first inequality should follow because the maximum of two nonnegative numbers is at most their sum, and the second should follow because each term is at most the maximum. So this is mostly an algebraic comparison of two formulas.
+
+\textbf{(b)} This part translates the inequalities from part (a) into containments of open balls. To prove one set is contained in another, I should take an arbitrary point in the first set and use the distance inequality from part (a) to show it belongs to the second set. So each inclusion should be a short direct argument using the definitions of the balls and the inequalities already proved. Check out the diagram below (it's pretty and awesome):
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.4\textwidth]{prob2_b_viz}
+  \caption{The three nested sets centered at $x$ with parameter $r=2$: the inner blue square is $\{d_\infty(x,y)<r/2\}$, the amber diamond is $\{d_1(x,y)<r\}$, and the outer teal square is $\{d_\infty(x,y)<r\}$.}
+\end{figure}
+
+\textbf{(c)} This part is asking me to show that the notions of open set coming from $d_1$ and $d_\infty$ are the same. The key idea is that part (b) tells me that around any point, a sufficiently small $d_\infty$-ball sits inside a given $d_1$-ball, and conversely a $d_1$-ball sits inside a corresponding $d_\infty$-ball. So to prove openness in one metric implies openness in the other, I take a point of the set, start with the open ball guaranteed by one metric, and then use part (b) to find a smaller ball for the other metric that is still contained in the set.
 \end{scratch}
 
 \textbf{Proof.}\\
+\textbf{(a)} Let $x=(x_1,x_2)$ and $y=(y_1,y_2)$ be points in $\mathbb{R}^2$. Then
+\[
+d_\infty(x,y)=\max\{|x_1-y_1|,|x_2-y_2|\}
+\]
+and
+\[
+d_1(x,y)=|x_1-y_1|+|x_2-y_2|.
+\]
+Because $|x_1-y_1|$ and $|x_2-y_2|$ are nonnegative, we have
+\[
+\max\{|x_1-y_1|,|x_2-y_2|\}\le |x_1-y_1|+|x_2-y_2|,
+\]
+so
+\[
+d_\infty(x,y)\le d_1(x,y).
+\]
+Also,
+\[
+|x_1-y_1|\le \max\{|x_1-y_1|,|x_2-y_2|\}=d_\infty(x,y)
+\]
+and similarly
+\[
+|x_2-y_2|\le d_\infty(x,y).
+\]
+Adding these inequalities gives
+\[
+d_1(x,y)=|x_1-y_1|+|x_2-y_2|\le 2d_\infty(x,y).
+\]
+Therefore,
+\[
+d_\infty(x,y)\le d_1(x,y)\le 2d_\infty(x,y)
+\]
+for all $x,y\in\mathbb{R}^2$.
+
+\textbf{(b)} Let $x\in\mathbb{R}^2$ and let $r>0$.
+
+We first prove that
+\[
+\{y\in\mathbb{R}^2:d_\infty(x,y)<r/2\}\subseteq \{y\in\mathbb{R}^2:d_1(x,y)<r\}.
+\]
+Let $y\in\mathbb{R}^2$ satisfy $d_\infty(x,y)<r/2$. By part (a),
+\[
+d_1(x,y)\le 2d_\infty(x,y)<2\cdot \frac r2=r.
+\]
+Hence $y\in\{y\in\mathbb{R}^2:d_1(x,y)<r\}$. This proves the first inclusion.
+
+Now we prove that
+\[
+\{y\in\mathbb{R}^2:d_1(x,y)<r\}\subseteq \{y\in\mathbb{R}^2:d_\infty(x,y)<r\}.
+\]
+Let $y\in\mathbb{R}^2$ satisfy $d_1(x,y)<r$. By part (a),
+\[
+d_\infty(x,y)\le d_1(x,y)<r.
+\]
+Hence $y\in\{y\in\mathbb{R}^2:d_\infty(x,y)<r\}$. This proves the second inclusion.
+
+Therefore,
+\[
+\{y\in\mathbb{R}^2:d_\infty(x,y)<r/2\}\subseteq
+\{y\in\mathbb{R}^2:d_1(x,y)<r\}\subseteq
+\{y\in\mathbb{R}^2:d_\infty(x,y)<r\}.
+\]
+
+\textbf{(c)} We prove that a set $A\subseteq\mathbb{R}^2$ is open in $(\mathbb{R}^2,d_1)$ if and only if it is open in $(\mathbb{R}^2,d_\infty)$.
+
+Suppose first that $A$ is open in $(\mathbb{R}^2,d_1)$. Let $x\in A$. Since $A$ is open with respect to $d_1$, there exists $r>0$ such that
+\[
+\{y\in\mathbb{R}^2:d_1(x,y)<r\}\subseteq A.
+\]
+By part (b),
+\[
+\{y\in\mathbb{R}^2:d_\infty(x,y)<r/2\}\subseteq
+\{y\in\mathbb{R}^2:d_1(x,y)<r\}.
+\]
+Therefore,
+\[
+\{y\in\mathbb{R}^2:d_\infty(x,y)<r/2\}\subseteq A.
+\]
+So $x$ is an interior point of $A$ with respect to $d_\infty$. Since $x\in A$ was arbitrary, $A$ is open in $(\mathbb{R}^2,d_\infty)$.
+
+Conversely, suppose that $A$ is open in $(\mathbb{R}^2,d_\infty)$. Let $x\in A$. Since $A$ is open with respect to $d_\infty$, there exists $r>0$ such that
+\[
+\{y\in\mathbb{R}^2:d_\infty(x,y)<r\}\subseteq A.
+\]
+By part (b),
+\[
+\{y\in\mathbb{R}^2:d_1(x,y)<r\}\subseteq
+\{y\in\mathbb{R}^2:d_\infty(x,y)<r\}.
+\]
+Therefore,
+\[
+\{y\in\mathbb{R}^2:d_1(x,y)<r\}\subseteq A.
+\]
+So $x$ is an interior point of $A$ with respect to $d_1$. Since $x\in A$ was arbitrary, $A$ is open in $(\mathbb{R}^2,d_1)$.
+
+Hence a set $A\subseteq\mathbb{R}^2$ is open in $(\mathbb{R}^2,d_1)$ if and only if it is open in $(\mathbb{R}^2,d_\infty)$.
 \qed
 
 \newpage
+
 
 \problem[]{3}
 Let $X$ be a nonempty set, and recall that the discrete metric $d$ is a metric
@@ -317,12 +462,51 @@ on $X$. Prove that every set $A\subseteq X$ is open in the metric space
 $(X,d)$.
 
 \begin{scratch}
+This problem is asking me to use the definition of openness in a very specific metric: the discrete metric. In the discrete metric, distinct points are always distance $1$ apart, so the key observation is that a sufficiently small open ball around any point should contain only that point.
+
+So to prove that an arbitrary set $A\subseteq X$ is open, I take an arbitrary point $a\in A$ and try to find a radius $r>0$ such that
+\[
+B_r(a)\subseteq A.
+\]
+The natural choice is any radius with $0<r\le 1$, since then the ball around $a$ should be just $\{a\}$. Once I show that, it follows immediately that every point of $A$ is an interior point, and hence $A$ is open.
 \end{scratch}
 
 \textbf{Proof.}\\
+Let $A\subseteq X$. We will show that $A$ is open in $(X,d)$.
+
+Let $a\in A$. Since $d$ is the discrete metric, we have
+\[
+d(a,x)=
+\begin{cases}
+0 & \text{if } x=a,\\
+1 & \text{if } x\ne a.
+\end{cases}
+\]
+Consider the open ball of radius $\tfrac12$ centered at $a$:
+\[
+B_{1/2}(a)=\{x\in X:d(a,x)<1/2\}.
+\]
+If $x=a$, then $d(a,x)=0<1/2$, so $a\in B_{1/2}(a)$. On the other hand, if $x\ne a$, then $d(a,x)=1\not<1/2$, so $x\notin B_{1/2}(a)$.
+
+Therefore,
+\[
+B_{1/2}(a)=\{a\}.
+\]
+Since $a\in A$, we have $\{a\}\subseteq A$, and hence
+\[
+B_{1/2}(a)\subseteq A.
+\]
+So $a$ is an interior point of $A$.
+
+Because $a\in A$ was arbitrary, every point of $A$ is an interior point. Therefore
+\[
+A^\circ=A,
+\]
+so $A$ is open in $(X,d)$.
 \qed
 
 \newpage
+
 
 \problem[]{4}
 Let $(X,d)$ be any metric space. Define the function $\tilde{d}:X\times X\to
@@ -337,9 +521,146 @@ Let $(X,d)$ be any metric space. Define the function $\tilde{d}:X\times X\to
 \end{enumerate}
 
 \begin{scratch}
+\textbf{(a)} To prove that
+\[
+\tilde d(x,y)=\min\{d(x,y),1\}
+\]
+is a metric, I need to verify the four metric axioms from the definition in the appendix: nonnegativity, definiteness, symmetry, and the triangle inequality. The first three should follow immediately from the corresponding properties of $d$. The only nontrivial part is the triangle inequality, and there the key idea is that truncating distances at $1$ cannot break the inequality. Concretely, I can start from
+\[
+d(x,z)\le d(x,y)+d(y,z)
+\]
+and then compare both sides after applying the function $t\mapsto \min\{t,1\}$.
+
+\textbf{(b)} This part asks me to compare the open sets defined by $d$ and by $\tilde d$. The key observation is that for distances strictly less than $1$, the two metrics agree exactly. So small enough balls in one metric should be the same as balls in the other metric. To prove the two notions of openness coincide, I take a point of the set and use the open ball guaranteed by one metric, then shrink the radius if necessary to make it less than $1$. Once the radius is below $1$, the corresponding $d$-ball and $\tilde d$-ball are identical, so openness transfers in both directions.
 \end{scratch}
 
 \textbf{Proof.}\\
+\textbf{(a)} We prove that $\tilde d$ is a metric on $X$.
+
+First, since $d(x,y)\ge 0$ for all $x,y\in X$, we have
+\[
+\tilde d(x,y)=\min\{d(x,y),1\}\ge 0.
+\]
+Thus $\tilde d$ is nonnegative.
+
+Next, we show definiteness. If $x=y$, then $d(x,y)=0$, so
+\[
+\tilde d(x,y)=\min\{0,1\}=0.
+\]
+Conversely, if $\tilde d(x,y)=0$, then
+\[
+\min\{d(x,y),1\}=0.
+\]
+Since both $d(x,y)$ and $1$ are nonnegative and $1\neq 0$, this forces
+\[
+d(x,y)=0.
+\]
+Because $d$ is a metric, it follows that $x=y$.
+
+Symmetry is immediate, since
+\[
+\tilde d(x,y)=\min\{d(x,y),1\}=\min\{d(y,x),1\}=\tilde d(y,x).
+\]
+
+It remains to prove the triangle inequality. Let $x,y,z\in X$. Since $d$ is a metric,
+\[
+d(x,z)\le d(x,y)+d(y,z).
+\]
+Therefore,
+\[
+\tilde d(x,z)=\min\{d(x,z),1\}\le \min\{d(x,y)+d(y,z),1\}.
+\]
+So it is enough to show that
+\[
+\min\{d(x,y)+d(y,z),1\}
+\le
+\min\{d(x,y),1\}+\min\{d(y,z),1\}.
+\]
+Set
+\[
+a:=d(x,y),\qquad b:=d(y,z),
+\]
+so $a,b\ge 0$. We claim that
+\[
+\min\{a+b,1\}\le \min\{a,1\}+\min\{b,1\}.
+\]
+If $a\ge 1$ or $b\ge 1$, then the right-hand side is at least $1$, while the left-hand side is at most $1$, so the inequality holds. If instead $a<1$ and $b<1$, then
+\[
+\min\{a,1\}=a,\qquad \min\{b,1\}=b,
+\]
+and hence
+\[
+\min\{a+b,1\}\le a+b=\min\{a,1\}+\min\{b,1\}.
+\]
+Thus the claim holds in all cases, and therefore
+\[
+\tilde d(x,z)\le \tilde d(x,y)+\tilde d(y,z).
+\]
+So $\tilde d$ satisfies the triangle inequality.
+
+Hence $\tilde d$ is a metric on $X$.
+
+\textbf{(b)} We prove that a set $A\subseteq X$ is open in $(X,d)$ if and only if it is open in $(X,\tilde d)$.
+
+Suppose first that $A$ is open in $(X,d)$. Let $x\in A$. Since $A$ is open with respect to $d$, there exists $r>0$ such that
+\[
+B_r^d(x):=\{y\in X:d(x,y)<r\}\subseteq A.
+\]
+Set
+\[
+\rho:=\min\left\{r,\frac12\right\}>0.
+\]
+We claim that
+\[
+B_{\rho}^{\tilde d}(x)=B_{\rho}^{d}(x).
+\]
+Indeed, if $y\in B_{\rho}^{\tilde d}(x)$, then
+\[
+\tilde d(x,y)<\rho\le \frac12<1.
+\]
+Since $\tilde d(x,y)=\min\{d(x,y),1\}$ and the value is strictly less than $1$, we must have
+\[
+\tilde d(x,y)=d(x,y),
+\]
+so $d(x,y)<\rho$ and hence $y\in B_{\rho}^{d}(x)$. Conversely, if $y\in B_{\rho}^{d}(x)$, then $d(x,y)<\rho\le \frac12<1$, so
+\[
+\tilde d(x,y)=d(x,y)<\rho,
+\]
+and thus $y\in B_{\rho}^{\tilde d}(x)$. Therefore the two balls are equal.
+
+Since $\rho\le r$, we have
+\[
+B_{\rho}^{d}(x)\subseteq B_r^{d}(x)\subseteq A.
+\]
+Hence
+\[
+B_{\rho}^{\tilde d}(x)=B_{\rho}^{d}(x)\subseteq A.
+\]
+So $x$ is an interior point of $A$ with respect to $\tilde d$. Since $x\in A$ was arbitrary, $A$ is open in $(X,\tilde d)$.
+
+Conversely, suppose that $A$ is open in $(X,\tilde d)$. Let $x\in A$. Then there exists $r>0$ such that
+\[
+B_r^{\tilde d}(x):=\{y\in X:\tilde d(x,y)<r\}\subseteq A.
+\]
+Set
+\[
+\rho:=\min\left\{r,\frac12\right\}>0.
+\]
+As above, because $\rho<1$, we have
+\[
+B_{\rho}^{d}(x)=B_{\rho}^{\tilde d}(x).
+\]
+Since $\rho\le r$,
+\[
+B_{\rho}^{\tilde d}(x)\subseteq B_r^{\tilde d}(x)\subseteq A.
+\]
+Therefore
+\[
+B_{\rho}^{d}(x)=B_{\rho}^{\tilde d}(x)\subseteq A.
+\]
+So $x$ is an interior point of $A$ with respect to $d$. Since $x\in A$ was arbitrary, $A$ is open in $(X,d)$.
+
+Hence $A$ is open in $(X,d)$ if and only if it is open in $(X,\tilde d)$.
 \qed
 
 \newpage
@@ -350,9 +671,47 @@ in $A^\circ$ if and only if there exists an open set $U$ so that
 $x\in U\subseteq A$.
 
 \begin{scratch}
+This problem is asking me to connect two ways of saying that a point lies in the interior of a set. By definition, $x\in A^\circ$ means that there is an open ball around $x$ contained in $A$. On the other hand, the statement involving an open set $U$ says there is some open neighborhood of $x$ contained in $A$.
+
+So the proof should go in both directions. If $x\in A^\circ$, then I can simply take the open ball from the definition and call it $U$. Conversely, if I already have an open set $U$ with $x\in U\subseteq A$, then because $U$ is open and contains $x$, there must be an open ball around $x$ contained in $U$, hence contained in $A$. That is exactly the definition of $x\in A^\circ$.
 \end{scratch}
 
 \textbf{Proof.}\\
+We prove that
+\[
+x\in A^\circ
+\quad\Longleftrightarrow\quad
+\text{there exists an open set } U \text{ such that } x\in U\subseteq A.
+\]
+
+Suppose first that $x\in A^\circ$. By definition of interior, there exists $r>0$ such that
+\[
+B_r(x)\subseteq A.
+\]
+Since every open ball is an open set, we may take
+\[
+U:=B_r(x).
+\]
+Then $U$ is open, $x\in U$, and $U\subseteq A$. Hence there exists an open set $U$ such that $x\in U\subseteq A$.
+
+Conversely, suppose there exists an open set $U$ such that
+\[
+x\in U\subseteq A.
+\]
+Because $U$ is open and $x\in U$, by definition of openness there exists $r>0$ such that
+\[
+B_r(x)\subseteq U.
+\]
+Since $U\subseteq A$, it follows that
+\[
+B_r(x)\subseteq A.
+\]
+Therefore, by definition of interior, we have
+\[
+x\in A^\circ.
+\]
+
+This proves the equivalence.
 \qed
 
 \newpage
@@ -366,9 +725,67 @@ A=\bigcup_{i\in I} B_{r_i}(a_i).
 \]
 
 \begin{scratch}
+This problem is really asking me to recognize the structure of open sets in a metric space. From the lecture notes, a set is open exactly when every point in it has some open ball around it still contained in the set. So the statement here says that open sets are precisely unions of open balls.
+
+To prove this, I need to show both directions. If $A$ is open, then for each point $a\in A$ I can choose a radius $r_a>0$ with
+\[
+B_{r_a}(a)\subseteq A.
+\]
+Then taking the union of all those balls should recover $A$. Conversely, if $A$ is already given as a union of open balls, then each ball is open by the lecture result, and an arbitrary union of open sets is open. So the proof is short: one direction uses the definition of openness pointwise, and the other uses the fact that unions of open sets are open.
 \end{scratch}
 
 \textbf{Proof.}\\
+We prove that $A$ is open if and only if there exist a set $I$, positive numbers $r_i>0$, and points $a_i\in X$ such that
+\[
+A=\bigcup_{i\in I} B_{r_i}(a_i).
+\]
+
+Suppose first that $A$ is open. Since $A$ is nonempty, for each $a\in A$ there exists $r_a>0$ such that
+\[
+B_{r_a}(a)\subseteq A.
+\]
+Let
+\[
+I:=A,
+\]
+and for each $i\in I$ define
+\[
+a_i:=i,
+\qquad
+r_i:=r_i.
+\]
+Then for every $i\in I$,
+\[
+B_{r_i}(a_i)\subseteq A.
+\]
+Hence
+\[
+\bigcup_{i\in I} B_{r_i}(a_i)\subseteq A.
+\]
+On the other hand, if $x\in A$, then taking $i=x\in I$ gives
+\[
+x=a_i\in B_{r_i}(a_i),
+\]
+since $d(a_i,a_i)=0<r_i$. Therefore
+\[
+A\subseteq \bigcup_{i\in I} B_{r_i}(a_i).
+\]
+Combining the two inclusions, we obtain
+\[
+A=\bigcup_{i\in I} B_{r_i}(a_i).
+\]
+
+Conversely, suppose there exist a set $I$, positive numbers $r_i>0$, and points $a_i\in X$ such that
+\[
+A=\bigcup_{i\in I} B_{r_i}(a_i).
+\]
+Each ball $B_{r_i}(a_i)$ is open in $(X,d)$ by the lecture result that every open ball is an open set. Since an arbitrary union of open sets is open, it follows that
+\[
+A=\bigcup_{i\in I} B_{r_i}(a_i)
+\]
+is open.
+
+Therefore $A$ is open if and only if it can be written as a union of open balls.
 \qed
 
 % ============================================================
