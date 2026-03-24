@@ -128,7 +128,14 @@ Instructor: \Instructor}
 % ============================================================
 
 \problem[]{1}
-% Paste the problem statement here.
+Consider the metric space $(\mathbb{R}, d)$ with the usual metric
+$d(x,y)=|x-y|$. For each of the following sets $A\subseteq \mathbb{R}$, find
+its closure, isolated points, and limit points. Prove your answer.
+\begin{enumerate}[label=\textbf{(\alph*)}]
+  \item $A=[0,1)$
+  \item $A=\mathbb{Z}$
+  \item $A=\{x\in\mathbb{Q}: 0<x<1\}$
+\end{enumerate}
 
 \begin{scratch}
 % Outline the strategy, key definitions, lemmas, or a proof sketch.
@@ -141,7 +148,14 @@ Instructor: \Instructor}
 \newpage
 
 \problem[]{2}
-% Paste the problem statement here.
+Let $(X,d)$ be a metric space, let $A$ be a nonempty subset of $X$, and let $U$
+be an open subset of $X$.
+\begin{enumerate}[label=\textbf{(\alph*)}]
+  \item Prove that $U\cap\overline{A}\subseteq \overline{U\cap A}$.
+  \item Prove that $\overline{U}\cap\overline{A}=\overline{U\cap A}$. (Hint:
+  Use part (a) and properties of closure from lecture.)
+  \item Conclude that if $U\cap A=\varnothing$, then $U\cap\overline{A}=\varnothing$.
+\end{enumerate}
 
 \begin{scratch}
 \end{scratch}
@@ -152,7 +166,17 @@ Instructor: \Instructor}
 \newpage
 
 \problem[]{3}
-% Paste the problem statement here.
+Recall that $d_2$ is a metric on $\mathbb{R}^2$. Consider the subspace
+\[
+Y=\{(x,0): x\in\mathbb{R}\}
+\]
+with the induced metric $d_Y$.
+\begin{enumerate}[label=\textbf{(\alph*)}]
+  \item Provide an example of a set $A\subseteq Y$ where $A$ is open in
+  $(Y,d_Y)$ but not open in $(\mathbb{R}^2,d_2)$.
+  \item Prove that for any $B\subseteq Y$, if $B$ is closed in $(Y,d_Y)$ then
+  $B$ is closed in $(\mathbb{R}^2,d_2)$.
+\end{enumerate}
 
 \begin{scratch}
 \end{scratch}
@@ -160,10 +184,51 @@ Instructor: \Instructor}
 \textbf{Proof.}\\
 \qed
 
-% Add more problems as needed:
-% \newpage
-% \problem[]{4}
-% ...
+\newpage
+
+\problem[]{4}
+Let $(X,d)$ be a metric space, $\{x_n\}_{n\ge 1}$ a sequence in $X$, and
+$x\in X$. Prove that the sequence $\{x_n\}_{n\ge 1}$ converges to $x$ if and
+only if for every open set $U$ that contains $x$, we have $x_n\in U$ for all
+but finitely many $n\in\mathbb{N}$.
+
+\begin{scratch}
+\end{scratch}
+
+\textbf{Proof.}\\
+\qed
+
+\newpage
+
+\problem[]{5}
+Recall that $d_2$ is a metric on $\mathbb{R}^2$. Suppose that
+$x^n=(x_1^n,x_2^n)$ is a sequence of points in $\mathbb{R}^2$.
+\begin{enumerate}[label=\textbf{(\alph*)}]
+  \item Prove that $|x_1^n-x_1|\le d_2(x^n,x)$ for any
+  $x=(x_1,x_2)\in\mathbb{R}^2$.
+  \item Prove that the sequence $\{x^n\}_{n\ge 1}$ converges in
+  $(\mathbb{R}^2,d_2)$ if and only if the sequences $\{x_1^n\}_{n\ge 1}$ and
+  $\{x_2^n\}_{n\ge 1}$ of real numbers both converge.
+\end{enumerate}
+
+\begin{scratch}
+\end{scratch}
+
+\textbf{Proof.}\\
+\qed
+
+\newpage
+
+\problem[]{6}
+Let $(X,d)$ be a metric space and $\{x_n\}_{n\ge 1}$ a sequence in $X$. Prove
+that if $\{x_n\}_{n\ge 1}$ converges to $x\in X$, then for any $y\in X$, the
+sequence $\{d(x_n,y)\}_{n\ge 1}$ of real numbers converges to $d(x,y)$.
+
+\begin{scratch}
+\end{scratch}
+
+\textbf{Proof.}\\
+\qed
 
 % ============================================================
 % Optional appendix: keep a personal toolbox of definitions/theorems
