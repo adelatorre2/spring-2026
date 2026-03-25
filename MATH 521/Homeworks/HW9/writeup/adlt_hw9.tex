@@ -138,7 +138,68 @@ its closure, isolated points, and limit points. Prove your answer.
 \end{enumerate}
 
 \begin{scratch}
-% Outline the strategy, key definitions, lemmas, or a proof sketch.
+Before working through the sets, I want to keep the definitions straight.
+
+Let $(X,d)$ be a metric space and let $A\subseteq X$.
+A point $x\in X$ is an \emph{adherent point} of $A$ if every open ball around $x$ meets $A$:
+\[
+\forall r>0,\quad B_r(x)\cap A\neq\varnothing.
+\]
+In plain English: no matter how closely I zoom in around $x$, I still hit the set $A$. So adherent points are exactly the points that cannot be separated from $A$ by a small open ball.
+
+The \emph{closure} of $A$ is the set of all adherent points:
+\[
+\overline{A}=\{x\in X:x\text{ is an adherent point of }A\}.
+\]
+So to identify $\overline{A}$, I should ask: which points have the property that every ball around them hits $A$?
+
+An adherent point $x$ of $A$ is \emph{isolated} if there exists some radius $r>0$ such that
+\[
+B_r(x)\cap A=\{x\}.
+\]
+In plain English: $x$ belongs to $A$, but if I zoom in closely enough around $x$, it is the only point of $A$ that remains. So an isolated point is a point of $A$ that stands alone locally.
+
+A point is a \emph{limit point} of $A$ if it is an adherent point but not isolated. Equivalently, $x\in A'$ if every ball around $x$ contains some point of $A$ different from $x$ itself. In plain English: no matter how closely I zoom in around $x$, I can always find other points of $A$ arbitrarily near it.
+
+The key relation from lecture is
+\[
+\overline{A}=A\cup A'.
+\]
+So once I understand which points are limit points, the closure usually becomes much easier to identify.
+
+\textbf{General strategy for each set.}
+For each set $A$, I want to think in three passes.
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+    \item First, guess which points are adherent by asking whether every ball around the point must hit $A$.
+    \item Next, among those points, decide which are isolated and which are limit points by asking whether a sufficiently small ball can isolate the point from the rest of $A$.
+    \item Finally, write down the closure either directly from the adherent-point definition or by using
+    \[
+    \overline{A}=A\cup A'.
+    \]
+\end{enumerate}
+
+\textbf{(a) }$A=[0,1)$.
+The first thing I notice is that every point already in $[0,1)$ should be adherent, because every ball around such a point contains the point itself and therefore meets $A$. The real question is whether there are extra adherent points outside $A$. The point $1$ is the most obvious candidate, because every ball around $1$ reaches slightly to the left and therefore meets $[0,1)$. On the other hand, points strictly less than $0$ or strictly greater than $1$ should fail to be adherent, because they have positive distance from the interval and I should be able to choose a ball missing $A$ completely.
+
+For isolated points, I should ask whether any point of $[0,1)$ can ever be the only point of $A$ in a small ball. That seems unlikely, because every point of the interval has other points of the interval arbitrarily nearby. In particular, interior points clearly have nearby neighbors on both sides, and even the endpoint $0$ has points of $A$ arbitrarily close to it from the right. So I expect there to be no isolated points. That would mean every point of $[0,1]$ is actually a limit point, and then the closure should be $[0,1]$.
+
+To prove this formally, I would show: every point of $[0,1]$ is adherent; every point outside $[0,1]$ is not adherent; no point of $[0,1)$ is isolated; and every point of $[0,1]$ is a limit point.
+
+\textbf{(b) }$A=\mathbb{Z}$.
+Again, every integer is automatically adherent because every ball around an integer contains that integer itself. The real question is whether non-integers are adherent. Here the picture is very different from intervals: if $x\notin\mathbb{Z}$, then there is some positive distance from $x$ to the nearest integer, so I should be able to choose a small ball around $x$ that contains no integers at all. That suggests the only adherent points are the integers themselves, so the closure should be $\mathbb{Z}$.
+
+For isolated points, integers now look completely different from interval points: around a fixed integer $n$, I can choose a small enough radius, such as anything less than $\tfrac12$, so that the ball around $n$ contains no other integers. So each integer should be isolated. Once that is true, there should be no limit points at all, because a limit point must have other points of $A$ arbitrarily close by, and that never happens for integers.
+
+So the expected picture is: adherent points are exactly $\mathbb{Z}$, every point of $\mathbb{Z}$ is isolated, the set of limit points is empty, and the closure is $\mathbb{Z}$.
+
+To prove this, I would show: every integer is adherent; every non-integer admits a ball missing $\mathbb{Z}$; every integer admits a ball whose intersection with $\mathbb{Z}$ is just that single integer; and therefore there are no limit points.
+
+\textbf{(c) }$A=\{x\in\mathbb{Q}:0<x<1\}$.
+This set behaves very differently from part (b), because the rationals are dense in the reals. Every rational in $(0,1)$ is adherent, but now many points not in $A$ should also be adherent. In fact, any real number in $[0,1]$ should be adherent, because every ball around such a point contains rational numbers from $(0,1)$. That includes irrational points in $(0,1)$ as well as the endpoints $0$ and $1$. On the other hand, if a point lies strictly below $0$ or strictly above $1$, I should be able to choose a small ball disjoint from $(0,1)$, so those points should not be adherent. This suggests the closure should again be $[0,1]$.
+
+For isolated points, density tells me the opposite of part (b): no point of $A$ should be isolated, because every ball around a rational point in $(0,1)$ contains infinitely many other rationals from $(0,1)$. In fact, every point of $[0,1]$ should be a limit point, because every ball around such a point contains points of $A$ different from the center. So I expect the isolated-point set to be empty and the limit-point set to be all of $[0,1]$.
+
+To prove this formally, I would use density of $\mathbb{Q}$ in $\mathbb{R}$: show every point of $[0,1]$ is adherent by finding rationals from $(0,1)$ in every ball, show points outside $[0,1]$ are not adherent by separating them from the interval, and then show no point of $A$ is isolated because every ball around a point of $A$ contains other rational points of $(0,1)$.
 \end{scratch}
 
 \textbf{Proof.}\\
