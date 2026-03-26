@@ -203,7 +203,61 @@ To prove this formally, I would use density of $\mathbb{Q}$ in $\mathbb{R}$: sho
 \end{scratch}
 
 \textbf{Proof.}\\
-% Write your proof here.
+We work in $(\mathbb{R},d)$ with $d(x,y)=|x-y|$.
+
+\medskip
+\textbf{(a) $A=[0,1)$.}
+
+\emph{Adherent points / closure.}
+If $x\in[0,1)$, then for any $r>0$, $x\in B_r(x)\cap A$, so $x$ is adherent. 
+If $x=1$, then for any $r>0$, $(1-r,1)\subset B_r(1)$ contains points of $[0,1)$, hence $1$ is adherent. 
+If $x<0$, choose $r=\frac{|x|}{2}>0$; then $B_r(x)\subset(-\infty,0)$, so $B_r(x)\cap A=\varnothing$. 
+If $x>1$, choose $r=\frac{x-1}{2}>0$; then $B_r(x)\subset(1,\infty)$, so $B_r(x)\cap A=\varnothing$. 
+Thus $\overline{A}=[0,1]$.
+
+\emph{Isolated points.}
+Let $x\in[0,1)$. For any $r>0$, there exists $y\in(0,1)$ with $0<|y-x|<r$ (e.g.\ take $y=x+\min\{r/2,(1-x)/2\}$ if $x<1$, or $y=r/2$ if $x=0$). Hence $B_r(x)\cap A\neq\{x\}$, so no point is isolated.
+
+\emph{Limit points.}
+Since every $x\in[0,1]$ has points of $A$ arbitrarily close distinct from $x$, we have $A'=[0,1]$.
+
+\medskip
+\textbf{(b) $A=\mathbb{Z}$.}
+
+\emph{Adherent points / closure.}
+If $n\in\mathbb{Z}$, then $n\in B_r(n)\cap A$ for all $r>0$, so $n$ is adherent. 
+If $x\notin\mathbb{Z}$, let $\delta=\min_{k\in\mathbb{Z}}|x-k|>0$ and take $r=\delta/2$; then $B_r(x)$ contains no integers, so $B_r(x)\cap A=\varnothing$. 
+Thus $\overline{A}=\mathbb{Z}$.
+
+\emph{Isolated points.}
+For each $n\in\mathbb{Z}$, take $r=\tfrac12$; then $B_r(n)\cap\mathbb{Z}=\{n\}$, so every integer is isolated.
+
+\emph{Limit points.}
+No point has other integers arbitrarily close, hence $A'=\varnothing$.
+
+\medskip
+\textbf{(c) $A=\{x\in\mathbb{Q}:0<x<1\}$.}
+
+\emph{Adherent points / closure.}
+If $x\in[0,1]$, then by density of $\mathbb{Q}$ in $\mathbb{R}$, every ball $B_r(x)$ contains a rational $q$ with $0<q<1$, hence $B_r(x)\cap A\neq\varnothing$; so $[0,1]\subseteq\overline{A}$. 
+If $x<0$, choose $r=\frac{|x|}{2}$ so $B_r(x)\subset(-\infty,0)$; if $x>1$, choose $r=\frac{x-1}{2}$ so $B_r(x)\subset(1,\infty)$; in either case $B_r(x)\cap A=\varnothing$. 
+Thus $\overline{A}=[0,1]$.
+
+\emph{Isolated points.}
+Fix $x\in A$. For any $r>0$, by density of $\mathbb{Q}$ there exists $y\in\mathbb{Q}$ with $0<y<1$ and $0<|y-x|<r$; hence $B_r(x)\cap A\neq\{x\}$. So $A$ has no isolated points.
+
+\emph{Limit points.}
+Every $x\in[0,1]$ has points of $A$ arbitrarily close and distinct from $x$, hence $A'=[0,1]$.
+
+\medskip
+Therefore:
+\[
+\begin{aligned}
+\text{(a)}\;& \overline{A}=[0,1],\quad A'=[0,1],\quad \text{no isolated points};\\
+\text{(b)}\;& \overline{A}=\mathbb{Z},\quad A'=\varnothing,\quad \text{all points isolated};\\
+\text{(c)}\;& \overline{A}=[0,1],\quad A'=[0,1],\quad \text{no isolated points}.
+\end{aligned}
+\]
 \qed
 
 \newpage
@@ -299,13 +353,436 @@ sequence $\{d(x_n,y)\}_{n\ge 1}$ of real numbers converges to $d(x,y)$.
 \section*{Appendix: Toolbox}
 \addcontentsline{toc}{section}{Appendix: Toolbox}
 
-% Example (using amsthm environments instead of boxed tcolorboxes):
-% \begin{definition}
-% A metric space is ...
-% \end{definition}
-%
-% \begin{theorem}[Heine--Borel]
-% ...
-% \end{theorem}
+\subsection*{Lecture 22}
+
+\begin{definition}
+Let $(X,d)$ be a metric space and $A\subseteq X$. We say:
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+  \item $a\in X$ is an interior point of $A$ if $\exists\, r>0$ s.t.
+  $B_r(a)\subseteq A$.
+  \item
+  \[
+  A^\circ=\{a\in X:\ a \text{ is an interior point of } A\}
+  \]
+  is the interior of $A$.
+  \item $A$ is open if $A^\circ=A$.
+\end{enumerate}
+\end{definition}
+
+\begin{example}
+$X=\mathbb{R}^2$ with the metric $d_2$, and
+$A=[0,1]\times[0,1]$.
+\begin{itemize}
+  \item $x=\left(\frac{3}{4},\frac{1}{2}\right)$ is an interior point of $A$:
+  $B_{1/4}(x)\subseteq A$.
+  \item $y=\left(\frac{1}{2},1\right)$ is not an interior point of $A$:
+  $\forall r>0,\ B_r(y)\nsubseteq A$.
+  \item $A^\circ=(0,1)\times(0,1)$.
+  \item $A$ is not open in $(\mathbb{R}^2,d_2)$.
+\end{itemize}
+\end{example}
+
+\begin{example}
+Let $(X,d)$ be a metric space.
+\begin{itemize}
+  \item $\varnothing$ and $X$ are open sets.
+  \item $B_r(a)$ is an open set $\ \forall a\in X$ and $\forall r>0$:
+
+  Claim: $B_r(a)\subseteq (B_r(a))^\circ$.
+
+  Fix $x\in B_r(a)$, i.e.\ $d(x,a)<r$.
+
+  Want: $x\in (B_r(a))^\circ$, i.e.\ $\exists\, s>0$ s.t.
+  $B_s(x)\subseteq B_r(a)$. Set
+  \[
+  s=r-d(x,a)>0.
+  \]
+  Then
+  \[
+  y\in B_s(x)\Rightarrow d(y,x)<s
+  \Rightarrow d(y,a)\le d(y,x)+d(x,a)<s+d(x,a)=r.
+  \]
+  So $B_s(x)\subseteq B_r(a)$.
+\end{itemize}
+\end{example}
+
+\begin{remark}
+Note that $A^\circ\subseteq A$ for any set $A$:
+\[
+x\in A^\circ \Rightarrow \exists\, r>0 \text{ s.t. } B_r(x)\subseteq A
+\Rightarrow x\in B_r(x)\subseteq A
+\]
+since $d(x,x)=0<r$.
+
+So, to prove that a set is open, it suffices to show $A^\circ\supseteq A$.
+\end{remark}
+
+\begin{proposition}
+Let $(X,d)$ be a metric space and $A,B\subseteq X$.
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+  \item If $A\subseteq B$, then $A^\circ\subseteq B^\circ$.
+  \item $A^\circ\cup B^\circ\subseteq (A\cup B)^\circ$.
+  \item $A^\circ\cap B^\circ=(A\cap B)^\circ$.
+  \item $(A^\circ)^\circ=A^\circ$. In particular, $A^\circ$ is an open set.
+  \item $A^\circ$ is the largest open set contained in $A$.
+  \item A finite intersection of open sets is open.
+  \item An arbitrary union of open sets is open.
+\end{enumerate}
+\end{proposition}
+
+\begin{remark}
+An arbitrary intersection of open sets need not be open. Eg.\ in
+$(\mathbb{R},|\cdot|)$,
+\[
+\bigcap_{n\in\mathbb{N}}\left(-\frac{1}{n},\frac{1}{n}\right)=\{0\}.
+\]
+\end{remark}
+
+\subsection*{Lecture 23}
+
+\begin{definition}
+Let $(X,d)$ be a metric space. A set $A\subseteq X$ is closed if $A^c$ is open.
+\end{definition}
+
+\begin{example}
+Let $(X,d)$ be a metric space.
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+  \item $\varnothing$ and $X$ are closed: since $\varnothing^c=X$ and
+  $X^c=\varnothing$ are open.
+  \item
+  \[
+  (B_r(a))^c=\{x\in X:\ d(x,a)\ge r\}
+  \]
+  is closed $\ \forall r>0$ and $\forall a\in X$: since
+  \[
+  [(B_r(a))^c]^c=B_r(a)
+  \]
+  is open.
+  \item
+  \[
+  A=\{x\in X:\ d(x,a)\le r\}
+  \]
+  is closed $\ \forall r>0$ and $\forall a\in X$.
+
+  Want: $A^c=\{x\in X:\ d(x,a)>r\}$ is open. Fix $x\in A^c$. Then $d(x,a)>r$.
+  Set $s=d(x,a)-r>0$. Then $B_s(x)\subseteq A^c$ since
+  \[
+  y\in B_s(x)\Rightarrow d(y,x)<s
+  \Rightarrow d(a,x)\le d(a,y)+d(y,x)<d(a,y)+s
+  \Rightarrow d(a,y)>d(a,x)-s=r.
+  \]
+\end{enumerate}
+\end{example}
+
+\begin{remark}
+``closed'' $\neq$ ``not open''. Eg., in $(\mathbb{R},|\cdot|)$,
+\begin{itemize}
+  \item $(0,1)$ is open
+  \item $[0,1]$ is closed
+  \item $\varnothing$ and $\mathbb{R}$ are open and closed
+  \item $(0,1]$ is not open and not closed
+\end{itemize}
+\end{remark}
+
+\begin{definition}
+Let $(X,d)$ be a metric space and $A\subseteq X$. We say:
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+  \item $x\in X$ is an adherent point of $A$ if:
+  \[
+  \forall r>0,\ B_r(x)\cap A\neq\varnothing.
+  \]
+  \item
+  \[
+  \overline{A}=\{x\in X:\ x \text{ is an adherent point of } A\}
+  \]
+  is the closure of $A$.
+  \item An adherent point $x$ of $A$ is called:
+  \begin{itemize}
+    \item isolated if $\exists\, r>0$ s.t. $B_r(x)\cap A=\{x\}$
+    \item a limit point of $A$ otherwise
+  \end{itemize}
+  \item
+  \[
+  A'=\{x\in X:\ x \text{ is a limit point of } A\}.
+  \]
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+$A\subseteq \overline{A}$ for any set $A$:
+\[
+x\in A \Rightarrow x\in B_r(x)\cap A \qquad \forall r>0.
+\]
+\[
+x\in A' \Leftrightarrow \text{ the intersection of } B_r(x) \text{ and }
+A\setminus\{x\} \text{ is nonempty } \forall r>0
+\]
+\[
+\overline{A}=A\cup A'.
+\]
+\end{remark}
+
+\begin{example}
+$(\mathbb{R},|\cdot|),\qquad A=\left\{\frac{1}{n}: n\in\mathbb{N}\right\}$.
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+  \item $\frac{1}{n}$ is an isolated point of $A$ $\ \forall n\in\mathbb{N}$:
+
+  Fix $n$. Set
+  \[
+  r=\frac{1}{n}-\frac{1}{n+1}>0.
+  \]
+  Then
+  \[
+  B_r\left(\frac{1}{n}\right)\cap A=\left\{\frac{1}{n}\right\}.
+  \]
+  \item $0$ is a limit point for $A$:
+
+  Fix $r>0$. Pick $n\in\mathbb{N}$ s.t. $\frac{1}{n}<r$.
+  Then
+  \[
+  \frac{1}{n}\in (-r,r)\cap A,
+  \]
+  so $(-r,r)\cap A\neq\varnothing$.
+  \item
+  \[
+  \overline{A}=A\cup\{0\}.
+  \]
+\end{enumerate}
+\end{example}
+
+\begin{lemma}
+Let $(X,d)$ be a metric space and $A\subseteq X$.
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+  \item $(\overline{A})^c=(A^c)^\circ$
+  \item $(A^\circ)^c=\overline{A^c}$
+  \item $A=\overline{A}\iff A$ is a closed set.
+\end{enumerate}
+\end{lemma}
+
+\begin{exercise}
+Let $(X,d)$ be a metric space and $A,B\subseteq X$.
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+  \item If $A\subseteq B$ then $\overline{A}\subseteq \overline{B}$.
+  \item $\overline{A\cap B}\subseteq \overline{A}\cap\overline{B}$.
+  \item $\overline{A\cup B}=\overline{A}\cup\overline{B}$.
+  \item $\overline{\overline{A}}=\overline{A}$. In particular,
+  $\overline{A}$ is a closed set.
+  \item $\overline{A}$ is the smallest closed set containing $A$.
+  \item A finite union of closed sets is a closed set.
+  \item An arbitrary intersection of closed sets is a closed set.
+\end{enumerate}
+
+Use the proposition from last lecture and take the complement of each statement.
+
+Eg., for \textbf{(1)},
+\[
+A\subseteq B \Rightarrow A^c\supseteq B^c \Rightarrow (A^c)^\circ\supseteq (B^c)^\circ
+\Rightarrow \overline{A}^c\supseteq \overline{B}^c \Rightarrow \overline{A}\subseteq \overline{B}.
+\]
+\end{exercise}
+
+\begin{definition}
+Let $(X,d_X)$ be a metric space and let $\varnothing\neq Y\subseteq X$. Then
+$d_Y:Y\times Y\to\mathbb{R}$,
+\[
+d_Y(x,y)=d_X(x,y)
+\]
+is a metric on $Y$, called the induced metric on $Y$. The metric space
+$(Y,d_Y)$ is called a subspace of $(X,d_X)$.
+\end{definition}
+
+\begin{example}
+$\mathbb{R}$ with $d_{\mathbb{R}}(x,y)=|x-y|$ is a metric space.
+
+$[0,1]$ with $d_{[0,1]}(x,y)=|x-y|$ is a subspace.
+\end{example}
+
+\subsection*{Lecture 24}
+
+\begin{proposition}
+Let $(X,d_X)$ be a metric space and $(Y,d_Y)$ a subspace (with the induced
+metric).
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+  \item A set $V\subseteq Y$ is open in $(Y,d_Y)\ \Leftrightarrow\ \exists\, U\subseteq X$
+  open in $(X,d_X)$ s.t.\ $V=U\cap Y$.
+  \item A set $G\subseteq Y$ is closed in $(Y,d_Y)\ \Leftrightarrow\ \exists\, F\subseteq X$
+  closed in $(X,d_X)$ s.t.\ $G=F\cap Y$.
+\end{enumerate}
+\end{proposition}
+
+\begin{example}
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+  \item $[0,1)$ is not open in $(\mathbb{R},|\cdot|)$.
+
+  $[0,1)$ is open in $([0,2],|\cdot|)$, since
+  \[
+  [0,1)=(-1,1)\cap[0,2].
+  \]
+  \item $[0,1)$ is not closed in $(\mathbb{R},|\cdot|)$.
+
+  $[0,1)$ is closed in $((-1,1),|\cdot|)$, since
+  \[
+  [0,1)=(-1,1)\cap[0,2].
+  \]
+\end{enumerate}
+\end{example}
+
+\begin{corollary}
+Let $(X,d_X)$ be a metric space and $(Y,d_Y)$ a subspace. The following are
+equivalent:
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+  \item $Y$ is open (closed) in $X$.
+  \item Any $A\subseteq Y$ that is open (closed) in $Y$ is also open (closed)
+  in $X$.
+\end{enumerate}
+\end{corollary}
+
+\begin{proposition}
+Let $(X,d_X)$ be a metric space and $(Y,d_Y)$ a subspace. For any $A\subseteq Y$,
+\[
+\overline{A}^{\,Y}=\overline{A}^{\,X}\cap Y.
+\]
+\end{proposition}
+
+\begin{definition}
+Let $(X,d)$ be a metric space and let $\{x_n\}_{n\ge 1}$ be a sequence in $X$.
+We say $\{x_n\}_{n\ge 1}$ converges to $x\in X$ if:
+\[
+\forall \varepsilon>0\ \exists N\in\mathbb{N}\ \text{ s.t. }\ d(x_n,x)<\varepsilon
+\qquad \forall n\ge N.
+\]
+When this is true, we write ``$\lim_{n\to\infty} x_n=x$'' or
+``$x_n\to x$ in $(X,d)$ as $n\to\infty$''.
+\end{definition}
+
+\begin{example}
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+  \item For $(\mathbb{R},|\cdot|)$, we have
+  \[
+  d(x_n,x)=|x_n-x|.
+  \]
+  This agrees with the definition from lecture 7.
+  \item For $(\mathbb{R}^2,d_p)$, we have
+  \[
+  d(x_n,x)=\left(|x_{n,1}-x_1|^p+|x_{n,2}-x_2|^p\right)^{1/p}.
+  \]
+\end{enumerate}
+\end{example}
+
+\begin{remark}
+$x_n\to x$ in $(X,d)$ as $n\to\infty \ \Leftrightarrow\ $ the sequence of real
+numbers $d(x_n,x)$ converges to $0$ as $n\to\infty$.
+\end{remark}
+
+\begin{lemma}
+The limit of a sequence is unique, if it exists.
+\end{lemma}
+
+\begin{theorem}
+A sequence $\{x_n\}_{n\ge 1}$ converges to $x \ \Leftrightarrow\ $ every
+subsequence $\{x_{n_k}\}_{k\ge 1}$ converges to $x$.
+\end{theorem}
+
+\begin{definition}
+Let $(X,d)$ be a metric space. We say that a sequence $\{x_n\}_{n\ge 1}$ is
+Cauchy if:
+\[
+\forall \varepsilon>0\ \exists N\in\mathbb{N}\ \text{ s.t. }\ d(x_n,x_m)<\varepsilon
+\qquad \forall n,m\ge N.
+\]
+\end{definition}
+
+\begin{proposition}
+If $\{x_n\}_{n\ge 1}$ converges, then it is Cauchy.
+\end{proposition}
+
+\begin{remark}
+Not every Cauchy sequence converges! Eg.,
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+  \item $((0,1),|\cdot|)$ is a metric space.
+
+  $\left\{\frac{1}{n}\right\}_{n\ge 1}$ is Cauchy, but does not converge in
+  $(0,1)$.
+  \item $(\mathbb{Q},|\cdot|)$ is a metric space.
+  \[
+  x_1=3,\qquad x_{n+1}=\frac{x_n}{2}+\frac{3}{2x_n}\qquad \forall n\ge 1.
+  \]
+  Then $\{x_n\}_{n\ge 1}$ is Cauchy, but doesn't converge in $\mathbb{Q}$.
+
+  By lecture 12, this sequence converges to $\sqrt{3}$.
+\end{enumerate}
+\end{remark}
+
+\subsection*{Lecture 25}
+
+\begin{definition}
+A metric space $(X,d)$ is complete if every Cauchy sequence in $X$ converges in
+$X$.
+\end{definition}
+
+\begin{example}
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+  \item $(\mathbb{R},|\cdot|)$ is complete (by lecture 12)
+  \item $(\mathbb{Q},|\cdot|)$ is not complete (by the previous example)
+\end{enumerate}
+\end{example}
+
+\begin{proposition}
+Let $1\le p\le\infty$. $\ \forall n\in\mathbb{N},\ (\mathbb{R}^n,d_p)$ is
+complete.
+\end{proposition}
+
+\begin{proposition}
+Let $(X,d)$ be a metric space, $A\subseteq X$, and $x\in X$. Then:
+\[
+x\in\overline{A}\ \Leftrightarrow\ \exists\ \text{a sequence }\{a_n\}_{n\ge 1}
+\text{ in } A \text{ that converges to } x.
+\]
+\end{proposition}
+
+\begin{remark}
+Recall:
+\[
+\overline{A}=A\cup A'
+\]
+\[
+x\in A' \Leftrightarrow \exists\ \text{a sequence in } A\setminus\{x\}
+\text{ that converges to } x.
+\]
+\end{remark}
+
+\begin{definition}
+Let $(X,d)$ be a metric space and $A\subseteq X$. We say:
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+  \item a collection of sets $\{U_i\}_{i\in I}$ is an open cover of $A$, if
+  $I\neq\varnothing$ is a set, $U_i$ is open $\ \forall i\in I$, and
+  \[
+  A\subseteq \bigcup_{i\in I} U_i.
+  \]
+  \item the set $A$ is compact if: $\ \forall\ $ open cover
+  $\{U_i\}_{i\in I}$ of $A$, $\exists\ $ a finite set $J\subseteq I$ s.t.
+  $\{U_j\}_{j\in J}$ is an open cover of $A$. We call $\{U_j\}_{j\in J}$ a
+  finite subcover.
+\end{enumerate}
+\end{definition}
+
+\begin{example}
+Any finite set $\{x_1,\ldots,x_n\}\subseteq X$ is compact.
+
+Let $\{U_i\}_{i\in I}$ be an open cover of $\{x_1,\ldots,x_n\}$.
+
+Then
+\[
+x_1\in \bigcup_{i\in I} U_i \Rightarrow \exists\, i_1\in I \text{ s.t. } x_1\in U_{i_1}
+\]
+\[
+x_2\in \bigcup_{i\in I} U_i \Rightarrow \exists\, i_2\in I \text{ s.t. } x_2\in U_{i_2}
+\]
+\[
+\vdots
+\]
+
+So $\{U_{i_1},\ldots,U_{i_n}\}$ is a finite subcover.
+\end{example}
 
 \end{document}
