@@ -170,46 +170,775 @@ Instructor: \Instructor}
 % ============================================================
 
 
-% Here's an example problem and solution:
-\problem[Sample space and probability]{1.4}
-State the problem here (paste from PDF).
+\problem{6.2}
+The joint probability mass function of the random variables $(X,Y)$ is given by the following table:
+\[
+\begin{array}{c|cccc}
+ & \multicolumn{4}{c}{Y} \\
+X & 0 & 1 & 2 & 3 \\ \hline
+1 & \frac{1}{15} & \frac{1}{15} & \frac{2}{15} & \frac{1}{15} \\
+2 & \frac{1}{10} & \frac{1}{10} & \frac{1}{5} & \frac{1}{10} \\
+3 & \frac{1}{30} & \frac{1}{30} & 0 & \frac{1}{10}
+\end{array}
+\]
+\begin{enumerate}[label=(\alph*)]
+\item Find the marginal probability mass functions of $X$ and $Y$.
+\item Calculate the probability $P(X+Y^2\le 2)$.
+\end{enumerate}
 
 \begin{solution}
-
-We model the experiment using a probability space
-\[
-(\OmegaSpace, \FField, P).
-\]
-
 \begin{scratch}
-The sample space is
+Let $p_{X,Y}(x,y)$ denote the table entries. For part (a),
 \[
-\OmegaSpace = \{H,T\}^3,
+p_X(x)=\sum_y p_{X,Y}(x,y),\qquad p_Y(y)=\sum_x p_{X,Y}(x,y).
 \]
-the set of all length–3 sequences of coin flips.  
-The $\sigma$-field is the power set $\FField = 2^{\OmegaSpace}$.
+For part (b), we list the pairs with $x+y^2\le 2$. Since $y^2\ge 4$ when
+$y=2$ or $3$, only $y=0,1$ can contribute.
+\end{scratch}
 
-Assuming the coin is fair, we assign equal probability to each outcome:
+\begin{enumerate}[label=(\alph*)]
+\item Summing the rows gives
 \[
-P(\{\omega\}) = 2^{-3} \quad \text{for all } \omega \in \OmegaSpace.
+p_X(1)=\frac{1}{15}+\frac{1}{15}+\frac{2}{15}+\frac{1}{15}=\frac{1}{3},
+\]
+\[
+p_X(2)=\frac{1}{10}+\frac{1}{10}+\frac{1}{5}+\frac{1}{10}=\frac{1}{2},
+\]
+\[
+p_X(3)=\frac{1}{30}+\frac{1}{30}+0+\frac{1}{10}=\frac{1}{6}.
+\]
+So the marginal p.m.f. of $X$ is
+\[
+\begin{array}{c|ccc}
+x & 1 & 2 & 3 \\ \hline
+p_X(x) & \frac13 & \frac12 & \frac16
+\end{array}
+\]
+Summing the columns gives
+\[
+p_Y(0)=\frac{1}{15}+\frac{1}{10}+\frac{1}{30}=\frac{1}{5},
+\qquad
+p_Y(1)=\frac{1}{15}+\frac{1}{10}+\frac{1}{30}=\frac{1}{5},
+\]
+\[
+p_Y(2)=\frac{2}{15}+\frac{1}{5}+0=\frac{1}{3},
+\qquad
+p_Y(3)=\frac{1}{15}+\frac{1}{10}+\frac{1}{10}=\frac{4}{15}.
+\]
+Hence
+\[
+\begin{array}{c|cccc}
+y & 0 & 1 & 2 & 3 \\ \hline
+p_Y(y) & \frac15 & \frac15 & \frac13 & \frac{4}{15}
+\end{array}
+\]
+\item The condition $x+y^2\le 2$ is satisfied only for
+\[
+(x,y)=(1,0),\ (1,1),\ (2,0).
+\]
+Therefore,
+\[
+P(X+Y^2\le 2)=p_{X,Y}(1,0)+p_{X,Y}(1,1)+p_{X,Y}(2,0)
+=\frac{1}{15}+\frac{1}{15}+\frac{1}{10}
+=\frac{7}{30}.
+\]
+\end{enumerate}
+
+\finalanswer{\text{(a)}\ p_X(1)=\frac13,\ p_X(2)=\frac12,\ p_X(3)=\frac16}
+\finalanswer{\text{(a)}\ p_Y(0)=\frac15,\ p_Y(1)=\frac15,\ p_Y(2)=\frac13,\ p_Y(3)=\frac{4}{15}}
+\finalanswer{\text{(b)}\ P(X+Y^2\le 2)=\frac{7}{30}}
+
+\end{solution}
+
+\newpage
+
+\problem{6.6}
+Suppose that $X,Y$ are jointly continuous with joint probability density function
+\[
+f(x,y)=
+\begin{cases}
+xe^{-x(1+y)}, & \text{if } x>0 \text{ and } y>0 \\
+0, & \text{otherwise.}
+\end{cases}
+\]
+\begin{enumerate}[label=(\alph*)]
+\item Find the marginal density functions of $X$ and $Y$.
+\item Calculate the expectation $E[XY]$.
+\item Calculate the expectation $E\!\left[\frac{X}{1+Y}\right]$.
+\end{enumerate}
+
+\begin{solution}
+\begin{scratch}
+The support is $x>0$, $y>0$. For the marginals,
+\[
+f_X(x)=\int_0^\infty x e^{-x(1+y)}\,dy,\qquad
+f_Y(y)=\int_0^\infty x e^{-x(1+y)}\,dx.
+\]
+Useful integrals:
+\[
+\int_0^\infty e^{-ay}\,dy=\frac1a,\quad
+\int_0^\infty xe^{-ax}\,dx=\frac1{a^2},\quad
+\int_0^\infty x^2e^{-ax}\,dx=\frac{2}{a^3}
+\qquad(a>0).
 \]
 \end{scratch}
 
-Let
+\begin{enumerate}[label=(\alph*)]
+\item For $x>0$,
 \[
-A = \{\omega \in \OmegaSpace : \text{exactly two heads occur}\}.
+f_X(x)=\int_0^\infty x e^{-x(1+y)}\,dy
+=xe^{-x}\int_0^\infty e^{-xy}\,dy
+=xe^{-x}\cdot \frac1x
+=e^{-x}.
 \]
-There are $\binom{3}{2} = 3$ such outcomes, so $|A| = 3$ and
+Thus
 \[
-|\OmegaSpace| = 2^3 = 8.
+f_X(x)=
+\begin{cases}
+e^{-x}, & x>0,\\
+0, & \text{otherwise.}
+\end{cases}
+\]
+For $y>0$,
+\[
+f_Y(y)=\int_0^\infty x e^{-x(1+y)}\,dx
+=\frac{1}{(1+y)^2}.
+\]
+Hence
+\[
+f_Y(y)=
+\begin{cases}
+\dfrac{1}{(1+y)^2}, & y>0,\\
+0, & \text{otherwise.}
+\end{cases}
+\]
+\item
+\[
+E[XY]=\int_0^\infty\int_0^\infty xy \, x e^{-x(1+y)}\,dy\,dx
+=\int_0^\infty x^2e^{-x}\left(\int_0^\infty y e^{-xy}\,dy\right)dx.
+\]
+Since $\int_0^\infty y e^{-xy}\,dy=\frac{1}{x^2}$ for $x>0$,
+\[
+E[XY]=\int_0^\infty e^{-x}\,dx=1.
+\]
+\item
+\[
+E\!\left[\frac{X}{1+Y}\right]
+=\int_0^\infty\int_0^\infty \frac{x}{1+y}\,x e^{-x(1+y)}\,dy\,dx.
+\]
+Integrating first in $x$,
+\[
+E\!\left[\frac{X}{1+Y}\right]
+=\int_0^\infty \frac{1}{1+y}\left(\int_0^\infty x^2 e^{-x(1+y)}\,dx\right)dy
+\]
+\[
+=\int_0^\infty \frac{1}{1+y}\cdot \frac{2}{(1+y)^3}\,dy
+=2\int_0^\infty \frac{1}{(1+y)^4}\,dy
+=\frac{2}{3}.
+\]
+\end{enumerate}
+
+\finalanswer{\text{(a)}\ f_X(x)=e^{-x}\ind_{\{x>0\}},\quad f_Y(y)=\frac{1}{(1+y)^2}\ind_{\{y>0\}}}
+\finalanswer{\text{(b)}\ E[XY]=1,\qquad \text{(c)}\ E\!\left[\frac{X}{1+Y}\right]=\frac{2}{3}}
+
+\end{solution}
+
+\newpage
+
+\problem{6.8}
+Determine whether the following pairs of random variables $X$ and $Y$ are independent.
+\begin{enumerate}[label=(\alph*)]
+\item Random variables $X$ and $Y$ of Exercise 6.2.
+\item Random variables $X$ and $Y$ of Exercise 6.5.
+\setcounter{enumi}{3}
+\item Random variables $X$ and $Y$ of Exercise 6.7.
+\end{enumerate}
+
+\begin{solution}
+\begin{scratch}
+For independence we compare the joint distribution with the product of the
+marginals.
+\begin{itemize}
+\item In part (a), it is enough to find one pair $(x,y)$ with
+$p_{X,Y}(x,y)\ne p_X(x)p_Y(y)$.
+\item In part (b), use the marginals from Exercise 6.5:
+$f_X(x)=\frac67x+\frac47$ and $f_Y(y)=\frac{12}{7}y^2+\frac67y$ on $[0,1]$.
+\item In part (d), the support is the triangle
+$\{(x,y):0\le x,\ 0\le y,\ x+y\le 1\}$, not a rectangle.
+\end{itemize}
+\end{scratch}
+
+\begin{enumerate}[label=(\alph*)]
+\item From Exercise 6.2,
+\[
+P(X=3)=\frac16>0,\qquad P(Y=2)=\frac13>0,
+\]
+but from the table,
+\[
+P(X=3,Y=2)=0.
+\]
+Hence $P(X=3,Y=2)\ne P(X=3)P(Y=2)$, so $X$ and $Y$ are not independent.
+\item From Exercise 6.5,
+\[
+f_{X,Y}(x,y)=\frac{12}{7}(xy+y^2),\qquad 0\le x\le 1,\ 0\le y\le 1,
+\]
+and the marginals are
+\[
+f_X(x)=\frac67x+\frac47,\qquad f_Y(y)=\frac{12}{7}y^2+\frac67y.
+\]
+Evaluating at $x=y=\frac14$,
+\[
+f_{X,Y}\!\left(\frac14,\frac14\right)=\frac{12}{7}\left(\frac1{16}+\frac1{16}\right)=\frac{3}{14},
+\]
+while
+\[
+f_X\!\left(\frac14\right)f_Y\!\left(\frac14\right)
+=\left(\frac{11}{14}\right)\left(\frac{9}{28}\right)
+=\frac{99}{392}\ne \frac{3}{14}.
+\]
+So $X$ and $Y$ are not independent.
+\item In Exercise 6.7, $(X,Y)$ is uniform on the triangle
+\[
+\{(x,y):0\le x,\ 0\le y,\ x+y\le 1\}.
+\]
+The marginal densities are positive on $(0,1)$:
+\[
+f_X(x)=2(1-x),\qquad f_Y(y)=2(1-y).
+\]
+Take $x=y=\frac34$. Then
+\[
+f_X\!\left(\frac34\right)>0,\qquad f_Y\!\left(\frac34\right)>0,
+\]
+but
+\[
+f_{X,Y}\!\left(\frac34,\frac34\right)=0
+\]
+because $\frac34+\frac34>1$, so the point lies outside the triangle. Therefore
+$f_{X,Y}(x,y)\ne f_X(x)f_Y(y)$, and $X$ and $Y$ are not independent.
+\end{enumerate}
+
+\finalanswer{\text{(a), (b), and (d) are all not independent}}
+
+\end{solution}
+
+\newpage
+
+\problem{6.18}
+Suppose that $X$ and $Y$ are integer-valued random variables with joint probability mass function given by
+\[
+p_{X,Y}(a,b)=
+\begin{cases}
+\dfrac{1}{4a}, & \text{for } 1\le b\le a\le 4 \\
+0, & \text{otherwise.}
+\end{cases}
+\]
+\begin{enumerate}[label=(\alph*)]
+\item Show that this is indeed a joint probability mass function.
+\item Find the marginal probability mass functions of $X$ and $Y$.
+\item Find $P(X=Y+1)$.
+\end{enumerate}
+
+\begin{solution}
+\begin{scratch}
+The support is
+\[
+\{(a,b)\in \mathbb{Z}^2:1\le b\le a\le 4\}.
+\]
+For part (a),
+\[
+\sum_{a=1}^4\sum_{b=1}^a \frac{1}{4a}
+=\sum_{a=1}^4 \frac{a}{4a}=1.
+\]
+For the marginals,
+\[
+p_X(a)=\sum_{b=1}^a p_{X,Y}(a,b),\qquad
+p_Y(b)=\sum_{a=b}^4 p_{X,Y}(a,b).
+\]
+\end{scratch}
+
+\begin{enumerate}[label=(\alph*)]
+\item Since $p_{X,Y}(a,b)\ge 0$ on its support, it remains only to check that the
+total mass is $1$:
+\[
+\sum_{a=1}^4\sum_{b=1}^a \frac{1}{4a}
+=\sum_{a=1}^4 \frac{a}{4a}
+=4\cdot \frac14
+=1.
+\]
+So this is a valid joint probability mass function.
+\item For $a=1,2,3,4$,
+\[
+p_X(a)=\sum_{b=1}^a \frac{1}{4a}=a\cdot \frac{1}{4a}=\frac14.
+\]
+Thus
+\[
+p_X(a)=\frac14,\qquad a=1,2,3,4.
+\]
+For $Y$,
+\[
+p_Y(1)=\frac14+\frac18+\frac1{12}+\frac1{16}=\frac{25}{48},
+\]
+\[
+p_Y(2)=\frac18+\frac1{12}+\frac1{16}=\frac{13}{48},
+\]
+\[
+p_Y(3)=\frac1{12}+\frac1{16}=\frac{7}{48},
+\qquad
+p_Y(4)=\frac1{16}.
+\]
+\item The event $\{X=Y+1\}$ consists of the admissible pairs
+\[
+(2,1),\ (3,2),\ (4,3).
+\]
+Therefore,
+\[
+P(X=Y+1)=\frac18+\frac1{12}+\frac1{16}
+=\frac{6+4+3}{48}
+=\frac{13}{48}.
+\]
+\end{enumerate}
+
+\finalanswer{\text{(a) valid joint pmf},\quad p_X(a)=\frac14\ \text{for } a=1,2,3,4}
+\finalanswer{p_Y(1)=\frac{25}{48},\ p_Y(2)=\frac{13}{48},\ p_Y(3)=\frac{7}{48},\ p_Y(4)=\frac{1}{16}}
+\finalanswer{\text{(c)}\ P(X=Y+1)=\frac{13}{48}}
+
+\end{solution}
+
+\newpage
+
+\problem{6.24}
+An urn contains 1 green ball, 1 red ball, 1 yellow ball and 1 white ball. I draw 3 balls with replacement. What is the probability that exactly two balls are of the same color?
+
+\begin{solution}
+\begin{scratch}
+Treat each draw as a color outcome from $\{G,R,Y,W\}$. There are
+\[
+4^3=64
+\]
+equally likely ordered color sequences. For a favorable outcome, one color
+appears exactly twice and a different color appears once.
+\end{scratch}
+
+To get exactly two balls of one color and one ball of a different color:
+\[
+\text{choose the repeated color: }4\text{ ways,}
+\]
+\[
+\text{choose the singleton color: }3\text{ ways,}
+\]
+\[
+\text{choose the position of the singleton: }3\text{ ways.}
+\]
+Hence the number of favorable ordered outcomes is
+\[
+4\cdot 3\cdot 3=36.
+\]
+Since there are $4^3=64$ possible ordered outcomes in total,
+\[
+P(\text{exactly two balls are of the same color})=\frac{36}{64}=\frac{9}{16}.
 \]
 
-Since all outcomes are equally likely,
+\finalanswer{\frac{9}{16}}
+
+\end{solution}
+
+\newpage
+
+\problem{6.27}
+Suppose that $X_1$ and $X_2$ are independent random variables with
 \[
-P(A) = \frac{|A|}{|\OmegaSpace|} = \frac{3}{8}.
+P(X_1=1)=P(X_1=-1)=\frac{1}{2}
+\]
+and
+\[
+P(X_2=1)=1-P(X_2=-1)=p
+\]
+with $0<p<1$. Let $Y=X_1X_2$. Show that $X_2$ and $Y$ are independent.
+
+\begin{solution}
+\begin{scratch}
+Both $X_2$ and $Y=X_1X_2$ take values in $\{-1,1\}$. To prove independence,
+it is enough to compute
+\[
+P(X_2=a,Y=b)
+\]
+for $a,b\in\{-1,1\}$ and show it factors as
+$P(X_2=a)P(Y=b)$.
+\end{scratch}
+
+Fix $a,b\in\{-1,1\}$. Since $Y=X_1X_2$, the event $\{X_2=a,Y=b\}$ is the
+same as
+\[
+\{X_2=a,\ X_1X_2=b\}
+=\{X_2=a,\ X_1=b/a\}.
+\]
+Therefore, by independence of $X_1$ and $X_2$,
+\[
+P(X_2=a,Y=b)=P(X_2=a)P(X_1=b/a).
+\]
+Because $b/a\in\{-1,1\}$ and
+\[
+P(X_1=1)=P(X_1=-1)=\frac12,
+\]
+we get
+\[
+P(X_2=a,Y=b)=P(X_2=a)\cdot \frac12.
+\]
+It remains to compute $P(Y=b)$. We have
+\[
+P(Y=1)=P(X_1=X_2)
+=P(X_1=1,X_2=1)+P(X_1=-1,X_2=-1)
+\]
+\[
+=\frac12 p+\frac12(1-p)=\frac12.
+\]
+Similarly,
+\[
+P(Y=-1)=1-P(Y=1)=\frac12.
+\]
+Hence
+\[
+P(X_2=a,Y=b)=P(X_2=a)\cdot \frac12
+=P(X_2=a)P(Y=b)
+\]
+for all $a,b\in\{-1,1\}$. Therefore $X_2$ and $Y$ are independent.
+
+\finalanswer{X_2\ \text{and}\ Y\ \text{are independent}}
+
+\end{solution}
+
+\newpage
+
+\problem{6.28}
+Let $X$ and $Y$ be independent Geom$(p)$ random variables. Let
+\[
+V=\min(X,Y)
+\]
+and
+\[
+W=
+\begin{cases}
+0, & \text{if } X<Y \\
+1, & \text{if } X=Y \\
+2, & \text{if } X>Y.
+\end{cases}
+\]
+Find the joint probability mass function of $V$ and $W$ and show that $V$ and $W$ are independent.
+
+\emph{Hint.} Use the joint probability mass function of $X$ and $Y$ to compute the joint probability mass function of $V$ and $W$.
+
+\begin{solution}
+\begin{scratch}
+Let $q=1-p$. Since $X,Y\sim\mathrm{Geom}(p)$ independently, for $k\ge 1$,
+\[
+P(X=k)=P(Y=k)=pq^{k-1}.
+\]
+For $v\ge 1$:
+\[
+P(V=v,W=0)=P(X=v,\ Y>v),
+\]
+\[
+P(V=v,W=1)=P(X=v,\ Y=v),
+\]
+\[
+P(V=v,W=2)=P(Y=v,\ X>v).
+\]
+\end{scratch}
+
+For $v=1,2,\dots$,
+\[
+P(V=v,W=0)=P(X=v)P(Y>v)=pq^{v-1}\cdot q^v=pq^{2v-1},
+\]
+using independence and $P(Y>v)=q^v$.
+Similarly,
+\[
+P(V=v,W=2)=pq^{2v-1}.
+\]
+Also,
+\[
+P(V=v,W=1)=P(X=v,Y=v)=p^2q^{2v-2}.
+\]
+Thus the joint p.m.f. is
+\[
+p_{V,W}(v,w)=
+\begin{cases}
+pq^{2v-1}, & v\ge 1,\ w=0,\\
+p^2q^{2v-2}, & v\ge 1,\ w=1,\\
+pq^{2v-1}, & v\ge 1,\ w=2,\\
+0, & \text{otherwise.}
+\end{cases}
 \]
 
-\finalanswer{P(A) = \frac{3}{8}}
+Now compute the marginals. For $v\ge 1$,
+\[
+p_V(v)=pq^{2v-1}+p^2q^{2v-2}+pq^{2v-1}
+=q^{2v-2}\bigl(2pq+p^2\bigr)
+=p(2-p)q^{2v-2}.
+\]
+For $W$,
+\[
+P(W=1)=\sum_{v=1}^\infty p^2q^{2v-2}
+=p^2\sum_{j=0}^\infty q^{2j}
+=\frac{p^2}{1-q^2}
+=\frac{p}{2-p}.
+\]
+By symmetry, $P(W=0)=P(W=2)$, and so
+\[
+P(W=0)=P(W=2)=\frac{1-P(W=1)}{2}
+=\frac{1-p}{2-p}.
+\]
+
+Finally, for $v\ge 1$,
+\[
+p_V(v)P(W=0)=p(2-p)q^{2v-2}\cdot \frac{1-p}{2-p}=pq^{2v-1}=p_{V,W}(v,0),
+\]
+\[
+p_V(v)P(W=1)=p(2-p)q^{2v-2}\cdot \frac{p}{2-p}=p^2q^{2v-2}=p_{V,W}(v,1),
+\]
+and similarly $p_V(v)P(W=2)=p_{V,W}(v,2)$. Hence $V$ and $W$ are independent.
+
+\finalanswer{p_{V,W}(v,w)=
+\begin{cases}
+pq^{2v-1}, & v\ge 1,\ w=0,\\
+p^2q^{2v-2}, & v\ge 1,\ w=1,\\
+pq^{2v-1}, & v\ge 1,\ w=2,\\
+0, & \text{otherwise}
+\end{cases}}
+\finalanswer{p_V(v)=p(2-p)q^{2v-2}\ \text{for } v\ge 1}
+\finalanswer{P(W=0)=P(W=2)=\frac{1-p}{2-p},\quad P(W=1)=\frac{p}{2-p}}
+\finalanswer{V\ \text{and}\ W\ \text{are independent}}
+
+\end{solution}
+
+\newpage
+
+\problem{6.30}
+Suppose that $X\sim \text{Geom}(p)$ and $Y\sim \text{Poisson}(\lambda)$ are independent. Find the probability $P(X-1=Y)$.
+
+\begin{solution}
+\begin{scratch}
+Since $Y\sim\mathrm{Poisson}(\lambda)$ takes values $0,1,2,\dots$, the event
+$\{X-1=Y\}$ is the disjoint union
+\[
+\bigcup_{k=0}^\infty \{X=k+1,\ Y=k\}.
+\]
+Use independence and the p.m.f.s
+\[
+P(X=k+1)=p(1-p)^k,\qquad P(Y=k)=e^{-\lambda}\frac{\lambda^k}{k!}.
+\]
+\end{scratch}
+
+By independence,
+\[
+P(X-1=Y)=\sum_{k=0}^\infty P(X=k+1)P(Y=k)
+\]
+\[
+=\sum_{k=0}^\infty p(1-p)^k e^{-\lambda}\frac{\lambda^k}{k!}
+=pe^{-\lambda}\sum_{k=0}^\infty \frac{(\lambda(1-p))^k}{k!}.
+\]
+Recognizing the exponential series,
+\[
+P(X-1=Y)=pe^{-\lambda}e^{\lambda(1-p)}=pe^{-\lambda p}.
+\]
+
+\finalanswer{P(X-1=Y)=pe^{-\lambda p}}
+
+\end{solution}
+
+\newpage
+
+\problem{6.34}
+Let $(X,Y)$ be a uniformly distributed random point on the quadrilateral $D$ with vertices $(0,0)$, $(2,0)$, $(1,1)$ and $(0,1)$.
+\begin{enumerate}[label=(\alph*)]
+\item Find the joint density function of $(X,Y)$ and the marginal density functions of $X$ and $Y$.
+\item Find $E[X]$ and $E[Y]$.
+\item Are $X$ and $Y$ independent?
+\end{enumerate}
+
+\begin{solution}
+\begin{scratch}
+The quadrilateral can be described as
+\[
+D=\{(x,y):0\le y\le 1,\ 0\le x\le 2-y\}.
+\]
+Its area is
+\[
+\int_0^1 (2-y)\,dy=\frac32.
+\]
+So the joint density is constant $2/3$ on $D$.
+For marginals:
+\begin{itemize}
+\item If $0\le x\le 1$, then $y$ ranges from $0$ to $1$.
+\item If $1\le x\le 2$, then $y$ ranges from $0$ to $2-x$.
+\item If $0\le y\le 1$, then $x$ ranges from $0$ to $2-y$.
+\end{itemize}
+\end{scratch}
+
+\begin{enumerate}[label=(\alph*)]
+\item Since $(X,Y)$ is uniform on $D$,
+\[
+f_{X,Y}(x,y)=
+\begin{cases}
+\dfrac23, & (x,y)\in D,\\
+0, & \text{otherwise.}
+\end{cases}
+\]
+Equivalently,
+\[
+f_{X,Y}(x,y)=
+\begin{cases}
+\dfrac23, & 0\le y\le 1,\ 0\le x\le 2-y,\\
+0, & \text{otherwise.}
+\end{cases}
+\]
+For the marginal of $X$,
+\[
+f_X(x)=
+\begin{cases}
+\int_0^1 \frac23\,dy=\frac23, & 0\le x\le 1,\\[8pt]
+\int_0^{2-x}\frac23\,dy=\frac43-\frac23x, & 1\le x\le 2,\\[8pt]
+0, & \text{otherwise.}
+\end{cases}
+\]
+For the marginal of $Y$,
+\[
+f_Y(y)=
+\begin{cases}
+\int_0^{2-y}\frac23\,dx=\frac43-\frac23y, & 0\le y\le 1,\\[8pt]
+0, & \text{otherwise.}
+\end{cases}
+\]
+\item Using the marginals,
+\[
+E[X]=\int_0^1 x\cdot \frac23\,dx+\int_1^2 x\left(\frac43-\frac23x\right)dx
+=\frac{7}{9}.
+\]
+Also,
+\[
+E[Y]=\int_0^1 y\left(\frac43-\frac23y\right)dy=\frac49.
+\]
+\item $X$ and $Y$ are not independent. For instance,
+\[
+P\!\left(X>\frac32,\ Y>\frac12\right)=0
+\]
+because every point in $D$ satisfies $x+y\le 2$, so $x>\frac32$ and
+$y>\frac12$ cannot happen together. But
+\[
+P\!\left(X>\frac32\right)>0,\qquad P\!\left(Y>\frac12\right)>0,
+\]
+so the intersection probability is not the product of the marginals.
+\end{enumerate}
+
+\finalanswer{\text{(a)}\ f_{X,Y}(x,y)=\frac23\ \text{for } (x,y)\in D,\ 0\ \text{otherwise}}
+\finalanswer{f_X(x)=\begin{cases}\frac23,&0\le x\le 1\\ \frac43-\frac23x,&1\le x\le 2\\0,&\text{otherwise}\end{cases}}
+\finalanswer{f_Y(y)=\begin{cases}\frac43-\frac23y,&0\le y\le 1\\0,&\text{otherwise}\end{cases}}
+\finalanswer{\text{(b)}\ E[X]=\frac79,\ E[Y]=\frac49,\qquad \text{(c)}\ X\ \text{and}\ Y\ \text{are not independent}}
+
+\end{solution}
+
+\newpage
+
+\problem{6.36}
+Suppose that $X,Y$ are jointly continuous with joint probability density function
+\[
+f(x,y)=ce^{-x^2/2-(x-y)^2/2},\qquad x,y\in(-\infty,\infty),
+\]
+for some constant $c$.
+\begin{enumerate}[label=(\alph*)]
+\item Find the value of the constant $c$.
+\item Find the marginal density functions of $X$ and $Y$.
+\item Determine whether $X$ and $Y$ are independent.
+\end{enumerate}
+% Homework hint: use that the integral of the normal density is equal to 1.
+
+\begin{solution}
+\begin{scratch}
+For normalization,
+\[
+1=\iint_{\mathbb{R}^2} c e^{-x^2/2-(x-y)^2/2}\,dy\,dx.
+\]
+Integrate first in $y$ and use the hint:
+\[
+\int_{-\infty}^{\infty} e^{-(x-y)^2/2}\,dy=\sqrt{2\pi}.
+\]
+For $f_Y$, complete the square:
+\[
+\frac{x^2}{2}+\frac{(x-y)^2}{2}
+=x^2-xy+\frac{y^2}{2}
+=\left(x-\frac y2\right)^2+\frac{y^2}{4}.
+\]
+\end{scratch}
+
+\begin{enumerate}[label=(\alph*)]
+\item We compute
+\[
+1=c\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}
+e^{-x^2/2-(x-y)^2/2}\,dy\,dx.
+\]
+For fixed $x$,
+\[
+\int_{-\infty}^{\infty} e^{-(x-y)^2/2}\,dy=\sqrt{2\pi},
+\]
+so
+\[
+1=c\sqrt{2\pi}\int_{-\infty}^{\infty} e^{-x^2/2}\,dx
+=c\sqrt{2\pi}\sqrt{2\pi}=c(2\pi).
+\]
+Hence
+\[
+c=\frac{1}{2\pi}.
+\]
+\item Using the value of $c$,
+\[
+f_X(x)=\int_{-\infty}^{\infty}\frac{1}{2\pi}
+e^{-x^2/2-(x-y)^2/2}\,dy
+=\frac{1}{2\pi}e^{-x^2/2}\int_{-\infty}^{\infty}e^{-(x-y)^2/2}\,dy
+\]
+\[
+=\frac{1}{2\pi}e^{-x^2/2}\sqrt{2\pi}
+=\frac{1}{\sqrt{2\pi}}e^{-x^2/2}.
+\]
+So $X\sim N(0,1)$.
+
+For $Y$,
+\[
+f_Y(y)=\int_{-\infty}^{\infty}\frac{1}{2\pi}
+e^{-x^2/2-(x-y)^2/2}\,dx.
+\]
+Complete the square:
+\[
+\frac{x^2}{2}+\frac{(x-y)^2}{2}
+=\left(x-\frac y2\right)^2+\frac{y^2}{4}.
+\]
+Therefore,
+\[
+f_Y(y)=\frac{1}{2\pi}e^{-y^2/4}
+\int_{-\infty}^{\infty} e^{-(x-y/2)^2}\,dx.
+\]
+Since $\int_{-\infty}^{\infty}e^{-u^2}\,du=\sqrt{\pi}$,
+\[
+f_Y(y)=\frac{1}{2\pi}e^{-y^2/4}\sqrt{\pi}
+=\frac{1}{2\sqrt{\pi}}e^{-y^2/4}
+=\frac{1}{\sqrt{4\pi}}e^{-y^2/4}.
+\]
+Thus $Y\sim N(0,2)$.
+\item If $X$ and $Y$ were independent, then $f_{X,Y}(x,y)=f_X(x)f_Y(y)$.
+But
+\[
+f_X(x)f_Y(y)=\frac{1}{2\pi}e^{-x^2/2-y^2/4},
+\]
+while
+\[
+f_{X,Y}(x,y)=\frac{1}{2\pi}e^{-x^2/2-(x-y)^2/2}.
+\]
+These are not equal in general because the exponent in $f_{X,Y}$ contains the
+cross term $xy$. Therefore $X$ and $Y$ are not independent.
+\end{enumerate}
+
+\finalanswer{\text{(a)}\ c=\frac{1}{2\pi}}
+\finalanswer{\text{(b)}\ f_X(x)=\frac{1}{\sqrt{2\pi}}e^{-x^2/2},\quad
+f_Y(y)=\frac{1}{\sqrt{4\pi}}e^{-y^2/4}}
+\finalanswer{\text{(c)}\ X\ \text{and}\ Y\ \text{are not independent}}
 
 \end{solution}
 
