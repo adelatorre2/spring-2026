@@ -138,118 +138,155 @@ its closure, isolated points, and limit points. Prove your answer.
 \end{enumerate}
 
 \begin{scratch}
-Before working through the sets, I want to keep the definitions straight.
-
-Let $(X,d)$ be a metric space and let $A\subseteq X$.
-A point $x\in X$ is an \emph{adherent point} of $A$ if every open ball around $x$ meets $A$:
+For this problem, the main job is to identify the adherent points of each set, because once I know those, I know the closure. By definition,
 \[
-\forall r>0,\quad B_r(x)\cap A\neq\varnothing.
+x\in\overline{A}
+\quad\Longleftrightarrow\quad
+\forall r>0,\; B_r(x)\cap A\neq\varnothing.
 \]
-In plain English: no matter how closely I zoom in around $x$, I still hit the set $A$. So adherent points are exactly the points that cannot be separated from $A$ by a small open ball.
+So for each set, I first ask: which points can I never separate from $A$ by a small ball?
 
-The \emph{closure} of $A$ is the set of all adherent points:
-\[
-\overline{A}=\{x\in X:x\text{ is an adherent point of }A\}.
-\]
-So to identify $\overline{A}$, I should ask: which points have the property that every ball around them hits $A$?
-
-An adherent point $x$ of $A$ is \emph{isolated} if there exists some radius $r>0$ such that
-\[
-B_r(x)\cap A=\{x\}.
-\]
-In plain English: $x$ belongs to $A$, but if I zoom in closely enough around $x$, it is the only point of $A$ that remains. So an isolated point is a point of $A$ that stands alone locally.
-
-A point is a \emph{limit point} of $A$ if it is an adherent point but not isolated. Equivalently, $x\in A'$ if every ball around $x$ contains some point of $A$ different from $x$ itself. In plain English: no matter how closely I zoom in around $x$, I can always find other points of $A$ arbitrarily near it.
-
-The key relation from lecture is
-\[
-\overline{A}=A\cup A'.
-\]
-So once I understand which points are limit points, the closure usually becomes much easier to identify.
-
-\textbf{General strategy for each set.}
-For each set $A$, I want to think in three passes.
+Then I classify the points of $A$ themselves. A point of $A$ is isolated if some small ball meets $A$ only at that point, and it is a limit point if every ball contains another point of $A$. So the proof pattern is:
 \begin{enumerate}[label=\textbf{(\arabic*)}]
-    \item First, guess which points are adherent by asking whether every ball around the point must hit $A$.
-    \item Next, among those points, decide which are isolated and which are limit points by asking whether a sufficiently small ball can isolate the point from the rest of $A$.
-    \item Finally, write down the closure either directly from the adherent-point definition or by using
-    \[
-    \overline{A}=A\cup A'.
-    \]
+    \item identify all adherent points, hence determine $\overline{A}$;
+    \item check whether points of $A$ can be isolated;
+    \item determine the limit points using the definition directly.
 \end{enumerate}
 
-\textbf{(a) }$A=[0,1)$.
-The first thing I notice is that every point already in $[0,1)$ should be adherent, because every ball around such a point contains the point itself and therefore meets $A$. The real question is whether there are extra adherent points outside $A$. The point $1$ is the most obvious candidate, because every ball around $1$ reaches slightly to the left and therefore meets $[0,1)$. On the other hand, points strictly less than $0$ or strictly greater than $1$ should fail to be adherent, because they have positive distance from the interval and I should be able to choose a ball missing $A$ completely.
+For $[0,1)$, I expect the closure to be $[0,1]$: the interval contributes all of its own points, and the endpoint $1$ is still touched by points of $A$. I do not expect isolated points, since points of the interval are never alone in a small ball.
 
-For isolated points, I should ask whether any point of $[0,1)$ can ever be the only point of $A$ in a small ball. That seems unlikely, because every point of the interval has other points of the interval arbitrarily nearby. In particular, interior points clearly have nearby neighbors on both sides, and even the endpoint $0$ has points of $A$ arbitrarily close to it from the right. So I expect there to be no isolated points. That would mean every point of $[0,1]$ is actually a limit point, and then the closure should be $[0,1]$.
+For $\mathbb{Z}$, I expect the closure to be exactly $\mathbb{Z}$, because non-integers can be separated from the integers by a small ball. I also expect every integer to be isolated, since a ball of radius less than $\tfrac12$ contains no other integers.
 
-To prove this formally, I would show: every point of $[0,1]$ is adherent; every point outside $[0,1]$ is not adherent; no point of $[0,1)$ is isolated; and every point of $[0,1]$ is a limit point.
-
-\textbf{(b) }$A=\mathbb{Z}$.
-Again, every integer is automatically adherent because every ball around an integer contains that integer itself. The real question is whether non-integers are adherent. Here the picture is very different from intervals: if $x\notin\mathbb{Z}$, then there is some positive distance from $x$ to the nearest integer, so I should be able to choose a small ball around $x$ that contains no integers at all. That suggests the only adherent points are the integers themselves, so the closure should be $\mathbb{Z}$.
-
-For isolated points, integers now look completely different from interval points: around a fixed integer $n$, I can choose a small enough radius, such as anything less than $\tfrac12$, so that the ball around $n$ contains no other integers. So each integer should be isolated. Once that is true, there should be no limit points at all, because a limit point must have other points of $A$ arbitrarily close by, and that never happens for integers.
-
-So the expected picture is: adherent points are exactly $\mathbb{Z}$, every point of $\mathbb{Z}$ is isolated, the set of limit points is empty, and the closure is $\mathbb{Z}$.
-
-To prove this, I would show: every integer is adherent; every non-integer admits a ball missing $\mathbb{Z}$; every integer admits a ball whose intersection with $\mathbb{Z}$ is just that single integer; and therefore there are no limit points.
-
-\textbf{(c) }$A=\{x\in\mathbb{Q}:0<x<1\}$.
-This set behaves very differently from part (b), because the rationals are dense in the reals. Every rational in $(0,1)$ is adherent, but now many points not in $A$ should also be adherent. In fact, any real number in $[0,1]$ should be adherent, because every ball around such a point contains rational numbers from $(0,1)$. That includes irrational points in $(0,1)$ as well as the endpoints $0$ and $1$. On the other hand, if a point lies strictly below $0$ or strictly above $1$, I should be able to choose a small ball disjoint from $(0,1)$, so those points should not be adherent. This suggests the closure should again be $[0,1]$.
-
-For isolated points, density tells me the opposite of part (b): no point of $A$ should be isolated, because every ball around a rational point in $(0,1)$ contains infinitely many other rationals from $(0,1)$. In fact, every point of $[0,1]$ should be a limit point, because every ball around such a point contains points of $A$ different from the center. So I expect the isolated-point set to be empty and the limit-point set to be all of $[0,1]$.
-
-To prove this formally, I would use density of $\mathbb{Q}$ in $\mathbb{R}$: show every point of $[0,1]$ is adherent by finding rationals from $(0,1)$ in every ball, show points outside $[0,1]$ are not adherent by separating them from the interval, and then show no point of $A$ is isolated because every ball around a point of $A$ contains other rational points of $(0,1)$.
+For $\mathbb{Q}\cap(0,1)$, I expect the closure to be $[0,1]$ again, but for a different reason: density of $\mathbb{Q}$ in $\mathbb{R}$ means every ball around a point of $[0,1]$ contains rationals from $(0,1)$. I do not expect isolated points, because rational points in $(0,1)$ always have other rational points arbitrarily close by.
 \end{scratch}
 
 \textbf{Proof.}\\
 We work in $(\mathbb{R},d)$ with $d(x,y)=|x-y|$.
 
-\medskip
-\textbf{(a) $A=[0,1)$.}
+\textbf{(a) }Let $A=[0,1)$. I claim that
+\[
+\overline{A}=[0,1],
+\qquad
+A'=[0,1],
+\qquad
+\text{and }A\text{ has no isolated points}.
+\]
 
-\emph{Adherent points / closure.}
-If $x\in[0,1)$, then for any $r>0$, $x\in B_r(x)\cap A$, so $x$ is adherent. 
-If $x=1$, then for any $r>0$, $(1-r,1)\subset B_r(1)$ contains points of $[0,1)$, hence $1$ is adherent. 
-If $x<0$, choose $r=\frac{|x|}{2}>0$; then $B_r(x)\subset(-\infty,0)$, so $B_r(x)\cap A=\varnothing$. 
-If $x>1$, choose $r=\frac{x-1}{2}>0$; then $B_r(x)\subset(1,\infty)$, so $B_r(x)\cap A=\varnothing$. 
-Thus $\overline{A}=[0,1]$.
+First, let $x\in[0,1]$. If $x<1$, then $x\in A$, so for every $r>0$ we have
+\[
+x\in B_r(x)\cap A,
+\]
+and hence $x$ is adherent to $A$. If $x=1$, then for every $r>0$ the point $1-\frac r2$ lies in $B_r(1)\cap A$, so $1$ is also adherent to $A$. Thus
+\[
+[0,1]\subseteq \overline{A}.
+\]
 
-\emph{Isolated points.}
-Let $x\in[0,1)$. For any $r>0$, there exists $y\in(0,1)$ with $0<|y-x|<r$ (e.g.\ take $y=x+\min\{r/2,(1-x)/2\}$ if $x<1$, or $y=r/2$ if $x=0$). Hence $B_r(x)\cap A\neq\{x\}$, so no point is isolated.
+Now let $x\notin[0,1]$. If $x<0$, set $r=\frac{|x|}{2}>0$. Then
+\[
+B_r(x)\subseteq (-\infty,0),
+\]
+so $B_r(x)\cap A=\varnothing$. If $x>1$, set $r=\frac{x-1}{2}>0$. Then
+\[
+B_r(x)\subseteq (1,\infty),
+\]
+so again $B_r(x)\cap A=\varnothing$. Hence no point outside $[0,1]$ is adherent to $A$. Therefore
+\[
+\overline{A}=[0,1].
+\]
 
-\emph{Limit points.}
-Since every $x\in[0,1]$ has points of $A$ arbitrarily close distinct from $x$, we have $A'=[0,1]$.
+Next, let $x\in A=[0,1)$. We show that $x$ is not isolated. Fix $r>0$. If $x=0$, set $y=\frac r2$. Then $y\in A$, $y\neq x$, and $|y-x|<r$. If $0<x<1$, set
+\[
+y=x+\min\left\{\frac r2,\frac{1-x}{2}\right\}.
+\]
+Then $y\in[0,1) = A$, $y\neq x$, and $|y-x|<r$. So every ball $B_r(x)$ contains a point of $A$ different from $x$, and therefore no point of $A$ is isolated.
 
-\medskip
-\textbf{(b) $A=\mathbb{Z}$.}
+Finally, we identify the limit points. Let $x\in[0,1]$ and let $r>0$. If $x<1$, then the argument above gives a point $y\in A$ with $y\neq x$ and $y\in B_r(x)$. If $x=1$, then $1-\frac r2\in A\cap B_r(1)$. Thus every point of $[0,1]$ is a limit point of $A$. Conversely, every limit point is adherent, so it must lie in $\overline{A}=[0,1]$. Hence
+\[
+A'=[0,1].
+\]
 
-\emph{Adherent points / closure.}
-If $n\in\mathbb{Z}$, then $n\in B_r(n)\cap A$ for all $r>0$, so $n$ is adherent. 
-If $x\notin\mathbb{Z}$, let $\delta=\min_{k\in\mathbb{Z}}|x-k|>0$ and take $r=\delta/2$; then $B_r(x)$ contains no integers, so $B_r(x)\cap A=\varnothing$. 
-Thus $\overline{A}=\mathbb{Z}$.
+\textbf{(b) }Let $A=\mathbb{Z}$. I claim that
+\[
+\overline{A}=\mathbb{Z},
+\qquad
+A'=\varnothing,
+\qquad
+\text{and every point of }A\text{ is isolated}.
+\]
 
-\emph{Isolated points.}
-For each $n\in\mathbb{Z}$, take $r=\tfrac12$; then $B_r(n)\cap\mathbb{Z}=\{n\}$, so every integer is isolated.
+If $n\in\mathbb{Z}$, then for every $r>0$ we have
+\[
+n\in B_r(n)\cap \mathbb{Z},
+\]
+so $n$ is adherent to $A$. Thus
+\[
+\mathbb{Z}\subseteq \overline{A}.
+\]
 
-\emph{Limit points.}
-No point has other integers arbitrarily close, hence $A'=\varnothing$.
+Now let $x\notin\mathbb{Z}$. Write $n=\lfloor x\rfloor$. Then either $n<x<n+1$ or $x=n+1$ with $n+1\in\mathbb{Z}$; since $x\notin\mathbb{Z}$, we are in the first case. Set
+\[
+\delta:=\min\{x-n,(n+1)-x\}>0,
+\qquad
+r:=\frac{\delta}{2}.
+\]
+Then the ball $B_r(x)$ lies inside the interval $(n,n+1)$, which contains no integers. Hence
+\[
+B_r(x)\cap \mathbb{Z}=\varnothing,
+\]
+so $x$ is not adherent to $A$. Therefore
+\[
+\overline{A}=\mathbb{Z}.
+\]
 
-\medskip
-\textbf{(c) $A=\{x\in\mathbb{Q}:0<x<1\}$.}
+Next, let $n\in\mathbb{Z}$ and choose $r=\tfrac12$. If $m\in\mathbb{Z}$ and $m\neq n$, then $|m-n|\ge 1$, so $m\notin B_{1/2}(n)$. Thus
+\[
+B_{1/2}(n)\cap \mathbb{Z}=\{n\}.
+\]
+So every integer is isolated.
 
-\emph{Adherent points / closure.}
-If $x\in[0,1]$, then by density of $\mathbb{Q}$ in $\mathbb{R}$, every ball $B_r(x)$ contains a rational $q$ with $0<q<1$, hence $B_r(x)\cap A\neq\varnothing$; so $[0,1]\subseteq\overline{A}$. 
-If $x<0$, choose $r=\frac{|x|}{2}$ so $B_r(x)\subset(-\infty,0)$; if $x>1$, choose $r=\frac{x-1}{2}$ so $B_r(x)\subset(1,\infty)$; in either case $B_r(x)\cap A=\varnothing$. 
-Thus $\overline{A}=[0,1]$.
+Since every point of $A$ is isolated, $A$ has no limit points. Hence
+\[
+A'=\varnothing.
+\]
 
-\emph{Isolated points.}
-Fix $x\in A$. For any $r>0$, by density of $\mathbb{Q}$ there exists $y\in\mathbb{Q}$ with $0<y<1$ and $0<|y-x|<r$; hence $B_r(x)\cap A\neq\{x\}$. So $A$ has no isolated points.
+\textbf{(c) }Let $A=\{x\in\mathbb{Q}:0<x<1\}$. I claim that
+\[
+\overline{A}=[0,1],
+\qquad
+A'=[0,1],
+\qquad
+\text{and }A\text{ has no isolated points}.
+\]
 
-\emph{Limit points.}
-Every $x\in[0,1]$ has points of $A$ arbitrarily close and distinct from $x$, hence $A'=[0,1]$.
+First, let $x\in[0,1]$. Fix $r>0$. Since $\mathbb{Q}$ is dense in $\mathbb{R}$, there exists $q\in\mathbb{Q}$ with
+\[
+\max\left\{0,x-\frac r2\right\}<q<\min\left\{1,x+\frac r2\right\}.
+\]
+Then $0<q<1$, so $q\in A$, and also $|q-x|<r$. Hence
+\[
+B_r(x)\cap A\neq\varnothing.
+\]
+So every point of $[0,1]$ is adherent to $A$, and therefore
+\[
+[0,1]\subseteq \overline{A}.
+\]
 
-\medskip
+Now let $x\notin[0,1]$. If $x<0$, choose $r=\frac{|x|}{2}>0$; then $B_r(x)\subseteq (-\infty,0)$, so $B_r(x)\cap A=\varnothing$. If $x>1$, choose $r=\frac{x-1}{2}>0$; then $B_r(x)\subseteq (1,\infty)$, so again $B_r(x)\cap A=\varnothing$. Thus no point outside $[0,1]$ is adherent to $A$. Therefore
+\[
+\overline{A}=[0,1].
+\]
+
+Next, let $x\in A$ and let $r>0$. Since $\mathbb{Q}$ is dense in $\mathbb{R}$, there exists a rational number
+\[
+y\in\left(x,\min\left\{x+\frac r2,1\right\}\right).
+\]
+Then $y\in A$, $y\neq x$, and $|y-x|<r$. So every ball around $x$ contains another point of $A$, which shows that no point of $A$ is isolated.
+
+Finally, let $x\in[0,1]$ and let $r>0$. By the same density argument used above, there exists $q\in A$ with $q\neq x$ and $|q-x|<r$. Thus every point of $[0,1]$ is a limit point of $A$. Conversely, every limit point is adherent, so it must lie in $\overline{A}=[0,1]$. Hence
+\[
+A'=[0,1].
+\]
+
 Therefore:
 \[
 \begin{aligned}
@@ -273,9 +310,114 @@ be an open subset of $X$.
 \end{enumerate}
 
 \begin{scratch}
+For this problem, I want to use the definition of closure directly and keep the inclusions separate. In part (a), if I start with a point in $U\cap\overline{A}$, then I know two things: the point lies in the open set $U$, and every ball around it meets $A$. Since $U$ is open, I can first choose a small ball staying inside $U$. Then, because the point is in $\overline{A}$, that smaller ball must still meet $A$. That gives a point in $U\cap A$, which is exactly what I need to prove the point lies in $\overline{U\cap A}$.
+
+For part (b), I use both part (a) and the closure facts from lecture. Part (a) already gives one inclusion once I replace $U$ by $\overline{U}$, since $\overline{U}$ is closed and contains $U$. For the other inclusion, I use monotonicity of closure: because $U\cap A\subseteq U$ and $U\cap A\subseteq A$, its closure must lie inside both $\overline{U}$ and $\overline{A}$.
+
+Part (c) is then a short consequence of part (b). If $U\cap A=\varnothing$, then its closure is also empty, so part (b) forces $\overline{U}\cap\overline{A}=\varnothing$. Since $U\subseteq\overline{U}$, I immediately get $U\cap\overline{A}=\varnothing$.
 \end{scratch}
 
 \textbf{Proof.}\\
+\textbf{(a)} Let $x\in U\cap\overline{A}$. We show that $x\in \overline{U\cap A}$.
+
+Since $x\in U$ and $U$ is open, there exists $r_0>0$ such that
+\[
+B_{r_0}(x)\subseteq U.
+\]
+Now let $r>0$ be arbitrary, and set
+\[
+\rho:=\min\{r,r_0\}>0.
+\]
+Because $x\in\overline{A}$, every open ball around $x$ meets $A$, so
+\[
+B_{\rho}(x)\cap A\neq\varnothing.
+\]
+Choose $y\in B_{\rho}(x)\cap A$. Since $\rho\le r_0$, we have
+\[
+y\in B_{r_0}(x)\subseteq U,
+\]
+and since $y\in A$, it follows that
+\[
+y\in U\cap A.
+\]
+Also, because $\rho\le r$, we have $y\in B_r(x)$. Thus
+\[
+B_r(x)\cap (U\cap A)\neq\varnothing.
+\]
+Since this holds for every $r>0$, the point $x$ is adherent to $U\cap A$. Therefore
+\[
+x\in\overline{U\cap A}.
+\]
+Hence
+\[
+U\cap\overline{A}\subseteq \overline{U\cap A}.
+\]
+
+\textbf{(b)} We prove that
+\[
+\overline{U}\cap\overline{A}=\overline{U\cap A}.
+\]
+
+First, since $U$ is open, part (a) applied to the set $A$ and the open set $U$ gives
+\[
+U\cap\overline{A}\subseteq \overline{U\cap A}.
+\]
+Because $U\subseteq \overline{U}$, we certainly have
+\[
+U\cap\overline{A}\subseteq \overline{U}\cap\overline{A}.
+\]
+To prove the desired equality, it is cleaner to establish both inclusions directly.
+
+Since
+\[
+U\cap A\subseteq U
+\qquad\text{and}\qquad
+U\cap A\subseteq A,
+\]
+monotonicity of closure gives
+\[
+\overline{U\cap A}\subseteq \overline{U}
+\qquad\text{and}\qquad
+\overline{U\cap A}\subseteq \overline{A}.
+\]
+Therefore
+\[
+\overline{U\cap A}\subseteq \overline{U}\cap\overline{A}.
+\]
+
+For the reverse inclusion, let $x\in \overline{U}\cap\overline{A}$. Since $U$ is open and $x\in\overline{U}$, every ball around $x$ meets $U$; indeed, if some ball $B_r(x)$ were disjoint from $U$, then $x$ would not be adherent to $U$. Now apply part (a) with the set $A$ replaced by $A$ and the open set $U$: because $x\in\overline{A}$ and every sufficiently small ball around $x$ meets $U$, the argument from part (a) shows that every ball around $x$ meets $U\cap A$. Hence
+\[
+x\in\overline{U\cap A}.
+\]
+So
+\[
+\overline{U}\cap\overline{A}\subseteq \overline{U\cap A}.
+\]
+Combining the two inclusions gives
+\[
+\overline{U}\cap\overline{A}=\overline{U\cap A}.
+\]
+
+\textbf{(c)} Suppose that
+\[
+U\cap A=\varnothing.
+\]
+Then
+\[
+\overline{U\cap A}=\overline{\varnothing}=\varnothing.
+\]
+By part (b),
+\[
+\overline{U}\cap\overline{A}=\varnothing.
+\]
+Since $U\subseteq\overline{U}$, we obtain
+\[
+U\cap\overline{A}\subseteq \overline{U}\cap\overline{A}=\varnothing.
+\]
+Therefore
+\[
+U\cap\overline{A}=\varnothing.
+\]
 \qed
 
 \newpage
@@ -294,9 +436,80 @@ with the induced metric $d_Y$.
 \end{enumerate}
 
 \begin{scratch}
+For part (a), I just need one example of a subset of $Y$ that is open in the subspace metric but not open in all of $\mathbb{R}^2$. Since
+\[
+Y=\{(x,0):x\in\mathbb{R}\}
+\]
+is the $x$-axis, a natural choice is an open interval sitting inside that line, such as
+\[
+A=\{(x,0):0<x<1\}.
+\]
+It should be open in $Y$ because, inside the line, every point has a small ball that stays on the line and inside the interval. But it should fail to be open in $\mathbb{R}^2$ because every ordinary open ball in the plane contains points off the $x$-axis, and those points are not in $A$.
+
+For part (b), I want to prove a closed-set statement for a subspace. The key fact from lecture is that a set is closed if and only if it contains the limits of all convergent sequences in it, and also that convergence in the subspace metric agrees with convergence in the ambient space because the induced metric is just the same distance restricted to $Y$. So the cleanest proof is sequential: take a sequence in $B\subseteq Y$ that converges in $\mathbb{R}^2$, notice it is automatically a sequence in the subspace $Y$ with the same limit, and then use that $B$ is closed in $Y$ to conclude the limit lies in $B$. That shows $B$ is closed in $\mathbb{R}^2$.
 \end{scratch}
 
 \textbf{Proof.}\\
+\textbf{(a)} Let
+\[
+A:=\{(x,0):0<x<1\}\subseteq Y.
+\]
+We claim that $A$ is open in $(Y,d_Y)$ but not open in $(\mathbb{R}^2,d_2)$.
+
+First, let $(x,0)\in A$, so $0<x<1$. Set
+\[
+r:=\frac12\min\{x,1-x\}>0.
+\]
+If $(y,0)\in Y$ and $d_Y((x,0),(y,0))<r$, then since $d_Y$ is induced by $d_2$,
+\[
+|y-x|=d_Y((x,0),(y,0))<r.
+\]
+Hence
+\[
+0<x-r<y<x+r<1,
+\]
+so $(y,0)\in A$. Therefore
+\[
+B_r^{Y}((x,0))\subseteq A,
+\]
+and $A$ is open in $(Y,d_Y)$.
+
+Now we show that $A$ is not open in $(\mathbb{R}^2,d_2)$. Let $(x,0)\in A$ and let $r>0$. Then the point
+\[
+(x,r/2)
+\]
+satisfies
+\[
+d_2((x,0),(x,r/2))=r/2<r,
+\]
+so $(x,r/2)\in B_r^{\mathbb{R}^2}((x,0))$. But $(x,r/2)\notin A$ since its second coordinate is not $0$. Thus no open ball in $\mathbb{R}^2$ centered at a point of $A$ is contained in $A$, and therefore $A$ is not open in $(\mathbb{R}^2,d_2)$.
+
+\textbf{(b)} Let $B\subseteq Y$, and suppose that $B$ is closed in $(Y,d_Y)$. We prove that $B$ is closed in $(\mathbb{R}^2,d_2)$.
+
+Let $\{b_n\}_{n\ge 1}$ be a sequence in $B$ that converges in $(\mathbb{R}^2,d_2)$ to some point $b\in\mathbb{R}^2$. Since every $b_n$ lies in $Y$, we may write
+\[
+b_n=(x_n,0)
+\qquad \text{for some } x_n\in\mathbb{R}.
+\]
+Because
+\[
+d_2(b_n,b)\to 0,
+\]
+the second coordinates of $b_n$ converge to the second coordinate of $b$. But the second coordinate of every $b_n$ is $0$, so the second coordinate of $b$ must also be $0$. Hence
+\[
+b\in Y.
+\]
+
+Now, for points of $Y$, the induced metric is just the restriction of $d_2$, so
+\[
+d_Y(b_n,b)=d_2(b_n,b) \to 0.
+\]
+Thus the sequence $\{b_n\}$ converges to $b$ in the subspace $(Y,d_Y)$. Since $B$ is closed in $(Y,d_Y)$ and every term of the sequence lies in $B$, it follows that
+\[
+b\in B.
+\]
+
+Therefore every sequence in $B$ that converges in $(\mathbb{R}^2,d_2)$ has its limit in $B$. Hence $B$ is closed in $(\mathbb{R}^2,d_2)$.
 \qed
 
 \newpage
@@ -308,9 +521,59 @@ only if for every open set $U$ that contains $x$, we have $x_n\in U$ for all
 but finitely many $n\in\mathbb{N}$.
 
 \begin{scratch}
+This problem is asking me to connect the usual $\varepsilon$-definition of convergence with the open-set language from metric spaces. The statement ``for all but finitely many $n$'' means that eventually every term of the sequence lies in the set under discussion. So I want to show that saying
+\[
+d(x_n,x)<\varepsilon
+\]
+for all sufficiently large $n$ is equivalent to saying that, for every open set $U$ containing $x$, all sufficiently large terms $x_n$ lie in $U$.
+
+So the proof should go in two directions. If I assume $x_n\to x$, then given an open set $U$ containing $x$, openness gives me some ball $B_r(x)\subseteq U$, and convergence tells me that eventually $x_n\in B_r(x)$, hence eventually $x_n\in U$. Conversely, if I assume the open-set condition, then I test it on the particular open set $U=B_\varepsilon(x)$. Since every open ball is open and contains $x$, the hypothesis gives exactly the usual convergence condition.
 \end{scratch}
 
 \textbf{Proof.}\\
+We prove that
+\[
+x_n\to x
+\quad\Longleftrightarrow\quad
+\text{for every open set } U\ni x,\; x_n\in U \text{ for all but finitely many } n.
+\]
+
+Suppose first that $x_n\to x$. Let $U$ be an open set containing $x$. Since $U$ is open and $x\in U$, there exists $r>0$ such that
+\[
+B_r(x)\subseteq U.
+\]
+Because $x_n\to x$, there exists $N\in\mathbb{N}$ such that
+\[
+d(x_n,x)<r
+\qquad \text{for all } n\ge N.
+\]
+Equivalently,
+\[
+x_n\in B_r(x)
+\qquad \text{for all } n\ge N.
+\]
+Since $B_r(x)\subseteq U$, it follows that
+\[
+x_n\in U
+\qquad \text{for all } n\ge N.
+\]
+Hence $x_n\in U$ for all but finitely many $n$.
+
+Conversely, suppose that for every open set $U$ containing $x$, we have $x_n\in U$ for all but finitely many $n$. Let $\varepsilon>0$. The open ball
+\[
+B_\varepsilon(x)
+\]
+is an open set containing $x$. Therefore there exists $N\in\mathbb{N}$ such that
+\[
+x_n\in B_\varepsilon(x)
+\qquad \text{for all } n\ge N.
+\]
+By definition of the ball, this means
+\[
+d(x_n,x)<\varepsilon
+\qquad \text{for all } n\ge N.
+\]
+Since $\varepsilon>0$ was arbitrary, it follows that $x_n\to x$.
 \qed
 
 \newpage
@@ -327,9 +590,79 @@ $x^n=(x_1^n,x_2^n)$ is a sequence of points in $\mathbb{R}^2$.
 \end{enumerate}
 
 \begin{scratch}
+For part (a), the key idea is that in $\mathbb{R}^2$ with the Euclidean metric, the distance between two points controls the distance between each individual coordinate. So if $x^n\to x$ in $d_2$, then the first coordinates should automatically converge as real numbers. The proof is just an inequality: I compare $|x_1^n-x_1|$ to the full Euclidean distance.
+
+For part (b), I want to prove the usual coordinatewise characterization of convergence in $\mathbb{R}^2$. One direction should follow from part (a): if the vectors converge, then each coordinate converges. For the other direction, if both coordinate sequences converge, then I use the definition of $d_2$ and estimate
+\[
+d_2(x^n,x)=\sqrt{(x_1^n-x_1)^2+(x_2^n-x_2)^2}
+\]
+by making each coordinate difference small. So the proof is just two short implications, both using the definition of the Euclidean metric.
 \end{scratch}
 
 \textbf{Proof.}\\
+\textbf{(a)} Let $x^n=(x_1^n,x_2^n)$ and $x=(x_1,x_2)$ be points in $\mathbb{R}^2$. Then by definition of $d_2$,
+\[
+d_2(x^n,x)=\sqrt{(x_1^n-x_1)^2+(x_2^n-x_2)^2}.
+\]
+Since $(x_2^n-x_2)^2\ge 0$, we have
+\[
+(x_1^n-x_1)^2\le (x_1^n-x_1)^2+(x_2^n-x_2)^2.
+\]
+Taking square roots gives
+\[
+|x_1^n-x_1|\le d_2(x^n,x).
+\]
+
+\textbf{(b)} We prove that $\{x^n\}_{n\ge 1}$ converges in $(\mathbb{R}^2,d_2)$ if and only if the real sequences $\{x_1^n\}_{n\ge 1}$ and $\{x_2^n\}_{n\ge 1}$ both converge.
+
+Suppose first that $x^n\to x=(x_1,x_2)$ in $(\mathbb{R}^2,d_2)$. By part (a),
+\[
+|x_1^n-x_1|\le d_2(x^n,x)
+\qquad\text{and}\qquad
+|x_2^n-x_2|\le d_2(x^n,x)
+\]
+for all $n$. Since $d_2(x^n,x)\to 0$, it follows that
+\[
+|x_1^n-x_1|\to 0
+\qquad\text{and}\qquad
+|x_2^n-x_2|\to 0.
+\]
+Hence
+\[
+x_1^n\to x_1
+\qquad\text{and}\qquad
+x_2^n\to x_2
+\]
+as sequences of real numbers.
+
+Conversely, suppose that
+\[
+x_1^n\to x_1
+\qquad\text{and}\qquad
+x_2^n\to x_2.
+\]
+Let $x=(x_1,x_2)$. We show that $x^n\to x$ in $(\mathbb{R}^2,d_2)$. Let $\varepsilon>0$. Since $x_1^n\to x_1$, there exists $N_1\in\mathbb{N}$ such that
+\[
+|x_1^n-x_1|<\frac{\varepsilon}{\sqrt{2}}
+\qquad\text{for all } n\ge N_1.
+\]
+Since $x_2^n\to x_2$, there exists $N_2\in\mathbb{N}$ such that
+\[
+|x_2^n-x_2|<\frac{\varepsilon}{\sqrt{2}}
+\qquad\text{for all } n\ge N_2.
+\]
+Set
+\[
+N:=\max\{N_1,N_2\}.
+\]
+Then for all $n\ge N$,
+\[
+d_2(x^n,x)
+=\sqrt{(x_1^n-x_1)^2+(x_2^n-x_2)^2}
+<\sqrt{\frac{\varepsilon^2}{2}+\frac{\varepsilon^2}{2}}
+=\varepsilon.
+\]
+Therefore $x^n\to x$ in $(\mathbb{R}^2,d_2)$.
 \qed
 
 \newpage
@@ -340,9 +673,69 @@ that if $\{x_n\}_{n\ge 1}$ converges to $x\in X$, then for any $y\in X$, the
 sequence $\{d(x_n,y)\}_{n\ge 1}$ of real numbers converges to $d(x,y)$.
 
 \begin{scratch}
+Here, 
+\[
+\{d(x_n,y)\}_{n\ge 1}
+\]
+is a sequence of real numbers, so saying it converges to $d(x,y)$ means exactly that
+\[
+\forall \varepsilon>0\ \exists N\in\mathbb{N}\ \text{s.t.}\ \bigl|d(x_n,y)-d(x,y)\bigr|<\varepsilon
+\qquad \forall n\ge N.
+\]
+So, to my understanding, I think the problem is asking me to show that if $x_n\to x$ in the metric space $(X,d)$, then the distances from $x_n$ to a fixed point $y$ behave continuously and converge to the distance from $x$ to $y$.
+
+The key idea is to compare $d(x_n,y)$ and $d(x,y)$ using the triangle inequality. The standard trick is to write two inequalities,
+\[
+d(x_n,y)\le d(x_n,x)+d(x,y)
+\qquad\text{and}\qquad
+d(x,y)\le d(x,x_n)+d(x_n,y),
+\]
+and then combine them to get
+\[
+\bigl|d(x_n,y)-d(x,y)\bigr|\le d(x_n,x).
+\]
+Once I have that estimate, the conclusion is immediate because $x_n\to x$ means $d(x_n,x)\to 0$.
 \end{scratch}
 
 \textbf{Proof.}\\
+Assume that $x_n\to x$ in $(X,d)$, and fix $y\in X$. We must show that the real sequence $\{d(x_n,y)\}_{n\ge 1}$ converges to $d(x,y)$.
+
+Let $n\ge 1$. By the triangle inequality,
+\[
+d(x_n,y)\le d(x_n,x)+d(x,y).
+\]
+Rearranging gives
+\[
+d(x_n,y)-d(x,y)\le d(x_n,x).
+\]
+Also, by the triangle inequality,
+\[
+d(x,y)\le d(x,x_n)+d(x_n,y)=d(x_n,x)+d(x_n,y),
+\]
+so
+\[
+d(x,y)-d(x_n,y)\le d(x_n,x).
+\]
+Combining these two inequalities, we obtain
+\[
+\bigl|d(x_n,y)-d(x,y)\bigr|\le d(x_n,x)
+\qquad \text{for all } n\ge 1.
+\]
+
+Now let $\varepsilon>0$. Since $x_n\to x$, there exists $N\in\mathbb{N}$ such that
+\[
+d(x_n,x)<\varepsilon
+\qquad \text{for all } n\ge N.
+\]
+Therefore, for all $n\ge N$,
+\[
+\bigl|d(x_n,y)-d(x,y)\bigr|\le d(x_n,x)<\varepsilon.
+\]
+This shows that
+\[
+d(x_n,y)\to d(x,y)
+\]
+as a sequence of real numbers.
 \qed
 
 % ============================================================
