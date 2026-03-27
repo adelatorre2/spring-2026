@@ -1,0 +1,138 @@
+
+
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\setstretch{1.1}
+\titleformat{\section}{\large\bfseries}{}{0em}{}
+
+\title{A7: Paper Prototypes \\
+LIS 470 -- Team Assignment}
+\author{Team 5 \\
+Alejandro De La Torre \\
+Angelique Carrillo \\
+Helena Huang \\
+Yanbin Chen \\
+Peixin Yang}
+\date{Spring 2026}
+
+\begin{document}
+
+\maketitle
+\vspace{-1em}
+\hrule
+\vspace{1em}
+
+% ==========================
+% STORYBOARDS
+% ==========================
+\section{Storyboards}
+
+Each team member created a storyboard illustrating a scenario in which a college student uses our proposed system to plan a grocery trip efficiently while staying within budget. Each storyboard includes 4--7 frames, captions, and varying visual perspectives (e.g., wide shots and close-ups) to clearly communicate the interaction flow.
+
+\subsection{Alejandro De La Torre}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../images/storyboard_alejandro.png}
+    \caption{Storyboard: Budget-focused meal planning and grocery optimization}
+\end{figure}
+
+\subsection{Angelique Carrillo}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../images/storyboard_angelique.png}
+    \caption{Storyboard: Collaborative grocery planning with roommates}
+\end{figure}
+
+\subsection{Helena Huang}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../images/storyboard_helena.png}
+    \caption{Storyboard: Shared grocery coordination and cost splitting}
+\end{figure}
+
+\subsection{Yanbin Chen}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../images/storyboard_yanbin.png}
+    \caption{Storyboard: Streamlined grocery shopping workflow}
+\end{figure}
+
+\subsection{Peixin Yang}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../images/storyboard_peixin.png}
+    \caption{Storyboard: Price comparison and budget awareness}
+\end{figure}
+
+% ==========================
+% PAPER PROTOTYPE
+% ==========================
+\section{Paper Prototype}
+
+As a group, we selected the \textbf{Budget-Friendly Meal Planning Assistant} as the most promising concept to develop further. This design integrates meal planning, grocery list generation, and budget tracking into a single interface.
+
+\subsection{Prototype Overview}
+Our paper prototype consists of multiple screens that guide the user through selecting meals, generating a grocery list, and staying within a budget.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{../images/prototype_main.png}
+    \caption{Main prototype interface (meal planning and grocery list)}
+\end{figure}
+
+\subsection{Additional Screens}
+
+\begin{itemize}[noitemsep]
+    \item \textbf{Processing Screen:} Displays feedback when the system is generating optimized grocery lists.
+    \item \textbf{Under Construction Screen:} Used when users navigate to features not yet implemented.
+    \item \textbf{Interactive Elements:} Includes buttons, checkboxes, and list interactions that simulate user input.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../images/prototype_additional.png}
+    \caption{Additional prototype screens (processing and fallback states)}
+\end{figure}
+
+% ==========================
+% PROTOTYPE TESTING
+% ==========================
+\section{Prototype Testing}
+
+We conducted a usability test with one participant to evaluate how effectively the prototype supports budget-conscious grocery planning.
+
+\subsection{Participant}
+The prototype was tested with a college student who regularly shops for groceries and manages a limited weekly budget.
+
+\subsection{Task}
+The participant was asked to plan a week's worth of meals while staying within a fixed budget using the prototype.
+
+\subsection{Results}
+
+\textbf{What worked well:}
+\begin{itemize}[noitemsep]
+    \item The meal selection process was intuitive and easy to follow
+    \item The budget bar clearly communicated spending progress
+    \item The grocery list generation feature was useful and understandable
+\end{itemize}
+
+\textbf{What did not work well:}
+\begin{itemize}[noitemsep]
+    \item The participant hesitated before generating the grocery list
+    \item Some features (e.g., substitutions) were not immediately clear
+    \item Labels and instructions could be more explicit
+\end{itemize}
+
+\subsection{Reflection}
+Overall, the prototype successfully conveyed the core functionality of the system and allowed the participant to complete the task. However, the test revealed areas where clarity and guidance could be improved. In future iterations, we would refine labeling, improve onboarding cues, and make interactions more explicit to reduce user hesitation.
+
+\end{document}
