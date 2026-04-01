@@ -1,0 +1,5068 @@
+% ══════════════════════════════════════════════════════════════════════════════
+%  MATH 521  |  Midterm 2 Practice Workbook
+%  University of Wisconsin–Madison, Spring 2026
+%  Covers: Homework 5 – Homework 9 & Practice Midterm 2
+% ══════════════════════════════════════════════════════════════════════════════
+
+\documentclass[12pt]{article}
+
+% ── Page geometry (iPad-friendly) ─────────────────────────────────────────────
+\usepackage[
+  paperwidth=8.5in, paperheight=11in,
+  top=1.1in, bottom=1.1in,
+  left=1.0in, right=1.0in
+]{geometry}
+
+% ── Math ──────────────────────────────────────────────────────────────────────
+\usepackage{amsmath, amssymb, amsthm}
+
+% ── Layout & formatting ───────────────────────────────────────────────────────
+\usepackage{parskip}          % paragraph spacing instead of indent
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{xcolor}
+
+% ── Colored boxes ─────────────────────────────────────────────────────────────
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+
+% ── Hyperlinks / bookmarks ────────────────────────────────────────────────────
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks = true,
+  linkcolor  = blue!60!black,
+  urlcolor   = blue!60!black
+}
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  COLORS
+% ══════════════════════════════════════════════════════════════════════════════
+\definecolor{probblue}    {RGB}{215, 232, 255}
+\definecolor{pass1green}  {RGB}{218, 245, 218}
+\definecolor{pass2yellow} {RGB}{255, 252, 215}
+\definecolor{pass3orange} {RGB}{255, 236, 210}
+\definecolor{pass4purple} {RGB}{240, 218, 255}
+\definecolor{pass5gray}   {RGB}{238, 238, 238}
+\definecolor{solgreen}    {RGB}{208, 240, 210}
+\definecolor{reflectcyan} {RGB}{208, 245, 252}
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  FILL-IN MACROS
+%  \fillfield{Label}       – one ruled line after the label
+%  \fillfieldlong{Label}   – label, then large vertical blank, then a ruled line
+%  \writespace{length}     – plain vertical blank for handwriting
+% ══════════════════════════════════════════════════════════════════════════════
+\newcommand{\fillfield}[1]{%
+  \par\noindent\textbf{#1:}\enspace\hrulefill\par\vspace{3pt}%
+}
+\newcommand{\fillfieldlong}[1]{%
+  \par\noindent\textbf{#1:}\par\vspace{1.5cm}%
+  \noindent\rule{\linewidth}{0.35pt}\par\vspace{4pt}%
+}
+\newcommand{\writespace}[1]{\vspace{#1}}
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  SECTION FORMATTING
+% ══════════════════════════════════════════════════════════════════════════════
+\titleformat{\section}
+  [block]{\Large\bfseries\centering}{}{0em}{}[\vspace{2pt}\titlerule]
+\titleformat{\subsection}
+  [block]{\large\bfseries}{}{0em}{}[\vspace{1pt}\titlerule]
+\titlespacing{\section}{0pt}{1.5em}{1em}
+\titlespacing{\subsection}{0pt}{1.2em}{0.8em}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\begin{document}
+
+% ──────────────────────────────────────────────────────────────────────────────
+%  TITLE PAGE
+% ──────────────────────────────────────────────────────────────────────────────
+\begin{titlepage}
+\centering
+\vspace*{2.5cm}
+{\Huge\bfseries MATH 521 \par}
+\vspace{0.4cm}
+{\Large Analysis I \par}
+\vspace{1.2cm}
+\rule{0.55\linewidth}{1pt}
+\vspace{1.2cm}
+
+{\huge\bfseries Midterm 2 Practice Workbook \par}
+\vspace{1.5cm}
+
+{\large University of Wisconsin--Madison\par}
+{\large Spring 2026\par}
+\vspace{2.0cm}
+
+{\normalsize\itshape Covers: Homework 5 \,--\, Homework 9 \& Practice Midterm 2\par}
+\vspace{3.5cm}
+
+{\large\bfseries Name:\enspace\hrulefill\par}
+\vspace{0.9cm}
+{\large\bfseries Date:\enspace\hrulefill\par}
+\end{titlepage}
+
+% ──────────────────────────────────────────────────────────────────────────────
+%  TABLE OF CONTENTS
+% ──────────────────────────────────────────────────────────────────────────────
+\tableofcontents
+\newpage
+
+% ──────────────────────────────────────────────────────────────────────────────
+%  HOW TO USE THIS WORKBOOK
+% ──────────────────────────────────────────────────────────────────────────────
+\section*{How to Use This Workbook}
+\addcontentsline{toc}{section}{How to Use This Workbook}
+
+This workbook is designed for \textbf{active recall and deliberate practice}---not passive
+reading.  Each problem is broken into \textbf{five passes} of increasing depth, followed
+by the official solution and a brief reflection.
+
+\medskip
+\begin{description}[leftmargin=2.2cm, labelwidth=2.0cm, labelsep=0.2cm, itemsep=4pt]
+  \item[\textsc{Pass 1}]
+    \textbf{First Diagnosis.}
+    Before writing anything, identify the topic, what is being asked, and which tools
+    are likely relevant.  Do this purely from memory.
+
+  \item[\textsc{Pass 2}]
+    \textbf{Proof Recipe Card.}
+    Fill in the structured template: hypotheses, conclusion, key definitions, and a
+    one-sentence strategy.  Commit to a plan before writing.
+
+  \item[\textsc{Pass 3}]
+    \textbf{Self-Explanation.}
+    Answer targeted questions about \emph{why} the proof works.  This is
+    metacognition---one of the most effective study techniques known.
+
+  \item[\textsc{Pass 4}]
+    \textbf{Skeleton Proof.}
+    Write the logical scaffold of the proof in the labeled blanks.
+    Full sentences are not required yet; just the structure.
+
+  \item[\textsc{Pass 5}]
+    \textbf{Full Proof Attempt.}
+    Write a complete, polished proof from scratch in the large blank space.
+    \emph{Only then} compare to the Official Solution below.
+\end{description}
+
+\medskip
+\textbf{Suggested workflow:} Complete Passes~1--3 first, then attempt Passes~4--5,
+then read the Official Solution.  Use the Reflection section last to solidify understanding.
+
+\newpage
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  HOMEWORK 5
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Homework 5}
+
+% ─────────────────────────────────────────────────────────────────────────────
+%  HW5 · PROBLEM 1
+% ─────────────────────────────────────────────────────────────────────────────
+\newpage
+\subsection{Problem 1}
+
+% ── 0. Problem Statement ──────────────────────────────────────────────────────
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = probblue,
+  colframe = blue!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Problem Statement}\hfill Homework 5, Problem 1}
+]
+Let $\{a_n\}_{n \geq 1}$ be a sequence of positive real numbers.
+Prove that
+\[
+  \lim_{n \to \infty} a_n = +\infty
+  \quad \text{if and only if} \quad
+  \lim_{n \to \infty} \frac{1}{a_n} = 0.
+\]
+\end{tcolorbox}
+
+\bigskip
+
+% ── Pass 1: First Diagnosis ───────────────────────────────────────────────────
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass1green,
+  colframe = green!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 1 \enspace\textbf{--}\enspace First Diagnosis}
+]
+\fillfield{Topic}
+\fillfield{What is being asked?}
+\fillfieldlong{Definitions likely relevant}
+\fillfieldlong{Theorem / proof method likely relevant}
+\fillfield{What should the first line of the proof be?}
+\end{tcolorbox}
+
+\bigskip
+
+% ── Pass 2: Proof Recipe Card ─────────────────────────────────────────────────
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass2yellow,
+  colframe = yellow!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 2 \enspace\textbf{--}\enspace Proof Recipe Card}
+]
+\fillfield{Hypotheses}
+\fillfield{Conclusion}
+\fillfieldlong{Definitions to unpack}
+\fillfield{Useful theorem / lemma / test}
+\fillfield{Key inequality / identity}
+\fillfieldlong{One-sentence proof strategy}
+\end{tcolorbox}
+
+\bigskip
+
+% ── Pass 3: Self-Explanation ──────────────────────────────────────────────────
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass3orange,
+  colframe = orange!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 3 \enspace\textbf{--}\enspace Self-Explanation}
+]
+\fillfield{Why does the chosen method apply here?}
+\fillfield{What is the key move in the ($\Rightarrow$) direction?}
+\fillfield{What is the key move in the ($\Leftarrow$) direction?}
+\fillfield{What is the central inequality that drives the proof?}
+\fillfield{Common mistake to avoid:}
+\end{tcolorbox}
+
+\newpage
+
+% ── Pass 4: Skeleton Proof ────────────────────────────────────────────────────
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass4purple,
+  colframe = purple!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 4 \enspace\textbf{--}\enspace Skeleton Proof}
+]
+\noindent\textbf{($\Rightarrow$) Setup:}\par
+\writespace{1.8cm}
+
+\noindent\textbf{($\Rightarrow$) Main argument:}\par
+\writespace{2.5cm}
+
+\noindent\textbf{($\Rightarrow$) Conclusion:}\par
+\writespace{1.2cm}
+
+\noindent\rule{\linewidth}{0.4pt}
+\vspace{2pt}
+
+\noindent\textbf{($\Leftarrow$) Setup:}\par
+\writespace{1.8cm}
+
+\noindent\textbf{($\Leftarrow$) Main argument:}\par
+\writespace{2.5cm}
+
+\noindent\textbf{($\Leftarrow$) Conclusion:}\par
+\writespace{1.2cm}
+\end{tcolorbox}
+
+\newpage
+
+% ── Pass 5: Full Proof Attempt ────────────────────────────────────────────────
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass5gray,
+  colframe = black!38,
+  fonttitle = \bfseries,
+  title = {Pass 5 \enspace\textbf{--}\enspace Full Proof Attempt}
+]
+\small\itshape Write a complete proof before reading the Official Solution.\par
+\normalfont\normalsize
+\writespace{19cm}
+\end{tcolorbox}
+
+\newpage
+
+% ── Official Solution ─────────────────────────────────────────────────────────
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = solgreen,
+  colframe = green!45!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Official Solution}\hfill Homework 5 -- Selected Solutions}
+]
+\textbf{Problem 1.}
+Let $\{a_n\}_{n \geq 1}$ be a sequence of positive real numbers.
+Prove that $\lim_{n \to \infty} a_n = +\infty$ if and only if
+$\lim_{n \to \infty} \frac{1}{a_n} = 0$.
+
+\medskip
+\textbf{Solution:}
+
+\medskip
+($\Rightarrow$)
+Fix $\epsilon > 0$.
+As $\lim a_n = +\infty$, then there exists $N$ so that
+\[
+  a_n > \frac{1}{\epsilon} \quad \text{for all } n \geq N.
+\]
+So, for $n \geq N$ we have
+\[
+  -\epsilon < 0 < \frac{1}{a_n} < \epsilon
+  \implies
+  \left|\frac{1}{a_n} - 0\right| < \epsilon.
+\]
+Therefore $\displaystyle\lim \frac{1}{a_n} = 0$.
+
+\medskip
+($\Leftarrow$)
+Fix $M > 0$.
+As $\displaystyle\lim \frac{1}{a_n} = 0$, then there exists $N$ so that
+\[
+  \left|\frac{1}{a_n} - 0\right| < \frac{1}{M} \quad \text{for all } n \geq N.
+\]
+Note that $\left|\dfrac{1}{a_n} - 0\right| = \dfrac{1}{a_n} > 0$.
+So
+\[
+  a_n > M \quad \text{for all } n \geq N.
+\]
+Therefore $\lim a_n = +\infty$.\hfill$\square$
+\end{tcolorbox}
+
+\bigskip
+
+% ── Reflection / Variation ────────────────────────────────────────────────────
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = reflectcyan,
+  colframe = cyan!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Reflection \& Variation}}
+]
+\fillfield{What was the key definition used in each direction?}
+\fillfield{Why was the hypothesis $a_n > 0$ essential? Where did it appear?}
+\fillfieldlong{%
+  What would change if $a_n > 0$ were replaced by $a_n \neq 0$?
+  Where would the argument break?}
+\fillfield{What nearby exam variation could appear?}
+\end{tcolorbox}
+
+% ── All four HW5 problems added. ─────────────────────────────────────────────
+
+% ─────────────────────────────────────────────────────────────────────────────
+%  HW5 · PROBLEM 2
+% ─────────────────────────────────────────────────────────────────────────────
+\newpage
+\subsection{Problem 2}
+
+% ── 0. Problem Statement ──────────────────────────────────────────────────────
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = probblue,
+  colframe = blue!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Problem Statement}\hfill Homework 5, Problem 2}
+]
+Let $\{a_n\}_{n \geq 1}$ be a sequence.
+Prove that if $\{a_{k_n}\}_{n \geq 1}$ is a subsequence of $\{a_n\}_{n \geq 1}$
+that converges to $L \in \mathbb{R}$, then
+\[
+  \liminf_{n \to \infty} a_n \;\leq\; L \;\leq\; \limsup_{n \to \infty} a_n.
+\]
+(Hint: As $\{a_n\}_{n \geq 1}$ is not necessarily bounded, we have to consider
+the cases $\liminf_{n \to \infty} a_n = \pm\infty$ and
+$\limsup_{n \to \infty} a_n = \pm\infty$.
+However, the proof is much easier in these cases.)
+\end{tcolorbox}
+
+\bigskip
+
+% ── Pass 1: First Diagnosis ───────────────────────────────────────────────────
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass1green,
+  colframe = green!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 1 \enspace\textbf{--}\enspace First Diagnosis}
+]
+\fillfield{Topic}
+\fillfield{What is being asked?}
+\fillfieldlong{Definitions likely relevant}
+\fillfieldlong{Theorem / proof method likely relevant}
+\fillfield{Why does the proof split into cases?}
+\fillfield{What should the first line of the proof be?}
+\end{tcolorbox}
+
+\bigskip
+
+% ── Pass 2: Proof Recipe Card ─────────────────────────────────────────────────
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass2yellow,
+  colframe = yellow!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 2 \enspace\textbf{--}\enspace Proof Recipe Card}
+]
+\fillfield{Hypotheses}
+\fillfield{Conclusion (two inequalities)}
+\fillfieldlong{Definitions to unpack ($\limsup$, $\liminf$, subsequence)}
+\fillfield{Useful theorem / lemma (hint: HW4)}
+\fillfield{What are the three cases for $\limsup a_n$?}
+\fillfieldlong{One-sentence proof strategy for $L \leq \limsup a_n$:}
+\end{tcolorbox}
+
+\bigskip
+
+% ── Pass 3: Self-Explanation ──────────────────────────────────────────────────
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass3orange,
+  colframe = orange!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 3 \enspace\textbf{--}\enspace Self-Explanation}
+]
+\fillfield{Why is the case $\limsup a_n = +\infty$ trivial?}
+\fillfield{Why is the case $\limsup a_n = -\infty$ impossible?}
+\fillfield{In the finite case, what key inequality holds for every $n \geq N$?}
+\fillfield{What is the ``engine'' of the argument (which lemma closes it)?}
+\fillfield{The solution says ``using similar steps'' for $\liminf$. What changes?}
+\fillfield{Common mistake: why does the case analysis matter?}
+\end{tcolorbox}
+
+\newpage
+
+% ── Pass 4: Skeleton Proof ────────────────────────────────────────────────────
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass4purple,
+  colframe = purple!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 4 \enspace\textbf{--}\enspace Skeleton Proof}
+]
+\noindent\textit{We prove $L \leq \limsup_{n\to\infty} a_n$. The inequality
+$\liminf_{n\to\infty} a_n \leq L$ follows by similar steps.}
+
+\medskip
+\noindent\textbf{Case 1:} $\limsup a_n = +\infty$.\par
+\writespace{1.6cm}
+
+\noindent\textbf{Case 2:} $\limsup a_n = -\infty$ (show this is impossible).\par
+\writespace{2.6cm}
+
+\noindent\textbf{Case 3:} $\limsup a_n \in \mathbb{R}$.\par
+\vspace{4pt}
+\noindent\textit{Key inequality for $n \geq N$:}\par
+\writespace{1.2cm}
+\noindent\textit{Apply HW4\#3 to $\{a_{k_n}\}$:}\par
+\writespace{1.4cm}
+\noindent\textit{Apply HW4\#3 again to $v_N = \sup\{a_n : n \geq N\}$:}\par
+\writespace{1.4cm}
+\noindent\textbf{Conclusion:}\par
+\writespace{0.8cm}
+\end{tcolorbox}
+
+\newpage
+
+% ── Pass 5: Full Proof Attempt ────────────────────────────────────────────────
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass5gray,
+  colframe = black!38,
+  fonttitle = \bfseries,
+  title = {Pass 5 \enspace\textbf{--}\enspace Full Proof Attempt}
+]
+\small\itshape Write a complete proof before reading the Official Solution.\par
+\normalfont\normalsize
+\writespace{19cm}
+\end{tcolorbox}
+
+\newpage
+
+% ── Official Solution ─────────────────────────────────────────────────────────
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = solgreen,
+  colframe = green!45!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Official Solution}\hfill Homework 5 -- Selected Solutions}
+]
+\textbf{Problem 2.}
+Let $\{a_n\}_{n \geq 1}$ be a sequence.
+Prove that if $\{a_{k_n}\}_{n \geq 1}$ is a subsequence of $\{a_n\}_{n \geq 1}$
+that converges to $L \in \mathbb{R}$, then
+$\displaystyle\liminf_{n \to \infty} a_n \leq L \leq \limsup_{n \to \infty} a_n$.
+
+\medskip
+\textbf{Solution:}
+Let's start with the second inequality: $L \leq \limsup_{n\to\infty} a_n$.
+
+\medskip
+\textit{Case:} $\limsup a_n = +\infty$.
+Then the statement is automatically true, since every real number $L$
+satisfies $L < +\infty$.
+
+\medskip
+\textit{Case:} $\limsup a_n = -\infty$.
+As $\liminf a_n \leq \limsup a_n$, then we must have
+$\liminf a_n = -\infty = \limsup a_n$.
+This means that $\lim a_n = -\infty$ by Lecture~14.
+
+Fix $m < 0$.
+As $\lim a_n = -\infty$, there exists $N$ so that
+\[
+  a_n < m \quad \text{for all } n \geq N.
+\]
+As $k_n \geq n$ for all $n$, this implies
+\[
+  a_{k_n} < m \quad \text{for all } n \geq N.
+\]
+Therefore $L = \lim a_{k_n} = -\infty$.
+This contradicts that $L \in \mathbb{R}$, and so this case is impossible.
+
+\medskip
+\textit{Case:} $\limsup a_n \in \mathbb{R}$.
+For $N \geq 1$, notice that
+\[
+  a_{k_n} \leq \sup\{a_n : n \geq N\} \quad \text{for all } n \geq N.
+\]
+We know that the sequence $\{a_{k_n}\}$ converges to $L$.
+So, by HW4\#3, we have
+\[
+  L = \lim a_{k_n} \leq \sup\{a_n : n \geq N\}.
+\]
+On the other hand, $v_N = \sup\{a_n : n \geq N\}$ is a sequence that converges
+to $\limsup a_n$.
+So, using HW4\#3 again, we conclude that
+\[
+  L \leq \lim_{N \to \infty} \sup\{a_n : n \geq N\} = \limsup a_n.
+\]
+
+\medskip
+\textit{Exercise:}
+Using similar steps, prove that $\displaystyle\liminf_{n \to \infty} a_n \leq L$.
+\hfill$\square$
+\end{tcolorbox}
+
+\bigskip
+
+% ── Reflection / Variation ────────────────────────────────────────────────────
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = reflectcyan,
+  colframe = cyan!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Reflection \& Variation}}
+]
+\fillfield{What result (from HW4) was the key lemma, and what does it say?}
+\fillfield{Why was the case $\limsup a_n = -\infty$ impossible but not skipped?}
+\fillfieldlong{%
+  Carry out the ``Exercise'': sketch the proof that $\liminf a_n \leq L$,
+  identifying exactly where the argument differs.}
+\fillfield{What nearby exam variation could appear?}
+\end{tcolorbox}
+
+% ─────────────────────────────────────────────────────────────────────────────
+%  HW5 · PROBLEM 3
+% ─────────────────────────────────────────────────────────────────────────────
+\newpage
+\subsection{Problem 3}
+
+% ── 0. Problem Statement ──────────────────────────────────────────────────────
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = probblue,
+  colframe = blue!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Problem Statement}\hfill Homework 5, Problem 3}
+]
+Let $\{a_n\}_{n \geq 1}$ and $\{b_n\}_{n \geq 1}$ be two bounded sequences.
+Prove that
+\[
+  \limsup_{n \to \infty}(a_n + b_n)
+  \;\leq\;
+  \limsup_{n \to \infty} a_n + \limsup_{n \to \infty} b_n.
+\]
+\end{tcolorbox}
+
+\bigskip
+
+% ── Pass 1: First Diagnosis ───────────────────────────────────────────────────
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass1green,
+  colframe = green!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 1 \enspace\textbf{--}\enspace First Diagnosis}
+]
+\fillfield{Topic}
+\fillfield{What is being asked?}
+\fillfieldlong{Definitions likely relevant}
+\fillfieldlong{Theorem / proof method likely relevant}
+\fillfield{What should the first line of the proof be?}
+\end{tcolorbox}
+
+\bigskip
+
+% ── Pass 2: Proof Recipe Card ─────────────────────────────────────────────────
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass2yellow,
+  colframe = yellow!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 2 \enspace\textbf{--}\enspace Proof Recipe Card}
+]
+\fillfield{Hypotheses}
+\fillfield{Conclusion}
+\fillfieldlong{Definitions to unpack ($\sup$ of a set, $\limsup$ via tail sups)}
+\fillfield{Useful theorem / lemma (hint: HW4)}
+\fillfield{Key inequality relating $\sup\{a_n+b_n\}$ to $\sup\{a_n\}$ and $\sup\{b_n\}$:}
+\fillfieldlong{One-sentence proof strategy}
+\end{tcolorbox}
+
+\bigskip
+
+% ── Pass 3: Self-Explanation ──────────────────────────────────────────────────
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass3orange,
+  colframe = orange!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 3 \enspace\textbf{--}\enspace Self-Explanation}
+]
+\fillfield{Why does $a_n \leq \sup\{a_n : n \geq N\}$ hold for all $n \geq N$?}
+\fillfield{Why does that imply $\sup\{a_n+b_n : n \geq N\} \leq \sup\{a_n : n \geq N\} + \sup\{b_n : n \geq N\}$?}
+\fillfield{Why does boundedness guarantee that all three $\limsup$s are finite?}
+\fillfield{What is the role of HW4\#3 at the very end of the proof?}
+\fillfield{Why does the proof need boundedness? Where would it fail without it?}
+\fillfield{Common mistake: confusing $\sup(A+B) \leq \sup A + \sup B$ with equality.}
+\end{tcolorbox}
+
+\newpage
+
+% ── Pass 4: Skeleton Proof ────────────────────────────────────────────────────
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass4purple,
+  colframe = purple!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 4 \enspace\textbf{--}\enspace Skeleton Proof}
+]
+\noindent\textbf{Setup:} Fix $N \geq 1$.\par
+\writespace{0.4cm}
+
+\noindent\textbf{Pointwise inequality} (for $n \geq N$):\par
+\writespace{1.6cm}
+
+\noindent\textbf{Sup inequality} (upper bound argument):\par
+\writespace{1.8cm}
+
+\noindent\textbf{Convergence of each tail sup} (use boundedness + lecture):\par
+\writespace{1.8cm}
+
+\noindent\textbf{Apply HW4\#3} to the difference sequence:\par
+\writespace{2.0cm}
+
+\noindent\textbf{Conclusion:}\par
+\writespace{1.0cm}
+\end{tcolorbox}
+
+\newpage
+
+% ── Pass 5: Full Proof Attempt ────────────────────────────────────────────────
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass5gray,
+  colframe = black!38,
+  fonttitle = \bfseries,
+  title = {Pass 5 \enspace\textbf{--}\enspace Full Proof Attempt}
+]
+\small\itshape Write a complete proof before reading the Official Solution.\par
+\normalfont\normalsize
+\writespace{19cm}
+\end{tcolorbox}
+
+\newpage
+
+% ── Official Solution ─────────────────────────────────────────────────────────
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = solgreen,
+  colframe = green!45!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Official Solution}\hfill Homework 5 -- Selected Solutions}
+]
+\textbf{Problem 3.}
+Let $\{a_n\}_{n \geq 1}$ and $\{b_n\}_{n \geq 1}$ be two bounded sequences.
+Prove that
+$\displaystyle\limsup_{n \to \infty}(a_n + b_n)
+\leq \limsup_{n \to \infty} a_n + \limsup_{n \to \infty} b_n$.
+
+\medskip
+\textbf{Solution:}
+Fix $N \geq 1$.
+For $n \geq N$ we have
+\[
+  a_n \leq \sup\{a_n : n \geq N\},
+  \qquad
+  b_n \leq \sup\{b_n : n \geq N\},
+\]
+and so
+\[
+  a_n + b_n \leq \sup\{a_n : n \geq N\} + \sup\{b_n : n \geq N\}.
+\]
+In other words, $\sup\{a_n : n \geq N\} + \sup\{b_n : n \geq N\}$ is an upper
+bound for the set $\{a_n + b_n : n \geq N\}$.
+Therefore
+\[
+  \sup\{a_n + b_n : n \geq N\} \leq \sup\{a_n : n \geq N\} + \sup\{b_n : n \geq N\}.
+\]
+Altogether, we have shown that for any $N \geq 1$ we have
+\[
+  \sup\{a_n + b_n : n \geq N\} \leq \sup\{a_n : n \geq N\} + \sup\{b_n : n \geq N\}.
+\]
+As $\{a_n\}$ is a bounded sequence, we know from lecture that the increasing
+sequence $v_N = \sup\{a_n : n \geq N\}$ converges to $v = \limsup a_n \in \mathbb{R}$.
+Similarly, as $\{b_n\}$ is bounded, the sequence $\sup\{b_n : n \geq N\}$
+converges to $\limsup b_n$ as $N \to \infty$.
+By the inequality above, we see that the sequence $\sup\{a_n + b_n : n \geq N\}$
+is also bounded above.
+Therefore $\limsup(a_n + b_n)$ is a finite number, and
+$\sup\{a_n + b_n : n \geq N\}$ converges to $\limsup(a_n + b_n)$ as $N \to \infty$.
+
+By the limit laws, the sequence
+\[
+  \sup\{a_n + b_n : n \geq N\} - \sup\{a_n : n \geq N\} - \sup\{b_n : n \geq N\}
+\]
+converges as $N \to \infty$.
+We also know that it is $\leq 0$ for all $N \geq 1$.
+Therefore, by HW4\#3, the limit is also $\leq 0$:
+\begin{align*}
+  \limsup_{n \to \infty}(a_n + b_n)
+  - \limsup_{n \to \infty} a_n
+  - \limsup_{n \to \infty} b_n
+  &\leq 0 \\[4pt]
+  \implies \quad
+  \limsup_{n \to \infty}(a_n + b_n)
+  &\leq \limsup_{n \to \infty} a_n + \limsup_{n \to \infty} b_n.
+\end{align*}
+\hfill$\square$
+\end{tcolorbox}
+
+\bigskip
+
+% ── Reflection / Variation ────────────────────────────────────────────────────
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = reflectcyan,
+  colframe = cyan!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Reflection \& Variation}}
+]
+\fillfield{What was the two-step structure of the proof (pointwise, then limit)?}
+\fillfield{Why can equality fail in general? Give a quick example.}
+\fillfieldlong{%
+  Could you prove the analogous statement for $\liminf$?
+  What inequality direction would you get?}
+\fillfield{What nearby exam variation could appear?}
+\end{tcolorbox}
+
+% ─────────────────────────────────────────────────────────────────────────────
+%  HW5 · PROBLEM 4
+% ─────────────────────────────────────────────────────────────────────────────
+\newpage
+\subsection{Problem 4}
+
+% ── 0. Problem Statement ──────────────────────────────────────────────────────
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = probblue,
+  colframe = blue!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Problem Statement}\hfill Homework 5, Problem 4}
+]
+Let $\{a_n\}_{n \geq 1}$ be a sequence.
+Prove that
+\[
+  \limsup_{n \to \infty} |a_n| = 0
+  \quad \text{if and only if} \quad
+  \lim_{n \to \infty} a_n = 0.
+\]
+\end{tcolorbox}
+
+\bigskip
+
+% ── Pass 1: First Diagnosis ───────────────────────────────────────────────────
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass1green,
+  colframe = green!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 1 \enspace\textbf{--}\enspace First Diagnosis}
+]
+\fillfield{Topic}
+\fillfield{What is being asked?}
+\fillfieldlong{Definitions likely relevant}
+\fillfieldlong{Theorem / proof method likely relevant}
+\fillfield{What should the first line of the proof be?}
+\end{tcolorbox}
+
+\bigskip
+
+% ── Pass 2: Proof Recipe Card ─────────────────────────────────────────────────
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass2yellow,
+  colframe = yellow!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 2 \enspace\textbf{--}\enspace Proof Recipe Card}
+]
+\fillfield{Hypotheses}
+\fillfield{Conclusion}
+\fillfieldlong{Definitions to unpack ($\limsup$, $\liminf$, $\lim$)}
+\fillfield{Useful theorem / lemma (hint: Lecture 10, Lecture 14, HW4)}
+\fillfield{Key sandwich / squeeze in the ($\Rightarrow$) direction:}
+\fillfieldlong{One-sentence proof strategy for each direction}
+\end{tcolorbox}
+
+\bigskip
+
+% ── Pass 3: Self-Explanation ──────────────────────────────────────────────────
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass3orange,
+  colframe = orange!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 3 \enspace\textbf{--}\enspace Self-Explanation}
+]
+\fillfield{Why is $\liminf |a_n| \geq 0$ always true?}
+\fillfield{What does the sandwich $0 \leq \liminf|a_n| \leq \limsup|a_n| = 0$ give you?}
+\fillfield{Which lecture result converts $\liminf = \limsup$ into an ordinary limit?}
+\fillfield{Why does $||a_n| - 0| < \epsilon$ imply $|a_n - 0| < \epsilon$?}
+\fillfield{In the ($\Leftarrow$) direction, which earlier result lets you go from $\lim a_n = 0$ to $\lim |a_n| = 0$?}
+\fillfield{Common mistake: assuming $\limsup |a_n| = 0$ directly gives $|a_n| \to 0$ without justification.}
+\end{tcolorbox}
+
+\newpage
+
+% ── Pass 4: Skeleton Proof ────────────────────────────────────────────────────
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass4purple,
+  colframe = purple!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 4 \enspace\textbf{--}\enspace Skeleton Proof}
+]
+\noindent\textbf{($\Rightarrow$) Suppose $\limsup |a_n| = 0$.}
+
+\medskip
+\noindent\textit{Claim:} $\liminf |a_n| \geq 0$.\par
+\writespace{1.4cm}
+
+\noindent\textit{Sandwich:}\par
+\writespace{1.2cm}
+
+\noindent\textit{Conclude $\liminf = \limsup$, apply Lecture~10:}\par
+\writespace{1.2cm}
+
+\noindent\textit{Convert $\lim |a_n| = 0$ to $\lim a_n = 0$:}\par
+\writespace{1.4cm}
+
+\noindent\rule{\linewidth}{0.4pt}
+\vspace{2pt}
+
+\noindent\textbf{($\Leftarrow$) Suppose $\lim a_n = 0$.}
+
+\medskip
+\noindent\textit{Apply HW4\#1:}\par
+\writespace{1.2cm}
+
+\noindent\textit{Apply Lecture~14:}\par
+\writespace{1.2cm}
+
+\noindent\textbf{Conclusion:}\par
+\writespace{0.8cm}
+\end{tcolorbox}
+
+\newpage
+
+% ── Pass 5: Full Proof Attempt ────────────────────────────────────────────────
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass5gray,
+  colframe = black!38,
+  fonttitle = \bfseries,
+  title = {Pass 5 \enspace\textbf{--}\enspace Full Proof Attempt}
+]
+\small\itshape Write a complete proof before reading the Official Solution.\par
+\normalfont\normalsize
+\writespace{19cm}
+\end{tcolorbox}
+
+\newpage
+
+% ── Official Solution ─────────────────────────────────────────────────────────
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = solgreen,
+  colframe = green!45!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Official Solution}\hfill Homework 5 -- Selected Solutions}
+]
+\textbf{Problem 4.}
+Let $\{a_n\}_{n \geq 1}$ be a sequence.
+Prove that $\limsup_{n \to \infty} |a_n| = 0$ if and only if
+$\lim_{n \to \infty} a_n = 0$.
+
+\medskip
+\textbf{Solution:}
+
+\medskip
+($\Rightarrow$) Suppose $\limsup |a_n| = 0$.
+
+Claim: $\liminf |a_n| \geq 0$.
+As $|a_n| \geq 0$ for all $n$, we have
+\[
+  \inf_{n \geq N} |a_n| \geq 0 \quad \text{for all } N \geq 1.
+\]
+Therefore
+\[
+  \lim_{N \to \infty} \inf_{n \geq N} |a_n| \geq 0
+\]
+by HW4\#3.
+
+Altogether, we have
+\[
+  0 \leq \liminf |a_n| \leq \limsup |a_n| = 0.
+\]
+Therefore
+\[
+  \liminf |a_n| = 0 = \limsup |a_n|.
+\]
+By Lecture~10, this means that
+\[
+  \lim |a_n| = 0.
+\]
+In other words: for all $\epsilon > 0$ there exists $N$ so that
+\[
+  \bigl||a_n| - 0\bigr| < \epsilon \quad \text{for all } n \geq N.
+\]
+This is the same as: for all $\epsilon > 0$ there exists $N$ so that
+\[
+  |a_n - 0| < \epsilon \quad \text{for all } n \geq N.
+\]
+So $\lim a_n = 0$.
+
+\medskip
+($\Leftarrow$) Suppose $\lim a_n = 0$.
+By HW4\#1, this implies
+\[
+  \lim |a_n| = 0.
+\]
+By Lecture~14, we have
+\[
+  \liminf |a_n| = 0 = \limsup |a_n|.
+\]
+So $\limsup |a_n| = 0$, as desired.\hfill$\square$
+\end{tcolorbox}
+
+\bigskip
+
+% ── Reflection / Variation ────────────────────────────────────────────────────
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = reflectcyan,
+  colframe = cyan!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Reflection \& Variation}}
+]
+\fillfield{What does Lecture~10 say, and why does it apply here?}
+\fillfield{What does Lecture~14 say, and why does it apply in the ($\Leftarrow$) direction?}
+\fillfieldlong{%
+  What would change if the statement were $\limsup a_n = 0 \iff \lim a_n = 0$?
+  Is this even true? Construct a counterexample or prove it.}
+\fillfield{What nearby exam variation could appear?}
+\end{tcolorbox}
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  HOMEWORK 6  (placeholder)
+% ══════════════════════════════════════════════════════════════════════════════
+\newpage
+\section{Homework 6}
+
+% ─────────────────────────────────────────────────────────────────────────────
+%  HW6 · PROBLEM 1
+% ─────────────────────────────────────────────────────────────────────────────
+\newpage
+\subsection{Problem 1}
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = probblue,
+  colframe = blue!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Problem Statement}\hfill Homework 6, Problem 1}
+]
+Prove that the series
+\[
+  \sum_{n=1}^{\infty} \frac{1}{(3n-2)(3n+1)}
+\]
+converges, and find its value.
+(Hint: You computed the partial sums on Homework~1.)
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass1green,
+  colframe = green!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 1 \enspace\textbf{--}\enspace First Diagnosis}
+]
+\fillfield{Topic}
+\fillfield{What two things are you asked to show?}
+\fillfieldlong{Definitions likely relevant}
+\fillfield{What does the hint suggest? What technique applies here?}
+\fillfieldlong{Partial fractions: how would you decompose $\frac{1}{(3n-2)(3n+1)}$?}
+\fillfield{What should the first line of the proof be?}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass2yellow,
+  colframe = yellow!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 2 \enspace\textbf{--}\enspace Proof Recipe Card}
+]
+\fillfield{Hypotheses}
+\fillfield{Conclusion (convergence and value)}
+\fillfieldlong{Partial fractions decomposition: $\frac{1}{(3n-2)(3n+1)} =$}
+\fillfield{Closed form for $s_n$ after telescoping:}
+\fillfield{Key limit needed to conclude:}
+\fillfieldlong{One-sentence proof strategy}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass3orange,
+  colframe = orange!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 3 \enspace\textbf{--}\enspace Self-Explanation}
+]
+\fillfield{What is the partial fractions decomposition, and how do you verify it?}
+\fillfield{Which terms cancel in the telescoping sum?}
+\fillfield{What is the closed form for $s_n$?}
+\fillfield{What limit do you evaluate to finish, and why does it exist?}
+\fillfield{Common mistake: stating the value without proving $s_n$ converges.}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass4purple,
+  colframe = purple!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 4 \enspace\textbf{--}\enspace Skeleton Proof}
+]
+\noindent\textbf{Partial fractions decomposition:}\par
+\writespace{1.8cm}
+
+\noindent\textbf{$n$th partial sum $s_n$ (telescope and simplify):}\par
+\writespace{2.4cm}
+
+\noindent\textbf{Evaluate $\lim_{n\to\infty} s_n$:}\par
+\writespace{1.8cm}
+
+\noindent\textbf{Conclusion (convergence + value):}\par
+\writespace{1.0cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass5gray,
+  colframe = black!38,
+  fonttitle = \bfseries,
+  title = {Pass 5 \enspace\textbf{--}\enspace Full Proof Attempt}
+]
+\small\itshape Write a complete proof before reading the Official Solution.\par
+\normalfont\normalsize
+\writespace{19cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = solgreen,
+  colframe = green!45!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Official Solution}\hfill Homework 6 -- Selected Solutions}
+]
+\textbf{Problem 1.}
+Prove that $\displaystyle\sum_{n=1}^{\infty} \frac{1}{(3n-2)(3n+1)}$ converges,
+and find its value.
+
+\medskip
+\textit{No official solution was provided in the Homework~6 Selected Solutions packet.}
+
+\medskip
+The hint states: ``You computed the partial sums on Homework~1.''
+This points to a partial fractions decomposition that produces a telescoping partial sum.
+Write and verify your own solution in Pass~5 above, then check it independently.
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = reflectcyan,
+  colframe = cyan!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Reflection \& Variation}}
+]
+\fillfield{What was the partial fractions decomposition?}
+\fillfield{What did $s_n$ simplify to after telescoping?}
+\fillfieldlong{What is the general strategy for proving convergence and finding the value of a telescoping series?}
+\fillfield{What nearby exam variation could appear?}
+\end{tcolorbox}
+
+% ─────────────────────────────────────────────────────────────────────────────
+%  HW6 · PROBLEM 2
+% ─────────────────────────────────────────────────────────────────────────────
+\newpage
+\subsection{Problem 2}
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = probblue,
+  colframe = blue!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Problem Statement}\hfill Homework 6, Problem 2}
+]
+Let $\sum_{n=1}^{\infty} a_n$ and $\sum_{n=1}^{\infty} b_n$ be convergent series.
+\begin{itemize}[nosep, leftmargin=1.8em]
+  \item[(a)] Prove that for any $k \in \mathbb{R}$, the series $\sum_{n=1}^{\infty} ka_n$
+    converges and
+    \[
+      \sum_{n=1}^{\infty} ka_n = k\sum_{n=1}^{\infty} a_n.
+    \]
+  \item[(b)] Prove that the series $\sum_{n=1}^{\infty}(a_n + b_n)$ converges and
+    \[
+      \sum_{n=1}^{\infty}(a_n + b_n) = \sum_{n=1}^{\infty} a_n + \sum_{n=1}^{\infty} b_n.
+    \]
+\end{itemize}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass1green,
+  colframe = green!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 1 \enspace\textbf{--}\enspace First Diagnosis}
+]
+\fillfield{Topic}
+\fillfield{What is being asked in (a)? In (b)?}
+\fillfieldlong{Definitions likely relevant (partial sums, convergence of a series)}
+\fillfield{Which limit law applies in (a)? In (b)?}
+\fillfield{What should the first line of each proof be?}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass2yellow,
+  colframe = yellow!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 2 \enspace\textbf{--}\enspace Proof Recipe Card}
+]
+\fillfield{Hypotheses}
+\fillfield{Conclusion for (a) / Conclusion for (b)}
+\fillfield{Let $s_n = \sum_{j=1}^n a_j$. The partial sums of $\sum ka_n$ equal:}
+\fillfield{Let $t_n = \sum_{j=1}^n b_j$. The partial sums of $\sum(a_n+b_n)$ equal:}
+\fillfield{Limit law used in (a):}
+\fillfield{Limit law used in (b):}
+\fillfieldlong{One-sentence proof strategy (same idea for both parts)}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass3orange,
+  colframe = orange!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 3 \enspace\textbf{--}\enspace Self-Explanation}
+]
+\fillfield{Why do the partial sums of $\sum ka_n$ equal $ks_n$?}
+\fillfield{Why do the partial sums of $\sum(a_n+b_n)$ equal $s_n + t_n$?}
+\fillfield{What does it mean, by definition, for a series to converge to a number $L$?}
+\fillfield{What limit law is being applied, and what does it say?}
+\fillfield{Common mistake: confusing convergence of $\{a_n\}$ with convergence of $\sum a_n$.}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass4purple,
+  colframe = purple!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 4 \enspace\textbf{--}\enspace Skeleton Proof}
+]
+\noindent\textbf{(a) Define $s_n$; identify partial sums of $\sum ka_n$:}\par
+\writespace{1.6cm}
+
+\noindent\textbf{(a) Apply limit law; conclude:}\par
+\writespace{1.6cm}
+
+\noindent\rule{\linewidth}{0.4pt}\vspace{2pt}
+
+\noindent\textbf{(b) Define $s_n$, $t_n$; identify partial sums of $\sum(a_n+b_n)$:}\par
+\writespace{1.6cm}
+
+\noindent\textbf{(b) Apply limit law; conclude:}\par
+\writespace{1.6cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass5gray,
+  colframe = black!38,
+  fonttitle = \bfseries,
+  title = {Pass 5 \enspace\textbf{--}\enspace Full Proof Attempt}
+]
+\small\itshape Write a complete proof before reading the Official Solution.\par
+\normalfont\normalsize
+\writespace{19cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = solgreen,
+  colframe = green!45!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Official Solution}\hfill Homework 6 -- Selected Solutions}
+]
+\textbf{Problem 2.}
+Let $\sum_{n=1}^{\infty} a_n$ and $\sum_{n=1}^{\infty} b_n$ be convergent series.
+
+\medskip\textbf{Solution:}
+
+\medskip
+(a) Let $s_n = \sum_{j=1}^{n} a_j$ denote the $n$th partial sum.
+As $\sum a_n$ converges, we know that the sequence $\{s_n\}$ converges.
+Fix $k \in \mathbb{R}$.
+Then the partial sums $\sum_{j=1}^{n} ka_j$ are equal to $ks_n$.
+By the limit law for multiplication by a constant, we conclude that the sequence
+$\{ks_n\}_{n\geq 1}$ converges and $\lim(ks_n) = k\lim s_n$.
+By definition, this is exactly what it means for the series $\sum ka_n$ to converge
+to the number $k\sum a_n$.
+
+\medskip
+(b) Let $s_n = \sum_{j=1}^{n} a_j$ and $t_n = \sum_{j=1}^{n} b_j$ denote the $n$th
+partial sums.
+As $\sum a_n$ and $\sum b_n$ converge, we know that the sequences $\{s_n\}$ and
+$\{t_n\}$ converge.
+Note that the partial sums $\sum_{j=1}^{n}(a_j + b_j)$ are equal to $s_n + t_n$.
+By the limit law for addition, we conclude that the sequence $\{s_n + t_n\}_{n \geq 1}$
+converges and $\lim(s_n + t_n) = \lim s_n + \lim t_n$.
+By definition, this is exactly what it means for the series $\sum(a_n + b_n)$ to
+converge to the number $\sum a_n + \sum b_n$.\hfill$\square$
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = reflectcyan,
+  colframe = cyan!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Reflection \& Variation}}
+]
+\fillfield{What definition of series convergence was the key tool here?}
+\fillfield{Does the result extend to $\sum(a_n - b_n)$? Why or why not?}
+\fillfieldlong{Can you use these results to show $\sum c_n$ diverges if it can be written as a linear combination of series one of which diverges?}
+\fillfield{What nearby exam variation could appear?}
+\end{tcolorbox}
+
+% ─────────────────────────────────────────────────────────────────────────────
+%  HW6 · PROBLEM 3
+% ─────────────────────────────────────────────────────────────────────────────
+\newpage
+\subsection{Problem 3}
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = probblue,
+  colframe = blue!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Problem Statement}\hfill Homework 6, Problem 3}
+]
+\begin{itemize}[nosep, leftmargin=1.8em]
+  \item[(a)] Prove that
+    \[
+      \sum_{n=1}^{\infty} \frac{n-1}{2^{n+1}} = \frac{1}{2}.
+    \]
+    \(\bigl(\)Hint: $\dfrac{k-1}{2^{k+1}} = \dfrac{k}{2^{k}} - \dfrac{k+1}{2^{k+1}}$.$\bigr)$
+  \item[(b)] Use part~(a) to compute $\displaystyle\sum_{n=1}^{\infty} \frac{n}{2^n}$.
+\end{itemize}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass1green,
+  colframe = green!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 1 \enspace\textbf{--}\enspace First Diagnosis}
+]
+\fillfield{Topic}
+\fillfield{What is being asked in (a)? In (b)?}
+\fillfieldlong{Definitions likely relevant (partial sums, induction, subsequences)}
+\fillfield{What does the hint in (a) suggest about how to use the inductive step?}
+\fillfield{How does part (b) reduce to part (a) via Problem~2?}
+\fillfield{What should the first line of the proof of (a) be?}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass2yellow,
+  colframe = yellow!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 2 \enspace\textbf{--}\enspace Proof Recipe Card}
+]
+\fillfield{Hypotheses for (a)}
+\fillfield{Claim to prove by induction in (a): $s_n =$}
+\fillfield{How is the hint used in the inductive step?}
+\fillfield{Key limit needed ($\lim \frac{n}{2^n}$): prove it by}
+\fillfield{Algebraic identity used in (b): $\frac{k}{2^k} =$}
+\fillfieldlong{One-sentence proof strategy for (b)}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass3orange,
+  colframe = orange!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 3 \enspace\textbf{--}\enspace Self-Explanation}
+]
+\fillfield{What is the induction hypothesis, and what is the base case?}
+\fillfield{How does the hint rewrite the new term $\frac{n}{2^{n+2}}$ in the inductive step?}
+\fillfield{Why does $\frac{n+1}{2^{n+1}} \to 0$? (What earlier result is used?)}
+\fillfield{In (b), why does the algebraic identity allow you to apply Problem~2?}
+\fillfield{Common mistake: not justifying $\lim \frac{n}{2^n} = 0$ separately.}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass4purple,
+  colframe = purple!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 4 \enspace\textbf{--}\enspace Skeleton Proof}
+]
+\noindent\textbf{(a) Base case ($n=1$):}\par
+\writespace{1.2cm}
+
+\noindent\textbf{(a) Inductive step (apply hint to rewrite new term):}\par
+\writespace{2.5cm}
+
+\noindent\textbf{(a) Prove $\lim \frac{n}{2^n} = 0$ (squeeze):}\par
+\writespace{1.8cm}
+
+\noindent\textbf{(a) Conclude $\lim s_n$ and state the series value:}\par
+\writespace{1.2cm}
+
+\noindent\rule{\linewidth}{0.4pt}\vspace{2pt}
+
+\noindent\textbf{(b) Write $\frac{k}{2^k}$ in terms of parts you know; apply Problem~2:}\par
+\writespace{2.0cm}
+
+\noindent\textbf{(b) Conclude:}\par
+\writespace{1.0cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass5gray,
+  colframe = black!38,
+  fonttitle = \bfseries,
+  title = {Pass 5 \enspace\textbf{--}\enspace Full Proof Attempt}
+]
+\small\itshape Write a complete proof before reading the Official Solution.\par
+\normalfont\normalsize
+\writespace{19cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = solgreen,
+  colframe = green!45!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Official Solution}\hfill Homework 6 -- Selected Solutions}
+]
+\textbf{Problem 3.}
+
+\medskip\textbf{Solution:}
+
+\medskip
+(a) Let $s_n = \sum_{k=1}^{n} \frac{k-1}{2^{k+1}}$.
+We will prove that
+\[
+  s_n = \frac{1}{2} - \frac{n+1}{2^{n+1}} \quad \text{for } n \geq 1
+\]
+by induction.
+
+\textit{Base case:}
+$s_1 = \dfrac{0}{4} = \dfrac{1}{2} - \dfrac{2}{4}$. \checkmark
+
+\textit{Inductive step:}
+Assume $s_n = \frac{1}{2} - \frac{n+1}{2^{n+1}}$ for some $n \geq 1$.
+Then
+\[
+  s_{n+1}
+  = s_n + \frac{n}{2^{n+2}}
+  = \frac{1}{2} - \frac{n+1}{2^{n+1}} + \frac{n+1}{2^{n+1}} - \frac{n+2}{2^{n+2}}
+  = \frac{1}{2} - \frac{n+2}{2^{n+2}}.
+\]
+(In the second equality we used the hint with $k = n+1$:
+$\frac{n}{2^{n+2}} = \frac{n+1}{2^{n+1}} - \frac{n+2}{2^{n+2}}$.)
+By induction, the formula holds for all $n \geq 1$.
+
+Next, we claim that $\lim \dfrac{n}{2^n} = 0$.
+Notice that $n \leq \left(\dfrac{3}{2}\right)^{n}$ for all $n \geq 1$, and so
+\[
+  0 \leq \frac{n}{2^n} \leq \left(\frac{3/2}{2}\right)^n = \left(\frac{3}{4}\right)^n.
+\]
+The right-hand side converges to zero as $n \to \infty$.
+Therefore $\frac{n}{2^n}$ also converges to zero by the squeeze theorem.
+
+Altogether,
+\[
+  \lim_{n\to\infty} s_n
+  = \lim_{n\to\infty}\!\left(\frac{1}{2} - \frac{n+1}{2^{n+1}}\right) = \frac{1}{2}.
+\]
+(We noted that $\frac{n+1}{2^{n+1}}$ is a subsequence of $\frac{n}{2^n}$, and therefore
+also converges to zero.)
+By definition of a convergent series, $\displaystyle\sum_{n=1}^{\infty} \frac{n-1}{2^{n+1}} = \frac{1}{2}$.
+
+\medskip
+(b) Note that
+\[
+  \sum_{k=1}^{n} \frac{k}{2^k}
+  = 2\sum_{k=1}^{n} \frac{k-1}{2^{k+1}} + \sum_{k=1}^{n} \frac{1}{2^k}.
+\]
+By part~(a), $\sum \frac{k-1}{2^{k+1}}$ converges to $\frac{1}{2}$, so
+$2\sum \frac{k-1}{2^{k+1}}$ converges to $1$ by Problem~2.
+From lecture, the geometric series $\sum_{k=1}^{\infty} \frac{1}{2^k}$
+converges to $\frac{1}{1-(1/2)} - 1 = 1$.
+(We start at $k=1$, not $k=0$.)
+Together, $\displaystyle\sum_{k=1}^{\infty} \frac{k}{2^k}$ converges to $1 + 1 = 2$.\hfill$\square$
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = reflectcyan,
+  colframe = cyan!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Reflection \& Variation}}
+]
+\fillfield{What was the key inductive formula, and where did the hint enter?}
+\fillfield{Why was it enough to show $\lim \frac{n}{2^n} = 0$ by squeeze with $(3/4)^n$?}
+\fillfieldlong{In (b), identify which part of the solution used Problem~2 and which used the geometric series formula.}
+\fillfield{What nearby exam variation could appear?}
+\end{tcolorbox}
+
+% ─────────────────────────────────────────────────────────────────────────────
+%  HW6 · PROBLEM 4
+% ─────────────────────────────────────────────────────────────────────────────
+\newpage
+\subsection{Problem 4}
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = probblue,
+  colframe = blue!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Problem Statement}\hfill Homework 6, Problem 4}
+]
+Prove that if $\sum_{n=1}^{\infty} a_n$ converges absolutely and $\{b_n\}_{n \geq 1}$
+is a bounded sequence, then the series $\sum_{n=1}^{\infty} a_n b_n$ also converges.
+(Hint: Use the Cauchy criterion.)
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass1green,
+  colframe = green!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 1 \enspace\textbf{--}\enspace First Diagnosis}
+]
+\fillfield{Topic}
+\fillfield{What is being asked?}
+\fillfieldlong{Definitions likely relevant (absolute convergence, bounded, Cauchy criterion for series)}
+\fillfield{What does the hint suggest? State the Cauchy criterion for series.}
+\fillfield{What should the first line of the proof be?}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass2yellow,
+  colframe = yellow!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 2 \enspace\textbf{--}\enspace Proof Recipe Card}
+]
+\fillfield{Hypotheses (two: absolute convergence of $\sum a_n$; $|b_n| \leq M$)}
+\fillfield{Conclusion}
+\fillfieldlong{Unpack the Cauchy criterion: what does it give for $\sum |a_n|$?}
+\fillfield{Key inequality bounding $\bigl|\sum_{k=m}^{n} a_k b_k\bigr|$:}
+\fillfield{How do you choose $\epsilon'$ to make the bound $< \epsilon$?}
+\fillfieldlong{One-sentence proof strategy}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass3orange,
+  colframe = orange!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 3 \enspace\textbf{--}\enspace Self-Explanation}
+]
+\fillfield{State the Cauchy criterion for series convergence from memory.}
+\fillfield{Why does absolute convergence of $\sum a_n$ give Cauchy control on $\sum |a_k|$?}
+\fillfield{How does $|b_n| \leq M$ enter the estimate?}
+\fillfield{What is the central inequality chain: $\bigl|\sum_{k=m}^n a_k b_k\bigr| \leq \cdots$?}
+\fillfield{Common mistake: forgetting that $M$ is fixed, so dividing $\epsilon$ by $M$ is valid.}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass4purple,
+  colframe = purple!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 4 \enspace\textbf{--}\enspace Skeleton Proof}
+]
+\noindent\textbf{Setup: let $M$ bound $\{b_n\}$; fix $\epsilon > 0$:}\par
+\writespace{1.2cm}
+
+\noindent\textbf{Apply Cauchy criterion to $\sum |a_n|$ (choose $N$):}\par
+\writespace{1.8cm}
+
+\noindent\textbf{Estimate $\bigl|\sum_{k=m}^{n} a_k b_k\bigr|$ for $n \geq m \geq N$:}\par
+\writespace{2.2cm}
+
+\noindent\textbf{Conclude by the Cauchy criterion:}\par
+\writespace{1.0cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass5gray,
+  colframe = black!38,
+  fonttitle = \bfseries,
+  title = {Pass 5 \enspace\textbf{--}\enspace Full Proof Attempt}
+]
+\small\itshape Write a complete proof before reading the Official Solution.\par
+\normalfont\normalsize
+\writespace{19cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = solgreen,
+  colframe = green!45!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Official Solution}\hfill Homework 6 -- Selected Solutions}
+]
+\textbf{Problem 4.}
+Prove that if $\sum_{n=1}^{\infty} a_n$ converges absolutely and $\{b_n\}_{n \geq 1}$
+is a bounded sequence, then $\sum_{n=1}^{\infty} a_n b_n$ also converges.
+
+\medskip
+\textit{No official solution was provided in the Homework~6 Selected Solutions packet.}
+
+\medskip
+The hint states: ``Use the Cauchy criterion.''
+This points to estimating $\bigl|\sum_{k=m}^{n} a_k b_k\bigr|$ using the bound
+$|b_n| \leq M$ and the Cauchy condition on $\sum |a_k|$.
+Write and verify your own solution in Pass~5 above.
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = reflectcyan,
+  colframe = cyan!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Reflection \& Variation}}
+]
+\fillfield{State the Cauchy criterion for series. Why is it equivalent to convergence?}
+\fillfield{Where exactly did boundedness of $\{b_n\}$ enter the argument?}
+\fillfieldlong{Does the result hold if $\sum a_n$ converges but not absolutely? Give a counterexample or prove it.}
+\fillfield{What nearby exam variation could appear?}
+\end{tcolorbox}
+
+% ─────────────────────────────────────────────────────────────────────────────
+%  HW6 · PROBLEM 5
+% ─────────────────────────────────────────────────────────────────────────────
+\newpage
+\subsection{Problem 5}
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = probblue,
+  colframe = blue!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Problem Statement}\hfill Homework 6, Problem 5}
+]
+\begin{itemize}[nosep, leftmargin=1.8em]
+  \item[(a)] Prove that if $\sum_{n=1}^{\infty} a_n$ converges absolutely, then the series
+    $\sum_{n=1}^{\infty} a_n^2$ also converges.
+  \item[(b)] Provide an example where $\sum_{n=1}^{\infty} a_n$ diverges and
+    $\sum_{n=1}^{\infty} a_n^2$ converges.
+\end{itemize}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass1green,
+  colframe = green!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 1 \enspace\textbf{--}\enspace First Diagnosis}
+]
+\fillfield{Topic}
+\fillfield{What is being asked in (a)? In (b)?}
+\fillfieldlong{Definitions likely relevant (absolute convergence, comparison test)}
+\fillfield{Key algebraic fact about $x^2$ vs.\ $|x|$ when $|x| < 1$:}
+\fillfield{What should the first line of the proof of (a) be?}
+\fillfield{For (b): what is the simplest candidate series?}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass2yellow,
+  colframe = yellow!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 2 \enspace\textbf{--}\enspace Proof Recipe Card}
+]
+\fillfield{Hypothesis for (a)}
+\fillfield{Conclusion for (a)}
+\fillfield{Key inequality (for $|x| \leq 1$): $x^2 \leq$}
+\fillfield{Why does $a_n \to 0$ follow from absolute convergence?}
+\fillfield{Why does $|a_n| < 1$ eventually, and what does that give you?}
+\fillfield{Theorem used to conclude $\sum a_n^2$ converges:}
+\fillfieldlong{Example for (b): $a_n =$\hspace{1cm} Verify: $\sum a_n$ diverges because\hspace{0.5cm} $\sum a_n^2$ converges because}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass3orange,
+  colframe = orange!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 3 \enspace\textbf{--}\enspace Self-Explanation}
+]
+\fillfield{Why does $x^2 \leq |x|$ hold for $x \in [-1,1]$? (Draw the graphs mentally.)}
+\fillfield{How does absolute convergence give $a_n \to 0$, and then $|a_n| < 1$ eventually?}
+\fillfield{What is the comparison: $a_n^2 \leq$\enspace\hrulefill for all $n \geq N$?}
+\fillfield{Why does adding back finitely many terms not affect convergence?}
+\fillfield{For (b): why does the example work? Quote the lecture results used.}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass4purple,
+  colframe = purple!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 4 \enspace\textbf{--}\enspace Skeleton Proof}
+]
+\noindent\textbf{(a) State the key inequality ($x^2 \leq |x|$ on $[-1,1]$):}\par
+\writespace{1.2cm}
+
+\noindent\textbf{(a) Use $a_n \to 0$ to find $N$ with $|a_n| < 1$:}\par
+\writespace{1.6cm}
+
+\noindent\textbf{(a) Apply comparison test to $\sum_{n=N}^{\infty} a_n^2$:}\par
+\writespace{1.6cm}
+
+\noindent\textbf{(a) Extend to full series; conclude:}\par
+\writespace{1.2cm}
+
+\noindent\rule{\linewidth}{0.4pt}\vspace{2pt}
+
+\noindent\textbf{(b) State example and verify both claims:}\par
+\writespace{2.0cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass5gray,
+  colframe = black!38,
+  fonttitle = \bfseries,
+  title = {Pass 5 \enspace\textbf{--}\enspace Full Proof Attempt}
+]
+\small\itshape Write a complete proof before reading the Official Solution.\par
+\normalfont\normalsize
+\writespace{19cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = solgreen,
+  colframe = green!45!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Official Solution}\hfill Homework 6 -- Selected Solutions}
+]
+\textbf{Problem 5.}
+
+\medskip\textbf{Solution:}
+
+\medskip
+(a) Note that $x^2 \leq |x|$ for any $x \in [-1,1]$.
+(I recommend that you draw the graphs of $x^2$ and $|x|$ to check that this is true.)
+
+As $\sum a_n$ converges absolutely, we have $\lim a_n = 0$, and so there exists an $N$
+so that $|a_n| < 1$ for all $n \geq N$.
+By the previous paragraph, this means that $a_n^2 \leq |a_n|$ for all $n \geq N$.
+As $\sum |a_n|$ converges, then $\sum_{n=N}^{\infty} a_n^2$ also converges by the
+comparison test.
+Adding the first $N-1$ terms back in, we conclude $\sum_{n=1}^{\infty} a_n^2$
+converges as well.
+
+\medskip
+(b) Consider $a_n = \dfrac{1}{n}$.
+In lecture, we proved that $\sum \dfrac{1}{n}$ diverges and $\sum \dfrac{1}{n^2}$
+converges.\hfill$\square$
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = reflectcyan,
+  colframe = cyan!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Reflection \& Variation}}
+]
+\fillfield{Why does the proof need $|a_n| < 1$? Where exactly does it enter?}
+\fillfield{Is the converse of (a) true: if $\sum a_n^2$ converges, must $\sum a_n$ converge absolutely?}
+\fillfieldlong{Could you weaken the hypothesis to ``$\sum a_n$ converges (not necessarily absolutely)''? Where does the proof break?}
+\fillfield{What nearby exam variation could appear?}
+\end{tcolorbox}
+
+% ─────────────────────────────────────────────────────────────────────────────
+%  HW6 · PROBLEM 6
+% ─────────────────────────────────────────────────────────────────────────────
+\newpage
+\subsection{Problem 6}
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = probblue,
+  colframe = blue!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Problem Statement}\hfill Homework 6, Problem 6}
+]
+For each of the following series, determine if it converges and prove your answer.
+\[
+  \text{(a)}\quad \sum_{n=2}^{\infty} \frac{1}{[n+(-1)^n]^2}
+  \qquad
+  \text{(b)}\quad \sum_{n=1}^{\infty}\bigl(\sqrt{n+1}-\sqrt{n}\bigr)
+  \qquad
+  \text{(c)}\quad \sum_{n=1}^{\infty}(-1)^n
+\]
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass1green,
+  colframe = green!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 1 \enspace\textbf{--}\enspace First Diagnosis}
+]
+\fillfield{Topic}
+\fillfield{Verdict for (a) (converges / diverges):}
+\fillfield{Verdict for (b) (converges / diverges):}
+\fillfield{Verdict for (c) (converges / diverges):}
+\fillfieldlong{Test / method for (a) / (b) / (c):}
+\fillfield{What should the first line of each proof be?}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass2yellow,
+  colframe = yellow!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 2 \enspace\textbf{--}\enspace Proof Recipe Card}
+]
+\fillfield{(a) Bound: $\frac{1}{[n+(-1)^n]^2} \leq$ \hrulefill (why does $n+(-1)^n \geq n-1$?)}
+\fillfield{(a) Comparison series (known to converge):}
+\fillfield{(b) Closed form for $s_n = \sum_{k=1}^n (\sqrt{k+1}-\sqrt{k})$:}
+\fillfield{(b) Why does $s_n \to +\infty$?}
+\fillfield{(c) Key theorem: if $\sum a_n$ converges, then $\lim a_n =$}
+\fillfield{(c) Why does $(-1)^n \not\to 0$?}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass3orange,
+  colframe = orange!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 3 \enspace\textbf{--}\enspace Self-Explanation}
+]
+\fillfield{(a) Why is $n+(-1)^n \geq n-1 \geq 1$ for $n \geq 2$?}
+\fillfield{(a) What is the comparison series, and what makes it convergent?}
+\fillfield{(b) How do you prove the closed form $s_n = \sqrt{n+1}-1$ by induction?}
+\fillfield{(b) What is the proof that $s_n \to +\infty$ (give the $N$ in terms of $M$)?}
+\fillfield{(c) What is Lecture~16's result, and how does it give the contradiction?}
+\fillfield{Common mistake in (c): thinking divergence of terms implies divergence of series (wrong direction).}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass4purple,
+  colframe = purple!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 4 \enspace\textbf{--}\enspace Skeleton Proof}
+]
+\noindent\textbf{(a) State bound and comparison series; apply comparison test:}\par
+\writespace{2.2cm}
+
+\noindent\rule{\linewidth}{0.4pt}\vspace{2pt}
+
+\noindent\textbf{(b) Claim $s_n = \sqrt{n+1}-1$; induction base case:}\par
+\writespace{1.2cm}
+
+\noindent\textbf{(b) Inductive step:}\par
+\writespace{1.6cm}
+
+\noindent\textbf{(b) Show $s_n \to +\infty$ (given $M>0$, choose $N$):}\par
+\writespace{1.6cm}
+
+\noindent\rule{\linewidth}{0.4pt}\vspace{2pt}
+
+\noindent\textbf{(c) Contradiction argument (Lecture~16 + Lecture~10):}\par
+\writespace{1.8cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass5gray,
+  colframe = black!38,
+  fonttitle = \bfseries,
+  title = {Pass 5 \enspace\textbf{--}\enspace Full Proof Attempt}
+]
+\small\itshape Write a complete proof before reading the Official Solution.\par
+\normalfont\normalsize
+\writespace{19cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = solgreen,
+  colframe = green!45!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Official Solution}\hfill Homework 6 -- Selected Solutions}
+]
+\textbf{Problem 6.}
+For each of the following series, determine if it converges and prove your answer.
+
+\medskip\textbf{Solution:}
+
+\medskip
+(a) We will prove that this series \textbf{converges}.
+For $n \geq 2$, we have
+\[
+  \frac{1}{[n+(-1)^n]^2} \leq \frac{1}{(n-1)^2}.
+\]
+From lecture, we know that the series
+$\displaystyle\sum_{n=2}^{\infty} \frac{1}{(n-1)^2} = \sum_{k=1}^{\infty} \frac{1}{k^2}$
+converges.
+Therefore our series $\sum \frac{1}{[n+(-1)^n]^2}$ also converges by the comparison test.
+
+\medskip
+(b) We will prove that this series \textbf{diverges}.
+Let $s_n = \sum_{k=1}^{n}(\sqrt{k+1}-\sqrt{k})$ denote the $n$th partial sum.
+
+\textit{Claim:} $s_n = \sqrt{n+1}-1$ for all $n \geq 1$.
+We argue by induction.
+\begin{itemize}[nosep, leftmargin=1.5em]
+  \item \textit{Base case:} For $n=1$, $s_1 = \sqrt{2}-\sqrt{1} = \sqrt{2}-1$. \checkmark
+  \item \textit{Inductive step:} Suppose $s_n = \sqrt{n+1}-1$ for some $n \geq 1$. Then
+    \begin{align*}
+      s_{n+1}
+      &= s_n + (\sqrt{n+2}-\sqrt{n+1}) \\
+      &= (\sqrt{n+1}-1)+(\sqrt{n+2}-\sqrt{n+1}) = \sqrt{n+2}-1.
+    \end{align*}
+\end{itemize}
+By induction, $s_n = \sqrt{n+1}-1$ for all $n \geq 1$.
+
+Notice that $s_n = \sqrt{n+1}-1$ diverges to $+\infty$.
+Indeed, given $M > 0$, pick $N \in \mathbb{N}$ so that $N > (M+1)^2$.
+Then for any $n \geq N$:
+\[
+  \sqrt{n+1}-1 \geq \sqrt{N}-1 > \sqrt{(M+1)^2}-1 = M.
+\]
+As $\{s_n\}$ diverges, the series $\sum(\sqrt{n+1}-\sqrt{n})$ diverges.
+
+\medskip
+(c) We will prove that this series \textbf{diverges}.
+Suppose towards a contradiction that $\sum(-1)^n$ converges.
+Then $\lim(-1)^n = 0$ by Lecture~16.
+However, we know that the sequence $\{(-1)^n\}$ diverges by Lecture~10, and so this
+is a contradiction.\hfill$\square$
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = reflectcyan,
+  colframe = cyan!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Reflection \& Variation}}
+]
+\fillfield{(a) What is the comparison test, and why is the bound $\frac{1}{(n-1)^2}$ valid?}
+\fillfield{(b) The partial sums telescope. Why does a telescoping series diverge here?}
+\fillfield{(c) State Lecture~16's result (``necessary condition for convergence'') precisely.}
+\fillfieldlong{What is the contrast between (a) and (b)? Both involve terms that shrink. Why does one converge and the other diverge?}
+\fillfield{What nearby exam variation could appear?}
+\end{tcolorbox}
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  HOMEWORK 7  (placeholder)
+% ══════════════════════════════════════════════════════════════════════════════
+\newpage
+\section{Homework 7}
+
+% ─────────────────────────────────────────────────────────────────────────────
+%  HW7 · PROBLEM 1
+% ─────────────────────────────────────────────────────────────────────────────
+\newpage
+\subsection{Problem 1}
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = probblue,
+  colframe = blue!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Problem Statement}\hfill Homework 7, Problem 1}
+]
+For each of the following series, determine if it converges and prove your answer.
+\[
+  \text{(a)}\;\sum_{n=2}^{\infty}\frac{1}{\log n}
+  \qquad
+  \text{(b)}\;\sum_{n=1}^{\infty}\frac{n-1}{n^2}
+  \qquad
+  \text{(c)}\;\sum_{n=1}^{\infty}\frac{n^2}{n!}
+\]
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass1green,
+  colframe = green!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 1 \enspace\textbf{--}\enspace First Diagnosis}
+]
+\fillfield{Topic}
+\fillfield{Verdict for (a):}
+\fillfield{Verdict for (b):}
+\fillfield{Verdict for (c):}
+\fillfieldlong{Test / method for each part:}
+\fillfield{What should the first line of each proof be?}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass2yellow,
+  colframe = yellow!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 2 \enspace\textbf{--}\enspace Proof Recipe Card}
+]
+\fillfield{(a) Test used: \enspace Key comparison / bound:}
+\fillfield{(a) Series you compare to, and why it diverges:}
+\fillfield{(b) Key inequality: for $n \geq 2$, $\frac{n-1}{n^2} \geq$}
+\fillfield{(b) Series you compare to, and why it diverges:}
+\fillfield{(c) Compute $\left|\frac{a_{n+1}}{a_n}\right|$ for $a_n = \frac{n^2}{n!}$:}
+\fillfield{(c) $\lim\left|\frac{a_{n+1}}{a_n}\right| =$\hspace{1cm} Conclusion:}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass3orange,
+  colframe = orange!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 3 \enspace\textbf{--}\enspace Self-Explanation}
+]
+\fillfield{(a) What is the dyadic criterion, and how does it apply here?}
+\fillfield{(a) Why does $2^n a_{2^n} \geq \frac{1}{\log 2}\cdot\frac{2^n}{n+1}$ and why does this diverge?}
+\fillfield{(b) Why does $n-1 \geq n/2$ for $n \geq 2$? What does this give for $\frac{n-1}{n^2}$?}
+\fillfield{(c) Why does $\left|\frac{a_{n+1}}{a_n}\right| \to 0$? Which step in the simplification is key?}
+\fillfield{Common mistake: applying ratio test to (a) — the limit is 1, so the test is inconclusive.}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass4purple,
+  colframe = purple!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 4 \enspace\textbf{--}\enspace Skeleton Proof}
+]
+\noindent\textbf{(a) State $a_k$ for dyadic criterion; verify $\{a_k\}$ is decreasing and nonneg:}\par
+\writespace{1.2cm}
+\noindent\textbf{(a) Compute $2^n a_{2^n}$; show it diverges to $+\infty$:}\par
+\writespace{1.8cm}
+\noindent\textbf{(a) Conclude:}\par
+\writespace{0.8cm}
+
+\noindent\rule{\linewidth}{0.4pt}\vspace{2pt}
+
+\noindent\textbf{(b) State key inequality for $n \geq 2$:}\par
+\writespace{1.2cm}
+\noindent\textbf{(b) Name comparison series; conclude:}\par
+\writespace{1.2cm}
+
+\noindent\rule{\linewidth}{0.4pt}\vspace{2pt}
+
+\noindent\textbf{(c) Compute $\left|\frac{a_{n+1}}{a_n}\right|$ and simplify:}\par
+\writespace{1.4cm}
+\noindent\textbf{(c) State $\limsup\left|\frac{a_{n+1}}{a_n}\right|$; conclude by ratio test:}\par
+\writespace{1.0cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass5gray,
+  colframe = black!38,
+  fonttitle = \bfseries,
+  title = {Pass 5 \enspace\textbf{--}\enspace Full Proof Attempt}
+]
+\small\itshape Write a complete proof before reading the Official Solution.\par
+\normalfont\normalsize
+\writespace{19cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = solgreen,
+  colframe = green!45!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Official Solution}\hfill Homework 7 -- Solutions}
+]
+\textbf{Problem 1.}
+
+\medskip\textbf{Solution:}
+
+\medskip
+(a) We'll use the dyadic criterion.
+Consider the series $\sum_{k=1}^{\infty} a_k$ with $a_k = \frac{1}{\log(k+1)}$ for $k \geq 1$.
+(Strictly speaking, in order to apply the dyadic criterion we need a series that starts at
+$n=1$, so we reindexed.)
+
+Then $\{a_k\}_{k\geq 1}$ is a decreasing sequence of nonneg\-ative numbers.
+Therefore, by the dyadic criterion, $\sum_{k=1}^{\infty} a_k$ converges if and only if
+$\sum_{n=0}^{\infty} 2^n a_{2^n}$ converges.
+Note that
+\[
+  2^n a_{2^n} = \frac{2^n}{\log(2^n+1)} \geq \frac{2^n}{\log(2^{n+1})} = \frac{1}{\log 2}\cdot\frac{2^n}{n+1}.
+\]
+Now, the sequence $\frac{2^n}{n+1}$ diverges to $+\infty$, and so it cannot converge to~$0$.
+Multiplying by the constant $\frac{1}{\log 2}$, we see that $2^n a_{2^n}$ also cannot
+converge to~$0$.
+Therefore the series $\sum 2^n a_{2^n}$ diverges, and thus $\sum a_k$ \textbf{diverges}.
+
+\medskip
+(b) We'll use the comparison test.
+For $n \geq 2$, we have
+\[
+  n-1 \geq n - \frac{n}{2} = \frac{n}{2}
+  \implies
+  \frac{n-1}{n^2} \geq \frac{n/2}{n^2} = \frac{1}{2n}.
+\]
+From lecture we know that $\sum \frac{1}{n}$ diverges, and thus $\sum_{n=2}^{\infty}\frac{1}{2n}$
+diverges as well.
+Therefore, by the comparison test, $\sum_{n=2}^{\infty}\frac{n-1}{n^2}$ also
+\textbf{diverges}.
+(Note that $\frac{n-1}{n^2} = 0$ for $n=1$, so $\sum_{n=2}^{\infty}$ and
+$\sum_{n=1}^{\infty}$ are the same series.)
+
+\medskip
+(c) We'll use the ratio test.
+Set $a_n = \frac{n^2}{n!}$.
+Then
+\[
+  \left|\frac{a_{n+1}}{a_n}\right|
+  = \frac{(n+1)^2 \cdot n!}{n^2 \cdot (n+1)!}
+  = \frac{(n+1)^2}{n^2(n+1)}
+  = \frac{n+1}{n^2}
+  \to 0 \quad\text{as } n\to\infty.
+\]
+Therefore
+\[
+  \limsup\left|\frac{a_{n+1}}{a_n}\right| = \lim\left|\frac{a_{n+1}}{a_n}\right| = 0 < 1,
+\]
+and so the series \textbf{converges} by the ratio test.\hfill$\square$
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = reflectcyan,
+  colframe = cyan!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Reflection \& Variation}}
+]
+\fillfield{State the dyadic criterion precisely. Why does it apply in (a)?}
+\fillfield{Why does the ratio test fail on (a)? What is $\lim|a_{n+1}/a_n|$ and why is that inconclusive?}
+\fillfieldlong{In (b), why was it sufficient to find a lower bound by $\frac{1}{2n}$ rather than trying the ratio test?}
+\fillfield{What nearby exam variation could appear?}
+\end{tcolorbox}
+
+% ─────────────────────────────────────────────────────────────────────────────
+%  HW7 · PROBLEM 2
+% ─────────────────────────────────────────────────────────────────────────────
+\newpage
+\subsection{Problem 2}
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = probblue,
+  colframe = blue!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Problem Statement}\hfill Homework 7, Problem 2}
+]
+For each of the following series, determine if it converges and prove your answer.
+\[
+  \text{(a)}\;\sum_{n=1}^{\infty}\frac{n^4}{4^n}
+  \qquad
+  \text{(b)}\;\sum_{n=1}^{\infty}\frac{n!}{n^4+3}
+  \qquad
+  \text{(c)}\;\sum_{n=1}^{\infty}\frac{2^n}{n!}
+\]
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass1green,
+  colframe = green!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 1 \enspace\textbf{--}\enspace First Diagnosis}
+]
+\fillfield{Topic}
+\fillfield{Verdict for (a):}
+\fillfield{Verdict for (b):}
+\fillfield{Verdict for (c):}
+\fillfieldlong{Test / method for each part:}
+\fillfield{What should the first line of each proof be?}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass2yellow,
+  colframe = yellow!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 2 \enspace\textbf{--}\enspace Proof Recipe Card}
+]
+\fillfield{(a) Compute $\left|\frac{a_{n+1}}{a_n}\right|$ for $a_n = \frac{n^4}{4^n}$:}
+\fillfield{(a) $\lim\left|\frac{a_{n+1}}{a_n}\right|=$\hspace{1cm} Conclusion:}
+\fillfield{(b) Strategy: show terms $\frac{n!}{n^4+3}$ do not converge to 0. Why?}
+\fillfield{(b) Key bound: for $n \geq 5$, $\frac{n^4+3}{n!} \leq$\hrulefill, which $\to 0$, so $\frac{n!}{n^4+3} \to$}
+\fillfield{(c) Compute $\left|\frac{a_{n+1}}{a_n}\right|$ for $a_n = \frac{2^n}{n!}$:}
+\fillfield{(c) $\lim\left|\frac{a_{n+1}}{a_n}\right|=$\hspace{1cm} Conclusion:}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass3orange,
+  colframe = orange!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 3 \enspace\textbf{--}\enspace Self-Explanation}
+]
+\fillfield{(a) Where does the $\frac{(n+1)^4}{4n^4} \to \frac{1}{4}$ come from?}
+\fillfield{(b) Why does $n! \geq n(n-1)(n-2)(n-3)(n-4)$ for $n \geq 5$?}
+\fillfield{(b) How does HW5\#1 convert $\frac{n^4+3}{n!} \to 0$ into $\frac{n!}{n^4+3} \to +\infty$?}
+\fillfield{(c) Why does $\frac{2}{n+1} \to 0$? What does that say about $\limsup\left|\frac{a_{n+1}}{a_n}\right|$?}
+\fillfield{Common mistake in (b): trying to apply ratio or root test instead of recognizing the necessary condition for convergence fails.}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass4purple,
+  colframe = purple!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 4 \enspace\textbf{--}\enspace Skeleton Proof}
+]
+\noindent\textbf{(a) Ratio test — compute and simplify $|a_{n+1}/a_n|$:}\par
+\writespace{1.4cm}
+\noindent\textbf{(a) State $\limsup$; conclude:}\par
+\writespace{0.8cm}
+
+\noindent\rule{\linewidth}{0.4pt}\vspace{2pt}
+
+\noindent\textbf{(b) Show $\frac{n^4+3}{n!} \to 0$ for $n \geq 5$ (bound denominator from below):}\par
+\writespace{1.8cm}
+\noindent\textbf{(b) Apply HW5\#1 to conclude $\frac{n!}{n^4+3} \to +\infty$; use necessary condition:}\par
+\writespace{1.2cm}
+
+\noindent\rule{\linewidth}{0.4pt}\vspace{2pt}
+
+\noindent\textbf{(c) Ratio test — compute and simplify $|a_{n+1}/a_n|$:}\par
+\writespace{1.4cm}
+\noindent\textbf{(c) State $\limsup$; conclude:}\par
+\writespace{0.8cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass5gray,
+  colframe = black!38,
+  fonttitle = \bfseries,
+  title = {Pass 5 \enspace\textbf{--}\enspace Full Proof Attempt}
+]
+\small\itshape Write a complete proof before reading the Official Solution.\par
+\normalfont\normalsize
+\writespace{19cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = solgreen,
+  colframe = green!45!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Official Solution}\hfill Homework 7 -- Solutions}
+]
+\textbf{Problem 2.}
+
+\medskip\textbf{Solution:}
+
+\medskip
+(a) We'll use the ratio test. Set $a_n = \frac{n^4}{4^n}$. Then
+\[
+  \left|\frac{a_{n+1}}{a_n}\right|
+  = \frac{(n+1)^4 \cdot 4^n}{n^4 \cdot 4^{n+1}}
+  = \frac{(n+1)^4}{4n^4}
+  \to \frac{1}{4} \quad\text{as } n\to\infty.
+\]
+Therefore $\limsup\left|\frac{a_{n+1}}{a_n}\right| = \frac{1}{4} < 1$, so the series
+\textbf{converges} by the ratio test.
+
+\medskip
+(b) This series \textbf{diverges}.
+In brief, the sequence $\frac{n!}{n^4+3}$ diverges to $+\infty$, and so it cannot converge
+to zero.
+More concretely, notice that for $n \geq 5$ we have
+\[
+  n! \geq n(n-1)(n-2)(n-3)(n-4),
+\]
+and so
+\[
+  \frac{n^4+3}{n!}
+  \leq \frac{n^4+3}{n(n-1)(n-2)(n-3)(n-4)}
+  \to 0 \quad\text{as } n\to\infty.
+\]
+Therefore the sequence $\frac{n!}{n^4+3} \to +\infty$ by HW5\#1.
+In particular, there must exist an $N$ so that $\frac{n!}{n^4+3} \geq 1$ for all
+$n \geq N$, and so $\frac{n!}{n^4+3}$ cannot converge to~$0$.
+
+\medskip
+(c) We'll use the ratio test. Set $a_n = \frac{2^n}{n!}$. Then
+\[
+  \left|\frac{a_{n+1}}{a_n}\right|
+  = \frac{2^{n+1} \cdot n!}{(n+1)!\cdot 2^n}
+  = \frac{2}{n+1}
+  \to 0 \quad\text{as } n\to\infty.
+\]
+Therefore $\limsup\left|\frac{a_{n+1}}{a_n}\right| = 0 < 1$, so the series
+\textbf{converges} by the ratio test.\hfill$\square$
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = reflectcyan,
+  colframe = cyan!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Reflection \& Variation}}
+]
+\fillfield{State the ratio test precisely: what are the three cases?}
+\fillfield{In (b), what is the ``necessary condition for convergence,'' and why does it apply?}
+\fillfieldlong{Compare (a) and (c): both converge via ratio test. What structural feature of these series makes ratio test work well?}
+\fillfield{What nearby exam variation could appear?}
+\end{tcolorbox}
+
+% ─────────────────────────────────────────────────────────────────────────────
+%  HW7 · PROBLEM 3
+% ─────────────────────────────────────────────────────────────────────────────
+\newpage
+\subsection{Problem 3}
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = probblue,
+  colframe = blue!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Problem Statement}\hfill Homework 7, Problem 3}
+]
+For each of the following series, determine if it converges and prove your answer.
+\[
+  \text{(a)}\;\sum_{n=1}^{\infty}\frac{1}{n^n}
+  \qquad
+  \text{(b)}\;\sum_{n=1}^{\infty}\frac{n!}{n^n}
+  \qquad
+  \text{(c)}\;\sum_{n=1}^{\infty}\frac{(-1)^n n!}{2^n}
+\]
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass1green,
+  colframe = green!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 1 \enspace\textbf{--}\enspace First Diagnosis}
+]
+\fillfield{Topic}
+\fillfield{Verdict for (a):}
+\fillfield{Verdict for (b):}
+\fillfield{Verdict for (c):}
+\fillfieldlong{Test / method for each part (note: all three use the root or ratio test):}
+\fillfield{What makes (b) require a Lecture 15 result?}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass2yellow,
+  colframe = yellow!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 2 \enspace\textbf{--}\enspace Proof Recipe Card}
+]
+\fillfield{(a) Compute $|a_n|^{1/n}$ for $a_n = \frac{1}{n^n}$:}
+\fillfield{(a) $\limsup|a_n|^{1/n}=$\hspace{1cm} Conclusion:}
+\fillfield{(b) Compute $|a_n|^{1/n}$ for $a_n = \frac{n!}{n^n}$:}
+\fillfield{(b) Lecture 15 says $\frac{(n!)^{1/n}}{n} \to$\hspace{1cm} Conclusion:}
+\fillfield{(c) Strategy: show $\frac{(-1)^n n!}{2^n}$ does not converge to 0.}
+\fillfield{(c) Key: $\frac{2^n}{n!} \to 0$ (from Problem 2c), so by HW5\#1, $\frac{n!}{2^n} \to$}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass3orange,
+  colframe = orange!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 3 \enspace\textbf{--}\enspace Self-Explanation}
+]
+\fillfield{(a) Why does $|a_n|^{1/n} = 1/n \to 0$ immediately give $\limsup = 0 < 1$?}
+\fillfield{(b) What did Lecture~15 show about $(n!)^{1/n}/n$, and how does it enter the root test?}
+\fillfield{(c) How does convergence of $\sum \frac{2^n}{n!}$ (Problem 2c) imply $\frac{2^n}{n!} \to 0$?}
+\fillfield{(c) Then how does HW5\#1 give $\frac{n!}{2^n} \to +\infty$?}
+\fillfield{Common mistake: trying ratio test on (b) and getting confused — root test is cleaner.}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass4purple,
+  colframe = purple!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 4 \enspace\textbf{--}\enspace Skeleton Proof}
+]
+\noindent\textbf{(a) Root test — compute $|a_n|^{1/n}$; state $\limsup$; conclude:}\par
+\writespace{1.6cm}
+
+\noindent\rule{\linewidth}{0.4pt}\vspace{2pt}
+
+\noindent\textbf{(b) Root test — compute $|a_n|^{1/n} = (n!/n^n)^{1/n}$:}\par
+\writespace{1.2cm}
+\noindent\textbf{(b) Apply Lecture~15 to get the limit; state $\limsup$; conclude:}\par
+\writespace{1.2cm}
+
+\noindent\rule{\linewidth}{0.4pt}\vspace{2pt}
+
+\noindent\textbf{(c) Use Problem 2c to get $\frac{2^n}{n!} \to 0$; apply HW5\#1:}\par
+\writespace{1.4cm}
+\noindent\textbf{(c) Conclude terms $\frac{(-1)^n n!}{2^n}$ do not converge to 0; series diverges:}\par
+\writespace{1.2cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass5gray,
+  colframe = black!38,
+  fonttitle = \bfseries,
+  title = {Pass 5 \enspace\textbf{--}\enspace Full Proof Attempt}
+]
+\small\itshape Write a complete proof before reading the Official Solution.\par
+\normalfont\normalsize
+\writespace{19cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = solgreen,
+  colframe = green!45!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Official Solution}\hfill Homework 7 -- Solutions}
+]
+\textbf{Problem 3.}
+
+\medskip\textbf{Solution:}
+
+\medskip
+(a) We'll use the root test. Set $a_n = \frac{1}{n^n}$. Then
+\[
+  |a_n|^{1/n} = \frac{1}{n} \to 0 \quad\text{as } n\to\infty.
+\]
+Therefore $\limsup|a_n|^{1/n} = 0 < 1$, so the series \textbf{converges} by the root test.
+
+\medskip
+(b) We'll use the root test. Set $a_n = \frac{n!}{n^n}$, and consider the sequence
+\[
+  |a_n|^{1/n} = \left(\frac{n!}{n^n}\right)^{1/n} = \frac{(n!)^{1/n}}{n}.
+\]
+In Lecture~15 we showed that this sequence converges to $1/e$.
+Therefore $\limsup|a_n|^{1/n} = \frac{1}{e} < 1$, so the series \textbf{converges}
+by the root test.
+
+\medskip
+(c) This series \textbf{diverges}, because the sequence $\frac{(-1)^n n!}{2^n}$ does not
+converge to~$0$.
+Specifically, we know that the sequence $\frac{2^n}{n!}$ converges to~$0$.
+(Indeed, we proved in Problem~2c that the series $\sum \frac{2^n}{n!}$ converges, and so
+its terms must converge to~$0$.)
+So, by HW5\#1, the sequence $\frac{n!}{2^n}$ diverges to $+\infty$.
+In particular, there exists an $N$ so that $\frac{n!}{2^n} \geq 1$ for all $n \geq N$.
+Therefore $\left|\frac{(-1)^n n!}{2^n}\right| = \frac{n!}{2^n} \geq 1$ for all $n \geq N$,
+so the terms $\frac{(-1)^n n!}{2^n}$ in our series cannot converge to~$0$.\hfill$\square$
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = reflectcyan,
+  colframe = cyan!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Reflection \& Variation}}
+]
+\fillfield{State the root test precisely: what are the three cases?}
+\fillfield{Why is the root test more natural than the ratio test for (a) and (b)?}
+\fillfieldlong{In (c), the argument used HW5\#1 (a result about $\lim a_n = +\infty$ iff $\lim 1/a_n = 0$). Identify exactly where it was applied.}
+\fillfield{What nearby exam variation could appear?}
+\end{tcolorbox}
+
+% ─────────────────────────────────────────────────────────────────────────────
+%  HW7 · PROBLEM 4
+% ─────────────────────────────────────────────────────────────────────────────
+\newpage
+\subsection{Problem 4}
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = probblue,
+  colframe = blue!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Problem Statement}\hfill Homework 7, Problem 4}
+]
+Consider the series
+\[
+  \sum_{n=1}^{\infty} 2^{(-1)^n - n}
+  = \frac{1}{4} + \frac{1}{2} + \frac{1}{16} + \frac{1}{8} + \frac{1}{64} + \frac{1}{32} + \cdots
+\]
+\begin{itemize}[nosep, leftmargin=1.8em]
+  \item[(a)] Show that the ratio test is inconclusive.
+  \item[(b)] Prove that the series converges using the root test.
+\end{itemize}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass1green,
+  colframe = green!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 1 \enspace\textbf{--}\enspace First Diagnosis}
+]
+\fillfield{Topic}
+\fillfield{What is $a_n = 2^{(-1)^n - n}$ explicitly for $n$ even? For $n$ odd?}
+\fillfield{What does ``ratio test is inconclusive'' mean precisely?}
+\fillfield{Why does the alternating structure cause the ratio test to fail here?}
+\fillfield{What Lecture~15 fact will be needed for the root test?}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass2yellow,
+  colframe = yellow!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 2 \enspace\textbf{--}\enspace Proof Recipe Card}
+]
+\fillfield{(a) Write out first few values of $\left|\frac{a_{n+1}}{a_n}\right|$:}
+\fillfield{(a) $\liminf\left|\frac{a_{n+1}}{a_n}\right|=$\hspace{1cm} $\limsup\left|\frac{a_{n+1}}{a_n}\right|=$}
+\fillfield{(a) Why does $\liminf \leq 1 \leq \limsup$ make the test inconclusive?}
+\fillfield{(b) For $n$ even: $|a_n|^{1/n} = (2^{n-1})^{-1/n} = $\hrulefill $\to$}
+\fillfield{(b) For $n$ odd: $|a_n|^{1/n} = (2^{n+1})^{-1/n} = $\hrulefill $\to$}
+\fillfield{(b) $\lim|a_n|^{1/n}=$\hspace{1cm} Conclusion:}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass3orange,
+  colframe = orange!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 3 \enspace\textbf{--}\enspace Self-Explanation}
+]
+\fillfield{(a) The even and odd terms of $|a_{n+1}/a_n|$ are $\frac{1}{8}$ and $2$ respectively. Verify this.}
+\fillfield{(a) Recall: the ratio test is inconclusive when \dotfill}
+\fillfield{(b) For $n$ even: write $a_n = 2^{1-n}$ and simplify $|a_n|^{1/n}$ step by step.}
+\fillfield{(b) For $n$ odd: write $a_n = 2^{-1-n}$ and simplify $|a_n|^{1/n}$ step by step.}
+\fillfield{(b) What Lecture~15 fact is used to conclude $2^{1/n} \to 1$ and $2^{-1/n} \to 1$?}
+\fillfield{Key lesson: when the ratio test fails due to oscillation, the root test may still work.}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass4purple,
+  colframe = purple!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 4 \enspace\textbf{--}\enspace Skeleton Proof}
+]
+\noindent\textbf{(a) Write out $|a_{n+1}/a_n|$ for the first few $n$:}\par
+\writespace{1.4cm}
+\noindent\textbf{(a) Identify $\liminf$ and $\limsup$; state why test is inconclusive:}\par
+\writespace{1.4cm}
+
+\noindent\rule{\linewidth}{0.4pt}\vspace{2pt}
+
+\noindent\textbf{(b) For $n$ even — compute $|a_n|^{1/n}$ and take $n\to\infty$:}\par
+\writespace{1.6cm}
+\noindent\textbf{(b) For $n$ odd — compute $|a_n|^{1/n}$ and take $n\to\infty$:}\par
+\writespace{1.6cm}
+\noindent\textbf{(b) Combine: state $\lim|a_n|^{1/n}$; conclude by root test:}\par
+\writespace{1.2cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass5gray,
+  colframe = black!38,
+  fonttitle = \bfseries,
+  title = {Pass 5 \enspace\textbf{--}\enspace Full Proof Attempt}
+]
+\small\itshape Write a complete proof before reading the Official Solution.\par
+\normalfont\normalsize
+\writespace{19cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = solgreen,
+  colframe = green!45!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Official Solution}\hfill Homework 7 -- Solutions}
+]
+\textbf{Problem 4.}
+
+\medskip\textbf{Solution:}
+
+\medskip
+(a) Set $a_n = 2^{(-1)^n-n}$.
+Then the sequence $\left|\frac{a_{n+1}}{a_n}\right|$ is
+\[
+  \frac{1/2}{1/4} = 2,\quad \frac{1/16}{1/2} = \frac{1}{8},\quad
+  \frac{1/8}{1/16} = 2,\quad \frac{1/64}{1/8} = \frac{1}{8},\quad \ldots
+\]
+In other words, the even terms of this sequence are $\frac{1}{8}$ and the odd terms are~$2$.
+Therefore
+\[
+  \liminf\left|\frac{a_{n+1}}{a_n}\right| = \frac{1}{8},
+  \qquad
+  \limsup\left|\frac{a_{n+1}}{a_n}\right| = 2,
+\]
+and so
+\[
+  \liminf\left|\frac{a_{n+1}}{a_n}\right| \leq 1 \leq \limsup\left|\frac{a_{n+1}}{a_n}\right|.
+\]
+Hence the ratio test is inconclusive.
+
+\medskip
+(b) Set $a_n = 2^{(-1)^n-n}$.
+For $n$ even, $a_n = 2^{1-n}$, so
+\[
+  |a_n|^{1/n}
+  = \frac{1}{(2^{n-1})^{1/n}}
+  = \frac{1}{2^{1-1/n}}
+  = \frac{1}{2}\cdot 2^{1/n}
+  \to \frac{1}{2} \quad\text{as } n\to\infty.
+\]
+For $n$ odd, $a_n = 2^{-1-n}$, so
+\[
+  |a_n|^{1/n}
+  = \frac{1}{(2^{n+1})^{1/n}}
+  = \frac{1}{2^{1+1/n}}
+  = \frac{1}{2}\cdot\frac{1}{2^{1/n}}
+  \to \frac{1}{2} \quad\text{as } n\to\infty.
+\]
+(Recall from Lecture~15 that $r^{1/n} \to 1$ for any $r > 0$.)
+Therefore
+\[
+  \lim_{n\to\infty}|a_n|^{1/n} = \frac{1}{2} < 1,
+\]
+and so the series converges by the root test.\hfill$\square$
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = reflectcyan,
+  colframe = cyan!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Reflection \& Variation}}
+]
+\fillfield{Precisely: when is the ratio test ``inconclusive''? Quote the exact condition.}
+\fillfield{Why does oscillation in $|a_{n+1}/a_n|$ cause the ratio test to fail here?}
+\fillfieldlong{The root test gave $\limsup|a_n|^{1/n} = 1/2$ despite the oscillation. Why is the root test more robust to oscillation than the ratio test?}
+\fillfield{What nearby exam variation could appear?}
+\end{tcolorbox}
+
+% ─────────────────────────────────────────────────────────────────────────────
+%  HW7 · PROBLEM 5
+% ─────────────────────────────────────────────────────────────────────────────
+\newpage
+\subsection{Problem 5}
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = probblue,
+  colframe = blue!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Problem Statement}\hfill Homework 7, Problem 5}
+]
+Below are two series $\sum_{n=1}^{\infty} a_n$ and the numbers $s \in \mathbb{R}$ to which
+they converge.
+For each of these series, what is the set of all numbers $\tilde{s} \in \mathbb{R}$ such
+that there exists a rearrangement that satisfies $\sum_{n=1}^{\infty} \tilde{a}_n = \tilde{s}$?
+Prove your answer.
+\[
+  \text{(a)}\;\sum_{n=1}^{\infty}\frac{(-1)^n}{n} = -\log 2
+  \qquad
+  \text{(b)}\;\sum_{n=1}^{\infty}\frac{(-1)^n}{n^2} = -\frac{\pi^2}{12}
+\]
+(Hint: Your proof should be quite short, because we already did most of the work in
+lecture.)
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass1green,
+  colframe = green!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 1 \enspace\textbf{--}\enspace First Diagnosis}
+]
+\fillfield{Topic}
+\fillfield{Does $\sum (-1)^n/n$ converge absolutely? Why or why not?}
+\fillfield{Does $\sum (-1)^n/n^2$ converge absolutely? Why or why not?}
+\fillfield{What two lecture theorems are relevant (one for conditionally convergent, one for absolutely convergent)?}
+\fillfield{What is the answer for (a)? For (b)?}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass2yellow,
+  colframe = yellow!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 2 \enspace\textbf{--}\enspace Proof Recipe Card}
+]
+\fillfield{(a) Check: $\sum|(-1)^n/n|$ converges or diverges?}
+\fillfield{(a) Check: $\sum(-1)^n/n$ converges? By what test?}
+\fillfield{(a) Theorem applied (Riemann rearrangement): if $\sum a_n$ converges cond'ly, then\ldots}
+\fillfield{(a) Answer: set of achievable rearrangement sums $=$}
+\fillfield{(b) Check: $\sum|(-1)^n/n^2|$ converges or diverges?}
+\fillfield{(b) Theorem applied (absolute convergence): if $\sum a_n$ converges absolutely, then any rearrangement\ldots}
+\fillfield{(b) Answer: set of achievable rearrangement sums $=$}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass3orange,
+  colframe = orange!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 3 \enspace\textbf{--}\enspace Self-Explanation}
+]
+\fillfield{State the alternating series test precisely. Why does it apply in (a) and (b)?}
+\fillfield{(a) The Riemann rearrangement theorem requires two conditions. What are they?}
+\fillfield{(b) Why does absolute convergence force every rearrangement to the same sum?}
+\fillfield{What is the contrast between (a) and (b)? What changes the answer from $\mathbb{R}$ to a singleton?}
+\fillfield{Common mistake: confusing convergence with absolute convergence.}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass4purple,
+  colframe = purple!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 4 \enspace\textbf{--}\enspace Skeleton Proof}
+]
+\noindent\textbf{(a) Verify $\sum(-1)^n/n$ converges (state test):}\par
+\writespace{1.2cm}
+\noindent\textbf{(a) Verify $\sum(-1)^n/n$ does NOT converge absolutely:}\par
+\writespace{1.2cm}
+\noindent\textbf{(a) Apply Riemann rearrangement theorem; state answer:}\par
+\writespace{1.2cm}
+
+\noindent\rule{\linewidth}{0.4pt}\vspace{2pt}
+
+\noindent\textbf{(b) Verify $\sum(-1)^n/n^2$ converges absolutely:}\par
+\writespace{1.2cm}
+\noindent\textbf{(b) Apply absolute convergence rearrangement theorem; state answer:}\par
+\writespace{1.2cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass5gray,
+  colframe = black!38,
+  fonttitle = \bfseries,
+  title = {Pass 5 \enspace\textbf{--}\enspace Full Proof Attempt}
+]
+\small\itshape Write a complete proof before reading the Official Solution.\par
+\normalfont\normalsize
+\writespace{19cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = solgreen,
+  colframe = green!45!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Official Solution}\hfill Homework 7 -- Solutions}
+]
+\textbf{Problem 5.}
+
+\medskip\textbf{Solution:}
+
+\medskip
+(a) We claim that the set is $\mathbb{R}$.
+Note that:
+\begin{itemize}[nosep, leftmargin=1.5em]
+  \item $\sum \frac{(-1)^n}{n}$ converges: by the alternating series test, since
+    $\bigl\{\frac{1}{n}\bigr\}$ is a decreasing sequence that converges to~$0$.
+  \item $\sum \frac{(-1)^n}{n}$ does not converge absolutely: since
+    $\bigl|\frac{(-1)^n}{n}\bigr| = \frac{1}{n}$, and we know $\sum \frac{1}{n}$
+    diverges by Lecture~11.
+\end{itemize}
+Fix $\tilde{s} \in \mathbb{R}$.
+Applying the Riemann rearrangement result (with $\alpha = \tilde{s} = \beta$), we deduce
+that there exists a rearrangement $\sum \tilde{a}_n$ that converges to~$\tilde{s}$.
+This works for any $\tilde{s} \in \mathbb{R}$, so $\mathbb{R}$ is the desired set.
+
+\medskip
+(b) We claim that the set is $\bigl\{-\frac{\pi^2}{12}\bigr\}$.
+Note that $\sum \frac{(-1)^n}{n^2}$ converges absolutely, since
+$\bigl|\frac{(-1)^n}{n^2}\bigr| = \frac{1}{n^2}$ and we know $\sum \frac{1}{n^2}$
+converges by Lecture~16.
+Suppose that $\sum \tilde{a}_n$ is a rearrangement that converges to some
+$\tilde{s} \in \mathbb{R}$.
+Applying the second theorem from Lecture~20, we deduce that $\tilde{s} = -\frac{\pi^2}{12}$.
+This works for any rearrangement, so $-\frac{\pi^2}{12}$ is the only value that can be
+attained.\hfill$\square$
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = reflectcyan,
+  colframe = cyan!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Reflection \& Variation}}
+]
+\fillfield{State the Riemann rearrangement theorem precisely (two conditions, two conclusions).}
+\fillfield{State the absolute convergence rearrangement theorem precisely.}
+\fillfieldlong{The series in (a) converges to $-\log 2$. Is $-\log 2$ itself in the set $\mathbb{R}$? (Of course — but what rearrangement gives it?)}
+\fillfield{What nearby exam variation could appear?}
+\end{tcolorbox}
+
+% ─────────────────────────────────────────────────────────────────────────────
+%  HW7 · PROBLEM 6
+% ─────────────────────────────────────────────────────────────────────────────
+\newpage
+\subsection{Problem 6}
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = probblue,
+  colframe = blue!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Problem Statement}\hfill Homework 7, Problem 6}
+]
+Prove or disprove the following statements:
+\begin{itemize}[nosep, leftmargin=1.8em]
+  \item[(a)] If $\sum_{n=1}^{\infty} a_n$ converges, then $\sum_{n=1}^{\infty} a_{2n}$
+    converges.
+  \item[(b)] If $\sum_{n=1}^{\infty} a_n$ converges absolutely, then
+    $\sum_{n=1}^{\infty} a_{2n}$ converges absolutely.
+\end{itemize}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass1green,
+  colframe = green!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 1 \enspace\textbf{--}\enspace First Diagnosis}
+]
+\fillfield{Topic}
+\fillfield{Verdict for (a): true or false?}
+\fillfield{Verdict for (b): true or false?}
+\fillfield{For (a): what counterexample series comes to mind?}
+\fillfield{For (b): what proof method does the hint in HW6\#4 suggest?}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass2yellow,
+  colframe = yellow!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 2 \enspace\textbf{--}\enspace Proof Recipe Card}
+]
+\fillfield{(a) Counterexample: $a_n =$\hspace{1cm} Verify $\sum a_n$ converges because:}
+\fillfield{(a) Verify $\sum a_{2n}$ diverges because:}
+\fillfield{(b) Hypothesis: $\sum |a_n|$ converges. Cauchy criterion gives: $\exists N$ s.t.}
+\fillfield{(b) Key bound: for $n \geq m \geq N$, $\sum_{k=m}^n |a_{2k}| \leq \sum_{j=2m}^{2n} |a_j| <$}
+\fillfield{(b) Conclude by Cauchy criterion:}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass3orange,
+  colframe = orange!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 3 \enspace\textbf{--}\enspace Self-Explanation}
+]
+\fillfield{(a) Why does $\sum a_{2n} = \sum \frac{1}{2n}$ diverge?}
+\fillfield{(b) State the Cauchy criterion for series. Why does it apply here?}
+\fillfield{(b) Why is $\sum_{k=m}^n |a_{2k}| \leq \sum_{j=2m}^{2n} |a_j|$? What terms are being added?}
+\fillfield{(b) Why does $\sum_{j=2m}^{2n} |a_j| < \epsilon$ follow from the Cauchy hypothesis on $\sum |a_n|$?}
+\fillfield{Key contrast: convergence (not absolute) is NOT preserved by taking even subsequence; absolute convergence IS.}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass4purple,
+  colframe = purple!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 4 \enspace\textbf{--}\enspace Skeleton Proof}
+]
+\noindent\textbf{(a) State counterexample $a_n$; verify $\sum a_n$ converges:}\par
+\writespace{1.4cm}
+\noindent\textbf{(a) Verify $\sum a_{2n}$ diverges; conclude (a) is false:}\par
+\writespace{1.4cm}
+
+\noindent\rule{\linewidth}{0.4pt}\vspace{2pt}
+
+\noindent\textbf{(b) Fix $\epsilon > 0$; apply Cauchy criterion to $\sum |a_n|$ to get $N$:}\par
+\writespace{1.4cm}
+\noindent\textbf{(b) For $n \geq m \geq N$, bound $\sum_{k=m}^n |a_{2k}|$:}\par
+\writespace{1.8cm}
+\noindent\textbf{(b) Conclude $\sum |a_{2n}|$ converges by Cauchy criterion:}\par
+\writespace{1.0cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass5gray,
+  colframe = black!38,
+  fonttitle = \bfseries,
+  title = {Pass 5 \enspace\textbf{--}\enspace Full Proof Attempt}
+]
+\small\itshape Write a complete proof before reading the Official Solution.\par
+\normalfont\normalsize
+\writespace{19cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = solgreen,
+  colframe = green!45!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Official Solution}\hfill Homework 7 -- Solutions}
+]
+\textbf{Problem 6.}
+
+\medskip\textbf{Solution:}
+
+\medskip
+(a) \textbf{Disprove:} Consider the series $a_n = \frac{(-1)^n}{n}$.
+Then:
+\begin{itemize}[nosep, leftmargin=1.5em]
+  \item $\sum a_n$ converges: by the alternating series test, since $\frac{1}{n}$ is a
+    decreasing sequence that converges to~$0$.
+  \item $\sum a_{2n} = \sum \frac{1}{2n}$ diverges: this is $\frac{1}{2}$ times the
+    series $\sum \frac{1}{n}$, which we know diverges by lecture.
+\end{itemize}
+
+\medskip
+(b) \textbf{Prove:} We will use the Cauchy criterion.
+Fix $\epsilon > 0$.
+As $\sum |a_n|$ converges, there exists an $N$ so that
+\[
+  \sum_{k=m}^{n} |a_k| < \epsilon \quad\text{for all } n \geq m \geq N.
+\]
+Then for $n \geq m \geq N$, we have
+\[
+  \sum_{k=m}^{n} |a_{2k}| \leq \sum_{j=2m}^{2n} |a_j| < \epsilon.
+\]
+(Note that the first sum consists of only even terms
+$|a_{2m}| + |a_{2m+2}| + \cdots + |a_{2n}|$,
+which differs from the second sum
+$|a_{2m}| + |a_{2m+1}| + |a_{2m+2}| + \cdots + |a_{2n}|$
+by only the odd terms, each of which is nonneg\-ative.)
+Therefore $\sum |a_{2n}|$ converges by the Cauchy criterion.\hfill$\square$
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = reflectcyan,
+  colframe = cyan!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Reflection \& Variation}}
+]
+\fillfield{State the Cauchy criterion for series. Why is it useful here rather than a direct estimate?}
+\fillfield{In (b), where exactly did the nonneg\-ativity of $|a_j|$ enter?}
+\fillfieldlong{Can you prove the analogous statement: if $\sum a_n$ converges absolutely, then $\sum a_{2n-1}$ (odd-indexed terms) also converges absolutely?}
+\fillfield{What nearby exam variation could appear?}
+\end{tcolorbox}
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  HOMEWORK 8
+% ══════════════════════════════════════════════════════════════════════════════
+\newpage
+\section{Homework 8}
+
+% ─────────────────────────────────────────────────────────────────────────────
+%  HW8 · PROBLEM 1
+% ─────────────────────────────────────────────────────────────────────────────
+\newpage
+\subsection{Problem 1}
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = probblue,
+  colframe = blue!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Problem Statement}\hfill Homework 8, Problem 1}
+]
+Consider the metric space $(\mathbb{R}, d)$ with the usual metric $d(x, y) = |x-y|$. For
+each of the following sets $A \subseteq \mathbb{R}$, find its interior and prove your answer.
+\begin{itemize}[nosep, leftmargin=1.8em]
+  \item[(a)] $A = [0, 1)$
+  \item[(b)] $A = \mathbb{Z}$
+  \item[(c)] $A = \{x \in \mathbb{Q} : 0 < x < 1\}$
+\end{itemize}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass1green,
+  colframe = green!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 1 \enspace\textbf{--}\enspace First Diagnosis}
+]
+\fillfield{Topic}
+\fillfield{Best guess for the interior in (a), (b), and (c):}
+\fillfield{What definition of ``interior point'' will you use?}
+\fillfield{Which density facts or neighborhood facts are relevant?}
+\fillfield{What point should you test first to show a set is not open?}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass2yellow,
+  colframe = yellow!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 2 \enspace\textbf{--}\enspace Proof Recipe Card}
+]
+\fillfield{(a) Candidate interior: \hspace{1cm} Why is it an open subset of $[0,1)$?}
+\fillfield{(a) Why is $0$ not an interior point? Pick a witness in $(-r,r)\setminus [0,1)$.}
+\fillfield{(b) Fix $n \in \mathbb{Z}$. What point in $(n-r,n+r)$ is not an integer?}
+\fillfield{(c) Fix $a \in A$. What density fact gives a point in $(a-r,a+r)\setminus A$?}
+\fillfield{How does showing every point fails the interior-point test imply the interior is empty?}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass3orange,
+  colframe = orange!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 3 \enspace\textbf{--}\enspace Self-Explanation}
+]
+\fillfield{Why does $(0,1) \subseteq A^\circ \subseteq [0,1)$ follow from the definition of interior?}
+\fillfield{Why does every open interval around an integer contain nonintegers?}
+\fillfield{Why does every open interval around a rational in $(0,1)$ contain irrationals?}
+\fillfield{What is the exact logical difference between ``open subset of $A$'' and ``interior point of $A$''?}
+\fillfield{Common mistake: showing a set is not open is not enough; you must identify its interior.}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass4purple,
+  colframe = purple!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 4 \enspace\textbf{--}\enspace Skeleton Proof}
+]
+\noindent\textbf{(a) Show $(0,1)$ is an open subset of $[0,1)$; deduce $(0,1)\subseteq [0,1)^\circ$:}\par
+\writespace{1.4cm}
+\noindent\textbf{(a) Show $0$ is not an interior point; conclude $[0,1)^\circ = (0,1)$:}\par
+\writespace{1.4cm}
+
+\noindent\rule{\linewidth}{0.4pt}\vspace{2pt}
+
+\noindent\textbf{(b) Fix $n\in\mathbb{Z}$ and show every ball around $n$ contains a noninteger:}\par
+\writespace{1.4cm}
+\noindent\textbf{(b) Conclude $\mathbb{Z}^\circ = \varnothing$:}\par
+\writespace{0.8cm}
+
+\noindent\rule{\linewidth}{0.4pt}\vspace{2pt}
+
+\noindent\textbf{(c) Fix $a\in A$ and use density of irrationals to find a point outside $A$:}\par
+\writespace{1.6cm}
+\noindent\textbf{(c) Conclude $A^\circ = \varnothing$:}\par
+\writespace{0.8cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass5gray,
+  colframe = black!38,
+  fonttitle = \bfseries,
+  title = {Pass 5 \enspace\textbf{--}\enspace Full Proof Attempt}
+]
+\small\itshape Write a complete proof before reading the Official Solution.\par
+\normalfont\normalsize
+\writespace{19cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = solgreen,
+  colframe = green!45!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Official Solution}\hfill Homework 8 -- Selected Solutions}
+]
+\textbf{Problem 1.}
+
+\medskip\textbf{Solution:}
+
+\medskip
+(a) Claim: $A^\circ = (0, 1)$. As $A^\circ$ is the largest open subset of $A$, and $(0, 1)$ is one
+open subset, we must have $(0, 1) \subseteq A^\circ \subseteq [0, 1)$. Note that $0$ is not an
+interior point: given $r > 0$ we have $(-r, r) \not\subseteq [0, 1)$, since $-r/2$ is a point in
+$(-r, r)$ that is not in $[0, 1)$.
+
+\medskip
+(b) Claim: $A^\circ = \varnothing$. Fix $n \in \mathbb{Z}$; we will show that $n$ is not an interior
+point. Given $r > 0$ we have $(n-r, n+r) \not\subseteq \mathbb{Z}$, since $\min\{n+r/2, n+1/2\}$ is
+in $(n-r, n+r)$ but not in $\mathbb{Z}$.
+
+\medskip
+(c) Claim: $A^\circ = \varnothing$. Fix $a \in A$; we will show that $a$ is not an interior point.
+As the irrational numbers are dense in $\mathbb{R}$, then for any $r > 0$ we can find a point
+$y \in \mathbb{Q}^c$ between $a-r$ and $a$. This $y$ is a point in $(a-r, a+r)$ that is not in
+$A$, and so $(a-r, a+r) \not\subseteq A$.\hfill$\square$
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = reflectcyan,
+  colframe = cyan!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Reflection \& Variation}}
+]
+\fillfield{State the definition of $x \in A^\circ$ in a metric space.}
+\fillfield{Why is it enough in (b) and (c) to show that every point of $A$ fails to be an interior point?}
+\fillfieldlong{Compare (b) and (c): one uses isolated integers, the other uses density of irrationals. What structural property of each set is killing the interior?}
+\fillfield{What nearby exam variation could appear?}
+\end{tcolorbox}
+
+% ─────────────────────────────────────────────────────────────────────────────
+%  HW8 · PROBLEM 2
+% ─────────────────────────────────────────────────────────────────────────────
+\newpage
+\subsection{Problem 2}
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = probblue,
+  colframe = blue!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Problem Statement}\hfill Homework 8, Problem 2}
+]
+Recall that $d_1$ and $d_\infty$ are both metrics on $\mathbb{R}^2$.
+\begin{itemize}[nosep, leftmargin=1.8em]
+  \item[(a)] Prove that $d_\infty(x, y) \leq d_1(x, y) \leq 2d_\infty(x, y)$ for all
+    $x, y \in \mathbb{R}^2$.
+  \item[(b)] Prove that for any $x \in \mathbb{R}^2$ and $r > 0$ we have
+\[
+  \{y \in \mathbb{R}^2 : d_\infty(x, y) < r/2\}
+  \subseteq
+  \{y \in \mathbb{R}^2 : d_1(x, y) < r\}
+  \subseteq
+  \{y \in \mathbb{R}^2 : d_\infty(x, y) < r\}.
+\]
+  I recommend that you draw a picture of these three sets.
+  \item[(c)] Prove that a set $A \subseteq \mathbb{R}^2$ is open in the metric space
+    $(\mathbb{R}^2, d_1)$ if and only if it is open in the metric space $(\mathbb{R}^2, d_\infty)$.
+\end{itemize}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass1green,
+  colframe = green!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 1 \enspace\textbf{--}\enspace First Diagnosis}
+]
+\fillfield{Topic}
+\fillfield{What are the formulas for $d_1$ and $d_\infty$?}
+\fillfield{Which part is algebraic, which part is geometric, and which part is topological?}
+\fillfield{What should the picture in part (b) look like?}
+\fillfield{How will part (b) be used inside part (c)?}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass2yellow,
+  colframe = yellow!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 2 \enspace\textbf{--}\enspace Proof Recipe Card}
+]
+\fillfield{(a) Show $\max\{|x_1-y_1|,|x_2-y_2|\} \leq |x_1-y_1|+|x_2-y_2|$ because:}
+\fillfield{(a) Show $|x_1-y_1|+|x_2-y_2| \leq 2\max\{|x_1-y_1|,|x_2-y_2|\}$ because:}
+\fillfield{(b) If $d_\infty(x,y)<r/2$, then $d_1(x,y)\leq 2d_\infty(x,y) <$}
+\fillfield{(b) If $d_1(x,y)<r$, then $d_\infty(x,y)\leq d_1(x,y) <$}
+\fillfield{(c) To pass openness from one metric to the other, which smaller ball should you place inside the given ball?}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass3orange,
+  colframe = orange!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 3 \enspace\textbf{--}\enspace Self-Explanation}
+]
+\fillfield{Why is $\max\{a,b\}\le a+b$ valid for nonnegative $a,b$?}
+\fillfield{Why is $a+b \le 2\max\{a,b\}$ valid for nonnegative $a,b$?}
+\fillfield{Why does part (b) give exactly the containments needed to compare open balls?}
+\fillfield{In part (c), why is it enough to fix $a \in A$ and produce one ball around $a$ contained in $A$?}
+\fillfield{Key lesson: equivalent metrics need not be equal, but they generate the same open sets.}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass4purple,
+  colframe = purple!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 4 \enspace\textbf{--}\enspace Skeleton Proof}
+]
+\noindent\textbf{(a) Fix $x=(x_1,x_2)$ and $y=(y_1,y_2)$; prove $d_\infty(x,y)\le d_1(x,y)$:}\par
+\writespace{1.6cm}
+\noindent\textbf{(a) Prove $d_1(x,y)\le 2d_\infty(x,y)$:}\par
+\writespace{1.4cm}
+
+\noindent\rule{\linewidth}{0.4pt}\vspace{2pt}
+
+\noindent\textbf{(b) First containment: start from $d_\infty(x,y)<r/2$ and apply part (a):}\par
+\writespace{1.4cm}
+\noindent\textbf{(b) Second containment: start from $d_1(x,y)<r$ and apply part (a):}\par
+\writespace{1.2cm}
+
+\noindent\rule{\linewidth}{0.4pt}\vspace{2pt}
+
+\noindent\textbf{(c) Assume $A$ is open in $(\mathbb{R}^2,d_\infty)$; produce a $d_1$-ball inside $A$:}\par
+\writespace{1.3cm}
+\noindent\textbf{(c) Assume $A$ is open in $(\mathbb{R}^2,d_1)$; produce a $d_\infty$-ball inside $A$:}\par
+\writespace{1.3cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass5gray,
+  colframe = black!38,
+  fonttitle = \bfseries,
+  title = {Pass 5 \enspace\textbf{--}\enspace Full Proof Attempt}
+]
+\small\itshape Write a complete proof before reading the Official Solution.\par
+\normalfont\normalsize
+\writespace{19cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = solgreen,
+  colframe = green!45!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Official Solution}\hfill Homework 8 -- Selected Solutions}
+]
+\textbf{Problem 2.}
+
+\medskip\textbf{Solution:}
+
+\medskip
+(a) Fix $x = (x_1, x_2)$ and $y = (y_1, y_2)$ in $\mathbb{R}^2$. Then
+\[
+  |x_1-y_1| \le |x_1-y_1| + |x_2-y_2| = d_1(x, y),
+\]
+\[
+  |x_2-y_2| \le |x_1-y_1| + |x_2-y_2| = d_1(x, y),
+\]
+and so
+\[
+  \max\{|x_1-y_1|, |x_2-y_2|\} \le d_1(x, y).
+\]
+This proves the first inequality: $d_\infty(x, y) \le d_1(x, y)$. On the other hand, note that
+\[
+  |x_1-y_1| \le \max\{|x_1-y_1|, |x_2-y_2|\} = d_\infty(x, y),
+\]
+\[
+  |x_2-y_2| \le \max\{|x_1-y_1|, |x_2-y_2|\} = d_\infty(x, y),
+\]
+and so
+\[
+  |x_1-y_1| + |x_2-y_2| \le 2d_\infty(x, y).
+\]
+This proves that $d_1(x, y) \le 2d_\infty(x, y)$.
+
+\medskip
+(b) Let's start with the first containment:
+\[
+  \{y \in \mathbb{R}^2 : d_\infty(x, y) < r/2\} \subseteq \{y \in \mathbb{R}^2 : d_1(x, y) < r\}.
+\]
+Fix $y \in \mathbb{R}^2$ so that $d_\infty(x, y) < r/2$. Then by the second inequality in part (a) we have
+\[
+  d_1(x, y) \le 2d_\infty(x, y) < 2 \cdot \frac{r}{2} = r,
+\]
+and so $d_1(x, y) < r$.
+Next, we turn to the second containment:
+\[
+  \{y \in \mathbb{R}^2 : d_1(x, y) < r\} \subseteq \{y \in \mathbb{R}^2 : d_\infty(x, y) < r\}.
+\]
+Fix $y \in \mathbb{R}^2$ so that $d_1(x, y) < r$. Then by the first inequality in part (a), we have
+\[
+  d_\infty(x, y) \le d_1(x, y) < r,
+\]
+and so $d_\infty(x, y) < r$.
+
+\medskip
+(c) $\Longleftarrow$ Suppose that $A$ is open in $(\mathbb{R}^2, d_\infty)$. Fix $a \in A$. Then there exists $r > 0$ so
+that
+\[
+  B_r^\infty(a) = \{x \in \mathbb{R}^2 : d_\infty(x, a) < r\} \subseteq A.
+\]
+Note that $B_r^1(a) \subseteq B_r^\infty(a)$ by part (b), and so $B_r^1(a) \subseteq B_r^\infty(a) \subseteq A$. As
+$a \in A$ was arbitrary, we conclude that $A$ is open in $(\mathbb{R}^2, d_1)$.
+
+\medskip
+$\Longrightarrow$ Suppose that $A$ is open in $(\mathbb{R}^2, d_1)$. Fix $a \in A$. Then there exists $r > 0$ so that
+$B_r^1(a) \subseteq A$. Note that $B_{r/2}^\infty(a) \subseteq B_r^1(a)$ by part (b), and so
+$B_{r/2}^\infty(a) \subseteq B_r^1(a) \subseteq A$. As $a \in A$ was arbitrary, we conclude that $A$ is open in
+$(\mathbb{R}^2, d_\infty)$.\hfill$\square$
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = reflectcyan,
+  colframe = cyan!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Reflection \& Variation}}
+]
+\fillfield{Write the definitions of $d_1$ and $d_\infty$ on $\mathbb{R}^2$.}
+\fillfield{Why does part (b) immediately imply the two metrics generate the same open sets?}
+\fillfieldlong{In part (c), where exactly was the factor $1/2$ needed, and why could you not simply reuse the same radius in both directions?}
+\fillfield{What nearby exam variation could appear?}
+\end{tcolorbox}
+
+% ─────────────────────────────────────────────────────────────────────────────
+%  HW8 · PROBLEM 3
+% ─────────────────────────────────────────────────────────────────────────────
+\newpage
+\subsection{Problem 3}
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = probblue,
+  colframe = blue!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Problem Statement}\hfill Homework 8, Problem 3}
+]
+Let $X$ be a nonempty set, and recall that the discrete metric $d$ is a metric on $X$.
+Prove that every set $A \subseteq X$ is open in the metric space $(X, d)$.
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass1green,
+  colframe = green!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 1 \enspace\textbf{--}\enspace First Diagnosis}
+]
+\fillfield{Topic}
+\fillfield{What does the discrete metric equal when $x=y$? When $x\ne y$?}
+\fillfield{What radius should isolate a single point?}
+\fillfield{What does an open ball of radius $1/2$ look like?}
+\fillfield{Why does proving each $a\in A$ is an interior point finish the problem?}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass2yellow,
+  colframe = yellow!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 2 \enspace\textbf{--}\enspace Proof Recipe Card}
+]
+\fillfield{Fix $a\in A$. What is $B_{1/2}(a)$ in the discrete metric?}
+\fillfield{Why are the only possible values of $d(x,a)$ equal to $0$ and $1$?}
+\fillfield{Why does $B_{1/2}(a)=\{a\}\subseteq A$?}
+\fillfield{What definition of ``open'' are you invoking at the last line?}
+\fillfield{How does the proof work for an arbitrary subset $A$?}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass3orange,
+  colframe = orange!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 3 \enspace\textbf{--}\enspace Self-Explanation}
+]
+\fillfield{Why is radius $1/2$ a convenient choice rather than radius $1$?}
+\fillfield{Could you replace $1/2$ by any number in $(0,1)$? Why?}
+\fillfield{What feature of the discrete metric makes every singleton open?}
+\fillfield{Why do unions of singletons then suggest that every subset should be open?}
+\fillfield{Common mistake: forgetting to prove the ball is contained in $A$, not just nonempty.}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass4purple,
+  colframe = purple!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 4 \enspace\textbf{--}\enspace Skeleton Proof}
+]
+\noindent\textbf{Fix $A\subseteq X$ and $a\in A$; compute $B_{1/2}(a)$ explicitly:}\par
+\writespace{1.6cm}
+\noindent\textbf{Explain why $d(x,a)<1/2$ forces $x=a$:}\par
+\writespace{1.2cm}
+\noindent\textbf{Conclude $a$ is an interior point and hence $A$ is open:}\par
+\writespace{1.0cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass5gray,
+  colframe = black!38,
+  fonttitle = \bfseries,
+  title = {Pass 5 \enspace\textbf{--}\enspace Full Proof Attempt}
+]
+\small\itshape Write a complete proof before reading the Official Solution.\par
+\normalfont\normalsize
+\writespace{19cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = solgreen,
+  colframe = green!45!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Official Solution}\hfill Homework 8 -- Selected Solutions}
+]
+\textbf{Problem 3.}
+
+\medskip\textbf{Solution:}
+
+\medskip
+Fix $A \subseteq X$ and $a \in A$. Notice that
+\[
+  B_{1/2}(a) = \{x \in X : d(x, a) < 1/2\} = \{a\}.
+\]
+(Indeed, $d(x, a)$ is either equal to $0$ or $1$, and so the only time that $d(x, a) < 1/2$ is when
+$d(x, a) = 0$.) Then $a \in B_{1/2}(a) \subseteq A$, and so $a$ is an interior point for $a$.
+As $a \in A$ was arbitrary, we conclude that $A$ is open.\hfill$\square$
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = reflectcyan,
+  colframe = cyan!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Reflection \& Variation}}
+]
+\fillfield{Why does $B_{1/2}(a)=\{a\}$ in the discrete metric?}
+\fillfield{Which radii $r$ satisfy $B_r(a)=\{a\}$ for every point $a$?}
+\fillfieldlong{Explain why the discrete metric is the ``most open'' metric possible on a set. What does that mean in terms of open subsets?}
+\fillfield{What nearby exam variation could appear?}
+\end{tcolorbox}
+
+% ─────────────────────────────────────────────────────────────────────────────
+%  HW8 · PROBLEM 4
+% ─────────────────────────────────────────────────────────────────────────────
+\newpage
+\subsection{Problem 4}
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = probblue,
+  colframe = blue!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Problem Statement}\hfill Homework 8, Problem 4}
+]
+Let $(X, d)$ be any metric space. Define the function $\tilde{d} : X \times X \to \mathbb{R}$ by
+\[
+  \tilde{d}(x, y) = \min\{d(x, y), 1\}.
+\]
+\begin{itemize}[nosep, leftmargin=1.8em]
+  \item[(a)] Prove that $\tilde{d}$ is also a metric on $X$.
+  \item[(b)] Prove that a set $A \subseteq X$ is open in $(X, d)$ if and only if it is open in $(X, \tilde{d})$.
+\end{itemize}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass1green,
+  colframe = green!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 1 \enspace\textbf{--}\enspace First Diagnosis}
+]
+\fillfield{Topic}
+\fillfield{Which four metric axioms must be checked in part (a)?}
+\fillfield{Where is the triangle inequality for $d$ going to be used?}
+\fillfield{What is the main idea of part (b): compare $d$-balls and $\tilde d$-balls or compare closures?}
+\fillfield{Why might you want to choose a radius at most $1/2$ in one direction?}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass2yellow,
+  colframe = yellow!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 2 \enspace\textbf{--}\enspace Proof Recipe Card}
+]
+\fillfield{(a) Nonnegativity / identity / symmetry are easy because $\tilde d(x,y)$ is either \dotfill}
+\fillfield{(a) Triangle inequality: what four cases arise depending on whether $d(x,y)$ and $d(y,z)$ are $<1$ or $\ge 1$?}
+\fillfield{(b) If $x \in B_r^d(a)$, why does $\tilde d(x,a)\le d(x,a)<r$?}
+\fillfield{(b) If $x \in B_{r_2}^{\tilde d}(a)$ with $r_2 \le 1/2$, why must $\tilde d(x,a)=d(x,a)$?}
+\fillfield{What radii $r_1,r_2$ will you choose in the $(X,d)\Rightarrow(X,\tilde d)$ direction?}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass3orange,
+  colframe = orange!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 3 \enspace\textbf{--}\enspace Self-Explanation}
+]
+\fillfield{Why does truncating distances at $1$ preserve nonnegativity, identity, and symmetry?}
+\fillfield{In the triangle inequality proof, why are the cases with one side $\ge 1$ automatically easy?}
+\fillfield{Why does choosing $r_2 \le 1/2$ force points in $B_{r_2}^{\tilde d}(a)$ to have genuine $d$-distance $<r_2$?}
+\fillfield{What does this problem show about changing a metric far away from each point?}
+\fillfield{Common mistake: forgetting that $\tilde d(x,a)<r_2\le 1/2$ rules out the possibility $\tilde d(x,a)=1$.}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass4purple,
+  colframe = purple!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 4 \enspace\textbf{--}\enspace Skeleton Proof}
+]
+\noindent\textbf{(a) Check nonnegativity, identity of indiscernibles, and symmetry:}\par
+\writespace{1.6cm}
+\noindent\textbf{(a) Triangle inequality: split into four cases and show $\tilde d(x,z)\le \tilde d(x,y)+\tilde d(y,z)$:}\par
+\writespace{2.2cm}
+
+\noindent\rule{\linewidth}{0.4pt}\vspace{2pt}
+
+\noindent\textbf{(b) Assume $A$ is open in $(X,\tilde d)$; show $B_r^d(a)\subseteq B_r^{\tilde d}(a)\subseteq A$:}\par
+\writespace{1.5cm}
+\noindent\textbf{(b) Assume $A$ is open in $(X,d)$; choose $r_2=\min\{r_1,1/2\}$ and show $B_{r_2}^{\tilde d}(a)\subseteq B_{r_1}^d(a)$:}\par
+\writespace{1.8cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass5gray,
+  colframe = black!38,
+  fonttitle = \bfseries,
+  title = {Pass 5 \enspace\textbf{--}\enspace Full Proof Attempt}
+]
+\small\itshape Write a complete proof before reading the Official Solution.\par
+\normalfont\normalsize
+\writespace{19cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = solgreen,
+  colframe = green!45!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Official Solution}\hfill Homework 8 -- Selected Solutions}
+]
+\textbf{Problem 4.}
+
+\medskip\textbf{Solution:}
+
+\medskip
+(a) There are $4$ properties to check.
+\begin{enumerate}[leftmargin=1.8em, itemsep=4pt]
+  \item $\tilde{d}(x, y) \ge 0$ for all $x, y \in X$. Note that $\tilde{d}(x, y)$ is equal to $1$ or
+    $d(x, y)$. Both of these are nonnegative; we know $d(x, y) \ge 0$ since $d$ is a metric on $X$.
+  \item $\tilde{d}(x, y) = 0 \Longleftrightarrow x = y$. If $x = y$, then $d(x, y) = 0$, so
+    $\tilde{d}(x, y) = \min\{0, 1\} = 0$. Conversely, if $\tilde{d}(x, y) = 0$, then
+    $\tilde{d}(x, y) \ne 1$ and so we must have $d(x, y) = \tilde{d}(x, y) = 0$. As $d$ is a metric,
+    this can only mean that $x = y$.
+  \item $\tilde{d}(x, y) = \tilde{d}(y, x)$ for all $x, y \in X$. As $d$ is a metric, we know that
+    $d(x, y) = d(y, x)$, and so
+\[
+  \tilde{d}(x, y) = \min\{d(x, y), 1\} = \min\{d(y, x), 1\} = \tilde{d}(y, x).
+\]
+  \item $\tilde{d}(x, z) \le \tilde{d}(x, y) + \tilde{d}(y, z)$ for all $x, y, z \in X$. We distinguish
+    $4$ possible cases:
+\begin{itemize}[nosep, leftmargin=1.5em]
+  \item $d(x, y) < 1$ and $d(y, z) < 1$: Then
+\[
+  \tilde{d}(x, z) \le d(x, z) \le d(x, y) + d(y, z) = \tilde{d}(x, y) + \tilde{d}(y, z).
+\]
+  \item $d(x, y) < 1$ and $d(y, z) \ge 1$: Then
+\[
+  \tilde{d}(x, z) \le 1 \le d(x, y) + 1 = \tilde{d}(x, y) + \tilde{d}(y, z).
+\]
+  \item $d(x, y) \ge 1$ and $d(y, z) < 1$: Then
+\[
+  \tilde{d}(x, z) \le 1 \le 1 + d(y, z) = \tilde{d}(x, y) + \tilde{d}(y, z).
+\]
+  \item $d(x, y) \ge 1$ and $d(y, z) \ge 1$: Then
+\[
+  \tilde{d}(x, z) \le 1 \le 1 + 1 = \tilde{d}(x, y) + \tilde{d}(y, z).
+\]
+\end{itemize}
+In all cases, the triangle inequality holds.
+\end{enumerate}
+
+\medskip
+(b) $\Longleftarrow$ Suppose that $A$ is open in $(X, \tilde{d})$. Fix $a \in A$. Then there exists $r > 0$ so that
+\[
+  B_r^{\tilde{d}}(a) = \{x \in X : \tilde{d}(x, a) < r\} \subseteq A.
+\]
+Note that $B_r^d(a) \subseteq B_r^{\tilde{d}}(a)$, since
+\[
+  x \in B_r^d(a) \Longrightarrow \tilde{d}(x, a) \le d(x, a) < r \Longrightarrow x \in B_r^{\tilde{d}}(a).
+\]
+So $B_r^d(a) \subseteq B_r^{\tilde{d}}(a) \subseteq A$. As $a \in A$ was arbitrary, we conclude that $A$
+is open in $(X, d)$.
+
+\medskip
+$\Longrightarrow$ Suppose that $A$ is open in $(X, d)$. Fix $a \in A$. Then there exists $r_1 > 0$ so that
+$B_{r_1}^d(a) \subseteq A$. Set $r_2 = \min\{r_1, 1/2\}$. Note that $B_{r_2}^{\tilde{d}}(a) \subseteq B_{r_1}^d(a)$, since
+\[
+  x \in B_{r_2}^{\tilde{d}}(a) \Longrightarrow \tilde{d}(x, a) = \min\{d(x, a), 1\} < r_2 \le 1/2
+\]
+\[
+  \Longrightarrow \tilde{d}(x, a) = d(x, a) \Longrightarrow d(x, a) < r_2 \le r_1.
+\]
+So $B_{r_2}^{\tilde{d}}(a) \subseteq B_{r_1}^d(a) \subseteq A$. As $a \in A$ was arbitrary, we conclude that
+$A$ is open in $(X, \tilde{d})$.\hfill$\square$
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = reflectcyan,
+  colframe = cyan!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Reflection \& Variation}}
+]
+\fillfield{Which metric axiom is the only genuinely nontrivial part of (a)?}
+\fillfield{Why does truncating distances at $1$ leave all open sets unchanged?}
+\fillfieldlong{Could you replace $1$ by any constant $M>0$ in the definition $\tilde d(x,y)=\min\{d(x,y),M\}$? Which parts of the proof would change?}
+\fillfield{What nearby exam variation could appear?}
+\end{tcolorbox}
+
+% ─────────────────────────────────────────────────────────────────────────────
+%  HW8 · PROBLEM 5
+% ─────────────────────────────────────────────────────────────────────────────
+\newpage
+\subsection{Problem 5}
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = probblue,
+  colframe = blue!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Problem Statement}\hfill Homework 8, Problem 5}
+]
+Let $(X, d)$ be a metric space, $A \subseteq X$, and $x \in X$. Prove that $x$ is in $A^\circ$ if and
+only if there exists an open set $U$ so that $x \in U \subseteq A$.
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass1green,
+  colframe = green!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 1 \enspace\textbf{--}\enspace First Diagnosis}
+]
+\fillfield{Topic}
+\fillfield{What does $x \in A^\circ$ mean by definition?}
+\fillfield{What open set should you choose in the forward direction?}
+\fillfield{What fact about open sets will you use in the reverse direction?}
+\fillfield{Why is this really just a reformulation of the definition of interior?}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass2yellow,
+  colframe = yellow!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 2 \enspace\textbf{--}\enspace Proof Recipe Card}
+]
+\fillfield{$\Longrightarrow$ If $x\in A^\circ$, then there exists $r>0$ such that \dotfill}
+\fillfield{$\Longrightarrow$ Choose $U=$\hspace{1cm} Why is $U$ open?}
+\fillfield{$\Longleftarrow$ If $x\in U\subseteq A$ and $U$ is open, then there exists $r>0$ such that \dotfill}
+\fillfield{$\Longleftarrow$ Combine $B_r(x)\subseteq U$ with $U\subseteq A$ to get \dotfill}
+\fillfield{Final conclusion about interior points:}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass3orange,
+  colframe = orange!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 3 \enspace\textbf{--}\enspace Self-Explanation}
+]
+\fillfield{Why is an open ball always an open set in a metric space?}
+\fillfield{Why does $x \in U$ and ``$U$ open'' imply the existence of some ball around $x$ contained in $U$?}
+\fillfield{What is the difference between proving $x \in A$ and proving $x \in A^\circ$?}
+\fillfield{How does this problem repackage the definition of interior in a more flexible form?}
+\fillfield{Common mistake: taking $U=A$ in the forward direction without knowing $A$ is open.}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass4purple,
+  colframe = purple!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 4 \enspace\textbf{--}\enspace Skeleton Proof}
+]
+\noindent\textbf{$\Longrightarrow$ Assume $x\in A^\circ$; choose $r>0$ with $B_r(x)\subseteq A$, and set $U=$\ldots}\par
+\writespace{1.5cm}
+\noindent\textbf{$\Longleftarrow$ Assume $x\in U\subseteq A$ with $U$ open; produce $r>0$ with $B_r(x)\subseteq U$:}\par
+\writespace{1.5cm}
+\noindent\textbf{Combine containments to conclude $x\in A^\circ$:}\par
+\writespace{1.0cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass5gray,
+  colframe = black!38,
+  fonttitle = \bfseries,
+  title = {Pass 5 \enspace\textbf{--}\enspace Full Proof Attempt}
+]
+\small\itshape Write a complete proof before reading the Official Solution.\par
+\normalfont\normalsize
+\writespace{19cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = solgreen,
+  colframe = green!45!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Official Solution}\hfill Homework 8 -- Selected Solutions}
+]
+\textbf{Problem 5.}
+
+\medskip\textbf{Solution:}
+
+\medskip
+$\Longrightarrow$ Suppose that $x \in A^\circ$. Then there exists $r > 0$ such that $B_r(x) \subseteq A$.
+Notice that $U = B_r(x)$ is an open set that satisfies $x \in U \subseteq A$.
+
+\medskip
+$\Longleftarrow$ Suppose that $x \in U \subseteq A$ for some open set $U$. As $U$ is open, there exists $r > 0$ so
+that $B_r(x) \subseteq U$. Together we have $B_r(x) \subseteq U \subseteq A$, and so $x \in A^\circ$.\hfill$\square$
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = reflectcyan,
+  colframe = cyan!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Reflection \& Variation}}
+]
+\fillfield{State the definition of $A^\circ$ directly in terms of open balls.}
+\fillfield{Why is Problem 5 an ``if and only if'' restatement of that definition?}
+\fillfieldlong{Suppose $U$ is open and $U\subseteq A$. What does Problem 5 say about every point of $U$ relative to $A^\circ$?}
+\fillfield{What nearby exam variation could appear?}
+\end{tcolorbox}
+
+% ─────────────────────────────────────────────────────────────────────────────
+%  HW8 · PROBLEM 6
+% ─────────────────────────────────────────────────────────────────────────────
+\newpage
+\subsection{Problem 6}
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = probblue,
+  colframe = blue!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Problem Statement}\hfill Homework 8, Problem 6}
+]
+Let $(X, d)$ be a metric space and let $A$ be a nonempty subset of $X$. Prove that $A$ is open
+if and only if there exists a set $I$, positive numbers $r_i > 0$, and points $a_i \in X$ so
+that
+\[
+  A = \bigcup_{i \in I} B_{r_i}(a_i).
+\]
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass1green,
+  colframe = green!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 1 \enspace\textbf{--}\enspace First Diagnosis}
+]
+\fillfield{Topic}
+\fillfield{What theorem about unions of open sets do you expect to use?}
+\fillfield{If $A$ is open, what natural index set $I$ can you choose?}
+\fillfield{If $A$ is a union of open balls, why should $A$ be open?}
+\fillfield{What role does the assumption $A\ne\varnothing$ play?}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass2yellow,
+  colframe = yellow!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 2 \enspace\textbf{--}\enspace Proof Recipe Card}
+]
+\fillfield{$\Longrightarrow$ For each $a\in A$, openness gives an $r_a>0$ such that \dotfill}
+\fillfield{$\Longrightarrow$ Choose $I=$\hspace{1cm} and define $a_i,r_i$ how?}
+\fillfield{$\Longrightarrow$ Why does $A\subseteq \bigcup_{i\in I} B_{r_i}(a_i)$ hold?}
+\fillfield{$\Longleftarrow$ Why is each ball $B_{r_i}(a_i)$ open?}
+\fillfield{$\Longleftarrow$ Which closure property of open sets finishes the proof?}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass3orange,
+  colframe = orange!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 3 \enspace\textbf{--}\enspace Self-Explanation}
+]
+\fillfield{Why is every point of an open set contained in some open ball lying inside the set?}
+\fillfield{How does choosing one ball around each point convert a local definition into a global union formula?}
+\fillfield{Why is an arbitrary union of open sets open?}
+\fillfield{Could you take $I=A$ in the forward direction? Explain the notation carefully.}
+\fillfield{Common mistake: proving only one containment in the union identity.}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass4purple,
+  colframe = purple!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 4 \enspace\textbf{--}\enspace Skeleton Proof}
+]
+\noindent\textbf{$\Longrightarrow$ Assume $A$ is open; for each $a\in A$, choose $r_a>0$ with $B_{r_a}(a)\subseteq A$:}\par
+\writespace{1.5cm}
+\noindent\textbf{Show $A=\bigcup_{a\in A} B_{r_a}(a)$ by proving both containments:}\par
+\writespace{1.8cm}
+
+\noindent\rule{\linewidth}{0.4pt}\vspace{2pt}
+
+\noindent\textbf{$\Longleftarrow$ Assume $A=\bigcup_{i\in I} B_{r_i}(a_i)$; explain why each ball is open:}\par
+\writespace{1.2cm}
+\noindent\textbf{Use closure of openness under unions to conclude $A$ is open:}\par
+\writespace{1.0cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass5gray,
+  colframe = black!38,
+  fonttitle = \bfseries,
+  title = {Pass 5 \enspace\textbf{--}\enspace Full Proof Attempt}
+]
+\small\itshape Write a complete proof before reading the Official Solution.\par
+\normalfont\normalsize
+\writespace{19cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = solgreen,
+  colframe = green!45!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Official Solution}\hfill Homework 8 -- Selected Solutions}
+]
+\textbf{Problem 6.}
+
+\medskip\textbf{Solution:}
+
+\medskip
+No official solution provided.
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = reflectcyan,
+  colframe = cyan!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Reflection \& Variation}}
+]
+\fillfield{What is the difference between a local openness condition and a global union-of-balls description?}
+\fillfield{Why is the forward direction essentially ``one ball per point''?}
+\fillfieldlong{If $A$ is open, can you always write it as a union of balls centered at points of $A$ rather than arbitrary points of $X$? Explain.}
+\fillfield{What nearby exam variation could appear?}
+\end{tcolorbox}
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  HOMEWORK 9
+% ══════════════════════════════════════════════════════════════════════════════
+\newpage
+\section{Homework 9}
+
+% ─────────────────────────────────────────────────────────────────────────────
+%  HW9 · PROBLEM 1
+% ─────────────────────────────────────────────────────────────────────────────
+\newpage
+\subsection{Problem 1}
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = probblue,
+  colframe = blue!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Problem Statement}\hfill Homework 9, Problem 1}
+]
+Consider the metric space $(\mathbb{R}, d)$ with the usual metric $d(x, y) = |x-y|$. For
+each of the following sets $A \subseteq \mathbb{R}$, find its closure, isolated points, and
+limit points. Prove your answer.
+\begin{itemize}[nosep, leftmargin=1.8em]
+  \item[(a)] $A = [0, 1)$
+  \item[(b)] $A = \mathbb{Z}$
+  \item[(c)] $A = \{x \in \mathbb{Q} : 0 < x < 1\}$
+\end{itemize}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass1green,
+  colframe = green!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 1 \enspace\textbf{--}\enspace First Diagnosis}
+]
+\fillfield{Topic}
+\fillfield{Best guess for the closure, isolated points, and limit points in (a), (b), and (c):}
+\fillfield{Which definitions do you need: adherent point, isolated point, limit point?}
+\fillfield{Which density facts are relevant?}
+\fillfield{What endpoints or special points should you test first?}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass2yellow,
+  colframe = yellow!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 2 \enspace\textbf{--}\enspace Proof Recipe Card}
+]
+\fillfield{(a) Why is $1$ in $\overline{A}$? Find a point of $(1-r,1+r)\cap A$.}
+\fillfield{(a) Why is no point of $[0,1)$ isolated? Find another point of $A$ in $(a-r,a+r)$.}
+\fillfield{(b) Why is $x\notin\overline{\mathbb{Z}}$ for $x\in\mathbb{Z}^c$? Choose a radius inside one gap.}
+\fillfield{(b) Why is every integer isolated?}
+\fillfield{(c) How do density of rationals and density of irrationals determine closure and isolated points?}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass3orange,
+  colframe = orange!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 3 \enspace\textbf{--}\enspace Self-Explanation}
+]
+\fillfield{Why does closure ask for every ball to meet $A$, while isolated asks for one ball to meet $A$ only at the point?}
+\fillfield{Why is $\mathbb{Z}$ closed but made entirely of isolated points?}
+\fillfield{Why is $\{x\in\mathbb{Q}:0<x<1\}$ dense in $[0,1]$ but has no isolated points?}
+\fillfield{Where is the decomposition into isolated points and limit points being used?}
+\fillfield{Common mistake: confusing ``point of $A$'' with ``point of $\overline{A}$''.}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass4purple,
+  colframe = purple!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 4 \enspace\textbf{--}\enspace Skeleton Proof}
+]
+\noindent\textbf{(a) Show $\overline{A}=[0,1]$ by proving $1$ is adherent and nothing outside $[0,1]$ is needed:}\par
+\writespace{1.8cm}
+\noindent\textbf{(a) Show isolated points are empty and conclude limit points:}\par
+\writespace{1.4cm}
+
+\noindent\rule{\linewidth}{0.4pt}\vspace{2pt}
+
+\noindent\textbf{(b) Show $\overline{\mathbb{Z}}=\mathbb{Z}$ and each integer is isolated:}\par
+\writespace{1.8cm}
+\noindent\textbf{(b) Conclude limit points are empty:}\par
+\writespace{0.8cm}
+
+\noindent\rule{\linewidth}{0.4pt}\vspace{2pt}
+
+\noindent\textbf{(c) Show $\overline{A}=[0,1]$ using density, then show isolated points are empty:}\par
+\writespace{1.8cm}
+\noindent\textbf{(c) Conclude limit points:}\par
+\writespace{0.8cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass5gray,
+  colframe = black!38,
+  fonttitle = \bfseries,
+  title = {Pass 5 \enspace\textbf{--}\enspace Full Proof Attempt}
+]
+\small\itshape Write a complete proof before reading the Official Solution.\par
+\normalfont\normalsize
+\writespace{19cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = solgreen,
+  colframe = green!45!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Official Solution}\hfill Homework 9 -- Solutions}
+]
+\textbf{Problem 1.}
+
+\medskip\textbf{Solution:}
+
+\medskip
+(a) Closure: $\overline{A} = [0, 1]$. As $\overline{A}$ is the smallest closed set containing $A$, and
+$[0, 1]$ is one such closed set, we must have $[0, 1) \subseteq \overline{A} \subseteq [0, 1]$.
+Note that $1$ must be in the closure of $A$: given $r > 0$ we have
+$(1-r, 1+r) \cap [0, 1) \ne \varnothing$, since $\max\{1-r/2, 0\}$ is in $(1-r, 1+r)$ and
+$[0, 1)$.
+
+\medskip
+Isolated points: $\varnothing$. Fix $a \in A$. Given $r > 0$ we have $(a-r, a+r) \cap A \ne \{a\}$, since
+$\min\{a+r/2, (a+1)/2\}$ is a point in $(a-r, a+r) \cap A$ other than $a$.
+
+\medskip
+Limit points: $A' = [0, 1]$. By definition, $\overline{A}$ is the union of isolated points and limit points,
+and we just showed that there are no isolated points.
+
+\medskip
+(b) Closure: $\overline{A} = \mathbb{Z}$. We automatically have $\overline{A} \supseteq \mathbb{Z}$. Fix
+$x \in \mathbb{Z}^c$; we will show that $x$ is not an adherent point. Let $n \in \mathbb{Z}$ so that
+$n < x < n+1$. Then $r = \min\{x-n, n+1-x\}$ is a positive number so that
+$(x-r, x+r) \cap \mathbb{Z} = \varnothing$.
+
+\medskip
+Isolated points: $\mathbb{Z}$. Fix $n \in \mathbb{Z}$. Then $(n-1, n+1) \cap \mathbb{Z} = \{n\}$.
+
+\medskip
+Limit points: $A' = \varnothing$. By definition, $\overline{A}$ is the union of isolated points and limit points,
+and we just showed that every point is an isolated point.
+
+\medskip
+(c) Closure: $\overline{A} = [0, 1]$. Note that $0$ is an adherent point for $A$: given $r > 0$, pick
+$n > \max\{1/r, 1\}$ and then $1/n$ is a point in $(-r, r) \cap A$. Now fix $x \in (0, 1]$; we will
+show that $x$ is an adherent point. As the rational numbers are dense in $\mathbb{R}$, given $r > 0$
+we can find a point $q \in \mathbb{Q}$ between $\max\{x-r, 0\}$ and $x$, and this point $q$ will
+be in $(x-r, x+r) \cap A$.
+
+\medskip
+Isolated points: $\varnothing$. Given $x \in A$ and $r > 0$, we pick $q \in \mathbb{Q}$ as in the previous
+paragraph. This $q$ is a point in $(x-r, x+r) \cap A$ other than $x$.
+
+\medskip
+Limit points: $A' = [0, 1]$. By definition, $\overline{A}$ is the union of isolated points and limit points,
+and we just showed that there are no isolated points.\hfill$\square$
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = reflectcyan,
+  colframe = cyan!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Reflection \& Variation}}
+]
+\fillfield{State the definitions of adherent point, isolated point, and limit point.}
+\fillfield{Why can the closure be larger than the set even when the set has no isolated points?}
+\fillfieldlong{Compare parts (b) and (c): one is closed and discrete, the other is dense in an interval. How do those structural differences control the isolated and limit points?}
+\fillfield{What nearby exam variation could appear?}
+\end{tcolorbox}
+
+% ─────────────────────────────────────────────────────────────────────────────
+%  HW9 · PROBLEM 2
+% ─────────────────────────────────────────────────────────────────────────────
+\newpage
+\subsection{Problem 2}
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = probblue,
+  colframe = blue!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Problem Statement}\hfill Homework 9, Problem 2}
+]
+Let $(X, d)$ be a metric space, let $A$ be a nonempty subset of $X$, and let $U$ be an open
+subset of $X$.
+\begin{itemize}[nosep, leftmargin=1.8em]
+  \item[(a)] Prove that $U \cap \overline{A} \subseteq \overline{U \cap A}$.
+  \item[(b)] Prove that $\overline{U \cap \overline{A}} = \overline{U \cap A}$. (Hint: Use part (a) and properties of closure from lecture.)
+  \item[(c)] Conclude that if $U \cap A = \varnothing$, then $U \cap \overline{A} = \varnothing$.
+\end{itemize}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass1green,
+  colframe = green!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 1 \enspace\textbf{--}\enspace First Diagnosis}
+]
+\fillfield{Topic}
+\fillfield{What does it mean to show $x\in\overline{U\cap A}$?}
+\fillfield{Where will the openness of $U$ be used?}
+\fillfield{What closure properties from lecture are relevant for part (b)?}
+\fillfield{How should part (c) follow once part (b) is known?}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass2yellow,
+  colframe = yellow!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 2 \enspace\textbf{--}\enspace Proof Recipe Card}
+]
+\fillfield{(a) Fix $x\in U\cap\overline A$. To prove $x\in\overline{U\cap A}$, fix $r>0$ and aim to show \dotfill}
+\fillfield{(a) Since $U$ is open and $x\in U$, choose $s>0$ with \dotfill}
+\fillfield{(a) Set $\tilde r = \min\{r,s\}$. Since $x\in\overline A$, what point $y$ can you choose?}
+\fillfield{(b) Use $B\subseteq C \Rightarrow \overline B \subseteq \overline C$ on which inclusion?}
+\fillfield{(c) Why does $\overline B=\varnothing$ force $B=\varnothing$?}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass3orange,
+  colframe = orange!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 3 \enspace\textbf{--}\enspace Self-Explanation}
+]
+\fillfield{Why does the openness of $U$ let you shrink an arbitrary $r$ to a smaller radius inside $U$?}
+\fillfield{Why is $y\in B_{\tilde r}(x)$ enough to conclude both $y\in B_r(x)$ and $y\in U$?}
+\fillfield{In part (b), where exactly do you use $A\subseteq \overline A$?}
+\fillfield{Why does part (c) express the idea that open sets disjoint from $A$ are also disjoint from $\overline A$?}
+\fillfield{Common mistake: confusing $U\cap\overline A$ with $\overline{U\cap A}$; part (a) proves only one inclusion.}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass4purple,
+  colframe = purple!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 4 \enspace\textbf{--}\enspace Skeleton Proof}
+]
+\noindent\textbf{(a) Fix $x\in U\cap\overline A$ and $r>0$; choose $s>0$ with $B_s(x)\subseteq U$:}\par
+\writespace{1.4cm}
+\noindent\textbf{Set $\tilde r=\min\{r,s\}$ and pick $y\in B_{\tilde r}(x)\cap A$; verify $y\in B_r(x)\cap U\cap A$:}\par
+\writespace{1.8cm}
+
+\noindent\rule{\linewidth}{0.4pt}\vspace{2pt}
+
+\noindent\textbf{(b) Apply closure monotonicity to part (a) and use $A\subseteq\overline A$:}\par
+\writespace{1.6cm}
+\noindent\textbf{Conclude $\overline{U\cap\overline A}=\overline{U\cap A}$:}\par
+\writespace{1.0cm}
+
+\noindent\rule{\linewidth}{0.4pt}\vspace{2pt}
+
+\noindent\textbf{(c) Start from $U\cap A=\varnothing$ and use part (b):}\par
+\writespace{1.4cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass5gray,
+  colframe = black!38,
+  fonttitle = \bfseries,
+  title = {Pass 5 \enspace\textbf{--}\enspace Full Proof Attempt}
+]
+\small\itshape Write a complete proof before reading the Official Solution.\par
+\normalfont\normalsize
+\writespace{19cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = solgreen,
+  colframe = green!45!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Official Solution}\hfill Homework 9 -- Solutions}
+]
+\textbf{Problem 2.}
+
+\medskip\textbf{Solution:}
+
+\medskip
+(a) Fix $x \in U \cap \overline{A}$. We want to show that $x \in \overline{U \cap A}$, i.e., for any $r > 0$,
+$B_r(x) \cap U \cap A$ is nonempty.
+
+\medskip
+Fix $r > 0$. As $x \in U$ and $U$ is open, there exists $s > 0$ so that $B_s(x) \subseteq U$. Set
+$\tilde r = \min\{r, s\}$. As $x \in \overline{A}$ and $\tilde r$ is a positive number, then we know that
+$B_{\tilde r}(x) \cap A$ is nonempty, and so there exists some point $y \in B_{\tilde r}(x) \cap A$.
+
+\medskip
+Altogether, we have:
+\begin{itemize}[nosep, leftmargin=1.5em]
+  \item $y \in A$
+  \item $y \in B_r(x)$: since $y \in B_{\tilde r}(x)$, and so $d(y, x) < \tilde r \le r$ and thus $y \in B_r(x)$.
+  \item $y \in U$: since $y \in B_{\tilde r}(x)$, and so $d(y, x) < \tilde r \le s$ and thus $y \in B_s(x) \subseteq U$.
+\end{itemize}
+So $y$ is a point in $B_r(x) \cap U \cap A$, as desired.
+
+\medskip
+(b) Recall that $B \subseteq C \Longrightarrow \overline{B} \subseteq \overline{C}$. Applying this to part (a), we see that
+\[
+  \overline{U \cap \overline{A}} \subseteq \overline{\overline{U \cap A}}.
+\]
+On the other hand, we have $A \subseteq \overline{A}$ and so $U \cap A \subseteq U \cap \overline{A}$. Therefore
+\[
+  \overline{U \cap A} \subseteq \overline{U \cap \overline{A}}.
+\]
+Together, this shows that $\overline{U \cap \overline{A}} = \overline{U \cap A}$.
+
+\medskip
+(c) For any set $B$, we have $B \subseteq \overline{B}$. So, if $\overline{B} = \varnothing$, then we must have
+$B = \varnothing$. Therefore:
+\[
+  U \cap A = \varnothing \Longrightarrow \overline{U \cap A} = \varnothing
+\]
+\[
+  \Longrightarrow \overline{U \cap \overline{A}} = \varnothing \qquad \text{by (b)}
+\]
+\[
+  \Longrightarrow U \cap \overline{A} = \varnothing.\hfill\square
+\]
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = reflectcyan,
+  colframe = cyan!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Reflection \& Variation}}
+]
+\fillfield{Where exactly was the openness of $U$ used in part (a)?}
+\fillfield{State the monotonicity property of closure used in part (b).}
+\fillfieldlong{Explain part (c) in words: if an open set misses $A$, why must it also miss $\overline A$?}
+\fillfield{What nearby exam variation could appear?}
+\end{tcolorbox}
+
+% ─────────────────────────────────────────────────────────────────────────────
+%  HW9 · PROBLEM 3
+% ─────────────────────────────────────────────────────────────────────────────
+\newpage
+\subsection{Problem 3}
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = probblue,
+  colframe = blue!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Problem Statement}\hfill Homework 9, Problem 3}
+]
+Recall that $d_2$ is a metric on $\mathbb{R}^2$. Consider the subspace
+\[
+  Y = \{(x, 0) : x \in \mathbb{R}\}
+\]
+with the induced metric $d_Y$.
+\begin{itemize}[nosep, leftmargin=1.8em]
+  \item[(a)] Provide an example of a set $A \subseteq Y$ where $A$ is open in $(Y, d_Y)$ but not open in $(\mathbb{R}^2, d_2)$.
+  \item[(b)] Prove that for any $B \subseteq Y$, if $B$ is closed in $(Y, d_Y)$ then $B$ is closed in $(\mathbb{R}^2, d_2)$.
+\end{itemize}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass1green,
+  colframe = green!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 1 \enspace\textbf{--}\enspace First Diagnosis}
+]
+\fillfield{Topic}
+\fillfield{What geometric set is $Y$ inside $\mathbb{R}^2$?}
+\fillfield{What kind of subset of the $x$-axis is a natural candidate for part (a)?}
+\fillfield{Why should that candidate fail to be open in $\mathbb{R}^2$?}
+\fillfield{What lecture fact about closed subspaces is relevant in part (b)?}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass2yellow,
+  colframe = yellow!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 2 \enspace\textbf{--}\enspace Proof Recipe Card}
+]
+\fillfield{(a) Choose $A=\{(x,0):\dotfill\}$. Why is it open in the subspace?}
+\fillfield{(a) To show it is not open in $\mathbb{R}^2$, which point of $A$ should you test?}
+\fillfield{(a) What point in the Euclidean ball around $(0,0)$ lies off the $x$-axis?}
+\fillfield{(b) Which corollary lets you reduce the claim to showing that $Y$ is closed in $\mathbb{R}^2$?}
+\fillfield{(b) For $x=(x_1,x_2)\in Y^c$, what radius makes $B_r^{\mathbb{R}^2}(x)\subseteq Y^c$?}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass3orange,
+  colframe = orange!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 3 \enspace\textbf{--}\enspace Self-Explanation}
+]
+\fillfield{Why does a horizontal interval on the $x$-axis look open inside $Y$?}
+\fillfield{Why is openness in the subspace weaker than openness in the ambient space?}
+\fillfield{How does the second coordinate detect whether a point lies in $Y^c$?}
+\fillfield{Why does proving $Y^c$ is open imply $Y$ is closed?}
+\fillfield{Common mistake: confusing ``open in $Y$'' with ``open in $\mathbb{R}^2$''.}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass4purple,
+  colframe = purple!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 4 \enspace\textbf{--}\enspace Skeleton Proof}
+]
+\noindent\textbf{(a) State the example $A$ and prove it is open in $(Y,d_Y)$ by choosing a radius around $(x_1,0)$:}\par
+\writespace{1.8cm}
+\noindent\textbf{(a) Show $(0,0)\in A$ is not interior in $\mathbb{R}^2$ by finding a point off the axis:}\par
+\writespace{1.6cm}
+
+\noindent\rule{\linewidth}{0.4pt}\vspace{2pt}
+
+\noindent\textbf{(b) Show $Y$ is closed by proving $Y^c$ is open: fix $(x_1,x_2)\in Y^c$ and choose $r=|x_2|$:}\par
+\writespace{2.0cm}
+\noindent\textbf{Apply the subspace corollary to conclude the claim about closed subsets $B\subseteq Y$:}\par
+\writespace{1.0cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass5gray,
+  colframe = black!38,
+  fonttitle = \bfseries,
+  title = {Pass 5 \enspace\textbf{--}\enspace Full Proof Attempt}
+]
+\small\itshape Write a complete proof before reading the Official Solution.\par
+\normalfont\normalsize
+\writespace{19cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = solgreen,
+  colframe = green!45!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Official Solution}\hfill Homework 9 -- Solutions}
+]
+\textbf{Problem 3.}
+
+\medskip\textbf{Solution:}
+
+\medskip
+(a) Consider the set $A = \{(x, 0) : -1 < x < 1\}$.
+
+\medskip
+First, we will show that $A$ is open in $(Y, d_Y)$. Fix $x = (x_1, 0) \in A$. Set
+$r = 1-|x_1|$. Then $r > 0$ and
+\[
+  B_r^Y(x) = \{y \in Y : d_Y(x, y) < r\} \subseteq A,
+\]
+since
+\[
+  y \in B_r^Y(x) \Longrightarrow r > d_Y(x, y) = \sqrt{|x_1-y_1|^2 + |0-0|^2} = |x_1-y_1|
+\]
+\[
+  \Longrightarrow |y_1| \le |x_1| + |y_1-x_1| < |x_1| + r = 1
+\]
+\[
+  \Longrightarrow y \in A.
+\]
+
+\medskip
+Next, we will show that $A$ is not open in $(\mathbb{R}^2, d_2)$ by demonstrating that $(0, 0) \in A$ is not
+an interior point. Fix $r > 0$. Then
+\[
+  B_r^{\mathbb{R}^2}((0, 0)) = \{y \in \mathbb{R}^2 : d_2(y, (0, 0)) < r\} \not\subseteq A,
+\]
+since $(0, r/2)$ is a point that is in $B_r^{\mathbb{R}^2}((0, 0))$ but not in $A$.
+
+\medskip
+(b) By the corollary from Lecture 24, it suffices to show that $Y$ is closed in $(\mathbb{R}^2, d_2)$.
+Fix $x = (x_1, x_2) \in Y^c$. Then $x_2 \ne 0$. Set $r = |x_2|$. Then $r > 0$ and
+\[
+  B_r^{\mathbb{R}^2}(x) = \{y \in \mathbb{R}^2 : d_2(x, y) < r\} \subseteq Y^c,
+\]
+since
+\[
+  y \in B_r^{\mathbb{R}^2}(x) \Longrightarrow r > d_2(x, y) = \sqrt{|x_1-y_1|^2 + |x_2-y_2|^2} \ge |x_2-y_2|
+\]
+\[
+  \Longrightarrow |y_2| \ge |x_2| - |x_2-y_2| > |x_2| - r = 0
+\]
+\[
+  \Longrightarrow y_2 \ne 0 \Longrightarrow y \in Y^c.
+\]
+As $x \in Y^c$ was arbitrary, we conclude that $Y^c$ is open, and so $Y$ is closed.\hfill$\square$
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = reflectcyan,
+  colframe = cyan!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Reflection \& Variation}}
+]
+\fillfield{What is the induced metric $d_Y$ measuring on the $x$-axis?}
+\fillfield{Why is the interval $(-1,1)$ along the axis open in the subspace but not in the plane?}
+\fillfieldlong{Explain the role of the corollary from Lecture 24 in part (b). Why is proving $Y$ closed enough to control closed sets inside the subspace?}
+\fillfield{What nearby exam variation could appear?}
+\end{tcolorbox}
+
+% ─────────────────────────────────────────────────────────────────────────────
+%  HW9 · PROBLEM 4
+% ─────────────────────────────────────────────────────────────────────────────
+\newpage
+\subsection{Problem 4}
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = probblue,
+  colframe = blue!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Problem Statement}\hfill Homework 9, Problem 4}
+]
+Let $(X, d)$ be a metric space, $\{x_n\}_{n\ge1}$ a sequence in $X$, and $x \in X$. Prove that
+the sequence $\{x_n\}_{n\ge1}$ converges to $x$ if and only if for every open set $U$ that contains
+$x$, we have $x_n \in U$ for all but finitely many $n \in \mathbb{N}$.
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass1green,
+  colframe = green!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 1 \enspace\textbf{--}\enspace First Diagnosis}
+]
+\fillfield{Topic}
+\fillfield{What does convergence to $x$ mean in terms of $\epsilon$-balls?}
+\fillfield{What does ``for all but finitely many $n$'' mean precisely?}
+\fillfield{How will the openness of $U$ be used in the forward direction?}
+\fillfield{Which open set should you test in the reverse direction?}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass2yellow,
+  colframe = yellow!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 2 \enspace\textbf{--}\enspace Proof Recipe Card}
+]
+\fillfield{$\Longrightarrow$ If $x_n\to x$ and $U$ is open with $x\in U$, choose $r>0$ so that \dotfill}
+\fillfield{$\Longrightarrow$ Convergence gives $N$ such that \dotfill}
+\fillfield{$\Longleftarrow$ Fix $r>0$ and apply the hypothesis to the open set \dotfill}
+\fillfield{$\Longleftarrow$ If only finitely many indices miss $B_r(x)$, how do you choose $N$?}
+\fillfield{Why does this prove the usual definition of convergence?}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass3orange,
+  colframe = orange!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 3 \enspace\textbf{--}\enspace Self-Explanation}
+]
+\fillfield{Why does every open neighborhood of $x$ contain some open ball centered at $x$?}
+\fillfield{Why is ``all but finitely many'' the right topological substitute for ``eventually''?}
+\fillfield{In the reverse direction, why is it enough to test the neighborhood $B_r(x)$ for arbitrary $r>0$?}
+\fillfield{What is the conceptual statement of this problem in one sentence?}
+\fillfield{Common mistake: forgetting that the index $N$ may depend on the chosen open set $U$ or radius $r$.}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass4purple,
+  colframe = purple!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 4 \enspace\textbf{--}\enspace Skeleton Proof}
+]
+\noindent\textbf{$\Longrightarrow$ Fix an open set $U\ni x$; choose $r>0$ with $B_r(x)\subseteq U$, then apply convergence:}\par
+\writespace{1.6cm}
+\noindent\textbf{$\Longleftarrow$ Fix $r>0$ and apply the hypothesis to $B_r(x)$; choose $N$ beyond the bad indices:}\par
+\writespace{1.8cm}
+\noindent\textbf{Conclude $d(x_n,x)<r$ for all $n\ge N$, and hence $x_n\to x$:}\par
+\writespace{1.0cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass5gray,
+  colframe = black!38,
+  fonttitle = \bfseries,
+  title = {Pass 5 \enspace\textbf{--}\enspace Full Proof Attempt}
+]
+\small\itshape Write a complete proof before reading the Official Solution.\par
+\normalfont\normalsize
+\writespace{19cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = solgreen,
+  colframe = green!45!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Official Solution}\hfill Homework 9 -- Solutions}
+]
+\textbf{Problem 4.}
+
+\medskip\textbf{Solution:}
+
+\medskip
+$\Longrightarrow$ Suppose that $x_n \to x$ in $(X, d)$ as $n \to \infty$. Fix an open set $U \subseteq X$ such
+that $x \in U$. As $U$ is open, then there exists $r > 0$ so that $B_r(x) \subseteq U$. Then, by definition of
+convergence, we know that there exists an $N$ so that $d(x_n, x) < r$ for all $n \ge N$. Together,
+we conclude that $x_n \in B_r(x) \subseteq U$ for all $n \ge N$.
+
+\medskip
+$\Longleftarrow$ Suppose that for any open set containing $x$, we have $x_n \in U$ for all but finitely
+many $n \in \mathbb{N}$. Fix $r > 0$. Applying this fact to the open set $B_r(x)$, we see that $x_n \in B_r(x)$ for
+all but finitely many $n \in \mathbb{N}$. Let $N$ be larger than the largest index for which $x_n \notin B_r(x)$.
+Then, for any $n \ge N$, we have $x_n \in B_r(x)$ and thus $d(x_n, x) < r$. As $r > 0$ was arbitrary,
+we conclude that $\{x_n\}_{n\ge1}$ converges to $x$ in $(X, d)$.\hfill$\square$
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = reflectcyan,
+  colframe = cyan!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Reflection \& Variation}}
+]
+\fillfield{Translate ``for all but finitely many $n$'' into a statement using a single index $N$.}
+\fillfield{Why is this result the topological version of metric convergence?}
+\fillfieldlong{If $x_n$ fails to converge to $x$, what kind of open neighborhood of $x$ must capture infinitely many failures? Explain using the contrapositive.}
+\fillfield{What nearby exam variation could appear?}
+\end{tcolorbox}
+
+% ─────────────────────────────────────────────────────────────────────────────
+%  HW9 · PROBLEM 5
+% ─────────────────────────────────────────────────────────────────────────────
+\newpage
+\subsection{Problem 5}
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = probblue,
+  colframe = blue!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Problem Statement}\hfill Homework 9, Problem 5}
+]
+Recall that $d_2$ is a metric on $\mathbb{R}^2$. Suppose that $x_n = (x_n^1, x_n^2)$ is a sequence of
+points in $\mathbb{R}^2$.
+\begin{itemize}[nosep, leftmargin=1.8em]
+  \item[(a)] Prove that $|x_n^1 - x_1| \le d_2(x_n, x)$ for any $x = (x_1, x_2) \in \mathbb{R}^2$.
+  \item[(b)] Prove that the sequence $\{x_n\}_{n\ge1}$ converges in $(\mathbb{R}^2, d_2)$ if and only if the sequences
+    $\{x_n^1\}_{n\ge1}$ and $\{x_n^2\}_{n\ge1}$ of real numbers both converge.
+\end{itemize}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass1green,
+  colframe = green!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 1 \enspace\textbf{--}\enspace First Diagnosis}
+]
+\fillfield{Topic}
+\fillfield{What is the formula for $d_2(x_n,x)$?}
+\fillfield{Why should one coordinate difference be bounded by the full Euclidean distance?}
+\fillfield{What theorem will part (a) feed into in part (b)?}
+\fillfield{How do limit laws enter the reverse direction of part (b)?}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass2yellow,
+  colframe = yellow!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 2 \enspace\textbf{--}\enspace Proof Recipe Card}
+]
+\fillfield{(a) Write $d_2(x_n,x) = \bigl(|x_n^1-x_1|^2 + |x_n^2-x_2|^2\bigr)^{1/2}$ and compare to \dotfill}
+\fillfield{(b) If $x_n\to x$, then $d_2(x_n,x)\to 0$. Use part (a) to show \dotfill}
+\fillfield{(b) Which theorem turns $0\le |x_n^1-x_1| \le d_2(x_n,x)$ into coordinate convergence?}
+\fillfield{(b) If $x_n^1\to x_1$ and $x_n^2\to x_2$, what happens to $|x_n^1-x_1|^2 + |x_n^2-x_2|^2$?}
+\fillfield{How do you conclude $d_2(x_n,x)\to 0$?}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass3orange,
+  colframe = orange!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 3 \enspace\textbf{--}\enspace Self-Explanation}
+]
+\fillfield{Why is adding a nonnegative term inside a square root enough to make the whole quantity larger?}
+\fillfield{Why does convergence in $\mathbb{R}^2$ imply coordinatewise convergence?}
+\fillfield{Why does coordinatewise convergence imply convergence in $\mathbb{R}^2$ specifically for the Euclidean metric?}
+\fillfield{Where do you use the squeeze theorem, and where do you use limit laws?}
+\fillfield{Common mistake: proving only one coordinate converges in the forward direction.}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass4purple,
+  colframe = purple!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 4 \enspace\textbf{--}\enspace Skeleton Proof}
+]
+\noindent\textbf{(a) Expand $d_2(x_n,x)$ and compare it to $|x_n^1-x_1|$:}\par
+\writespace{1.4cm}
+
+\noindent\rule{\linewidth}{0.4pt}\vspace{2pt}
+
+\noindent\textbf{(b) Assume $x_n\to x$; use part (a) and squeeze theorem for both coordinates:}\par
+\writespace{1.8cm}
+\noindent\textbf{(b) Assume coordinatewise convergence; apply limit laws to $d_2(x_n,x)$:}\par
+\writespace{1.6cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass5gray,
+  colframe = black!38,
+  fonttitle = \bfseries,
+  title = {Pass 5 \enspace\textbf{--}\enspace Full Proof Attempt}
+]
+\small\itshape Write a complete proof before reading the Official Solution.\par
+\normalfont\normalsize
+\writespace{19cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = solgreen,
+  colframe = green!45!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Official Solution}\hfill Homework 9 -- Solutions}
+]
+\textbf{Problem 5.}
+
+\medskip\textbf{Solution:}
+
+\medskip
+(a) Recall that
+\[
+  d_2(x_n, x) = \bigl(|x_n^1-x_1|^2 + |x_n^2-x_2|^2\bigr)^{1/2}.
+\]
+As $|x_n^2-x_2|^2 \ge 0$, then
+\[
+  d_2(x_n, x) \ge \bigl(|x_n^1-x_1|^2 + 0\bigr)^{1/2} \ge |x_n^1-x_1|.
+\]
+
+\medskip
+(b) $\Longrightarrow$ Suppose that $\{x_n\}_{n\ge1}$ converges to $x$ in $(\mathbb{R}^2, d_2)$. Then
+\[
+  d_2(x_n, x) \to 0 \quad \text{as } n \to \infty.
+\]
+By part (a), we know that
+\[
+  0 \le |x_n^1-x_1| \le d_2(x_n, x).
+\]
+So, by the squeeze theorem we have
+\[
+  |x_n^1-x_1| \to 0 \quad \text{as } n \to \infty,
+\]
+and so $\{x_n^1\}_{n\ge1}$ converges to $x_1$ in $(\mathbb{R}, |\cdot|)$. Similarly, we have
+\[
+  0 \le |x_n^2-x_2| \le d_2(x_n, x),
+\]
+and so $\{x_n^2\}_{n\ge1}$ converges to $x_2$ in $(\mathbb{R}, |\cdot|)$.
+
+\medskip
+$\Longleftarrow$ Suppose that $\{x_n^1\}_{n\ge1}$ converges to $x_1$ and $\{x_n^2\}_{n\ge1}$ converges to $x_2$. Then
+\[
+  |x_n^1-x_1| \to 0 \quad \text{and} \quad |x_n^2-x_2| \to 0 \quad \text{as } n \to \infty.
+\]
+So, by the limit laws we have
+\[
+  d_2(x_n, x) = \bigl(|x_n^1-x_1|^2 + |x_n^2-x_2|^2\bigr)^{1/2} \to 0 \quad \text{as } n \to \infty,
+\]
+and thus $\{x_n\}_{n\ge1}$ converges to $x$ in $(\mathbb{R}^2, d_2)$.\hfill$\square$
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = reflectcyan,
+  colframe = cyan!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Reflection \& Variation}}
+]
+\fillfield{Why does the Euclidean distance dominate each coordinate difference?}
+\fillfield{Where did the squeeze theorem appear in the proof?}
+\fillfieldlong{Would the same ``coordinatewise iff metric'' convergence statement hold for $d_1$ and $d_\infty$ on $\mathbb{R}^2$? Explain briefly.}
+\fillfield{What nearby exam variation could appear?}
+\end{tcolorbox}
+
+% ─────────────────────────────────────────────────────────────────────────────
+%  HW9 · PROBLEM 6
+% ─────────────────────────────────────────────────────────────────────────────
+\newpage
+\subsection{Problem 6}
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = probblue,
+  colframe = blue!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Problem Statement}\hfill Homework 9, Problem 6}
+]
+Let $(X, d)$ be a metric space and $\{x_n\}_{n\ge1}$ a sequence in $X$. Prove that if
+$\{x_n\}_{n\ge1}$ converges to $x \in X$, then for any $y \in X$, the sequence
+$\{d(x_n, y)\}_{n\ge1}$ of real numbers converges to $d(x, y)$.
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass1green,
+  colframe = green!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 1 \enspace\textbf{--}\enspace First Diagnosis}
+]
+\fillfield{Topic}
+\fillfield{What inequality involving $d(x_n,y)$ and $d(x,y)$ should come from triangle inequality?}
+\fillfield{What is the ``reverse triangle inequality'' in this setting?}
+\fillfield{How does convergence of $x_n$ to $x$ enter the final squeeze step?}
+\fillfield{What real sequence are you proving converges?}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass2yellow,
+  colframe = yellow!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 2 \enspace\textbf{--}\enspace Proof Recipe Card}
+]
+\fillfield{Apply triangle inequality to $d(x_n,y)$ using the point $x$:}
+\fillfield{Apply triangle inequality to $d(x,y)$ using the point $x_n$:}
+\fillfield{Combine the two inequalities to obtain \dotfill}
+\fillfield{Why does the right-hand side converge to $0$?}
+\fillfield{Which theorem finishes the proof once you have an absolute-value bound?}
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass3orange,
+  colframe = orange!65!black,
+  fonttitle = \bfseries,
+  title = {Pass 3 \enspace\textbf{--}\enspace Self-Explanation}
+]
+\fillfield{Why do you need two applications of triangle inequality rather than one?}
+\fillfield{How do those two inequalities turn into an absolute-value estimate?}
+\fillfield{What does the result say conceptually about the map $z\mapsto d(z,y)$?}
+\fillfield{Why is this a continuity statement?}
+\fillfield{Common mistake: writing $d(x_n,y)\to d(x,y)$ without first bounding the difference.}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass4purple,
+  colframe = purple!55!black,
+  fonttitle = \bfseries,
+  title = {Pass 4 \enspace\textbf{--}\enspace Skeleton Proof}
+]
+\noindent\textbf{Apply triangle inequality to bound $d(x_n,y)-d(x,y)$ above:}\par
+\writespace{1.2cm}
+\noindent\textbf{Apply triangle inequality again to bound $d(x,y)-d(x_n,y)$ above:}\par
+\writespace{1.2cm}
+\noindent\textbf{Combine into $|d(x_n,y)-d(x,y)|\le d(x_n,x)$ and conclude by squeeze theorem:}\par
+\writespace{1.4cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = pass5gray,
+  colframe = black!38,
+  fonttitle = \bfseries,
+  title = {Pass 5 \enspace\textbf{--}\enspace Full Proof Attempt}
+]
+\small\itshape Write a complete proof before reading the Official Solution.\par
+\normalfont\normalsize
+\writespace{19cm}
+\end{tcolorbox}
+
+\newpage
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = solgreen,
+  colframe = green!45!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Official Solution}\hfill Homework 9 -- Solutions}
+]
+\textbf{Problem 6.}
+
+\medskip\textbf{Solution:}
+
+\medskip
+Fix $y \in X$. By triangle inequality,
+\[
+  d(x_n, y) \le d(x_n, x) + d(x, y) \Longrightarrow d(x_n, y) - d(x, y) \le d(x_n, x)
+\]
+\[
+  d(x, y) \le d(x, x_n) + d(x_n, y) \Longrightarrow d(x, y) - d(x_n, y) \le d(x_n, x)
+\]
+Together, we obtain
+\[
+  |d(x_n, y) - d(x, y)| \le d(x_n, x).
+\]
+As $\{x_n\}_{n\ge1}$ converges to $x$ in $(X, d)$, then the right-hand side above converges to $0$ as $n \to \infty$.
+Therefore, by the squeeze theorem, we conclude that
+\[
+  |d(x_n, y) - d(x, y)| \to 0 \quad \text{as } n \to \infty,
+\]
+and thus $d(x_n, y)$ converges to $d(x, y)$.\hfill$\square$
+\end{tcolorbox}
+
+\bigskip
+
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback  = reflectcyan,
+  colframe = cyan!55!black,
+  fonttitle = \bfseries,
+  title = {\textsc{Reflection \& Variation}}
+]
+\fillfield{State the reverse triangle inequality in a metric space.}
+\fillfield{Why does this problem show that $z\mapsto d(z,y)$ is continuous?}
+\fillfieldlong{How would you adapt the proof to show $|d(x_n,y_n)-d(x,y)| \le d(x_n,x)+d(y_n,y)$ if also $y_n\to y$?}
+\fillfield{What nearby exam variation could appear?}
+\end{tcolorbox}
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  PRACTICE MIDTERM 2  (placeholder)
+% ══════════════════════════════════════════════════════════════════════════════
+\newpage
+\section{Practice Midterm 2}
+\textit{Problems and solutions to be added.}
+
+\end{document}
