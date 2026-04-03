@@ -1,0 +1,1236 @@
+\documentclass[12pt]{article}
+
+\usepackage[
+  letterpaper,
+  top=1.05in,
+  bottom=1.15in,
+  left=1.0in,
+  right=1.0in
+]{geometry}
+
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{parskip}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{xparse}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable,skins}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{microtype}
+\usepackage{needspace}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!50!black,
+  urlcolor=blue!50!black
+}
+
+\definecolor{ink}{RGB}{28,34,43}
+\definecolor{softblue}{RGB}{232,241,250}
+\definecolor{softgreen}{RGB}{232,246,237}
+\definecolor{softgold}{RGB}{252,245,225}
+\definecolor{softgray}{RGB}{242,244,247}
+\definecolor{lineblue}{RGB}{68,107,158}
+\definecolor{linegreen}{RGB}{86,132,102}
+\definecolor{linegold}{RGB}{170,135,40}
+\definecolor{linegray}{RGB}{126,136,148}
+
+\setlength{\headheight}{15pt}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textbf{MATH 431 Midterm 2 Practice Book}}
+\rhead{Spring 2026}
+\cfoot{\thepage}
+
+\setlist[itemize]{leftmargin=1.45em,itemsep=2pt,topsep=4pt}
+\setlist[enumerate]{leftmargin=1.45em,itemsep=2pt,topsep=4pt}
+
+\titleformat{\section}
+  {\Large\bfseries\color{ink}}{\thesection}{0.6em}{}
+\titleformat{\subsection}
+  {\large\bfseries\color{ink}}{}{0pt}{}
+\titlespacing*{\section}{0pt}{1.8em}{0.8em}
+\titlespacing*{\subsection}{0pt}{1.0em}{0.5em}
+
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\Bin}{\operatorname{Bin}}
+\newcommand{\Pois}{\operatorname{Poisson}}
+\newcommand{\Geom}{\operatorname{Geom}}
+\newcommand{\Exp}{\operatorname{Exp}}
+\newcommand{\Mult}{\operatorname{Mult}}
+\newcommand{\Unif}{\operatorname{Unif}}
+\newcommand{\Normal}{\operatorname{Normal}}
+\newcommand{\writespace}[1]{\vspace*{#1}}
+\newcommand{\shortws}{\writespace{1.1cm}}
+\newcommand{\medws}{\writespace{1.8cm}}
+\newcommand{\longws}{\writespace{2.8cm}}
+\newcommand{\xlongws}{\writespace{4.1cm}}
+\newcommand{\roiline}[1]{\textbf{ROI: #1}}
+
+\newcounter{problem}[section]
+\renewcommand{\theproblem}{\thesection.\arabic{problem}}
+
+\newtcolorbox{summarybox}[1]{
+  enhanced,
+  breakable,
+  colback=softblue,
+  colframe=lineblue,
+  boxrule=0.7pt,
+  arc=3pt,
+  left=8pt,
+  right=8pt,
+  top=6pt,
+  bottom=6pt,
+  title={#1},
+  fonttitle=\bfseries,
+  coltitle=ink
+}
+
+\newtcolorbox{patternbox}[1]{
+  enhanced,
+  breakable,
+  colback=softgold,
+  colframe=linegold,
+  boxrule=0.7pt,
+  arc=3pt,
+  left=8pt,
+  right=8pt,
+  top=6pt,
+  bottom=6pt,
+  title={#1},
+  fonttitle=\bfseries,
+  coltitle=ink
+}
+
+\newtcolorbox{examplebox}[1]{
+  enhanced,
+  breakable,
+  colback=softgreen,
+  colframe=linegreen,
+  boxrule=0.7pt,
+  arc=3pt,
+  left=8pt,
+  right=8pt,
+  top=6pt,
+  bottom=6pt,
+  title={#1},
+  fonttitle=\bfseries,
+  coltitle=ink
+}
+
+\newtcolorbox{reviewbox}[1]{
+  enhanced,
+  breakable,
+  colback=softgray,
+  colframe=linegray,
+  boxrule=0.7pt,
+  arc=3pt,
+  left=8pt,
+  right=8pt,
+  top=6pt,
+  bottom=6pt,
+  title={#1},
+  fonttitle=\bfseries,
+  coltitle=ink
+}
+
+\NewDocumentEnvironment{practiceproblem}{m +b}{
+  \Needspace{8\baselineskip}
+  \refstepcounter{problem}
+  \begin{tcolorbox}[
+    enhanced,
+    breakable,
+    colback=white,
+    colframe=ink!45,
+    boxrule=0.6pt,
+    arc=2pt,
+    left=7pt,
+    right=7pt,
+    top=6pt,
+    bottom=6pt,
+    title={Problem \theproblem \hfill [#1]},
+    colbacktitle=ink!4,
+    coltitle=ink,
+    fonttitle=\bfseries
+  ]
+  #2
+}{
+  \end{tcolorbox}
+}
+
+\begin{document}
+
+\hypersetup{pageanchor=false}
+
+\begin{titlepage}
+\thispagestyle{empty}
+\centering
+\vspace*{1.8cm}
+{\Huge\bfseries MATH 431\par}
+\vspace{0.35cm}
+{\Large Introduction to Probability\par}
+\vspace{1.15cm}
+\rule{0.68\linewidth}{1pt}\par
+\vspace{1.15cm}
+{\huge\bfseries Midterm 2 Practice Book\par}
+\vspace{0.85cm}
+{\large University of Wisconsin--Madison\par}
+{\large Spring 2026\par}
+\vspace{1.5cm}
+{\large\itshape Built from past Midterm 2 exams, Homework 5--9, and the course textbook\par}
+\vspace{0.35cm}
+{\normalsize\itshape Heaviest signal: Fall 2023 (November 15, 2023) and Fall 2025 (November 19, 2025)\par}
+\vfill
+\begin{flushleft}
+\textbf{Name:} \rule{0.74\linewidth}{0.5pt}\par
+\vspace{0.8cm}
+\textbf{Goal before taking past exams cold:}\par
+\smallskip
+\begin{itemize}
+  \item Get fast at identifying the right model.
+  \item Get clean on MGFs, transformations, exponentials, and joint distributions.
+  \item Practice the exact styles that keep reappearing on Midterm 2.
+\end{itemize}
+\end{flushleft}
+\vfill
+\end{titlepage}
+
+\hypersetup{pageanchor=true}
+
+\tableofcontents
+\clearpage
+
+\section*{How to Use This Book}
+\addcontentsline{toc}{section}{How to Use This Book}
+
+This workbook is designed to be your main \textbf{practice-and-review bridge} before you take the actual past Midterm 2 exams under timed conditions. The problems start very gently, then ramp toward the structures that showed up repeatedly on the real exams.
+
+\begin{summarybox}{Study Strategy}
+\begin{itemize}
+  \item Work the sections in order the first time. The sequencing is intentional: setup, then formulas, then transformations, then joint distributions, then mixed review.
+  \item On the early problems, focus on \textbf{recognition and setup}. On the later problems, focus on writing full clean solutions without wasted steps.
+  \item Leave answers in exact form whenever that is natural. Midterm 2 is not a calculator exam.
+  \item When a problem says ``approximate,'' the important part is usually choosing and justifying the right approximation.
+  \item After you finish Sections 4--10, take the actual past Midterm 2 exams cold.
+\end{itemize}
+\end{summarybox}
+
+\begin{patternbox}{How This Book Was Weighted}
+\begin{itemize}
+  \item \textbf{Very heavily weighted}: linear transformations of mean and variance, exponential distribution and memoryless property, MGFs, one-variable transformations, joint continuous distributions, marginals, independence, region probabilities, and joint expectations.
+  \item \textbf{Also emphasized}: normal approximation, Poisson approximation, multinomial modeling, joint discrete tables, and simple geometry-based uniform models.
+  \item \textbf{Included lightly}: confidence-interval/sample-size proportion questions, minimum/comparisons of exponentials, and non-monotone transformations such as $|X|$.
+  \item \textbf{De-emphasized}: gamma-heavy material, hypergeometric-heavy material, hard decimals, and proof-heavy items that have not shown up as a main Midterm 2 pattern.
+\end{itemize}
+\end{patternbox}
+
+\begin{reviewbox}{Main Textbook Sections Behind This Workbook}
+The core textbook support for this practice book is: Chapter 4 (especially Sections 4.1, 4.4, 4.5), Chapter 5 (Sections 5.1 and 5.2), Chapter 6 (Sections 6.1--6.3), and Chapter 8 (Sections 8.1--8.2 for expectation in the multivariate setting).
+\end{reviewbox}
+
+\clearpage
+
+\section{Distribution Recognition and Fast Setup}
+
+\begin{summarybox}{What You Need to Know}
+\roiline{High}
+\begin{itemize}
+  \item \textbf{Binomial}: number of successes in $n$ independent trials with the same success probability $p$.
+  \item \textbf{Poisson}: counts of rare events; also the standard approximation to $\Bin(n,p)$ when $n$ is large, $p$ is small, and $\lambda=np$.
+  \item \textbf{Multinomial}: repeated independent trials with more than two mutually exclusive outcomes. The count vector has joint PMF
+  \[
+    \PP(X_1=k_1,\dots,X_r=k_r)=\frac{n!}{k_1!\cdots k_r!}p_1^{k_1}\cdots p_r^{k_r}
+  \]
+  whenever $k_1+\cdots+k_r=n$.
+  \item \textbf{Exponential}: waiting time with constant rate $\lambda$; mean $1/\lambda$.
+  \item \textbf{Uniform on a region}: density is constant on the region, equal to $1/(\text{area of region})$ in two dimensions.
+  \item \textbf{Normal}: appears directly, and also as an approximation after standardizing.
+\end{itemize}
+\end{summarybox}
+
+\begin{patternbox}{Exam Pattern / What This Usually Looks Like}
+These are usually quick points early in the exam: identify the right named distribution, write down the PMF or PDF, or decide whether a count vector is binomial, Poisson, or multinomial before doing any real computation.
+\end{patternbox}
+
+\begin{examplebox}{Warm-Up Reminder}
+If each trial has \emph{three} mutually exclusive outcomes with fixed probabilities and the trials are independent, then the count vector is \textbf{multinomial}, not binomial.
+\end{examplebox}
+
+\begin{reviewbox}{Where to Review More}
+Textbook Sections 3.1, 4.4, 4.5, 6.1, 6.2.
+\end{reviewbox}
+
+\subsection*{Level 1: Warm-Up}
+
+\begin{practiceproblem}{Warm-up}
+A quiz app is shown to $25$ users. Each user independently answers ``yes'' with probability $0.4$. Let $X$ be the number of ``yes'' answers.
+\begin{enumerate}
+  \item What distribution does $X$ have?
+  \item Write its PMF.
+  \item State $\EE[X]$ and $\Var(X)$.
+\end{enumerate}
+\end{practiceproblem}
+\medws
+
+\begin{practiceproblem}{Warm-up}
+Each manufactured chip is independently classified as \emph{acceptable}, \emph{rework}, or \emph{scrap} with probabilities $0.92$, $0.06$, and $0.02$, respectively. Let $(X_1,X_2,X_3)$ be the counts of these three outcomes among $50$ chips.
+\begin{enumerate}
+  \item What named distribution models $(X_1,X_2,X_3)$?
+  \item Write the joint PMF.
+\end{enumerate}
+\end{practiceproblem}
+\medws
+
+\subsection*{Level 2: Standard}
+
+\begin{practiceproblem}{Standard}
+A sensor lifetime is modeled by an exponential distribution with expected lifetime $8$ months.
+\begin{enumerate}
+  \item Find the rate parameter $\lambda$.
+  \item Write the CDF.
+  \item Compute $\PP(X>10)$.
+\end{enumerate}
+\end{practiceproblem}
+\medws
+
+\begin{practiceproblem}{Standard}
+A point is chosen uniformly at random from the rectangle $[0,3]\times[0,2]$.
+\begin{enumerate}
+  \item Write the joint PDF of $(X,Y)$.
+  \item Compute $\PP(X<1,\ Y>1)$.
+\end{enumerate}
+\end{practiceproblem}
+\medws
+
+\subsection*{Level 3: Exam-Style}
+
+\begin{practiceproblem}{Exam-style}
+A streaming platform classifies each of $400$ visits as desktop, mobile, or tablet with probabilities $0.55$, $0.35$, and $0.10$, independently across visits.
+\begin{enumerate}
+  \item What distribution models the count vector $(D,M,T)$?
+  \item Write the exact probability that there are exactly $210$ desktop visits, $145$ mobile visits, and $45$ tablet visits.
+\end{enumerate}
+\end{practiceproblem}
+\longws
+
+\clearpage
+
+\section{Expectation, Variance, and Linear Transformations}
+
+\begin{summarybox}{What You Need to Know}
+\roiline{Extremely High}
+\begin{itemize}
+  \item For constants $a,b$,
+  \[
+    \EE[aX+b]=a\,\EE[X]+b,
+    \qquad
+    \Var(aX+b)=a^2\Var(X).
+  \]
+  \item If you want $Y=aX+b$ to have target mean $m$ and target variance $s^2$, solve
+  \[
+    a\,\EE[X]+b=m,
+    \qquad
+    a^2\Var(X)=s^2.
+  \]
+  \item Quick reminders:
+  \[
+    \EE[\Bin(n,p)]=np,\quad \Var(\Bin(n,p))=np(1-p),
+  \]
+  \[
+    \EE[\Pois(\lambda)]=\lambda,\quad \Var(\Pois(\lambda))=\lambda,
+  \]
+  \[
+    \EE[\Exp(\lambda)]=1/\lambda,\quad \Var(\Exp(\lambda))=1/\lambda^2.
+  \]
+\end{itemize}
+\end{summarybox}
+
+\begin{patternbox}{Exam Pattern / What This Usually Looks Like}
+This is one of the most reliable short-problem types on Midterm 2. It is usually fast algebra, but it is easy to lose points by forgetting that the variance uses $a^2$, not $a$.
+\end{patternbox}
+
+\begin{examplebox}{Warm-Up Reminder}
+If $\EE[X]=2$ and $\Var(X)=3$, then $\EE[3X-1]=5$ and $\Var(3X-1)=27$.
+\end{examplebox}
+
+\begin{reviewbox}{Where to Review More}
+Textbook Sections 3.3, 3.4, and 8.1.
+\end{reviewbox}
+
+\subsection*{Level 1: Warm-Up}
+
+\begin{practiceproblem}{Warm-up}
+Suppose $\EE[X]=3$ and $\Var(X)=5$. Find
+\[
+  \EE[2X-7]
+  \qquad\text{and}\qquad
+  \Var(2X-7).
+\]
+\end{practiceproblem}
+\shortws
+
+\begin{practiceproblem}{Warm-up}
+Let $X\sim\Bin(60,1/5)$.
+\begin{enumerate}
+  \item Find $\EE[X]$ and $\Var(X)$.
+  \item Find $\EE[4-X]$ and $\Var(4-X)$.
+\end{enumerate}
+\end{practiceproblem}
+\medws
+
+\subsection*{Level 2: Standard}
+
+\begin{practiceproblem}{Standard}
+Suppose $\EE[X]=-2$ and $\Var(X)=9$. Find numbers $a,b$ so that $aX+b$ has mean $0$ and variance $1$.
+\end{practiceproblem}
+\medws
+
+\begin{practiceproblem}{Standard}
+Suppose $\EE[X]=5$ and $\Var(X)=4$. Find numbers $a,b$ so that $aX+b$ has mean $1$ and variance $36$.
+\end{practiceproblem}
+\medws
+
+\begin{practiceproblem}{Standard}
+Let $S=300+W$ where $W\sim\Bin(100,1/2)$.
+\begin{enumerate}
+  \item Find $\EE[S]$.
+  \item Find $\Var(S)$.
+  \item State the standard deviation of $S$.
+\end{enumerate}
+\end{practiceproblem}
+\medws
+
+\subsection*{Level 3: Exam-Style}
+
+\begin{practiceproblem}{Exam-style}
+Let $X$ be a random variable with mean $-6$ and variance $25$. Find positive numbers $a,b$ so that the random variable
+\[
+  Y=aX+b
+\]
+has mean $0$ and variance $4$.
+\end{practiceproblem}
+\longws
+
+\clearpage
+
+\section{Exponential Distributions and the Memoryless Property}
+
+\begin{summarybox}{What You Need to Know}
+\roiline{Extremely High}
+\begin{itemize}
+  \item If $X\sim\Exp(\lambda)$, then
+  \[
+    f_X(x)=\lambda e^{-\lambda x}\quad (x>0),
+    \qquad
+    F_X(x)=1-e^{-\lambda x}\quad (x\ge 0).
+  \]
+  \item Tail probability:
+  \[
+    \PP(X>t)=e^{-\lambda t}.
+  \]
+  \item Mean and variance:
+  \[
+    \EE[X]=1/\lambda,
+    \qquad
+    \Var(X)=1/\lambda^2.
+  \]
+  \item Memoryless property:
+  \[
+    \PP(X>s+t\mid X>s)=\PP(X>t).
+  \]
+  \item If independent exponentials have rates $\lambda_1,\dots,\lambda_n$, then the minimum has exponential rate $\lambda_1+\cdots+\lambda_n$.
+\end{itemize}
+\end{summarybox}
+
+\begin{patternbox}{Exam Pattern / What This Usually Looks Like}
+The exam version is usually one of these: recover the rate from the mean, compute a direct tail probability, use memorylessness for a conditional probability, or compare two independent exponentials.
+\end{patternbox}
+
+\begin{examplebox}{Warm-Up Reminder}
+If the expected waiting time is $12$, then the rate is $\lambda=1/12$, not $12$.
+\end{examplebox}
+
+\begin{reviewbox}{Where to Review More}
+Textbook Section 4.5.
+\end{reviewbox}
+
+\subsection*{Level 1: Warm-Up}
+
+\begin{practiceproblem}{Warm-up}
+Let $X\sim\Exp(1/5)$. Compute:
+\[
+  \PP(X<5)
+  \qquad\text{and}\qquad
+  \PP(X>8).
+\]
+\end{practiceproblem}
+\medws
+
+\begin{practiceproblem}{Warm-up}
+A battery life is modeled by an exponential distribution with expected life $18$ months.
+\begin{enumerate}
+  \item Find the rate parameter.
+  \item Compute $\PP(X<18)$.
+  \item Compute $\PP(X>24)$.
+\end{enumerate}
+\end{practiceproblem}
+\medws
+
+\subsection*{Level 2: Standard}
+
+\begin{practiceproblem}{Standard}
+A phone call length is modeled by an exponential distribution with mean $12$ minutes. Find
+\[
+  \PP(X>20\mid X>8).
+\]
+\end{practiceproblem}
+\medws
+
+\begin{practiceproblem}{Standard}
+Let $X\sim\Exp(\lambda)$. Show that
+\[
+  \PP(X>s+t\mid X>s)
+\]
+does not depend on $s$, and simplify it fully.
+\end{practiceproblem}
+\medws
+
+\begin{practiceproblem}{Standard}
+Let $X\sim\Exp(2)$ and $Y\sim\Exp(3)$ be independent. Find $\PP(X<Y)$.
+\end{practiceproblem}
+\medws
+
+\subsection*{Level 3: Exam-Style}
+
+\begin{practiceproblem}{Exam-style}
+Let $\lambda>0$. Suppose $X\sim\Exp(\lambda)$ and $Y\sim\Exp(2\lambda)$ are independent.
+\begin{enumerate}
+  \item Compute $\PP(X>3Y)$.
+  \item Let $V=\min(X,Y)$. Find the density $f_V(v)$.
+\end{enumerate}
+\end{practiceproblem}
+\xlongws
+
+\clearpage
+
+\section{Normal Approximation, Poisson Approximation, and Multinomial Modeling}
+
+\begin{summarybox}{What You Need to Know}
+\roiline{Extremely High}
+\begin{itemize}
+  \item If $X\sim\Bin(n,p)$ and $np(1-p)>10$, then
+  \[
+    \frac{X-np}{\sqrt{np(1-p)}}
+  \]
+  is well approximated by a standard normal random variable.
+  \item Continuity correction often improves normal approximations for integer-valued $X$.
+  \item If $X\sim\Bin(n,p)$ with $n$ large and $p$ small, then a Poisson approximation with $\lambda=np$ is good when $np^2$ is small.
+  \item A count vector over several mutually exclusive categories is multinomial, not ``several independent binomials.''
+  \item Conservative proportion interval rule:
+  \[
+    \hat p \pm \frac{1.96}{2\sqrt n}
+  \]
+  comes from the bound $p(1-p)\le 1/4$.
+\end{itemize}
+\end{summarybox}
+
+\begin{patternbox}{Exam Pattern / What This Usually Looks Like}
+You are usually expected to do two things: choose the right approximation or model, and justify why it is appropriate. The justification is often as important as the final expression.
+\end{patternbox}
+
+\begin{examplebox}{Warm-Up Reminder}
+If $X\sim\Bin(400,0.1)$, then $np(1-p)=36$, so normal approximation is sensible. If $X\sim\Bin(10000,0.001)$, then $np^2=0.01$, so Poisson approximation is excellent.
+\end{examplebox}
+
+\begin{reviewbox}{Where to Review More}
+Textbook Sections 4.1, 4.3, 4.4, and 6.1.
+\end{reviewbox}
+
+\subsection*{Level 1: Warm-Up}
+
+\begin{practiceproblem}{Warm-up}
+Let $X\sim\Bin(240,0.3)$.
+\begin{enumerate}
+  \item State the mean and variance.
+  \item Write a normal approximation for $\PP(X\le 80)$ in terms of $\Phi$.
+  \item Also write the continuity-corrected version.
+\end{enumerate}
+\end{practiceproblem}
+\medws
+
+\begin{practiceproblem}{Warm-up}
+Let $X\sim\Bin(5000,0.0008)$. Decide whether normal or Poisson approximation is more natural for approximating $\PP(X=2)$, and then write the approximation.
+\end{practiceproblem}
+\medws
+
+\subsection*{Level 2: Standard}
+
+\begin{practiceproblem}{Standard}
+A promotion places a silver coupon in each box with probability $0.08$, independently across boxes. A customer buys $300$ boxes. If $X$ is the number of silver coupons found, approximate
+\[
+  \PP(X\ge 30).
+\]
+Leave the answer in terms of $\Phi$.
+\end{practiceproblem}
+\longws
+
+\begin{practiceproblem}{Standard}
+A rare defect occurs independently with probability $0.002$ on each of $2500$ items. Approximate the probability of at least one defect.
+\end{practiceproblem}
+\medws
+
+\begin{practiceproblem}{Standard}
+A class has $180$ students, and each student is left-handed independently with probability $0.12$. Approximate the probability that more than $25$ students are left-handed.
+\end{practiceproblem}
+\longws
+
+\begin{practiceproblem}{Standard}
+Derive a sufficient sample size $n$ for a $95\%$ confidence interval for a population proportion to have \textbf{total width} at most $w$, using the conservative bound $p(1-p)\le 1/4$.
+\end{practiceproblem}
+\longws
+
+\begin{practiceproblem}{Standard}
+A survey of size $n=900$ finds sample proportion $\hat p=0.18$. Write the conservative approximate $95\%$ interval.
+\end{practiceproblem}
+\medws
+
+\subsection*{Level 3: Exam-Style}
+
+\begin{practiceproblem}{Exam-style}
+Each package contains a bronze card with probability $0.12$, a gold card with probability $0.005$, or no card otherwise. Assume packages are independent. A store sells $400$ packages.
+\begin{enumerate}
+  \item Approximate the probability of at least $60$ bronze cards.
+  \item Approximate the probability of exactly $2$ gold cards.
+  \item Write the exact probability of getting exactly $55$ bronze cards and exactly $1$ gold card.
+\end{enumerate}
+\end{practiceproblem}
+\xlongws
+
+\clearpage
+
+\section{Moment Generating Functions}
+
+\begin{summarybox}{What You Need to Know}
+\roiline{Extremely High}
+\begin{itemize}
+  \item The moment generating function is
+  \[
+    M_X(t)=\EE[e^{tX}].
+  \]
+  \item If $M_X$ is finite around $0$, then
+  \[
+    M_X'(0)=\EE[X],\qquad M_X''(0)=\EE[X^2],\qquad \Var(X)=M_X''(0)-\bigl(M_X'(0)\bigr)^2.
+  \]
+  \item If $X$ is discrete with finitely many values, then
+  \[
+    M_X(t)=\sum_x e^{tx}\PP(X=x),
+  \]
+  so you can often \textbf{read off} the support and probabilities.
+  \item Useful recognition patterns:
+  \[
+    M_{\Bin(n,p)}(t)=((1-p)+pe^t)^n,
+  \]
+  \[
+    M_{\Pois(\lambda)}(t)=e^{\lambda(e^t-1)},
+  \]
+  \[
+    M_{\Exp(\lambda)}(t)=\frac{\lambda}{\lambda-t}\qquad (t<\lambda).
+  \]
+\end{itemize}
+\end{summarybox}
+
+\begin{patternbox}{Exam Pattern / What This Usually Looks Like}
+The exam loves two MGF skills: recover a PMF from a finite sum of exponential terms, and use derivatives at $0$ to compute moments or variance.
+\end{patternbox}
+
+\begin{examplebox}{Warm-Up Reminder}
+$M_X'''(0)=\EE[X^3]$. If the MGF is already written as a weighted sum of terms like $e^{tx}$, it is often faster to read off the distribution first and then compute moments from the PMF.
+\end{examplebox}
+
+\begin{reviewbox}{Where to Review More}
+Textbook Section 5.1 and Section 8.3.
+\end{reviewbox}
+
+\subsection*{Level 1: Warm-Up}
+
+\begin{practiceproblem}{Warm-up}
+Suppose
+\[
+  M_X(t)=\frac14 e^{-t}+\frac12 e^t+\frac14 e^{3t}.
+\]
+Write the PMF of $X$.
+\end{practiceproblem}
+\medws
+
+\begin{practiceproblem}{Warm-up}
+For the random variable in the previous problem, find $\PP(X>0)$ and $\EE[X]$.
+\end{practiceproblem}
+\medws
+
+\subsection*{Level 2: Standard}
+
+\begin{practiceproblem}{Standard}
+Suppose
+\[
+  M_X(t)=\frac18+\frac38 e^t+\frac38 e^{2t}+\frac18 e^{3t}.
+\]
+\begin{enumerate}
+  \item Find the PMF of $X$.
+  \item Identify the distribution, including parameters.
+\end{enumerate}
+\end{practiceproblem}
+\medws
+
+\begin{practiceproblem}{Standard}
+Let
+\[
+  M_X(t)=\left(\frac{1+e^t}{2}\right)^4.
+\]
+Find $\EE[X]$, $\Var(X)$, and $\PP(X\ge 3)$.
+\end{practiceproblem}
+\longws
+
+\begin{practiceproblem}{Standard}
+Let
+\[
+  M_X(t)=\frac{1}{\sqrt{1-2t}}
+  \qquad\text{for } |t|<1/2.
+\]
+Find $\EE[X]$ and $\Var(X)$.
+\end{practiceproblem}
+\medws
+
+\begin{practiceproblem}{Standard}
+Let
+\[
+  M_X(t)=e^{2(e^t-1)}.
+\]
+Identify the distribution of $X$, then compute $\PP(X=0)$, $\EE[X]$, and $\Var(X)$.
+\end{practiceproblem}
+\medws
+
+\subsection*{Level 3: Exam-Style}
+
+\begin{practiceproblem}{Exam-style}
+Suppose
+\[
+  M_X(t)=\frac{1}{10}e^{-2t}+\frac{3}{10}+\frac{2}{5}e^t+\frac{1}{5}e^{4t}.
+\]
+Find:
+\begin{enumerate}
+  \item the PMF of $X$,
+  \item $\PP(X\text{ is even})$,
+  \item $M_X'''(0)$ without doing unnecessary symbolic differentiation,
+  \item $\Var(X)$.
+\end{enumerate}
+\end{practiceproblem}
+\xlongws
+
+\clearpage
+
+\section{Transformations of One Continuous Random Variable}
+
+\begin{summarybox}{What You Need to Know}
+\roiline{Extremely High}
+\begin{itemize}
+  \item \textbf{Support first.} Before any algebra, determine the possible values of $Y=g(X)$.
+  \item \textbf{CDF method:}
+  \[
+    F_Y(y)=\PP(g(X)\le y).
+  \]
+  This is often the safest method, especially for non-monotone functions.
+  \item If $g$ is one-to-one and differentiable, then
+  \[
+    f_Y(y)=f_X(g^{-1}(y))\left|\frac{d}{dy}g^{-1}(y)\right|.
+  \]
+  \item If $g$ is not one-to-one, add contributions from all relevant branches.
+  \item Standard trouble spots:
+  \begin{itemize}
+    \item forgetting to split the support for $|X|$ or $X^2$,
+    \item differentiating before finding the correct support,
+    \item losing absolute values in the derivative.
+  \end{itemize}
+\end{itemize}
+\end{summarybox}
+
+\begin{patternbox}{Exam Pattern / What This Usually Looks Like}
+This is one of the biggest Midterm 2 themes. Real exam versions often use a uniform random variable and ask for the density of $X^2$, $X^3$, $|X|$, or a geometry-based quantity such as area.
+\end{patternbox}
+
+\begin{examplebox}{Warm-Up Reminder}
+If $X\sim\Unif[0,b]$ and $Y=X^2$, then on $0\le y\le b^2$,
+\[
+  F_Y(y)=\PP(X\le \sqrt y)=\frac{\sqrt y}{b}.
+\]
+\end{examplebox}
+
+\begin{reviewbox}{Where to Review More}
+Textbook Section 5.2 and Homework 5 / Homework 8.
+\end{reviewbox}
+
+\subsection*{Level 1: Warm-Up}
+
+\begin{practiceproblem}{Warm-up}
+Let $X\sim\Unif[0,4]$ and let $Y=X^2$.
+\begin{enumerate}
+  \item Find the support of $Y$.
+  \item Find $F_Y(y)$ for all real $y$.
+  \item Find a density $f_Y(y)$.
+\end{enumerate}
+\end{practiceproblem}
+\longws
+
+\begin{practiceproblem}{Warm-up}
+Let $X\sim\Unif[-2,4]$ and let $Y=X^3$. Find a density $f_Y(y)$.
+\end{practiceproblem}
+\longws
+
+\subsection*{Level 2: Standard}
+
+\begin{practiceproblem}{Standard}
+Let $X\sim\Unif[-2,4]$ and let $Y=|X|$. Find a density $f_Y(y)$.
+\end{practiceproblem}
+\longws
+
+\begin{practiceproblem}{Standard}
+Suppose $X$ has density
+\[
+  f_X(x)=2x,\qquad 0\le x\le 1.
+\]
+Find the density of $Y=1-X$.
+\end{practiceproblem}
+\medws
+
+\begin{practiceproblem}{Standard}
+Suppose $X$ has density
+\[
+  f_X(x)=3x^2,\qquad 0\le x\le 1.
+\]
+Find the density of $Y=\sqrt X$.
+\end{practiceproblem}
+\medws
+
+\begin{practiceproblem}{Standard}
+A point is thrown uniformly at random onto a disk of radius $6$. Let $R$ be its distance from the center and let
+\[
+  A=\pi R^2
+\]
+be the area of the centered disk through the point.
+\begin{enumerate}
+  \item Find the support of $A$.
+  \item Find $F_A(a)$.
+  \item Find a density $f_A(a)$.
+\end{enumerate}
+\end{practiceproblem}
+\xlongws
+
+\subsection*{Level 3: Exam-Style}
+
+\begin{practiceproblem}{Exam-style}
+Let $X\sim\Exp(1)$ and define
+\[
+  Y=(X-2)^2.
+\]
+\begin{enumerate}
+  \item Find $F_Y(y)$ for all $y\ge 0$.
+  \item Find a density $f_Y(y)$.
+\end{enumerate}
+\end{practiceproblem}
+\xlongws
+
+\clearpage
+
+\section{Joint Discrete Distributions}
+
+\begin{summarybox}{What You Need to Know}
+\roiline{High}
+\begin{itemize}
+  \item Marginals come from row sums and column sums.
+  \item Independence means
+  \[
+    p_{X,Y}(x,y)=p_X(x)p_Y(y)
+  \]
+  for all pairs $(x,y)$ in the support.
+  \item To show \emph{not} independent, one counterexample is enough.
+  \item Probabilities of events come from summing the relevant entries.
+  \item Expectations come from
+  \[
+    \EE[g(X,Y)]=\sum_x\sum_y g(x,y)\,p_{X,Y}(x,y).
+  \]
+\end{itemize}
+\end{summarybox}
+
+\begin{patternbox}{Exam Pattern / What This Usually Looks Like}
+The common exam table problem asks for marginals, then independence, then a short probability or variance computation. These are usually fast points if your table-reading is clean.
+\end{patternbox}
+
+\begin{examplebox}{Warm-Up Reminder}
+If a single table entry is $0$ while the corresponding product of marginals is positive, then independence fails immediately.
+\end{examplebox}
+
+\begin{reviewbox}{Where to Review More}
+Textbook Sections 6.1 and 6.3, plus Homework 9.
+\end{reviewbox}
+
+\subsection*{Level 1: Warm-Up}
+
+\begin{practiceproblem}{Warm-up}
+The joint PMF of $(X,Y)$ is given by the table
+\[
+\begin{array}{c|ccc}
+X\backslash Y & 0 & 1 & 2\\ \hline
+0 & \tfrac{1}{10} & \tfrac{2}{10} & \tfrac{1}{10}\\
+1 & \tfrac{2}{10} & \tfrac{1}{10} & \tfrac{3}{10}
+\end{array}
+\]
+Find the marginal PMFs of $X$ and $Y$.
+\end{practiceproblem}
+\medws
+
+\begin{practiceproblem}{Warm-up}
+For the joint table in the previous problem, determine whether $X$ and $Y$ are independent. Give a rigorous explanation.
+\end{practiceproblem}
+\medws
+
+\subsection*{Level 2: Standard}
+
+\begin{practiceproblem}{Standard}
+For the same joint table, compute $\PP(Y>X)$ and $\EE[Y]$.
+\end{practiceproblem}
+\medws
+
+\begin{practiceproblem}{Standard}
+The joint PMF of $(X,Y)$ is given by
+\[
+\begin{array}{c|cc}
+X\backslash Y & 0 & 1\\ \hline
+1 & \tfrac18 & \tfrac18\\
+2 & \tfrac18 & \tfrac14\\
+3 & \tfrac18 & \tfrac14
+\end{array}
+\]
+Compute:
+\begin{enumerate}
+  \item $\EE[XY]$,
+  \item $\PP(X=Y+1)$.
+\end{enumerate}
+\end{practiceproblem}
+\medws
+
+\subsection*{Level 3: Exam-Style}
+
+\begin{practiceproblem}{Exam-style}
+An urn experiment is repeated $n$ times independently. Each draw is red with probability $1/2$, blue with probability $1/3$, and green with probability $1/6$. Let $(R,B,G)$ be the counts.
+\begin{enumerate}
+  \item Write the joint PMF of $(R,B,G)$.
+  \item When $n=6$, compute $\PP(R=4,\ B=2,\ G=0)$.
+  \item State the marginal distribution of $R$.
+\end{enumerate}
+\end{practiceproblem}
+\longws
+
+\clearpage
+
+\section{Joint Continuous Distributions: Marginals, Independence, and Region Probabilities}
+
+\begin{summarybox}{What You Need to Know}
+\roiline{Extremely High}
+\begin{itemize}
+  \item A valid joint PDF must satisfy $f(x,y)\ge 0$ and
+  \[
+    \iint_{\mathbb{R}^2} f(x,y)\,dA = 1.
+  \]
+  \item Marginals:
+  \[
+    f_X(x)=\int_{-\infty}^{\infty} f(x,y)\,dy,
+    \qquad
+    f_Y(y)=\int_{-\infty}^{\infty} f(x,y)\,dx.
+  \]
+  \item Independence means
+  \[
+    f(x,y)=f_X(x)f_Y(y)
+  \]
+  on the support.
+  \item If $(X,Y)$ is uniform on a region $D$, then
+  \[
+    f(x,y)=\frac{1}{\text{area}(D)}
+  \]
+  on $D$ and $0$ outside.
+  \item For region probabilities, draw the support and the event region before integrating.
+\end{itemize}
+\end{summarybox}
+
+\begin{patternbox}{Exam Pattern / What This Usually Looks Like}
+This is the other huge Midterm 2 theme. Expect marginals, independence, a region probability, and often a support where the geometry matters just as much as the calculus.
+\end{patternbox}
+
+\begin{examplebox}{Warm-Up Reminder}
+If the support is triangular, independence is usually impossible because products of one-variable densities naturally live on rectangles, not triangles.
+\end{examplebox}
+
+\begin{reviewbox}{Where to Review More}
+Textbook Sections 6.2 and 6.3.
+\end{reviewbox}
+
+\subsection*{Level 1: Warm-Up}
+
+\begin{practiceproblem}{Warm-up}
+Find the constant $c$ so that
+\[
+  f(x,y)=c(x+y), \qquad 0\le x\le 1,\ 0\le y\le 1,
+\]
+is a joint PDF.
+\end{practiceproblem}
+\medws
+
+\begin{practiceproblem}{Warm-up}
+For the joint PDF in the previous problem, find $f_X(x)$ and $f_Y(y)$.
+\end{practiceproblem}
+\medws
+
+\subsection*{Level 2: Standard}
+
+\begin{practiceproblem}{Standard}
+For the joint PDF
+\[
+  f(x,y)=c(x+y), \qquad 0\le x\le 1,\ 0\le y\le 1,
+\]
+with the correct normalizing constant $c$, determine whether $X$ and $Y$ are independent.
+\end{practiceproblem}
+\medws
+
+\begin{practiceproblem}{Standard}
+For the same joint PDF, compute $\PP(X<Y)$.
+\end{practiceproblem}
+\longws
+
+\begin{practiceproblem}{Standard}
+Suppose $(X,Y)$ is uniformly distributed on the triangle with vertices $(0,0)$, $(2,0)$, and $(2,1)$.
+\begin{enumerate}
+  \item Write the joint PDF.
+  \item Find $f_X(x)$ and $f_Y(y)$.
+\end{enumerate}
+\end{practiceproblem}
+\xlongws
+
+\begin{practiceproblem}{Standard}
+For the triangle in the previous problem, compute $\PP(X+Y<2)$.
+\end{practiceproblem}
+\longws
+
+\begin{practiceproblem}{Standard}
+Let
+\[
+  f(x,y)=6e^{-2x-3y},\qquad x>0,\ y>0,
+\]
+and $0$ otherwise.
+\begin{enumerate}
+  \item Check whether $X$ and $Y$ are independent.
+  \item Identify the marginal densities.
+\end{enumerate}
+\end{practiceproblem}
+\medws
+
+\subsection*{Level 3: Exam-Style}
+
+\begin{practiceproblem}{Exam-style}
+Let
+\[
+  f(x,y)=3x,\qquad 0<y<x<1,
+\]
+and $0$ otherwise.
+\begin{enumerate}
+  \item Find $f_X(x)$ and $f_Y(y)$.
+  \item Determine whether $X$ and $Y$ are independent.
+  \item Compute $\PP(Y\le 1/2,\ X>3/4)$.
+\end{enumerate}
+\end{practiceproblem}
+\xlongws
+
+\clearpage
+
+\section{Joint Expectations, Double Integrals, and Uniform-on-Region Geometry}
+
+\begin{summarybox}{What You Need to Know}
+\roiline{Extremely High}
+\begin{itemize}
+  \item In the joint continuous setting,
+  \[
+    \EE[g(X,Y)]=\iint g(x,y)f(x,y)\,dA
+  \]
+  whenever the integral is well-defined.
+  \item The same framework gives probabilities:
+  \[
+    \PP((X,Y)\in A)=\iint_A f(x,y)\,dA.
+  \]
+  \item If a question asks only for an \emph{integral expression}, the setup is the answer.
+  \item On uniform regions, geometry often gives the cleanest path to support and density before you integrate.
+\end{itemize}
+\end{summarybox}
+
+\begin{patternbox}{Exam Pattern / What This Usually Looks Like}
+Expect one of the following: write down a correct double integral over a region, compute $\EE[X]$, $\EE[Y]$, or $\EE[XY]$, or use a uniform-on-region model where the geometry is simple but the setup must be exact.
+\end{patternbox}
+
+\begin{examplebox}{Warm-Up Reminder}
+If the problem says ``Do not compute; only set up the integral,'' do exactly that. Good limits and a correct integrand are full credit material on this type of question.
+\end{examplebox}
+
+\begin{reviewbox}{Where to Review More}
+Textbook Sections 6.2, 8.1, and 8.2.
+\end{reviewbox}
+
+\subsection*{Level 1: Warm-Up}
+
+\begin{practiceproblem}{Warm-up}
+Suppose $(X,Y)$ has joint PDF $A(x,y)$ on the rectangle $0\le x\le 4$, $0\le y\le 3$, and $0$ outside. Write integral expressions for:
+\begin{enumerate}
+  \item the condition that $A$ is a valid joint PDF,
+  \item $\EE[X^2Y]$,
+  \item $\PP(X+Y<2)$.
+\end{enumerate}
+\end{practiceproblem}
+\longws
+
+\subsection*{Level 2: Standard}
+
+\begin{practiceproblem}{Standard}
+Suppose $(X,Y)$ is uniformly distributed on the triangle with vertices $(0,0)$, $(1,0)$, and $(1,2)$.
+\begin{enumerate}
+  \item Compute $\EE[X]$.
+  \item Compute $\EE[Y]$.
+\end{enumerate}
+\end{practiceproblem}
+\longws
+
+\begin{practiceproblem}{Standard}
+For the same triangle, compute $\EE[XY]$.
+\end{practiceproblem}
+\longws
+
+\begin{practiceproblem}{Standard}
+Let
+\[
+  f(x,y)=x e^{-x(1+y)},\qquad x>0,\ y>0,
+\]
+and $0$ otherwise. Compute $\EE[XY]$.
+\end{practiceproblem}
+\xlongws
+
+\begin{practiceproblem}{Standard}
+A point is chosen uniformly on the triangle with vertices $(0,0)$, $(2,0)$, and $(0,2)$.
+\begin{enumerate}
+  \item Compute $\PP(X+Y<1)$.
+  \item Compute $\EE[X+Y]$.
+\end{enumerate}
+\end{practiceproblem}
+\longws
+
+\subsection*{Level 3: Exam-Style}
+
+\begin{practiceproblem}{Exam-style}
+Let
+\[
+  f(x,y)=1,\qquad 0<x<1,\ x<y<x+1,
+\]
+and $0$ otherwise.
+\begin{enumerate}
+  \item Find $f_X(x)$ and $f_Y(y)$.
+  \item Determine whether $X$ and $Y$ are independent.
+  \item Write an integral expression for $\PP(X>1/3,\ Y<5/4)$.
+\end{enumerate}
+\end{practiceproblem}
+\xlongws
+
+\clearpage
+
+\section{Mixed Exam-Style Review}
+
+\begin{summarybox}{How to Use This Section}
+\roiline{Extremely High}
+Treat these as dress rehearsals. Try to decide the model quickly, write a clean setup, and avoid overcomputing. These are deliberately built to resemble actual Midterm 2 pacing and structure without copying the old exams directly.
+\end{summarybox}
+
+\subsection*{Mixed Set}
+
+\begin{practiceproblem}{Exam-style}
+Each of $600$ snack bags contains a silver sticker with probability $0.09$, a gold sticker with probability $0.001$, or no sticker otherwise. Assume bags are independent.
+\begin{enumerate}
+  \item Approximate the probability of at least $65$ silver stickers.
+  \item Approximate the probability of at least one gold sticker.
+  \item Write the exact probability of exactly $58$ silver stickers and exactly $2$ gold stickers.
+\end{enumerate}
+\end{practiceproblem}
+\xlongws
+
+\begin{practiceproblem}{Exam-style}
+A random variable $X$ has moment generating function
+\[
+  M_X(t)=\frac{1}{16}(1+e^t)^4.
+\]
+\begin{enumerate}
+  \item Derive the PMF of $X$.
+  \item Find $\EE[X]$ and $\Var(X)$.
+  \item Let $Y=2X-5$. Find $\EE[Y]$, $\Var(Y)$, and $\PP(Y>1)$.
+\end{enumerate}
+\end{practiceproblem}
+\xlongws
+
+\begin{practiceproblem}{Exam-style}
+A point is chosen uniformly at random on a disk of radius $4$. Let $T$ be the area of the centered disk through the chosen point.
+\begin{enumerate}
+  \item Find the support of $T$.
+  \item Find the cumulative distribution function $F_T(t)$.
+  \item Find a density $f_T(t)$.
+  \item Compute $\PP(5\pi < T < 10\pi)$.
+\end{enumerate}
+\end{practiceproblem}
+\xlongws
+
+\begin{practiceproblem}{Exam-style}
+Suppose $(X,Y)$ is uniformly distributed on the triangle with vertices $(0,0)$, $(2,0)$, and $(2,2)$.
+\begin{enumerate}
+  \item Write the joint PDF.
+  \item Find $f_X(x)$ and $f_Y(y)$.
+  \item Determine whether $X$ and $Y$ are independent.
+  \item Compute $\PP(X<1,\ Y>1/2)$.
+  \item Compute $\EE[XY]$.
+\end{enumerate}
+\end{practiceproblem}
+\xlongws
+
+\begin{practiceproblem}{Exam-style}
+Let $\lambda>0$. Suppose $X\sim\Exp(\lambda)$ and $Y\sim\Exp(3\lambda)$ are independent.
+\begin{enumerate}
+  \item Compute $\PP(X>2Y)$.
+  \item Let $V=\min(X,Y)$. Find the density of $V$.
+  \item Compute $\PP(V>t)$ for $t>0$.
+\end{enumerate}
+\end{practiceproblem}
+\xlongws
+
+\clearpage
+
+\section*{Final Notes Before Past Exams}
+\addcontentsline{toc}{section}{Final Notes Before Past Exams}
+
+\begin{reviewbox}{What to Be Fluent On}
+\begin{itemize}
+  \item Solve $aX+b$ mean/variance questions almost automatically.
+  \item Move comfortably between PMF/PDF, CDF, MGF, and support.
+  \item Know when to use normal approximation, Poisson approximation, and multinomial modeling.
+  \item Be able to set up region integrals from a picture.
+  \item Be able to get marginals and test independence from both joint tables and joint densities.
+  \item For exponentials, do not miss the mean-rate conversion or the memoryless step.
+\end{itemize}
+\end{reviewbox}
+
+\begin{patternbox}{Suggested Next Step}
+After you can do most of this workbook without hesitation, take the real past Midterm 2 exams under realistic timing. Mark every miss by category: setup mistake, algebra mistake, approximation choice, support error, or integration-region error. That is the fastest way to clean up the last weak spots.
+\end{patternbox}
+
+\end{document}

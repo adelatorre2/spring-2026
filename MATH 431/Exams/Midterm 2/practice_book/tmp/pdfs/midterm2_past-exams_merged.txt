@@ -1,0 +1,2454 @@
+                                         List of named distributions
+
+
+X ⇠ Bernoulli(p),               PMF: pX (0) = 1               p,         pX (1) = p
+
+                                                              n k
+X ⇠ Binomial(n, p),               PMF: pX (k) =               k
+                                                                p (1             p)n k ,       0kn
+
+
+X ⇠ Geometric(p),                PMF: pX (k) = p(1                      p)k 1 ,        k = 1, 2, . . .
+
+                                                      k
+X ⇠ Poisson( ),                PMF: pX (k) = k! e              ,        k = 0, 1, 2, . . .
+
+                                                                                     (NkA )(Nn NkA )
+X ⇠ Hypergeometric(N, NA , n),                      PMF: pX (k) =                                    ,   0kn
+                                                                                           (Nn )
+                                                          ( 1
+                                                           b a
+                                                                              for x 2 [a, b],
+X ⇠ Uniform(a, b),               PDF: fX (x) =
+                                                           0                     otherwise
+                                                                            (t µ)2
+X ⇠ Normal(µ,         2
+                          ),      PDF: fX (t) = p2⇡1 2 e                      2 2
+
+
+
+                                                           (             x
+                                                                    e                for x > 0,
+X ⇠ Exponential( ),                PDF: fX (t) =
+                                                               0                      otherwise
+                                                      ( 1               r r 1         x
+                                                              (r)
+                                                                        x        e             for x > 0,
+X ⇠ Gamma(r, ),                  PDF: fX (t) =
+                                                          0                                     otherwise
+
+(X1 , . . . , Xk ) ⇠ Multinomial(n, k, p1 , . . . , pk ),
+joint PMF: p(a1 , . . . , ak ) =         n
+                                     a1 ,...,ak
+                                                  pa11 · · · pakk for a1 , . . . , ak             0 with a1 + · · · + ak = n.
+
+
+
+
+                                                                             2
+Table of values for             (x), the CDF of a standard normal random
+variable
+
+               0.00     0.01     0.02     0.03     0.04     0.05     0.06     0.07     0.08     0.09
+        0.0   0.5000   0.5040   0.5080   0.5120   0.5160   0.5199   0.5239   0.5279   0.5319   0.5359
+        0.1   0.5398   0.5438   0.5478   0.5517   0.5557   0.5596   0.5636   0.5675   0.5714   0.5753
+        0.2   0.5793   0.5832   0.5871   0.5910   0.5948   0.5987   0.6026   0.6064   0.6103   0.6141
+        0.3   0.6179   0.6217   0.6255   0.6293   0.6331   0.6368   0.6406   0.6443   0.6480   0.6517
+        0.4   0.6554   0.6591   0.6628   0.6664   0.6700   0.6736   0.6772   0.6808   0.6844   0.6879
+        0.5   0.6915   0.6950   0.6985   0.7019   0.7054   0.7088   0.7123   0.7157   0.7190   0.7224
+        0.6   0.7257   0.7291   0.7324   0.7357   0.7389   0.7422   0.7454   0.7486   0.7517   0.7549
+        0.7   0.7580   0.7611   0.7642   0.7673   0.7704   0.7734   0.7764   0.7794   0.7823   0.7852
+        0.8   0.7881   0.7910   0.7939   0.7967   0.7995   0.8023   0.8051   0.8078   0.8106   0.8133
+        0.9   0.8159   0.8186   0.8212   0.8238   0.8264   0.8289   0.8315   0.8340   0.8365   0.8389
+        1.0   0.8413   0.8438   0.8461   0.8485   0.8508   0.8531   0.8554   0.8577   0.8599   0.8621
+        1.1   0.8643   0.8665   0.8686   0.8708   0.8729   0.8749   0.8770   0.8790   0.8810   0.8830
+        1.2   0.8849   0.8869   0.8888   0.8907   0.8925   0.8944   0.8962   0.8980   0.8997   0.9015
+        1.3   0.9032   0.9049   0.9066   0.9082   0.9099   0.9115   0.9131   0.9147   0.9162   0.9177
+        1.4   0.9192   0.9207   0.9222   0.9236   0.9251   0.9265   0.9279   0.9292   0.9306   0.9319
+        1.5   0.9332   0.9345   0.9357   0.9370   0.9382   0.9394   0.9406   0.9418   0.9429   0.9441
+        1.6   0.9452   0.9463   0.9474   0.9484   0.9495   0.9505   0.9515   0.9525   0.9535   0.9545
+        1.7   0.9554   0.9564   0.9573   0.9582   0.9591   0.9599   0.9608   0.9616   0.9625   0.9633
+        1.8   0.9641   0.9649   0.9656   0.9664   0.9671   0.9678   0.9686   0.9693   0.9699   0.9706
+        1.9   0.9713   0.9719   0.9726   0.9732   0.9738   0.9744   0.9750   0.9756   0.9761   0.9767
+        2.0   0.9772   0.9778   0.9783   0.9788   0.9793   0.9798   0.9803   0.9808   0.9812   0.9817
+        2.1   0.9821   0.9826   0.9830   0.9834   0.9838   0.9842   0.9846   0.9850   0.9854   0.9857
+        2.2   0.9861   0.9864   0.9868   0.9871   0.9875   0.9878   0.9881   0.9884   0.9887   0.9890
+        2.3   0.9893   0.9896   0.9898   0.9901   0.9904   0.9906   0.9909   0.9911   0.9913   0.9916
+        2.4   0.9918   0.9920   0.9922   0.9925   0.9927   0.9929   0.9931   0.9932   0.9934   0.9936
+        2.5   0.9938   0.9940   0.9941   0.9943   0.9945   0.9946   0.9948   0.9949   0.9951   0.9952
+        2.6   0.9953   0.9955   0.9956   0.9957   0.9959   0.9960   0.9961   0.9962   0.9963   0.9964
+        2.7   0.9965   0.9966   0.9967   0.9968   0.9969   0.9970   0.9971   0.9972   0.9973   0.9974
+        2.8   0.9974   0.9975   0.9976   0.9977   0.9977   0.9978   0.9979   0.9979   0.9980   0.9981
+        2.9   0.9981   0.9982   0.9982   0.9983   0.9984   0.9984   0.9985   0.9985   0.9986   0.9986
+        3.0   0.9987   0.9987   0.9987   0.9988   0.9988   0.9989   0.9989   0.9989   0.9990   0.9990
+        3.1   0.9990   0.9991   0.9991   0.9991   0.9992   0.9992   0.9992   0.9992   0.9993   0.9993
+        3.2   0.9993   0.9993   0.9994   0.9994   0.9994   0.9994   0.9994   0.9995   0.9995   0.9995
+        3.3   0.9995   0.9995   0.9995   0.9996   0.9996   0.9996   0.9996   0.9996   0.9996   0.9997
+        3.4   0.9997   0.9997   0.9997   0.9997   0.9997   0.9997   0.9997   0.9997   0.9997   0.9998
+
+
+
+
+                                                      3
+Math 431 - Fall 2023                                                                   November 15, 2023
+
+                                  Second Midterm Exam
+Name:
+
+
+Please circle your section number!
+      Section 1              Section 2                Section 3               Section 4
+
+      Amy Cochran           Benedek Valkó            Sarah Tammen             Shaoming Guo
+      (MWF 9:55p)           (MWF 12:05p)              (TuTh 9:30a)            (MWF 8:50a)
+  • There are 6 problems on the exam, some of them have multiple parts. The problems are on
+    pages 3 to 13. Make sure to read the problems carefully and budget your time wisely.
+  • If you are running out of time, please at least say how you would solve a given problem, preferably using
+    notation, even if you do not have the time to do so. This may earn you partial credit.
+  • No calculators or other electronic devices, please. Turn off your phone. You do not have to carry out
+    complicated numerical computations, but you should simplify your answer if it is possible with reasonable
+    effort. In particular, geometric series must be evaluated.
+  • Your answer can be left in terms of the cumulative distribution function Φ of a standard normal random
+    variable or in terms of the exponential function ex , e.g. expressions like Φ(1) or 3e−9 would not need to
+    be simplified further.
+  • Please present your solutions in a clear manner. Justify your steps. Numerical answers without
+    explanation cannot get credit. Cross out the writing that you do not wish to be graded on.
+  • You can use the empty pages for additional space for writing if necessary.
+
+                                     Question Points Score
+                                           1           18
+                                           2           20
+                                           3           16
+                                           4           12
+                                           5           12
+                                           6           22
+                                       Total:         100
+                                        List of named distributions
+
+
+X ∼ Bernoulli(p),             PMF: pX (0) = 1 − p,              pX (1) = p
+
+                                                       n k
+                                                           
+X ∼ Binomial(n, p),              PMF: pX (k) =         k
+                                                         p (1 − p)n−k ,            0≤k≤n
+
+
+X ∼ Geometric(p),               PMF: pX (k) = p(1 − p)k−1 ,                k = 1, 2, . . .
+
+                                                  k
+X ∼ Poisson(λ),             PMF: pX (k) = λk! e−λ ,            k = 0, 1, 2, . . .
+
+                                                                                   −NA
+                                                                          (NkA )(Nn−k  )
+X ∼ Hypergeometric(N, NA , n),                   PMF: pX (k) =                   N       ,   0≤k≤n
+                                                                                (n)
+                                                      ( 1
+                                                       b−a
+                                                                   for x ∈ [a, b],
+X ∼ Uniform(a, b),              PDF: fX (x) =
+                                                       0            otherwise
+                                                                 (t−µ)2
+X ∼ Normal(µ, σ 2 ),                             1
+                                 PDF: fX (t) = √2πσ 2
+                                                      e− 2σ2 ,                   t∈R
+
+                                                       ( −λt
+                                                        λe                for t > 0,
+X ∼ Exponential(λ),               PDF: fX (t) =
+                                                           0              otherwise
+
+(X1 , . . . , Xk ) ∼ Multinomial(n, k, p1 , . . . , pk ),
+joint PMF: p(a1 , . . . , ak ) = a1 !a2n!!...ak ! pa11 · · · pakk for a1 , . . . , ak ≥ 0 with a1 + · · · + ak = n.
+
+
+
+
+                                                               Page 2
+1. Short problems The following short questions are not connected to each other. For each part, you have
+   to provide an appropriate explanation or justification.
+   (a) (6 points) The cumulative distribution of the random variable X is given by FX (x). Express the
+       cumulative distribution function of Y = 4X − 5 in terms of FX .
+
+
+
+
+   (b) (6 points) Suppose that X has mean 1 and variance 2. Find numbers a, b so that aX + b has mean
+       zero and variance 8.
+
+
+
+
+                                                Page 3
+(Problem 1 continued)
+(c) (6 points) The life length of a light bulb can be modeled with an exponential distribution, the expected
+    life length is 500 days. What is the probability that the light bulb burns out before its expected life
+    length?
+
+
+
+
+                                               Page 4
+2. The WW Candy Company is running a promotion for their candy bar. Each candy bar can contain a
+   silver ticket (with probability 0.1), or a golden ticket (with probability 0.001), but not both.
+  Note. You will approximate certain probabilities in some of the following problems. Justify the approach
+  you use! You may assume that events related to different candy bars are independent.
+   (a) (8 points) Augustus likes to eat candy, so he makes his parents buy 400 candy bars. Approximate
+       the probability that he finds at least 31 silver tickets.
+
+
+
+
+                                                Page 5
+(Problem 2 continued)
+(b) (8 points) Veruca would like to collect a golden ticket, so she makes her parents buy 500 candy bars.
+    Approximate the probability that she finds at least one golden ticket among the purchased candy
+    bars.
+
+
+
+
+(c) (4 points) The WW Candy Company sells 10,000 candy bars in a week. Write down the exact
+    probability that there are 2 golden tickets and 150 silver tickets among the sold candy bars.
+
+
+
+
+                                              Page 6
+3. We throw a dart uniformly at random at a disk shaped board with a radius of 10 inches. We then draw a
+   circle that has the same center as the board and goes through the position of the dart. Let T be the area
+   of the disk bounded by this random circle.
+   (a) (2 points) What are the possible values of T ?
+
+
+
+
+   (b) (8 points) Find the cumulative distribution function of T .
+       Note. Make sure that your function is defined for the whole real line!
+
+
+
+
+                                                  Page 7
+(Problem 3 continued)
+(c) (6 points) Explain why T is a continuous random variable, and find its probability density function.
+
+
+
+
+                                              Page 8
+4. The random variable X has moment generating function given by
+                                             1     1     1     1
+                                     MX (t) = e−t + e3t + e4t + e6t .
+                                             4     2     8     8
+   (a) (6 points) Find the probability P (X > 2).
+
+
+
+
+   (b) (6 points) Find the third derivative of MX at t = 0 without differentiation.
+
+
+
+
+                                                    Page 9
+5. Suppose that X and Y are independent random variables, with X ∼ Geom(1/2) and Y ∼ Geom(1/3).
+   (a) (4 points) Provide the joint probability mass function of (X, Y ).
+
+
+
+
+   (b) (8 points) Find the probability P (X = 2Y ).
+
+
+
+
+                                                 Page 10
+6. Suppose that (X, Y ) are jointly continuous with joint probability density function
+                                                    x2
+                                             (
+                                               √3 e− 2 −3(y−x) ,     if y ≥ x
+                                  f (x, y) =    2π
+                                              0                      otherwise.
+
+   (a) (6 points) Find the marginal probability density function of X.
+
+
+
+
+   (b) (6 points) Decide whether X and Y are independent or not. Explain.
+       Hint. You can do this part without doing any of the other parts of this problem.
+
+
+
+
+                                                  Page 11
+(Problem 6 continued)
+(c) (4 points) Write an integral expression for the probability P (X > 0, Y ≤ 1).
+    Note. Do not attempt to compute the integral! Your answer should be the integral of an explicit (not
+    case-defined!) function, make sure that the boundaries of integration are correct.
+
+
+
+
+                                             Page 12
+(Problem 6 continued)
+(d) (6 points) Find the marginal probability density function of Y .
+    Hint. The answer will have the function Φ in it.
+
+
+
+
+                                              Page 13
+(This page was intentionally left blank.)
+
+
+
+
+                Page 14
+(This page was intentionally left blank.)
+
+
+
+
+                Page 15
+(This page was intentionally left blank.)
+
+
+
+
+                Page 16
+(This page was intentionally left blank.)
+
+
+
+
+                Page 17
+Math 431 - Fall 2023                                                                     November 15, 2023
+
+
+                         Second Midterm Exam - Solutions
+1. Short problems The following short questions are not connected to each other. For each part, you have
+   to provide an appropriate explanation or justification.
+    (a) (6 points) The cumulative distribution of the random variable X is given by FX (x). Express the
+        cumulative distribution function of Y = 4X − 5 in terms of FX .
+        Solution: Using the definition of the CDF together with the definition of Y we get
+                                                                                        
+                                                                       y+5            y+5
+                      FY (y) = P (Y ≤ y) = P (4X − 5 ≤ y) = P X ≤             = FX
+                                                                        4              4
+
+   (b) (6 points) Suppose that X has mean 1 and variance 2. Find numbers a, b so that aX + b has mean
+       zero and variance 8.
+       Solution: We have seen in class that for a, b real numbers and a random variable X we have
+
+                               E[aX + b] = aE[X] + b,        Var(aX + b) = a2 Var(X).
+
+        Hence if a, b satisfy the requirements of the problem then we have
+
+                                         0 = E[aX + b] = aE[X] + b = a + b
+
+        and
+                                         8 = Var(aX + b) = a2 Var(X) = 2a2 .
+        The last equation gives a = ±2, from which we get the possible solutions a = 2, b = −2 and a =
+        −2, b = 2. (Either one would be an acceptable solution.)
+    (c) (6 points) The life length of a light bulb can be modeled with an exponential distribution, the expected
+        life length is 500 days. What is the probability that the light bulb burns out before its expected life
+        length?
+        Solution: Denote the life length of the light bulb by X.
+        The expected value of an Exp(λ) distributed random variable is 1/λ (we have seen this in class). Since
+        E[X] = 500 and X is exponential, we get X ∼ Exp(1/500). We need to compute P (X < E[X]) =
+        P (X < 500). Using the PDF of the exponential we get
+                                               Z 500           Z 500
+                                                                      1 x/500
+                              P (X < 500) =          f (x)dx =           e    dx = 1 − e−1 .
+                                                −∞              0    500
+
+        The last step follows from computing the integral directly. We can also compute it by noting that
+        P (X < 500) = P (X ≤ 500) (since X is continuous), and the CDF of the Exp(λ) distribution is
+        1 − e−λx for positive x, and 0 otherwise.
+2. The WW Candy Company is running a promotion for their candy bar. Each candy bar can contain a
+   silver ticket (with probability 0.1), or a golden ticket (with probability 0.001), but not both.
+  Note. You will approximate certain probabilities in some of the following problems. Justify the approach
+  you use! You may assume that events related to different candy bars are independent.
+   (a) (8 points) Augustus likes to eat candy, so he makes his parents buy 400 candy bars. Approximate
+       the probability that he finds at least 31 silver tickets.
+       Solution: Let X be the number of silver tickets that Augustus finds. Consider success to be a candy
+       bar containing a silver ticket. Each candy bar has a silver ticket with probability .1. Since the events
+       related to different candy bars are independent, we can view X as the number of successes within
+       400 independent trials with the same success probability, so it will have a binomial distribution with
+       n = 400 and p = .1.
+       We want to approximate P (X ≥ 31). Checking that np(1 − p) = 400(.1)(0.9) = 36 > 10, we justify
+       the use of a normal random variable to approximate this probability. This approximation involves
+       first standardizing
+                  p        X (i.e.
+                               p subtract its√mean E[X] = np = 400(0.1) = 40 and divide by its standard
+       deviation Var(X) = np(1 − p) = 36 = 6):
+                                                                            
+                                                           X − 40    31 − 40
+                                       P (X ≥ 31) = P             ≥            .
+                                                              6         6
+
+       Letting Z ∼ Normal(0, 1) with CDF Φ, then
+                                                             
+               X − 40   31 − 40             31 − 40             9
+           P          ≥           ≈P Z≥               =1−P Z <−     = 1 − Φ(−3/2) = Φ(3/2).
+                 6         6                   6                6
+
+       Above, we used the relation that Φ(z) = P (Z ≤ z) = P (Z < z) (Z is continuous) and Φ(z) =
+       1 − Φ(−z).
+       Alternatively, it was equally valid to approximate
+                                                                                  
+                                                                  X − 40   30 − 40
+                            P (X ≥ 31) = 1 − P (X ≤ 30) = 1 − P          ≤
+                                                                    6         6
+
+       which leads to an answer of 1 − Φ(−5/3) = Φ(5/3).
+   (b) (8 points) Veruca would like to collect a golden ticket, so she makes her parents buy 500 candy bars.
+       Approximate the probability that she finds at least one golden ticket among the purchased candy
+       bars.
+       Solution: Let X be the number of golden tickets that Veruca finds. Following a similar argument
+       as in (a), consider success to be a candy bar containing a golden ticket. Each candy bar has a golden
+       ticket with probability .001. Since the events related to different candy bars are independent, we can
+       view X as the number of successes within 500 independent trials with the same success probability,
+       so it will have a binomial distribution with n = 500 and p = .001.
+       We want to approximate P (X ≥ 1). Checking that np2 = .0005 is small (i.e. much smaller than
+       1 or << 1), we justify the use of a Poisson random variable with the same mean as X, which is
+       np = 500(.001) = .5, to approximate this probability. Letting Y ∼ Poisson(.5), we therefore have
+
+                                P (X ≥ 1) ≈ P (Y ≥ 1) = 1 − P (Y = 0) = 1 − e−.5 .
+
+       For the last equality, we use the PMF of a Poisson random variable with parameter .5.
+
+
+                                                   Page 2
+   (c) (4 points) The WW Candy Company sells 10,000 candy bars in a week. Write down the exact
+       probability that there are 2 golden tickets and 150 silver tickets among the sold candy bars.
+       Solution: Let X be the number of golden tickets, Y be the number of silver tickets, and Z be the
+       number of bars without golden or silver tickets among the 10,000 candy bars. No candy bar yields
+       both a golden and a silver ticket, which means that X + Y + Z = 10000. Since the events related
+       to each bar are independent, we view each bar as an independent trial with three possible outcomes
+       (golden ticket, silver ticket, or neither). The respective probabilities of these outcomes are .001, .1,
+       and 1 − .001 − 0.1 = .899. Thus, the random vector (X, Y, Z) is Multinomial(n, r, p1 , p2 , p3 ) with
+       n = 10000, r = 3, p1 = .001, p2 = .1, p3 = .899. Using the joint PMF of a multinomial random
+       variable,
+                                                                          10000!
+                P (X = 2, Y = 150) = P (X = 2, Y = 150, Z = 9848) =                 .0012 .1150 .8999848 .
+                                                                        2!150!9848!
+       Above, we use the fact that the event that there are 2 golden tickets and 150 tickets is exactly the
+       event that there are 2 golden tickets, 150 silver tickets, and 9848 bars without any tickets.
+3. We throw a dart uniformly at random at a disk shaped board with a radius of 10 inches. We then draw a
+   circle that has the same center as the board and goes through the position of the dart. Let T be the area
+   of the disk bounded by this random circle.
+   (a) (2 points) What are the possible values of T ?
+       Solution: Let R denote the distance of the dart from the origin, then we have 0 ≤ R ≤ 10. The
+       value of T is the area of the disk with radius R: T = πR2 . Since 0 ≤ R ≤ 10, we have 0 ≤ T ≤ 100π.
+   (b) (8 points) Find the cumulative distribution function of T .
+       Note. Make sure that your function is defined for the whole real line!
+       Solution: We need to compute FT (t) = P (T ≤ t) for all values of t. Since T can only take values
+       from [0, 100π], we have
+                                             FT (t) = 0,    for t < 0
+       and
+                                            FT (t) = 1,     for t ≥ 100π.
+       Now suppose that t ∈ [0, 100π]. The event T ≤ t in this case is the same as the dart landing
+                                                                         t
+       inside the disk with area t. The probability of this is exactly 100π (since the position of the dart
+       is a uniformly chosen point in the disk with area 100π). This means that the CDF is given by the
+       following case-defined function:
+                                                
+                                                0,
+                                                           if t < 0
+                                                    t
+                                        FT (t) = 100π ,     if 0 ≤ t < 100π
+                                                
+                                                  1,        if t ≥ 100π
+                                                
+
+   (c) (6 points) Explain why T is a continuous random variable, and find its probability density function.
+       Solution: The CDF found in part (a) is continuous everywhere: this is true because it is continuous
+       within the three cases, and it is continuous at the boundaries t = 0 and t = 100π. The CDF is
+       differentiable everywhere outside of t = 0 and t = 100π, from this it follows that T has continuous
+       distribution. We can obtain the PDF of T by differentiating the CDF (where it is differentiable),
+       which gives                              (
+                                                    1
+                                                      ,     0 < t < 100π
+                                        fT (t) = 100π
+                                                  0,        otherwise.
+
+
+                                                  Page 3
+       Note that this is just the Unif(0, 100π) distribution.
+4. The random variable X has moment generating function given by
+                                               1     1     1     1
+                                       MX (t) = e−t + e3t + e4t + e6t .
+                                               4     2     8     8
+   (a) (6 points) Find the probability P (X > 2).
+       Solution: From the form of the MGF, we can recognize that it can be obtained from a discrete distri-
+       bution: the exponents identify the possible values −1, 3, 4, 6, the coefficients identify the corresponding
+       probabilities:
+                                   1                   1                    1              1
+                       P (X = −1) = ,       P (X = 3) = ,        P (X = 4) = ,P (X = 6) = .
+                                   4                   2                    8              8
+                                                                                           P kt
+       This discrete random variable has the appropriate MGF (from the formula MX (t) = k e P (X = k)),
+       and since the MGF is finite in the neighborhood of 0 (in fact, everywhere), this means that this is the
+       only distribution with this MGF.
+       We can compute P (X > 2) by collecting the possible values of X larger than 2, and adding up the
+       corresponding probabilities:
+                                                                                  1 1 1 3
+                         P (X > 2) = P (X = 3) + P (X = 4) + P (X = 6) =           + + = .
+                                                                                  2 8 8 4
+   (b) (6 points) Find the third derivative of MX at t = 0 without differentiation.
+       Solution: Since the MGF is finite in a neighborhood of 0, we can compute the moments of X from
+       the appropriate derivative of MX at 0. In particular,
+                                                     MX′′′ (0) = E[X 3 ],
+       which we can compute from the PMF found in part (a):
+                                     X                      1    1    1    1
+                           E[X 3 ] =   k 3 P (X = k) = (−1)3 + 33 + 43 + 63 .
+                                     k
+                                                            4    2    8    8
+
+5. Suppose that X and Y are independent random variables, with X ∼ Geom(1/2) and Y ∼ Geom(1/3).
+   (a) (4 points) Provide the joint probability mass function of (X, Y ).
+       Solution: Because of independence we get
+                       P (X = k, Y = ℓ) = P (X = k)P (Y = ℓ) = (1/2)(1/2)k−1 (1/3)(2/3)ℓ−1
+       for k, ℓ = 1, 2, . . . . Here we used the PMF of Geom(p) for p = 1/2 and p = 1/3.
+   (b) (8 points) Find the probability that P (X = 2Y ).
+       Solution: We first break up the event {X = 2Y } into smaller disjoint events based on the possible
+       values of Y :                                 ∞
+                                                     X
+                                       P (X = 2Y ) =     P (X = 2k, Y = k).
+                                                          k=1
+
+       Using part (a), we get
+                                         ∞
+                                         X                           ∞
+                                                                     X
+                         P (X = 2Y ) =         P (X = 2k)P (Y = k) =   (1/2)2k (1/3)(2/3)k−1 .
+                                         k=1                                k=1
+
+
+
+                                                     Page 4
+       The last sum is just an infinite geometric series:
+                 ∞                               ∞                       ∞
+                X
+                         2k         k−1     1 X       1 2 k−1
+                                                                     1 X      1 k−1
+                                                                                         1    1     1
+                    (1/2) (1/3)(2/3)    =              ·
+                                                      4 3
+                                                              =                6
+                                                                                     =      ·       = .
+                k=1
+                                          4 · 3 k=1                   12 k=1             12 1 − 1/6  10
+
+                           1
+       Hence P (X = 2Y ) = 10 .
+
+6. Suppose that (X, Y ) are jointly continuous with joint probability density function
+                                             (       2
+                                               √3 e−x /2−3(y−x) ,    if y ≥ x
+                                  f (x, y) =    2π
+                                              0                      otherwise.
+
+   (a) (6 points) Find the marginal probability density function of X.
+       Solution: We can find the marginal PDF of X by integrating out the y variable from the joint PDF:
+                                                      Z ∞
+                                             fX (x) =      f (x, y)dy
+                                                            −∞
+
+       For a fixed x the value of f (x, y) is positive for y ≥ x, hence
+                            Z ∞                Z ∞
+                                                                            3 −x2 /2+3x ∞ −3y
+                                                                                       Z
+                                                      3 −x2 /2−3(y−x)
+                   fX (x) =      f (x, y)dy =       √ e               dy = √ e            e dy
+                             −∞                 x     2π                    2π          x
+                              3      2      1           1     2
+                          = √ e−x /2+3x e−3x = √ e−x /2 .
+                              2π            3           2π
+                                                                      R∞              R∞
+       The integral can be computed directly, or by noting that x 3e−3(y−x) dy = 0 3e−3t dt = 1 (after a
+       change of variables and noting that we are integrating a PDF).
+       Note that X is a standard normal random variable.
+   (b) (6 points) Decide whether X and Y are independent or not. Explain.
+       Hint. You can do this part without doing any of the other parts of this problem.
+       Solution: If X and Y are jointly continuous, then they are independent exactly if the joint PDF
+       is the product of the marginal PDFs: f (x, y) = fX (x)fY (y). From the form of the joint PDF, we
+       see that the marginals are both positive: if we fix x or y and integrate in the other variable then
+       we integrate a function that is positive on a semi-infinite interval: (x, ∞) and (−∞, y), respectively.
+       Hence fX (x)fY (y) is positive for all x, y, which means that it cannot be equal to f (x, y) everywhere,
+       as f (x, y) = 0 for y < x. Hence X and Y are not independent.
+       Note: there are lots of other ways that one can show this statement. E.g. using the result of (a) we
+       see that ffX(x,y)
+                     (x)
+                         is not a function that only depends on y, which also shows that we cannot f (x, y) =
+       fX (x)fY (y) everywhere.
+   (c) (4 points) Write an integral expression for the probability P (X > 0, Y ≤ 1).
+       Note. Do not attempt to compute the integral! Your answer should be the integral of an explicit (not
+       case-defined!) function, make sure that the boundaries of integration are correct.
+       Solution: Since X, Y are jointly continuous, we have
+                                                           ZZ
+                                      P (X > 0, Y ≤ 1) =         f (x, y)dxdy.
+                                                            x>0,y≤1
+
+
+
+
+                                                   Page 5
+    We need to identify the region where x > 0, y ≤ 1 and y ≥ x (since f (x, y) = 0 if y < x). From the
+    last two inequalities, we get x ≤ y ≤ 1 which also gives x ≤ 1. Together with the first inequality, we
+    get 0 < x ≤ 1. Hence, for a fixed 0 < x ≤ 1 the integration boundaries for y are x and 1:
+                                                 Z 1Z 1
+                                                           3     2
+                              P (X > 0, Y ≤ 1) =         √ e−x /2−3(y−x) dydx.
+                                                   0   x   2π
+    If we fix y first, then 0 ≤ y ≤ 1 and 0 ≤ x ≤ y:
+                                                  Z 1Z y
+                                                          3   2
+                               P (X > 0, Y ≤ 1) =        √ e−x /2−3(y−x) dxdy.
+                                                    0 0   2π
+
+(d) (6 points) Find the marginal probability density function of Y .
+    Hint. The answer will have the function Φ in it.
+    Solution: We get the marginal of Y by integrating out x in the joint density:
+                                     Z ∞               Z y
+                                                             3       2
+                            fY (y) =      f (x, y)dx =      √ e−x /2−3(y−x) dx
+                                      −∞                −∞   2π
+    Moving the y dependent terms outside, and completing the square in the exponent gives
+                    Z y                         Z y                                   Z y
+                         1 −x2 /2+3x        −3y      1 − 1 (x−3)2 + 9         −3y+ 92      1   1      2
+    fY (y) = 3e −3y
+                        √ e          dx = 3e        √ e   2         2 dx = 3e             √ e− 2 (x−3) dx
+                     −∞  2π                      −∞  2π                                −∞  2π
+
+    In the integral, we can recognize the PDF of a N (3, 1) random variable, hence
+                                      Z y
+                                            1    1     2
+                                           √ e− 2 (x−3) dx = P (Y ≤ y)
+                                        −∞  2π
+
+    with Y ∼ N (3, 1). But then Z = Y − 3 ∼ N (0, 1):
+            Z y
+                   1    1    2
+                √ e− 2 (x−3) dx = P (Y ≤ y) = P (Y − 3 ≤ y − 3) = P (Z ≤ y − 3) = Φ(y − 3).
+             −∞    2π
+    Collecting the terms gives
+                                                          9
+                                          fY (y) = 3e−3y+ 2 Φ(y − 3).
+
+
+
+
+                                               Page 6
+              Department of Mathematics, University of Wisconsin-Madison
+       Math 431 — Midterm Exam 2 — Solutions — Fall 2024
+
+       NAME :                                    (as it appears on Canvas)
+
+
+       EMAIL:                                    @wisc.edu
+
+
+ PROFESSOR:       David Clancy        or Mikhail Ivanov
+
+
+
+                                      Time: 90 minutes
+
+• This exam contains 5 questions some with multiple parts, 11 pages (including the cover) for
+  the total of 93 points. Read the problems carefully and budget your time wisely.
+
+• You are allowed a single sheet of hand-written notes.
+
+• NO CALCULATORS or other electronic devices are to be used. Turn off your phone so
+  as to not disturb others.
+
+• You do not need to simplify binomial coefficients or factorials.
+
+• Please present your solutions in a clear manner. Cross out any writing that you do not wish
+  to be graded.
+
+• Justify your steps.
+
+• For binomial random variable approximations, you will NOT get full credit for your answer
+  if you do not include some explanation of why that approximation is valid.
+
+• You can use the attached table of the values of the Φ(x) function.
+
+• If you use an additional page for a particular problem, be sure to CLEARLY indicate this
+  on the problem’s page so I know to look further.
+
+
+
+                   Question:     1        2     3     4      5       Total
+                   Points:       16      29     8     30     10       93
+                   Score:
+1. The following questions are Answers Only.
+    (a) (4 points) A random variable Y has moment generating function
+                                            1  1     1     1     1
+                               MY (t) =       + e2t + e3t + e4t + e7t .
+                                           15 3      5     3     15
+       What is the probability that Y is even?
+
+           Solution:
+                                                                                  1  1 1 11
+                P (Y is even) = P (Y = 0) + P (Y = 2) + P (Y = 4) =                 + + = .
+                                                                                  15 3 3 15
+
+
+   (b) (4 points) Let X ∼ Exp(1/3). What is P (X < 5|X ≥ 3)?
+
+           Solution:
+                                                                                             2
+                P (X < 5|X ≥ 3) = 1 − P (X ≥ 3 + 2|X ≥ 3) = 1 − P (X ≥ 2) = 1 − e− 3 .
+
+           Or
+                                              P (3 ≤ X < 5)   e−1 − e−5/3
+                       P (X < 5|X ≥ 3) =                    =             = 1 − e−2/3 .
+                                                P (X ≥ 3)         e−1
+
+
+    (c) (4 points) The joint probability mass function of the random variables (X, Y ) is given
+        below:
+                                                               Y
+                                                  0       1         2        3
+                                          0     1/10     1/5       3/10      0
+                                   X
+                                          1      1/5      0        1/10    1/10
+       What is the marginal probability mass function of Y ?
+
+           Solution:
+                                                         Y
+                                            0       1         2       3
+                                          3/10     1/5       2/5    1/10
+
+
+   (d) (4 points) Find Var(X) where X ∼ Unif{1, 2, 3, 4}.
+
+           Solution:
+                          2     1  2
+                                              1 + 2 + 3 + 4 2
+           Var(X) = E(X )−E(X) = (1+4+9+16)−                    = 7.5−6.25 = 1.25.
+                                4                    4
+
+
+
+
+Math 431                         Midterm Exam 2 — Fall 2024                               Page 2 of 11
+First Name:                                                       Last Name:
+
+ 2. Let X and Y have joint pdf
+                                       (
+                                        x + y,        for 0 < x < 1 and 0 < y < 1
+                         fX,Y (x, y) =
+                                        0             otherwise.
+
+    (a) (5 points) Check that this is a valid joint pdf.
+
+
+           Solution: f (x, y) = fX,Y (x, y) ≥ 0 for all x, y and
+                                Z ∞Z ∞                         Z 1 Z 1
+                                            f (x, y) dx dy =               (x + y) dx dy
+                                −∞     −∞                      y=0   x=0
+                                           Z 1               x=1 Z 1
+                                              1 2                      1
+                                       =        x + xy        dy =       + y dy
+                                          y=0 2           x=0       0 2
+                                         1          1  1 1
+                                       = (y + y 2 ) 0 = + = 1
+                                         2             2 2
+
+
+
+    (b) (5 points) Find the marginal pdfs of X and Y .
+
+
+           Solution: The marginals
+                                 Z 1                              y=1
+                                                     1          1
+                       fX (x) =     (x + y) dy = xy + y 2  = x + for x ∈ (0, 1)
+                                y=0                  2 y=0      2
+
+           otherwise fX (x) = 0. We computed in part (a)
+                                     Z 1
+                                                      1
+                            fY (y) =      (x + y) dx = + y                  for y ∈ (0, 1).
+                                      x=0             2
+           Thus                 (                                          (
+                                    1                                          1
+                                    2
+                                      +x    :0<x<1                             2
+                                                                                 +y   :0<y<1
+                     fX (x) =                                  fY (y) =                      .
+                                 0          : else                           0        : else
+
+
+
+    (c) (5 points) Are X and Y independent?
+
+
+           Solution: No. For x, y ∈ (0, 1) we have
+                                             1 1
+                          fX (x)fY (y) =      + (x + y) + xy ̸= x + y = fX,Y (x, y).
+                                             4 2
+
+
+
+
+Math 431                             Midterm Exam 2 — Fall 2024                               Page 3 of 11
+       (problem 2 continues)
+       Let X and Y have joint pdf
+                                          (
+                                           x + y,        for 0 < x < 1 and 0 < y < 1
+                            fX,Y (x, y) =
+                                           0             otherwise.
+
+   (d) (7 points) Find P (X < Y ).
+
+
+
+
+           Solution:
+                                      x                           Z 1 Z y
+                       P (X < Y ) =         fX,Y (x, y) dx dy =                (x + y) dx dy
+                                      x<y                          y=0   x=0
+                                      Z 1              x=y         Z 1
+                                       1 2                               3 2     1 1       1
+                                 =       x + xy     dy =                   y dy = y 3 y=0 = .
+                                   y=0 2        x=0                 0    2       2         2
+
+
+
+
+    (e) (7 points) Find E[XY ].
+
+
+
+
+           Solution:
+                    Z 1 Z 1                      Z 1 Z 1                      Z 1               x=1
+                                                            2      2              1 3   1
+           E[XY ] =          (xy)(x + y) dx dy =          (x y + xy ) dx dy =      x y + x2 y 2     dy
+                     y=0 x=0                      y=0 x=0                      0 3      2       x=0
+                    Z 1                          1
+                        1    1         1      1        1
+                  =       y + y 2 dy = y 2 + y 3     = .
+                     0 3     2         6      6 y=0 3
+
+
+
+
+Math 431                          Midterm Exam 2 — Fall 2024                                   Page 4 of 11
+First Name:                                                         Last Name:
+
+ 3. (8 points) Let X be a random variable with probability density function
+                                           (
+                                             8x−3 for x ≥ 2
+                                  fX (x) =
+                                             0      else.
+
+   Let Y = X 3 . What is the probability density function of Y ?
+
+
+
+
+     Solution: The CDF of Y is
+
+                               P (Y ≤ t) = P (X 3 ≤ t) = P (X ≤ t1/3 ).
+
+     For t1/3 < 2, i.e. t < 8 P (X ≤ t) = 0. For t ≥ 8
+                                     Z t1/3                             x=t1/3
+                                                   −3              −2
+                       P (Y ≤ t) =            8x        dx = −4x                 = 1 − 4t−2/3 .
+                                      2                                 x=2
+
+     So                     
+                            0         :t<8
+                                                                                        (
+              d                                                                           0        :t<8
+                 P (Y ≤ t) = undefined : t = 8                and             fY (t) =    8 −5/3
+              dt            
+                             8 −5/3                                                      3
+                                                                                            t      : t ≥ 8.
+                              3
+                                t      : t > 8.
+
+
+
+
+Math 431                         Midterm Exam 2 — Fall 2024                                            Page 5 of 11
+4. Each day, John plays 7 games of chess. He wins, draws, or loses each game independently
+   with probabilities 1/2, 1/6, 1/3.
+    (a) (6 points) Compute the exact probability that John wins 7 times, draws 5 times and
+        loses 2 times this weekend.
+
+
+
+
+           Solution: This is a multinomial Mult(14, 3, (1/2, 1/6, 1/3)) so
+                                                                 7  5  2
+                                                           14      1    1    1
+                       P (7 wins, 5 draws, 2 losses) =
+                                                         7, 5, 2   2    6    3
+                                                    7  5  2
+                                          14!       1    1    1
+                                      =                           .
+                                        7! 5! 2!    2    6    3
+
+
+
+
+   (b) (8 points) John calls a day “great” if he wins all 7 of the games he plays that day.
+       Approximate that probability that over the next 256(= 28 ) days John has 3 great days.
+
+
+
+
+           Solution: The probability of a great day is (1/2)7 = 2−7 . So
+
+                          P (3 great days over 256 days) = P (Bin(28 , 2−7 ) = 3).
+
+           We can use Poisson approximation because np2 = 28 × 2−14 = 2−6 = 64
+                                                                            1    1
+                                                                               ≤ 10 . So
+
+                                                                              e−2 23
+                         P (Bin(28 , 2−7 ) = 3) ≈ P (Poisson(2 = np) = 3) =          .
+                                                                                3!
+
+
+
+
+Math 431                         Midterm Exam 2 — Fall 2024                              Page 6 of 11
+First Name:                                                  Last Name:
+
+    (c) (8 points) John calls a day “good” if he wins at least half of his games (i.e. he wins
+        4, 5, 6, 7). The probability that a day is good is 21 (you do NOT need to check it).
+        Approximate the probability that over the next 256 days the number of good days is
+        between 116 and 132 (inclusive).
+
+
+
+           Solution: Let Sn be the number of good days over the next 256 days. Then Sn ∼
+           Bin(28 , 1/2). So np(1 − p) = 26 = 64 > 10 and therefore the normal approximation
+           to the binomial is good.
+                                                            p
+           We compute np = 27 = 128 and np(1 − p) = 26 so np(1 − p) = 23 = 8.
+
+                                                                               !
+                                         116 − 128      Sn − np      132 − 128
+               P (116 ≤ Sn ≤ 132) = P              ≤p             ≤
+                                             8          np(1 − p)        8
+                                               
+                                 −12          4
+                           ≈P         ≤Z≤         = P (−1.5 ≤ Z ≤ .5) = Φ(.5) − Φ(−1.5)
+                                   8          8
+                           = Φ(.5) − (1 − Φ(1.5)) ≈ 0.6915 + 0.9332 − 1 = 0.6247.
+
+           With continuity correction you get
+
+                                                P ≈ 0.6529.
+
+
+
+
+    (d) (8 points) John’s friend Mark is skeptical that John actually only loses 1/3 of his games.
+        Mark notices that over the last 4 weeks (=28 days) John lost 80 of the 196(= 22 × 72 )
+        games he played. Does p = 1/3 ≈ 0.333 land in the 95% interval of pb = 80/196 ≈ 0.408?
+
+
+
+                                                     p − ε, pb + ε)
+           Solution: The 95% confidence interval is (b
+                               √
+                          2Φ(2ε n) − 1 = 0.95
+                                 √
+                            Φ(2ε 196) = 0.975
+                                    28ε = 1.96
+                                            1.96      196/100        7
+                                      ε= 2         = 2          =       = 0.07.
+                                           2 ×7        2 ×7         100
+           Hence
+                                        p − ε, pb + ε) = (0.338, 0.478).
+                                       (b
+           So pb − ε ≈ 0.338 > 1/3. So p is not in the confidence interval.
+
+
+
+
+Math 431                          Midterm Exam 2 — Fall 2024                         Page 7 of 11
+5. Suppose that X is a random variable with moment generating function
+
+                                           25
+                                          
+                                                    :t<5
+                                MX (t) = (5 − t)2          .
+                                            ∞       : else
+                                          
+
+    (a) (5 points) Compute the mean of X.
+
+
+
+
+           Solution: Write M = MX . The mean is
+
+                                                          50        50  2
+                                  E[X] = M ′ (0) =            3
+                                                                   = 3 = .
+                                                       (5 − t) t=0  5   5
+
+
+
+
+   (b) (5 points) Compute the variance of X.
+
+
+
+
+           Solution: The second moment is
+                                                         150        150  6
+                                E[X 2 ] = M ′′ (0) =          4
+                                                                   = 4 = .
+                                                       (5 − t) t=0   5  25
+
+           So the variance is
+                                                                6   4   2
+                                Var(X) = E[X 2 ] − E[X]2 =        −   = .
+                                                               25 25   25
+
+
+
+           Solution:
+                                                         5   5
+                                           MX (t) =        ·    ,
+                                                        5−t 5−t
+                                    5
+           and we can recognize 5−t    near t = 0 as a moment generation function of Exp(5)
+           distribution. So, given independent X1 , X2 ∼ Exp(λ), we have X ∼ X1 + X2 , so
+                                                                1 1       2
+                        E(X) = E(X1 + X2 ) = E(X1 ) + E(X2 ) =     + =
+                                                                5 5       5
+                                                                       1    1    2
+                       Var(X) = Var(X1 + X2 ) = Var(X1 ) + Var(X2 ) =    +    =
+                                                                      25 25     25
+
+
+
+
+Math 431                          Midterm Exam 2 — Fall 2024                         Page 8 of 11
+First Name:                                    Last Name:
+
+              SCRATCH PAPER - DO NOT REMOVE FROM YOUR EXAM.
+                    SCRATCH WORK WILL NOT BE GRADED
+
+
+
+
+Math 431                  Midterm Exam 2 — Fall 2024          Page 9 of 11
+           SCRATCH PAPER - DO NOT REMOVE FROM YOUR EXAM
+                 SCRATCH WORK WILL NOT BE GRADED
+
+
+
+
+Math 431              Midterm Exam 2 — Fall 2024          Page 10 of 11
+First Name:                                                Last Name:
+
+Table of values for Φ(x), the CDF of a standard normal random variable
+
+         0.00     0.01     0.02      0.03     0.04     0.05     0.06     0.07     0.08     0.09
+  0.0   0.5000   0.5040   0.5080    0.5120   0.5160   0.5199   0.5239   0.5279   0.5319   0.5359
+  0.1   0.5398   0.5438   0.5478    0.5517   0.5557   0.5596   0.5636   0.5675   0.5714   0.5753
+  0.2   0.5793   0.5832   0.5871    0.5910   0.5948   0.5987   0.6026   0.6064   0.6103   0.6141
+  0.3   0.6179   0.6217   0.6255    0.6293   0.6331   0.6368   0.6406   0.6443   0.6480   0.6517
+  0.4   0.6554   0.6591   0.6628    0.6664   0.6700   0.6736   0.6772   0.6808   0.6844   0.6879
+  0.5   0.6915   0.6950   0.6985    0.7019   0.7054   0.7088   0.7123   0.7157   0.7190   0.7224
+  0.6   0.7257   0.7291   0.7324    0.7357   0.7389   0.7422   0.7454   0.7486   0.7517   0.7549
+  0.7   0.7580   0.7611   0.7642    0.7673   0.7704   0.7734   0.7764   0.7794   0.7823   0.7852
+  0.8   0.7881   0.7910   0.7939    0.7967   0.7995   0.8023   0.8051   0.8078   0.8106   0.8133
+  0.9   0.8159   0.8186   0.8212    0.8238   0.8264   0.8289   0.8315   0.8340   0.8365   0.8389
+  1.0   0.8413   0.8438   0.8461    0.8485   0.8508   0.8531   0.8554   0.8577   0.8599   0.8621
+  1.1   0.8643   0.8665   0.8686    0.8708   0.8729   0.8749   0.8770   0.8790   0.8810   0.8830
+  1.2   0.8849   0.8869   0.8888    0.8907   0.8925   0.8944   0.8962   0.8980   0.8997   0.9015
+  1.3   0.9032   0.9049   0.9066    0.9082   0.9099   0.9115   0.9131   0.9147   0.9162   0.9177
+  1.4   0.9192   0.9207   0.9222    0.9236   0.9251   0.9265   0.9279   0.9292   0.9306   0.9319
+  1.5   0.9332   0.9345   0.9357    0.9370   0.9382   0.9394   0.9406   0.9418   0.9429   0.9441
+  1.6   0.9452   0.9463   0.9474    0.9484   0.9495   0.9505   0.9515   0.9525   0.9535   0.9545
+  1.7   0.9554   0.9564   0.9573    0.9582   0.9591   0.9599   0.9608   0.9616   0.9625   0.9633
+  1.8   0.9641   0.9649   0.9656    0.9664   0.9671   0.9678   0.9686   0.9693   0.9699   0.9706
+  1.9   0.9713   0.9719   0.9726    0.9732   0.9738   0.9744   0.9750   0.9756   0.9761   0.9767
+  2.0   0.9772   0.9778   0.9783    0.9788   0.9793   0.9798   0.9803   0.9808   0.9812   0.9817
+  2.1   0.9821   0.9826   0.9830    0.9834   0.9838   0.9842   0.9846   0.9850   0.9854   0.9857
+  2.2   0.9861   0.9864   0.9868    0.9871   0.9875   0.9878   0.9881   0.9884   0.9887   0.9890
+  2.3   0.9893   0.9896   0.9898    0.9901   0.9904   0.9906   0.9909   0.9911   0.9913   0.9916
+  2.4   0.9918   0.9920   0.9922    0.9925   0.9927   0.9929   0.9931   0.9932   0.9934   0.9936
+  2.5   0.9938   0.9940   0.9941    0.9943   0.9945   0.9946   0.9948   0.9949   0.9951   0.9952
+  2.6   0.9953   0.9955   0.9956    0.9957   0.9959   0.9960   0.9961   0.9962   0.9963   0.9964
+  2.7   0.9965   0.9966   0.9967    0.9968   0.9969   0.9970   0.9971   0.9972   0.9973   0.9974
+  2.8   0.9974   0.9975   0.9976    0.9977   0.9977   0.9978   0.9979   0.9979   0.9980   0.9981
+  2.9   0.9981   0.9982   0.9982    0.9983   0.9984   0.9984   0.9985   0.9985   0.9986   0.9986
+  3.0   0.9987   0.9987   0.9987    0.9988   0.9988   0.9989   0.9989   0.9989   0.9990   0.9990
+  3.1   0.9990   0.9991   0.9991    0.9991   0.9992   0.9992   0.9992   0.9992   0.9993   0.9993
+  3.2   0.9993   0.9993   0.9994    0.9994   0.9994   0.9994   0.9994   0.9995   0.9995   0.9995
+  3.3   0.9995   0.9995   0.9995    0.9996   0.9996   0.9996   0.9996   0.9996   0.9996   0.9997
+  3.4   0.9997   0.9997   0.9997    0.9997   0.9997   0.9997   0.9997   0.9997   0.9997   0.9998
+
+
+
+
+Math 431                           Midterm Exam 2 — Fall 2024                        Page 11 of 11
+             Department of Mathematics, University of Wisconsin-Madison
+             Math 431 — Midterm Exam 2 — Spring 2025
+
+       NAME :                                            (as it appears on Canvas)
+
+
+
+       EMAIL:                                            @wisc.edu
+
+
+
+ PROFESSOR:       Mikhail Feldman      or Mikhail Ivanov
+
+
+                                    INSTRUCTIONS:
+
+                                     Time: 90 minutes
+
+• This exam contains 7 questions some with multiple parts, 12 pages (including the cover) for
+  the total of 83 points. Read the problems carefully and budget your time wisely.
+
+• You are allowed a single sheet of hand-written notes.
+
+• NO CALCULATORS or other electronic devices are to be used. Turn off your phone so
+  as to not disturb others.
+
+• You do not need to simplify binomial coefficients or factorials, except when you are asked
+  to do it.
+
+• Please present your solutions in a clear manner. Cross out any writing that you do not wish
+  to be graded. Justify your steps.
+
+• Remember, expectation and variance can be either finite, infinite or undefined.
+
+• If you use an additional page for a particular problem, be sure to CLEARLY indicate this
+  on the problem’s page so I know to look further.
+
+
+
+            Question:    1      2       3     4      5        6      7    Total
+            Points:      16     15      8     6     12       18      8     83
+            Score:
+1. (16 points) Short problems. (4 points each) In the following problems (but only here!)
+   you will not need to justify your answer.
+    (a) Suppose that a random variable X has mean 2 and variance 3. Find numbers a, b so that
+        aX + b has mean 1 and variance 12.
+
+
+
+
+   (b) In humans (and many other organisms), genes come in pairs. Consider a gene of interest,
+       which comes in two types (alleles): type a and type A. The genotype of a person for that
+       gene is the types of the two genes in the pair: AA, Aa, or aa (aA is equivalent to Aa).
+       According to the Hardy–Weinberg law, for a population in equilibrium, the frequencies
+       of AA, Aa, aa will be p2 , 2p(1 − p), (1 − p)2 , respectively, for some p with 0 < p < 1.
+       Suppose that the Hardy–Weinberg law holds, and that n people are drawn randomly from
+       the population, independently. Let X1 , X2 , X3 be the number of people in the sample
+       with genotypes AA, Aa, aa, respectively. What is the joint PMF of X1 , X2 , X3 ?
+
+
+
+
+Math 431                      Midterm Exam 2 — Spring 2025                         Page 2 of 12
+First Name:                                              Last Name:
+
+    (c) Suppose the duration of a phone call is given by an exponential distribution with an
+        expected length of 15 minutes. Determine the conditional probability that a call lasts
+        more than 20 minutes, given that it has already lasted for 10 minutes.(You don’t have to
+        simplify the answer.)
+
+
+
+
+    (d) Let X be a random variable with moment generating function
+
+                                         √ 1
+                                         
+                                                  ,    |t| < 12 .
+                                 M (t) =   1 − 2t
+                                           ∞,          otherwise.
+                                         
+
+        Find the expectation E[X], and the variance Var[X].
+
+
+
+
+Math 431                       Midterm Exam 2 — Spring 2025                        Page 3 of 12
+2. Let X and Y be discrete random variables defined on the same sample space. The table below
+   gives the values of the joint probability mass function of X, Y , for example, pX,Y (1, −1) =
+   P (X = 1, Y = −1) = 1/8.
+
+                                                       Y
+                                                  −1 0 1
+                                                   1       2
+                                     X        1    8   0   8
+                                                   1   2   2
+                                              2    8   8   8
+
+    (a) (4 points) Find the marginal probability mass functions of X and Y .
+
+
+
+
+   (b) (4 points) Are X and Y independent? Give a rigorous explanation.
+
+
+
+
+Math 431                       Midterm Exam 2 — Spring 2025                        Page 4 of 12
+First Name:                                          Last Name:
+
+    (c) (4 points) Find Var(Y ).
+
+
+
+
+    (d) (3 points) Find P (Y < X).
+
+
+
+
+Math 431                       Midterm Exam 2 — Spring 2025       Page 5 of 12
+3. (8 points) Let X ∼ Unif [0, 5]. Find the probability density function of the random variable
+   Y = X 2.
+
+
+
+
+Math 431                      Midterm Exam 2 — Spring 2025                        Page 6 of 12
+First Name:                                                Last Name:
+
+ 4. (6 points) The owner of a certain website is studying the distribution of the number of visitors
+    to the site. Every day, a million (1, 000, 000) people independently decide whether to visit the
+    site, with probability p = 2 · 10−6 of visiting. Give a good approximation for the probability
+    of getting at least three visitors on a particular day.
+
+
+
+
+Math 431                        Midterm Exam 2 — Spring 2025                           Page 7 of 12
+5. Let random variables X and Y have joint pdf
+                            (
+                             A(x, y)     for 0 ≤ x ≤ 4, 0 ≤ y ≤ 3,
+                               0         otherwise
+                                                                           RbRd
+   Your integrals in the answers in this problem should be of the form a c . . . with appropriate
+   limits of integration a, b, c, d and an explicit function inside the integral.
+    (a) (4 points) Which conditions do we need to check to be sure that this is actual joint pdf?
+
+
+
+
+   (b) (4 points) Write an integral expression for the E[X 2 Y ].
+
+
+
+
+    (c) (4 points) Write an integral expression for the P (X + Y < 2).
+
+
+
+
+Math 431                       Midterm Exam 2 — Spring 2025                         Page 8 of 12
+First Name:                                          Last Name:
+
+ 6. Suppose random variable X has density function
+                                            
+                                            2,      x≥1
+                                   fX (x) = x3
+                                             0,     x<1
+
+    (a) (6 points) Find P (2 ≤ X ≤ 3)
+
+
+
+
+    (b) (6 points) Find E[X]
+
+
+
+
+    (c) (6 points) Find Var[X]
+
+
+
+
+Math 431                       Midterm Exam 2 — Spring 2025       Page 9 of 12
+7. (8 points) Our ice machines produce ice cubes, 3 or 4 ice cubes every second with equal
+   probabilities. Approximate the probability that that in 1 minutes and 40 seconds we will have
+   at least 360 ice cubes.
+
+
+
+
+Math 431                       Midterm Exam 2 — Spring 2025                       Page 10 of 12
+First Name:                                                Last Name:
+
+Table of values for Φ(x), the CDF of a standard normal random variable
+
+          0.00     0.01     0.02     0.03     0.04     0.05     0.06     0.07     0.08     0.09
+   0.0   0.5000   0.5040   0.5080   0.5120   0.5160   0.5199   0.5239   0.5279   0.5319   0.5359
+   0.1   0.5398   0.5438   0.5478   0.5517   0.5557   0.5596   0.5636   0.5675   0.5714   0.5753
+   0.2   0.5793   0.5832   0.5871   0.5910   0.5948   0.5987   0.6026   0.6064   0.6103   0.6141
+   0.3   0.6179   0.6217   0.6255   0.6293   0.6331   0.6368   0.6406   0.6443   0.6480   0.6517
+   0.4   0.6554   0.6591   0.6628   0.6664   0.6700   0.6736   0.6772   0.6808   0.6844   0.6879
+   0.5   0.6915   0.6950   0.6985   0.7019   0.7054   0.7088   0.7123   0.7157   0.7190   0.7224
+   0.6   0.7257   0.7291   0.7324   0.7357   0.7389   0.7422   0.7454   0.7486   0.7517   0.7549
+   0.7   0.7580   0.7611   0.7642   0.7673   0.7704   0.7734   0.7764   0.7794   0.7823   0.7852
+   0.8   0.7881   0.7910   0.7939   0.7967   0.7995   0.8023   0.8051   0.8078   0.8106   0.8133
+   0.9   0.8159   0.8186   0.8212   0.8238   0.8264   0.8289   0.8315   0.8340   0.8365   0.8389
+   1.0   0.8413   0.8438   0.8461   0.8485   0.8508   0.8531   0.8554   0.8577   0.8599   0.8621
+   1.1   0.8643   0.8665   0.8686   0.8708   0.8729   0.8749   0.8770   0.8790   0.8810   0.8830
+   1.2   0.8849   0.8869   0.8888   0.8907   0.8925   0.8944   0.8962   0.8980   0.8997   0.9015
+   1.3   0.9032   0.9049   0.9066   0.9082   0.9099   0.9115   0.9131   0.9147   0.9162   0.9177
+   1.4   0.9192   0.9207   0.9222   0.9236   0.9251   0.9265   0.9279   0.9292   0.9306   0.9319
+   1.5   0.9332   0.9345   0.9357   0.9370   0.9382   0.9394   0.9406   0.9418   0.9429   0.9441
+   1.6   0.9452   0.9463   0.9474   0.9484   0.9495   0.9505   0.9515   0.9525   0.9535   0.9545
+   1.7   0.9554   0.9564   0.9573   0.9582   0.9591   0.9599   0.9608   0.9616   0.9625   0.9633
+   1.8   0.9641   0.9649   0.9656   0.9664   0.9671   0.9678   0.9686   0.9693   0.9699   0.9706
+   1.9   0.9713   0.9719   0.9726   0.9732   0.9738   0.9744   0.9750   0.9756   0.9761   0.9767
+   2.0   0.9772   0.9778   0.9783   0.9788   0.9793   0.9798   0.9803   0.9808   0.9812   0.9817
+   2.1   0.9821   0.9826   0.9830   0.9834   0.9838   0.9842   0.9846   0.9850   0.9854   0.9857
+   2.2   0.9861   0.9864   0.9868   0.9871   0.9875   0.9878   0.9881   0.9884   0.9887   0.9890
+   2.3   0.9893   0.9896   0.9898   0.9901   0.9904   0.9906   0.9909   0.9911   0.9913   0.9916
+   2.4   0.9918   0.9920   0.9922   0.9925   0.9927   0.9929   0.9931   0.9932   0.9934   0.9936
+   2.5   0.9938   0.9940   0.9941   0.9943   0.9945   0.9946   0.9948   0.9949   0.9951   0.9952
+   2.6   0.9953   0.9955   0.9956   0.9957   0.9959   0.9960   0.9961   0.9962   0.9963   0.9964
+   2.7   0.9965   0.9966   0.9967   0.9968   0.9969   0.9970   0.9971   0.9972   0.9973   0.9974
+   2.8   0.9974   0.9975   0.9976   0.9977   0.9977   0.9978   0.9979   0.9979   0.9980   0.9981
+   2.9   0.9981   0.9982   0.9982   0.9983   0.9984   0.9984   0.9985   0.9985   0.9986   0.9986
+   3.0   0.9987   0.9987   0.9987   0.9988   0.9988   0.9989   0.9989   0.9989   0.9990   0.9990
+   3.1   0.9990   0.9991   0.9991   0.9991   0.9992   0.9992   0.9992   0.9992   0.9993   0.9993
+   3.2   0.9993   0.9993   0.9994   0.9994   0.9994   0.9994   0.9994   0.9995   0.9995   0.9995
+   3.3   0.9995   0.9995   0.9995   0.9996   0.9996   0.9996   0.9996   0.9996   0.9996   0.9997
+   3.4   0.9997   0.9997   0.9997   0.9997   0.9997   0.9997   0.9997   0.9997   0.9997   0.9998
+
+
+
+
+Math 431                        Midterm Exam 2 — Spring 2025                         Page 11 of 12
+           SCRATCH PAPER - DO NOT REMOVE FROM YOUR EXAM.
+                 SCRATCH WORK WILL NOT BE GRADED
+
+
+
+
+Math 431              Midterm Exam 2 — Spring 2025         Page 12 of 12
+             Department of Mathematics, University of Wisconsin-Madison
+     Math 431 — Midterm Exam 2 — Solutions — Spring 2025
+
+       NAME :                                            (as it appears on Canvas)
+
+
+
+       EMAIL:                                            @wisc.edu
+
+
+
+ PROFESSOR:       Mikhail Feldman      or Mikhail Ivanov
+
+
+                                    INSTRUCTIONS:
+
+                                     Time: 90 minutes
+
+• This exam contains 7 questions some with multiple parts, 12 pages (including the cover) for
+  the total of 83 points. Read the problems carefully and budget your time wisely.
+
+• You are allowed a single sheet of hand-written notes.
+
+• NO CALCULATORS or other electronic devices are to be used. Turn off your phone so
+  as to not disturb others.
+
+• You do not need to simplify binomial coefficients or factorials, except when you are asked
+  to do it.
+
+• Please present your solutions in a clear manner. Cross out any writing that you do not wish
+  to be graded. Justify your steps.
+
+• Remember, expectation and variance can be either finite, infinite or undefined.
+
+• If you use an additional page for a particular problem, be sure to CLEARLY indicate this
+  on the problem’s page so I know to look further.
+
+
+
+            Question:    1      2       3     4      5        6      7    Total
+            Points:      16     15      8     6     12       18      8     83
+            Score:
+1. (16 points) Short problems. (4 points each) In the following problems (but only here!)
+   you will not need to justify your answer.
+    (a) Suppose that a random variable X has mean 2 and variance 3. Find numbers a, b so that
+        aX + b has mean 1 and variance 12.
+
+
+
+
+           Solution: We have seen in class that for a, b real numbers and a random variable X
+           we have
+                        E[aX + b] = aE[X] + b,         Var(aX + b) = a2 Var(X).
+           Hence if a, b satisfy the requirements of the problem, then we have
+
+                                        1 = E[aX + b] = aE[X] + b = 2a + b
+
+           and
+                                        12 = Var(aX + b) = a2 Var(X) = 3a2 .
+           The last equation gives a = ±2, from which, using the first equation 2a + b = 1, we
+           get the possible solutions a = 2, b = −3 and a = −2, b = 5. (Either one would be an
+           acceptable solution.)
+
+
+
+
+   (b) In humans (and many other organisms), genes come in pairs. Consider a gene of interest,
+       which comes in two types (alleles): type a and type A. The genotype of a person for that
+       gene is the types of the two genes in the pair: AA, Aa, or aa (aA is equivalent to Aa).
+       According to the Hardy–Weinberg law, for a population in equilibrium, the frequencies
+       of AA, Aa, aa will be p2 , 2p(1 − p), (1 − p)2 , respectively, for some p with 0 < p < 1.
+       Suppose that the Hardy–Weinberg law holds, and that n people are drawn randomly from
+       the population, independently. Let X1 , X2 , X3 be the number of people in the sample
+       with genotypes AA, Aa, aa, respectively. What is the joint PMF of X1 , X2 , X3 ?
+
+
+
+
+           Solution:
+
+                          (X1 , X2 , X3 ) ∼ M ultinomial(n, 3, p2 , 2p(1 − p), (1 − p)2 ),
+
+           so
+                                                n!         k                       k
+                       pX1 ,X2 ,X3 (k1 , k2 , k3 ) =     p2 1 (2p(1 − p))k2 (1 − p)2 3
+                                            k1 !k2 !k3 !
+           when ki are non-negative integers satisfying k1 + k2 + k3 = n, and 0 otherwise.
+
+
+
+
+Math 431                             Midterm Exam 2 — Spring 2025                            Page 2 of 12
+First Name:                                                         Last Name:
+
+    (c) Suppose the duration of a phone call is given by an exponential distribution with an
+        expected length of 15 minutes. Determine the conditional probability that a call lasts
+        more than 20 minutes, given that it has already lasted for 10 minutes.(You don’t have to
+        simplify the answer.)
+
+
+
+
+           Solution: Denote by T the length of phone call. The expected value of an Exp(λ)
+           is 1/λ, hence λ = 1/15. By the memoryless property of the exponential distribution
+                                                                                     10
+                    P (T > 20|T > 10) = P (T > 10) = 1 − (1 − e−λ·10 ) = e− 15 = e−2/3 .
+
+
+
+
+    (d) Let X be a random variable with moment generating function
+
+                                         √ 1
+                                         
+                                                  ,    |t| < 12 .
+                                 M (t) =   1 − 2t
+                                           ∞,          otherwise.
+                                         
+
+        Find the expectation E[X], and the variance Var[X].
+
+
+
+
+           Solution:
+
+
+                                1
+              E[X] = M ′ (0) = − (1 − 2t)−3/2 (−2)     = 1.
+                                2                  t=0
+                                                                           3
+              E[X 2 ] = M ′′ (0) = (M ′ )′ (0) = ((1 − 2t)−3/2 )′       = − (1 − 2t)−5/2 (−2)     = 3.
+                                                                    t=0    2                  t=0
+              Var[X] = E[X 2 ] − (E[X])2 = 3 − 12 = 2.
+
+
+
+
+Math 431                          Midterm Exam 2 — Spring 2025                                Page 3 of 12
+2. Let X and Y be discrete random variables defined on the same sample space. The table below
+   gives the values of the joint probability mass function of X, Y , for example, pX,Y (1, −1) =
+   P (X = 1, Y = −1) = 1/8.
+
+                                                           Y
+                                                   −1 0 1
+                                                     1         2
+                                     X        1      8     0   8
+                                                     1     2   2
+                                              2      8     8   8
+
+    (a) (4 points) Find the marginal probability mass functions of X and Y .
+
+
+           Solution: To find the marginal probabilities of X and Y , we need to sum the values
+           of the joint pmf over rows and columns:
+                                                  1    2  3
+                                       P (X = 1) =  +0+ =
+                                                  8    8  8
+                                                  1 2 2   5
+                                       P (X = 2) = + + =
+                                                  8 8 8   8
+
+           and
+                                                   1 1   2
+                                     P (Y = −1) =    + =
+                                                   8 8   8
+                                                      2  2
+                                       P (Y = 0) = 0 + =
+                                                      8  8
+                                                   2 2   4
+                                       P (Y = 1) = + =
+                                                   8 8   8
+
+
+
+
+   (b) (4 points) Are X and Y independent? Give a rigorous explanation.
+
+
+           Solution: X and Y are not independent. Indeed, if they were independent we would
+           have P (X = k1 , Y = k2 ) = P (X = k1 )P (Y = k2 ) for all k1 ∈ {1, 2} and all k2 ∈
+           {−1, 0, 1}, but we have
+                                                                                3 2
+                   P (X = 1, Y = 0) = 0      and         P (X = 1)P (Y = 0) =    · > 0.
+                                                                                8 8
+           Hence, P (X = 1, Y = 0) ̸= P (X = 1)P (Y = 0).
+
+
+
+
+Math 431                        Midterm Exam 2 — Spring 2025                         Page 4 of 12
+First Name:                                               Last Name:
+
+    (c) (4 points) Find Var(Y ).
+
+
+
+
+           Solution: We have
+                                                                               2 4  1
+                E[Y ] = (−1) · P (Y = −1) + 0 · P (Y = 0) + 1 · P (Y = 1) = − + =
+                                                                               8 8  4
+                                                                                2 4  3
+               E[Y 2 ] = (−1)2 · P (Y = −1) + 02 · P (Y = 0) + 12 · P (Y = 1) = + =
+                                                                                8 8  4
+           Hence,
+                                                                3   1  11
+                               Var(Y ) = E[Y 2 ] − (E[Y ])2 =     −   = .
+                                                                4 16   16
+
+
+
+
+    (d) (3 points) Find P (Y < X).
+
+
+
+
+           Solution: We have
+                                                                        2  3
+                       P (Y < X) = 1 − P (Y ≥ X) = 1 − P (1, 1) = 1 −     = .
+                                                                        8  4
+
+
+
+
+Math 431                       Midterm Exam 2 — Spring 2025                      Page 5 of 12
+3. (8 points) Let X ∼ Unif [0, 5]. Find the probability density function of the random variable
+   Y = X 2.
+
+
+    Solution: We will first find the cumulative distribution function (cdf) FY (t) of Y .
+    The range of X is [0, 5], so the range of Y = X 2 is [0, 25].
+    Then we have, using that X ∼ Unif [0, 5] and so P (X ∈ [0, a]) = a5 for any a ∈ [0, 5]:
+
+            FY (t) = P (X 2 ≤ t, X ∈ [0, 5]) = 0,  if t < 0;
+                                                              √
+                          2
+                                                       √        t
+            FY (t) = P (X ≤ t, X ∈ [0, 5]) = P (X ∈ [0, t]) =     ,       if 0 ≤ t < 25;
+                                                              5
+            FY (t) = P (X 2 ≤ t, X ∈ [0, 5]) = 1,  if t > 25.
+
+    Note that FY (t) is continuous (we need to check that only at the points t = 0 and t = 25),
+    and F ′ (t) exists everywhere except these two points. Then the probability density function
+    fY (t) of Y is obtained by differentiating FY (t), except the points t = 0 and t = 25 where
+    we define fY (t) arbitrarily. Then we have
+                                           
+                                           0,
+                                                        t≤0
+                                               1√
+                                   fY (t) = 10 t ,       0 < t < 25
+                                           
+                                             0,          t ≥ 25.
+                                           
+
+
+
+
+Math 431                       Midterm Exam 2 — Spring 2025                          Page 6 of 12
+First Name:                                                Last Name:
+
+ 4. (6 points) The owner of a certain website is studying the distribution of the number of visitors
+    to the site. Every day, a million (1, 000, 000) people independently decide whether to visit the
+    site, with probability p = 2 · 10−6 of visiting. Give a good approximation for the probability
+    of getting at least three visitors on a particular day.
+
+
+
+
+     Solution: Let X ∼ Bin(n, p) be the number of visitors, where n = 106 . Since n is large,
+     p is small, and np2 is very small (< 0.1), Poisson(2) is a good approximation. This gives
+
+                                                                   22
+           P (X ≥ 3) = 1 − P (X < 3) ≈ 1 − e−2 − e−2 · 2 − e−2 ·      = 1 − 5e−2 ≈ 0.3233,
+                                                                   2!
+
+
+
+
+Math 431                        Midterm Exam 2 — Spring 2025                           Page 7 of 12
+5. Let random variables X and Y have joint pdf
+                            (
+                             A(x, y)     for 0 ≤ x ≤ 4, 0 ≤ y ≤ 3,
+                               0         otherwise
+                                                                           RbRd
+   Your integrals in the answers in this problem should be of the form a c . . . with appropriate
+   limits of integration a, b, c, d and an explicit function inside the integral.
+    (a) (4 points) Which conditions do we need to check to be sure that this is actual joint pdf?
+
+
+
+
+                       R4R3
+           Solution:   0   0
+                               A(x, y)dydx = 1 and A(x, y) ≥ 0 for any 0 ≤ x ≤ 4, 0 ≤ y ≤ 3.
+
+
+
+
+   (b) (4 points) Write an integral expression for the E[X 2 Y ].
+
+
+
+
+           Solution:                              Z 4Z 3
+                                           2
+                                      E[X Y ] =             x2 yA(x, y)dydx.
+                                                   0   0
+
+
+
+
+    (c) (4 points) Write an integral expression for the P (X + Y < 2).
+
+
+
+
+           Solution:                                   Z 2 Z 2−x
+                                    P (X + Y < 2) =                A(x, y)dydx
+                                                        0    0
+
+
+
+
+Math 431                           Midterm Exam 2 — Spring 2025                       Page 8 of 12
+First Name:                                                       Last Name:
+
+ 6. Suppose random variable X has density function
+                                            
+                                            2,                  x≥1
+                                   fX (x) = x3
+                                             0,                 x<1
+
+    (a) (6 points) Find P (2 ≤ X ≤ 3)
+
+
+
+
+           Solution:                           Z 3                   3
+                                                        2          1    1 1 5
+                         P (2 ≤ X ≤ 3) =                  3
+                                                            dx = − 2 = − + = .
+                                                2       x         x 2   9 4 36
+
+
+
+
+    (b) (6 points) Find E[X]
+
+
+
+
+           Solution:                  Z ∞                  Z ∞                 ∞
+                                                2                2          2
+                            E[X] =            x 3 dx =             2
+                                                                     dx = −     = 2.
+                                      1        x            1    x          x 1
+
+
+
+
+    (c) (6 points) Find Var[X]
+
+
+
+
+           Solution:                            Z ∞                  Z ∞
+                                          2                 2              2
+                                  E[X ] =                x2 3 dx =           dx.
+                                                    1      x         1     x
+                                  2
+           Integral diverges, so E[X ] = +∞ and Var(X) = +∞.
+
+
+
+
+Math 431                       Midterm Exam 2 — Spring 2025                            Page 9 of 12
+7. (8 points) Our ice machines produce ice cubes, 3 or 4 ice cubes every second with equal
+   probabilities. Approximate the probability that that in 1 minutes and 40 seconds we will have
+   at least 360 ice cubes.
+
+
+
+
+    Solution: Let Ti = 3 + Xi be the number of cubes produced in the ith second, Xi ∼
+    Ber( 12 ), and let S100 = 300 + X1 + . . . + X100 be the total number of cubes produced during
+    100 seconds. Note that S100 ∼ 300 + Bin(100, 12 ), 100 · 12 · 12 > 10, so we can use Normal
+    approximation
+                                                                                               
+                                                               X1 + . . . + X100 − 50   60 − 50 
+       P (S100 ≥ 360) = P (X1 + . . . + X100 ≥ 60) = P             q                 ≥
+                                                                      100 · 1 · 1          5
+                                                                       2   2
+
+                      ≈ 1 − Φ(2) = 0.0228.
+
+
+
+
+Math 431                       Midterm Exam 2 — Spring 2025                          Page 10 of 12
+First Name:                                                Last Name:
+
+Table of values for Φ(x), the CDF of a standard normal random variable
+
+          0.00     0.01     0.02     0.03     0.04     0.05     0.06     0.07     0.08     0.09
+   0.0   0.5000   0.5040   0.5080   0.5120   0.5160   0.5199   0.5239   0.5279   0.5319   0.5359
+   0.1   0.5398   0.5438   0.5478   0.5517   0.5557   0.5596   0.5636   0.5675   0.5714   0.5753
+   0.2   0.5793   0.5832   0.5871   0.5910   0.5948   0.5987   0.6026   0.6064   0.6103   0.6141
+   0.3   0.6179   0.6217   0.6255   0.6293   0.6331   0.6368   0.6406   0.6443   0.6480   0.6517
+   0.4   0.6554   0.6591   0.6628   0.6664   0.6700   0.6736   0.6772   0.6808   0.6844   0.6879
+   0.5   0.6915   0.6950   0.6985   0.7019   0.7054   0.7088   0.7123   0.7157   0.7190   0.7224
+   0.6   0.7257   0.7291   0.7324   0.7357   0.7389   0.7422   0.7454   0.7486   0.7517   0.7549
+   0.7   0.7580   0.7611   0.7642   0.7673   0.7704   0.7734   0.7764   0.7794   0.7823   0.7852
+   0.8   0.7881   0.7910   0.7939   0.7967   0.7995   0.8023   0.8051   0.8078   0.8106   0.8133
+   0.9   0.8159   0.8186   0.8212   0.8238   0.8264   0.8289   0.8315   0.8340   0.8365   0.8389
+   1.0   0.8413   0.8438   0.8461   0.8485   0.8508   0.8531   0.8554   0.8577   0.8599   0.8621
+   1.1   0.8643   0.8665   0.8686   0.8708   0.8729   0.8749   0.8770   0.8790   0.8810   0.8830
+   1.2   0.8849   0.8869   0.8888   0.8907   0.8925   0.8944   0.8962   0.8980   0.8997   0.9015
+   1.3   0.9032   0.9049   0.9066   0.9082   0.9099   0.9115   0.9131   0.9147   0.9162   0.9177
+   1.4   0.9192   0.9207   0.9222   0.9236   0.9251   0.9265   0.9279   0.9292   0.9306   0.9319
+   1.5   0.9332   0.9345   0.9357   0.9370   0.9382   0.9394   0.9406   0.9418   0.9429   0.9441
+   1.6   0.9452   0.9463   0.9474   0.9484   0.9495   0.9505   0.9515   0.9525   0.9535   0.9545
+   1.7   0.9554   0.9564   0.9573   0.9582   0.9591   0.9599   0.9608   0.9616   0.9625   0.9633
+   1.8   0.9641   0.9649   0.9656   0.9664   0.9671   0.9678   0.9686   0.9693   0.9699   0.9706
+   1.9   0.9713   0.9719   0.9726   0.9732   0.9738   0.9744   0.9750   0.9756   0.9761   0.9767
+   2.0   0.9772   0.9778   0.9783   0.9788   0.9793   0.9798   0.9803   0.9808   0.9812   0.9817
+   2.1   0.9821   0.9826   0.9830   0.9834   0.9838   0.9842   0.9846   0.9850   0.9854   0.9857
+   2.2   0.9861   0.9864   0.9868   0.9871   0.9875   0.9878   0.9881   0.9884   0.9887   0.9890
+   2.3   0.9893   0.9896   0.9898   0.9901   0.9904   0.9906   0.9909   0.9911   0.9913   0.9916
+   2.4   0.9918   0.9920   0.9922   0.9925   0.9927   0.9929   0.9931   0.9932   0.9934   0.9936
+   2.5   0.9938   0.9940   0.9941   0.9943   0.9945   0.9946   0.9948   0.9949   0.9951   0.9952
+   2.6   0.9953   0.9955   0.9956   0.9957   0.9959   0.9960   0.9961   0.9962   0.9963   0.9964
+   2.7   0.9965   0.9966   0.9967   0.9968   0.9969   0.9970   0.9971   0.9972   0.9973   0.9974
+   2.8   0.9974   0.9975   0.9976   0.9977   0.9977   0.9978   0.9979   0.9979   0.9980   0.9981
+   2.9   0.9981   0.9982   0.9982   0.9983   0.9984   0.9984   0.9985   0.9985   0.9986   0.9986
+   3.0   0.9987   0.9987   0.9987   0.9988   0.9988   0.9989   0.9989   0.9989   0.9990   0.9990
+   3.1   0.9990   0.9991   0.9991   0.9991   0.9992   0.9992   0.9992   0.9992   0.9993   0.9993
+   3.2   0.9993   0.9993   0.9994   0.9994   0.9994   0.9994   0.9994   0.9995   0.9995   0.9995
+   3.3   0.9995   0.9995   0.9995   0.9996   0.9996   0.9996   0.9996   0.9996   0.9996   0.9997
+   3.4   0.9997   0.9997   0.9997   0.9997   0.9997   0.9997   0.9997   0.9997   0.9997   0.9998
+
+
+
+
+Math 431                        Midterm Exam 2 — Spring 2025                         Page 11 of 12
+           SCRATCH PAPER - DO NOT REMOVE FROM YOUR EXAM.
+                 SCRATCH WORK WILL NOT BE GRADED
+
+
+
+
+Math 431              Midterm Exam 2 — Spring 2025         Page 12 of 12
+Math 431 - Fall 2025                                                                  November 19, 2025
+
+                                  Second Midterm Exam
+Name:
+
+Please circle your section number!
+
+      Section 1              Section 2                Section 3               Section 4
+
+      Chenxi Wu          Niclas Technau           Ander Aguirre              Sarah Tammen
+      (TR 1:00 PM)        (MWF 1:20 PM)            (TR 9:30 AM)              (MWF 12:05 PM)
+
+  • There are 6 problems on the exam, some of them have multiple parts.
+  • Read the problems carefully and budget your time wisely.
+  • If you are running out of time, please at least say how you would solve a given problem, preferably using
+    notation, even if you do not have the time to do so. This may earn you partial credit.
+  • No calculators or other electronic devices, please. Turn off your phone.
+  • You do not have to carry out complicated numerical computations, but you should simplify your answer
+    if it is possible with reasonable effort. In particular, geometric series must be evaluated.
+  • Please present your solutions in a clear manner. Justify your steps. Numerical answers without
+    explanation cannot get credit. Cross out the writing that you do not wish to be graded on.
+  • You can use the empty pages for additional space for writing if necessary.
+
+                                     Question Points Score
+                                          1           18
+                                          2           10
+                                          3           20
+                                          4           19
+                                          5           15
+                                          6           18
+                                       Total:        100
+1. In any parts of the following problem for which you deem it relevant, you may leave answers in terms of
+   the function Φ (the CDF of a standard normal random variable) or its inverse.
+   (a) (5 points) The dean of a certain university wants to estimate the proportion of students that are
+       left-handed. He plans to send a survey to a random sample of the student body. If the dean wants to
+       obtain a 95% confidence interval for the proportion of students that are left-handed and he wants an
+       interval of width ε, then how many students should he survey? Give an answer of the form n ≥ f (ε).
+
+
+
+
+   (b) (5 points) Suppose the dean’s survey finds that the proportion of students that are left-handed is
+       p = 0.10. Suppose that Professor Bob is teaching a 160 person Calculus class in a room with 20 left-
+       handed desks. Use an appropriate approximation to estimate the probability that there will be more
+       than 20 left-handed students in the class. (Assume that the hand preferences of different students are
+       independent.)
+
+
+
+
+                                                  Page 2
+(c) (5 points) Suppose that 0.1% (i.e. 1/1000) of the students in the university are ambidextrous. Suppose
+    that the university admits a freshman class of 10, 000 students. Use an appropriate approximation to
+    estimate the probability that exactly two of the new freshmen are ambidextrous.
+
+
+
+
+(d) (3 points) We sample 40 students with replacement from the student body. Let X1 be the number
+    of times we choose a left-handed student, let X2 be the number of times we choose an ambidextrous
+    student, and let X3 be the number of times we choose a right-handed student. Under the assumptions
+    of parts (b)-(c), what distribution does the vector (X1 , X2 , X3 ) have? (For full credit, you must specify
+    all parameters.)
+
+
+
+
+                                                 Page 3
+2. (10 points) Let X be a random variable with mean −4, and variance 16.
+   Find numbers a, b > 0 so that the random variable Y = aX + b has mean 0 and variance 1.
+
+
+
+
+                                                Page 4
+3. Let X ∼ Unif([−1, 3]). Compute the probability density functions of two the random variables:
+   (a) (10 points) Y = X 3
+
+
+
+
+   (b) (10 points) Y = |X|
+
+
+
+
+                                                 Page 5
+4. In this problem we consider the moment generating function of a discrete random variable X.
+   (a) (11 points) Suppose the moment generating function of X is
+                                                    1 3 t 3 2t 1 3t
+                                        MX (t) =     + e + e + e .
+                                                    8 8   8    8
+       Derive the probability mass function of X.
+
+
+
+
+   (b) (7 points) Use the derivatives of MX to find the variance Var(X).
+
+
+
+
+   (c) (1 point) Can you identify the distribution of X with parameters?
+
+
+
+
+                                                Page 6
+5. Let (X, Y ) be uniformly distributed on the triangle with vertices (0, 0), (1, 1), and (1, 2).
+   (a) (12 points) Find the marginals of the coordinates fY and fX .
+
+
+
+
+   (b) (3 points) Are the two coordinates independent or not?
+
+
+
+
+                                                     Page 7
+6. Let λ > 0. Let X ∼ Exp(λ) and Y ∼ Exp(2λ) be independent exponentials.
+
+   (a) (9 points) Compute the probability P (X > 2Y ). Write the answer in terms of λ.
+
+
+
+
+   (b) (9 points) Let V = min(X, Y ). Derive a formula for the probability density function fV of V .
+
+
+
+
+                                                 Page 8
+(This page was intentionally left blank.)
+
+
+
+
+                 Page 9
+(This page was intentionally left blank.)
+
+
+
+
+                Page 10
+(This page was intentionally left blank.)
+
+
+
+
+                Page 11
+                                         List of named distributions
+
+
+X ⇠ Bernoulli(p),               PMF: pX (0) = 1               p,         pX (1) = p
+
+                                                              n k
+X ⇠ Binomial(n, p),               PMF: pX (k) =               k
+                                                                p (1            p)n k ,        0kn
+
+
+X ⇠ Geometric(p),                PMF: pX (k) = p(1                      p)k 1 ,        k = 1, 2, . . .
+
+                                                      k
+X ⇠ Poisson( ),                PMF: pX (k) = k! e              ,        k = 0, 1, 2, . . .
+
+                                                                                     (NkA )(Nn NkA )
+X ⇠ Hypergeometric(N, NA , n),                      PMF: pX (k) =                                    ,   0kn
+                                                                                           (Nn )
+                                                          ( 1
+                                                           b a
+                                                                              for x 2 [a, b],
+X ⇠ Uniform(a, b),               PDF: fX (x) =
+                                                           0                   otherwise
+                                                                            (t µ)2
+X ⇠ Normal(µ,         2
+                          ),      PDF: fX (t) = p2⇡1 2 e                      2 2
+
+
+
+                                                           (             x
+                                                                    e                for x > 0,
+X ⇠ Exponential( ),                PDF: fX (t) =
+                                                               0                      otherwise
+                                                      ( 1               r r 1         x
+                                                              (r)
+                                                                        x       e              for x > 0,
+X ⇠ Gamma(r, ),                  PDF: fX (t) =
+                                                          0                                     otherwise
+
+(X1 , . . . , Xk ) ⇠ Multinomial(n, k, p1 , . . . , pk ),
+joint PMF: p(a1 , . . . , ak ) =         n
+                                     a1 ,...,ak
+                                                  pa11 · · · pakk for a1 , . . . , ak             0 with a1 + · · · + ak = n.
+   The following table shows approximate values of the cumulative distribution function of the standard
+normal distribution.
+                                                x   Φ(x)
+                                             -2.0   0.022
+                                             -1.9   0.028
+                                             -1.8   0.035
+                                             -1.7   0.044
+                                             -1.6   0.054
+                                             -1.5   0.066
+                                             -1.4   0.080
+                                             -1.3   0.096
+                                             -1.2   0.115
+                                             -1.1   0.135
+                                             -1.0   0.158
+                                             -0.9   0.184
+                                             -0.8   0.211
+                                             -0.7   0.242
+                                             -0.6   0.274
+                                             -0.5   0.308
+                                             -0.4   0.344
+                                             -0.3   0.382
+                                             -0.2   0.420
+                                             -0.1   0.460
+                                              0.0   0.500
+                                              0.1   0.539
+                                              0.2   0.579
+                                              0.3   0.617
+                                              0.4   0.655
+                                              0.5   0.691
+                                              0.6   0.725
+                                              0.7   0.758
+                                              0.8   0.788
+                                              0.9   0.815
+                                              1.0   0.841
+                                              1.1   0.864
+                                              1.2   0.884
+                                              1.3   0.903
+                                              1.4   0.919
+                                              1.5   0.933
+                                              1.6   0.945
+                                              1.7   0.955
+                                              1.8   0.964
+                                              1.9   0.971
+                                              2.0   0.977
+Math 431 - Fall 2025                                                                  November 19, 2025
+
+                        Second Midterm Exam - Solutions
+Name:
+
+Please circle your section number!
+
+      Section 1              Section 2                Section 3               Section 4
+
+      Chenxi Wu          Niclas Technau           Ander Aguirre              Sarah Tammen
+      (TR 1:00 PM)        (MWF 1:20 PM)            (TR 9:30 AM)              (MWF 12:05 PM)
+
+  • There are 6 problems on the exam, some of them have multiple parts.
+  • Read the problems carefully and budget your time wisely.
+  • If you are running out of time, please at least say how you would solve a given problem, preferably using
+    notation, even if you do not have the time to do so. This may earn you partial credit.
+  • No calculators or other electronic devices, please. Turn off your phone.
+  • You do not have to carry out complicated numerical computations, but you should simplify your answer
+    if it is possible with reasonable effort. In particular, geometric series must be evaluated.
+  • Please present your solutions in a clear manner. Justify your steps. Numerical answers without
+    explanation cannot get credit. Cross out the writing that you do not wish to be graded on.
+  • You can use the empty pages for additional space for writing if necessary.
+
+                                     Question Points Score
+                                          1           18
+                                          2           10
+                                          3           20
+                                          4           19
+                                          5           15
+                                          6           18
+                                       Total:        100
+1. In any parts of the following problem for which you deem it relevant, you may leave answers in terms of
+   the function Φ (the CDF of a standard normal random variable) or its inverse.
+   (a) (5 points) The dean of a certain university wants to estimate the proportion of students that are
+       left-handed. He plans to send a survey to a random sample of the student body. If the dean wants
+       to obtain a 95% confidence interval for the proportion of students that are left-handed and he wants
+       an interval of width ε, then how many students should he survey? Give an answer of the form n ≥ f (ε).
+
+       Solution: Let p be the true proportion of the student body that is left-handed. If the dean wants a
+       confidence interval of width ε for p, then he wants a margin of error 2ε . That is, if we let Sn be the
+       number of students in a sample of n that are left-handed, he wants to guarantee that
+                                                             
+                                                  Sn        ε
+                                             P       −p <       ≥ 0.95.
+                                                  n         2
+       For this, it is sufficient that
+                                                   ε √           √
+                                         0.95 ≤ 2Φ 2     n − 1 = 2Φ(ε n) − 1.
+                                                     2
+       We solve for n to give the condition
+                                                                        2
+                                                           Φ−1 (0.975)
+                                                  n≥                          .
+                                                                ε
+
+       Note: if you interpreted the question to mean that the margin of error should be ε, then we will give
+       full credit. Under this assumption, you should end up with the inequality
+                                                    −1        2
+                                                     Φ (0.975)
+                                               n≥                  .
+                                                         2ε
+
+
+   (b) (5 points) Suppose the dean’s survey finds that the proportion of students that are left-handed is
+       p = 0.10. Suppose that Professor Bob is teaching a 160 person Calculus class in a room with 20 left-
+       handed desks. Use an appropriate approximation to estimate the probability that there will be more
+       than 20 left-handed students in the class. (Assume that the hand preferences of different students are
+       independent.)
+
+       Solution: Let XL be the number of left-handed students in Professor Bob’s calculus class. If we assume
+       that the hand preferences of different students are independent, then X ∼ Bin(n, p), where n = 160
+                 1
+       and p = 10  . We want to estimate P (XL > 20). We plan to use the normal approximation for the
+       binomial distribution; for this we must check that np(1 − p) ≥ 10. We see that
+                                         
+                                         1      9     16 × 9    12 × 12    10 × 12
+                     np(1 − p) = 160               =         =          >          = 12 > 10.
+                                         10    10       10         10         10
+                                 X−16
+       Thus, we can approximate 12/√
+                                     10
+                                        with a standard normal random variable. We have that
+                                                                                                  √ !
+                                         X − 16 20 − 16                              4                 10
+                   P (X > 20) = P           √ >    √             ≈1−Φ                √         =1−Φ       .
+                                         12/ 10 12/ 10                            12/ 10               3
+
+
+
+                                                    Page 2
+(c) (5 points) Suppose that 0.1% (i.e. 1/1000) of the students in the university are ambidextrous. Sup-
+    pose that the university admits a freshman class of 10, 000 students. Use an appropriate approximation
+    to estimate the probability that exactly two of the new freshmen are ambidextrous.
+
+    Solution: Let XA be the number of freshmen that are ambidextrous. Assuming that the hand pref-
+    erences of different students are independent, we have that XA ∼ Binom(m, q) with m = 10000 and
+          1
+    q = 1000 . We want to compute P (XA = 2). We compute mq 2 :
+                                                             2
+                                         2               1              10     1
+                                     mq = 10000                    =        =     .
+                                                       1000            1000   100
+
+    Since mq 2 ≪ 1, a Poisson approximation is appropriate. Specifically, if we let Y ∼ Poisson(mq), then
+    we have                                                     2
+                                                           −10  10         50
+                               P (XA = 2) ≈ P (Y = 2) = e              = 10 .
+                                                                 2!        e
+
+
+(d) (3 points) We sample 40 students with replacement from the student body. Let X1 be the number
+    of times we choose a left-handed student, let X2 be the number of times we choose an ambidextrous
+    student, and let X3 be the number of times we choose a right-handed student. Under the assumptions
+    of parts (b)-(c), what distribution does the vector (X1 , X2 , X3 ) have? (For full credit, you must specify
+    all parameters.)
+
+    Solution: Letting p, q be as in parts (b)-(c), we have that
+                                                                   899
+                                                1−p−q =                 .
+                                                                   1000
+                                                                                 1     1     899
+                                                                                                  
+    Thus, the random vector (X1 , X2 , X3 ) has the distrubution Multinom 40, 3, 10 , 1000 , 1000   .
+
+    As an alternative to giving the name of the distribution, students may give the probability mass
+    function: for any nonnegative integers k1 , k2 , k3 with k1 + k2 + k3 = 40, we have that
+                                                                              k1           k2           k3
+                                                            40              1             1             899
+                  P (X1 = k1 , X2 = k2 , X3 = k3 ) =                                                                 .
+                                                       k1 , k2 , k3         10           1000           1000
+
+
+
+
+                                                 Page 3
+2. (10 points) Let X be a random variable with mean −4, and variance 16.
+   Find numbers a, b > 0 so that the random variable Y = aX + b has mean 0 and variance 1.
+
+  Solution: The random variable Z = X − (−4) = X + 4 has mean 0. Note Y = aZ has variance
+  Var(Z) = a2 Var(X) = a2 16. Choosing a = 1/4 ensures Y has variance one. Thus b = 4a = 1.
+
+
+
+
+                                                Page 4
+3. Let X ∼ Unif([−1, 3]). Compute the probability density functions of two the random variables:
+   (a) (10 points) Y = X 3
+
+       Solution: The function g : x 7→ x3 is strictly increasing, in particular on [−1, 3]. Hence, the probability
+       density functions fY of Y and fX of X are related by the change of variables formula
+                                                                     d −1
+                                            fY (s) = fX (g −1 (s))      g (s)
+                                                                     ds
+       where s is in the range of Y given by [g(−1), g(3)] = [−1, 27]. Presently, g −1 (s) = s1/3 . Its derivative
+       exists and equals 31 s−2/3 as long as s ̸= 0. If s ∈ [−1, 27], then fX (g −1 (s)) = 1/4. Consequently,
+
+                                                                 1
+                                                   fY (s) =
+                                                              12|s2/3 |
+
+       if s ∈ (−1, 27) \ {0}, and fY (s) = 0 for any other s.
+
+       The lack of differentiability of the cumulative distribution function FY (s) = FX (s1/3 ) at s = 0 is
+       irrelevant. The density functions fY can be assigned any value there. We chose put the fY to equal
+       zero there for the ease of exposition.
+
+
+
+
+   (b) (10 points) Y = |X|
+
+       Solution: The range of Y is [0, 3]. We compute its cumulative distribution function
+
+                                          FY (s) = P (Y ≤ s) = P (X ∈ [−s, s]).
+                                   Rs                                        Rs
+       If s ∈ [0, 1], then FY (s) = −s 41 = s/2. If s ∈ (1, 3], then FY (s) = −1 41 = s/4 + 1/4. Differentiating
+       yields that a probability density function fY of Y is
+                                                            ( 1/2,    if 0 < s < 1,
+                                       fY (s) = FY′ (s) =     1/4,    if 1 ≤ s ≤ 3,
+                                                              0,      otherwise.
+
+
+
+
+                                                    Page 5
+4. In this problem we consider the moment generating function of a discrete random variable X.
+   (a) (11 points) Suppose the moment generating function of X is
+                                                    1 3 t 3 2t 1 3t
+                                         MX (t) =    + e + e + e .
+                                                    8 8   8    8
+       Derive the probability mass function of X.
+       Solution: Reading off from the MGF we obtain P (X = 0) = 81 , P (X = 1) = 38 , P (X = 2) = 38 , P (X =
+       3) = 18 .
+
+
+
+
+   (b) (7 points) Use the derivatives of MX to find the variance Var(X).
+       Solution: We must differntiatie. For the first moment we have:
+
+                                                          3    3   1  3
+                                       EX = M ′ (0) =       +2· +3· =
+                                                          8    8   8  2
+       For the second moment we have:
+
+                                                          3       3       1
+                                      EX 2 = M ′′ (0) =     + 22 · + 3 2 · = 3
+                                                          8       8       8
+       And hence the variance is
+
+                                                                       3
+                                           var(X) = EX 2 − (EX)2 =
+                                                                       4
+
+
+
+
+   (c) (1 point) Can you identify the distribution of X with parameters?
+       Solution: Bin(3, 21 )
+
+
+
+
+                                                  Page 6
+5. Let (X, Y ) be uniformly distributed on the triangle with vertices (0, 0), (1, 1), and (1, 2).
+   (a) (12 points) Find the marginals of the coordinates fY and fX .
+       Solution: The area of the triangle is 1/2, so the joint pdf is
+                                                  (
+                                                    2 0 ≤ x ≤ 1, x ≤ y ≤ 2x
+                                       f (x, y) =
+                                                    0 otherwise
+
+        The marginal pdfs are
+                                               Z ∞                  (R 2x
+                                                                      x
+                                                                            2dy   0≤x≤1
+                                    fX (x) =         f (x, y)dy =
+                                               −∞                    0            otherwise
+                                                    (
+                                                      2x 0 ≤ x ≤ 1
+                                                 =
+                                                      0    otherwise
+                                                           R x
+                                          Z ∞              Rx/2 2dx 0 ≤ y ≤ 1
+                                                           
+                                                               1
+                                 fY (y) =     f (x, y)dx =        2dx 1 ≤ y ≤ 2
+                                           −∞              
+                                                           
+                                                              x/2
+                                                             0        y < 0 or y > 2
+                                                 
+                                                 
+                                                 y       0≤y≤1
+                                              = 2−y 1<y ≤2
+                                                 
+                                                 
+                                                   0      y < 0 or y > 2
+
+   (b) (3 points) Are the two coordinates independent or not?
+       Solution: They are not independent. Because P (0 < X < 1/2) = 1/4, P (Y > 1) = 1/2, but
+       P (0 < X < 1/2, Y > 1) = 0.
+
+
+
+
+                                                       Page 7
+6. Let λ > 0. Let X ∼ Exp(λ) and Y ∼ Exp(2λ) be independent exponentials.
+
+   (a) (9 points) Compute the probability P (X > 2Y ). Write the answer in terms of λ.
+
+       Solution: Because X and Y are independent, their joint pdf is
+                                                       (
+                                                        2λ2 e−λx−2λy x > 0, y > 0
+                             f (x, y) = fX (x)fY (y) =
+                                                        0             otherwise
+
+       So                                   Z                        Z
+                            P (X > 2Y ) =           f (x, y)dxdy =            2λ2 e−λx−2λy dxdy
+                                             x>2y                    x>2y>0
+                           Z ∞ Z ∞                           Z ∞
+                                                                                           2λ
+                       =               λe−λx dx 2λe−2λy dy =         e−2λy 2λe−2λy dy =       = 1/2
+                            0     2y                            0                          4λ
+       Alternatively, we see that 2Y ∼ Exp(λ), so X and 2Y are i.i.d, hence P (X > 2Y ) = P (X < 2Y ).
+       And because they are jointly continuous, P (X = 2Y ) = 0, hence P (X > 2Y ) = 1/2.
+   (b) (9 points) Let V = min(X, Y ). Derive a formula for the probability density function fV of V .
+
+       Solution: Note that we have the following equality of events
+
+
+                                           {V > v} = {X > v} ∩ {Y > v}.
+
+       Then by independence
+
+
+                                P(V > v) = P(X > v) · P(Y > v) = e−λv e−2λv = e−3λv .
+
+       Therefore, the CDF and the PDF are given by
+
+                                  FV (v) = 1 − e−3λv          =⇒         fV (v) = 3e−3λv
+
+
+
+
+                                                     Page 8
+(This page was intentionally left blank.)
+
+
+
+
+                 Page 9
+(This page was intentionally left blank.)
+
+
+
+
+                Page 10
+(This page was intentionally left blank.)
+
+
+
+
+                Page 11
+                                         List of named distributions
+
+
+X ⇠ Bernoulli(p),               PMF: pX (0) = 1               p,         pX (1) = p
+
+                                                              n k
+X ⇠ Binomial(n, p),               PMF: pX (k) =               k
+                                                                p (1            p)n k ,        0kn
+
+
+X ⇠ Geometric(p),                PMF: pX (k) = p(1                      p)k 1 ,        k = 1, 2, . . .
+
+                                                      k
+X ⇠ Poisson( ),                PMF: pX (k) = k! e              ,        k = 0, 1, 2, . . .
+
+                                                                                     (NkA )(Nn NkA )
+X ⇠ Hypergeometric(N, NA , n),                      PMF: pX (k) =                                    ,   0kn
+                                                                                           (Nn )
+                                                          ( 1
+                                                           b a
+                                                                              for x 2 [a, b],
+X ⇠ Uniform(a, b),               PDF: fX (x) =
+                                                           0                   otherwise
+                                                                            (t µ)2
+X ⇠ Normal(µ,         2
+                          ),      PDF: fX (t) = p2⇡1 2 e                      2 2
+
+
+
+                                                           (             x
+                                                                    e                for x > 0,
+X ⇠ Exponential( ),                PDF: fX (t) =
+                                                               0                      otherwise
+                                                      ( 1               r r 1         x
+                                                              (r)
+                                                                        x       e              for x > 0,
+X ⇠ Gamma(r, ),                  PDF: fX (t) =
+                                                          0                                     otherwise
+
+(X1 , . . . , Xk ) ⇠ Multinomial(n, k, p1 , . . . , pk ),
+joint PMF: p(a1 , . . . , ak ) =         n
+                                     a1 ,...,ak
+                                                  pa11 · · · pakk for a1 , . . . , ak             0 with a1 + · · · + ak = n.
+   The following table shows approximate values of the cumulative distribution function of the standard
+normal distribution.
+                                                x   Φ(x)
+                                             -2.0   0.022
+                                             -1.9   0.028
+                                             -1.8   0.035
+                                             -1.7   0.044
+                                             -1.6   0.054
+                                             -1.5   0.066
+                                             -1.4   0.080
+                                             -1.3   0.096
+                                             -1.2   0.115
+                                             -1.1   0.135
+                                             -1.0   0.158
+                                             -0.9   0.184
+                                             -0.8   0.211
+                                             -0.7   0.242
+                                             -0.6   0.274
+                                             -0.5   0.308
+                                             -0.4   0.344
+                                             -0.3   0.382
+                                             -0.2   0.420
+                                             -0.1   0.460
+                                              0.0   0.500
+                                              0.1   0.539
+                                              0.2   0.579
+                                              0.3   0.617
+                                              0.4   0.655
+                                              0.5   0.691
+                                              0.6   0.725
+                                              0.7   0.758
+                                              0.8   0.788
+                                              0.9   0.815
+                                              1.0   0.841
+                                              1.1   0.864
+                                              1.2   0.884
+                                              1.3   0.903
+                                              1.4   0.919
+                                              1.5   0.933
+                                              1.6   0.945
+                                              1.7   0.955
+                                              1.8   0.964
+                                              1.9   0.971
+                                              2.0   0.977
+

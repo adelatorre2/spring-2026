@@ -1,0 +1,2062 @@
+                                      Math 431 – Spring 2026
+                                   Homework 1 – Solutions
+
+1.2 (a) Since Bob has to choose exactly two options, Ω consists of the 2-element subsets of the
+        set {cereal, eggs, fruit}:
+
+                          Ω = {{cereal, eggs}, {cereal, fruit}, {eggs, fruit}}
+
+        The items in Bob’s breakfast do not come in any particular order, hence the outcomes
+        are sets instead of ordered pairs.
+   (b) The two outcomes in the event A are {cereal, eggs} and {cereal, fruit}. In symbols,
+
+               A = {Bob’s breakfast includes cereal} = {{cereal, eggs}, {cereal, fruit}}.
+
+1.4 (a) This is an example of sampling with replacement, where order matters. Thus, the sample
+        space is
+                           Ω = {ω = (x1 , x2 , x3 ) : xi ∈ {states in the U.S.}}.
+        In other words, each sample point is a 3-tuple or ordered triple of U.S. states.
+        The problem statement contains the assumption that every day each state is equally
+        likely to be chosen. Since #Ω = 503 =125,000, each sample point ω has equal probability
+        P {ω} = 50−3 = 125,000
+                             1
+                                . This specifies the probability measure completely because then
+                                                                        #A
+        the probability of any event A comes from the formula P (A) = 125,000 .
+   (b) The 3-tuple (Wisconsin, Minnesota, Florida) is a particular outcome, and hence as ex-
+       plained above,
+                            P ((Wisconsin, Minnesota, Florida)) = 5013 .
+    (c) The number of ways to have Wisconsin come on Monday and Tuesday, but not Wednesday
+        is 1·1·49, with similar expressions for the other combinations. Since there is only 1 way for
+        Wisconsin to come each of the three days, we see the total number of positive outcomes
+        is
+                           1 · 1 · 49 + 1 · 49 · 1 + 49 · 1 · 1 + 1 = 3 · 49 + 1 = 148.
+        Thus
+
+                          P (Wisconsin’s flag hung at least two of the three days)
+                                      3 · 49 + 1     37
+                                   =        3
+                                                 =        = 0.001184.
+                                          50       31250
+
+1.6 We give two solutions, first with an ordered sample, and then without order.
+
+    (a) Label the three green balls 1, 2, and 3, and label the yellow balls 4, 5, 6, and 7. We
+        imagine picking the balls in order, and hence take
+
+                                    Ω = {(i, j) : i, j ∈ {1, 2, . . . , 7}, i ̸= j},
+
+        the set of ordered pairs of distinct elements from the set {1, 2, . . . , 7}. The event of two
+        different colored balls is,
+
+           A = {(i, j) : (i ∈ {1, 2, 3} and j ∈ {4, . . . , 7}) or (i ∈ {4, . . . , 7} and j ∈ {1, 2, 3})}.
+    (b) We have #Ω = 7 · 6 = 42 and #A = 3 · 4 + 4 · 3 = 24. Thus,
+                                                        24  4
+                                             P (A) =       = .
+                                                        42  7
+        Alternatively, we could have chosen a sample     space in which order does not matter. In
+        this case the size of the sample space is 72 . There are 31 ways to choose one of the green
+                                                                  
+
+        balls and 41 ways to choose one yellow ball. Hence, the probability is computed as
+                     
+
+                                                        3
+                                                         4
+                                                        1           4
+                                           P (A) =          7
+                                                                1 = .
+                                                            2
+                                                                    7
+
+1.10 (a) We take the outcome of the experiment the number of times we roll the die (similar to
+         the coin flip example), using ∞ to denote the outcome that we never roll a 4. Then
+
+                                           Ω = {∞, 1, 2, 3, . . . }.
+
+        Element k in Ω means that it took k rolls to see the first four. Element ∞ means that
+        four never appeared.
+        Next we deduce the probability measure P on Ω. Since Ω is a discrete sample space
+        (countably infinite), P is determined by giving the probabilities of all the individual
+        sample points.
+        For an integer k ≥ 1, we have
+
+                P (k) = P {needed k rolls} = P {no fours in the first k − 1 rolls, then a 4}.
+
+        Each roll has 6 outcomes so the total number of outcomes from k rolls is 6k . Each roll
+        can fail to be a four in 5 ways. Hence by taking the ratio of the number of favorable
+        outcomes over the total number of outcomes,
+                                                                                      k−1
+                                                                        5k−1 · 1      5     1
+              P (k) = P {no fours in the first k − 1 rolls, then a 4} =          =            .
+                                                                          6k          6     6
+
+        To complete the specification of the measure P , we find the value P (∞). Since the
+        outcomes are mutually exclusive,
+                                                  ∞
+                                                  X
+                            1 = P (Ω) = P (∞) +         P (k)
+                                                  k=1
+                                                  ∞  k−1
+                                                  X  5     1
+                                      = P (∞) +
+                                                            6        6
+                                                  k=1
+                                                1    1
+                                      = P (∞) +    ·                              (geometric series)
+                                                6 1 − 5/6
+                                      = P (∞) + 1.
+
+        Thus, P (∞) = 0.
+    (b) We already deduced above that
+
+                             P (the number four never appears) = P (∞) = 0.
+         Here is another solution.
+                                                                                          n
+                                                                                          5
+              P (the number four never appears) ≤ P (no fours in the first n rolls) =         .
+                                                                                          6
+
+         Since ( 56 )n → 0 as n → ∞ and the inequality holds for any n, the probability on the left
+         must be zero.
+
+1.11 The sample space Ω that represents the dartboard itself is a square of side length 20 inches.
+     We can assume that the center of the board is at the origin. The event A, that the dart
+     hits within 2 inches of the center, is then the subset of Ω described by A = {x : |x| ≤ 2}.
+     Probability is now proportional to area, and so
+
+                                            area of A       π · 22    π
+                              P (A) =                     =     2
+                                                                   =     .
+                                        area of the board    20      100
+
+1.22 (a) The sample space is the set of 52 cards. We can represent the cards with numbers from 1
+                                                                                   1
+         to 52, or with their names. Since each outcome is equally likely, P {ω} = 52 for any fixed
+                                                             #A
+         card ω. For any subset A of cards we have P (A) = 52 .
+     (b) An event is a subset of the sample space Ω. In part (a) we saw that for an event A we
+         have P (A) = #A52 . So the desired event must have three elements. Any such set will work,
+         for example {♡2, ♡3, ♡K}. In words, this is the event that the chosen card is the two of
+         hearts, the three of hearts or the king of hearts.
+     (c) By part (a), if P (A) = 15 then #A   1                   52        52
+                                         52 = 5 which forces #A = 5 . Since 5 is not an integer,
+         there cannot be a subset with this many elements. Consequently this probability space
+         has no event with probability 1/5.
+
+1.28 Assume that both m and n are at least 1 so the problem is not trivial.
+
+     (a) Sampling without replacement. We can compute the answer using either an ordered or an
+         unordered sample. It helps to assume that the balls are labeled (e.g. by numbering them
+         from 1 to m + n), although the actual labeling will not play a role in the computation.
+         With an ordered sample we have (m + n)(m + n − 1) outcomes (we have m + n choices
+         for the first pick and m + n − 1 choices for the second). The favorable outcomes can be
+         counted by considering green-green and yellow-yellow pairs separately: their number is
+         m(m − 1) + n(n − 1). The answer is the ratio of the number of favorable outcomes to the
+         total number of outcomes,
+
+                                                       m(m − 1) + n(n − 1)
+                                P {(g,g) or (y,y)} =                       .
+                                                       (m + n)(m + n − 1)
+
+         The unordered sample calculation gives the same answer:
+                                                            m     n
+                                                                  
+                                                            2 + 2     m(m − 1) + n(n − 1)
+          P {a set of two greens or a set of two yellows} =   m+n    =                     .
+                                                                2
+                                                                       (m + n)(m + n − 1)
+
+                                                            k
+                                                                
+         Note: for integers 0 ≤ k < ℓ, the convention is    ℓ       = 0. This makes the answers above
+         correct even if m or n or both are 1.
+(b) Sampling with replacement. Now the sample has to be ordered (there is a first pick and
+    a second pick). The total number of outcomes is (m + n)2 , and the number of favorable
+    outcomes (again counting the green-green and yellow-yellow pairs separately) is m2 + n2 .
+    This gives
+
+                                                          m2 + n2
+                                   P {(g,g) or (y,y)} =            .
+                                                          (m + n)2
+
+(c) We show two arguments for comparing the two probabilities.
+    First we simplify the inequality through a sequence of equivalences, by cancelling factors,
+    multiplying away the denominators, and then cancelling some more.
+
+                       answer to (a) < answer to (b)
+                   m(m − 1) + n(n − 1)    m2 + n 2
+                ⇐⇒                     <
+                    (m + n)(m + n − 1)    (m + n)2
+                   m(m − 1) + n(n − 1)    m2 + n2
+                ⇐⇒                     <
+                        m+n−1              m+n
+                ⇐⇒ (m(m − 1) + n(n − 1))(m + n) < (m2 + n2 )(m + n − 1)
+                ⇐⇒     (m2 − m + n2 − n)(m + n) < (m2 + n2 )(m + n) − m2 − n2
+                ⇐⇒     (−m − n)(m + n) < −m2 − n2
+                ⇐⇒     (m + n)2 > m2 + n2
+                ⇐⇒     2mn > 0.
+
+    The last inequality is always true for positive m or n. Since the last inequality is equivalent
+    to the first one, the first one is also always true.
+    Another way to compare the two probabilities is to compare the probabilities of the
+    respective complements. This is just the probability of getting two balls of a different
+    color. We can just subtract our probabilities in (a) and (b) from one, or compute the
+    probability directly (as in 1.6).
+    Without replacement:
+                                        m(m − 1) + n(n − 1)          2mn
+              1 − answer to (a) = 1 −                       =
+                                        (m + n)(m + n − 1)    (m + n)(m + n − 1)
+
+    With replacement:
+
+                                                     m2 + n2      2mn
+                          1 − answer to (b) = 1 −             =
+                                                     (m + n)2   (m + n)2
+
+    These probabilities are easy to compare: since (m + m)(m + n − 1) < (m + n)(m + n),
+    we have
+                                         2mn             2mn
+           1 − answer to (a) =                       >          = 1 − answer to (b),
+                                  (m + n)(m + n − 1)   (m + n)2
+    which means
+                                   answer to (a) < answer to (b)
+    (as we saw with the first approach).
+The conclusion we take from this is that if you want to maximize your chances of get-
+ting two of the same color, you want to sample with replacement rather than without
+replacement. One way to explain this is to note that once you remove a ball, you have
+diminished the chances of drawing another one of the same color.
+                                     Math 431 – Spring 2026
+                                   Homework 2 – Solutions
+
+1.12 The sample space and probability measure for this experiment were    described in the solution
+     to 1.10 in HW1 : Ω = {1, 2 . . . } ∪ {∞} with P ({k}) = ( 65 )k−1 16 for positive integers k, and
+     P ({∞}) = 0.
+
+     (a) P (need at most 3 rolls) = P (1) + P (2) + P (3) = 61 1 + 56 + ( 56 )2 = 216
+                                                                                  91
+                                                                               
+                                                                                      .
+     (b)
+                                                ∞
+                                                X                       ∞
+                                                                        X                          ∞
+                                                                                                   X
+                   P (even number of rolls) =         P ({2m}) =              ( 65 )2m−1 16 = 15       ( 25
+                                                                                                         36 )
+                                                                                                              m
+
+                                                m=1                     m=1                        m=1
+                                                        25
+                                             = 15 ·     36       5
+                                                               = 11 .
+                                                      1 − 25
+                                                          36
+
+1.14 From the inclusion-exclusion principle we get
+
+               P (A ∪ B) = P (A) + P (B) − P (AB) = 0.4 + 0.7 − P (AB) = 1.1 − P (AB).
+
+     Rearranging this we get P (AB) = 1.1 − P (A ∪ B).
+     Since P (A ∪ B) is a probability, it is at most 1, so
+
+                                P (AB) = 1.1 − P (A ∪ B) ≥ 1.1 − 1 = 0.1.
+
+     On the other hand, B ⊂ A ∪ B so P (A ∪ B) ≥ P (B) = 0.7 which gives
+
+                               P (AB) = 1.1 − P (A ∪ B) ≤ 1.1 − 0.7 = 0.4.
+
+     Putting these together we get 0.1 ≤ P (AB) ≤ 0.4.
+
+1.16 If we see only heads, I win $5. If we see 4 heads, I win $3. If we see 3 heads, I win $1. If
+     we see 2 heads, I “win” -$1. If we see 1 heads, I “win” -$3. Finally, if we see 0 heads, then
+     I “win” -$5. Thus, the possible values of X are {−5, −3, −1, 1, 3, 5}. The sample space for
+     the 5 coin flips is Ω = {(x1 , . . . , x5 ) : xi ∈ {H, T }} with #Ω = 25 . Each individual outcome
+     (x1 , . . . , x5 ) of five flips has probability 2−5 .
+     Let k ∈ {0, 1, . . . , 5}. To calculate the probability of exactly k heads
+                                                                             we need to count how
+     many five-flip outcomes yield exactly k heads. The answer is k5 , the number of ways of
+     specifying which of the five flips are heads. Hence
+
+                  P (precisely k heads)
+                                                                                              
+                         # ways to select k slots from the 5 for the k heads                  5 −5
+                     =                                                       =                   2 .
+                                                  25                                          k
+     Thus,
+
+                                P (X = −5) = P (0 heads) = 2−5
+                                P (X = −3) = P (1 heads) = 5 · 2−5
+                                                             
+                                                             5
+                                P (X = −1) = P (2 heads) =       · 2−5
+                                                             2
+                                                             
+                                                             5
+                                  P (X = 1) = P (3 heads) =      · 2−5
+                                                             3
+                                                             
+                                                             5
+                                  P (X = 3) = P (4 heads) =      · 2−5
+                                                             4
+                                                             
+                                                             5 −5
+                                  P (X = 5) = P (5 heads) =     2 .
+                                                             5
+
+1.18 The possible values of X are {3, 4, 5} as these are the possible lengths of the words. The
+     probability mass function is
+                                                                       3
+              P (X = 3) = P (we chose one of the letters of ARE) =
+                                                                      16
+                                                                                    8    1
+              P (X = 4) = P (we chose one of the letters of SOME or DOGS) =            =
+                                                                                    16   2
+                                                                              5
+              P (X = 5) = P (we chose one of the letters of BROWN) =            .
+                                                                             16
+
+1.32 Here is one way to determine the number of ways to be dealt a full house. We take as our
+     sample space the set of 5-element subsets of the deck of cards:
+
+                     Ω = {{x1 , . . . , x5 } : xi ∈ {deck of 52}, xi ̸= xj if i ̸= j}.
+
+     Note that #Ω = 52
+                      
+                    5 (and that we are using a model where we do not keep track of the order
+     of the cards).
+     Let A be the event that we get a full house (three cards with the same face value and two
+     cards with another common face value). We need #A, i.e. we need to count the number of
+     ways to get a full house. We do this by ‘constructing’ a full house, and keeping track of the
+     number of choices during the process.
+     First, choose the face value for the 3 cards that share a face value. There are 13 options.
+     Then select 3 of the 4 suits for this face value. There are 43 ways to do that. We now have
+     the three of a kind selected. Next, choose another face value for the remaining two cards from
+     the remaining 12 face values. Then select 2 of the 4 suits for this face value. There are 42
+     ways to do that. By the multiplication rule we conclude that there are
+                                                           
+                                                  4          4
+                                            13 ·     · 12 ·
+                                                  3          2
+
+     ways to be dealt a full house. Since there are a total of 52
+                                                                 
+                                                                5 poker hands, the probability is
+
+                                                13 · 12 · 43 42
+                                                             
+                               P (full house) =        52
+                                                               ≈ 0.00144.
+                                                      5
+1.34 Our sample space Ω is the points of the unit square [0, 1]2 , we measure the probability using
+     the relative area (which is equal to the area in this case, since the unit square has area 1).
+     Let A be the event that the circle drawn around the chosen point is completely in the square.
+     The circle of radius of 1/3 around the random point is completely within the square [0, 1]2 if
+     and only if the random point lies within the smaller square with corners (1/3, 1/3), (2/3, 1/3),
+     (2/3, 2/3), (1/3, 2/3). Hence A is exactly this smaller square of side length 1/3.
+     The unit square has area one and the smaller square has area 1/9. Consequently
+
+                                                                        area of A   1/9  1
+               P (A) = P (the circle lies inside the unit square) =               =     = .
+                                                                        area of Ω    1   9
+
+
+
+
+                                                                            (1,1)
+
+
+
+                                                      1/3
+
+
+
+                                                               1/3
+
+
+
+
+                                                             1/3
+
+
+
+
+                            (0,0)
+
+
+
+1.36 Again our sample space Ω is the points of the unit square [0, 1]2 , we measure the probability
+     using the relative area (which is equal to the area in this case, since the unit square has area
+     1).
+
+     (a) Since (X, Y ) is a uniformly random point, probability is proportional to area:
+
+                 P (a < X < b)
+                  = P (point (X, Y ) lies in rectangle with vertices (a, 0), (b, 0), (b, 1), (a, 1))
+                    area of rectangle with vertices (a, 0), (b, 0), (b, 1), (a, 1)
+                  =
+                      area of square with vertices (0, 0), (1, 0), (1, 1), (0, 1)
+                  = b − a.
+                                (a, 1)   (b, 1)                                           3 4, 1
+
+
+
+
+                                                                                                      1, 3 4
+
+
+
+
+                                                                 0, 1 4
+
+
+
+
+                                (a, 0)    (b, 0)
+                                                                              1 4, 0
+
+
+
+
+    (b) Let B be the event that |X − Y | ≤ 1/4, this is the set of points (x, y) that are in the unit
+        square for which the inequality |x − y| ≤ 1/4 holds. This is the region between the lines
+        y = x − 1/4 and y = x + 1/4 within the unit square (see the picture above). The area of
+        this region B is 7/16, this can be seen by by subtracting the areas of the complementary
+        triangles from the unit square. Thus, the desired probability P (B) is also 7/16 since the
+        unit square has an area of one.
+
+1.40 This is an application of inclusion-exclusion with four events. Below we use some hopefully
+     self-evident summation notation to avoid writing out long sums.
+
+                 P (at least one color is repeated exactly twice) = P (G ∪ R ∪ Y ∪ W )
+                                                                     X
+                            = P (G) + P (R) + P (Y ) + P (W ) −               P (AB)
+                                                                             A,B∈{G,R,Y,W }
+                                                                                 A̸=B
+                                             X
+                           +                        P (ABC) − P (GRY W )
+                               A,B,C∈{G,R,Y,W }
+                                 A,B,C distinct
+
+     (The first sum contains the probabilities of double intersections, the second the probabilities
+     of triple intersections.)
+     Next we derive the probabilities that appear in the equation above. The sample space Ω is
+     given by 4-tuples (x1 , x2 , x3 , x4 ) where each xi is from the set {green, red, yellow, white}.
+     The total number of 4-tuples is 44 = 256.
+                                                                      4
+                                                                       
+                                                              #G         ·3·3    27
+                       P (G) = P (exactly two greens) =           = 2          =     .
+                                                              #Ω        256      128
+
+     The numerator above is derived as follows: there are 42 ways to pick the positions of the
+                                                                   
+
+     two greens in the 4-tuple. For both of the remaining two positions we have 3 colors to choose
+                                                                            27
+     from. By the same reasoning, P (G) = P (R) = P (Y ) = P (W ) = 128        .
+     An event of type AB above means that the four draws yielded two balls of color a and two
+     balls of color b, where
+                          a and b are two distinct particular colors. The number of 4-tuples in
+                        4
+     the event AB is 2 = 6. We can even list them easily. Here they are in lexicogaphic order:
+
+                                          aabb, abab, abba, baab, baba, bbaa.
+
+     Thus for each pair of events A, B we get P (AB) = 6/256 = 3/128.
+Events of the type ABC are empty because four draws cannot yield three different colors
+that each appear exactly twice. For the same reason GRY W = ∅.
+Putting everything together gives
+
+                         P (at least one color is repeated exactly twice)
+                                     27         3     45
+                               =4·       −6·        =    ≈ 0.7031.
+                                     128      128     64
+
+Another solution: You can also get the answer by counting the favorable outcomes directly,
+although some care is needed. If we have at least one color repeated exactly twice then we
+have one or two colors that are repeated twice. (We cannot have more than two because we
+only have four picks.) Let A1 be the event that there is exactly one color that is repeated
+twice (the for picks are of the form a, a, b, c in some order ), and A2 the event that there are
+exactly two colors that are repeated twice (the for picks are of the form a, a, b, b in some
+order ).
+We can uniquely describe an element (x1 , x2 , x3 , x4 ) of A2 by giving the color of x1 (4 choices),
+the position of the other ball with the same color as x1 (3 choices), and the other color that
+shows up besides x1 ’s color (3 choices). This gives #A2 = 4 · 3 · 3 = 36.
+An element (x1 , x2 , x3 , x4 ) of A1 can be uniquely described by identifying the repeated color
+(4 choices), the positions where this color shows up ( 42 = 6 choices), and choosing the
+colors of the remaining two balls in order (3 and 2 choices, respectively). This gives #A1 =
+4 · 42 · 3 · 2 = 144. Hence
+
+                #at least one color is repeated exactly twice = 36 + 144 = 180
+
+and the corresponding probability is 180
+                                      44
+                                         = 45
+                                           64 .
+                                     Math 431 – Spring 2026
+                                    Homework 3 – Solutions
+
+ 2.4 Let A be the event that we picked the ball labeled 5 and B the event that we picked the first
+     urn. Then we have P (B) = 1/2, P (B c ) = P (we picked the second urn) = 1/2. Moreover,
+     from the setup if the problem
+
+               P (A|B) = P (we chose the number 5 | we chose from the first urn) = 0,
+                                                                                      1
+               P (A|B c ) = P (we chose the number 5 | we chose from the second urn) = .
+                                                                                      3
+     We compute P (A) by conditioning on B and B c :
+                                                                          1 1 1 1
+                      P (A) = P (A|B)P (B) + P (A|B c )P (B c ) = 0 ·      + · = .
+                                                                          2 3 2 6
+     Another way to see this is to note that A = AB c , since we can only choose 5 if we picked
+     from the second urn. Then
+                                                                   1 1 1
+                                P (AB c ) = P (A|B c )P (B c ) =    · = .
+                                                                   3 2 6
+
+2.10 Define the following events:
+
+      A = {outcome of the roll is 4}     and    Bk = {the k-sided die is picked},     k ∈ {4, 6, 12}.
+
+     We have
+                                                                   1
+                                     P (B4 ) = P (B6 ) = P (B12 ) = ,
+                                                                   3
+     since each of the three dice are equally likely to be picked.
+     The conditional probability of rolling a 4 given that we picked a k-sided die is 1/k, hence
+                                                   1
+                                     P (A|Bk ) =     ,     k ∈ {4, 6, 12}.
+                                                   k
+
+     Hence using Bayes’ formula gives
+
+                        P (A ∩ B6 )                        P (A|B6 )P (B6 )
+            P (B6 |A) =              =
+                           P (A)       P (A|B4 )P (B4 ) + P (A|B6 )P (B6 ) + P (A|B12 )P (B12 )
+                                 1 1
+                                   ·            1
+                      = 1 1 16 13 1 1 = .
+                        4 · 3 + 6 · 3 + 12 · 3
+                                                3
+
+2.14 For disjoint events A, B we have AB = ∅ and P (AB) = P (∅) = 0. Independence requires
+     P (A)P (B) = P (AB) = 0, which can only happen if P (A) or P (B) is equal to 0. Hence
+     disjoint events A and B are independent if and only if at least one of them has probability
+     zero.
+
+2.16 Let us label heads as 0 and tails as 1. The sample space is
+
+                                    Ω = {(s1 , s2 , s3 ) : each si ∈ {0, 1}},
+     the set of ordered triples of zeros and ones. #Ω = 8 and so for equally likely outcomes we
+     have P (ω) = 1/8 for each ω ∈ Ω. The events and their probabilities we need for answering
+     the question of independence are
+
+                          P (A1 ) = P {(0, 0, 0), (0, 0, 1), (0, 1, 0), (0, 1, 1)} = 48 = 12 ,
+                          P (A2 ) = P {(0, 1, 0), (0, 1, 1), (1, 0, 0), (1, 0, 1)} = 48 = 12 ,
+                          P (A3 ) = P {(0, 1, 1), (1, 0, 1), (1, 1, 0), (0, 0, 0)} = 48 = 12 ,
+                       P (A1 A2 ) = {(0, 1, 0), (0, 1, 1)} = 28 = 14 = 12 · 12 = P (A1 )P (A2 ),
+                       P (A1 A3 ) = {(0, 1, 1), (0, 0, 0)} = 28 = 14 = 12 · 12 = P (A1 )P (A3 ),
+                       P (A2 A3 ) = {(0, 1, 1), (1, 0, 1)} = 28 = 14 = 12 · 12 = P (A1 )P (A3 ),
+                    P (A1 A2 A3 ) = {(0, 1, 1)} = 81 = 12 · 12 · 12 = P (A1 )P (A2 )P (A3 ).
+
+     All the four possible combinations of more than two events from A1 , A2 , A3 satisfy the product
+     identity. Hence independence of A1 , A2 , A3 has been verified.
+
+2.18 There are 90 numbers to choose from and so each singleton {a} with 11 ≤ a ≤ 99 has
+                  1
+     probability 90 .
+
+     (a) From enumerating the possible values of X, we see that P (X = k) = 19 for each k ∈
+         {1, 2, . . . , 9}. (For example, the event {X = 3} = {30, 31, . . . , 39} has 10 outcomes from
+                                                         1
+         the 90 total.) For Y we have P (Y = ℓ) = 10       for each ℓ ∈ {0, 1, 2, . . . , 9}. (For example,
+         the event {Y = 3} = {13, 23, 33, . . . , 93} has 9 outcomes from the 90 total.)
+         The intersection {X = k, Y = ℓ} contains exactly one number from the 90 outcomes,
+         namely 10k + ℓ. (For example {X = 3, Y = 5} = {35}). Thus for each pair (k, ℓ) of
+         possible values,
+                                                     1
+                    P (X = k, Y = ℓ) = P {10k + ℓ} = 90 = 91 · 10
+                                                               1
+                                                                  = P (X = k)P (Y = ℓ).
+
+         Thus we have checked that X and Y are independent.
+     (b) To show that independence fails, we need to find only one case where the product property
+         P (X = k, Z = m) = P (X = k)P (Z = m) fails. Let’s take an extreme case. The smallest
+         possible value for Z is 1 that comes only from the outcome 10, since the sum of the
+         digits is 1 + 0 = 1. (Formally, since Z is a function on Ω, Z(10) = 1 + 0 = 1.) And so
+                                 1
+         P (Z = 1) = P {10} = 90   . If we take X = 2, we cannot get Z = 1. Here is the precise
+         derivation:
+
+                         P (X = 2, Z = 1) = P ({20, 21, . . . , 29} ∩ {10}) = P (∅) = 0.
+
+         Since P (X = 2)P (Z = 1) = 19 · 90
+                                         1     1
+                                            = 810 ̸= 0, we have shown that X and Z are not
+         independent.
+
+2.30 Identical twins have the same gender. We assume that identical twins are equally likely to be
+     boys or girls. We assume that fraternal twins are also equally likely to be boys or girls, but
+     independently of each other. Thus fraternal twins are two girls with probability 12 · 12 = 14 .
+     Let I be the event that the twins are identical, F = I c the event that the twins are fraternal,
+     and let A be the event that Miranda has two girls.
+     Then we have P (I) = 1/3, P (F ) = 2/3, P (A|I) = 1/2 and P (A|F ) = 1/4.
+     (a) P (two girls) = P (A) = P (AI)+P (AF ) = P (A | I)P (I)+P (A | F )P (F ) = 12 · 31 + 14 · 32 = 13 .
+         We used the fact that I, F = I c form a partition.
+                                     1 1
+                                      ·
+     (b) P (I | A) = P (AP|(A)
+                           I)P (I)
+                                   = 213 = 12 . (Where we used part (a) for P (A).)
+                                      3
+
+2.34 Since the urns are interchangeable, we can put the marked ball in urn 1. There are three ways
+     to arrange the two unmarked balls. Let case i for i ∈ {0, 1, 2} denote the situation where we
+     put i unmarked balls together with the marked ball, and the remaining 2 − i unmarked balls
+     in the other urn. Let M denote the event that your friend draws the marked ball, and Aj the
+     event that she chooses urn j, j = 1, 2. Since P (M |A2 ) = 0, we get the following probabilities.
+     Case 0: P (M ) = P (M |A1 )P (A1 ) = 1 · 21 = 12 .
+     Case 1: P (M ) = P (M |A1 )P (A1 ) = 12 · 12 = 14 .
+     Case 2: P (M ) = P (M |A1 )P (A1 ) = 13 · 12 = 16 .
+     So for (a) you would put all the balls in one urn (Case 2) while for (b) she would put the
+     marked ball in one urn and the other balls in the other urn.
+     (c) The situation is analogous. If we put k unmarked balls together with the marked ball in
+     urn 1, then
+                                                            1
+                              P (M ) = P (M |A1 )P (A1 ) = k+1 · 12 = 2(k+1)
+                                                                         1
+                                                                             .
+     Hence to minimize the chances of drawing the marked ball, put all the balls in one urn, and
+     to maximize the chances of drawing the marked ball, put the marked ball in one urn and all
+     the unmarked balls in the other.
+
+2.52 Yes, A, B, and C are mutually independent. There are four equations to check:
+
+       (i) P (AB) = P (A)P (B)
+      (ii) P (AC) = P (A)P (C)
+      (iii) P (BC) = P (B)P (C)
+      (iv) P (ABC) = P (A)P (B)P (C).
+
+     (i) comes from inclusion-exclusion:
+
+                        P (AB) = P (A) + P (B) − P (A ∪ B) = 0.06 = P (A)P (B).
+
+     (ii) comes from P (AC) = P (C) − P (Ac C) = 0.03 = P (A)P (C). (iii) is given. Finally, (iv)
+     comes from using inclusion-exclusion once more and the previous computations:
+
+                            P (ABC) = P (A ∪ B ∪ C) − P (A) − P (B) − P (C)
+                                                 + P (AB) + P (AC) + P (BC)
+                                       = 0.006 = P (A)P (B)P (C).
+
+2.54 (a) It is possible. We use the fact that A = AB ∪ AB c and that these are mutually exclusive:
+
+                         P (A) = P (AB) + P (AB c ) = P (A|B)P (B) + P (A|B c )P (B c )
+                                 1        1           1                   1
+                               = P (B) + P (B c ) = (P (B) + P (B c )) = .
+                                 3        3           3                   3
+(b) A and B are independent. By part (a) and the given information,
+
+                                                     P (AB)
+                                 P (A) = P (A|B) =
+                                                      P (B)
+
+   from which P (AB) = P (A)P (B) and independence has been verified. (Note that the
+   value 31 was not needed for this conclusion.)
+                                     Math 431 – Spring 2026
+                                  Homework 4 – Solutions
+
+2.20 (a) Let S5 denote the number of threes in the first five rolls. This random variable has
+         Binomial(5, 1/6) distribution. (It counts successes in 5 independent trials, the success is
+         rolling a three.) Then
+                                            2                    2  
+                                            X                    X  5         1 k 5 5−k
+                                                                                   
+                             P (S5 ≤ 2) =         P (S5 = k) =                6   6     .
+                                                                        k
+                                            k=0                  k=0
+
+     (b) Let N be the number of rolls needed to see the first three. This is a Geometric(1/6)
+         distributed random variable (we are waiting for the first success). From the p.m.f. of a
+         geometric random variable,
+                                           ∞                   ∞
+                                                                       5 k−1 1       5 4
+                                           X                   X                    
+                             P (N > 4) =         P (N = k) =           6     6 =     6 .
+                                           k=5                 k=5
+
+         Equivalently,
+                                                                                            5 4
+                                                                                             
+                         P (N > 4) = P (no threes within the first four rolls) =            6 .
+
+     (c) We can approach this in a couple different ways. ,
+                                                    19                  19
+                                                                              5 k−1 1
+                                                    X                   X            
+                              P (5 ≤ N ≤ 19) =            P (N = k) =         6     6
+                                                    k=5                 k=5
+
+         We can evaluate this expression using the result of part (b):
+                                                                                5 4       5 19
+                                                                                           
+                         P (5 ≤ N ≤ 19) = P (N > 4) − P (N > 19) =              6   −     6    .
+
+         We can also use the independence of rolls to get the same answer directly:
+
+                    P (5 ≤ N ≤ 19)
+                    = P (no three in the first four rolls, at least one three in rolls 5–19)
+                         4       15       4      19
+                    = 56 1 − 65         = 56 − 56 .
+
+         Here we used
+                                                                                                   5 15
+                                                                                                     
+             P (at least one three in rolls 5–19) = 1 − P (no threes in rolls 5–19) = 1 −          6    .
+
+2.58 (a) We will show that these events are pairwise independent. We will show that A and B
+         are independent, the argument is the same for the other pairs. We need to show that
+         P (AB) = P (A)P (B). We label the days with numbers from 1 to 365. Then our sample
+         space is
+                                 Ω = {(a, b, c) : a, b, c ∈ {1, 2, . . . , 365}},
+         the size of the sample space is #Ω = 3653 .
+         AB is the event that a = b and b = c, which is just a = b = c. There are 365 such triples,
+         so
+                                                                               365      1
+               #AB = {all three have same birthday} = 365,          P (AB) =      3
+                                                                                    =
+                                                                              365     3652
+         Also,
+                     #A = {Alex and Betty have the same birthday} = 365 · 1 · 365,
+         where we counted as follows: we have 365 choices for the birthday of Alex, then only once
+         choice for Betty, and then another 365 choices for Conlin. Thus,
+
+                                                          3652    1
+                                                P (A) =        =     .
+                                                          3653   365
+                             1
+         Similarly, P (B) = 365 and so,
+
+                                               P (AB) = P (A)P (B).
+
+     (b) The events are not independent. Note that ABC = AB and so,
+                                                       1                          1
+                           P (ABC) = P (AB) =             2
+                                                            ̸= P (A)P (B)P (C) =      .
+                                                      365                        3653
+
+2.61 (a) Treat each draw as a trial: green is success, red is failure. By counting favorable outcomes,
+     the probability of success is p = 37 for each draw. Because we draw with replacement the
+     outcomes are independent. Thus the number of greens in the 9 picks is the number of successes
+     in 9 trials, hence a Bin(9, 37 ) distribution. Using the probability mass function of the binomial
+     distribution gives
+
+                      P (X ≥ 1) = 1 − P (X = 0) = 1 − (1 − p)9 ≈ 0.9935,
+                                   5               5  
+                                  X               X    9 k
+                      P (X ≤ 5) =    P (X = k) =          p (1 − p)9−k ≈ 0.8653.
+                                                       k
+                                     k=0                  k=0
+
+     (b) N is the number of trials needed for the first success, and so has geometric distribution
+     with parameter p = 37 . The probability mass function of the geometric distribution gives
+                                        9
+                                        X                   9
+                                                            X
+                         P (N ≤ 9) =          P (N = k) =         p(1 − p)k−1 ≈ 0.9935.
+                                        k=1                 k=1
+
+     You can also compute this by considering the complement:
+
+              P (N ≤ 9) = 1 − P (N > 9) = 1 − P (first 9 trials are failures) = 1 − (1 − p)9
+
+     (c) We have P (X ≥ 1) = P (N ≤ 9). We can check this by using the geometric sum formula
+     (or the second solution in part (b)) to get
+                             9
+                             X                       1 − (1 − p)9
+                                   p(1 − p)k−1 = p                = 1 − (1 − p)9 .
+                                                     1 − (1 − p)
+                             k=1
+
+     Here is another way to see this, without any algebra. Imagine that we draw balls with
+     replacement infinitely many times. Think of X as the number of green balls in the first 9
+     draws. N is still the number of draws needed for the first green. Now if X ≥ 1, then we have
+     at least one green within the first 9 draws, which means that the first green draw happened
+     within the first 9 draws. Thus X ≥ 1 implies N ≤ 9. But this works in the opposite direction
+     as well: if N ≤ 9 then the first green draw happened within the first 9 draws, which means
+     that we must have at least one green within the first 9 picks. Thus N ≤ 9 implies X ≥ 1.
+     This gives the equality of the two events: {X ≥ 1} = {N ≤ 9}, and hence the probabilities
+     must agree as well.
+
+2.70 The relevant probabilities: P (A) = P (B) = 2p(1 − p) and
+
+                    P (AB) = P {(T, H, T), (H, T, H)} = p2 (1 − p) + p(1 − p)2 = p(1 − p).
+
+     Thus A and B are independent if and only if
+                      2
+             2p(1 − p) = p(1 − p) ⇐⇒ 4p2 (1 − p)2 − p(1 − p) = 0
+                      ⇐⇒ p(1 − p) 4p(1 − p) − 1) = 0
+                      ⇐⇒ p = 0 or 1 − p = 0 or 4p(1 − p) − 1 = 0 ⇐⇒ p ∈ {0, 12 , 1}.
+
+     Note that cancelling p(1 − p) from the very first equation misses the solutions p = 0 and
+     p = 1.
+
+2.71 Let F = {coin is fair}, B = {coin is biased} and Ak = {kth flip is tails}. We assume that
+     conditionally on F , the events Ak are independent, and similarly conditionally on B. Let
+     Dn = A1 ∩ A2 ∩ · · · ∩ An = {the first n flips are all tails}.
+
+     (a)
+
+                                              P (Dn |B)P (B)                   ( 3 )n 1
+                       P (B|Dn ) =                                      = 3 n 15 101 n 9
+                                      P (Dn |B)P (B) + P (Dn |F )P (F )  ( 5 ) 10 + ( 2 ) 10
+                                             ( 35 )n
+                                  =                      .
+                                      ( 35 )n + 9( 21 )n
+                                       2                 4
+           In particular, P (B|D1 ) = 17 and P (B|D2 ) = 29 .
+     (b) You can compute the numerical values for various n to get
+
+                                                         ( 35 )24
+                                                                       ≈ 0.898
+                                                  ( 35 )24 + 9( 21 )24
+
+           while
+                                                         ( 35 )25
+                                                                       ≈ 0.914,
+                                                  ( 35 )25 + 9( 21 )25
+           so 25 flips are needed.
+           You can also get the answer by simplifying the probability in part (a):
+
+                                                      ( 53 )n           1
+                                                  3 n         1 n =
+                                                ( 5 ) + 9( 2 )      1 + 9( 65 )n
+
+           and then solving 1+9(1 5 )n ≥ 0.9 to get (5/6)n ≥ 1/81 and n ≥ log(81)
+                                                                          log( 56 )
+                                                                                    ≈ 24.1027.
+                                  6
+     (c)
+
+                                          P (Dn+1 )      P (Dn+1 |B)P (B) + P (Dn+1 |F )P (F )
+                       P (An+1 |Dn ) =                =
+                                           P (Dn )            P (Dn |B)P (B) + P (Dn |F )P (F )
+                                           3 n+1 1         1 n+1 9
+                                          ( )         + (2)
+                                         = 5 3 n 101            9
+                                                                   10
+                                                                      .
+                                             ( 5 ) 10 + ( 12 )n 10
+
+ 3.2 (a) We must have that the probability mass function sums to one. Hence, we require
+                                         6
+                                         X
+                                    1=         p(k) = c (1 + 2 + 3 + 4 + 5 + 6) = 21c.
+                                         k=1
+
+                     1
+           Thus, c = 21 .
+     (b) The probability that X is odd is
+                                                                                    1                9   3
+               P (X is odd) = P (X ∈ {1, 3, 5}) = p(1) + p(3) + p(5) =                 (1 + 3 + 5) =    = .
+                                                                                    21               21  7
+
+ 3.4 (a) The density f of X is 16 on [4, 10] and zero otherwise. Hence,
+                                                  Z 6                  Z 6
+                                                                             1      6−4  1
+                                P (X < 6) =                f (x)dx =           dx =     = .
+                                                      −∞                4    6       6   3
+
+     (b)
+
+                 P (|X − 7| > 1) = P (X − 7 > 1) + P (X − 7 < −1) = P (X > 8) + P (X < 6)
+                                   Z ∞           Z 6            Z 10           Z 6
+                                 =     f (x)dx +      f (x)dx =      f (x)dx +     f (x)dx
+                                         8                   −∞                8                 4
+                                       10 − 8 6 − 4  2
+                                     =       +      = .
+                                          6     6    3
+     (c) By definition of the conditional probability we have
+
+                                                                   P (X < t, X < 6)
+                                         P (X < t | X < 6) =                        .
+                                                                      P (X < 6)
+
+           For 4 ≤ t ≤ 6 then {X < t, X < 6} is just {X < t}, hence we have
+                                                       Z t           Z t
+                                                                         1      t−4
+                       P (X < t, X < 6) = P (X < t) =      f (x)dx =       dx =     ,
+                                                        −∞            4  6       6
+
+           and this leads to
+                                                                           t−4
+                                                               P (X < t)       t−4
+                                    P (X < t | X < 6) =                  = 6 =     .
+                                                               P (X < 6)  1/3   2
+                               R∞
+3.25 (a) If f is a pdf then    −∞ f (x)dx = 1. We have
+                            Z ∞                 Z 3                                x=3
+                                                                                             26
+                       1=           f (x)dx =         (x2 − b)dx = x3 /3 − bx            =      − 2b.
+                               −∞                 1                                x=1       3
+                                                                      q
+     This gives b = 236 . However, x 2 − 23 is negative for 1 ≤ x <
+                                          6
+                                                                        23
+                                                                         6 ≈ 1.96 which shows that
+     there is no b that would make the function f a pdf.
+     (b) We need b ≥ 0, otherwise the function is zero everywhere. The cos x function is non-
+     negative on [−π/2, π/2], but then it goes below 0. Thus if g is a pdf then b ≤ π/2. Computing
+     the integral of g on (−∞, ∞) we get
+                                Z ∞             Z b
+                                       g(x)dx =     cos(x)dx = 2 sin(b).
+                                   −∞                     −b
+
+     There is exactly one solution for 2 sin(b) = 1 in the interval (0, π/2], this is b = arcsin(1/2) =
+     π/6. For this choice of b the function g is a pdf.
+
+3.26 (a) We require that the probability mass function sum to one. Hence,
+                                                 ∞                    ∞
+                                                 X                    X        c
+                                       1=              pX (k) =                      .
+                                                                            k(k + 1)
+                                                 k=1                  k=1
+
+     The sum can be computed in the following way:
+                ∞                   M                    M         
+                X      c           X      c             X    1   1
+                            = lim               = c lim        −
+                    k(k + 1) M →∞      k(k + 1)    M →∞      k k+1
+                k=1                k=1                  k=1
+                                                                          
+                                          1 1 1 1 1               1     1
+                            = c lim 1 − + − + − + · · · +           −
+                               M →∞       2 2 3 3 4              M    M +1
+                                               
+                                            1
+                            = c lim 1 −            = c.
+                               M →∞       M +1
+     Combining the above shows that c = 1.
+                          R∞
+3.31 (a) We must have 1 = −∞ f (x)dx. So, we solve:
+                                           Z ∞
+                                                          c
+                                        1=      cx−4 dx =
+                                             1            3
+         which gives c = 3. For this value f ≥ 0 everywhere, so we get a PDF.
+    (b) f is 0 on [0.5, 1], so we have
+                                                            Z 1                    Z 1
+                                P (0.5 < X < 1) =                     f (x)dx =           0dx = 0.
+                                                                0.5                 0.5
+
+     (c) We have
+                                        Z 2                     Z 2                            2
+                                                                                                             1  7
+                   P (0.5 < X < 2) =             f (x)dx =             3x−4 dx = −x−3                  =1−     = ,
+                                           0.5                   1                             x=1           8  8
+
+         where we used that f (x) is zero on [0.5, 1], and it is 3x−4 on [1, 2].
+    (d) We have
+                                     Z 4                   Z 4                             4
+                                                                       −4            −3                1   1  7
+                   P (2 < X < 4) =         f (x)dx =             3x         dx = −x                =     −   = .
+                                      2                     2                              x=2         8 64   64
+                                     Math 431 – Spring 2026
+                                   Homework 5 – Solutions
+
+3.5 The possible values of a discrete random variable are exactly the values where the c.d.f. jumps.
+    In this case these are the values 1, 4/3, 3/2 and 9/5. The corresponding probabilities are equal
+    to the size of corresponding jumps:
+
+                                            pX (1) = 31 − 0 = 13 ,
+                                         pX (4/3) = 12 − 13 = 16 ,
+                                         pX (3/2) = 34 − 12 = 14 ,
+                                         pX (9/5) = 1 − 34 = 14 .
+
+3.7 (a) For a continuous random variable
+
+                            P (a ≤ X ≤ b) = P (a < X ≤ b) = F (b) − F (a)
+
+    (since P (X = a) = 0). The CDF F is non-decreasing, and its values are in [0, 1], so P (a ≤
+    X ≤ b) = F (b) − F (a) = 1 exactly if F (b) = 1 and F (a) =√0. From the definition of F we see
+    that the largest possible value
+                                √ of a where F√  (a) = 0 is a √
+                                                              = 2, and the smallest possible value
+    of b where F (b) = 1 is b = 3. Hence a = 2 and b = 3 gives the smallest such interval.
+    (b) Since X is continuous, P (X = 1.6) = 0. We can also see this directly from F :
+
+                                   P (X = 1.6) = F (1.6) − lim F (x).
+                                                            x→1.6−
+
+    Since F (x) is continuous at x = 1.6 (actually, it is continuous everywhere), we have limx→1.6− F (1.6) =
+    F (1.6) and this gives P (X = 1.6) = 0 again.
+    (c) Because X is continuous, we have P (1 ≤ X ≤ 3/2) = P (1 < X ≤ 3/2). We also have
+
+                  P (1 ≤ X ≤ 3/2) = P (1 < X ≤ 3/2) = P (X ≤ 3/2) − P (X ≤ 1)
+                                     = F (3/2) − F (1) = (( 23 )2 − 2) − 0 = 94 − 2 = 14 .
+                  √            √
+    We used 1 < 2 ≤ 3/2 ≤ 3 when we evaluated F (3/2) − F (1).                                 √
+    (d)
+    √   Since F  is continuous,  and   it is  differentiable  apart from finitely many points (  2 and
+      3), we can just differentiate it to get the probability density function:
+                                                    (          √         √
+                                            ′         2x if 2 < x < 3
+                                f (x) = F (x) =
+                                                      0      otherwise.
+                                        √          √
+    We chose 0 for the value of f at 2 and 3, but the actual values are not important.
+
+3.9 (a) Since X is continuous, we can compute its mean as
+                                      Z ∞            Z ∞
+                              E[X] =      xf (x)dx =     x · 3e−3x dx.
+                                         −∞                 0
+
+    Using integration by parts we can evaluate the last integral to get E[X] = 13 .
+    (b) e2X is a function of X, and X is continuous, so we can compute E[e2X ] as follows:
+                             Z ∞               Z ∞                  Z ∞
+                   E[e2X ] =     e2x f (x)dx =     e2x · 3e−3x dx =     3e−x dx = 3.
+                              −∞                  0                      0
+3.10 (a) The random variable |X| takes values 0 and 1 with probabilities
+
+              P (|X| = 0) = P (X = 0) = 13         and   P (|X| = 1) = P (X = 1) + P (X = −1) = 23 .
+
+         Then the definition of expectation gives
+
+                                  E[|X|] = 0 · P (|X| = 0) + 1 · P (|X| = 1) = 23 .
+
+     (b) We have
+                            X
+                 E[|X|] =        |k| P (X = k) = 1 · P (X = −1) + 0 · P (X = 0) + 1 · P (X = 1)
+                             k
+                         = 21 + 16 = 32 .
+
+3.47 (a) We need to find F (x) = P (X ≤ x) for all x. The X coordinate of a point in the triangle
+     must be between 0 and 30, so F (x) = 0 for x < 0 and F (x) = 1 for x ≥ 30.
+     For 0 ≤ x < 30 then the set of points in the triangle with X ≤ x is the triangle with vertices
+     (0, 0), (x, 0) and (x, 23 x). The area of this triangle is 31 x2 , while the area of the original triangle
+                                                                              1 2
+                                                                    x          x      2
+     is 20·30
+          2 = 300. This means that if 0 ≤ x < 30 then F (x) = 300 = 900 . Thus
+                                                              3
+
+
+                                                    
+                                                    0
+                                                             x<0
+                                                     x2
+                                            F (x) = 900       0 ≤ x < 30 .
+                                                   
+                                                     1        x ≥ 30
+                                                    
+
+     (b) Since F (x) is continuous everywhere, and it is differentiable everywhere apart from x = 30
+     we can get the probability density function as F ′ (x). This gives
+                                              (
+                                                 x
+                                                       0 ≤ x < 30
+                                       f (x) = 450                  .
+                                                0      otherwise
+
+     (c) Since X is a continuous random variable, we can compute E[X] as
+                                               Z ∞
+                                       E[X] =       xf (x)dx.
+                                                         −∞
+
+     Using the solution from part (b):
+                                            Z ∞                Z 30
+                                                                           x
+                                 E[X] =           xf (x)dx =          x       dx = 20.
+                                             −∞                 0         450
+
+3.48 Denote the distance by R. The distance from the y-axis for a point in the triangle is at most
+     2, hence 0 ≤ R ≤ 2. We first compute the c.d.f. of R. For 0 < r < 2 the event {R < r}
+     is the same as the event that the chosen point is in the trapezoid with vertices (0, 0), (r, 0),
+     (r, 1 − r/2), (0, 1). The probability of this event can be computed by taking ratios of areas:
+                                                                           r(1+1−r/2)
+                                                  area(trapezoid)               2           r2
+                       FR (r) = P (R ≤ r) =                       =            2·1    = r −    .
+                                                   area(triangle)               2
+                                                                                            4
+For r ≥ 2 we have FR (r) = P (R ≤ r) = 1 and for r ≤ 0 we have FR (r) = P (R ≤ r) = 0.
+The found c.d.f. is continuous everywhere and differentiable apart from r = 0. Thus R is
+continuous and we can find the probability density function by differentiation:
+
+                       fR (r) = (FR (r))′ = 1 − r/2,   if 0 < r < 2,
+
+and fR (r) = 0 otherwise.
+We can compute the expectation of R by evaluating the appropriate integral:
+                            Z ∞              Z 2
+                                                                2
+                    E[R] =       rfR (R)dr =     r(1 − r/2)dr = .
+                             −∞               0                 3
+                                     Math 431 – Spring 2026
+                                   Homework 6 – Solutions
+
+3.16 Since Z is continuous, we can compute its expectation as
+                   Z ∞             Z 2          Z 7
+                                          1            3      1 4 − 1 3 49 − 25  75
+           E[Z] =      zfZ (z)dz =     z · dz +     z · dz = ·       + ·        = .
+                    −∞              1     7      5     7      7   2   7    2     14
+     The second moment is
+                                   Z ∞               Z 2         Z 7
+                              2           2               12              3
+                        E[Z ] =      z fZ (z)dz =      z · dz +      z 2 · dz
+                                  −∞                1     7       5       7
+                                 1 8−1 3 7 −5   3     3   661
+                              = ·        + ·            =     .
+                                 7    3     7      3       21
+     Hence, the variance is
+                                                             2
+                                      2          2    661     75        1633
+                         Var(Z) = E[Z ] − (E[Z]) =        −         =        .
+                                                      21      14         588
+
+3.18 If X ∼ N (µ, σ 2 ) then Z = X−µ
+                                  σ is a standard normal random variable. Recall that the values
+     P (Z ≤ x) = P (Z < x) = Φ(x) can be looked up using the table in Appendix E.
+     (a)
+                                                            
+                                      2−3      X −3    6−3
+                  P (2 < X < 6) = P         <        <         = P (− 12 < Z < 32 )
+                                        2        2       2
+                                = P (Z < 1.5) − P (Z < −.5) = Φ(1.5) − Φ(−0.5)
+                                  = Φ(1.5) − (1 − Φ(0.5)) = 0.9332 − (1 − 0.6915) = .6247.
+     (b) We need c so that
+                                                                                  
+                                                   X −3   c−3                  c−3
+                        0.33 = P (X > c) = P            >           =1−Φ                 .
+                                                     2     2                    2
+           Hence, we need c satisfying Φ c−3
+                                               
+                                             2   = 0.67. Checking the table in Appendix E, we
+           conclude that Φ(z) = 0.67 is solved by z = 0.44. Hence,
+                                          c−3
+                                              = 0.44 ⇐⇒ c = 3.88.
+                                           2
+     (c) Using Var(X) = E[X 2 ] − (E[X])2 we have that
+                                  E[X 2 ] = Var(X) + (E[X])2 = 4 + 32 = 13.
+3.23 (a) The possible values for the profit (in dollars) are 0 − 1 = −1, 2 − 1 = 1, 100 − 1 = 99 and
+     7000 − 1 = 6999. The probability mass function can be computed as follows:
+                                                                       10000 − 100     99
+       P (X = −1) = P (the randomly chosen player was not a winner) =              =      ,
+                                                                          10000       100
+                                                                                     80        1
+         P (X = 1) = P (the randomly chosen player was one of the 80 who won $2) =         =      ,
+                                                                                   10000      125
+                                                                                        19
+        P (X = 99) = P (the randomly chosen player was one of the 19 who won $100) =        ,
+                                                                                     10000
+                                                                                   1
+     P (X = 6999) = P (the randomly chosen player was the one who won $7000) =          .
+                                                                                 10000
+     (b)
+                                                                            1
+                                       P (X ≥ 100) = P (X = 6999) =             .
+                                                                          10000
+     (c) Since X is discrete, we can find its expectation as
+                       X                           99       1           19             1
+            E[X] =          kP (X = k) = −1 ·          +1·     + 99 ·       + 6999 ·       = −0.094.
+                                                   100     125        10000          10000
+                        k
+
+     For the variance we need E[X 2 ]:
+                       X                           99      1            19              1
+           E[X 2 ] =        k 2 P (X = k) = 1 ·       +1·     + 992 ·       + 69992 ·       = 4918.22.
+                                                  100     125         10000           10000
+                        k
+
+     From this we get
+                                       Var(X) = E[X 2 ] − (E[X])2 ≈ 4918.21.
+
+3.28 (a) The possible values of X are 1, 2, and 3. (If we don’t get a prize in the first two boxes,
+         then the remaining three will all have prizes in them, so we will definitely get a prize for
+         the third box.)
+         Since there are three boxes with nice prizes, we have
+                                                                  3
+                                                       P (X = 1) = .
+                                                                  5
+           (Out of the five equally likely outcomes three will give us a prize.)
+           To compute P (X = 2) note that {X = 2} means that we took a sample of two boxes
+           (without replacement) in order, the first had no prize, and the second had a prize. We
+           have 5 · 4 equally likely outcomes, and out of these 2 · 3 will satisfy the conditions. (2
+           choices for the box with no nice prize, and 3 choices for the box with a nice prize.) Hence,
+                                                                 2·3  3
+                                                   P (X = 2) =       = .
+                                                                 5·4  10
+           Similarly,
+                                                      2·1·3     1
+                                                  P (X = 3) == .
+                                                      5·4·3    10
+           We could also get this by taking the complement of {X = 3} to get
+                                                                                3   3   1
+                              P (X = 3) = 1 − P (X = 1) − P (X = 2) = 1 −         −   = .
+                                                                                5 10   10
+     (b) This is a discrete random variable, we can compute the expectation as
+                                                          3     3       1  3
+                                           E[X] = 1 ·       +2·    +3·    = .
+                                                          5     10     10  2
+     (c) The second moment is
+                                                          3        3         1   27
+                                         E[X 2 ] = 12 ·     + 22 ·    + 32 ·    = .
+                                                          5        10        10  10
+           Hence, the variance is
+                                                                              2
+                                                                      27      3    9
+                                    Var(X) = E[X 2 ] − (E[X])2 =         −        = .
+                                                                      10      2    20
+     (d) Let W be the gain or loss in this game. Then
+                                                      
+                                                      100,
+                                                                      if X = 1
+                         W = 100(2 − X) = 200 − 100X = 0,              if X = 2
+                                                      
+                                                       −100,           if X = 3.
+                                                      
+
+         We can use E[200 − 100X] = 200 − 100E[X] to finish the computation:
+                                                                             3
+                     E[W ] = E[200 − 100X] = 200 − 100E[X] = 200 − 100 ·       = 50.
+                                                                             2
+                               √
+3.66 We can express X as X =    3Y + 8 where Y ∼ N (0, 1). Then
+                                       √
+                 0.15 = P (X > α) = P ( 3Y + 8 > α) = P (Y > α−8
+                                                              √ ) = 1 − Φ( α−8
+                                                                3
+                                                                           √ ).
+                                                                             3
+
+     Using the table in Appendix E we get that if Φ( α−8
+                                                     √ ) = 0.85 then α−8
+                                                       3
+                                                                     √ ≈ 1.04. From this we
+                                                                       3
+     get                                   √
+                                      α ≈ 31.04 + 8 ≈ 9.8.
+
+3.71 We define noon to be time zero. Let X ∼ N(0,36) model the arrival time of the bus in minutes
+     (since the standard deviation is 6). Thus, X = 6Z where Z ∼ N(0,1). From this we get
+
+             P (X > 5) = P (6Z > 5) = P (Z > 5/6) = 1 − Φ(0.83) ≈ 1 − 0.7967 = 0.2033.
+                                     Math 431 – Spring 2026
+                                  Homework 7 – Solutions
+
+ 4.4 Let Sn be the number of times the roll is 3, 4, 5 or 6 in the first n rolls. Then Xn =
+     2Sn +(n−Sn ) = Sn +n and Sn ∼ Bin(n, 23 ). We have E(S90 ) = 60 and Var(S90 ) = 90· 23 · 31 = 20.
+     Since the variance is larger than 10 we can safely use the normal approximation.
+     For this we first rewrite the probability P (X90 ≥ 160) in terms of the standardized version of
+     S90 and then use the normal approximation:
+
+                                                                              S90 − 60 √
+                                                                                         
+                                                  S90 − 60   70 − 60
+           P (X90 ≥ 160) = P (S90 ≥ 70) = P         √      ≥ √         =P       √     ≥ 5
+                                                      20         20               20
+                           ≈ 1 − Φ(2.24) ≈ 1 − 0.9875 = 0.0125.
+
+ 4.6 Let n be the size of the sample and Sn the number of positive answers in the sample. Then
+     pb = Snn and we need P (|b
+                              p − p| ≤ 0.02) ≥ 0.95.
+                           p − p| > ε) can be estimated using the normal approximation as
+     We have seen that P (|b
+                                                    √               √
+                          P (|p̂ − p| < ε) ≈ 2Φ( √ ε n ) − 1 ≥ 2Φ(2ε n) − 1.
+                                                  p(1−p)
+                                               √                                 √
+     Here we have ε = 0.02 and need 2Φ(2ε n) − 1 ≥ 0.95. This leads to Φ(2ε n) ≥ 0.975 which,
+                                                 √
+     by the table of Φ-values, is satisfied if 2ε n ≥ 1.96. Solving this inequality gives
+
+                                                 1.962
+                                            n≥         = 2401.
+                                                  4ε2
+     Thus the size of the sample should be at least 2401.
+
+ 4.8 We have n =1,000,000 trials with an unknown success probability p. To find a 99.9% con-
+     fidence interval we need an ε > 0 so that P (|p̂ − p| < ε) ≥ 0.999, where p̂ is the fraction
+     of positive outcomes. We have seen that P (|p̂ − p| < ε) can be estimated using the normal
+     approximation as
+                                                    √               √
+                          P (|p̂ − p| < ε) ≈ 2Φ( √ ε n ) − 1 ≥ 2Φ(2ε n) − 1.
+                                                  p(1−p)
+                     √                                   √
+     We need 2Φ(2ε n) − 1 ≥ 0.999 which means Φ(2ε n) ≥ 0.9995 and so approximately
+       √
+     2ε n ≥ 3.32. (Since 0.9995 appears several times in our table, other values instead of 3.32
+     are also acceptable.) This gives
+                                           3.32
+                                       ε ≥ √ ≈ 0.00166
+                                           2 n
+     with n =1,000,000. We had 180,000 positive outcomes, so p̂ = 0.18. Thus our confidence
+     interval is (0.18 − 0.00166, 0.18 + 0.00166) = (0.17834, 0.18166).
+     If we choose 3.28 from the table for the solution of Φ(x) = 0.9995 then we get (0.17836, 0.18164)
+     instead.
+
+4.10 It is reasonable to assume that the hockey player has a number of scoring chances per game,
+     but only a few of them result in goals. Hence the number of goals in a given game corresponds
+     to counting rare events, which means that it is reasonable to approximate this random number
+     with a Poisson(λ) distributed random variable. Then the probability of scoring at least one
+     goal would be 1 − e−λ (since e−λ is the probability of no goals). Using the setup of the
+     problem we have 1 − e−λ ≈ 0.5 which gives λ ≈ ln(2) ≈ 0.6931. We estimate the probability
+     that the player scores exactly 3 goals. Using the Poisson probability mass function and our
+     estimate on λ gives
+                                                       λ3 −λ
+                                 P (exactly 3 goals) =    e ≈ 0.028.
+                                                       3!
+     Thus we would expect the player to get a hat-trick in about 2.8% of his games.
+     One could also interpret the question the following way: what is the probability of scoring at
+     least 3 goals in a game? In that case we get
+
+                                                                                 λ2
+                P (at least 3 goals) = 1 − P (at most 2 goals) = 1 − e−λ − λe−λ − e−λ
+                                                                                 2!
+                                     = 1 − 21 1 + ln 2 + 12 (ln 2)2 ≈ 0.033.
+                                                                   
+
+
+     Both calculations give the answer of roughly 3 percent.
+
+4.16 (a) Denote by S the number of random numbers starting with the digit 1. Note that a
+         number in the interval [1.5, 4.8] starts with 1 if and only if it is in the interval [1.5, 2).
+         The probability that a uniformly chosen number from the interval [1.5, 4.8] is in [1.5, 2)
+                            0.5      5
+         is equal to p = 4.8−1.5 = 33  . Assuming that the 500 numbers are chosen independently,
+         the distribution of S is binomial with parameters n = 500 and p.
+                                                                                                  5
+         To estimate P (S < 65) we use normal approximation. Note that E[S] = np = 500 · 33          ≈
+         75.7576 and Var(S) = np(1 − p) ≈ 64.2792. Hence
+                                                                                           
+                                  S − 75.7576    65 − 75.7576          S − 75.7576
+               P (S < 65) = P      √          < √               ≈P       √           < −1.34
+                                     64.2792        64.2792                64.2792
+                          ≈ Φ(−1.34) = 1 − Φ(1.34) ≈ 1 − 0.9099 = 0.0901.
+
+         Note that P (S < 65) = P (S ≤ 64). Using 64 instead of 65 in the calculation above gives
+         1 − Φ(1.47) ≈ 0.0708. If we use the continuity correction then we need to use 64.5 instead
+         of 65 which gives 1 − Φ(1.4) ≈ 0.0808. The actual probability (evaluated numerically) is
+         0.0778.
+     (b) We proceed similarly as in part (a). The probability that a given uniformly chosen number
+                                               1
+         from [1.5, 4.8] starts with 3 is q = 3.3 = 10
+                                                    33 . If we denote the number of such numbers
+         among the 500 random numbers by T then T ∼ Bin(n, q) with n = 500.
+         Then
+                                                               !                           !
+                                      T − nq        160 − nq               T − nq
+               P (T > 160) = P p                 >p              ≈P p                > 0.83
+                                      nq(1 − q)      nq(1 − q)             nq(1 − q)
+                             ≈ 1 − Φ(0.83) ≈ 1 − 0.7967 = 0.2033.
+
+         Again, since P (T > 160) = P (T ≥ 161), we could have done the computation with 161
+         instead of 160, which would give 1 − Φ(0.92) ≈ 0.1788. If we use the continuity correction
+         then we replace 160 with 160.5 in the calculation above which leads to 1 − Φ(0.87) ≈
+         0.1922. The actual probability (evaluated numerically) is 0.1906.
+4.26 Let S be the number of interviewed people that prefer whole milk to skim milk. Then S ∼
+     Bin(n, p) with n = 100. Our estimate for p is pb = Sn . The event p ∈ (b  p − 0.1 , pb + 0.1) is the
+     same as | Sn − p| < 0.1. To estimate the probability of this event we use normal approximation:
+                                                        √                        √
+                        P (|S/n − p| < 0.1) = P (− √0.1 n < √S−np         < √0.1 n )
+                                                     p(1−p)      np(1−p)   p(1−p)
+                                                      √                  √
+                                                   0.1 n
+                                            ≈ 2Φ( √        ) − 1 ≥ 2Φ(0.2 n) − 1,
+                                                    p(1−p)
+
+     where we used p(1 − p) ≤ 1/4 in the last step.
+     Since n = 100 we have
+                                √
+                          2Φ(0.2 n) − 1 = 2Φ(2) − 1 ≈ 2 · 0.9772 − 1 = 0.9544.
+
+                        p − 0.1 , pb + 0.1) corresponds to 95.44% confidence.
+     Thus the interval (b
+                                   Math 431 – Spring 2026
+                                 Homework 8 – Solutions
+
+4.34 We can assume that each taxi has a small probability of getting into an accident on a given
+     day, independently of the others. Since there are a large number of taxis, the number of
+     accidents on a given week could be well approximated with a Poisson(µ) distributed random
+     variable. There are on average 3 accidents a week, thus it is reasonable to choose µ = 3.
+     Then the probability of having at most 2 accidents next week is given by
+                                   0
+                                         31 32
+                                                                   
+                               −3 3                   −3           9
+                              e        +    +       =e     1+3+        .
+                                    0!   1!    2!                  2
+
+4.42 (a) Let X be the number of mildly defective gadgets in the box. Then X ∼ Bin(n, p) with
+         n = 100 and p = 0.2 = 15 . We have
+                                                 14     
+                                                 X   100
+                            P (A) = P (X < 15) =          (1/5)k (4/5)100−k .
+                                                      k
+                                                    k=0
+
+     (b) We have np(1 − p) = 16 > 10 and np2 = 4. This suggests that the normal approximation
+         is more appropriate than the Poisson approximation in this case.
+         Using normal approximation we get
+                                                                     
+                                        X − 100 · 15    15 − 100 · 15
+                      P (X < 15) = P  q               <q             
+                                                 1 4            1 4
+                                           100 · 5 · 5    100 · 5 · 5
+                                                          
+                                        X − 100 · 51     5
+                                 = P q                <− 
+                                                 1 4
+                                           100 · ·       4
+                                                5    5
+
+                                  ≈ Φ(−1.25) = 1 − Φ(1.25) ≈ 1 − 0.8944 = 0.1056.
+
+         With continuity correction we would get Φ(−1.375) = 1 − Φ(1.375) ≈ 0.08455 (using
+         linear interpolation to get Φ(1.375)).
+4.46 The probability that we get 5 tails when we flip a coin 5 times is 215 = 32   1
+                                                                                     . Thus X ∼
+                                     1                     465
+     Bin(n, p) with n = 30 and p = 32 . Since np(1 − p) = 512 < 1, the normal approximation is
+                                               15
+     not appropriate. On the other hand, np2 = 512 ≈ 0.029 is small, so the Poisson approximation
+     should work. For this we approximate the distribution of X using a random variable Y ∼
+                               15
+     Poisson(λ) with λ = np = 16  to get
+                                                       2  
+                                             λ2 −λ      15      1 − 15
+                    P (X = 2) ≈ P (Y = 2) =    e =                  e 16 ≈ 0.1721.
+                                             2          16      2
+
+ 5.2 (a) The moment generating function finite near zero (in fact: everywhere), so we can find
+         the first and second moment by looking at the first and second derivative at 0.
+         We have
+                            M ′ (t) = − 43 e−4t + 56 e5t , M ′′ (t) = 16
+                                                                       3 e
+                                                                           −4t
+                                                                               + 25 5t
+                                                                                 6 e .
+         Hence E(X) = M ′ (0) = − 43 + 56 = − 12 , E(X 2 ) = M ′′ (0) = 16  25  57  19
+                                                                        3 + 6 = 6 = 2 , and
+         Var(X) = E(X 2 ) − (E[X])2 = 19   1    37
+                                      2 − 4 = 4 .
+    (b) Since the moment generating function is finite near zero, it uniquely identifies the distri-
+        bution. From the form of the moment generating function we see that X is discrete, the
+        possible values are −4, 0 and 5. The corresponding probabilities can be read off from the
+        coefficients of the appropriate exponential terms:
+
+                                       p(0) = 12 ,   p(−4) = 13 ,       p(5) = 16 .
+
+        From this we get
+
+                                   E(X) = 13 · (−4) + 16 · 5 = − 12 ,
+                                  E(X 2 ) = 13 · 16 + 16 · 25 = 57  19
+                                                                6 = 2 ,
+                               Var(X) = E(X 2 ) − (E[X])2 = 19  1   37
+                                                            2 − 4 = 4 ,
+
+        and these values agree with what we got in part (a).
+
+ 5.8 We first compute the cumulative distribution function of Y . Since −1 ≤ X ≤ 2, we have
+     0 ≤ X 2 ≤ 4, thus FY (y) = 1 for y ≥ 4 and FY (y) = 0 for y < 0.
+    For 0 ≤ y < 4 we have
+                                                 √       √         √          √
+          FY (y) = P (Y ≤ y) = P (X 2 ≤ y) = P (− y ≤ X ≤ y) = FX ( y) − FX (− y).
+
+    Differentiating this we get the probability density function:
+                                              1     √     1      √
+                           fY (y) = FY′ (y) = √ fX ( y) + √ fX (− y).
+                                             2 y         2 y
+
+    The probability density of X is fX (x) = 31 for −1 ≤ x ≤ 2 and zero otherwise. For 0 ≤ y ≤ 1
+                  √              √                                                 √
+    then both fX ( y) and fX (− y) is equal to 13 , and for 1 < y < 4 we have fX ( y) = 13 and
+         √
+    fX (− y) = 0.
+    From this we get                          
+                                                1
+                                               √
+                                              3 y
+                                                              for 0 ≤ y ≤ 1,
+                                            1
+                                  fY (y) = 6√                  for 1 < y < 4,
+                                           y 
+                                              0               otherwise.
+
+5.10 Using the Binomial Theorem we get
+                                             30        30    k           30−k
+                                      1 4 t              X   30  4           kt1
+                        M (t) =        + e           =                      e         .
+                                      5 5                      k    5          5
+                                                         k=0
+
+    Since this is the sum of terms of the form pk etk , we see that X is discrete. The possible
+    values can be identified with the exponents: these are 0,1,2,. . . , 30. The coefficients are the
+    corresponding probabilities:
+                                      k  30−k
+                                     30    4     1
+                       P (X = k) =                       ,     k = 0, 1, . . . , 30.
+                                      k    5     5
+
+    We can recognize this as the probability mass function of a binomial distribution with n = 30
+    and p = 45 . Since the moment generating function identifies the distribution (if it is finite
+    near t = 0), this shows that X must have Bin(30, 54 ) distribution.
+5.18 (a) Using the definition of a moment generating function we have
+                                              ∞
+                                              X                       ∞
+                                                                      X
+                         MX (t) = E[etX ] =         etk P (X = k) =     (et )k (1 − p)k−1 p
+                                              k=1                     k=1
+                                      ∞
+                                      X                       ∞
+                                                              X
+                                = pet   (et (1 − p))k−1 = pet   (et (1 − p))k
+                                      k=1                           k=0
+
+     Note that the sum is just a geometric series, it converges to  a finite
+                                                                             number if and only if
+       t            t                                                1
+     |e (1 − p)| = e (1 − p) < 1, which holds if and only if t < ln 1−p . In this case we have
+
+                                                                   1
+                                        MX (t) = pet ·                     .
+                                                            1 − et (1 − p)
+     Overall, we find:
+                                                                             
+                                                       pet                1
+                                               
+                                                    1−et (1−p)   t < ln
+                                    MX (t) =                            1−p  .
+                                               ∞                         1
+                                                                 t ≥ ln 1−p
+
+     (b) For the mean,
+
+                                 ′            pet (1 − et (1 − p)) − pet (−et (1 − p))
+                         E[X] = MX (0) =
+                                                          (1 − et (1 − p))2            t=0
+                                        pet
+                               =
+                                 (1 − et (1 − p))2 t=0
+                                 p     1
+                               = 2 = .
+                                p      p
+     For the variance we need the second moment,
+
+                        ′′          pet (1 − et (1 − p))2 − 2pet (1 − et (1 − p))(−et (1 − p))
+             E[X 2 ] = MX  (0) =
+                                                         (1 − et (1 − p))4                     t=0
+                      p(1 − (1 − p))2 − 2p(1 − (1 − p))(−(1 − p))
+                    =
+                                           p4
+                      p3 − 2p3 + 2p2     2    1
+                    =                 = 2− .
+                            p4          p     p
+     Finally the variance is
+                                                                 2  1  1   1 1
+                           Var(X) = E[X 2 ] − (E[X])2 =            − −   = 2− .
+                                                                 p2 p p2  p  p
+
+5.20 (a) From the definition we have
+                            Z ∞
+                                                 1 ∞ −(1−t)x      1 0 (t+1)x
+                                                  Z                Z
+                                  tx 1 −|x|
+                  MX (t) =       e e        dx =     e       dx +      e     dx.
+                             −∞      2           2 0              2 −∞
+
+     After the change of variables x → −x for the integral on (−∞, 0] we get
+                                     1 ∞ −(1−t)x         1 ∞ −(t+1)x
+                                       Z                   Z
+                            MX (t) =       e       dx +        e      dx.
+                                     2 0                 2 0
+                                      R∞
+     We have seen that the integral of 0 e−cx dx is 1c if c > 0 and ∞ otherwise. (E.g. by computing
+     the integral
+             R ∞ of the PDF of anR ∞Exp(c) distribution on the whole line.) MX (t) is finite exactly
+     if both 0 e−(1−t)x dx and 0 e−(t+1)x dx are finite. Thus MX (t) is finite if 1 − t > 0 and
+     1 + t > 0 (or −1 < t < 1) and ∞ otherwise. Moreover, if it is finite then it is equal to
+                                           1   1  1  1      1
+                                MX (t) =     ·   + ·   =           .
+                                           2 1−t 2 1+t   (1 − t2 )
+                      1
+     Thus MX (t) is (1−t2 ) for |t| < 1, and ∞ otherwise.
+
+     (b) We could try to differentiate MX (t) to get theP∞moments,     but it is simpler to take the
+                                                  1            2k , hence
+     Taylor expansion at t = 0. If |t| < 1 then 1−t 2 =   k=0 t
+                                                        ∞
+                                                        X
+                                             MX (t) =         t2k .
+                                                        k=0
+
+                                                                  1              P∞            k and    1
+     (We could also get the same answer by taking the expansions 1−t =                 k=0 t           1+t   =
+     P∞        k
+       k=0 (−t)  , and take their average.)
+     The nth moment is the coefficient of tn multiplied by n!. There are no odd exponent terms
+     in the expansion, so all odd moments of X are zero. The term t2k has a coefficient 1, so the
+     (2k)th moment is (2k)!.
+
+5.24 (a) Since Y = eX > 0, we have FY (t) = 0 for t ≤ 0. Indeed, for t ≤ 0,
+
+                                  FY (t) = P (Y ≤ t) = P (eX ≤ t) = 0,
+
+     since ex > 0 for all x ∈ R. Next, for any t > 0
+
+                        FY (t) = P (Y ≤ t) = P (eX ≤ t) = P (X ≤ ln t) = Φ(ln t).
+
+     Differentiating this gives the probability density function for t > 0:
+
+                                                                        (ln(t))2
+                                                                                
+                                   ′     1   1              1
+                        fY (t) = Φ (ln t) = φ(ln t) =    √      exp −              .
+                                         t    t            2πt2             2
+
+     For t ≤ 0 the probability density function is 0.
+     (b) From the definition of Y we get that E[Y n ] = E[(eX )n ] = E[enX ]. Note that E[enX ] =
+     MX (n) is the moment generating function of X evaluated at n.
+     We computed the moment generating function for X ∼ N (0, 1) and it is given by MX (t) =
+       2
+     et /2 . Thus we have
+                                                   n2
+                                        E[Y n ] = e 2 .
+
+5.32 The set of possible values of X is (0, 1), hence the set of possible values for Y is the interval
+     [1, ∞). Thus, for t < 1, fY (t) = 0. For t ≥ 1,
+
+                              P (Y ≤ t) = P ( X1 ≤ t) = P (X ≥ 1t ) = 1 − 1t .
+
+     Differentiating now shows that fY (t) = t12 when t ≥ 1.
+                                    Math 431 – Spring 2026
+                                Homework 9 – Solutions
+
+6.2 (a) The marginal probability mass function of X is found by computing the row sums,
+                                     1                      1                           1
+                          P (X = 1) = ,          P (X = 2) = ,               P (X = 3) = .
+                                     3                      2                           6
+       Computing the column sums gives the probability mass function of Y ,
+                            1                  1                       1                          4
+                 P (Y = 0) = ,      P (Y = 1) = ,           P (Y = 2) = ,           P (Y = 3) =      .
+                            5                  5                       3                          15
+
+   (b) First we find the pairs of values of X and Y where X + Y 2 ≤ 2. These are (1, 0), (1, 1),
+       and (2, 0). So we have
+
+              P (X + Y 2 ≤ 2) =P (X = 1, Y = 0) + P (X = 1, Y = 1) + P (X = 2, Y = 0)
+                                1    1     1    7
+                              = +      +     = .
+                               15 15 10         30
+
+6.6 (a) The marginal of X is
+                                    Z ∞                                Z ∞
+                                               −x(1+y)            −x
+                         fX (x) =         xe             dy = e              xe−xy dy = e−x ,
+                                     0                                 0
+
+       for x > 0 and zero otherwise. In the last step we can use that g(y) = xe−xy for y > 0,
+       g(y) = 0 for y ≤ 0 is the PDF of an exponential with parameter x, hence its integral on
+       [0, ∞) is equal to 1.
+       The marginal of Y is
+                                          Z ∞
+                                                                1
+                                 fY (y) =     xe−x(1+y) dx =          ,
+                                           0                 (1 + y)2
+
+       for y > 0 and zero otherwise. For this integral one can use integration by parts, or rewrite
+       it as               Z ∞                        Z ∞
+                                                  1
+                               xe−x(1+y) dx =              x(1 + y)e−x(1+y) dx
+                            0                   1 + y   0
+       and notice that the last integral is the expectation of an exponential with parameter
+                            1
+       λ = 1 + y, which is 1+y .
+   (b) The expectation is
+                       Z ∞Z ∞                    Z ∞Z ∞
+             E[XY ] =           xyf (x, y)dxdy =          x2 ye−x(1+y) dy dx
+                         −∞ −∞                    0    0
+                       Z ∞      Z ∞                 Z ∞                 Z ∞
+                                                                1
+                     =     xe−x      yxe−xy dy dx =      xe−x · dx =         e−x dx = 1.
+                         0       0                   0          x        0
+
+       In the third step we can use the fact that the y-integral is the expected value of an
+       exponential with parameter x. In the last step we can use the fact that we are computing
+       the integral of the PDF of an exponential with parameter 1.
+     (c) The expectation is
+                  Z ∞Z ∞                                 Z ∞            Z ∞
+              X                   x                                 1
+         E          =                  xe −x(1+y)
+                                                  dx dy =                       x2 (1 + y)e−x(1+y) dx dy
+             1+Y        0    0   1+y                        0    (1 + y)2 0
+                      Z ∞                               Z ∞
+                               1           2                      1           2
+                    =              2
+                                     ·         2
+                                                 dy = 2               4
+                                                                        dy = .
+                        0   (1 + y) (1 + y)              0    (1 + y)         3
+                                             R∞
+         We can notice that the integral 0 x2 (1 + y)e−x(1+y) dx is the second moment of an
+                                                                            2
+         exponential with parameter λ = (1 + y), which is equal to (1+y)       2 . The last integral can
+
+         be computed directly.
+
+ 6.8 (a) X and Y from Exercise 6.2 are not independent. For example, note that P (X = 3) > 0
+         and P (Y = 2) > 0, but P (X = 3, Y = 2) = 0.
+    (b) The marginals for X and Y from Exercise 6.5 will be zero outside [0, 1]. Inside [0, 1] they
+        can be computed as follows:
+        For 0 ≤ x ≤ 1,
+                             Z∞                      Z 1
+                  fX (x) =        f (x, y) dy = 12
+                                                7            (xy + y 2 ) dy = 12  1     1        6     4
+                                                                              7 ( 2 x + 3 ) dy = 7 x + 7 .
+                                                         0
+                             −∞
+
+         For 0 ≤ y ≤ 1,
+                           Z∞                      Z 1
+                fY (y) =        f (x, y) dx = 12
+                                               7         (xy + y 2 ) dx = 12  1      2       12 2  6
+                                                                          7 ( 2 y + y ) dy = 7 y + 7 y.
+                                                    0
+                           −∞
+
+         Thus, fX (x)fY (y) ̸= f (x, y) as functions, which means that X and Y are not independent.
+    (d) X and Y are not independent. For example, choose any point (x, y) contained in the
+        square {(u, v) : 0 ≤ u ≤ 1, 0 ≤ v ≤ 1}, but not contained in the triangle with vertices
+        (0, 0), (1, 0), (0, 1). Then fX (x) > 0, fY (y) > 0, and so fX (x)fY (y) > 0. However,
+        f (x, y) = 0 (because the point is outside the triangle).
+
+6.18 (a) The probability mass function can be visualized in tabular form
+
+                                              X\Y            1    2    3    4
+                                                             1
+                                               1             4    0    0    0
+                                                             1    1
+                                               2             8    8    0    0
+                                                             1    1    1
+                                               3             12   12   12   0
+                                                             1    1    1    1
+                                               4             16   16   16   16
+
+         The terms are nonnegative and add to 1, which shows that pX,Y is a probability mass
+         function.
+    (b) Adding the numbers in rows and columns gives the marginals PMFs. The marginal of X
+        is
+
+                    P (X = 1) = 41 ,     P (X = 2) = 14 ,          P (X = 3) = 41 ,    P (X = 4) = 14 ,
+
+         whereas the marginal of Y is
+
+                  P (Y = 1) = 25
+                              48 ,
+                                                    13
+                                        P (Y = 2) = 48 ,                        7
+                                                                   P (Y = 3) = 48 ,                 1
+                                                                                        P (Y = 4) = 16 .
+     (c) Collecting all pairs of (x, y) from the possible pairs of values with x = y + 1 we get
+
+                 P (X = Y + 1) = P (X = 2, Y = 1) + P (X = 3, Y = 2) + P (X = 4, Y = 3)
+                                  = 18 + 12
+                                         1     1
+                                            + 16 = 13
+                                                   48 .
+
+
+6.24 The number of green balls chosen is binomially distributed with parameters n = 3 and p = 14 .
+     Hence, the probability that exactly two balls are green and one is not green is
+                                             2
+                                           3    1    3     9
+                                                        = .
+                                           2    4    4    64
+
+     The same argument goes for seeing exactly two red balls, two yellow balls, or two white balls.
+     These events are disjoint, since we cannot have two different pairs with the same color within
+     the 3 balls. Hence, the probability that exactly two balls are of the same color is
+                                                     9    9
+                                                4·      = .
+                                                     64  16
+     We could also use the multinomial distribution: using G, R, Y, W for the number of green,
+     red, yellow, white balls we see that the joint distribution of (G, R, Y, W ) is multinomial with
+     parameters (3, 4, 1/4, 1/4, 1/4, 1/4). With nonnegative integers satisfying g + r + y + w = 3
+     we get                                                               
+                                                                    3
+                         P (G = g, R = r, Y = y, W = w) =                   (1/4)3 .
+                                                                g, r, y, w
+     The event {exactly 2 balls are of the same color} is the disjoint union of the events {G =
+     g, R = r, Y = y, W = w} where g, r, y, w are 2, 1, 0, 0 in some order. Each one of these events
+     has probability                     
+                                    3                    3!             3
+                                           (1/4)3 =            (1/4)3 =
+                                2, 1, 0, 0           2!1!0!0!           64
+     and there are 12 such events (we can choose the color which shows up twice 4 ways, and the
+     other color that shows up 3 ways). This gives
+                                                                        3    36  9
+                     P (exactly 2 balls are of the same color) = 12 ·      =    = .
+                                                                        64   64  16
+
+6.27 The possible values of Y are −1, 1, which is the same as X2 . Thus, we need to show four
+     things:
+
+                                 P (X2 = 1, Y = 1) = P (X2 = 1)P (Y = 1)
+                               P (X2 = −1, Y = 1) = P (X2 = −1)P (Y = 1)
+                               P (X2 = 1, Y = −1) = P (X2 = 1)P (Y = −1)
+                              P (X2 = −1, Y = −1) = P (X2 = −1)P (Y = −1).
+
+     To check the first one
+
+     P (X2 = 1, Y = 1) = P (X2 = 1, X2 X1 = 1) = P (X2 = 1, X1 = 1) = P (X2 = 1)P (X1 = 1) = p2 .
+
+     Also,
+
+             P (Y = 1) = P (X1 = 1, X2 = 1) + P (X1 = −1, X2 = −1) = p2 + 12 · (1 − p) = 21 ,
+     and so,
+                               P (X2 = 1)P (Y = 1) = p 21 = P (X2 = 1, Y = 1).
+     All the other terms are handled similarly, using P (X2 = a, Y = b) = P (X1 = b/a, X2 = a)
+     and P (Y = 1) = P (Y = −1) = 1/2.
+
+6.28 To help with notation we will use q = 1 − p.
+     For the joint probability mass function we need to compute P (V = k, W = ℓ) for all k ≥
+     1, ℓ = 0, 1, 2. We have
+
+                    P (V = k, W = 0) = P (min(X, Y ) = k, X < Y ) = P (X = k, k < Y )
+
+                                          = P (X = k)P (k < Y ) = pq k−1 · q k = pq 2k−1 ,
+
+     where we used the independence of X and Y in the third equality.
+     We get P (V = k, W = 2) = pq 2k−1 in exactly the same way. Finally,
+
+               P (V = k, W = 1) = P (min(X, Y ) = k, X = Y ) = P (X = k, Y = k) = p2 q 2k−2 .
+
+     This gives us the joint probability mass function of V and W ; for the independence we need
+     to check if this is the product of the marginals.
+     We have seen in class that we have V ∼ Geom(1 − q 2 ) so for any k ∈ {1, 2, . . . } we get
+
+                          P (V = k) = (1 − (1 − q 2 ))k−1 (1 − q 2 ) = q 2k−2 (1 − q 2 ).
+
+     You can also get this from the joint probability mass function using
+
+                  P (V = k) = P (V = k, W = 0) + P (V = k, W = 1) + P (V = k, W = 2)
+                             = 2pq 2k−1 + p2 q 2k−2 = q 2k−2 (2pq + p2 ) = q 2k−2 (1 − q 2 )
+
+     To compute the probability mass function of W we first use the independence of X and Y to
+     get
+                                                ∞
+                                                X                                   ∞
+                                                                                    X
+                P (W = 1) = P (X = Y ) =              P (X = k, Y = k) =                  P (X = k)P (Y = k)
+                                                k=1                                 k=1
+                               ∞                               ∞
+                               X                               X                   p2
+                           =         pq k−1 · pq k−1 = p2            (q 2 )k =
+                                                                                 1 − q2
+                               k=1                             k=0
+                              p
+                           =     .
+                             2−p
+
+     To compute P (W = 0) we can again use independence to get
+                                                ∞
+                                                X                                   ∞
+                                                                                    X
+                P (W = 0) = P (X < Y ) =              P (X = k, Y > k) =                  P (X = k)P (Y > k)
+                                                k=1                                 k=1
+                               ∞                         ∞
+                               X                         X                     pq     1−p
+                           =         pq k−1 · q k = pq         q 2(k−1) =           =     .
+                                                                             1 − q2   2−p
+                               k=1                       k=1
+     A similar argument gives P (W = 2) = 1−p
+                                          2−p . Note that these values can also be obtained using
+     symmetry: we must have
+
+                            P (W = 0) = P (X < Y ) = P (Y < X) = P (W = 2),
+
+     and then
+                                                                                     1−p
+                           P (W = 0) = P (W = 2) = 12 (1 − P (W = 1)) =                  .
+                                                                                     2−p
+     Now we can check the independence of V and W . First note that
+
+                 P (V = k)P (W = 0) = q 2k−2 (1 − q 2 ) 1−p
+                                                        2−p ,          P (V = k, W = 0) = pq 2k−1 ,
+                   2
+     and since 1−q                   1
+               2−p = (1 − q)(1 + q) 1+q = p, we have
+
+                                 P (V = k)P (W = 0) = P (V = k, W = 0).
+
+     The same computation shows P (V = k)P (W = 2) = P (V = k, W = 2). Finally,
+                                                        p
+                P (V = k)P (W = 1) = q 2k−2 (1 − q 2 ) 2−p ,           P (V = k, W = 1) = p2 q 2k−2
+                    2
+     and using 1−q
+               2−p = p again we get
+
+                                 P (V = k)P (W = 1) = P (V = k, W = 1).
+
+     We showed that P (V = k, W = ℓ) = P (V = k)P (W = ℓ) for all relevant k, ℓ, and this shows
+     that V and W are independent.
+                                                                                         ℓ
+6.30 We have P (X = k) = p(1 − p)k−1 for k = 1, 2, . . . and P (Y = ℓ) = λℓ! e−λ for ℓ = 0, 1, 2, . . .
+     Because of independence the joint PMF is given by
+
+                                                                   λℓ −λ
+                           P (X = k, Y = ℓ) = p(1 − p)k−1             e ,      k ≥ 1, ℓ ≥ 0
+                                                                   ℓ!
+     with k, ℓ integers.
+     We need to compute P (X − 1 = Y ), we can do that by breaking the event up into smaller
+     pieces based on the value of X, and using the joint PMF:
+                                       ∞
+                                       X
+                 P (X − 1 = Y ) =            P (X = k, Y = k − 1)
+                                       k=1
+                                       ∞                                         ∞
+                                       X                       λk−1 −λ          X (λ(1 − p))k−1
+                                  =          p(1 − p)   k−1
+                                                                       e = pe−λ
+                                                              (k − 1)!               (k − 1)!
+                                       k=1                                      k=1
+
+     We can rewrite the previous sum in terms of n = k − 1, with n going from 0 to ∞:
+                                       ∞                                 ∞
+                                  −λ
+                                       X (λ(1 − p))k−1              −λ
+                                                                         X (λ(1 − p))n
+            P (X − 1 = Y ) = pe                                 = pe                         = pe−λ · eλ(1−p)
+                                                (k − 1)!                        n!
+                                       k=1                               n=0
+
+     where in the last step we evaluated the series using the series expansion of ex .
+     Simplifying the result gives
+                                              P (X − 1 = Y ) = pe−λp .
+6.34 (a) The area of D is 32 , and hence the joint PDF is
+                                                    (
+                                                      2
+                                                        , (x, y) ∈ D
+                                       fX,Y (x, y) = 3
+                                                     0, (x, y) ∈ / D.
+
+         The line segment from (1, 1) to (2, 0) that forms part of the boundary of D obeys the
+         equation y = 2 − x. The marginal density functions are derived as follows. First for X.
+
+                    For x ≤ 0 and x ≥ 2,       fX (x) = 0.
+                                                 Z ∞                   Z 1
+                                                                           2      2
+                    For 0 < x ≤ 1,      fX (x) =      fX,Y (x, y) dy =     3 dy = 3 .
+                                                   −∞                                0
+                                                   Z ∞                             Z 2−x
+                                                                                            2      4   2
+                    For 1 < x < 2,      fX (x) =         fX,Y (x, y) dy =                   3 dy = 3 − 3 x.
+                                                   −∞                                0
+
+         Let us check that this is a density function:
+                             Z ∞                Z 1        Z 2
+                                    fX (x) dx =     2
+                                                    3 dx +     ( 43 − 23 x) dx = 1,
+                                  −∞                0                 1
+
+         so indeed it is.
+         Next the marginal density function of Y :
+
+                    For y ≤ 0 and y ≥ 1,       fY (y) = 0.
+                                                 Z ∞                    Z 2−y
+                                                                              2      4   2
+                    For 0 < y < 1,      fY (y) =       fX,Y (x, y) dx =       3 dx = 3 − 3 y.
+                                                   −∞                                0
+
+     (b) Using the computed marginal densities we get
+                                  Z ∞                    Z 1                Z 2
+                        E[X] =          x fX (x) dx =          2
+                                                               3 x dx +           ( 43 x − 32 x2 ) dx = 79 .
+                                   −∞                     0                  1
+                                  Z ∞                   Z 1
+                        E[Y ] =         y fY (y) dy =         ( 43 y − 23 y 2 ) dy = 94 .
+                                   −∞                    0
+
+         We could have also computed these with the following double integrals:
+                          Z ∞Z ∞                              Z ∞Z ∞
+                  E[X] =           xf (x, y)dxdy,     E[Y ] =          yf (x, y)dxdy.
+                              −∞    −∞                                            −∞     −∞
+
+     (c) X and Y are not independent. Their joint density is not a product of the marginal
+         densities. Also, a picture of D shows that P (X > 32 , Y > 21 ) = 0 because all points in D
+         satisfy x + y ≤ 2. However, the marginal densities show that P (X > 32 ) · P (Y > 12 ) > 0
+         so the probability of the intersection does not equal the product of the probabilities.
+                                    R∞ R∞
+6.36 (a) We need to find c so that −∞ −∞ f (x, y)dxdy = 1. For this we need to compute
+                                           Z ∞Z ∞
+                                                              x2   (x−y)2
+                                                         e− 2 −       2     dx dy
+                                             −∞    −∞
+    We can decide whether we should integrate with respect to x or y first, and choosing y
+    gives a slightly easier path.
+                 Z ∞                              Z ∞
+                            2 (x−y)2            2         (x−y)2
+                        − x2 − 2            − x2
+                      e              dy = e             e− 2 dy
+                  −∞                               −∞
+                                          √       − x2
+                                                      2
+                                                        Z ∞
+                                                              1   (x−y)2 √   x2
+                                        = 2πe               √ e− 2 dy = 2πe− 2 .
+                                                         −∞    2π
+
+    In the last step we could recognize the integral of the PDF of a N (x, 1) distributed random
+    variable (as a function of y). From this we get
+                      Z ∞Z ∞                         Z ∞√
+                                     2 (x−y)2                    x2
+                                 − x2 − 2
+                                e             dydx =        2πe− 2 dx
+                       −∞ −∞                           0
+                                                         Z ∞
+                                                              1      x2
+                                                   = 2π      √ e− 2 dx = 2π.
+                                                          0    2π
+                                                                               1
+    In the last step we integrated the PDF of the standard normal. Hence, c = 2π .
+(b) We have basically computed fX (without the constant c) in part (a) already.
+                              Z ∞
+                                   1 − x2 − (x−y)2
+                     fX (x) =        e 2       2   dy
+                               −∞ 2π
+                                1 − x2 ∞ 1 − (x−y)2
+                                       Z
+                                                               1     x2
+                            =√ e     2       √ e      2 dy = √ e− 2 .
+                                2π      −∞       2π            2π
+    Now we compute fY :
+                       Z ∞                          Z ∞
+                            1 − x2 − (x−y)2       1      1  x2  (x−y)2
+              fY (y) =        e  2      2   dx = √      √ e− 2 − 2 dx.
+                        −∞ 2π                     2π −∞ 2π
+    We can complete the square in the exponent of the exponential:
+
+                      x2 (x − y)2
+                                  = − x2 − xy − 12 y 2 = −(x − y/2)2 − y 2 /4,
+                                                      
+                  −     −
+                      2     2
+    and we can now compute the integral:
+                                Z ∞
+                            1          1    x2 (x−y)2
+                  fY (y) = √         √ e− 2 − 2 dx
+                             2π −∞ 2π
+                                Z ∞
+                            1          1          2   2
+                         =√          √ e−(x−y/2) −y /4 dx
+                             2π −∞ 2π
+                            1 −y2 /4 ∞ 1 −(x−y/2)2
+                                      Z
+                                                              1   2
+                         =√ e              √ e          dx = √ e−y /4 .
+                             4π         −∞   π                4π
+                                                       2
+    In the last step we used the fact that √1π e−(x−y/2) is the PDF of a N (y/2, 1) distributed
+    random variable (as a function of x). It follows that Y ∼ N (0, 2).
+    Thus X ∼ N (0, 1) and Y ∼ N (0, 2).
+(c) X and Y are not independent since their joint density function is not the same as the
+    product of the marginal densities.
+
