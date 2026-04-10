@@ -1,27 +1,3 @@
-% !TEX program = pdflatex
-% ------------------------------------------------------------
-% MATH 521 Homework Template (adapted from your MATH 421 HW10)
-%
-% HOW TO USE (quick):
-%   1) Edit the Metadata block (HW number / due date especially).
-%   2) Paste each problem statement under \problem[]{<n>}.
-%   3) Write in the Scratch/Discussion box if you want.
-%   4) Write your proof under "Proof." and end with \qed (or \qedhere).
-%
-% Notes:
-% - Keeps theorem/definition boxes (tcolorbox).
-% - Keeps ToC + PDF bookmarks for each problem.
-% - Adds a Scratch/Discussion box per problem (optional).
-% - Header bar has course + meeting info (left) and HW number (right).
-% ------------------------------------------------------------
-
-% TROUBLESHOOTING NOTE:
-% If you ever see errors like `\tcb@insert@after@part` or other tcolorbox internals being
-% an "Undefined control sequence", that usually means LaTeX is accidentally loading a
-% DIFFERENT (often older) `tcolorbox.sty` from your project folder or local texmf tree.
-% Fix: search your repo for `tcolorbox.sty` and delete/rename any local copy so TeX uses
-% the TeX Live version. Also try "Clean" in LaTeX Workshop to remove stale .aux/.toc/.out.
-
 \documentclass[12pt]{article}
 
 % =========================
@@ -158,11 +134,54 @@ $Y$ is complete, then $Y$ is closed in $X$. (Hint: It suffices to show
 $\overline{Y}\subseteq Y$. Use sequences.)
 
 \begin{scratch}
-% Outline the strategy, key definitions, lemmas, or a proof sketch.
+The key definitions here come straight from lecture. First, saying that $Y\subseteq X$ is \emph{complete} means that every Cauchy sequence in the subspace $(Y,d_Y)$ converges to some point of $Y$, where $d_Y$ is the induced metric. Since the induced metric is just the restriction of $d$ to pairs of points in $Y$, a sequence in $Y$ is Cauchy in $(Y,d_Y)$ exactly when it is Cauchy in $(X,d)$.
+
+The most important theorem from lecture for this problem is the sequential characterization of closure: for a subset $A\subseteq X$,
+\[
+x\in \overline{A}
+\quad\Longleftrightarrow\quad
+\text{there exists a sequence } \{a_n\}\subseteq A \text{ such that } a_n\to x.
+\]
+We also proved that every convergent sequence in a metric space is Cauchy, and that limits in a metric space are unique.
+
+So the strategy is very direct. Since the hint says it suffices to prove $\overline{Y}\subseteq Y$, I start with an arbitrary point $x\in\overline{Y}$. By the closure theorem, there is a sequence $\{y_n\}\subseteq Y$ with $y_n\to x$ in $X$. Because convergent sequences are Cauchy, $\{y_n\}$ is Cauchy. Since $Y$ is complete, that same sequence must converge to some point $y\in Y$. But now the sequence $\{y_n\}$ converges to both $x$ and $y$ in the metric space $X$, so uniqueness of limits forces $x=y$. Hence $x\in Y$. Since every point of $\overline{Y}$ lies in $Y$, we get $\overline{Y}\subseteq Y$, and therefore $Y$ is closed.
 \end{scratch}
 
 \textbf{Proof.}\\
-% Write your proof here.
+We will show that
+\[
+\overline{Y}\subseteq Y.
+\]
+Since always $Y\subseteq \overline{Y}$, this will imply $Y=\overline{Y}$, and hence $Y$ is closed in $X$.
+
+So let $x\in \overline{Y}$. By the sequential characterization of closure proved in lecture, there exists a sequence $\{y_n\}_{n\ge 1}$ in $Y$ such that
+\[
+y_n\to x
+\qquad \text{in } (X,d).
+\]
+Since every convergent sequence in a metric space is Cauchy, the sequence $\{y_n\}$ is Cauchy in $(X,d)$. Because each $y_n$ lies in $Y$ and the induced metric on $Y$ is just the restriction of $d$, it follows that $\{y_n\}$ is also a Cauchy sequence in the subspace $(Y,d_Y)$.
+
+Now $Y$ is complete by assumption, so every Cauchy sequence in $(Y,d_Y)$ converges to a point of $Y$. Therefore there exists some $y\in Y$ such that
+\[
+y_n\to y
+\qquad \text{in } (Y,d_Y).
+\]
+But convergence in the subspace metric means exactly the same distance condition as convergence in $(X,d)$, so in fact
+\[
+y_n\to y
+\qquad \text{in } (X,d).
+\]
+Thus the sequence $\{y_n\}$ converges in $(X,d)$ to both $x$ and $y$. By uniqueness of limits in metric spaces, we must have
+\[
+x=y.
+\]
+Since $y\in Y$, it follows that $x\in Y$.
+
+Because $x\in \overline{Y}$ was arbitrary, we conclude that
+\[
+\overline{Y}\subseteq Y.
+\]
+Therefore $Y$ is closed in $X$.
 \qed
 
 \newpage
@@ -172,10 +191,53 @@ Let $(X,d)$ be a metric space. Prove that if $A,B\subseteq X$ are both compact
 then $A\cup B$ is compact.
 
 \begin{scratch}
+The main definition from lecture that matters here is the definition of compactness: a subset $K\subseteq X$ is compact if every open cover of $K$ has a finite subcover. So for this problem, I think I should start with an arbitrary open cover of $A\cup B$ and try to show that only finitely many of those open sets are needed.
+
+The big thing is that any open cover of $A\cup B$ automatically gives an open cover of $A$ and also an open cover of $B$, since both sets are contained in $A\cup B$. Because $A$ is compact, I can extract finitely many sets from the cover that already cover $A$. Likewise, because $B$ is compact, I can extract finitely many sets from the same cover that cover $B$. Then I simply combine those two finite collections. Their union is still finite, and together they cover both $A$ and $B$, hence they cover $A\cup B$.
+
+So the proof template is: begin with an arbitrary open cover of $A\cup B$, apply compactness once to $A$, apply compactness again to $B$, and then merge the two finite subcovers into one finite subcover of the union.
 \end{scratch}
 
 \textbf{Proof.}\\
+Let $\{U_i\}_{i\in I}$ be an open cover of $A\cup B$. Thus each $U_i$ is open in $X$ and
+\[
+A\cup B\subseteq \bigcup_{i\in I} U_i.
+\]
+Since $A\subseteq A\cup B$, it follows that
+\[
+A\subseteq \bigcup_{i\in I} U_i.
+\]
+So $\{U_i\}_{i\in I}$ is an open cover of $A$. Because $A$ is compact, there exists a finite set $J_A\subseteq I$ such that
+\[
+A\subseteq \bigcup_{i\in J_A} U_i.
+\]
+
+Similarly, since $B\subseteq A\cup B$, we also have
+\[
+B\subseteq \bigcup_{i\in I} U_i.
+\]
+So $\{U_i\}_{i\in I}$ is an open cover of $B$. Because $B$ is compact, there exists a finite set $J_B\subseteq I$ such that
+\[
+B\subseteq \bigcup_{i\in J_B} U_i.
+\]
+
+Now set
+\[
+J:=J_A\cup J_B.
+\]
+Since $J_A$ and $J_B$ are finite, the set $J$ is finite. Moreover,
+\[
+A\cup B
+\subseteq
+\left(\bigcup_{i\in J_A} U_i\right)\cup \left(\bigcup_{i\in J_B} U_i\right)
+=
+\bigcup_{i\in J} U_i.
+\]
+Thus $\{U_i\}_{i\in J}$ is a finite subcover of $A\cup B$.
+
+Since the open cover $\{U_i\}_{i\in I}$ was arbitrary, we conclude that $A\cup B$ is compact.
 \qed
+
 
 \newpage
 
@@ -192,9 +254,63 @@ Let $(X,d)$ be a metric space.
 \end{enumerate}
 
 \begin{scratch}
+Both parts of this problem seem like applications of the open-cover definition of compactness, together with one of the closure results from lecture. For part (a), we are given that $A\subseteq B\subseteq X$, that $A$ is closed in $X$, and that $B$ is compact. Since compactness is about open covers, I should begin with an arbitrary open cover of $A$ and try to turn it into an open cover of $B$. The hint tells me exactly how: because $A$ is closed, its complement $A^c$ is open, so if I add $A^c$ to my cover of $A$, then every point of $B$ is covered either because it lies in $A$ or because it lies in $B\setminus A\subseteq A^c$. Then compactness of $B$ gives a finite subcover, and when I restrict back to $A$, the set $A^c$ becomes unnecessary.
+
+For part (b), I want to prove that the intersection of two compact sets is compact. The cleanest way to use part (a) is to observe that if $C$ and $D$ are compact, then by the theorem from lecture each compact set is closed. In particular, $C$ is closed in $X$, and of course $C\cap D\subseteq D$. Since $D$ is compact, part (a) applies with $A=C\cap D$ and $B=D$. That immediately gives compactness of $C\cap D$.
 \end{scratch}
 
 \textbf{Proof.}\\
+\textbf{(a)} Let $\{U_i\}_{i\in I}$ be an arbitrary open cover of $A$, where each $U_i$ is open in $X$ and
+\[
+A\subseteq \bigcup_{i\in I} U_i.
+\]
+Since $A$ is closed in $X$, the complement $A^c$ is open in $X$. I claim that
+\[
+\{U_i\}_{i\in I}\cup\{A^c\}
+\]
+is an open cover of $B$.
+
+Indeed, let $x\in B$. If $x\in A$, then since $\{U_i\}_{i\in I}$ covers $A$, we have $x\in U_i$ for some $i\in I$. If $x\notin A$, then $x\in A^c$. In either case, $x$ lies in one of the sets from $\{U_i\}_{i\in I}\cup\{A^c\}$. Hence
+\[
+B\subseteq \left(\bigcup_{i\in I} U_i\right)\cup A^c.
+\]
+So this is an open cover of $B$.
+
+Because $B$ is compact, there exist finitely many indices $i_1,\dots,i_n\in I$ such that
+\[
+B\subseteq U_{i_1}\cup\cdots\cup U_{i_n}\cup A^c.
+\]
+Now intersect both sides with $A$. Since $A\subseteq B$, we obtain
+\[
+A\subseteq A\cap\left(U_{i_1}\cup\cdots\cup U_{i_n}\cup A^c\right).
+\]
+Distributing the intersection gives
+\[
+A\subseteq (A\cap U_{i_1})\cup\cdots\cup(A\cap U_{i_n})\cup(A\cap A^c).
+\]
+But $A\cap A^c=\varnothing$, so
+\[
+A\subseteq (A\cap U_{i_1})\cup\cdots\cup(A\cap U_{i_n}).
+\]
+Since each $A\cap U_{i_k}\subseteq U_{i_k}$, it follows that
+\[
+A\subseteq U_{i_1}\cup\cdots\cup U_{i_n}.
+\]
+Thus $\{U_{i_1},\dots,U_{i_n}\}$ is a finite subcover of $A$. Since the original open cover of $A$ was arbitrary, we conclude that $A$ is compact.
+
+\textbf{(b)} Suppose that $C,D\subseteq X$ are both compact. By the theorem from lecture, every compact subset of a metric space is closed. Therefore $C$ is closed in $X$.
+
+Now note that
+\[
+C\cap D\subseteq D\subseteq X.
+\]
+Since $C$ is closed in $X$, the set $C\cap D$ is also closed in $D$; equivalently, we may simply apply part (a) with
+\[
+A=C\cap D,
+\qquad
+B=D.
+\]
+Indeed, $A\subseteq B$, the set $A=C\cap D$ is closed in $X$ as the intersection of two closed sets, and $B=D$ is compact. Therefore, by part (a), the set $C\cap D$ is compact.
 \qed
 
 \newpage
@@ -204,18 +320,63 @@ Let $(X,d)$ be a metric space and let $Y\subseteq X$. Prove that if $Y$ is
 compact, then $Y$ is complete.
 
 \begin{scratch}
+The main definition here is the definition of completeness: a metric space is complete if every Cauchy sequence converges in that space. Since the problem assumes that $Y\subseteq X$ is compact, the idea is to start with an arbitrary Cauchy sequence in $Y$ and show that it must converge to a point of $Y$.
+
+The theorem from lecture that does the heavy lifting is the sequential compactness result: if a set is compact, then every sequence in that set has a subsequence that converges in the set. We also know from lecture that every convergent sequence is Cauchy, and in any metric space a Cauchy sequence can have at most one possible limit.
+
+So the proof template is very standard. I take a Cauchy sequence $\{y_n\}$ in $Y$. Because $Y$ is compact, the sequence has a subsequence $\{y_{n_k}\}$ that converges to some point $y\in Y$. Then I use the fact that the whole sequence is Cauchy to show that actually the entire sequence must converge to that same point $y$. That will prove that every Cauchy sequence in $Y$ converges in $Y$, which is exactly what it means for $Y$ to be complete.
 \end{scratch}
 
 \textbf{Proof.}\\
+To prove that $Y$ is complete, let $\{y_n\}_{n\ge 1}$ be a Cauchy sequence in the subspace $(Y,d_Y)$. Since the induced metric $d_Y$ is just the restriction of $d$ to $Y$, we may regard $\{y_n\}$ simply as a Cauchy sequence of points in $Y$.
+
+Because $Y$ is compact, every sequence in $Y$ has a subsequence that converges to a point of $Y$. Therefore there exists a subsequence $\{y_{n_k}\}_{k\ge 1}$ and a point $y\in Y$ such that
+\[
+y_{n_k}\to y.
+\]
+We claim that in fact the whole sequence $\{y_n\}$ converges to $y$.
+
+Let $\varepsilon>0$. Since $\{y_n\}$ is Cauchy, there exists $N_1\in\mathbb{N}$ such that
+\[
+d(y_n,y_m)<\frac{\varepsilon}{2}
+\qquad \text{for all } n,m\ge N_1.
+\]
+Since $y_{n_k}\to y$, there exists $N_2\in\mathbb{N}$ such that
+\[
+d(y_{n_k},y)<\frac{\varepsilon}{2}
+\qquad \text{for all } k\ge N_2.
+\]
+Choose $k\ge N_2$ large enough so that also $n_k\ge N_1$. Now let $n\ge N_1$. By the triangle inequality,
+\[
+d(y_n,y)
+\le d(y_n,y_{n_k})+d(y_{n_k},y).
+\]
+Since $n\ge N_1$ and $n_k\ge N_1$, the Cauchy condition gives
+\[
+d(y_n,y_{n_k})<\frac{\varepsilon}{2},
+\]
+and since $k\ge N_2$, the convergence of the subsequence gives
+\[
+d(y_{n_k},y)<\frac{\varepsilon}{2}.
+\]
+Therefore
+\[
+d(y_n,y)<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon.
+\]
+Since this holds for all $n\ge N_1$, we conclude that
+\[
+y_n\to y.
+\]
+Because $y\in Y$, the sequence $\{y_n\}$ converges in $Y$.
+
+Thus every Cauchy sequence in $Y$ converges to a point of $Y$, so $Y$ is complete.
 \qed
 
-% ============================================================
-% Optional appendix: keep a personal toolbox of definitions/theorems
-% ============================================================
+
 \newpage
-\appendix
-\section*{Appendix: Toolbox (optional)}
-\addcontentsline{toc}{section}{Appendix: Toolbox (optional)}
+% \appendix
+% \section*{Appendix: Toolbox}
+% \addcontentsline{toc}{section}{Appendix: Toolbox} % I am tired and do not want to do this; it is of little value to me I am realizing
 
 % Example (using amsthm environments instead of boxed tcolorboxes):
 % \begin{definition}
