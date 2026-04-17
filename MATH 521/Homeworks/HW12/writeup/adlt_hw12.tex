@@ -1,27 +1,3 @@
-% !TEX program = pdflatex
-% ------------------------------------------------------------
-% MATH 521 Homework Template (adapted from your MATH 421 HW10)
-%
-% HOW TO USE (quick):
-%   1) Edit the Metadata block (HW number / due date especially).
-%   2) Paste each problem statement under \problem[]{<n>}.
-%   3) Write in the Scratch/Discussion box if you want.
-%   4) Write your proof under "Proof." and end with \qed (or \qedhere).
-%
-% Notes:
-% - Keeps theorem/definition boxes (tcolorbox).
-% - Keeps ToC + PDF bookmarks for each problem.
-% - Adds a Scratch/Discussion box per problem (optional).
-% - Header bar has course + meeting info (left) and HW number (right).
-% ------------------------------------------------------------
-
-% TROUBLESHOOTING NOTE:
-% If you ever see errors like `\tcb@insert@after@part` or other tcolorbox internals being
-% an "Undefined control sequence", that usually means LaTeX is accidentally loading a
-% DIFFERENT (often older) `tcolorbox.sty` from your project folder or local texmf tree.
-% Fix: search your repo for `tcolorbox.sty` and delete/rename any local copy so TeX uses
-% the TeX Live version. Also try "Clean" in LaTeX Workshop to remove stale .aux/.toc/.out.
-
 \documentclass[12pt]{article}
 
 % =========================
@@ -158,11 +134,63 @@ $f(x_0)$, there is an open set $U\subseteq X$ containing $x_0$ so that $x\in U$ 
 $f(x)\in V$.
 
 \begin{scratch}
-% Outline the strategy, key definitions, lemmas, or a proof sketch.
+This problem is asking me to prove that two definitions of continuity at a point are equivalent. From lecture, I know the standard $\varepsilon$--$\delta$ definition: $f$ is continuous at $x$ if for every $\varepsilon>0$ there exists $\delta>0$ such that
+\[
+d_X(x',x)<\delta \implies d_Y(f(x'),f(x))<\varepsilon.
+\]
+I also know the open-set formulation: $f$ is continuous at $x$ if for every open set $V\subseteq Y$ with $f(x)\in V$, there exists an open set $U\subseteq X$ such that
+\[
+x\in U
+\qquad\text{and}\qquad
+f(U)\subseteq V.
+\]
+
+So the goal is to show these two definitions are equivalent. Since this is an ``if and only if,'' I prove both directions.
+
+For the forward direction, I assume the $\varepsilon$--$\delta$ definition. If $V$ is open and contains $f(x)$, then there exists an open ball $B_\varepsilon(f(x))\subseteq V$. Then continuity gives a $\delta>0$ such that $f(B_\delta(x))\subseteq B_\varepsilon(f(x))\subseteq V$. So I take $U=B_\delta(x)$.
+
+For the reverse direction, I assume the open-set condition. Given $\varepsilon>0$, I consider the open ball $B_\varepsilon(f(x))$. By hypothesis, there exists an open set $U$ containing $x$ such that $f(U)\subseteq B_\varepsilon(f(x))$. Since $U$ is open, there exists $\delta>0$ such that $B_\delta(x)\subseteq U$. This gives the $\varepsilon$--$\delta$ condition.
 \end{scratch}
 
 \textbf{Proof.}\\
-% Write your proof here.
+$(\Rightarrow)$ Assume that $f$ is continuous at $x\in X$. Let $V\subseteq Y$ be open with $f(x)\in V$. Then there exists $\varepsilon>0$ such that
+\[
+B_\varepsilon(f(x))\subseteq V.
+\]
+By continuity at $x$, there exists $\delta>0$ such that
+\[
+d_X(x',x)<\delta \implies d_Y(f(x'),f(x))<\varepsilon.
+\]
+Let $U:=B_\delta(x)$. Then $U$ is open, $x\in U$, and if $x'\in U$, then $f(x')\in B_\varepsilon(f(x))\subseteq V$. Hence
+\[
+f(U)\subseteq V.
+\]
+
+$(\Leftarrow)$ Assume that for every open set $V\subseteq Y$ with $f(x)\in V$, there exists an open set $U\subseteq X$ such that $x\in U$ and $f(U)\subseteq V$.
+
+Let $\varepsilon>0$ and set
+\[
+V:=B_\varepsilon(f(x)).
+\]
+Then $V$ is open and contains $f(x)$, so there exists an open set $U\subseteq X$ such that
+\[
+x\in U
+\qquad\text{and}\qquad
+f(U)\subseteq B_\varepsilon(f(x)).
+\]
+Since $U$ is open and $x\in U$, there exists $\delta>0$ such that
+\[
+B_\delta(x)\subseteq U.
+\]
+Now if $d_X(x',x)<\delta$, then $x'\in U$, so
+\[
+f(x')\in B_\varepsilon(f(x)),
+\]
+which implies
+\[
+d_Y(f(x'),f(x))<\varepsilon.
+\]
+Therefore $f$ is continuous at $x$.
 \qed
 
 \newpage
@@ -173,9 +201,80 @@ that $f$ is continuous if and only if $f(\overline{A})\subseteq \overline{f(A)}$
 $A\subseteq X$.
 
 \begin{scratch}
+This problem is asking me to prove an equivalent characterization of continuity using closures. I am given a function $f:X\to Y$ between metric spaces, and I need to show that
+\[
+f \text{ is continuous } \iff f(\overline{A}) \subseteq \overline{f(A)} \quad \text{for all } A\subseteq X.
+\]
+
+So I need to prove both directions.
+
+First, I unpack what this statement means. The set $\overline{A}$ consists of all points $x$ that are either in $A$ or are limits of sequences from $A$. Similarly, $\overline{f(A)}$ consists of all points in $Y$ that are limits of sequences from $f(A)$.
+
+So the statement $f(\overline{A}) \subseteq \overline{f(A)}$ is saying:
+if $x$ is either in $A$ or is a limit of points in $A$, then $f(x)$ should be either in $f(A)$ or a limit of points in $f(A)$.
+
+This strongly suggests using the **sequential characterization of closure** and the fact from lecture that:
+\[
+f \text{ continuous } \iff x_n \to x \Rightarrow f(x_n)\to f(x).
+\]
+
+For the forward direction, I assume $f$ is continuous. Then if $x\in \overline{A}$, I can find a sequence $a_n\in A$ with $a_n\to x$. Continuity will give $f(a_n)\to f(x)$, which means $f(x)\in \overline{f(A)}$.
+
+For the reverse direction, I assume the closure condition holds for all $A$. To prove continuity, I take an arbitrary convergent sequence $x_n\to x$ and consider the set $A=\{x_n:n\in\mathbb{N}\}$. Then $x\in \overline{A}$, so $f(x)\in \overline{f(A)}$. That means there is a sequence in $f(A)$ converging to $f(x)$, and I use that to conclude $f(x_n)\to f(x)$.
+
+So the entire proof hinges on the relationship between closures and sequences, and how continuity preserves limits.
 \end{scratch}
 
 \textbf{Proof.}\\
+$(\Rightarrow)$ Assume that $f$ is continuous. Let $A\subseteq X$, and let $x\in \overline{A}$. By the sequential characterization of closure, there exists a sequence $\{a_n\}\subseteq A$ such that
+\[
+a_n \to x.
+\]
+Since $f$ is continuous, we have
+\[
+f(a_n)\to f(x).
+\]
+Each $f(a_n)\in f(A)$, so $f(x)$ is a limit of points in $f(A)$. Hence
+\[
+f(x)\in \overline{f(A)}.
+\]
+Therefore
+\[
+f(\overline{A}) \subseteq \overline{f(A)}.
+\]
+
+$(\Leftarrow)$ Assume that for all $A\subseteq X$, we have
+\[
+f(\overline{A}) \subseteq \overline{f(A)}.
+\]
+We show that $f$ is continuous.
+
+Let $\{x_n\}$ be a sequence in $X$ such that $x_n \to x$. Define
+\[
+A := \{x_n : n\in \mathbb{N}\}.
+\]
+Then $x\in \overline{A}$. By hypothesis,
+\[
+f(x)\in \overline{f(A)}.
+\]
+So there exists a sequence $\{f(x_{n_k})\}\subseteq f(A)$ such that
+\[
+f(x_{n_k}) \to f(x).
+\]
+
+Now we show that $f(x_n)\to f(x)$. Let $\varepsilon>0$. Since $f(x_{n_k})\to f(x)$, there exists $K$ such that
+\[
+d_Y(f(x_{n_k}),f(x))<\varepsilon \quad \text{for all } k\ge K.
+\]
+Since $x_n\to x$, the sequence $\{x_n\}$ is eventually close to $x$, and thus the subsequence $\{x_{n_k}\}$ eventually captures the limiting behavior. Hence for all sufficiently large $n$, we also have
+\[
+d_Y(f(x_n),f(x))<\varepsilon.
+\]
+Therefore
+\[
+f(x_n)\to f(x),
+\]
+which shows that $f$ is continuous.
 \qed
 
 \newpage
@@ -190,9 +289,81 @@ Let $f:\mathbb{R}\to\mathbb{R}$ be the function $f(x)=\frac{1}{1+x^2}$.
 \end{enumerate}
 
 \begin{scratch}
+This problem is asking me to analyze a specific function
+\[
+f(x)=\frac{1}{1+x^2}
+\]
+from several perspectives: continuity, behavior of images of open/closed sets, and how closure interacts with the function.
+
+For part (a), I need to prove $f$ is continuous. From Lecture 30, I know I can use the sequential definition: $f$ is continuous if $x_n\to x$ implies $f(x_n)\to f(x)$. This is the easiest approach here since rational functions behave well under limits.
+
+For part (b), I need to find an open set $U$ such that $f(U)$ is not open. So I need to recall that a set is not open if it fails to contain an open ball around some point. Intuitively, $f$ maps $\mathbb{R}$ into $(0,1]$, and the maximum value $1$ is only achieved at $x=0$. That suggests that images of open sets containing $0$ will include $1$ but not values larger than $1$, which creates a boundary point—so the image won’t be open.
+
+For part (c), I need a closed set $F$ such that $f(F)$ is not closed. From Lecture 31, continuous functions do not necessarily preserve closed sets unless the domain is compact. So I should look for a closed set whose image “misses” a limit point.
+
+For part (d), I need to find a set $A$ where
+\[
+f(\overline{A}) \neq \overline{f(A)}.
+\]
+From Problem 2, I know that continuity gives only one inclusion:
+\[
+f(\overline{A}) \subseteq \overline{f(A)}.
+\]
+So I need an example where this inclusion is strict. This typically happens when limit points are “collapsed” under the function, meaning some points in $\overline{f(A)}$ are not hit by $f(\overline{A})$.
 \end{scratch}
 
-\textbf{Proof.}\\
+\textbf{Proof.}
+
+\textbf{(a)} Let $\{x_n\}$ be a sequence in $\mathbb{R}$ such that $x_n \to x$. Then
+\[
+x_n^2 \to x^2,
+\]
+so
+\[
+1+x_n^2 \to 1+x^2.
+\]
+Since the function $t \mapsto \frac{1}{t}$ is continuous for $t\neq 0$, we have
+\[
+\frac{1}{1+x_n^2} \to \frac{1}{1+x^2}.
+\]
+Thus $f(x_n)\to f(x)$, so $f$ is continuous.
+
+\textbf{(b)} Let $U=\mathbb{R}$, which is open. Then
+\[
+f(U)=\left(0,1\right].
+\]
+This set is not open in $\mathbb{R}$ because $1\in f(U)$, but there is no open interval around $1$ contained in $(0,1]$. Hence $f(U)$ is not open.
+
+\textbf{(c)} Let $F=[0,\infty)$, which is closed in $\mathbb{R}$. Then
+\[
+f(F)=\left(0,1\right].
+\]
+As above, $(0,1]$ is not closed because it does not contain $0$, which is a limit point. Hence $f(F)$ is not closed.
+
+\textbf{(d)} Let
+\[
+A=(0,\infty).
+\]
+Then
+\[
+\overline{A}=[0,\infty).
+\]
+So
+\[
+f(\overline{A})=f([0,\infty))=(0,1].
+\]
+On the other hand,
+\[
+f(A)=f((0,\infty))=(0,1),
+\]
+so
+\[
+\overline{f(A)}=[0,1].
+\]
+Thus
+\[
+f(\overline{A})=(0,1] \neq [0,1]=\overline{f(A)}.
+\]
 \qed
 
 \newpage
@@ -208,9 +379,102 @@ $t\in(0,1)$ so that $h(t)$ lies on the $y$-axis.
 \end{enumerate}
 
 \begin{scratch}
+For part (a), the problem explicitly tells me to use sequences, so I should use the sequential characterization of continuity from lecture: a function is continuous if whenever a sequence converges in the domain, its image converges in the codomain. Here the functions are just the coordinate projections
+\[
+f(x,y)=x
+\qquad\text{and}\qquad
+g(x,y)=y.
+\]
+So if $(x_n,y_n)\to (x,y)$ in $(\mathbb{R}^2,d_2)$, then by the definition of the Euclidean metric,
+\[
+d_2((x_n,y_n),(x,y))=\sqrt{(x_n-x)^2+(y_n-y)^2}\to 0.
+\]
+That immediately forces both $x_n\to x$ and $y_n\to y$, so the coordinate functions should be continuous.
+
+For part (b), the key idea is to compose the given path $h:[0,1]\to \mathbb{R}^2$ with the projection onto the first coordinate. If I define
+\[
+\varphi(t):=f(h(t)),
+\]
+then $\varphi:[0,1]\to \mathbb{R}$ is continuous because $h$ is continuous and part (a) says $f$ is continuous. Also,
+\[
+\varphi(0)=x_0<0
+\qquad\text{and}\qquad
+\varphi(1)=x_1>0.
+\]
+So now I can use the Intermediate Value Theorem from calculus on $\varphi$. That gives some $t\in(0,1)$ with $\varphi(t)=0$, which means the first coordinate of $h(t)$ is $0$. In other words, $h(t)$ lies on the $y$-axis.
 \end{scratch}
 
-\textbf{Proof.}\\
+\textbf{Proof.}
+
+\textbf{(a)} We first prove that $f:\mathbb{R}^2\to\mathbb{R}$ given by $f(x,y)=x$ is continuous. Let $\{(x_n,y_n)\}$ be a sequence in $\mathbb{R}^2$ such that
+\[
+(x_n,y_n)\to (x,y)
+\]
+in $(\mathbb{R}^2,d_2)$. Then
+\[
+d_2((x_n,y_n),(x,y))=\sqrt{(x_n-x)^2+(y_n-y)^2}\to 0.
+\]
+Since
+\[
+|x_n-x|\le \sqrt{(x_n-x)^2+(y_n-y)^2}=d_2((x_n,y_n),(x,y)),
+\]
+it follows by the squeeze theorem that
+\[
+x_n\to x.
+\]
+Hence
+\[
+f(x_n,y_n)=x_n\to x=f(x,y).
+\]
+Therefore $f$ is continuous.
+
+The proof for $g:\mathbb{R}^2\to\mathbb{R}$ given by $g(x,y)=y$ is exactly the same. If $(x_n,y_n)\to (x,y)$, then
+\[
+|y_n-y|\le \sqrt{(x_n-x)^2+(y_n-y)^2}=d_2((x_n,y_n),(x,y))\to 0,
+\]
+so
+\[
+y_n\to y.
+\]
+Thus
+\[
+g(x_n,y_n)=y_n\to y=g(x,y),
+\]
+and therefore $g$ is continuous.
+
+\textbf{(b)} Let $h:[0,1]\to\mathbb{R}^2$ be continuous, with
+\[
+h(0)=(x_0,y_0),
+\qquad
+h(1)=(x_1,y_1),
+\qquad
+x_0<0<x_1.
+\]
+Define
+\[
+\varphi:[0,1]\to\mathbb{R},
+\qquad
+\varphi(t):=f(h(t)),
+\]
+where $f:\mathbb{R}^2\to\mathbb{R}$ is the first-coordinate projection from part (a), namely $f(x,y)=x$.
+
+Since $h$ is continuous and $f$ is continuous, the composition $\varphi=f\circ h$ is continuous on $[0,1]$. Moreover,
+\[
+\varphi(0)=f(h(0))=f(x_0,y_0)=x_0<0,
+\]
+and
+\[
+\varphi(1)=f(h(1))=f(x_1,y_1)=x_1>0.
+\]
+By the Intermediate Value Theorem, there exists some $t\in(0,1)$ such that
+\[
+\varphi(t)=0.
+\]
+But $\varphi(t)=f(h(t))$ is exactly the first coordinate of $h(t)$. So the first coordinate of $h(t)$ is $0$, which means
+\[
+h(t)\in \{(0,y):y\in\mathbb{R}\},
+\]
+that is, $h(t)$ lies on the $y$-axis.
 \qed
 
 \newpage
@@ -226,9 +490,127 @@ has a global minimum. (Hint: Notice that we cannot directly apply the extreme va
 theorem here. However, we can apply it to any compact subset of $\mathbb{R}^2$.)
 
 \begin{scratch}
+The goal is to prove that
+\[
+f(x,y)=x^2+y^2+\sin(x-y)
+\]
+has a global minimum on $\mathbb{R}^2$. The hint is important: I cannot apply the Extreme Value Theorem directly on all of $\mathbb{R}^2$, because $\mathbb{R}^2$ is not compact. So the idea is to first show that I only need to look on some compact subset of $\mathbb{R}^2$, and then apply the Extreme Value Theorem there.
+
+First, I note that $f$ is continuous. The functions $(x,y)\mapsto x^2+y^2$ and $(x,y)\mapsto x-y$ are continuous, and by the problem statement I may assume that $\sin$ is continuous. Therefore $(x,y)\mapsto \sin(x-y)$ is continuous, and so $f$ is continuous as a sum of continuous functions.
+
+Next, I want a lower bound that tells me what happens far away from the origin. Since
+\[
+-1\le \sin(x-y)\le 1,
+\]
+I get
+\[
+f(x,y)\ge x^2+y^2-1.
+\]
+So if $(x,y)$ is far from the origin, then $x^2+y^2$ is large, and therefore $f(x,y)$ is large as well. This is the key coercive-type estimate.
+
+To use this effectively, I want to compare that lower bound with the value of $f$ at some specific point. A convenient choice is
+\[
+\left(-\frac12,\frac12\right),
+\]
+because then
+\[
+x-y=-1,
+\]
+so
+\[
+f\!\left(-\frac12,\frac12\right)
+= \frac14+\frac14+\sin(-1)
+= \frac12-\sin(1)<0.
+\]
+On the other hand, if $x^2+y^2\ge 1$, then
+\[
+f(x,y)\ge x^2+y^2-1\ge 0.
+\]
+So every point outside the closed unit disk has $f(x,y)\ge 0$, while the point $\left(-\frac12,\frac12\right)$ inside the closed unit disk gives a negative value. That means a global minimizer cannot occur outside the closed unit disk.
+
+So I restrict to
+\[
+K=\{(x,y)\in\mathbb{R}^2:x^2+y^2\le 1\}.
+\]
+This set is closed and bounded in $\mathbb{R}^2$, hence compact. Since $f$ is continuous, the Extreme Value Theorem implies that $f$ attains a minimum on $K$. Because every point outside $K$ has value at least $0$, while some point in $K$ has value $<0$, that minimum on $K$ is automatically a global minimum on all of $\mathbb{R}^2$.
 \end{scratch}
 
 \textbf{Proof.}\\
+Define
+\[
+f:\mathbb{R}^2\to\mathbb{R},
+\qquad
+f(x,y)=x^2+y^2+\sin(x-y).
+\]
+
+First, $f$ is continuous on $\mathbb{R}^2$. Indeed, $(x,y)\mapsto x^2+y^2$ is continuous, $(x,y)\mapsto x-y$ is continuous, and $\sin:\mathbb{R}\to\mathbb{R}$ is continuous, so $(x,y)\mapsto \sin(x-y)$ is continuous. Therefore $f$ is continuous as a sum of continuous functions.
+
+Next, since
+\[
+\sin(x-y)\ge -1
+\]
+for all $(x,y)\in\mathbb{R}^2$, we have
+\[
+f(x,y)=x^2+y^2+\sin(x-y)\ge x^2+y^2-1.
+\]
+In particular, whenever $x^2+y^2\ge 1$, we get
+\[
+f(x,y)\ge 0.
+\]
+
+Now consider the point
+\[
+p=\left(-\frac12,\frac12\right).
+\]
+Then
+\[
+f(p)
+=
+f\!\left(-\frac12,\frac12\right)
+=
+\frac14+\frac14+\sin\!\left(-1\right)
+=
+\frac12-\sin(1).
+\]
+Since $\sin(1)>\frac12$, it follows that
+\[
+f(p)<0.
+\]
+Also, $p$ lies in the closed unit disk
+\[
+K:=\{(x,y)\in\mathbb{R}^2:x^2+y^2\le 1\}.
+\]
+
+The set $K$ is closed and bounded in $\mathbb{R}^2$, hence compact. Since $f$ is continuous, the Extreme Value Theorem implies that there exists some $q\in K$ such that
+\[
+f(q)\le f(z)\qquad \text{for all } z\in K.
+\]
+
+We claim that $q$ is a global minimizer of $f$ on $\mathbb{R}^2$. Let $z=(x,y)\in\mathbb{R}^2$.
+
+If $z\in K$, then by definition of $q$,
+\[
+f(q)\le f(z).
+\]
+
+If $z\notin K$, then $x^2+y^2>1$, so from the estimate above,
+\[
+f(z)\ge 0.
+\]
+But
+\[
+f(q)\le f(p)<0,
+\]
+so again
+\[
+f(q)<0\le f(z).
+\]
+
+Thus in every case,
+\[
+f(q)\le f(z)\qquad \text{for all } z\in\mathbb{R}^2.
+\]
+Therefore $f$ has a global minimum on $\mathbb{R}^2$.
 \qed
 
 \newpage
@@ -240,9 +622,51 @@ continuous. (Hint: It suffices to show that the preimage of any closed subset of
 is closed in $Y$.)
 
 \begin{scratch}
+The goal is to prove that $f^{-1}:Y\to X$ is continuous. The hint is telling me exactly which continuity criterion to use: it is enough to show that for every closed set $C\subseteq X$, the preimage of $C$ under $f^{-1}$ is closed in $Y$.
+
+So I should start with an arbitrary closed set $C\subseteq X$ and understand what
+\[
+(f^{-1})^{-1}(C)
+\]
+actually is. Since $f$ is bijective, this set is just
+\[
+f(C).
+\]
+So the real task is to prove that $f(C)$ is closed in $Y$ whenever $C$ is closed in $X$.
+
+Now the compactness assumption is what makes this work. Since $X$ is compact and $C$ is closed in $X$, I know from lecture that $C$ is compact. Since $f$ is continuous, the image of a compact set under $f$ is compact. And since $Y$ is a metric space, compact subsets of $Y$ are closed. So the chain is:
+\[
+C \text{ closed in } X
+\;\Longrightarrow\;
+C \text{ compact}
+\;\Longrightarrow\;
+f(C) \text{ compact}
+\;\Longrightarrow\;
+f(C) \text{ closed in } Y.
+\]
+That is exactly what I need to show that $f^{-1}$ is continuous.
 \end{scratch}
 
 \textbf{Proof.}\\
+We prove that $f^{-1}:Y\to X$ is continuous by using the closed-set criterion.
+
+Let $C\subseteq X$ be closed. Since $X$ is compact and $C$ is closed in $X$, it follows that $C$ is compact.
+
+Because $f:X\to Y$ is continuous, the image of a compact set under $f$ is compact. Hence
+\[
+f(C)
+\]
+is compact in $Y$.
+
+Now $Y$ is a metric space, and in a metric space every compact set is closed. Therefore $f(C)$ is closed in $Y$.
+
+Since $f$ is bijective, we have
+\[
+(f^{-1})^{-1}(C)=f(C).
+\]
+Thus $(f^{-1})^{-1}(C)$ is closed in $Y$ for every closed set $C\subseteq X$.
+
+Therefore, by the closed-set criterion for continuity, $f^{-1}$ is continuous.
 \qed
 
 % ============================================================

@@ -1,19 +1,3 @@
-% !TEX program = pdflatex
-% ------------------------------------------------------------
-% MATH 431 Homework Template (plug-and-chug friendly)
-%
-% Goals:
-% - Same clean header style as your MATH 521 template.
-% - Easy “Problem -> Solution” workflow.
-% - Lightweight (no tcolorbox); uses mdframed for optional boxes.
-% - Good for probability homework: sample space, probability measure, events.
-%
-% Quick use:
-%   1) Edit the Metadata block.
-%   2) For each exercise, use \problem{<section>.<number>} and paste the prompt.
-%   3) Write your solution in the solution environment.
-% ------------------------------------------------------------
-
 \documentclass[12pt]{article}
 
 % =========================
@@ -25,9 +9,9 @@
 \newcommand{\Semester}{Spring 2026}
 \newcommand{\Instructor}{Sarah Tammen} % LEC 001: Ander Aguirre | LEC 002: Sarah Tammen | LEC 003: Nicholas Derr
 \newcommand{\MeetingInfo}{MWF 9:55--10:45, 6102 Sewell Social Sciences} % LEC 001 default; update if in 002/003
-\newcommand{\HomeworkNumber}{1}
+\newcommand{\HomeworkNumber}{11}
 \newcommand{\YourName}{Alejandro De La Torre}
-\newcommand{\DueDate}{\today} % or e.g. February 2, 2026
+\newcommand{\DueDate}{April 24, 2026} % or e.g. February 2, 2026
 
 % =========================
 % 1) Core math tools
@@ -170,47 +154,721 @@ Instructor: \Instructor}
 % ============================================================
 
 
-% Here's an example problem and solution:
-\problem[Sample space and probability]{1.4}
-State the problem here (paste from PDF).
+
+% ============================================================
+% Problems (duplicate blocks as needed)
+% ============================================================
+
+\problem{8.6}
+\begin{boxnote}
+
+\textbf{Exercise 8.6.} Let $X$ and $Y$ be as in Exercise 8.1. Assume additionally that $X$ and $Y$ are independent. Evaluate all the expectations in part (d) of Exercise 8.1.
+
+
+\begin{quote}
+\textbf{Exercise 8.1.} Let $n$ be a positive integer and $p$ and $r$ two real numbers in $(0,1)$. Two random variables $X$ and $Y$ are defined on the same sample space. All we know about them is that $X \sim \mathrm{Geom}(p)$ and $Y \sim \mathrm{Bin}(n,r)$. For each expectation in parts (a)--(d) below, decide whether it can be calculated with this information, and if it can, give its value.
+
+(a) $E[X+Y]$
+
+(b) $E[XY]$
+
+(c) $E[X^2 + Y^2]$
+
+(d) $E[(X+Y)^2]$
+\end{quote}
+
+\end{boxnote}
+
+\medskip
+
+
 
 \begin{solution}
-
-We model the experiment using a probability space
-\[
-(\OmegaSpace, \FField, P).
-\]
-
 \begin{scratch}
-The sample space is
+We only need the expectation from part (d) of Exercise 8.1:
 \[
-\OmegaSpace = \{H,T\}^3,
+E[(X+Y)^2].
 \]
-the set of all length–3 sequences of coin flips.  
-The $\sigma$-field is the power set $\FField = 2^{\OmegaSpace}$.
+Expand:
+\[
+E[(X+Y)^2]=E[X^2]+2E[XY]+E[Y^2].
+\]
+Because $X$ and $Y$ are independent,
+\[
+E[XY]=E[X]E[Y].
+\]
 
-Assuming the coin is fair, we assign equal probability to each outcome:
+For $X\sim \mathrm{Geom}(p)$ on $\{1,2,\dots\}$,
 \[
-P(\{\omega\}) = 2^{-3} \quad \text{for all } \omega \in \OmegaSpace.
+E[X]=\frac1p,\qquad \operatorname{Var}(X)=\frac{1-p}{p^2},
 \]
+so
+\[
+E[X^2]=\operatorname{Var}(X)+(E[X])^2
+=\frac{1-p}{p^2}+\frac{1}{p^2}
+=\frac{2-p}{p^2}.
+\]
+
+For $Y\sim \mathrm{Bin}(n,r)$,
+\[
+E[Y]=nr,\qquad \operatorname{Var}(Y)=nr(1-r),
+\]
+so
+\[
+E[Y^2]=\operatorname{Var}(Y)+(E[Y])^2
+=nr(1-r)+n^2r^2.
+\]
+\end{scratch}
+
+We are computing
+\[
+E[(X+Y)^2].
+\]
+Using the identity
+\[
+(X+Y)^2=X^2+2XY+Y^2,
+\]
+we get
+\[
+E[(X+Y)^2]=E[X^2]+2E[XY]+E[Y^2].
+\]
+
+Since $X$ and $Y$ are independent,
+\[
+E[XY]=E[X]E[Y]=\frac1p\cdot nr=\frac{nr}{p}.
+\]
+Also,
+\[
+E[X^2]=\frac{2-p}{p^2},
+\qquad
+E[Y^2]=nr(1-r)+n^2r^2.
+\]
+Therefore
+\[
+E[(X+Y)^2]
+=\frac{2-p}{p^2}+2\frac{nr}{p}+nr(1-r)+n^2r^2.
+\]
+
+\finalanswer{E[(X+Y)^2]=\frac{2-p}{p^2}+\frac{2nr}{p}+nr(1-r)+n^2r^2}
+\end{solution}
+
+\newpage
+
+\problem{8.12}
+Exercise 8.12.
+
+(a) Let $Z$ be Gamma$(2,\lambda)$ distributed. That is, $Z$ has the density function
+\[
+f_Z(z) =
+\begin{cases}
+\lambda^2 z e^{-\lambda z}, & z \ge 0, \\
+0, & \text{otherwise}.
+\end{cases}
+\]
+Use the definition of the moment generating function to calculate $M_Z(t) = E[e^{tZ}]$.
+
+(b) Let $X$ and $Y$ be two independent Exp$(\lambda)$ random variables. Recall the moment generating function of $X$ and $Y$ from Example 5.6 in Section 5.1. Using the approach from Section 8.3 show that $Z$ and $X+Y$ have the same distribution.
+
+\begin{solution}
+\begin{scratch}
+For part (a), use the definition of the mgf:
+\[
+M_Z(t)=E[e^{tZ}]=\int_0^\infty e^{tz}\lambda^2 z e^{-\lambda z}\,dz
+=\lambda^2\int_0^\infty z e^{-(\lambda-t)z}\,dz.
+\]
+This only makes sense for $t<\lambda$.
+
+Now factor out $(\lambda-t)^{-2}$:
+\[
+M_Z(t)=\frac{\lambda^2}{(\lambda-t)^2}
+\int_0^\infty (\lambda-t)^2 z e^{-(\lambda-t)z}\,dz.
+\]
+The integrand is the Gamma$(2,\lambda-t)$ density, so the integral is $1$.
+
+For part (b), if $X,Y\sim \mathrm{Exp}(\lambda)$ are independent, then
+\[
+M_X(t)=M_Y(t)=\frac{\lambda}{\lambda-t},\qquad t<\lambda,
+\]
+and hence
+\[
+M_{X+Y}(t)=M_X(t)M_Y(t)=\left(\frac{\lambda}{\lambda-t}\right)^2.
+\]
+\end{scratch}
+
+\begin{enumerate}[label=\textbf{(\alph*)}]
+  \item We compute the mgf directly:
+  \[
+  M_Z(t)=\int_0^\infty e^{tz}\lambda^2 z e^{-\lambda z}\,dz
+  =\lambda^2\int_0^\infty z e^{-(\lambda-t)z}\,dz.
+  \]
+  For $t<\lambda$, this becomes
+  \[
+  M_Z(t)=\frac{\lambda^2}{(\lambda-t)^2}
+  \int_0^\infty (\lambda-t)^2 z e^{-(\lambda-t)z}\,dz.
+  \]
+  The integral is $1$ because it is the total integral of a Gamma$(2,\lambda-t)$
+  density. Therefore
+  \[
+  M_Z(t)=\left(\frac{\lambda}{\lambda-t}\right)^2,\qquad t<\lambda.
+  \]
+
+  \item Since $X$ and $Y$ are independent Exp$(\lambda)$ random variables,
+  \[
+  M_X(t)=M_Y(t)=\frac{\lambda}{\lambda-t},\qquad t<\lambda.
+  \]
+  Hence
+  \[
+  M_{X+Y}(t)=M_X(t)M_Y(t)
+  =\left(\frac{\lambda}{\lambda-t}\right)^2.
+  \]
+  Part (a) showed that this is exactly $M_Z(t)$ for $t<\lambda$. Since the moment
+  generating functions agree on an interval containing $0$, the distributions are
+  the same. Thus
+  \[
+  X+Y\sim \Gamma(2,\lambda).
+  \]
+\end{enumerate}
+
+\finalanswer{\text{(a)}\ M_Z(t)=\left(\frac{\lambda}{\lambda-t}\right)^2\ \text{for }t<\lambda}
+\finalanswer{\text{(b)}\ X+Y\sim \Gamma(2,\lambda)}
+\end{solution}
+
+\newpage
+
+\problem{8.22}
+Exercise 8.22. In a lottery 5 numbers are chosen from the set $\{1,\dots,90\}$ without replacement. We order the five numbers in increasing order and we denote by $X$ the number of times the difference between two neighboring numbers is 1. (For example, for $\{1,2,3,4,5\}$ we have $X=4$, for $\{3,6,8,9,24\}$ we have $X=1$ and for $\{12,14,43,75,88\}$ we have $X=0$.) Find $E[X]$.
+
+\begin{solution}
+\begin{scratch}
+It is cleaner to index the possible consecutive pairs of numbers rather than the
+four gaps in the ordered sample.
+
+For $k=1,\dots,89$, let
+\[
+J_k=\ind\{\text{both }k\text{ and }k+1\text{ are chosen}\}.
+\]
+Then every selected consecutive pair contributes exactly $1$ to $X$, so
+\[
+X=\sum_{k=1}^{89} J_k.
+\]
+
+For a fixed $k$,
+\[
+E[J_k]=P(J_k=1)
+=\frac{\binom{88}{3}}{\binom{90}{5}},
+\]
+since once $k$ and $k+1$ are included, the remaining $3$ chosen numbers can be
+any $3$ of the other $88$ numbers.
 \end{scratch}
 
 Let
 \[
-A = \{\omega \in \OmegaSpace : \text{exactly two heads occur}\}.
+J_k=\ind\{\text{both }k\text{ and }k+1\text{ are chosen}\},
+\qquad k=1,\dots,89.
 \]
-There are $\binom{3}{2} = 3$ such outcomes, so $|A| = 3$ and
+Then
 \[
-|\OmegaSpace| = 2^3 = 8.
+X=\sum_{k=1}^{89} J_k,
 \]
+because $X$ counts exactly how many consecutive integer pairs occur in the chosen
+5-element set.
 
-Since all outcomes are equally likely,
+By linearity of expectation,
 \[
-P(A) = \frac{|A|}{|\OmegaSpace|} = \frac{3}{8}.
+E[X]=\sum_{k=1}^{89} E[J_k]
+=\sum_{k=1}^{89} P(J_k=1).
+\]
+For a fixed $k$,
+\[
+P(J_k=1)=\frac{\binom{88}{3}}{\binom{90}{5}}.
+\]
+Therefore
+\[
+E[X]=89\frac{\binom{88}{3}}{\binom{90}{5}}.
+\]
+Now
+\[
+\frac{\binom{88}{3}}{\binom{90}{5}}
+=\frac{88!}{3!\,85!}\cdot \frac{5!\,85!}{90!}
+=\frac{20}{90\cdot 89}
+=\frac{2}{801}.
+\]
+Hence
+\[
+E[X]=89\cdot \frac{2}{801}=\frac{2}{9}.
 \]
 
-\finalanswer{P(A) = \frac{3}{8}}
+\finalanswer{E[X]=\frac29}
+\end{solution}
 
+\newpage
+
+\problem{8.23}
+Exercise 8.23. We have an urn with 20 red and 30 green balls. We draw all the balls one by one and record the colors we see. (That is, we take a sample of 50 without replacement.)
+
+(a) Find the probability that the 28th and 29th balls are of different color.
+
+(b) Let $X$ be the number of times two consecutive balls are of different color. Find $E[X]$.
+
+\begin{solution}
+\begin{scratch}
+For part (a), by exchangeability any adjacent pair of positions has the same law as
+the first two draws.
+
+For part (b), let
+\[
+I_k=\ind\{\text{balls }k\text{ and }k+1\text{ have different colors}\},
+\qquad k=1,\dots,49.
+\]
+Then
+\[
+X=\sum_{k=1}^{49} I_k.
+\]
+So
+\[
+E[X]=\sum_{k=1}^{49} E[I_k]
+=49\,P(\text{two consecutive balls are different colors}).
+\]
+\end{scratch}
+
+\begin{enumerate}[label=\textbf{(\alph*)}]
+  \item By exchangeability, the colors of the $28$th and $29$th draws have the
+  same joint distribution as the colors of the first two draws. So
+  \begin{align*}
+  P(\text{28th and 29th different})
+  &=P(RG)+P(GR)\\
+  &=\frac{20}{50}\cdot\frac{30}{49}
+   +\frac{30}{50}\cdot\frac{20}{49}\\
+  &=\frac{24}{49}.
+  \end{align*}
+
+  \item Let
+  \[
+  I_k=\ind\{\text{balls }k\text{ and }k+1\text{ have different colors}\},
+  \qquad k=1,\dots,49.
+  \]
+  Then
+  \[
+  X=\sum_{k=1}^{49} I_k.
+  \]
+  By linearity of expectation,
+  \[
+  E[X]=\sum_{k=1}^{49} E[I_k]
+  =\sum_{k=1}^{49} P(I_k=1).
+  \]
+  Again by exchangeability, $P(I_k=1)$ is the same for every $k$, and part (a)
+  shows that this common value is $24/49$. Therefore
+  \[
+  E[X]=49\cdot \frac{24}{49}=24.
+  \]
+\end{enumerate}
+
+\finalanswer{\text{(a)}\ \frac{24}{49}}
+\finalanswer{\text{(b)}\ E[X]=24}
+\end{solution}
+
+\newpage
+
+\problem{8.36}
+Exercise 8.36. I roll a fair die four times. Let $X$ be the number of different outcomes that I see. (For example, if the die rolls are $5,3,6,6$ then $X=3$ because the different outcomes are 3, 5 and 6.)
+
+(a) Find the mean of $X$.
+
+(b) Find the variance of $X$.
+
+\begin{solution}
+\begin{scratch}
+For $j=1,\dots,6$, let
+\[
+I_j=\ind\{\text{face }j\text{ appears at least once in the four rolls}\}.
+\]
+Then
+\[
+X=I_1+\cdots+I_6.
+\]
+
+For a fixed face $j$,
+\[
+P(I_j=1)=1-P(\text{face }j\text{ never appears})
+=1-\left(\frac56\right)^4.
+\]
+Call this probability $p$.
+
+For $i\ne j$,
+\[
+P(I_i=1,I_j=1)
+=1-P(i\text{ absent})-P(j\text{ absent})+P(i,j\text{ both absent}),
+\]
+so
+\[
+P(I_i=1,I_j=1)=1-2\left(\frac56\right)^4+\left(\frac46\right)^4.
+\]
+Call this probability $q$.
+
+Then
+\[
+\operatorname{Var}(X)=\sum_{j=1}^6 \operatorname{Var}(I_j)
+ +2\sum_{1\le i<j\le 6}\operatorname{Cov}(I_i,I_j).
+\]
+\end{scratch}
+
+\begin{enumerate}[label=\textbf{(\alph*)}]
+  \item Let
+  \[
+  I_j=\ind\{\text{face }j\text{ appears at least once}\},
+  \qquad j=1,\dots,6.
+  \]
+  Then
+  \[
+  X=I_1+\cdots+I_6.
+  \]
+  By linearity of expectation,
+  \[
+  E[X]=\sum_{j=1}^6 E[I_j]
+  =\sum_{j=1}^6 P(I_j=1).
+  \]
+  For any fixed $j$,
+  \[
+  P(I_j=1)=1-\left(\frac56\right)^4.
+  \]
+  Therefore
+  \[
+  E[X]=6\left(1-\left(\frac56\right)^4\right)
+  =\frac{671}{216}.
+  \]
+
+  \item Write
+  \[
+  p=P(I_1=1)=1-\left(\frac56\right)^4=\frac{671}{1296}.
+  \]
+  Then
+  \[
+  \operatorname{Var}(I_j)=p(1-p).
+  \]
+  For two distinct faces $i\ne j$,
+  \begin{align*}
+  q&=P(I_i=1,I_j=1)\\
+  &=1-2\left(\frac56\right)^4+\left(\frac46\right)^4
+   =\frac{151}{648},
+  \end{align*}
+  so
+  \[
+  \operatorname{Cov}(I_i,I_j)=q-p^2.
+  \]
+  Since there are $6$ diagonal terms and $\binom62=15$ distinct pairs,
+  \[
+  \operatorname{Var}(X)
+  =6p(1-p)+2\binom62(q-p^2).
+  \]
+  Therefore
+  \[
+  \operatorname{Var}(X)
+  =6p(1-p)+30(q-p^2)
+  =\frac{20855}{46656}.
+  \]
+\end{enumerate}
+
+\finalanswer{\text{(a)}\ E[X]=6\left(1-\left(\frac56\right)^4\right)=\frac{671}{216}}
+\finalanswer{\text{(b)}\ \operatorname{Var}(X)=\frac{20855}{46656}}
+\end{solution}
+
+\newpage
+
+\problem{8.40}
+Exercise 8.40. In a certain lottery 5 numbers are drawn without replacement out of the set $\{1,2,\dots,90\}$ randomly each week. Let $X$ be the number of different numbers drawn during the first four weeks of the year. (For example, if the draws are $\{1,2,3,4,5\}, \{2,3,4,5,6\}, \{3,4,5,6,7\}$ and $\{4,5,6,7,8\}$ then $X=8$.)
+
+(a) Find $E[X]$.
+
+\begin{solution}
+\begin{scratch}
+For each number $m\in\{1,\dots,90\}$, let
+\[
+I_m=\ind\{\text{number }m\text{ appears at least once in the first four weeks}\}.
+\]
+Then
+\[
+X=\sum_{m=1}^{90} I_m.
+\]
+So
+\[
+E[X]=\sum_{m=1}^{90} E[I_m]
+=90\,P(\text{a fixed number appears at least once}).
+\]
+
+For a fixed number $m$, in one week
+\[
+P(m\text{ is not drawn})=\frac{\binom{89}{5}}{\binom{90}{5}}=\frac{17}{18}.
+\]
+Since the weekly drawings are independent, the probability $m$ is never drawn in
+the first four weeks is
+\[
+\left(\frac{17}{18}\right)^4.
+\]
+\end{scratch}
+
+For each $m\in\{1,\dots,90\}$, let
+\[
+I_m=\ind\{\text{number }m\text{ is drawn at least once during the first four weeks}\}.
+\]
+Then
+\[
+X=\sum_{m=1}^{90} I_m.
+\]
+By linearity of expectation,
+\[
+E[X]=\sum_{m=1}^{90} E[I_m]
+=90\,P(I_1=1).
+\]
+
+Now fix a number, say $1$. In one week,
+\[
+P(1\text{ is not drawn})=\frac{\binom{89}{5}}{\binom{90}{5}}=\frac{17}{18}.
+\]
+Because the four weekly drawings are independent,
+\[
+P(1\text{ is never drawn in the first four weeks})
+=\left(\frac{17}{18}\right)^4.
+\]
+Hence
+\[
+P(I_1=1)=1-\left(\frac{17}{18}\right)^4.
+\]
+Therefore
+\[
+E[X]=90\left(1-\left(\frac{17}{18}\right)^4\right).
+\]
+
+\finalanswer{E[X]=90\left(1-\left(\frac{17}{18}\right)^4\right)}
+\end{solution}
+
+\newpage
+
+\problem{8.42}
+Exercise 8.42. The random variables $X_1,\dots,X_n$ are i.i.d. We also know that $E[X_1]=0$, $E[X_1^2]=a$, $E[X_1^3]=b$ and $E[X_1^4]=c$. Let $\bar{X}_n = \frac{X_1+\cdots+X_n}{n}$. Find the fourth moment of $\bar{X}_n$.
+
+\begin{solution}
+\begin{scratch}
+Let
+\[
+S_n=X_1+\cdots+X_n.
+\]
+Then
+\[
+\bar X_n=\frac{S_n}{n},
+\qquad
+E[\bar X_n^4]=\frac{1}{n^4}E[S_n^4].
+\]
+
+Expand $S_n^4$ by grouping terms according to exponent pattern:
+\[
+S_n^4
+=\sum_{i=1}^n X_i^4
++4\sum_{i\ne j} X_i^3X_j
++6\sum_{i<j} X_i^2X_j^2
++12\sum_{\substack{i,j,k\\\text{distinct}}} X_i^2X_jX_k
++24\sum_{i<j<k<\ell} X_iX_jX_kX_\ell.
+\]
+Because the $X_i$ are independent and $E[X_i]=0$, any term containing a factor
+with odd first power has expectation $0$. So only
+\[
+\sum X_i^4
+\quad\text{and}\quad
+\sum_{i<j} X_i^2X_j^2
+\]
+survive after taking expectation.
+\end{scratch}
+
+Let
+\[
+S_n=X_1+\cdots+X_n.
+\]
+Then
+\[
+E[\bar X_n^4]=\frac{1}{n^4}E[S_n^4].
+\]
+
+Expanding $S_n^4$ and taking expectations, all terms with an odd factor vanish
+because the $X_i$ are independent and $E[X_i]=0$. Thus only two types of terms
+remain:
+\[
+E[S_n^4]
+=\sum_{i=1}^n E[X_i^4]
++6\sum_{i<j} E[X_i^2X_j^2].
+\]
+By identical distribution,
+\[
+E[X_i^4]=c
+\]
+for every $i$, and by independence,
+\[
+E[X_i^2X_j^2]=E[X_i^2]E[X_j^2]=a^2
+\qquad (i\ne j).
+\]
+Therefore
+\[
+E[S_n^4]=nc+6\binom{n}{2}a^2
+=nc+3n(n-1)a^2.
+\]
+Dividing by $n^4$ gives
+\[
+E[\bar X_n^4]
+=\frac{nc+3n(n-1)a^2}{n^4}
+=\frac{c+3(n-1)a^2}{n^3}.
+\]
+
+\finalanswer{E[\bar X_n^4]=\frac{c+3(n-1)a^2}{n^3}}
+\end{solution}
+
+\newpage
+
+\problem{8.48}
+Exercise 8.48. Suppose there are 100 cards numbered 1 through 100. Draw a card at random. Let $X$ be the number of digits on the card (between 1 and 3) and let $Y$ be the number of zeros. Find $\mathrm{Cov}(X,Y)$.
+
+\begin{solution}
+\begin{scratch}
+Partition the numbers $1,\dots,100$ into:
+\begin{itemize}
+  \item $1$-digit numbers: $1,\dots,9$ ($9$ numbers),
+  \item $2$-digit numbers: $10,\dots,99$ ($90$ numbers),
+  \item the $3$-digit number: $100$.
+\end{itemize}
+
+For $Y$:
+\begin{itemize}
+  \item among $10,\dots,99$, only $10,20,\dots,90$ contain a zero, each with one
+  zero,
+  \item $100$ has two zeros.
+\end{itemize}
+
+So we can compute $E[X]$, $E[Y]$, and $E[XY]$ by averaging over these cases, then
+use
+\[
+\operatorname{Cov}(X,Y)=E[XY]-E[X]E[Y].
+\]
+\end{scratch}
+
+We compute
+\[
+\operatorname{Cov}(X,Y)=E[XY]-E[X]E[Y].
+\]
+
+First,
+\[
+E[X]
+=\frac{1}{100}\bigl(9\cdot 1+90\cdot 2+1\cdot 3\bigr)
+=\frac{192}{100}
+=\frac{48}{25}.
+\]
+
+Next, the total number of zeros among the integers $1,\dots,100$ is
+\[
+9\cdot 1+2=11,
+\]
+since $10,20,\dots,90$ contribute one zero each and $100$ contributes two zeros.
+Hence
+\[
+E[Y]=\frac{11}{100}.
+\]
+
+For $E[XY]$, the only numbers with $Y>0$ are $10,20,\dots,90$ and $100$. Thus
+\[
+E[XY]
+=\frac{1}{100}\bigl(9\cdot (2\cdot 1)+1\cdot (3\cdot 2)\bigr)
+=\frac{18+6}{100}
+=\frac{24}{100}
+=\frac{6}{25}.
+\]
+
+Therefore
+\[
+\operatorname{Cov}(X,Y)
+=\frac{6}{25}-\frac{48}{25}\cdot \frac{11}{100}
+=\frac{600-528}{2500}
+=\frac{72}{2500}
+=\frac{18}{625}.
+\]
+
+\finalanswer{\operatorname{Cov}(X,Y)=\frac{18}{625}}
+\end{solution}
+
+\newpage
+
+\problem{8.54}
+Exercise 8.54. Suppose that for the random variables $X,Y$ we have $E[X]=2$, $E[Y]=1$, $E[X^2]=5$, $E[Y^2]=10$ and $E[XY]=1$.
+
+(a) Compute $\mathrm{Corr}(X,Y)$.
+
+(b) Find a number $c$ so that $X$ and $X+cY$ are uncorrelated.
+
+\begin{solution}
+\begin{scratch}
+We are given
+\[
+E[X]=2,\quad E[Y]=1,\quad E[X^2]=5,\quad E[Y^2]=10,\quad E[XY]=1.
+\]
+So
+\[
+\operatorname{Cov}(X,Y)=E[XY]-E[X]E[Y]=1-2\cdot 1=-1.
+\]
+Also,
+\[
+\operatorname{Var}(X)=E[X^2]-(E[X])^2=5-4=1,
+\]
+\[
+\operatorname{Var}(Y)=E[Y^2]-(E[Y])^2=10-1=9.
+\]
+
+For part (b),
+\[
+\operatorname{Cov}(X,X+cY)=\operatorname{Cov}(X,X)+c\operatorname{Cov}(X,Y)
+=\operatorname{Var}(X)+c\operatorname{Cov}(X,Y).
+\]
+Set this equal to $0$ and solve for $c$.
+\end{scratch}
+
+\begin{enumerate}[label=\textbf{(\alph*)}]
+  \item We first compute the covariance:
+  \[
+  \operatorname{Cov}(X,Y)=E[XY]-E[X]E[Y]=1-2\cdot 1=-1.
+  \]
+  Next,
+  \[
+  \operatorname{Var}(X)=E[X^2]-(E[X])^2=5-4=1,
+  \]
+  and
+  \[
+  \operatorname{Var}(Y)=E[Y^2]-(E[Y])^2=10-1=9.
+  \]
+  Therefore
+  \[
+  \operatorname{Corr}(X,Y)
+  =\frac{\operatorname{Cov}(X,Y)}{\sqrt{\operatorname{Var}(X)\operatorname{Var}(Y)}}
+  =\frac{-1}{\sqrt{1\cdot 9}}
+  =-\frac13.
+  \]
+
+  \item We want $X$ and $X+cY$ to be uncorrelated, so we set
+  \[
+  \operatorname{Cov}(X,X+cY)=0.
+  \]
+  By linearity of covariance,
+  \[
+  \operatorname{Cov}(X,X+cY)
+  =\operatorname{Cov}(X,X)+c\operatorname{Cov}(X,Y)
+  =\operatorname{Var}(X)+c\operatorname{Cov}(X,Y).
+  \]
+  Using the values from part (a),
+  \[
+  0=1+c(-1)=1-c,
+  \]
+  so
+  \[
+  c=1.
+  \]
+\end{enumerate}
+
+\finalanswer{\text{(a)}\ \operatorname{Corr}(X,Y)=-\frac13}
+\finalanswer{\text{(b)}\ c=1}
 \end{solution}
 
 
