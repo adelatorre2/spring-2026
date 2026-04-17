@@ -1,27 +1,3 @@
-% !TEX program = pdflatex
-% ------------------------------------------------------------
-% MATH 521 Homework Template (adapted from your MATH 421 HW10)
-%
-% HOW TO USE (quick):
-%   1) Edit the Metadata block (HW number / due date especially).
-%   2) Paste each problem statement under \problem[]{<n>}.
-%   3) Write in the Scratch/Discussion box if you want.
-%   4) Write your proof under "Proof." and end with \qed (or \qedhere).
-%
-% Notes:
-% - Keeps theorem/definition boxes (tcolorbox).
-% - Keeps ToC + PDF bookmarks for each problem.
-% - Adds a Scratch/Discussion box per problem (optional).
-% - Header bar has course + meeting info (left) and HW number (right).
-% ------------------------------------------------------------
-
-% TROUBLESHOOTING NOTE:
-% If you ever see errors like `\tcb@insert@after@part` or other tcolorbox internals being
-% an "Undefined control sequence", that usually means LaTeX is accidentally loading a
-% DIFFERENT (often older) `tcolorbox.sty` from your project folder or local texmf tree.
-% Fix: search your repo for `tcolorbox.sty` and delete/rename any local copy so TeX uses
-% the TeX Live version. Also try "Clean" in LaTeX Workshop to remove stale .aux/.toc/.out.
-
 \documentclass[12pt]{article}
 
 % =========================
@@ -32,7 +8,7 @@
 \newcommand{\CourseSection}{LEC 002}
 \newcommand{\Semester}{Spring 2026}
 \newcommand{\Instructor}{Thierry Laurens}
-\newcommand{\MeetingInfo}{MWF 1:20--2:10 \;|\; Van Vleck B119} % optional
+\newcommand{\MeetingInfo}{MWF 1:20--2:10 \;|\; VV B119} % optional
 \newcommand{\HomeworkNumber}{11} % <-- change each week
 \newcommand{\YourName}{Alejandro De La Torre}
 \newcommand{\DueDate}{April 17, 2026} % <-- or set e.g. January 31, 2026
@@ -152,50 +128,525 @@ Instructor: \Instructor}
 % ============================================================
 
 \problem[]{1}
-% Paste the problem statement here.
+Consider the metric space $(\mathbb{R},d)$ with the usual metric
+$d(x,y)=|x-y|$. Note that the set $\mathbb{Q}$ is not an interval, and so from
+lecture we know that it must be disconnected.
+\begin{enumerate}[label=\textbf{(\alph*)}]
+  \item Find two sets $A,B\subseteq \mathbb{R}$ that are nonempty and separated
+  so that $\mathbb{Q}=A\cup B$, and prove your answer.
+  \item Find a set $\varnothing\ne C\subsetneq \mathbb{Q}$ that is both open and
+  closed in $\mathbb{Q}$, and prove your answer.
+\end{enumerate}
 
 \begin{scratch}
-% Outline the strategy, key definitions, lemmas, or a proof sketch.
+The problem already gives an important fact from lecture: in $(\mathbb{R},|\cdot|)$, every interval is connected, so if a subset of $\mathbb{R}$ is not an interval, then it cannot be connected. Lecture 29 proves that every interval in $\mathbb{R}$ is connected, and the contrapositive is exactly the idea being invoked here: since $\mathbb{Q}$ is not an interval, it must be disconnected. In Lectures 28 and 29, disconnected means that the set can be written as the union of two nonempty separated sets, where ``separated'' means
+\[
+\overline{A}\cap B=\varnothing
+\qquad\text{and}\qquad
+A\cap\overline{B}=\varnothing.
+\]
+This tells me what kind of sets I should try to build.
+
+The easiest way to split $\mathbb{Q}$ is to cut at an irrational number, because that creates a genuine gap inside $\mathbb{Q}$. The most natural choice is $\sqrt{2}$. So I define
+\[
+A:=(-\infty,\sqrt{2})\cap\mathbb{Q},
+\qquad
+B:=(\sqrt{2},\infty)\cap\mathbb{Q}.
+\]
+These are clearly nonempty, disjoint, and their union is all of $\mathbb{Q}$. The real work is to prove they are separated. The key observation is that, as subsets of $\mathbb{R}$, their closures are
+\[
+\overline{A}=(-\infty,\sqrt{2}],
+\qquad
+\overline{B}=[\sqrt{2},\infty),
+\]
+so the only possible boundary point where they might ``touch'' is $\sqrt{2}$, and that point is not rational. Once that is checked, part (a) is done.
+
+For part (b), the problem is asking for a proper nonempty subset of $\mathbb{Q}$ that is both open and closed in the subspace metric on $\mathbb{Q}$. In plain English, that means a subset of $\mathbb{Q}$ that looks like an open set when viewed from inside $\mathbb{Q}$, but whose complement in $\mathbb{Q}$ also looks open. The same irrational cut works perfectly. If I take
+\[
+C:=(-\infty,\sqrt{2})\cap\mathbb{Q},
+\]
+then it should be open in $\mathbb{Q}$ because it is the intersection of the open set $(-\infty,\sqrt{2})$ in $\mathbb{R}$ with $\mathbb{Q}$, and it should be closed in $\mathbb{Q}$ because it is also the intersection of the closed set $(-\infty,\sqrt{2}]$ in $\mathbb{R}$ with $\mathbb{Q}$. That uses exactly the subspace results from lecture: a set is open or closed in a subspace precisely when it is the intersection of the subspace with a set that is open or closed in the ambient space.
 \end{scratch}
 
 \textbf{Proof.}\\
-% Write your proof here.
+\textbf{(a)} Define
+\[
+A:=(-\infty,\sqrt{2})\cap\mathbb{Q},
+\qquad
+B:=(\sqrt{2},\infty)\cap\mathbb{Q}.
+\]
+Then $A,B\subseteq\mathbb{R}$, and both are nonempty because, for example,
+\[
+1\in A,
+\qquad
+2\in B.
+\]
+Also,
+\[
+A\cup B=\mathbb{Q},
+\]
+since every rational number is either less than $\sqrt{2}$ or greater than $\sqrt{2}$, and no rational number equals $\sqrt{2}$ because $\sqrt{2}\notin\mathbb{Q}$.
+
+It remains to show that $A$ and $B$ are separated. First note that
+\[
+\overline{A}=(-\infty,\sqrt{2}]
+\qquad\text{and}\qquad
+\overline{B}=[\sqrt{2},\infty)
+\]
+in $\mathbb{R}$. Hence
+\[
+\overline{A}\cap B = (-\infty,\sqrt{2}]\cap \bigl((\sqrt{2},\infty)\cap\mathbb{Q}\bigr)=\varnothing,
+\]
+because no number can be both at most $\sqrt{2}$ and strictly greater than $\sqrt{2}$. Similarly,
+\[
+A\cap\overline{B} = \bigl(( -\infty,\sqrt{2})\cap\mathbb{Q}\bigr)\cap [\sqrt{2},\infty)=\varnothing.
+\]
+Therefore $A$ and $B$ are separated.
+
+Since $A$ and $B$ are nonempty, separated, and satisfy $\mathbb{Q}=A\cup B$, this gives a separation of $\mathbb{Q}$.
+
+\textbf{(b)} Let
+\[
+C:=(-\infty,\sqrt{2})\cap\mathbb{Q}.
+\]
+Then $C\neq\varnothing$ since $1\in C$, and $C\subsetneq\mathbb{Q}$ since, for example, $2\in\mathbb{Q}\setminus C$.
+
+We show that $C$ is open in $\mathbb{Q}$. The set $(-\infty,\sqrt{2})$ is open in $\mathbb{R}$, so by the subspace topology result from lecture,
+\[
+C = (-\infty,\sqrt{2})\cap\mathbb{Q}
+\]
+is open in $\mathbb{Q}$.
+
+We next show that $C$ is closed in $\mathbb{Q}$. The set $(-\infty,\sqrt{2}]$ is closed in $\mathbb{R}$, and since $\sqrt{2}\notin\mathbb{Q}$ we have
+\[
+(-\infty,\sqrt{2}]\cap\mathbb{Q} = (-\infty,\sqrt{2})\cap\mathbb{Q}=C.
+\]
+Again by the subspace result from lecture, this implies that $C$ is closed in $\mathbb{Q}$.
+
+Thus $C$ is a nonempty proper subset of $\mathbb{Q}$ that is both open and closed in $\mathbb{Q}$.
 \qed
 
 \newpage
 
 \problem[]{2}
-% Paste the problem statement here.
+Let $(X,d)$ be a metric space.
+\begin{enumerate}[label=\textbf{(\alph*)}]
+  \item Prove that if $F\subseteq X$ is disconnected and closed in $X$, then
+  there exist $A,B\subseteq X$ that are nonempty, separated, and closed in $X$
+  so that $F=A\cup B$.
+  \item Prove that if $U\subseteq X$ is disconnected and open in $X$, then
+  there exist $A,B\subseteq X$ that are nonempty, separated, and open in $X$ so
+  that $U=A\cup B$.
+\end{enumerate}
 
 \begin{scratch}
+The starting point for both parts is the definition of disconnectedness from Lectures 28 and 29: a set is disconnected if it can be written as the union of two nonempty separated sets. And ``separated'' means
+\[
+\overline{A}\cap B=\varnothing
+\qquad\text{and}\qquad
+A\cap\overline{B}=\varnothing.
+\]
+So in both parts, I do not need to invent the sets from scratch. The definition of disconnectedness already gives me two nonempty separated pieces whose union is the set I started with. The actual work is to prove that those pieces inherit the extra property I want: closedness in part (a), and openness in part (b).
+
+For part (a), I start with $F\subseteq X$ disconnected and closed in $X$. By disconnectedness, there exist nonempty separated sets $A,B\subseteq F$ with $F=A\cup B$. Since $F$ is closed, I want to use it together with the separation conditions to show that $A$ and $B$ are closed in $X$. The key observation is that separation forces
+\[
+F\cap\overline{A}=A
+\qquad\text{and}\qquad
+F\cap\overline{B}=B.
+\]
+Once I have that, each set is an intersection of closed sets, so it is closed.
+
+For part (b), I start with $U\subseteq X$ disconnected and open in $X$. Again, disconnectedness gives nonempty separated sets $A,B\subseteq U$ with $U=A\cup B$. Now I want to prove that $A$ and $B$ are open in $X$. The right way to use separation is to write each piece as an intersection of $U$ with the complement of the closure of the other piece:
+\[
+A=U\cap (\overline{B})^c,
+\qquad
+B=U\cap (\overline{A})^c.
+\]
+Since $U$ is open and closures are closed, these are open sets. So the proof in both parts is: use disconnectedness first, and then use either closedness or openness of the ambient set together with the separation conditions to upgrade the two pieces.
 \end{scratch}
 
 \textbf{Proof.}\\
+\textbf{(a)} Suppose that $F\subseteq X$ is disconnected and closed in $X$. Since $F$ is disconnected, by definition there exist sets $A,B\subseteq X$ such that
+\[
+A\neq\varnothing,
+\qquad
+B\neq\varnothing,
+\qquad
+F=A\cup B,
+\]
+and $A$ and $B$ are separated; that is,
+\[
+\overline{A}\cap B=\varnothing
+\qquad\text{and}\qquad
+A\cap\overline{B}=\varnothing.
+\]
+It remains to show that $A$ and $B$ are closed in $X$.
+
+We claim that
+\[
+F\cap\overline{A}=A.
+\]
+Indeed, since $A\subseteq F$ and $A\subseteq\overline{A}$, we have $A\subseteq F\cap\overline{A}$. Conversely, let $x\in F\cap\overline{A}$. Since $F=A\cup B$, either $x\in A$ or $x\in B$. But $x\in B$ is impossible, because then $x\in \overline{A}\cap B$, contradicting that $A$ and $B$ are separated. Hence $x\in A$. This proves the claim.
+
+Now both $F$ and $\overline{A}$ are closed in $X$, so $F\cap\overline{A}$ is closed in $X$. Since $F\cap\overline{A}=A$, it follows that $A$ is closed in $X$.
+
+Similarly,
+\[
+F\cap\overline{B}=B,
+\]
+and therefore $B$ is closed in $X$.
+
+Thus there exist $A,B\subseteq X$ that are nonempty, separated, and closed in $X$ such that
+\[
+F=A\cup B.
+\]
+
+\textbf{(b)} Suppose that $U\subseteq X$ is disconnected and open in $X$. Since $U$ is disconnected, by definition there exist sets $A,B\subseteq X$ such that
+\[
+A\neq\varnothing,
+\qquad
+B\neq\varnothing,
+\qquad
+U=A\cup B,
+\]
+and $A$ and $B$ are separated; that is,
+\[
+\overline{A}\cap B=\varnothing
+\qquad\text{and}\qquad
+A\cap\overline{B}=\varnothing.
+\]
+It remains to show that $A$ and $B$ are open in $X$.
+
+We claim that
+\[
+A=U\cap (\overline{B})^c.
+\]
+First, let $x\in A$. Then $x\in U$ since $A\subseteq U$, and also $x\notin\overline{B}$ because $A\cap\overline{B}=\varnothing$. Hence
+\[
+x\in U\cap (\overline{B})^c.
+\]
+So $A\subseteq U\cap (\overline{B})^c$.
+
+Conversely, let $x\in U\cap (\overline{B})^c$. Since $x\in U=A\cup B$, either $x\in A$ or $x\in B$. But $x\in B$ is impossible, because every set is contained in its closure, so $x\in B$ would imply $x\in\overline{B}$, contradicting $x\in (\overline{B})^c$. Therefore $x\in A$. This proves the claim.
+
+Since $U$ is open and $(\overline{B})^c$ is open, the set
+\[
+A=U\cap (\overline{B})^c
+\]
+is open in $X$.
+
+By the same argument,
+\[
+B=U\cap (\overline{A})^c,
+\]
+and therefore $B$ is open in $X$.
+
+Thus there exist $A,B\subseteq X$ that are nonempty, separated, and open in $X$ such that
+\[
+U=A\cup B.
+\]
 \qed
 
 \newpage
 
 \problem[]{3}
-% Paste the problem statement here.
+Suppose that $(X,d)$ is a metric space such that for any pair of points
+$a,b\in X$, there exists a connected set $C\subseteq X$ so that
+$a,b\in C$. Prove that $X$ is connected.
 
 \begin{scratch}
+The statement is saying that any two points of $X$ can be placed inside some connected subset of $X$. Intuitively, that means the space cannot break into two separated pieces, because if it did, then a connected set containing one point from each side would be forced to lie entirely in one side or entirely in the other, which is impossible. So the result I want to prove is really a global connectedness statement coming from the existence of enough connected subsets joining pairs of points.
+
+From Lecture 29, the main result I want is the proposition that if $C\subseteq X$ is connected and $A,B\subseteq X$ are separated with $C\subseteq A\cup B$, then either $C\subseteq A$ or $C\subseteq B$. That is exactly the theorem that prevents a connected set from straddling a separation. From Lectures 28 and 29, I also need the definition of disconnectedness: $X$ is disconnected if there exist nonempty separated sets $A,B\subseteq X$ such that $X=A\cup B$. And of course, $X$ is connected if it is not disconnected.
+
+So the proof template is contradiction. I assume $X$ is disconnected. Then there exist nonempty separated sets $A$ and $B$ whose union is $X$. I pick one point $a\in A$ and one point $b\in B$. By hypothesis, there is a connected set $C\subseteq X$ containing both $a$ and $b$. But since $C\subseteq X=A\cup B$, the lecture proposition says that either $C\subseteq A$ or $C\subseteq B$. That cannot happen because $C$ contains both $a$ and $b$. This contradiction shows that $X$ must be connected.
 \end{scratch}
 
 \textbf{Proof.}\\
+Suppose, toward a contradiction, that $X$ is disconnected. Then by definition there exist sets $A,B\subseteq X$ such that
+\[
+A\neq\varnothing,
+\qquad
+B\neq\varnothing,
+\qquad
+X=A\cup B,
+\]
+and $A$ and $B$ are separated; that is,
+\[
+\overline{A}\cap B=\varnothing
+\qquad\text{and}\qquad
+A\cap\overline{B}=\varnothing.
+\]
+
+Choose points
+\[
+a\in A,
+\qquad
+b\in B.
+\]
+By the hypothesis of the problem, there exists a connected set $C\subseteq X$ such that
+\[
+a,b\in C.
+\]
+Since $X=A\cup B$, we have
+\[
+C\subseteq A\cup B.
+\]
+Now apply the proposition from lecture: if a connected set is contained in the union of two separated sets, then it must lie entirely in one of them. Therefore either
+\[
+C\subseteq A
+\qquad\text{or}\qquad
+C\subseteq B.
+\]
+But this is impossible, because $a\in C\cap A$ and $b\in C\cap B$. If $C\subseteq A$, then $b\in A$, contradicting that $b\in B$ and $A,B$ are separated (hence disjoint). Similarly, if $C\subseteq B$, then $a\in B$, again a contradiction.
+
+Thus our assumption that $X$ is disconnected is false. Therefore $X$ is connected.
 \qed
 
-% Add more problems as needed:
-% \newpage
-% \problem[]{4}
-% ...
+\newpage
+
+\problem[]{4}
+Let $(X,d)$ be a metric space and $A\subseteq X$. Prove that if $A$ is
+connected, then $\overline{A}$ is connected.
+
+\begin{scratch}
+This problem is really asking me to show that connectedness is preserved when I pass from a set to its closure. The relevant definition from Lectures 28 and 29 is that a set is disconnected if it can be written as the union of two nonempty separated sets; otherwise it is connected. So to prove that $\overline{A}$ is connected, the natural strategy is contradiction: assume that $\overline{A}$ is disconnected, and then try to use that separation to force a separation of $A$ itself.
+
+The key lecture result I want is the proposition from Lecture 29: if $C$ is connected and $E,F$ are separated with $C\subseteq E\cup F$, then either $C\subseteq E$ or $C\subseteq F$. Since $A$ is connected and $A\subseteq\overline{A}$, this proposition says that if $\overline{A}$ were split into two separated pieces, then all of $A$ would have to lie in just one of them. The remaining idea is then to use the fact that points of the closure of $A$ are limits of sequences in $A$ from Lecture 25. If all of $A$ lies in one side of the separation, then every limit point of $A$ must also lie on that same side, which rules out the other side entirely. That contradiction shows $\overline{A}$ cannot be disconnected.
+\end{scratch}
+
+\textbf{Proof.}\\
+Suppose, toward a contradiction, that $\overline{A}$ is disconnected. Then by definition there exist nonempty separated sets $E,F\subseteq X$ such that
+\[
+\overline{A}=E\cup F.
+\]
+Since $A\subseteq\overline{A}=E\cup F$ and $A$ is connected, the proposition from lecture implies that either
+\[
+A\subseteq E
+\qquad\text{or}\qquad
+A\subseteq F.
+\]
+Without loss of generality, assume that
+\[
+A\subseteq E.
+\]
+
+Now let $x\in F$. Since $F\subseteq\overline{A}$, we have $x\in\overline{A}$. By the sequential characterization of closure from lecture, there exists a sequence $\{a_n\}\subseteq A$ such that
+\[
+a_n\to x.
+\]
+But every $a_n\in A\subseteq E$, so $\{a_n\}$ is a sequence in $E$ converging to $x$. Hence
+\[
+x\in\overline{E}.
+\]
+Since also $x\in F$, this shows that
+\[
+x\in\overline{E}\cap F,
+\]
+which contradicts the fact that $E$ and $F$ are separated.
+
+Therefore $F=\varnothing$, contradicting that $E$ and $F$ were both nonempty. This contradiction shows that $\overline{A}$ is not disconnected. Hence $\overline{A}$ is connected.
+\qed
+
+\newpage
+
+\problem[]{5}
+Let $(X,d)$ be a metric space and $A,B\subseteq X$. Prove that if $A$ and $B$
+are both connected and $A\cap B\neq\varnothing$, then $A\cup B$ is connected.
+
+\begin{scratch}
+This is one of the standard closure properties of connected sets. The main definition from Lectures 28 and 29 is that a set is disconnected if it can be written as the union of two nonempty separated sets; otherwise it is connected. So the natural proof strategy is contradiction: assume that $A\cup B$ is disconnected, and then analyze what that separation would force on the connected sets $A$ and $B$ individually.
+
+The key lecture result I need is the proposition from Lecture 29 that says: if $C$ is connected and $E,F$ are separated with $C\subseteq E\cup F$, then either $C\subseteq E$ or $C\subseteq F$. That theorem is exactly designed for this problem. If $A\cup B$ were disconnected, then I could write
+\[
+A\cup B = E\cup F
+\]
+with $E$ and $F$ nonempty and separated. Since $A$ is connected and lies in $E\cup F$, the proposition forces all of $A$ to lie in one side. Likewise, all of $B$ must lie in one side. Because $A\cap B\neq\varnothing$, the sets $A$ and $B$ cannot land in different sides. So they must both lie in the same side, which would force the other side to be empty. That contradiction shows that $A\cup B$ is connected.
+\end{scratch}
+
+\textbf{Proof.}\\
+Suppose, toward a contradiction, that $A\cup B$ is disconnected. Then by definition there exist nonempty separated sets $E,F\subseteq X$ such that
+\[
+A\cup B = E\cup F.
+\]
+Since $A\subseteq A\cup B = E\cup F$ and $A$ is connected, the proposition from lecture implies that either
+\[
+A\subseteq E
+\qquad\text{or}\qquad
+A\subseteq F.
+\]
+Similarly, since $B\subseteq E\cup F$ and $B$ is connected, either
+\[
+B\subseteq E
+\qquad\text{or}\qquad
+B\subseteq F.
+\]
+
+We claim that $A$ and $B$ must lie in the same side. Indeed, suppose not. Then, after relabeling if necessary, we would have
+\[
+A\subseteq E
+\qquad\text{and}\qquad
+B\subseteq F.
+\]
+But $A\cap B\neq\varnothing$, so choose some point $x\in A\cap B$. Then $x\in E$ and $x\in F$, which implies
+\[
+x\in E\cap F.
+\]
+This is impossible because separated sets are disjoint. Hence $A$ and $B$ must both be contained in $E$, or both be contained in $F$.
+
+If $A\subseteq E$ and $B\subseteq E$, then
+\[
+A\cup B\subseteq E,
+\]
+so from $A\cup B=E\cup F$ we get $F=\varnothing$, contradicting that $F$ is nonempty. The case $A\subseteq F$ and $B\subseteq F$ similarly implies $E=\varnothing$, also a contradiction.
+
+Thus our assumption that $A\cup B$ is disconnected is false. Therefore $A\cup B$ is connected.
+\qed
+
+\newpage
+
+\problem[]{6}
+Let $(X,d)$ be a metric space.
+\begin{enumerate}[label=\textbf{(\alph*)}]
+  \item Let $A,B,C\subseteq X$. Prove that if the sets $A$ and $B$ are
+  separated and the sets $A$ and $C$ are separated, then the sets $A$ and
+  $B\cup C$ are separated.
+  \item Prove that if $F,G\subseteq X$ are closed and $F\cup G$ and
+  $F\cap G$ are connected, then $F$ is connected.
+\end{enumerate}
+
+\begin{scratch}
+For part (a), the whole problem is about carefully unpacking the definition of separated sets. From lecture, $E$ and $F$ are separated if
+\[
+\overline{E}\cap F=\varnothing
+\qquad\text{and}\qquad
+E\cap\overline{F}=\varnothing.
+\]
+So if I want to prove that $A$ and $B\cup C$ are separated, I need to check exactly those two conditions with $B\cup C$ in place of one of the sets. The first condition is easy, because
+\[
+\overline{A}\cap (B\cup C)=(\overline{A}\cap B)\cup(\overline{A}\cap C),
+\]
+and both pieces are empty by hypothesis. For the second condition, the key topological fact is
+\[
+\overline{B\cup C}\subseteq \overline{B}\cup\overline{C}.
+\]
+Then
+\[
+A\cap\overline{B\cup C}\subseteq (A\cap\overline{B})\cup(A\cap\overline{C}),
+\]
+and again both pieces are empty. So part (a) is really just a direct closure computation.
+
+For part (b), the assumptions are that $F$ and $G$ are closed, that $F\cup G$ is connected, and that $F\cap G$ is connected. I want to prove that $F$ itself is connected. The natural strategy is contradiction: assume $F$ is disconnected. Then by Problem 2(a), because $F$ is also closed, I can write
+\[
+F=A\cup B
+\]
+where $A$ and $B$ are nonempty, separated, and closed in $X$. Since $F\cap G$ is connected and sits inside $A\cup B$, the connected-set proposition from Lecture 29 says that $F\cap G$ must lie entirely in one side. Without loss of generality, that means
+\[
+F\cap G\subseteq A.
+\]
+Then $G\cap B=\varnothing$. Since both $G$ and $B$ are closed, that actually makes $G$ and $B$ separated. We already know $A$ and $B$ are separated, so by part (a), $B$ is separated from $A\cup G$. But then
+\[
+F\cup G=(A\cup G)\cup B
+\]
+is a separation of $F\cup G$, contradicting connectedness. So $F$ must be connected.
+\end{scratch}
+
+\textbf{Proof.}\\
+\textbf{(a)} Suppose that $A$ and $B$ are separated and that $A$ and $C$ are separated. We show that $A$ and $B\cup C$ are separated.
+
+First,
+\[
+\overline{A}\cap (B\cup C)
+=(\overline{A}\cap B)\cup(\overline{A}\cap C).
+\]
+Since $A$ and $B$ are separated, we have $\overline{A}\cap B=\varnothing$, and since $A$ and $C$ are separated, we have $\overline{A}\cap C=\varnothing$. Therefore
+\[
+\overline{A}\cap (B\cup C)=\varnothing.
+\]
+
+Next, because $B\subseteq B\cup C$ and $C\subseteq B\cup C$, we have
+\[
+\overline{B\cup C}\subseteq \overline{B}\cup\overline{C}.
+\]
+Hence
+\[
+A\cap\overline{B\cup C}
+\subseteq A\cap(\overline{B}\cup\overline{C})
+=(A\cap\overline{B})\cup(A\cap\overline{C}).
+\]
+Again, since $A$ is separated from both $B$ and $C$, we have
+\[
+A\cap\overline{B}=\varnothing
+\qquad\text{and}\qquad
+A\cap\overline{C}=\varnothing.
+\]
+Therefore
+\[
+A\cap\overline{B\cup C}=\varnothing.
+\]
+
+Thus
+\[
+\overline{A}\cap(B\cup C)=\varnothing
+\qquad\text{and}\qquad
+A\cap\overline{B\cup C}=\varnothing,
+\]
+so $A$ and $B\cup C$ are separated.
+
+\textbf{(b)} Suppose, toward a contradiction, that $F$ is disconnected. Since $F$ is also closed in $X$, Problem 2(a) implies that there exist sets $A,B\subseteq X$ such that
+\[
+A\neq\varnothing,
+\qquad
+B\neq\varnothing,
+\qquad
+F=A\cup B,
+\]
+and $A$ and $B$ are separated and closed in $X$.
+
+Now consider the set $F\cap G$. Since $F\cap G\subseteq F=A\cup B$ and $F\cap G$ is connected by assumption, the proposition from Lecture 29 implies that either
+\[
+F\cap G\subseteq A
+\qquad\text{or}\qquad
+F\cap G\subseteq B.
+\]
+Without loss of generality, assume that
+\[
+F\cap G\subseteq A.
+\]
+We claim that $G$ and $B$ are separated. Indeed, since $B\subseteq F$, we have
+\[
+G\cap B \subseteq G\cap F = F\cap G \subseteq A.
+\]
+But $A$ and $B$ are separated, hence disjoint, so $A\cap B=\varnothing$. Therefore
+\[
+G\cap B=\varnothing.
+\]
+Because $G$ and $B$ are both closed in $X$, we have $\overline{G}=G$ and $\overline{B}=B$, and so
+\[
+\overline{G}\cap B = G\cap B = \varnothing,
+\qquad
+G\cap\overline{B} = G\cap B = \varnothing.
+\]
+Thus $G$ and $B$ are separated.
+
+We already know that $A$ and $B$ are separated. Applying part (a) with the roles of the sets relabeled, we conclude that $B$ and $A\cup G$ are separated.
+
+Now
+\[
+F\cup G = (A\cup B)\cup G = (A\cup G)\cup B.
+\]
+Also, $B\neq\varnothing$ by construction, and $A\cup G\neq\varnothing$ because $A\neq\varnothing$. Since $B$ and $A\cup G$ are separated, this shows that $F\cup G$ is disconnected, contradicting the assumption that $F\cup G$ is connected.
+
+Therefore $F$ must be connected.
+\qed
 
 % ============================================================
 % Optional appendix: keep a personal toolbox of definitions/theorems
 % ============================================================
 \newpage
 \appendix
-\section*{Appendix: Toolbox (optional)}
-\addcontentsline{toc}{section}{Appendix: Toolbox (optional)}
+\section*{Appendix: Toolbox}
+\addcontentsline{toc}{section}{Appendix: Toolbox}
 
 % Example (using amsthm environments instead of boxed tcolorboxes):
 % \begin{definition}

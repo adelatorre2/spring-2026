@@ -1,0 +1,563 @@
+\documentclass[12pt]{article}
+
+% =========================
+% 0) Metadata (EDIT ME)
+% =========================
+\newcommand{\CourseCode}{MATH 431}
+\newcommand{\CourseTitle}{Introduction to Probability}
+\newcommand{\CourseSection}{LEC 002} % change to 001 or 003 if needed
+\newcommand{\Semester}{Spring 2026}
+\newcommand{\Instructor}{Sarah Tammen} % LEC 001: Ander Aguirre | LEC 002: Sarah Tammen | LEC 003: Nicholas Derr
+\newcommand{\MeetingInfo}{MWF 9:55--10:45, 6102 Sewell Social Sciences} % LEC 001 default; update if in 002/003
+\newcommand{\HomeworkNumber}{10}
+\newcommand{\YourName}{Alejandro De La Torre}
+\newcommand{\DueDate}{April 17, 2026} % or e.g. February 2, 2026
+
+% =========================
+% 1) Core math tools
+% =========================
+\usepackage{amsmath, amssymb, amsthm}
+
+% =========================
+% 2) Lists and spacing
+% =========================
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=\textbf{(\alph*)}, leftmargin=2em, itemsep=0.25em}
+\setlist[itemize]{leftmargin=1.5em, itemsep=0.25em}
+\setlength{\parskip}{0.35em}
+\setlength{\parindent}{0pt}
+
+% =========================
+% 3) Page geometry + header/footer
+% =========================
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\CourseCode\ --- \CourseSection, \Semester}
+\rhead{Homework \HomeworkNumber}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\headheight}{15pt}
+\addtolength{\topmargin}{-2pt}
+
+% =========================
+% 4) Links (subtle)
+% =========================
+\usepackage[hidelinks]{hyperref}
+\setcounter{tocdepth}{1}
+
+% =========================
+% 5) Figures (optional)
+% =========================
+\usepackage{graphicx}
+\graphicspath{{images/}}
+
+% =========================
+% 6) Lightweight boxes (optional)
+% =========================
+\usepackage{mdframed}
+\newmdenv[
+  skipabove=0.6\baselineskip,
+  skipbelow=0.6\baselineskip,
+  linewidth=0.6pt,
+  roundcorner=4pt,
+  innerleftmargin=10pt,
+  innerrightmargin=10pt,
+  innertopmargin=8pt,
+  innerbottommargin=8pt
+]{boxnote}
+
+% =========================
+% 7) Probability / notation macros
+% =========================
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newcommand{\OmegaSpace}{\Omega}
+\newcommand{\FField}{\mathcal{F}}
+% Probability measure in case it is relevant or want to distinguish it from P(A)
+%\newcommand{\PMeasure}{\mathbb{P}} 
+\newcommand{\E}{\mathbb{E}}
+
+\newcommand{\given}{\,\middle|\,}
+\newcommand{\ind}{\mathbf{1}}
+
+% Common “defined as” symbol
+\newcommand{\defeq}{\vcentcolon=}
+
+% =========================
+% 8) Problem command (TOC + PDF bookmarks)
+% Usage:
+%   \problem{<label>}
+%   \problem[Short title]{<label>}
+% Example:
+%   \problem{1.4}
+%   \problem[Sample space]{1.4}
+% =========================
+\makeatletter
+\newcommand{\problem}[2][]{%
+  \def\prob@title{Problem #2\if\relax\detokenize{#1}\relax\else\ (\textit{#1})\fi}%
+  \phantomsection%
+  \pdfbookmark[1]{\prob@title}{prob#2}%
+  \addcontentsline{toc}{section}{\prob@title}%
+  \section*{\prob@title}%
+  \vspace{-0.25em}\hrule\vspace{0.8em}%
+}
+\makeatother
+
+% =========================
+% 9) Solution environment
+% =========================
+\newenvironment{solution}{%
+  \noindent\textbf{Solution.}\ \ignorespaces
+}{\par}
+
+% Optional scratch / planning block
+\newenvironment{scratch}{%
+  \begin{boxnote}\textbf{Scratch / Setup.}\ \small
+}{\end{boxnote}}
+
+% Final answer command: expects math only (no $$ or \[ \])
+\newcommand{\finalanswer}[1]{%
+  \par\medskip
+  \noindent\textbf{Final:}\ \fbox{$#1$}\par
+} % AGAIN: MATH ONLY INSIDE THE BOX; if word answer, use \text{} inside or use \fbox{TEXT} or \framebox
+
+% =========================
+% 10) Title block
+% =========================
+\title{Homework \HomeworkNumber}
+\author{\YourName \\
+\CourseCode\ --- \CourseTitle \\
+\CourseSection \\
+Instructor: \Instructor}
+\date{Due: \DueDate}
+
+\begin{document}
+\maketitle
+
+% \section*{Collaboration / Resources}
+% (Optional) Write “I worked alone” or list collaborators/resources.
+
+\tableofcontents
+\bigskip
+\hrule
+\bigskip
+\newpage
+
+% ============================================================
+% Problems (duplicate blocks as needed)
+% ============================================================
+
+
+\problem{7.2}
+Let $X$ and $Y$ be independent Bernoulli random variables with parameters $p$ and $r$, respectively. Find the distribution of $X+Y$.
+
+\begin{solution}
+
+\begin{scratch}
+Let
+\[
+S=X+Y.
+\]
+Since $X,Y\in\{0,1\}$, the only possible values of $S$ are $0,1,2$.
+
+The relevant combinations are:
+\[
+\begin{aligned}
+S=0 &\iff (X,Y)=(0,0),\\
+S=1 &\iff (X,Y)\in\{(1,0),(0,1)\},\\
+S=2 &\iff (X,Y)=(1,1).
+\end{aligned}
+\]
+Because $X$ and $Y$ are independent Bernoulli random variables,
+\[
+P(X=1)=p,\quad P(X=0)=1-p,\quad P(Y=1)=r,\quad P(Y=0)=1-r.
+\]
+\end{scratch}
+
+We are computing the probability mass function of $S=X+Y$.
+
+Since $S$ can take only the values $0,1,2$, we compute these probabilities directly.
+First,
+\[
+P(S=0)=P(X=0,Y=0)=P(X=0)P(Y=0)=(1-p)(1-r).
+\]
+Next,
+\[
+P(S=2)=P(X=1,Y=1)=P(X=1)P(Y=1)=pr.
+\]
+Finally,
+\begin{align*}
+P(S=1)
+&=P(X=1,Y=0)+P(X=0,Y=1)\\
+&=P(X=1)P(Y=0)+P(X=0)P(Y=1)\\
+&=p(1-r)+(1-p)r\\
+&=p+r-2pr.
+\end{align*}
+
+Therefore the pmf of $X+Y$ is
+\[
+p_S(s)=P(S=s)=
+\begin{cases}
+(1-p)(1-r), & s=0,\\[4pt]
+p+r-2pr, & s=1,\\[4pt]
+pr, & s=2,\\[4pt]
+0, & \text{otherwise}.
+\end{cases}
+\]
+This is a binomial distribution only in the special case $p=r$.
+
+\finalanswer{P(X+Y=0)=(1-p)(1-r),\quad P(X+Y=1)=p+r-2pr}
+\finalanswer{P(X+Y=2)=pr}
+
+\end{solution}
+
+\newpage
+
+\problem{7.16}
+Let $X$ be a Poisson random variable with parameter $\lambda$, and $Y$ an independent Bernoulli random variable with parameter $p$. Find the probability mass function of $X+Y$.
+
+\begin{solution}
+
+\begin{scratch}
+Let
+\[
+S=X+Y.
+\]
+Since $X\in\{0,1,2,\dots\}$ and $Y\in\{0,1\}$, the support of $S$ is also
+\[
+\{0,1,2,\dots\}.
+\]
+
+The cleanest computation is to condition on $Y$:
+\[
+P(S=n)=P(Y=0)P(X=n)+P(Y=1)P(X=n-1),
+\]
+with the convention that $P(X=-1)=0$.
+
+Also,
+\[
+P(X=k)=e^{-\lambda}\frac{\lambda^k}{k!},\qquad k=0,1,2,\dots
+\]
+and
+\[
+P(Y=0)=1-p,\qquad P(Y=1)=p.
+\]
+\end{scratch}
+
+We want the probability mass function of $S=X+Y$.
+
+For $n\ge 0$,
+\[
+P(S=n)=P(Y=0)P(X=n)+P(Y=1)P(X=n-1).
+\]
+If $n=0$, the second term is zero, so
+\[
+P(S=0)=(1-p)P(X=0)=(1-p)e^{-\lambda}.
+\]
+
+If $n\ge 1$, then
+\begin{align*}
+P(S=n)
+&=(1-p)e^{-\lambda}\frac{\lambda^n}{n!}
++p\,e^{-\lambda}\frac{\lambda^{n-1}}{(n-1)!}\\
+&=e^{-\lambda}\frac{\lambda^{n-1}}{n!}\bigl((1-p)\lambda+np\bigr).
+\end{align*}
+
+Hence the pmf of $X+Y$ is
+\[
+p_{X+Y}(n)=
+\begin{cases}
+(1-p)e^{-\lambda}, & n=0,\\[6pt]
+e^{-\lambda}\dfrac{\lambda^{n-1}}{n!}\bigl((1-p)\lambda+np\bigr), & n=1,2,3,\dots
+\end{cases}
+\]
+
+\finalanswer{p_{X+Y}(0)=(1-p)e^{-\lambda},\quad p_{X+Y}(n)=e^{-\lambda}\frac{\lambda^{n-1}}{n!}\bigl((1-p)\lambda+np\bigr)\ \text{for }n\ge 1}
+
+\end{solution}
+
+\newpage
+
+\problem{7.20}
+Let $X$ have density $f_X(x)=2x$ for $0<x<1$ and 0 outside of $(0,1)$, and let $Y$ be uniform on the interval $(1,2)$. Assume $X$ and $Y$ independent.
+\begin{enumerate}[label=\textbf{(\alph*)}]
+  \setcounter{enumi}{1}
+  \item Find the density function of $X+Y$.
+\end{enumerate}
+
+\begin{solution}
+
+\begin{scratch}
+Let
+\[
+T=X+Y.
+\]
+Since $X\in(0,1)$ and $Y\in(1,2)$, we must have
+\[
+T\in(1,3).
+\]
+
+By convolution,
+\[
+f_T(t)=\int_{-\infty}^{\infty} f_X(x)f_Y(t-x)\,dx.
+\]
+Here
+\[
+f_X(x)=
+\begin{cases}
+2x, & 0<x<1,\\
+0, & \text{otherwise},
+\end{cases}
+\qquad
+f_Y(y)=
+\begin{cases}
+1, & 1<y<2,\\
+0, & \text{otherwise}.
+\end{cases}
+\]
+
+The integrand is nonzero exactly when
+\[
+0<x<1
+\quad\text{and}\quad
+1<t-x<2,
+\]
+that is,
+\[
+\max(0,t-2)<x<\min(1,t-1).
+\]
+This leads to two cases:
+\[
+1<t<2 \quad\text{and}\quad 2\le t<3.
+\]
+\end{scratch}
+
+We are finding the density of $T=X+Y$.
+
+For any real $t$,
+\[
+f_T(t)=\int_{-\infty}^{\infty} f_X(x)f_Y(t-x)\,dx.
+\]
+If $t\notin(1,3)$, there is no overlap of the supports, so $f_T(t)=0$.
+
+If $1<t<2$, then $\max(0,t-2)=0$ and $\min(1,t-1)=t-1$, so
+\[
+f_T(t)=\int_0^{t-1}2x\,dx=(t-1)^2.
+\]
+
+If $2\le t<3$, then $\max(0,t-2)=t-2$ and $\min(1,t-1)=1$, so
+\[
+f_T(t)=\int_{t-2}^{1}2x\,dx=1-(t-2)^2.
+\]
+
+Therefore
+\[
+f_{X+Y}(t)=
+\begin{cases}
+(t-1)^2, & 1<t<2,\\[4pt]
+1-(t-2)^2, & 2\le t<3,\\[4pt]
+0, & \text{otherwise}.
+\end{cases}
+\]
+As a quick check,
+\[
+\int_1^2 (t-1)^2\,dt+\int_2^3 \bigl(1-(t-2)^2\bigr)\,dt
+=\frac13+\frac23=1,
+\]
+so this is a valid density.
+
+\finalanswer{f_{X+Y}(t)=\begin{cases}(t-1)^2,&1<t<2\\ 1-(t-2)^2,&2\le t<3\\ 0,&\text{otherwise}\end{cases}}
+
+\end{solution}
+
+\newpage
+
+\problem{7.24}
+Suppose that $X$, $Y$, and $Z$ are independent mean zero normal random variables. Find $P(X+2Y-3Z>0)$.
+
+\begin{solution}
+
+\begin{scratch}
+Let
+\[
+W=X+2Y-3Z.
+\]
+Because $X,Y,Z$ are independent normal random variables, any linear combination
+of them is also normal. So $W$ is normal.
+
+Its mean is
+\[
+E[W]=E[X]+2E[Y]-3E[Z]=0.
+\]
+If we write
+\[
+\operatorname{Var}(X)=\sigma_X^2,\quad \operatorname{Var}(Y)=\sigma_Y^2,\quad \operatorname{Var}(Z)=\sigma_Z^2,
+\]
+then independence gives
+\[
+\operatorname{Var}(W)=\sigma_X^2+4\sigma_Y^2+9\sigma_Z^2.
+\]
+So $W$ is a mean-zero normal random variable, hence its distribution is symmetric
+about $0$.
+\end{scratch}
+
+We are asked to compute the probability
+\[
+P(X+2Y-3Z>0)=P(W>0),
+\]
+where
+\[
+W=X+2Y-3Z.
+\]
+
+Since $W$ is a linear combination of independent normal random variables, it is
+itself normal. Its mean is
+\[
+E[W]=0,
+\]
+and its variance is
+\[
+\operatorname{Var}(W)=\operatorname{Var}(X)+4\operatorname{Var}(Y)+9\operatorname{Var}(Z).
+\]
+Therefore $W$ is a centered normal random variable. A mean-zero normal
+distribution is symmetric about $0$, so
+\[
+P(W>0)=\frac12.
+\]
+
+\finalanswer{P(X+2Y-3Z>0)=\frac12}
+
+\end{solution}
+
+\newpage
+
+\problem{7.28}
+Let $X_1,X_2,X_3$ be independent $\operatorname{Exp}(\lambda)$ distributed random variables. Find the probability that $X_1<X_2<X_3$.
+
+\begin{solution}
+
+\begin{scratch}
+The variables $X_1,X_2,X_3$ are i.i.d. and continuous.
+
+Because they are continuous,
+\[
+P(X_i=X_j)=0\qquad \text{for } i\ne j,
+\]
+so ties occur with probability $0$.
+
+There are $3!=6$ strict orderings:
+\[
+\begin{aligned}
+&X_1<X_2<X_3,\qquad X_1<X_3<X_2,\qquad X_2<X_1<X_3,\\
+&X_2<X_3<X_1,\qquad X_3<X_1<X_2,\qquad X_3<X_2<X_1.
+\end{aligned}
+\]
+By exchangeability of i.i.d. random variables, these six orderings are equally likely.
+\end{scratch}
+
+Since $X_1,X_2,X_3$ are independent and identically distributed continuous random
+variables, each strict ordering of the three variables has the same probability.
+Also, because the distribution is continuous, ties have probability zero. Hence the
+six events
+\[
+\begin{aligned}
+&X_1<X_2<X_3,\qquad X_1<X_3<X_2,\qquad X_2<X_1<X_3,\\
+&X_2<X_3<X_1,\qquad X_3<X_1<X_2,\qquad X_3<X_2<X_1
+\end{aligned}
+\]
+are disjoint, equally likely, and their union has probability $1$.
+
+Therefore each one has probability
+\[
+\frac{1}{6}.
+\]
+
+\finalanswer{P(X_1<X_2<X_3)=\frac16}
+
+\end{solution}
+
+\newpage
+
+\problem{7.30}
+We deal five cards, one by one, from a standard deck of 52.
+(Dealing cards from a deck means sampling without replacement.)
+\begin{enumerate}[label=\textbf{(\alph*)}]
+  \item Find the probability that the second card is an ace and the fourth card is a king.
+  \item Find the probability that the first and the fifth cards are both spades.
+  \setcounter{enumi}{2}
+  \item Find the conditional probability that the second card is a king given that the last two cards are both aces.
+\end{enumerate}
+
+\begin{solution}
+
+\begin{scratch}
+We deal five cards from a uniformly shuffled deck, so all ordered 5-card sequences
+are equally likely.
+
+Useful facts:
+\begin{itemize}
+  \item There are $4$ aces, $4$ kings, and $13$ spades.
+  \item By symmetry/exchangeability, specified positions behave like any other
+  specified positions.
+  \item Conditioning on the last two cards being aces leaves $50$ cards for the
+  first three positions, still including all $4$ kings.
+\end{itemize}
+\end{scratch}
+
+We compute each part separately.
+
+\begin{enumerate}[label=\textbf{(\alph*)}]
+  \item We need the probability that the second card is an ace and the fourth card
+  is a king.
+
+  By exchangeability of the positions in a random ordering of the deck, this is the
+  same as the probability that the first card is an ace and the second card is a king.
+  Therefore
+  \[
+  P(\text{2nd ace and 4th king})
+  =\frac{4}{52}\cdot\frac{4}{51}
+  =\frac{16}{2652}
+  =\frac{4}{663}.
+  \]
+
+  \item We need the probability that the first and fifth cards are both spades.
+
+  Again by exchangeability, this is the same as the probability that the first two
+  cards are both spades. Thus
+  \[
+  P(\text{1st and 5th spades})
+  =\frac{13}{52}\cdot\frac{12}{51}
+  =\frac{1}{17}.
+  \]
+
+  \item We need
+  \[
+  P(\text{2nd card is a king}\mid \text{last two cards are both aces}).
+  \]
+
+  After conditioning on the last two cards being aces, the first three positions are
+  filled by an ordered sample from the remaining $50$ cards. None of the aces is a
+  king, so all $4$ kings are still among those $50$ cards. By symmetry, each of the
+  first three positions is equally likely to contain any one of the remaining $50$
+  cards. Hence
+  \[
+  P(\text{2nd card is a king}\mid \text{last two cards are both aces})
+  =\frac{4}{50}
+  =\frac{2}{25}.
+  \]
+\end{enumerate}
+
+\finalanswer{\text{(a)}\ \frac{4}{663}}
+\finalanswer{\text{(b)}\ \frac{1}{17}}
+\finalanswer{\text{(c)}\ \frac{2}{25}}
+
+\end{solution}
+
+
+\end{document}
