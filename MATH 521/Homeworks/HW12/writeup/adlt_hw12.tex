@@ -213,16 +213,24 @@ First, I unpack what this statement means. The set $\overline{A}$ consists of al
 So the statement $f(\overline{A}) \subseteq \overline{f(A)}$ is saying:
 if $x$ is either in $A$ or is a limit of points in $A$, then $f(x)$ should be either in $f(A)$ or a limit of points in $f(A)$.
 
-This strongly suggests using the **sequential characterization of closure** and the fact from lecture that:
+This strongly suggests using the sequential characterization of closure and the fact from lecture that:
 \[
 f \text{ continuous } \iff x_n \to x \Rightarrow f(x_n)\to f(x).
 \]
 
 For the forward direction, I assume $f$ is continuous. Then if $x\in \overline{A}$, I can find a sequence $a_n\in A$ with $a_n\to x$. Continuity will give $f(a_n)\to f(x)$, which means $f(x)\in \overline{f(A)}$.
 
-For the reverse direction, I assume the closure condition holds for all $A$. To prove continuity, I take an arbitrary convergent sequence $x_n\to x$ and consider the set $A=\{x_n:n\in\mathbb{N}\}$. Then $x\in \overline{A}$, so $f(x)\in \overline{f(A)}$. That means there is a sequence in $f(A)$ converging to $f(x)$, and I use that to conclude $f(x_n)\to f(x)$.
+For the reverse direction, I should not use subsequences. Instead, I will use the open-set characterization from Problem 1. So I fix an open set $V\subseteq Y$ and a point $x\in X$ such that $f(x)\in V$, and I define
+\[
+A:=X\setminus f^{-1}(V).
+\]
+If $x$ were in $\overline{A}$, then the hypothesis would imply
+\[
+f(x)\in f(\overline{A})\subseteq \overline{f(A)}.
+\]
+But every point of $f(A)$ lies in $Y\setminus V$, so $\overline{f(A)}\subseteq Y\setminus V$ because $Y\setminus V$ is closed. That would force $f(x)\notin V$, a contradiction. Hence $x\notin \overline{A}$.
 
-So the entire proof hinges on the relationship between closures and sequences, and how continuity preserves limits.
+Since $x\notin \overline{A}$, there exists an open set $U$ containing $x$ with $U\cap A=\varnothing$. Therefore $U\subseteq X\setminus A=f^{-1}(V)$, so $f(U)\subseteq V$. This is exactly the open-set characterization of continuity.
 \end{scratch}
 
 \textbf{Proof.}\\
@@ -249,32 +257,61 @@ f(\overline{A}) \subseteq \overline{f(A)}.
 \]
 We show that $f$ is continuous.
 
-Let $\{x_n\}$ be a sequence in $X$ such that $x_n \to x$. Define
+Let $V\subseteq Y$ be open, and let $x\in X$ satisfy
 \[
-A := \{x_n : n\in \mathbb{N}\}.
+f(x)\in V.
 \]
-Then $x\in \overline{A}$. By hypothesis,
+Set
+\[
+A:=X\setminus f^{-1}(V).
+\]
+We claim that $x\notin \overline{A}$. Suppose for contradiction that
+\[
+x\in \overline{A}.
+\]
+Then, since $x\in \overline{A}$, we have $f(x)\in f(\overline{A})$. By the hypothesis,
+\[
+f(\overline{A})\subseteq \overline{f(A)},
+\]
+so
 \[
 f(x)\in \overline{f(A)}.
 \]
-So there exists a sequence $\{f(x_{n_k})\}\subseteq f(A)$ such that
-\[
-f(x_{n_k}) \to f(x).
-\]
 
-Now we show that $f(x_n)\to f(x)$. Let $\varepsilon>0$. Since $f(x_{n_k})\to f(x)$, there exists $K$ such that
+Now if $y\in f(A)$, then $y=f(a)$ for some $a\in A$. Since $a\notin f^{-1}(V)$, we must have
 \[
-d_Y(f(x_{n_k}),f(x))<\varepsilon \quad \text{for all } k\ge K.
+f(a)\notin V.
 \]
-Since $x_n\to x$, the sequence $\{x_n\}$ is eventually close to $x$, and thus the subsequence $\{x_{n_k}\}$ eventually captures the limiting behavior. Hence for all sufficiently large $n$, we also have
+Thus
 \[
-d_Y(f(x_n),f(x))<\varepsilon.
+f(A)\subseteq Y\setminus V.
+\]
+Because $V$ is open, the set $Y\setminus V$ is closed. Therefore
+\[
+\overline{f(A)}\subseteq Y\setminus V.
+\]
+It follows that
+\[
+f(x)\in Y\setminus V,
+\]
+which contradicts $f(x)\in V$.
+
+Hence $x\notin \overline{A}$. Since $\overline{A}$ is closed, its complement is open, so there exists an open set $U\subseteq X$ such that
+\[
+x\in U
+\qquad\text{and}\qquad
+U\cap A=\varnothing.
 \]
 Therefore
 \[
-f(x_n)\to f(x),
+U\subseteq X\setminus A=f^{-1}(V).
 \]
-which shows that $f$ is continuous.
+So if $u\in U$, then $u\in f^{-1}(V)$, which means $f(u)\in V$. Hence
+\[
+f(U)\subseteq V.
+\]
+
+We have shown that for every open set $V\subseteq Y$ containing $f(x)$, there exists an open set $U\subseteq X$ containing $x$ such that $f(U)\subseteq V$. By Problem 1, this means that $f$ is continuous at $x$. Since $x\in X$ was arbitrary, $f$ is continuous on $X$.
 \qed
 
 \newpage
@@ -315,6 +352,7 @@ So I need an example where this inclusion is strict. This typically happens when
 \textbf{Proof.}
 
 \textbf{(a)} Let $\{x_n\}$ be a sequence in $\mathbb{R}$ such that $x_n \to x$. Then
+We use the standard limit laws from earlier lectures: polynomials and reciprocal functions are continuous where defined. Then
 \[
 x_n^2 \to x^2,
 \]
@@ -466,7 +504,7 @@ and
 \[
 \varphi(1)=f(h(1))=f(x_1,y_1)=x_1>0.
 \]
-By the Intermediate Value Theorem, there exists some $t\in(0,1)$ such that
+By the Intermediate Value Theorem from calculus, which we may assume, there exists some $t\in(0,1)$ such that
 \[
 \varphi(t)=0.
 \]
