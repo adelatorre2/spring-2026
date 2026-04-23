@@ -1,0 +1,423 @@
+\documentclass[12pt]{article}
+
+% =========================
+% 0) Metadata (EDIT ME)
+% =========================
+\newcommand{\CourseCode}{MATH 431}
+\newcommand{\CourseTitle}{Introduction to Probability}
+\newcommand{\CourseSection}{LEC 002} % change to 001 or 003 if needed
+\newcommand{\Semester}{Spring 2026}
+\newcommand{\Instructor}{Sarah Tammen} % LEC 001: Ander Aguirre | LEC 002: Sarah Tammen | LEC 003: Nicholas Derr
+\newcommand{\MeetingInfo}{MWF 9:55--10:45, 6102 Sewell Social Sciences} % LEC 001 default; update if in 002/003
+\newcommand{\HomeworkNumber}{12}
+\newcommand{\YourName}{Alejandro De La Torre}
+\newcommand{\DueDate}{May 1, 2026} % or e.g. February 2, 2026
+
+% =========================
+% 1) Core math tools
+% =========================
+\usepackage{amsmath, amssymb, amsthm}
+
+% =========================
+% 2) Lists and spacing
+% =========================
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=\textbf{(\alph*)}, leftmargin=2em, itemsep=0.25em}
+\setlist[itemize]{leftmargin=1.5em, itemsep=0.25em}
+\setlength{\parskip}{0.35em}
+\setlength{\parindent}{0pt}
+
+% =========================
+% 3) Page geometry + header/footer
+% =========================
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\CourseCode\ --- \CourseSection, \Semester}
+\rhead{Homework \HomeworkNumber}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\headheight}{15pt}
+\addtolength{\topmargin}{-2pt}
+
+% =========================
+% 4) Links (subtle)
+% =========================
+\usepackage[hidelinks]{hyperref}
+\setcounter{tocdepth}{1}
+
+% =========================
+% 5) Figures (optional)
+% =========================
+\usepackage{graphicx}
+\graphicspath{{images/}}
+
+% =========================
+% 6) Lightweight boxes (optional)
+% =========================
+\usepackage{mdframed}
+\newmdenv[
+  skipabove=0.6\baselineskip,
+  skipbelow=0.6\baselineskip,
+  linewidth=0.6pt,
+  roundcorner=4pt,
+  innerleftmargin=10pt,
+  innerrightmargin=10pt,
+  innertopmargin=8pt,
+  innerbottommargin=8pt
+]{boxnote}
+
+% =========================
+% 7) Probability / notation macros
+% =========================
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newcommand{\OmegaSpace}{\Omega}
+\newcommand{\FField}{\mathcal{F}}
+% Probability measure in case it is relevant or want to distinguish it from P(A)
+%\newcommand{\PMeasure}{\mathbb{P}} 
+\newcommand{\E}{\mathbb{E}}
+
+\newcommand{\given}{\,\middle|\,}
+\newcommand{\ind}{\mathbf{1}}
+
+% Common “defined as” symbol
+\newcommand{\defeq}{\vcentcolon=}
+
+% =========================
+% 8) Problem command (TOC + PDF bookmarks)
+% Usage:
+%   \problem{<label>}
+%   \problem[Short title]{<label>}
+% Example:
+%   \problem{1.4}
+%   \problem[Sample space]{1.4}
+% =========================
+\makeatletter
+\newcommand{\problem}[2][]{%
+  \def\prob@title{Problem #2\if\relax\detokenize{#1}\relax\else\ (\textit{#1})\fi}%
+  \phantomsection%
+  \pdfbookmark[1]{\prob@title}{prob#2}%
+  \addcontentsline{toc}{section}{\prob@title}%
+  \section*{\prob@title}%
+  \vspace{-0.25em}\hrule\vspace{0.8em}%
+}
+\makeatother
+
+% =========================
+% 9) Solution environment
+% =========================
+\newenvironment{solution}{%
+  \noindent\textbf{Solution.}\ \ignorespaces
+}{\par}
+
+% Optional scratch / planning block
+\newenvironment{scratch}{%
+  \begin{boxnote}\textbf{Scratch / Setup.}\ \small
+}{\end{boxnote}}
+
+% Final answer command: expects math only (no $$ or \[ \])
+\newcommand{\finalanswer}[1]{%
+  \par\medskip
+  \noindent\textbf{Final:}\ \fbox{$#1$}\par
+} % AGAIN: MATH ONLY INSIDE THE BOX; if word answer, use \text{} inside or use \fbox{TEXT} or \framebox
+
+% =========================
+% 10) Title block
+% =========================
+\title{Homework \HomeworkNumber}
+\author{\YourName \\
+\CourseCode\ --- \CourseTitle \\
+\CourseSection \\
+Instructor: \Instructor}
+\date{Due: \DueDate}
+
+\begin{document}
+\maketitle
+
+% \section*{Collaboration / Resources}
+% (Optional) Write “I worked alone” or list collaborators/resources.
+
+\tableofcontents
+\bigskip
+\hrule
+\bigskip
+\newpage
+
+% ============================================================
+% Problems (duplicate blocks as needed)
+% ============================================================
+
+
+
+\problem{9.2}
+Let $X$ be an exponential random variable with parameter $\lambda = \tfrac{1}{2}$.
+\begin{enumerate}[label=\textbf{(\alph*)}]
+\item Use Markov’s inequality to find an upper bound for $P(X > 6)$.
+\item Use Chebyshev’s inequality to find an upper bound for $P(X > 6)$.
+\item Explicitly compute the probability above and compare with the upper bounds you derived.
+\end{enumerate}
+
+\begin{solution}
+
+\begin{scratch}
+For $X \sim \mathrm{Exp}(\lambda)$ with $\lambda = \tfrac{1}{2}$,
+\[
+E[X] = \frac{1}{\lambda} = 2,
+\qquad
+\operatorname{Var}(X) = \frac{1}{\lambda^2} = 4.
+\]
+Relevant facts:
+\begin{itemize}
+\item $X \ge 0$ almost surely, so Markov's inequality applies.
+\item Chebyshev's inequality says
+\[
+P\bigl(|X - E[X]| \ge t\bigr) \le \frac{\operatorname{Var}(X)}{t^2}.
+\]
+\item Since $E[X] = 2$, the event $\{X > 6\}$ implies $\{|X - 2| \ge 4\}$.
+\item For an exponential random variable,
+\[
+P(X > x) = e^{-\lambda x}, \qquad x \ge 0.
+\]
+\end{itemize}
+\end{scratch}
+
+\begin{enumerate}[label=\textbf{(\alph*)}]
+\item Since $X \ge 0$, Markov's inequality gives
+\[
+P(X > 6) \le \frac{E[X]}{6} = \frac{2}{6} = \frac{1}{3}.
+\]
+\finalanswer{P(X > 6) \le \frac{1}{3}}
+
+\item Because $\{X > 6\} \subseteq \{|X - 2| \ge 4\}$, we have
+\[
+P(X > 6) \le P(|X - 2| \ge 4).
+\]
+Now apply Chebyshev's inequality:
+\[
+P(|X - 2| \ge 4) \le \frac{\operatorname{Var}(X)}{4^2}
+= \frac{4}{16}
+= \frac{1}{4}.
+\]
+Therefore
+\[
+P(X > 6) \le \frac{1}{4}.
+\]
+\finalanswer{P(X > 6) \le \frac{1}{4}}
+
+\item The exponential tail can be computed exactly:
+\[
+P(X > 6) = e^{-\lambda \cdot 6} = e^{-3} \approx 0.0498.
+\]
+Comparing the three values,
+\[
+e^{-3} \approx 0.0498 < \frac{1}{4} < \frac{1}{3}.
+\]
+So both inequalities give valid upper bounds, and the Chebyshev bound is better than the Markov bound because $\frac{1}{4}$ is smaller and closer to the exact probability.
+\finalanswer{P(X > 6) = e^{-3} \approx 0.0498,\quad \text{and Chebyshev gives the better upper bound}}
+\end{enumerate}
+
+\end{solution}
+
+\newpage
+
+\problem{9.6}
+Nate is a competitive eater specializing in eating hot dogs. From past experience we know that it takes him on average $15$ seconds to consume one hot dog, with a standard deviation of $4$ seconds. In this year’s hot dog eating contest he hopes to consume $64$ hot dogs in just $15$ minutes. Use the CLT to approximate the probability that he achieves this feat of skill.
+
+\begin{solution}
+
+\begin{scratch}
+Let $X_i$ be the time, in seconds, that Nate needs to consume the $i$th hot dog, and let
+\[
+S_{64} = X_1 + \cdots + X_{64}.
+\]
+Then Nate succeeds exactly when $S_{64} \le 15$ minutes $= 900$ seconds.
+
+From the data,
+\[
+E[X_i] = 15,
+\qquad
+\operatorname{SD}(X_i) = 4,
+\qquad
+\operatorname{Var}(X_i) = 16.
+\]
+Assuming the $X_i$ are i.i.d.,
+\[
+E[S_{64}] = 64 \cdot 15 = 960,
+\qquad
+\operatorname{Var}(S_{64}) = 64 \cdot 16 = 1024,
+\qquad
+\operatorname{SD}(S_{64}) = 32.
+\]
+Use the CLT because the exact distribution of $S_{64}$ is not given:
+\[
+\frac{S_{64} - 960}{32} \approx N(0,1).
+\]
+\end{scratch}
+
+We want the probability that Nate consumes $64$ hot dogs within $15$ minutes, so
+\[
+P(\text{Nate succeeds}) = P(S_{64} \le 900).
+\]
+By the central limit theorem,
+\[
+P(S_{64} \le 900)
+\approx
+P\!\left(
+\frac{S_{64} - 960}{32}
+\le
+\frac{900 - 960}{32}
+\right)
+= \Phi\!\left(\frac{-60}{32}\right)
+= \Phi(-1.875).
+\]
+Therefore,
+\[
+P(S_{64} \le 900) \approx \Phi(-1.875) \approx 0.0304.
+\]
+So the CLT approximation says that Nate has about a $3.04\%$ chance of finishing $64$ hot dogs in $15$ minutes.
+\finalanswer{P(S_{64} \le 900) \approx \Phi(-1.875) \approx 0.0304}
+
+\end{solution}
+
+\newpage
+
+\problem{9.18}
+Suppose that $X \sim \text{NegBin}(100, \tfrac{1}{3})$.
+\begin{enumerate}[label=\textbf{(\alph*)}]
+\item Give an upper bound for $P(X > 500)$ using Markov’s inequality.
+\item Give an upper bound for $P(X > 500)$ using Chebyshev’s inequality.
+\item Recall that $X$ can be written as the sum of $100$ i.i.d. random variables with Geom$(\tfrac{1}{3})$ distribution. Use this representation and the CLT to estimate $P(X > 500)$.
+\item Recall that $X$ can be represented as the number of trials needed to get the $100$th success in a sequence of i.i.d. trials of success probability $\tfrac{1}{3}$. Estimate $P(X > 500)$ by looking at the distribution of the number of successes within the first $500$ trials.
+\end{enumerate}
+
+\begin{solution}
+
+\begin{scratch}
+Here $X \sim \mathrm{NegBin}(100,\tfrac{1}{3})$ means that $X$ is the number of trials needed to obtain the $100$th success when each trial succeeds with probability
+\[
+p = \frac{1}{3}.
+\]
+With $r = 100$ and this convention,
+\[
+E[X] = \frac{r}{p} = \frac{100}{1/3} = 300,
+\]
+\[
+\operatorname{Var}(X) = \frac{r(1-p)}{p^2}
+= \frac{100(2/3)}{(1/3)^2}
+= 600,
+\qquad
+\operatorname{SD}(X) = \sqrt{600} = 10\sqrt{6}.
+\]
+
+For part (c), write
+\[
+X = G_1 + \cdots + G_{100},
+\]
+where the $G_i$ are i.i.d.\ $\mathrm{Geom}(\tfrac{1}{3})$ random variables.
+
+For part (d), let $N$ be the number of successes in the first $500$ trials. Then
+\[
+N \sim \mathrm{Bin}\!\left(500,\frac{1}{3}\right),
+\qquad
+\{X > 500\} = \{N \le 99\}.
+\]
+Also,
+\[
+E[N] = \frac{500}{3},
+\qquad
+\operatorname{Var}(N) = 500 \cdot \frac{1}{3} \cdot \frac{2}{3} = \frac{1000}{9},
+\qquad
+\operatorname{SD}(N) = \sqrt{\frac{1000}{9}}.
+\]
+\end{scratch}
+
+\begin{enumerate}[label=\textbf{(\alph*)}]
+\item Since $X \ge 0$, Markov's inequality applies:
+\[
+P(X > 500) \le \frac{E[X]}{500} = \frac{300}{500} = \frac{3}{5}.
+\]
+\finalanswer{P(X > 500) \le \frac{3}{5}}
+
+\item Since $X > 500$ implies $X - 300 > 200$, we have
+\[
+\{X > 500\} \subseteq \{|X - 300| \ge 200\}.
+\]
+Hence Chebyshev's inequality gives
+\[
+P(X > 500)
+\le
+P(|X - 300| \ge 200)
+\le
+\frac{\operatorname{Var}(X)}{200^2}
+= \frac{600}{40000}
+= \frac{3}{200}
+= 0.015.
+\]
+\finalanswer{P(X > 500) \le \frac{3}{200} = 0.015}
+
+\item Using the representation $X = G_1 + \cdots + G_{100}$ and the CLT,
+\[
+\frac{X - 300}{\sqrt{600}} \approx N(0,1).
+\]
+Therefore
+\[
+P(X > 500)
+=
+P\!\left(\frac{X - 300}{\sqrt{600}} > \frac{500 - 300}{\sqrt{600}}\right)
+\approx
+1 - \Phi\!\left(\frac{200}{\sqrt{600}}\right).
+\]
+Since
+\[
+\frac{200}{\sqrt{600}} = \frac{20}{\sqrt{6}} \approx 8.165,
+\]
+we get
+\[
+P(X > 500) \approx 1 - \Phi\!\left(\frac{20}{\sqrt{6}}\right) \approx 1.6 \times 10^{-16}.
+\]
+\finalanswer{P(X > 500) \approx 1 - \Phi\!\left(\frac{20}{\sqrt{6}}\right) \approx 1.6 \times 10^{-16}}
+
+\item Let $N$ be the number of successes in the first $500$ trials. Then
+\[
+N \sim \mathrm{Bin}\!\left(500,\frac{1}{3}\right)
+\]
+and
+\[
+P(X > 500) = P(N \le 99).
+\]
+Using the CLT with a continuity correction,
+\[
+P(N \le 99)
+\approx
+P(N < 99.5)
+=
+P\!\left(
+\frac{N - 500/3}{\sqrt{1000/9}}
+<
+\frac{99.5 - 500/3}{\sqrt{1000/9}}
+\right)
+\approx
+\Phi\!\left(\frac{99.5 - 500/3}{\sqrt{1000/9}}\right).
+\]
+Now
+\[
+\frac{99.5 - 500/3}{\sqrt{1000/9}} \approx -6.372,
+\]
+so
+\[
+P(X > 500) = P(N \le 99) \approx \Phi(-6.372) \approx 9.3 \times 10^{-11}.
+\]
+This is different from part (c), which is not surprising: both are CLT approximations, and this is an extreme tail event.
+\finalanswer{P(X > 500) = P(N \le 99) \approx \Phi(-6.372) \approx 9.3 \times 10^{-11}}
+\end{enumerate}
+
+\end{solution}
+
+
+\end{document}
