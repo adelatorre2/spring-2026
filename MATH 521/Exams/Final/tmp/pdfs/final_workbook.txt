@@ -23,15 +23,37 @@ Name:
 
 Date:
                                        Contents
-How to Use This Workbook                                                                    ii
+How to Use This Workbook                                                                     ii
 
-1 Homework 9                                                                                 1
-  1.1 Problem 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    2
-  1.2 Problem 2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   12
-  1.3 Problem 3 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   22
-  1.4 Problem 4 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   32
-  1.5 Problem 5 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   41
-  1.6 Problem 6 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   51
+1 Homework 9                                                                                  1
+  1.1 Problem 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     2
+  1.2 Problem 2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    12
+  1.3 Problem 3 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    22
+  1.4 Problem 4 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    32
+  1.5 Problem 5 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    41
+  1.6 Problem 6 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    51
+
+2 Homework 10                                                                               60
+  2.1 Problem 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   61
+  2.2 Problem 2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   70
+  2.3 Problem 3 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   79
+  2.4 Problem 4 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   89
+
+3 Homework 11                                                                                98
+  3.1 Problem 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    99
+  3.2 Problem 2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   109
+  3.3 Problem 3 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   119
+  3.4 Problem 4 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   127
+  3.5 Problem 5 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   135
+  3.6 Problem 6 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   143
+
+4 Homework 12                                                                             153
+  4.1 Problem 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 154
+  4.2 Problem 2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 164
+  4.3 Problem 3 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 174
+  4.4 Problem 4 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 184
+  4.5 Problem 5 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 194
+  4.6 Problem 6 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 204
 
 
 
@@ -1311,4 +1333,3224 @@ What nearby exam variation could appear?:
 
 
                                   59
+Homework 10
+
+
+
+
+    60
+Problem 1
+
+ Problem Statement                                       Homework 10, Problem 1
+
+ Let (X, d) be a metric space and let Y ⊆ X. We call the set Y complete if the subspace
+ Y with the induced metric is complete. Prove that if Y is complete, then Y is closed
+ in X. (Hint: It suffices to show Y ⊆ Y . Use sequences.)
+
+
+
+
+                                          61
+Pass 1 – First Diagnosis                       Homework 10, Problem 1
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    62
+Pass 2 – Proof Recipe Card          Homework 10, Problem 1
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               63
+Pass 3 – Self-Explanation                       Homework 10, Problem 1
+1. What does it mean for Y to be complete as a subspace of X?
+
+
+
+
+2. What sequential characterization of closure should be used after fixing
+x∈Y?
+
+
+
+
+3. Why is a sequence converging in X automatically Cauchy in X?
+
+
+
+
+4. Why is the same sequence Cauchy in the induced metric on Y ?
+
+
+
+
+5. Where is uniqueness of limits in a metric space used?
+
+
+
+
+                                    64
+Pass 4 – Skeleton Proof                         Homework 10, Problem 1
+Goal: prove Y is closed.
+It suffices to show Y ⊆ Y . Fix:
+
+
+
+
+Use the sequential characterization of closure to get a sequence {yn } ⊆ Y
+such that:
+
+
+
+
+Explain why {yn } is Cauchy in Y :
+
+
+
+
+Use completeness of Y to get y ∈ Y with:
+
+
+
+
+Compare convergence in Y with convergence in X, then use uniqueness of
+limits:
+
+
+
+
+                                     65
+Conclude Y ⊆ Y , hence Y is closed:
+
+
+
+
+                                      66
+Pass 5 – Full Proof Attempt             Homework 10, Problem 1
+Use this page for the complete proof.
+
+
+
+
+                                   67
+Student-Derived Solution (No official solution available)
+
+We show that Y ⊆ Y . Since always Y ⊆ Y , this implies Y = Y , and hence Y is closed
+in X.
+Let x ∈ Y . By the sequential characterization of closure, there exists a sequence
+{yn }n≥1 in Y such that
+                              yn → x      in (X, d).
+Every convergent sequence in a metric space is Cauchy, so {yn } is Cauchy in (X, d).
+Since the induced metric on Y is the restriction of d, the same sequence is Cauchy in
+(Y, dY ).
+Because Y is complete, there is some y ∈ Y such that
+
+                               yn → y      in (Y, dY ).
+
+Convergence in the subspace metric is the same distance condition as convergence in
+X, so yn → y in (X, d). Thus the sequence {yn } converges to both x and y in X. By
+uniqueness of limits in metric spaces, x = y. Since y ∈ Y , we have x ∈ Y .
+Therefore Y ⊆ Y , so Y is closed in X.
+
+
+
+
+                                         68
+Reflection & Variation                           Homework 10, Problem 1
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  69
+Problem 2
+
+ Problem Statement                                     Homework 10, Problem 2
+
+ Let (X, d) be a metric space. Prove that if A, B ⊆ X are both compact then A ∪ B is
+ compact.
+
+
+
+
+                                         70
+Pass 1 – First Diagnosis                       Homework 10, Problem 2
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    71
+Pass 2 – Proof Recipe Card          Homework 10, Problem 2
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               72
+Pass 3 – Self-Explanation                        Homework 10, Problem 2
+1. What definition of compactness is most direct for a finite union?
+
+
+
+
+2. Why does an open cover of A∪B automatically cover A and B separately?
+
+
+
+
+3. What finite subcover do you get from compactness of A?
+
+
+
+
+4. What finite subcover do you get from compactness of B?
+
+
+
+
+5. Why is the union of the two finite index sets still finite and enough to
+cover A ∪ B?
+
+
+
+
+                                    73
+Pass 4 – Skeleton Proof                             Homework 10, Problem 2
+Open-cover setup.
+Let {Ui }i∈I be an arbitrary open cover of A ∪ B:
+
+
+
+
+Restrict the same cover to A, and use compactness of A to choose a finite
+JA ⊆ I:
+
+
+
+
+Restrict the same cover to B, and use compactness of B to choose a finite
+JB ⊆ I:
+
+
+
+
+Set J =
+
+
+
+
+Check J is finite and {Ui }i∈J covers A ∪ B:
+
+
+
+
+                                      74
+Conclude compactness because the original open cover was arbitrary:
+
+
+
+
+                                  75
+Pass 5 – Full Proof Attempt             Homework 10, Problem 2
+Use this page for the complete proof.
+
+
+
+
+                                   76
+Student-Derived Solution (No official solution available)
+
+Let {Ui }i∈I be an open cover of A ∪ B. Thus each Ui is open in X, and
+                                                    [
+                                    A∪B ⊆                 Ui .
+                                                    i∈I
+
+Since A ⊆ A ∪ B, the same family is an open cover of A. Because A is compact, there
+is a finite set JA ⊆ I such that         [
+                                    A⊆      Ui .
+                                               i∈JA
+
+Similarly, {Ui }i∈I is an open cover of B, so compactness of B gives a finite set JB ⊆ I
+such that                                    [
+                                       B⊆       Ui .
+                                               i∈JB
+
+Set J = JA ∪ JB . Then J is finite, and
+                                                              
+                                    [                   [             [
+                       A∪B ⊆            Ui  ∪             Ui  =         Ui .
+                                  i∈JA                i∈JB            i∈J
+
+
+Thus every open cover of A ∪ B has a finite subcover. Therefore A ∪ B is compact.
+
+
+
+
+                                               77
+Reflection & Variation                           Homework 10, Problem 2
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  78
+Problem 3
+
+ Problem Statement                                      Homework 10, Problem 3
+
+ Let (X, d) be a metric space.
+  (a) Prove that if A ⊆ B ⊆ X, A is closed in X, and B is compact, then A is compact.
+      (Hint: Given an open cover of A, we can add Ac to get an open cover of B.)
+  (b) Prove that if C, D ⊆ X are both compact, then C ∩ D is compact. (Hint: Use
+      (a).)
+
+
+
+
+                                         79
+Pass 1 – First Diagnosis                       Homework 10, Problem 3
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    80
+Pass 2 – Proof Recipe Card          Homework 10, Problem 3
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               81
+Pass 3 – Self-Explanation                        Homework 10, Problem 3
+1. Why does adding Ac to an open cover of A help cover all of B?
+
+
+
+
+2. Where is the assumption that A is closed used?
+
+
+
+
+3. After compactness of B gives a finite subcover, why can Ac be discarded
+when covering A?
+
+
+
+
+4. Which lecture result says compact subsets of a metric space are closed?
+
+
+
+
+5. In part (b), which compact set plays the role of B in part (a)?
+
+
+
+
+                                    82
+Pass 4 – Skeleton Proof                            Homework 10, Problem 3
+
+Part (a): closed subset of a compact set.
+Let {Ui }i∈I be an open cover of A. Since A is closed, Ac is:
+
+
+
+
+Show {Ac } ∪ {Ui }i∈I covers B:
+
+
+
+
+Use compactness of B to extract a finite subcover:
+
+
+
+
+Restrict back to A and remove the Ac part:
+
+
+
+
+Part (b): compact intersection.
+Use compactness ⇒ closed to show C ∩ D is closed in X:
+
+
+
+
+                                      83
+Apply part (a) with A = C ∩ D and B =
+
+
+
+
+                                  84
+Pass 5 – Full Proof Attempt        Homework 10, Problem 3
+
+Use this page for part (a).
+
+
+
+
+                              85
+Pass 5 – Full Proof Attempt        Homework 10, Problem 3
+
+Use this page for part (b).
+
+
+
+
+                              86
+Official Solution (Professor)
+
+(a) Let {Ui }i∈I be an open cover of A. Since A is closed, Ac is open. Thus
+
+                                     {Ac } ∪ {Ui }i∈I
+
+    is an open cover of B, because
+
+                            B ⊆ X = Ac ∪ A ⊆ Ac ∪
+                                                                 [
+                                                                       Ui .
+                                                                 i∈I
+
+    Since B is compact, there is a finite subcover for B. We may write it as
+
+                                     {Ac } ∪ {Ui }i∈J
+
+    for some finite J ⊆ I. Then
+
+                                     B ⊆ Ac ∪
+                                                    [
+                                                          Ui .
+                                                    i∈J
+
+    Since A ⊆ B and A ∩ Ac = ∅, it follows that
+                                              [
+                                       A⊆           Ui .
+                                              i∈J
+
+    Hence {Ui }i∈J is a finite subcover of A. Therefore A is compact.
+(b) Since C and D are compact, they are closed by Lecture 27. Hence C ∩D is closed.
+    Also C ∩ D ⊆ C, and C is compact. By part (a), C ∩ D is compact.
+
+
+
+
+                                         87
+Reflection & Variation                           Homework 10, Problem 3
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  88
+Problem 4
+
+ Problem Statement                                    Homework 10, Problem 4
+
+ Let (X, d) be a metric space and let Y ⊆ X. Prove that if Y is compact, then Y is
+ complete.
+
+
+
+
+                                        89
+Pass 1 – First Diagnosis                       Homework 10, Problem 4
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    90
+Pass 2 – Proof Recipe Card          Homework 10, Problem 4
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               91
+Pass 3 – Self-Explanation                     Homework 10, Problem 4
+1. To prove completeness, what kind of sequence in Y should you start
+with?
+
+
+
+
+2. Which compactness theorem gives a convergent subsequence in Y ?
+
+
+
+
+3. Why is a convergent subsequence not enough by itself to prove com-
+pleteness?
+
+
+
+
+4. How does the Cauchy property transfer convergence from a subsequence
+to the full sequence?
+
+
+
+
+5. Why does the final limit lie in Y ?
+
+
+
+
+                                     92
+Pass 4 – Skeleton Proof                          Homework 10, Problem 4
+Setup: prove every Cauchy sequence in Y converges in Y .
+Let {yn } be a Cauchy sequence in Y :
+
+
+
+
+Use compactness and Lecture 26 to obtain a subsequence {ykn } and point
+y ∈ Y such that:
+
+
+
+
+Fix r > 0. From subsequence convergence choose N1 such that:
+
+
+
+
+From the Cauchy property choose N2 such that:
+
+
+
+
+Use triangle inequality with yn , ykn , and y:
+
+
+
+
+                                       93
+Conclude the whole sequence converges to y ∈ Y :
+
+
+
+
+                                   94
+Pass 5 – Full Proof Attempt             Homework 10, Problem 4
+Use this page for the complete proof.
+
+
+
+
+                                   95
+Official Solution (Professor)
+
+Let {yn }n≥1 be a Cauchy sequence in Y . We show that it converges to some point of
+Y.
+Since Y is compact, by Lecture 26 there exists a subsequence {ykn }n≥1 that converges
+to some point y ∈ Y .
+We prove the whole sequence converges to y. Fix r > 0. Since ykn → y, there exists
+N1 such that
+                                        r
+                           d(ykn , y) <      for all n ≥ N1 .
+                                        2
+Since {yn } is Cauchy, there exists N2 such that
+                                         r
+                         d(yn , ym ) <        for all n, m ≥ N2 .
+                                         2
+Set N = max{N1 , N2 }. For n ≥ N , we have kn ≥ n ≥ N , and so
+                                                              r r
+                    d(yn , y) ≤ d(yn , ykn ) + d(ykn , y) <    + = r.
+                                                              2 2
+Since r > 0 was arbitrary, yn → y. Because y ∈ Y , every Cauchy sequence in Y
+converges in Y . Therefore Y is complete.
+
+
+
+
+                                             96
+Reflection & Variation                           Homework 10, Problem 4
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  97
+Homework 11
+
+
+
+
+    98
+Problem 1
+
+ Problem Statement                                        Homework 11, Problem 1
+
+ Consider the metric space (R, d) with the usual metric d(x, y) = |x − y|. Note that the
+ set Q is not an interval, and so from lecture we know that it must be disconnected.
+  (a) Find two sets A, B ⊆ R that are nonempty and separated so that Q = A ∪ B,
+      and prove your answer.
+  (b) Find a set ∅ ̸= C ⊊ Q that is both open and closed in Q, and prove your answer.
+
+
+
+
+                                           99
+Pass 1 – First Diagnosis                       Homework 11, Problem 1
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    100
+Pass 2 – Proof Recipe Card           Homework 11, Problem 1
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               101
+Pass 3 – Self-Explanation                          Homework 11, Problem 1
+1. Why is cutting Q at an irrational number better than cutting it at a
+rational number?
+
+
+
+
+2. What does it mean for two subsets of R to be separated?
+
+
+
+
+                                        √            √
+3. What are the closures in R of (−∞,    2) ∩ Q and ( 2, ∞) ∩ Q?
+
+
+
+
+              √
+4. Why does       2∈
+                   / Q make the separation work?
+
+
+
+
+5. How does the subspace characterization of open and closed sets in Q
+prove part (b)?
+
+
+
+
+                                    102
+Pass 4 – Skeleton Proof                         Homework 11, Problem 1
+
+Part (a): separated decomposition of Q.
+Choose an irrational cut point and define A =
+
+
+
+
+Define B =
+
+
+
+
+Check A and B are nonempty and A ∪ B = Q:
+
+
+
+
+Compute A and B in R:
+
+
+
+
+Use those closures to prove A ∩ B = ∅ and A ∩ B = ∅:
+
+
+
+
+Part (b): clopen subset of Q.
+
+
+
+
+                                   103
+Choose C =
+
+
+
+
+Prove C is nonempty and proper:
+
+
+
+
+Show C is open in Q and closed in Q using subspace results:
+
+
+
+
+                                  104
+Pass 5 – Full Proof Attempt         Homework 11, Problem 1
+
+Use this page for part (a).
+
+
+
+
+                              105
+Pass 5 – Full Proof Attempt         Homework 11, Problem 1
+
+Use this page for part (b).
+
+
+
+
+                              106
+Student-Derived Solution (No official solution available)
+
+(a) Define                      √                   √
+                     A = (−∞,    2) ∩ Q,       B = ( 2, ∞) ∩ Q.
+    Both sets are nonempty, for instance 1 ∈√A and 2 ∈ B. Also√A ∪ B =√ Q, since
+    every rational number is either less than 2 or greater than 2, and 2 ∈
+                                                                         / Q.
+    In R,                              √            √
+                           A = (−∞, 2],       B = [ 2, ∞).
+    Hence                            √        √         
+                      A ∩ B = (−∞,       2] ∩ ( 2, ∞) ∩ Q = ∅,
+    and similarly                √         √
+                      A ∩ B = (−∞, 2) ∩ Q ∩ [ 2, ∞) = ∅.
+    Therefore A and B are separated, nonempty, and satisfy Q = A ∪ B.
+(b) Let                                   √
+                                C = (−∞, 2) ∩ Q.
+    Then C ̸= ∅, since
+                 √ 1 ∈ C, and C ⊊ Q, since 2 ∈√Q \ C.
+                                             √ 2) ∩ Q is open in the subspace
+    The set (−∞, √2) is open in R, so C = (−∞,
+    Q. Also (−∞, 2] is closed in R, and since 2 ∈
+                                                / Q,
+                              √               √
+                        (−∞, 2] ∩ Q = (−∞, 2) ∩ Q = C.
+
+    Thus C is closed in Q. Therefore C is a nonempty proper subset of Q that is
+    both open and closed in Q.
+
+
+
+
+                                     107
+Reflection & Variation                           Homework 11, Problem 1
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  108
+Problem 2
+
+ Problem Statement                                     Homework 11, Problem 2
+
+ Let (X, d) be a metric space.
+  (a) Prove that if F ⊆ X is disconnected and closed in X, then there exist A, B ⊆ X
+      that are nonempty, separated, and closed in X so that F = A ∪ B.
+  (b) Prove that if U ⊆ X is disconnected and open in X, then there exist A, B ⊆ X
+      that are nonempty, separated, and open in X so that U = A ∪ B.
+
+
+
+
+                                        109
+Pass 1 – First Diagnosis                       Homework 11, Problem 2
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    110
+Pass 2 – Proof Recipe Card           Homework 11, Problem 2
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               111
+Pass 3 – Self-Explanation                        Homework 11, Problem 2
+1. Which Lecture 29 characterization of disconnectedness gives a nontrivial
+clopen subset of F or U ?
+
+
+
+
+2. In part (a), why does closed in F plus F closed in X imply closed in X?
+
+
+
+
+3. In part (b), why does open in U plus U open in X imply open in X?
+
+
+
+
+4. Why are the two pieces nonempty?
+
+
+
+
+5. How do closedness or openness of the pieces imply they are separated?
+
+
+
+
+                                   112
+Pass 4 – Skeleton Proof                         Homework 11, Problem 2
+
+Part (a): closed disconnected set.
+Use disconnectedness of F to choose A ̸= ∅, F that is both open and closed
+in F . Set B =
+
+
+
+
+Explain why A and B are nonempty and F = A ∪ B:
+
+
+
+
+Use F closed in X to prove A and B are closed in X:
+
+
+
+
+Use closedness and disjointness to prove separatedness:
+
+
+
+
+Part (b): open disconnected set.
+Use disconnectedness of U to choose A ̸= ∅, U clopen in U , and set B =
+
+
+
+
+                                   113
+Use U open in X to prove A and B are open in X:
+
+
+
+
+Use complements of open sets to prove separatedness:
+
+
+
+
+                                  114
+Pass 5 – Full Proof Attempt         Homework 11, Problem 2
+
+Use this page for part (a).
+
+
+
+
+                              115
+Pass 5 – Full Proof Attempt         Homework 11, Problem 2
+
+Use this page for part (b).
+
+
+
+
+                              116
+Official Solution (Professor)
+
+(a) Since F is disconnected, by Lecture 29 there exists a set A ̸= ∅, F that is both
+    open and closed in F . Set B = F \ A.
+    The sets A and B are nonempty because A ̸= ∅ and A ̸= F . Since A is closed
+    in F and F is closed in X, A is closed in X by Lecture 24. Also B = F \ A is
+    closed in F , because A is open in F ; hence B is closed in X.
+    Finally, A ∩ B = ∅. Since A and B are closed in X, A = A and B = B. Thus
+
+                              A ∩ B = ∅,       A ∩ B = ∅.
+
+    Therefore A and B are nonempty, separated, closed in X, and F = A ∪ B.
+(b) Since U is disconnected, by Lecture 29 there exists a set A ̸= ∅, U that is both
+    open and closed in U . Set B = U \ A.
+    The sets A and B are nonempty. Since A is open in U and U is open in X, A
+    is open in X by Lecture 24. Since A is closed in U , B = U \ A is open in U ;
+    because U is open in X, B is open in X.
+    Since A ∩ B = ∅, we have A ⊆ B c . Because B is open, B c is closed, so A ⊆ B c ,
+    and hence A ∩ B = ∅. Similarly, B ∩ A = ∅. Therefore A and B are separated,
+    open in X, nonempty, and U = A ∪ B.
+
+
+
+
+                                        117
+Reflection & Variation                           Homework 11, Problem 2
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  118
+Problem 3
+
+ Problem Statement                                       Homework 11, Problem 3
+
+ Suppose that (X, d) is a metric space such that for any pair of points a, b ∈ X, there
+ exists a connected set C ⊆ X so that a, b ∈ C. Prove that X is connected.
+
+
+
+
+                                          119
+Pass 1 – First Diagnosis                       Homework 11, Problem 3
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    120
+Pass 2 – Proof Recipe Card           Homework 11, Problem 3
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               121
+Pass 3 – Self-Explanation                        Homework 11, Problem 3
+1. Why is contradiction the natural proof method here?
+
+
+
+
+2. What does a separation of X give you?
+
+
+
+
+3. Why can you choose one point a from one side and one point b from the
+other?
+
+
+
+
+4. Which Lecture 29 result says a connected set inside a union of separated
+sets lies in one side?
+
+
+
+
+5. Why does the connected set containing both a and b contradict the
+separation?
+
+
+
+
+                                   122
+Pass 4 – Skeleton Proof                          Homework 11, Problem 3
+Contradiction setup.
+Assume X is disconnected. Then choose nonempty separated sets A, B ⊆ X
+such that:
+
+
+
+
+Choose a ∈ A and b ∈ B. By hypothesis, choose connected C ⊆ X such that:
+
+
+
+
+Since C ⊆ X = A ∪ B, apply the connected-set/separated-union result:
+
+
+
+
+Use a ∈ A ∩ C and b ∈ B ∩ C to rule out both alternatives:
+
+
+
+
+Conclude X is connected:
+
+
+
+
+                                    123
+Pass 5 – Full Proof Attempt              Homework 11, Problem 3
+Use this page for the complete proof.
+
+
+
+
+                                   124
+Official Solution (Professor)
+
+Suppose toward a contradiction that X is disconnected. Then there exist sets A, B ⊆
+X such that
+                       X = A ∪ B,       A ̸= ∅,     B ̸= ∅,
+and A and B are separated.
+Choose a ∈ A and b ∈ B. By the hypothesis, there exists a connected set C ⊆ X such
+that a, b ∈ C. Since C ⊆ X = A ∪ B, and A and B are separated, Lecture 29 implies
+that either C ⊆ A or C ⊆ B.
+Because a ∈ A∩C, the only possible case is C ⊆ A. But then B ∩C = ∅, contradicting
+b ∈ B ∩ C. Therefore X cannot be disconnected, so X is connected.
+
+
+
+
+                                       125
+Reflection & Variation                           Homework 11, Problem 3
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  126
+Problem 4
+
+ Problem Statement                                  Homework 11, Problem 4
+
+ Let (X, d) be a metric space and A ⊆ X. Prove that if A is connected, then A is
+ connected.
+
+
+
+
+                                      127
+Pass 1 – First Diagnosis                       Homework 11, Problem 4
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    128
+Pass 2 – Proof Recipe Card           Homework 11, Problem 4
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               129
+Pass 3 – Self-Explanation                       Homework 11, Problem 4
+
+1. Why should the proof begin by assuming A is disconnected?
+
+
+
+
+2. If A = B ∪ C with B, C separated, what does connectedness of A ⊆ B ∪ C
+imply?
+
+
+
+
+3. Why can one assume A ⊆ B after relabeling?
+
+
+
+
+4. How does A ⊆ B imply A ⊆ B?
+
+
+
+
+5. Why does separatedness then force the other side to be empty?
+
+
+
+
+                                   130
+Pass 4 – Skeleton Proof                          Homework 11, Problem 4
+Contradiction setup.
+Assume A is disconnected, so A = B ∪ C with B, C nonempty and separated:
+
+
+
+
+Apply connectedness of A to the separated union B ∪ C:
+
+
+
+
+After relabeling, assume A ⊆ B. Then conclude A ⊆
+
+
+
+
+Use separatedness B ∩ C = ∅ to show A ∩ C = ∅:
+
+
+
+
+Explain why this contradicts C ̸= ∅ and C ⊆ A:
+
+
+
+
+                                  131
+Pass 5 – Full Proof Attempt              Homework 11, Problem 4
+Use this page for the complete proof.
+
+
+
+
+                                   132
+Official Solution (Professor)
+
+Suppose toward a contradiction that A is disconnected. Then there exist sets B, C ⊆ X
+such that
+                       A = B ∪ C,         B ̸= ∅,    C ̸= ∅,
+and B and C are separated.
+Since A is connected and A ⊆ A = B ∪ C, Lecture 29 implies that either A ⊆ B or
+A ⊆ C. After swapping B and C if necessary, assume A ⊆ B. Then
+
+                                      A ⊆ B.
+
+Because B and C are separated, B ∩ C = ∅. Hence
+
+                                    A ∩ C = ∅.
+
+But C ⊆ A, since A = B ∪ C. Therefore C = ∅, a contradiction. Thus A is connected.
+
+
+
+
+                                        133
+Reflection & Variation                           Homework 11, Problem 4
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  134
+Problem 5
+
+ Problem Statement                                     Homework 11, Problem 5
+
+ Let (X, d) be a metric space and A, B ⊆ X. Prove that if A and B are both connected
+ and A ∩ B ̸= ∅, then A ∪ B is connected.
+
+
+
+
+                                        135
+Pass 1 – First Diagnosis                       Homework 11, Problem 5
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    136
+Pass 2 – Proof Recipe Card           Homework 11, Problem 5
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               137
+Pass 3 – Self-Explanation                       Homework 11, Problem 5
+1. Why does the assumption A ∩ B ̸= ∅ prevent A and B from lying in
+different sides of a separation?
+
+
+
+
+2. If A ∪ B = C ∪ D is a separation, what does connectedness of A imply?
+
+
+
+
+3. What does connectedness of B imply?
+
+
+
+
+4. How does a shared point force A and B into the same separated side?
+
+
+
+
+5. Why does this make the other side empty?
+
+
+
+
+                                   138
+Pass 4 – Skeleton Proof                         Homework 11, Problem 5
+Contradiction setup.
+Assume A ∪ B is disconnected. Choose nonempty separated C, D ⊆ X such
+that:
+
+
+
+
+Use connectedness of A ⊆ C ∪ D to conclude:
+
+
+
+
+After relabeling, assume A ⊆ C. Use A ∩ B ̸= ∅ to show B has a point in C:
+
+
+
+
+Use connectedness of B to conclude B ⊆ C:
+
+
+
+
+Then A ∪ B ⊆ C, contradicting:
+
+
+
+
+                                   139
+Pass 5 – Full Proof Attempt              Homework 11, Problem 5
+Use this page for the complete proof.
+
+
+
+
+                                   140
+Official Solution (Professor)
+
+Suppose toward a contradiction that A ∪ B is disconnected. Then there exist sets
+C, D ⊆ X such that
+                        A ∪ B = C ∪ D,       C, D ̸= ∅,
+and C and D are separated.
+Since A ⊆ C ∪ D and A is connected, Lecture 29 implies that either A ⊆ C or A ⊆ D.
+After swapping C and D, assume A ⊆ C.
+Similarly, since B ⊆ C ∪ D and B is connected, either B ⊆ C or B ⊆ D. But A ⊆ C
+and A ∩ B ̸= ∅, so at least one point of B lies in C. Therefore B cannot be contained
+in D, and we must have B ⊆ C.
+Thus A∪B ⊆ C. Since A∪B = C ∪D, this forces D = ∅, contradicting the separation.
+Therefore A ∪ B is connected.
+
+
+
+
+                                        141
+Reflection & Variation                           Homework 11, Problem 5
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  142
+Problem 6
+
+ Problem Statement                                    Homework 11, Problem 6
+
+ Let (X, d) be a metric space.
+  (a) Let A, B, C ⊆ X. Prove that if the sets A and B are separated and the sets A
+      and C are separated, then the sets A and B ∪ C are separated.
+  (b) Prove that if F, G ⊆ X are closed and F ∪ G and F ∩ G are connected, then F
+      is connected.
+
+
+
+
+                                       143
+Pass 1 – First Diagnosis                       Homework 11, Problem 6
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    144
+Pass 2 – Proof Recipe Card           Homework 11, Problem 6
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               145
+Pass 3 – Self-Explanation                        Homework 11, Problem 6
+1. What two closure-intersection conditions define separated sets?
+
+
+
+
+2. In part (a), how do unions distribute over intersections with A?
+
+
+
+
+3. For part (b), why is contradiction a natural strategy?
+
+
+
+
+4. If F = A ∪ B is a separation, how does connectedness of F ∩ G force F ∩ G
+into one side?
+
+
+
+
+5. Why does proving B is separated from A ∪ G contradict connectedness
+of F ∪ G?
+
+
+
+
+                                    146
+Pass 4 – Skeleton Proof                       Homework 11, Problem 6
+
+Part (a): separated from a union.
+Write what it means that A is separated from B and from C:
+
+
+
+
+Compute A ∩ (B ∪ C):
+
+
+
+
+Use B ∪ C = B ∪ C to compute A ∩ B ∪ C:
+
+
+
+
+Conclude A and B ∪ C are separated:
+
+
+
+
+Part (b): contradiction.
+Assume F is disconnected and choose F = A ∪ B with A, B nonempty sepa-
+rated:
+
+
+
+
+                                  147
+Use connectedness of F ∩ G to assume, after relabeling, F ∩ G ⊆ A:
+
+
+
+
+Show B and G are separated, using closedness of G:
+
+
+
+
+Apply part (a) to show B and A ∪ G are separated, yielding a separation of
+F ∪ G:
+
+
+
+
+                                   148
+Pass 5 – Full Proof Attempt         Homework 11, Problem 6
+
+Use this page for part (a).
+
+
+
+
+                              149
+Pass 5 – Full Proof Attempt         Homework 11, Problem 6
+
+Use this page for part (b).
+
+
+
+
+                              150
+Official Solution (Professor)
+
+(a) Since A and B are separated,
+
+                            A∩B =∅         and    A ∩ B = ∅.
+
+    Since A and C are separated,
+
+                            A∩C =∅         and    A ∩ C = ∅.
+
+    Therefore
+                           A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C) = ∅.
+    Also, by Lecture 23,
+                                     B ∪ C = B ∪ C.
+    Hence
+                           A ∩ B ∪ C = (A ∩ B) ∪ (A ∩ C) = ∅.
+    Thus A and B ∪ C are separated.
+(b) Suppose toward a contradiction that F is disconnected. Then there exist A, B ⊆
+    X such that
+                             F = A ∪ B,       A, B ̸= ∅,
+    and A and B are separated.
+    Since F ∩ G is connected and F ∩ G ⊆ A ∪ B, Lecture 29 implies that either
+    F ∩G ⊆ A or F ∩G ⊆ B. After swapping A and B if necessary, assume F ∩G ⊆ A.
+    We claim that B and G are separated. First B ∩ G = ∅, because any point in
+    B ∩ G would lie in F ∩ G ⊆ A, contradicting A ∩ B = ∅. Since G is closed,
+    G = G, and this gives B ∩ G = ∅. Also, if x ∈ G = G, then either x ∈ G \ F or
+    x ∈ F ∩ G ⊆ A, so x ∈/ B. Hence B ∩ G = ∅. Thus B and G are separated.
+    Since A and B are separated, part (a) implies that B and A ∪ G are separated.
+    Both are nonempty, and
+
+                           F ∪ G = (A ∪ B) ∪ G = (A ∪ G) ∪ B.
+
+    Therefore F ∪ G is disconnected, contradicting the hypothesis. Hence F is con-
+    nected.
+
+
+
+
+                                         151
+Reflection & Variation                           Homework 11, Problem 6
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  152
+Homework 12
+
+
+
+
+    153
+Problem 1
+
+ Problem Statement                                       Homework 12, Problem 1
+
+ Let (X, dX ) and (Y, dY ) be metric spaces, f : X → Y , and x0 ∈ X. Prove that f is
+ continuous at x0 if and only if for any open set V ⊆ Y containing f (x0 ), there is an
+ open set U ⊆ X containing x0 so that x ∈ U implies f (x) ∈ V .
+
+
+
+
+                                          154
+Pass 1 – First Diagnosis                       Homework 12, Problem 1
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    155
+Pass 2 – Proof Recipe Card           Homework 12, Problem 1
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               156
+Pass 3 – Self-Explanation                             Homework 12, Problem 1
+1. What is the ε-δ definition of continuity at x0 ?
+
+
+
+
+2. In the forward direction, how does openness of V produce a ball around
+f (x0 )?
+
+
+
+
+3. Why is U = Bδ (x0 ) the natural choice after applying continuity?
+
+
+
+
+4. In the reverse direction, why should V = Bε (f (x0 )) be used?
+
+
+
+
+5. How does openness of U produce the δ needed for continuity?
+
+
+
+
+                                     157
+Pass 4 – Skeleton Proof                            Homework 12, Problem 1
+Forward direction.
+Assume f is continuous at x0 . Fix open V ⊆ Y with f (x0 ) ∈ V . Choose ε > 0
+so that:
+
+
+
+
+Use continuity at x0 to choose δ > 0 so that:
+
+
+
+
+Set U =
+
+
+
+
+Check U is open, contains x0 , and x ∈ U ⇒ f (x) ∈ V :
+
+
+
+
+Reverse direction.
+Assume the open-neighborhood condition. Fix ε > 0 and set V =
+
+
+
+
+                                     158
+Use the hypothesis to get open U ∋ x0 with f (U ) ⊆ V :
+
+
+
+
+Use openness of U to choose δ > 0 with Bδ (x0 ) ⊆ U :
+
+
+
+
+Conclude the ε-δ condition:
+
+
+
+
+                                     159
+Pass 5 – Full Proof Attempt                Homework 12, Problem 1
+Use this page for the forward direction.
+
+
+
+
+                                   160
+Pass 5 – Full Proof Attempt                Homework 12, Problem 1
+Use this page for the reverse direction.
+
+
+
+
+                                    161
+Student-Derived Solution (No official solution available yet)
+
+⇒ Assume f is continuous at x0 . Let V ⊆ Y be open with f (x0 ) ∈ V . Since V is
+open, there is ε > 0 such that
+                                 Bε (f (x0 )) ⊆ V.
+By continuity at x0 , there is δ > 0 such that
+
+                      dX (x, x0 ) < δ    =⇒      dY (f (x), f (x0 )) < ε.
+
+Let U = Bδ (x0 ). Then U is open, x0 ∈ U , and if x ∈ U , then f (x) ∈ Bε (f (x0 )) ⊆ V .
+⇐ Assume the open-set condition. Let ε > 0, and set V = Bε (f (x0 )). Then V is open
+and contains f (x0 ), so there is an open set U ⊆ X with x0 ∈ U and f (U ) ⊆ V . Since
+U is open and x0 ∈ U , there is δ > 0 such that Bδ (x0 ) ⊆ U . Thus if dX (x, x0 ) < δ,
+then x ∈ U , so f (x) ∈ V , meaning
+
+                                    dY (f (x), f (x0 )) < ε.
+
+Therefore f is continuous at x0 .
+
+
+
+
+                                             162
+Reflection & Variation                           Homework 12, Problem 1
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  163
+Problem 2
+
+ Problem Statement                                      Homework 12, Problem 2
+
+ Let (X, dX ) and (Y, dY ) be metric spaces and f : X → Y a function. Prove that f is
+ continuous if and only if f (A) ⊆ f (A) for any A ⊆ X.
+
+
+
+
+                                         164
+Pass 1 – First Diagnosis                       Homework 12, Problem 2
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    165
+Pass 2 – Proof Recipe Card           Homework 12, Problem 2
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               166
+Pass 3 – Self-Explanation                          Homework 12, Problem 2
+
+1. What does x ∈ A mean sequentially in a metric space?
+
+
+
+
+2. In the forward direction, how does continuity move a convergent se-
+quence from X to Y ?
+
+
+
+
+3. Why does f (an ) → f (x) prove f (x) ∈ f (A)?
+
+
+
+
+4. In the reverse direction, why choose A = X \ f −1 (V ) for an open V ⊆ Y ?
+
+
+
+
+5. Why does x ∈
+              / A produce an open neighborhood U of x with f (U ) ⊆ V ?
+
+
+
+
+                                      167
+Pass 4 – Skeleton Proof                            Homework 12, Problem 2
+Forward direction.
+Assume f is continuous. Fix A ⊆ X and x ∈ A. Choose a sequence an ∈ A
+such that:
+
+
+
+
+Use continuity to show f (an ) →
+
+
+
+
+Conclude f (x) ∈ f (A), hence f (A) ⊆ f (A):
+
+
+
+
+Reverse direction.
+Assume f (A) ⊆ f (A) for every A ⊆ X. Fix open V ⊆ Y with f (x) ∈ V :
+
+
+
+
+Define A = X \ f −1 (V ). Suppose for contradiction that x ∈ A:
+
+
+
+
+                                      168
+Use the closure hypothesis to force f (x) ∈ f (A):
+
+
+
+
+Use f (A) ⊆ Y \ V and Y \ V closed to contradict f (x) ∈ V :
+
+
+
+
+       / A, build an open U ∋ x with U ⊆ f −1 (V ), then apply Problem 1:
+From x ∈
+
+
+
+
+                                     169
+Pass 5 – Full Proof Attempt                Homework 12, Problem 2
+Use this page for the forward direction.
+
+
+
+
+                                   170
+Pass 5 – Full Proof Attempt                Homework 12, Problem 2
+Use this page for the reverse direction.
+
+
+
+
+                                    171
+Student-Derived Solution (No official solution available yet)
+
+⇒ Assume f is continuous. Let A ⊆ X, and let x ∈ A. By the sequential char-
+acterization of closure, there is a sequence {an } ⊆ A such that an → x. Since f is
+continuous,
+                                     f (an ) → f (x).
+Each f (an ) ∈ f (A), so f (x) ∈ f (A). Therefore
+
+                                     f (A) ⊆ f (A).
+
+⇐ Assume that for every A ⊆ X,
+
+                                     f (A) ⊆ f (A).
+
+We prove continuity using Problem 1. Let V ⊆ Y be open and suppose f (x) ∈ V . Set
+
+                                    A = X \ f −1 (V ).
+
+We claim x ∈
+           / A. If x ∈ A, then by the hypothesis
+
+                                  f (x) ∈ f (A) ⊆ f (A).
+
+But if a ∈ A, then f (a) ∈
+                         / V , so f (A) ⊆ Y \ V . Since Y \ V is closed,
+
+                                     f (A) ⊆ Y \ V.
+
+This would imply f (x) ∈/ V , contradicting f (x) ∈ V . Thus x ∈
+                                                               / A.
+        / A, there exists an open set U ⊆ X containing x such that U ∩ A = ∅. Hence
+Since x ∈
+
+                                 U ⊆ X \ A = f −1 (V ),
+
+so f (U ) ⊆ V . By Problem 1, f is continuous at x. Since x ∈ X was arbitrary, f is
+continuous.
+
+
+
+
+                                           172
+Reflection & Variation                           Homework 12, Problem 2
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  173
+Problem 3
+
+ Problem Statement                                        Homework 12, Problem 3
+ Let f : R → R be the function
+                                                 1
+                                     f (x) =          .
+                                               1 + x2
+  (a) Prove that f is continuous.
+  (b) Find an open set U ⊆ R so that f (U ) is not open.
+  (c) Find a closed set F ⊆ R so that f (F ) is not closed.
+  (d) Find a set A ⊆ R so that f (A) ̸= f (A).
+
+
+
+
+                                           174
+Pass 1 – First Diagnosis                       Homework 12, Problem 3
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    175
+Pass 2 – Proof Recipe Card           Homework 12, Problem 3
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               176
+Pass 3 – Self-Explanation                         Homework 12, Problem 3
+
+1. Which standard limit laws prove continuity of f (x) = 1/(1 + x2 )?
+
+
+
+
+2. What is the range of f on all of R?
+
+
+
+
+3. Why is (0, 1] not open in R?
+
+
+
+
+4. Why is (0, 1] not closed in R?
+
+
+
+
+5. For A = (0, ∞), compare f (A) with f (A). Where does the extra endpoint
+come from?
+
+
+
+
+                                     177
+Pass 4 – Skeleton Proof                              Homework 12, Problem 3
+
+Part (a): continuity.
+Use sequences or limit laws: if xn → x, then x2n →
+
+
+
+
+Conclude 1 + x2n → 1 + x2 , and since denominators stay nonzero:
+
+
+
+
+Parts (b) and (c): image counterexamples.
+For an open set, try U = R. Compute f (U ) =
+
+
+
+
+Explain why that image is not open:
+
+
+
+
+For a closed set, try F = [0, ∞). Compute f (F ) =
+
+
+
+
+Explain why that image is not closed:
+
+
+
+
+                                    178
+Part (d): closure/image mismatch.
+Try A = (0, ∞). Then A =
+
+
+
+
+Compute f (A), f (A), and f (A):
+
+
+
+
+                                    179
+Pass 5 – Full Proof Attempt                  Homework 12, Problem 3
+
+Use this page for parts (a) and (b).
+
+
+
+
+                                       180
+Pass 5 – Full Proof Attempt                  Homework 12, Problem 3
+
+Use this page for parts (c) and (d).
+
+
+
+
+                                       181
+Student-Derived Solution (No official solution available yet)
+
+(a) Let xn → x in R. Then by the standard limit laws,
+
+                               x2n → x2 ,     1 + x2n → 1 + x2 .
+
+    Since 1 + x2 ̸= 0, the reciprocal limit law gives
+                                         1       1
+                                           2
+                                             →        .
+                                      1 + xn   1 + x2
+
+    Hence f (xn ) → f (x), so f is continuous.
+(b) Let U = R, which is open. Then
+
+                                        f (U ) = (0, 1].
+
+    This is not open in R, since 1 ∈ (0, 1] but no open interval around 1 is contained
+    in (0, 1].
+(c) Let F = [0, ∞), which is closed in R. Then
+
+                                        f (F ) = (0, 1].
+
+    This set is not closed in R, since 0 is a limit point of (0, 1] but 0 ∈
+                                                                          / (0, 1].
+(d) Let A = (0, ∞). Then A = [0, ∞), so
+
+                                  f (A) = f ([0, ∞)) = (0, 1].
+
+    On the other hand,
+
+                       f (A) = f ((0, ∞)) = (0, 1),        f (A) = [0, 1].
+
+    Therefore
+                                f (A) = (0, 1] ̸= [0, 1] = f (A).
+
+
+
+
+                                            182
+Reflection & Variation                           Homework 12, Problem 3
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  183
+Problem 4
+
+ Problem Statement                                          Homework 12, Problem 4
+
+ Consider the metric spaces (R, | · |) and (R2 , d2 ).
+  (a) Prove that the functions f, g : R2 → R given by f (x, y) = x and g(x, y) = y are
+      continuous. (Hint: Use sequences.)
+  (b) Prove that if h : [0, 1] → R2 is a continuous function such that h(0) = (x0 , y0 ),
+      h(1) = (x1 , y1 ), and x0 < 0 < x1 , then there exists a point t ∈ (0, 1) so that h(t)
+      lies on the y-axis.
+
+
+
+
+                                            184
+Pass 1 – First Diagnosis                       Homework 12, Problem 4
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    185
+Pass 2 – Proof Recipe Card           Homework 12, Problem 4
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               186
+Pass 3 – Self-Explanation                              Homework 12, Problem 4
+
+1. How does convergence in (R2 , d2 ) imply coordinatewise convergence?
+
+
+
+
+2. Why does |xn − x| ≤ d2 ((xn , yn ), (x, y)) prove continuity of the first projec-
+tion?
+
+
+
+
+3. What scalar function should be formed from the path h in part (b)?
+
+
+
+
+4. Why is ϕ(t) = f (h(t)) continuous?
+
+
+
+
+5. How does the Intermediate Value Theorem produce a point on the
+y-axis?
+
+
+
+
+                                        187
+Pass 4 – Skeleton Proof                                 Homework 12, Problem 4
+
+Part (a): projections are continuous.
+Let (xn , yn ) → (x, y) in (R2 , d2 ). Write the coordinate inequality for xn :
+
+
+
+
+Use squeeze to prove xn → x, hence f (xn , yn ) → f (x, y):
+
+
+
+
+Repeat the coordinate inequality for yn :
+
+
+
+
+Part (b): path crosses the y-axis.
+Define ϕ : [0, 1] → R by ϕ(t) =
+
+
+
+
+Explain why ϕ is continuous:
+
+
+
+
+                                         188
+Compute ϕ(0) and ϕ(1), and record their signs:
+
+
+
+
+Apply the Intermediate Value Theorem to get t ∈ (0, 1) with ϕ(t) = 0:
+
+
+
+
+Translate ϕ(t) = 0 into "h(t) lies on the y-axis":
+
+
+
+
+                                      189
+Pass 5 – Full Proof Attempt         Homework 12, Problem 4
+
+Use this page for part (a).
+
+
+
+
+                              190
+Pass 5 – Full Proof Attempt         Homework 12, Problem 4
+
+Use this page for part (b).
+
+
+
+
+                              191
+Student-Derived Solution (No official solution available yet)
+
+(a) We prove continuity of f (x, y) = x. Let (xn , yn ) → (x, y) in (R2 , d2 ). Then
+                                                 q
+                     d2 ((xn , yn ), (x, y)) =     (xn − x)2 + (yn − y)2 → 0.
+
+    Since
+                                 |xn − x| ≤ d2 ((xn , yn ), (x, y)),
+    the squeeze theorem gives xn → x. Thus
+
+                                 f (xn , yn ) = xn → x = f (x, y),
+
+    so f is continuous. The proof for g(x, y) = y is the same: use
+
+                                 |yn − y| ≤ d2 ((xn , yn ), (x, y))
+
+    to get yn → y, hence g(xn , yn ) → g(x, y).
+(b) Let f : R2 → R be the first-coordinate projection from part (a), and define
+
+                              ϕ : [0, 1] → R,          ϕ(t) = f (h(t)).
+
+    Since h is continuous and f is continuous, ϕ = f ◦ h is continuous. Also
+
+                            ϕ(0) = f (h(0)) = f (x0 , y0 ) = x0 < 0,
+
+    and
+                            ϕ(1) = f (h(1)) = f (x1 , y1 ) = x1 > 0.
+    By the Intermediate Value Theorem, there exists t ∈ (0, 1) such that ϕ(t) = 0.
+    This means the first coordinate of h(t) is 0, so h(t) ∈ {(0, y) : y ∈ R}. Therefore
+    h(t) lies on the y-axis.
+
+
+
+
+                                                 192
+Reflection & Variation                           Homework 12, Problem 4
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  193
+Problem 5
+
+ Problem Statement                                        Homework 12, Problem 5
+
+ Going forward, you may assume (no proof necessary) any fact about sin x and cos x
+ from calculus, such as sin, cos : R → [−1, 1] are continuous functions.
+ Prove that the function f : R2 → R given by
+
+                            f (x, y) = x2 + y 2 + sin(x − y)
+
+ has a global minimum. (Hint: Notice that we cannot directly apply the extreme value
+ theorem here. However, we can apply it to any compact subset of R2 .)
+
+
+
+
+                                          194
+Pass 1 – First Diagnosis                       Homework 12, Problem 5
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    195
+Pass 2 – Proof Recipe Card           Homework 12, Problem 5
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               196
+Pass 3 – Self-Explanation                        Homework 12, Problem 5
+1. Why can the extreme value theorem not be applied directly on all of
+R2 ?
+
+
+
+
+2. Why is f continuous?
+
+
+
+
+3. What lower bound follows from sin(x − y) ≥ −1?
+
+
+
+
+4. Why does the closed unit disk capture a global minimizer?
+
+
+
+
+5. Why is it useful to find one point inside the disk where f < 0?
+
+
+
+
+                                    197
+Pass 4 – Skeleton Proof                           Homework 12, Problem 5
+Continuity and coercive estimate.
+Show f is continuous as a sum/composition of continuous functions:
+
+
+
+
+Use sin(x − y) ≥ −1 to prove f (x, y) ≥
+
+
+
+
+Conclude that if x2 + y 2 ≥ 1, then f (x, y) ≥
+
+
+
+
+Find a compact region where the minimum occurs.
+Choose p = (−1/2, 1/2). Compute f (p) =
+
+
+
+
+Explain why f (p) < 0:
+
+
+
+
+Let K = {(x, y) : x2 + y 2 ≤ 1}. Explain why K is compact:
+
+
+
+
+                                       198
+Apply the extreme value theorem to f |K :
+
+
+
+
+Compare points inside K and outside K to prove the minimizer on K is
+global:
+
+
+
+
+                                   199
+Pass 5 – Full Proof Attempt                     Homework 12, Problem 5
+Use this page for the setup and compact restriction.
+
+
+
+
+                                   200
+Pass 5 – Full Proof Attempt                     Homework 12, Problem 5
+Use this page to prove the minimum is global.
+
+
+
+
+                                  201
+Student-Derived Solution (No official solution available yet)
+
+First, f is continuous on R2 . The map (x, y) 7→ x2 + y 2 is continuous, the map
+(x, y) 7→ x − y is continuous, and sin is continuous by the allowed calculus facts.
+Hence (x, y) 7→ sin(x − y) is continuous, and so f is continuous.
+Since sin(x − y) ≥ −1, we have
+
+                    f (x, y) = x2 + y 2 + sin(x − y) ≥ x2 + y 2 − 1.
+
+In particular, if x2 + y 2 ≥ 1, then f (x, y) ≥ 0.
+Now consider
+                                               1 1
+                                                  
+                                       p= − ,        .
+                                               2 2
+Then
+                                1 1                  1
+                       f (p) = + + sin(−1) = − sin(1) < 0.
+                                4 4                  2
+Also p lies in the closed unit disk
+
+                          K = {(x, y) ∈ R2 : x2 + y 2 ≤ 1}.
+
+The set K is closed and bounded in R2 , hence compact. By the extreme value theorem,
+since f is continuous, there exists q ∈ K such that
+
+                            f (q) ≤ f (z)     for all z ∈ K.
+
+We claim q is a global minimizer on R2 . If z ∈ K, this is true by the choice of q. If
+ / K, then z = (x, y) satisfies x2 + y 2 > 1, so f (z) ≥ 0. But
+z∈
+
+                               f (q) ≤ f (p) < 0 ≤ f (z).
+
+Thus f (q) ≤ f (z) for every z ∈ R2 . Therefore f has a global minimum.
+
+
+
+
+                                            202
+Reflection & Variation                           Homework 12, Problem 5
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  203
+Problem 6
+
+ Problem Statement                                    Homework 12, Problem 6
+ Let X and Y be metric spaces and f : X → Y a function. Prove that if X is compact
+ and f is continuous and bijective, then the inverse function f −1 : Y → X is also
+ continuous. (Hint: It suffices to show that the preimage of any closed subset of X
+ under f −1 is closed in Y .)
+
+
+
+
+                                        204
+Pass 1 – First Diagnosis                       Homework 12, Problem 6
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    205
+Pass 2 – Proof Recipe Card           Homework 12, Problem 6
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               206
+Pass 3 – Self-Explanation                              Homework 12, Problem 6
+1. Which closed-set criterion for continuity is suggested by the hint?
+
+
+
+
+2. If C ⊆ X is closed, why is C compact?
+
+
+
+
+3. Why is f (C) compact in Y ?
+
+
+
+
+4. Why is f (C) closed in Y ?
+
+
+
+
+5. Why is (f −1 )−1 (C) = f (C) when f is bijective?
+
+
+
+
+                                      207
+Pass 4 – Skeleton Proof                          Homework 12, Problem 6
+
+Use the closed-set criterion for f −1 .
+Let C ⊆ X be closed. Since X is compact, conclude C is:
+
+
+
+
+Since f is continuous, conclude f (C) is:
+
+
+
+
+Since Y is a metric space, compact subsets of Y are:
+
+
+
+
+Use bijectivity to compute (f −1 )−1 (C) =
+
+
+
+
+Conclude the preimage under f −1 of every closed set C ⊆ X is closed in Y :
+
+
+
+
+Apply the closed-set criterion to finish:
+
+
+
+
+                                      208
+Pass 5 – Full Proof Attempt              Homework 12, Problem 6
+Use this page for the complete proof.
+
+
+
+
+                                   209
+Student-Derived Solution (No official solution available yet)
+
+We prove that f −1 : Y → X is continuous using the closed-set criterion.
+Let C ⊆ X be closed. Since X is compact and C is closed in X, C is compact. Since
+f : X → Y is continuous, the image of a compact set under f is compact. Therefore
+f (C) is compact in Y .
+Because Y is a metric space, compact subsets of Y are closed. Hence f (C) is closed
+in Y .
+Since f is bijective,
+                               (f −1 )−1 (C) = f (C).
+Thus the preimage under f −1 of every closed subset C ⊆ X is closed in Y . By the
+closed-set criterion for continuity, f −1 is continuous.
+
+
+
+
+                                       210
+Reflection & Variation                           Homework 12, Problem 6
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  211
 

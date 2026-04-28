@@ -1,6 +1,6 @@
 % MATH 521 | Final Practice Workbook
 % University of Wisconsin--Madison, Spring 2026
-% Step 1 build: Homework 9 only
+% Workbook build: Homework 9 through Homework 12
 
 \documentclass[12pt]{article}
 
@@ -763,5 +763,1267 @@ and thus \(d(x_n,y)\) converges to \(d(x,y)\).
 
 \newpage
 \reflectionpage{Homework 9, Problem 6}
+
+\newpage
+\section{Homework 10}
+
+% ---------------------------------------------------------------------------
+% HW10 Problem 1
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 1}
+
+\begin{problemstatementbox}{Homework 10, Problem 1}
+Let \((X,d)\) be a metric space and let \(Y\subseteq X\). We call the set \(Y\) complete if the subspace \(Y\) with the induced metric is complete. Prove that if \(Y\) is complete, then \(Y\) is closed in \(X\). (Hint: It suffices to show \(Y\subseteq\closure{Y}\). Use sequences.)
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 10, Problem 1}
+
+\newpage
+\recipecard{Homework 10, Problem 1}
+
+\newpage
+\begin{selfexplanationbox}{Homework 10, Problem 1}
+\workquestion{1. What does it mean for \(Y\) to be complete as a subspace of \(X\)?}{1.0in}
+\workquestion{2. What sequential characterization of closure should be used after fixing \(x\in\closure{Y}\)?}{1.0in}
+\workquestion{3. Why is a sequence converging in \(X\) automatically Cauchy in \(X\)?}{0.95in}
+\workquestion{4. Why is the same sequence Cauchy in the induced metric on \(Y\)?}{0.95in}
+\workquestion{5. Where is uniqueness of limits in a metric space used?}{1.05in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 10, Problem 1}
+\textbf{Goal: prove \(Y\) is closed.}
+\workquestion{It suffices to show \(\closure{Y}\subseteq Y\). Fix:}{0.85in}
+\workquestion{Use the sequential characterization of closure to get a sequence \(\{y_n\}\subseteq Y\) such that:}{0.95in}
+\workquestion{Explain why \(\{y_n\}\) is Cauchy in \(Y\):}{0.95in}
+\workquestion{Use completeness of \(Y\) to get \(y\in Y\) with:}{0.85in}
+\workquestion{Compare convergence in \(Y\) with convergence in \(X\), then use uniqueness of limits:}{1.0in}
+\workquestion{Conclude \(\closure{Y}\subseteq Y\), hence \(Y\) is closed:}{0.8in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 10, Problem 1}{Use this page for the complete proof.}
+
+\newpage
+\begin{solutionbox}{Student-Derived Solution (No official solution available)}
+We show that \(\closure{Y}\subseteq Y\). Since always \(Y\subseteq\closure{Y}\), this implies \(\closure{Y}=Y\), and hence \(Y\) is closed in \(X\).
+
+Let \(x\in\closure{Y}\). By the sequential characterization of closure, there exists a sequence \(\{y_n\}_{n\ge1}\) in \(Y\) such that
+\[
+  y_n\to x
+  \qquad\text{in }(X,d).
+\]
+Every convergent sequence in a metric space is Cauchy, so \(\{y_n\}\) is Cauchy in \((X,d)\). Since the induced metric on \(Y\) is the restriction of \(d\), the same sequence is Cauchy in \((Y,d_Y)\).
+
+Because \(Y\) is complete, there is some \(y\in Y\) such that
+\[
+  y_n\to y
+  \qquad\text{in }(Y,d_Y).
+\]
+Convergence in the subspace metric is the same distance condition as convergence in \(X\), so \(y_n\to y\) in \((X,d)\). Thus the sequence \(\{y_n\}\) converges to both \(x\) and \(y\) in \(X\). By uniqueness of limits in metric spaces, \(x=y\). Since \(y\in Y\), we have \(x\in Y\).
+
+Therefore \(\closure{Y}\subseteq Y\), so \(Y\) is closed in \(X\).
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 10, Problem 1}
+
+% ---------------------------------------------------------------------------
+% HW10 Problem 2
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 2}
+
+\begin{problemstatementbox}{Homework 10, Problem 2}
+Let \((X,d)\) be a metric space. Prove that if \(A,B\subseteq X\) are both compact then \(A\cup B\) is compact.
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 10, Problem 2}
+
+\newpage
+\recipecard{Homework 10, Problem 2}
+
+\newpage
+\begin{selfexplanationbox}{Homework 10, Problem 2}
+\workquestion{1. What definition of compactness is most direct for a finite union?}{0.95in}
+\workquestion{2. Why does an open cover of \(A\cup B\) automatically cover \(A\) and \(B\) separately?}{1.0in}
+\workquestion{3. What finite subcover do you get from compactness of \(A\)?}{0.95in}
+\workquestion{4. What finite subcover do you get from compactness of \(B\)?}{0.95in}
+\workquestion{5. Why is the union of the two finite index sets still finite and enough to cover \(A\cup B\)?}{1.05in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 10, Problem 2}
+\textbf{Open-cover setup.}
+\workquestion{Let \(\{U_i\}_{i\in I}\) be an arbitrary open cover of \(A\cup B\):}{0.85in}
+\workquestion{Restrict the same cover to \(A\), and use compactness of \(A\) to choose a finite \(J_A\subseteq I\):}{1.0in}
+\workquestion{Restrict the same cover to \(B\), and use compactness of \(B\) to choose a finite \(J_B\subseteq I\):}{1.0in}
+\workquestion{Set \(J=\)}{0.6in}
+\workquestion{Check \(J\) is finite and \(\{U_i\}_{i\in J}\) covers \(A\cup B\):}{1.0in}
+\workquestion{Conclude compactness because the original open cover was arbitrary:}{0.75in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 10, Problem 2}{Use this page for the complete proof.}
+
+\newpage
+\begin{solutionbox}{Student-Derived Solution (No official solution available)}
+Let \(\{U_i\}_{i\in I}\) be an open cover of \(A\cup B\). Thus each \(U_i\) is open in \(X\), and
+\[
+  A\cup B\subseteq \bigcup_{i\in I}U_i.
+\]
+Since \(A\subseteq A\cup B\), the same family is an open cover of \(A\). Because \(A\) is compact, there is a finite set \(J_A\subseteq I\) such that
+\[
+  A\subseteq \bigcup_{i\in J_A}U_i.
+\]
+Similarly, \(\{U_i\}_{i\in I}\) is an open cover of \(B\), so compactness of \(B\) gives a finite set \(J_B\subseteq I\) such that
+\[
+  B\subseteq \bigcup_{i\in J_B}U_i.
+\]
+Set \(J=J_A\cup J_B\). Then \(J\) is finite, and
+\[
+  A\cup B
+  \subseteq
+  \left(\bigcup_{i\in J_A}U_i\right)\cup
+  \left(\bigcup_{i\in J_B}U_i\right)
+  =
+  \bigcup_{i\in J}U_i.
+\]
+Thus every open cover of \(A\cup B\) has a finite subcover. Therefore \(A\cup B\) is compact.
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 10, Problem 2}
+
+% ---------------------------------------------------------------------------
+% HW10 Problem 3
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 3}
+
+\begin{problemstatementbox}{Homework 10, Problem 3}
+Let \((X,d)\) be a metric space.
+
+\begin{enumerate}[label=(\alph*)]
+  \item Prove that if \(A\subseteq B\subseteq X\), \(A\) is closed in \(X\), and \(B\) is compact, then \(A\) is compact. (Hint: Given an open cover of \(A\), we can add \(A^c\) to get an open cover of \(B\).)
+  \item Prove that if \(C,D\subseteq X\) are both compact, then \(C\cap D\) is compact. (Hint: Use (a).)
+\end{enumerate}
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 10, Problem 3}
+
+\newpage
+\recipecard{Homework 10, Problem 3}
+
+\newpage
+\begin{selfexplanationbox}{Homework 10, Problem 3}
+\workquestion{1. Why does adding \(A^c\) to an open cover of \(A\) help cover all of \(B\)?}{1.05in}
+\workquestion{2. Where is the assumption that \(A\) is closed used?}{0.95in}
+\workquestion{3. After compactness of \(B\) gives a finite subcover, why can \(A^c\) be discarded when covering \(A\)?}{1.05in}
+\workquestion{4. Which lecture result says compact subsets of a metric space are closed?}{0.9in}
+\workquestion{5. In part (b), which compact set plays the role of \(B\) in part (a)?}{0.95in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 10, Problem 3}
+\textbf{Part (a): closed subset of a compact set.}
+\workquestion{Let \(\{U_i\}_{i\in I}\) be an open cover of \(A\). Since \(A\) is closed, \(A^c\) is:}{0.85in}
+\workquestion{Show \(\{A^c\}\cup\{U_i\}_{i\in I}\) covers \(B\):}{1.0in}
+\workquestion{Use compactness of \(B\) to extract a finite subcover:}{0.95in}
+\workquestion{Restrict back to \(A\) and remove the \(A^c\) part:}{1.0in}
+
+\textbf{Part (b): compact intersection.}
+\workquestion{Use compactness \(\Rightarrow\) closed to show \(C\cap D\) is closed in \(X\):}{0.9in}
+\workquestion{Apply part (a) with \(A=C\cap D\) and \(B=\)}{0.75in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 10, Problem 3}{Use this page for part (a).}
+
+\newpage
+\fullproofpage{Homework 10, Problem 3}{Use this page for part (b).}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+\begin{enumerate}[label=(\alph*)]
+  \item Let \(\{U_i\}_{i\in I}\) be an open cover of \(A\). Since \(A\) is closed, \(A^c\) is open. Thus
+  \[
+    \{A^c\}\cup\{U_i\}_{i\in I}
+  \]
+  is an open cover of \(B\), because
+  \[
+    B\subseteq X=A^c\cup A\subseteq A^c\cup\bigcup_{i\in I}U_i.
+  \]
+  Since \(B\) is compact, there is a finite subcover for \(B\). We may write it as
+  \[
+    \{A^c\}\cup\{U_i\}_{i\in J}
+  \]
+  for some finite \(J\subseteq I\). Then
+  \[
+    B\subseteq A^c\cup\bigcup_{i\in J}U_i.
+  \]
+  Since \(A\subseteq B\) and \(A\cap A^c=\varnothing\), it follows that
+  \[
+    A\subseteq \bigcup_{i\in J}U_i.
+  \]
+  Hence \(\{U_i\}_{i\in J}\) is a finite subcover of \(A\). Therefore \(A\) is compact.
+
+  \item Since \(C\) and \(D\) are compact, they are closed by Lecture 27. Hence \(C\cap D\) is closed. Also \(C\cap D\subseteq C\), and \(C\) is compact. By part (a), \(C\cap D\) is compact.
+\end{enumerate}
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 10, Problem 3}
+
+% ---------------------------------------------------------------------------
+% HW10 Problem 4
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 4}
+
+\begin{problemstatementbox}{Homework 10, Problem 4}
+Let \((X,d)\) be a metric space and let \(Y\subseteq X\). Prove that if \(Y\) is compact, then \(Y\) is complete.
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 10, Problem 4}
+
+\newpage
+\recipecard{Homework 10, Problem 4}
+
+\newpage
+\begin{selfexplanationbox}{Homework 10, Problem 4}
+\workquestion{1. To prove completeness, what kind of sequence in \(Y\) should you start with?}{0.95in}
+\workquestion{2. Which compactness theorem gives a convergent subsequence in \(Y\)?}{0.95in}
+\workquestion{3. Why is a convergent subsequence not enough by itself to prove completeness?}{1.0in}
+\workquestion{4. How does the Cauchy property transfer convergence from a subsequence to the full sequence?}{1.1in}
+\workquestion{5. Why does the final limit lie in \(Y\)?}{0.9in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 10, Problem 4}
+\textbf{Setup: prove every Cauchy sequence in \(Y\) converges in \(Y\).}
+\workquestion{Let \(\{y_n\}\) be a Cauchy sequence in \(Y\):}{0.8in}
+\workquestion{Use compactness and Lecture 26 to obtain a subsequence \(\{y_{k_n}\}\) and point \(y\in Y\) such that:}{0.95in}
+\workquestion{Fix \(r>0\). From subsequence convergence choose \(N_1\) such that:}{0.85in}
+\workquestion{From the Cauchy property choose \(N_2\) such that:}{0.85in}
+\workquestion{Use triangle inequality with \(y_n\), \(y_{k_n}\), and \(y\):}{1.0in}
+\workquestion{Conclude the whole sequence converges to \(y\in Y\):}{0.75in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 10, Problem 4}{Use this page for the complete proof.}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+Let \(\{y_n\}_{n\ge1}\) be a Cauchy sequence in \(Y\). We show that it converges to some point of \(Y\).
+
+Since \(Y\) is compact, by Lecture 26 there exists a subsequence \(\{y_{k_n}\}_{n\ge1}\) that converges to some point \(y\in Y\).
+
+We prove the whole sequence converges to \(y\). Fix \(r>0\). Since \(y_{k_n}\to y\), there exists \(N_1\) such that
+\[
+  d(y_{k_n},y)<\frac r2
+  \qquad\text{for all }n\ge N_1.
+\]
+Since \(\{y_n\}\) is Cauchy, there exists \(N_2\) such that
+\[
+  d(y_n,y_m)<\frac r2
+  \qquad\text{for all }n,m\ge N_2.
+\]
+Set \(N=\max\{N_1,N_2\}\). For \(n\ge N\), we have \(k_n\ge n\ge N\), and so
+\[
+  d(y_n,y)\le d(y_n,y_{k_n})+d(y_{k_n},y)<\frac r2+\frac r2=r.
+\]
+Since \(r>0\) was arbitrary, \(y_n\to y\). Because \(y\in Y\), every Cauchy sequence in \(Y\) converges in \(Y\). Therefore \(Y\) is complete.
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 10, Problem 4}
+
+\newpage
+\section{Homework 11}
+
+% ---------------------------------------------------------------------------
+% HW11 Problem 1
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 1}
+
+\begin{problemstatementbox}{Homework 11, Problem 1}
+Consider the metric space \((\R,d)\) with the usual metric \(d(x,y)=|x-y|\). Note that the set \(\Q\) is not an interval, and so from lecture we know that it must be disconnected.
+
+\begin{enumerate}[label=(\alph*)]
+  \item Find two sets \(A,B\subseteq\R\) that are nonempty and separated so that \(\Q=A\cup B\), and prove your answer.
+  \item Find a set \(\varnothing\neq C\subsetneq\Q\) that is both open and closed in \(\Q\), and prove your answer.
+\end{enumerate}
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 11, Problem 1}
+
+\newpage
+\recipecard{Homework 11, Problem 1}
+
+\newpage
+\begin{selfexplanationbox}{Homework 11, Problem 1}
+\workquestion{1. Why is cutting \(\Q\) at an irrational number better than cutting it at a rational number?}{1.05in}
+\workquestion{2. What does it mean for two subsets of \(\R\) to be separated?}{0.95in}
+\workquestion{3. What are the closures in \(\R\) of \((-\infty,\sqrt2)\cap\Q\) and \((\sqrt2,\infty)\cap\Q\)?}{1.05in}
+\workquestion{4. Why does \(\sqrt2\notin\Q\) make the separation work?}{0.95in}
+\workquestion{5. How does the subspace characterization of open and closed sets in \(\Q\) prove part (b)?}{1.05in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 11, Problem 1}
+\textbf{Part (a): separated decomposition of \(\Q\).}
+\workquestion{Choose an irrational cut point and define \(A=\)}{0.75in}
+\workquestion{Define \(B=\)}{0.65in}
+\workquestion{Check \(A\) and \(B\) are nonempty and \(A\cup B=\Q\):}{0.95in}
+\workquestion{Compute \(\closure{A}\) and \(\closure{B}\) in \(\R\):}{0.95in}
+\workquestion{Use those closures to prove \(\closure{A}\cap B=\varnothing\) and \(A\cap\closure{B}=\varnothing\):}{1.0in}
+
+\textbf{Part (b): clopen subset of \(\Q\).}
+\workquestion{Choose \(C=\)}{0.65in}
+\workquestion{Prove \(C\) is nonempty and proper:}{0.75in}
+\workquestion{Show \(C\) is open in \(\Q\) and closed in \(\Q\) using subspace results:}{1.0in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 11, Problem 1}{Use this page for part (a).}
+
+\newpage
+\fullproofpage{Homework 11, Problem 1}{Use this page for part (b).}
+
+\newpage
+\begin{solutionbox}{Student-Derived Solution (No official solution available)}
+\begin{enumerate}[label=(\alph*)]
+  \item Define
+  \[
+    A=(-\infty,\sqrt2)\cap\Q,
+    \qquad
+    B=(\sqrt2,\infty)\cap\Q.
+  \]
+  Both sets are nonempty, for instance \(1\in A\) and \(2\in B\). Also \(A\cup B=\Q\), since every rational number is either less than \(\sqrt2\) or greater than \(\sqrt2\), and \(\sqrt2\notin\Q\).
+
+  In \(\R\),
+  \[
+    \closure{A}=(-\infty,\sqrt2],
+    \qquad
+    \closure{B}=[\sqrt2,\infty).
+  \]
+  Hence
+  \[
+    \closure{A}\cap B
+    =
+    (-\infty,\sqrt2]\cap\big((\sqrt2,\infty)\cap\Q\big)
+    =
+    \varnothing,
+  \]
+  and similarly
+  \[
+    A\cap\closure{B}
+    =
+    \big((-\infty,\sqrt2)\cap\Q\big)\cap[\sqrt2,\infty)
+    =
+    \varnothing.
+  \]
+  Therefore \(A\) and \(B\) are separated, nonempty, and satisfy \(\Q=A\cup B\).
+
+  \item Let
+  \[
+    C=(-\infty,\sqrt2)\cap\Q.
+  \]
+  Then \(C\neq\varnothing\), since \(1\in C\), and \(C\subsetneq\Q\), since \(2\in\Q\setminus C\).
+
+  The set \((-\infty,\sqrt2)\) is open in \(\R\), so \(C=(-\infty,\sqrt2)\cap\Q\) is open in the subspace \(\Q\). Also \((-\infty,\sqrt2]\) is closed in \(\R\), and since \(\sqrt2\notin\Q\),
+  \[
+    (-\infty,\sqrt2]\cap\Q=(-\infty,\sqrt2)\cap\Q=C.
+  \]
+  Thus \(C\) is closed in \(\Q\). Therefore \(C\) is a nonempty proper subset of \(\Q\) that is both open and closed in \(\Q\).
+\end{enumerate}
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 11, Problem 1}
+
+% ---------------------------------------------------------------------------
+% HW11 Problem 2
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 2}
+
+\begin{problemstatementbox}{Homework 11, Problem 2}
+Let \((X,d)\) be a metric space.
+
+\begin{enumerate}[label=(\alph*)]
+  \item Prove that if \(F\subseteq X\) is disconnected and closed in \(X\), then there exist \(A,B\subseteq X\) that are nonempty, separated, and closed in \(X\) so that \(F=A\cup B\).
+  \item Prove that if \(U\subseteq X\) is disconnected and open in \(X\), then there exist \(A,B\subseteq X\) that are nonempty, separated, and open in \(X\) so that \(U=A\cup B\).
+\end{enumerate}
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 11, Problem 2}
+
+\newpage
+\recipecard{Homework 11, Problem 2}
+
+\newpage
+\begin{selfexplanationbox}{Homework 11, Problem 2}
+\workquestion{1. Which Lecture 29 characterization of disconnectedness gives a nontrivial clopen subset of \(F\) or \(U\)?}{1.05in}
+\workquestion{2. In part (a), why does closed in \(F\) plus \(F\) closed in \(X\) imply closed in \(X\)?}{1.0in}
+\workquestion{3. In part (b), why does open in \(U\) plus \(U\) open in \(X\) imply open in \(X\)?}{1.0in}
+\workquestion{4. Why are the two pieces nonempty?}{0.85in}
+\workquestion{5. How do closedness or openness of the pieces imply they are separated?}{1.05in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 11, Problem 2}
+\textbf{Part (a): closed disconnected set.}
+\workquestion{Use disconnectedness of \(F\) to choose \(A\neq\varnothing,F\) that is both open and closed in \(F\). Set \(B=\)}{0.9in}
+\workquestion{Explain why \(A\) and \(B\) are nonempty and \(F=A\cup B\):}{0.8in}
+\workquestion{Use \(F\) closed in \(X\) to prove \(A\) and \(B\) are closed in \(X\):}{1.0in}
+\workquestion{Use closedness and disjointness to prove separatedness:}{0.95in}
+
+\textbf{Part (b): open disconnected set.}
+\workquestion{Use disconnectedness of \(U\) to choose \(A\neq\varnothing,U\) clopen in \(U\), and set \(B=\)}{0.9in}
+\workquestion{Use \(U\) open in \(X\) to prove \(A\) and \(B\) are open in \(X\):}{1.0in}
+\workquestion{Use complements of open sets to prove separatedness:}{0.95in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 11, Problem 2}{Use this page for part (a).}
+
+\newpage
+\fullproofpage{Homework 11, Problem 2}{Use this page for part (b).}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+\begin{enumerate}[label=(\alph*)]
+  \item Since \(F\) is disconnected, by Lecture 29 there exists a set \(A\neq\varnothing,F\) that is both open and closed in \(F\). Set \(B=F\setminus A\).
+
+  The sets \(A\) and \(B\) are nonempty because \(A\neq\varnothing\) and \(A\neq F\). Since \(A\) is closed in \(F\) and \(F\) is closed in \(X\), \(A\) is closed in \(X\) by Lecture 24. Also \(B=F\setminus A\) is closed in \(F\), because \(A\) is open in \(F\); hence \(B\) is closed in \(X\).
+
+  Finally, \(A\cap B=\varnothing\). Since \(A\) and \(B\) are closed in \(X\), \(\closure{A}=A\) and \(\closure{B}=B\). Thus
+  \[
+    \closure{A}\cap B=\varnothing,
+    \qquad
+    A\cap\closure{B}=\varnothing.
+  \]
+  Therefore \(A\) and \(B\) are nonempty, separated, closed in \(X\), and \(F=A\cup B\).
+
+  \item Since \(U\) is disconnected, by Lecture 29 there exists a set \(A\neq\varnothing,U\) that is both open and closed in \(U\). Set \(B=U\setminus A\).
+
+  The sets \(A\) and \(B\) are nonempty. Since \(A\) is open in \(U\) and \(U\) is open in \(X\), \(A\) is open in \(X\) by Lecture 24. Since \(A\) is closed in \(U\), \(B=U\setminus A\) is open in \(U\); because \(U\) is open in \(X\), \(B\) is open in \(X\).
+
+  Since \(A\cap B=\varnothing\), we have \(A\subseteq B^c\). Because \(B\) is open, \(B^c\) is closed, so \(\closure{A}\subseteq B^c\), and hence \(\closure{A}\cap B=\varnothing\). Similarly, \(\closure{B}\cap A=\varnothing\). Therefore \(A\) and \(B\) are separated, open in \(X\), nonempty, and \(U=A\cup B\).
+\end{enumerate}
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 11, Problem 2}
+
+% ---------------------------------------------------------------------------
+% HW11 Problem 3
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 3}
+
+\begin{problemstatementbox}{Homework 11, Problem 3}
+Suppose that \((X,d)\) is a metric space such that for any pair of points \(a,b\in X\), there exists a connected set \(C\subseteq X\) so that \(a,b\in C\). Prove that \(X\) is connected.
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 11, Problem 3}
+
+\newpage
+\recipecard{Homework 11, Problem 3}
+
+\newpage
+\begin{selfexplanationbox}{Homework 11, Problem 3}
+\workquestion{1. Why is contradiction the natural proof method here?}{0.95in}
+\workquestion{2. What does a separation of \(X\) give you?}{0.95in}
+\workquestion{3. Why can you choose one point \(a\) from one side and one point \(b\) from the other?}{0.9in}
+\workquestion{4. Which Lecture 29 result says a connected set inside a union of separated sets lies in one side?}{1.05in}
+\workquestion{5. Why does the connected set containing both \(a\) and \(b\) contradict the separation?}{1.05in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 11, Problem 3}
+\textbf{Contradiction setup.}
+\workquestion{Assume \(X\) is disconnected. Then choose nonempty separated sets \(A,B\subseteq X\) such that:}{0.95in}
+\workquestion{Choose \(a\in A\) and \(b\in B\). By hypothesis, choose connected \(C\subseteq X\) such that:}{0.95in}
+\workquestion{Since \(C\subseteq X=A\cup B\), apply the connected-set/separated-union result:}{1.0in}
+\workquestion{Use \(a\in A\cap C\) and \(b\in B\cap C\) to rule out both alternatives:}{1.05in}
+\workquestion{Conclude \(X\) is connected:}{0.75in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 11, Problem 3}{Use this page for the complete proof.}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+Suppose toward a contradiction that \(X\) is disconnected. Then there exist sets \(A,B\subseteq X\) such that
+\[
+  X=A\cup B,
+  \qquad
+  A\neq\varnothing,
+  \qquad
+  B\neq\varnothing,
+\]
+and \(A\) and \(B\) are separated.
+
+Choose \(a\in A\) and \(b\in B\). By the hypothesis, there exists a connected set \(C\subseteq X\) such that \(a,b\in C\). Since \(C\subseteq X=A\cup B\), and \(A\) and \(B\) are separated, Lecture 29 implies that either \(C\subseteq A\) or \(C\subseteq B\).
+
+Because \(a\in A\cap C\), the only possible case is \(C\subseteq A\). But then \(B\cap C=\varnothing\), contradicting \(b\in B\cap C\). Therefore \(X\) cannot be disconnected, so \(X\) is connected.
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 11, Problem 3}
+
+% ---------------------------------------------------------------------------
+% HW11 Problem 4
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 4}
+
+\begin{problemstatementbox}{Homework 11, Problem 4}
+Let \((X,d)\) be a metric space and \(A\subseteq X\). Prove that if \(A\) is connected, then \(\closure{A}\) is connected.
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 11, Problem 4}
+
+\newpage
+\recipecard{Homework 11, Problem 4}
+
+\newpage
+\begin{selfexplanationbox}{Homework 11, Problem 4}
+\workquestion{1. Why should the proof begin by assuming \(\closure{A}\) is disconnected?}{0.95in}
+\workquestion{2. If \(\closure{A}=B\cup C\) with \(B,C\) separated, what does connectedness of \(A\subseteq B\cup C\) imply?}{1.05in}
+\workquestion{3. Why can one assume \(A\subseteq B\) after relabeling?}{0.9in}
+\workquestion{4. How does \(A\subseteq B\) imply \(\closure{A}\subseteq\closure{B}\)?}{0.95in}
+\workquestion{5. Why does separatedness then force the other side to be empty?}{1.0in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 11, Problem 4}
+\textbf{Contradiction setup.}
+\workquestion{Assume \(\closure{A}\) is disconnected, so \(\closure{A}=B\cup C\) with \(B,C\) nonempty and separated:}{0.95in}
+\workquestion{Apply connectedness of \(A\) to the separated union \(B\cup C\):}{0.95in}
+\workquestion{After relabeling, assume \(A\subseteq B\). Then conclude \(\closure{A}\subseteq\)}{0.85in}
+\workquestion{Use separatedness \( \closure{B}\cap C=\varnothing\) to show \(\closure{A}\cap C=\varnothing\):}{0.95in}
+\workquestion{Explain why this contradicts \(C\neq\varnothing\) and \(C\subseteq\closure{A}\):}{0.95in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 11, Problem 4}{Use this page for the complete proof.}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+Suppose toward a contradiction that \(\closure{A}\) is disconnected. Then there exist sets \(B,C\subseteq X\) such that
+\[
+  \closure{A}=B\cup C,
+  \qquad
+  B\neq\varnothing,
+  \qquad
+  C\neq\varnothing,
+\]
+and \(B\) and \(C\) are separated.
+
+Since \(A\) is connected and \(A\subseteq\closure{A}=B\cup C\), Lecture 29 implies that either \(A\subseteq B\) or \(A\subseteq C\). After swapping \(B\) and \(C\) if necessary, assume \(A\subseteq B\). Then
+\[
+  \closure{A}\subseteq\closure{B}.
+\]
+Because \(B\) and \(C\) are separated, \(\closure{B}\cap C=\varnothing\). Hence
+\[
+  \closure{A}\cap C=\varnothing.
+\]
+But \(C\subseteq\closure{A}\), since \(\closure{A}=B\cup C\). Therefore \(C=\varnothing\), a contradiction. Thus \(\closure{A}\) is connected.
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 11, Problem 4}
+
+% ---------------------------------------------------------------------------
+% HW11 Problem 5
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 5}
+
+\begin{problemstatementbox}{Homework 11, Problem 5}
+Let \((X,d)\) be a metric space and \(A,B\subseteq X\). Prove that if \(A\) and \(B\) are both connected and \(A\cap B\neq\varnothing\), then \(A\cup B\) is connected.
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 11, Problem 5}
+
+\newpage
+\recipecard{Homework 11, Problem 5}
+
+\newpage
+\begin{selfexplanationbox}{Homework 11, Problem 5}
+\workquestion{1. Why does the assumption \(A\cap B\neq\varnothing\) prevent \(A\) and \(B\) from lying in different sides of a separation?}{1.1in}
+\workquestion{2. If \(A\cup B=C\cup D\) is a separation, what does connectedness of \(A\) imply?}{1.0in}
+\workquestion{3. What does connectedness of \(B\) imply?}{0.95in}
+\workquestion{4. How does a shared point force \(A\) and \(B\) into the same separated side?}{1.05in}
+\workquestion{5. Why does this make the other side empty?}{0.9in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 11, Problem 5}
+\textbf{Contradiction setup.}
+\workquestion{Assume \(A\cup B\) is disconnected. Choose nonempty separated \(C,D\subseteq X\) such that:}{0.95in}
+\workquestion{Use connectedness of \(A\subseteq C\cup D\) to conclude:}{0.85in}
+\workquestion{After relabeling, assume \(A\subseteq C\). Use \(A\cap B\neq\varnothing\) to show \(B\) has a point in \(C\):}{1.0in}
+\workquestion{Use connectedness of \(B\) to conclude \(B\subseteq C\):}{0.9in}
+\workquestion{Then \(A\cup B\subseteq C\), contradicting:}{0.85in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 11, Problem 5}{Use this page for the complete proof.}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+Suppose toward a contradiction that \(A\cup B\) is disconnected. Then there exist sets \(C,D\subseteq X\) such that
+\[
+  A\cup B=C\cup D,
+  \qquad
+  C,D\neq\varnothing,
+\]
+and \(C\) and \(D\) are separated.
+
+Since \(A\subseteq C\cup D\) and \(A\) is connected, Lecture 29 implies that either \(A\subseteq C\) or \(A\subseteq D\). After swapping \(C\) and \(D\), assume \(A\subseteq C\).
+
+Similarly, since \(B\subseteq C\cup D\) and \(B\) is connected, either \(B\subseteq C\) or \(B\subseteq D\). But \(A\subseteq C\) and \(A\cap B\neq\varnothing\), so at least one point of \(B\) lies in \(C\). Therefore \(B\) cannot be contained in \(D\), and we must have \(B\subseteq C\).
+
+Thus \(A\cup B\subseteq C\). Since \(A\cup B=C\cup D\), this forces \(D=\varnothing\), contradicting the separation. Therefore \(A\cup B\) is connected.
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 11, Problem 5}
+
+% ---------------------------------------------------------------------------
+% HW11 Problem 6
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 6}
+
+\begin{problemstatementbox}{Homework 11, Problem 6}
+Let \((X,d)\) be a metric space.
+
+\begin{enumerate}[label=(\alph*)]
+  \item Let \(A,B,C\subseteq X\). Prove that if the sets \(A\) and \(B\) are separated and the sets \(A\) and \(C\) are separated, then the sets \(A\) and \(B\cup C\) are separated.
+  \item Prove that if \(F,G\subseteq X\) are closed and \(F\cup G\) and \(F\cap G\) are connected, then \(F\) is connected.
+\end{enumerate}
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 11, Problem 6}
+
+\newpage
+\recipecard{Homework 11, Problem 6}
+
+\newpage
+\begin{selfexplanationbox}{Homework 11, Problem 6}
+\workquestion{1. What two closure-intersection conditions define separated sets?}{0.95in}
+\workquestion{2. In part (a), how do unions distribute over intersections with \(\closure{A}\)?}{1.0in}
+\workquestion{3. For part (b), why is contradiction a natural strategy?}{0.9in}
+\workquestion{4. If \(F=A\cup B\) is a separation, how does connectedness of \(F\cap G\) force \(F\cap G\) into one side?}{1.1in}
+\workquestion{5. Why does proving \(B\) is separated from \(A\cup G\) contradict connectedness of \(F\cup G\)?}{1.05in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 11, Problem 6}
+\textbf{Part (a): separated from a union.}
+\workquestion{Write what it means that \(A\) is separated from \(B\) and from \(C\):}{0.95in}
+\workquestion{Compute \(\closure{A}\cap(B\cup C)\):}{0.85in}
+\workquestion{Use \(\closure{B\cup C}=\closure{B}\cup\closure{C}\) to compute \(A\cap\closure{B\cup C}\):}{0.95in}
+\workquestion{Conclude \(A\) and \(B\cup C\) are separated:}{0.65in}
+
+\textbf{Part (b): contradiction.}
+\workquestion{Assume \(F\) is disconnected and choose \(F=A\cup B\) with \(A,B\) nonempty separated:}{0.85in}
+\workquestion{Use connectedness of \(F\cap G\) to assume, after relabeling, \(F\cap G\subseteq A\):}{0.95in}
+\workquestion{Show \(B\) and \(G\) are separated, using closedness of \(G\):}{0.95in}
+\workquestion{Apply part (a) to show \(B\) and \(A\cup G\) are separated, yielding a separation of \(F\cup G\):}{1.0in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 11, Problem 6}{Use this page for part (a).}
+
+\newpage
+\fullproofpage{Homework 11, Problem 6}{Use this page for part (b).}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+\begin{enumerate}[label=(\alph*)]
+  \item Since \(A\) and \(B\) are separated,
+  \[
+    \closure{A}\cap B=\varnothing
+    \qquad\text{and}\qquad
+    A\cap\closure{B}=\varnothing.
+  \]
+  Since \(A\) and \(C\) are separated,
+  \[
+    \closure{A}\cap C=\varnothing
+    \qquad\text{and}\qquad
+    A\cap\closure{C}=\varnothing.
+  \]
+  Therefore
+  \[
+    \closure{A}\cap(B\cup C)
+    =
+    (\closure{A}\cap B)\cup(\closure{A}\cap C)
+    =
+    \varnothing.
+  \]
+  Also, by Lecture 23,
+  \[
+    \closure{B\cup C}=\closure{B}\cup\closure{C}.
+  \]
+  Hence
+  \[
+    A\cap\closure{B\cup C}
+    =
+    (A\cap\closure{B})\cup(A\cap\closure{C})
+    =
+    \varnothing.
+  \]
+  Thus \(A\) and \(B\cup C\) are separated.
+
+  \item Suppose toward a contradiction that \(F\) is disconnected. Then there exist \(A,B\subseteq X\) such that
+  \[
+    F=A\cup B,
+    \qquad
+    A,B\neq\varnothing,
+  \]
+  and \(A\) and \(B\) are separated.
+
+  Since \(F\cap G\) is connected and \(F\cap G\subseteq A\cup B\), Lecture 29 implies that either \(F\cap G\subseteq A\) or \(F\cap G\subseteq B\). After swapping \(A\) and \(B\) if necessary, assume \(F\cap G\subseteq A\).
+
+  We claim that \(B\) and \(G\) are separated. First \(B\cap G=\varnothing\), because any point in \(B\cap G\) would lie in \(F\cap G\subseteq A\), contradicting \(A\cap B=\varnothing\). Since \(G\) is closed, \(\closure{G}=G\), and this gives \(B\cap\closure{G}=\varnothing\). Also, if \(x\in G=\closure{G}\), then either \(x\in G\setminus F\) or \(x\in F\cap G\subseteq A\), so \(x\notin B\). Hence \(\closure{B}\cap G=\varnothing\). Thus \(B\) and \(G\) are separated.
+
+  Since \(A\) and \(B\) are separated, part (a) implies that \(B\) and \(A\cup G\) are separated. Both are nonempty, and
+  \[
+    F\cup G=(A\cup B)\cup G=(A\cup G)\cup B.
+  \]
+  Therefore \(F\cup G\) is disconnected, contradicting the hypothesis. Hence \(F\) is connected.
+\end{enumerate}
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 11, Problem 6}
+
+\newpage
+\section{Homework 12}
+
+% ---------------------------------------------------------------------------
+% HW12 Problem 1
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 1}
+
+\begin{problemstatementbox}{Homework 12, Problem 1}
+Let \((X,d_X)\) and \((Y,d_Y)\) be metric spaces, \(f:X\to Y\), and \(x_0\in X\). Prove that \(f\) is continuous at \(x_0\) if and only if for any open set \(V\subseteq Y\) containing \(f(x_0)\), there is an open set \(U\subseteq X\) containing \(x_0\) so that \(x\in U\) implies \(f(x)\in V\).
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 12, Problem 1}
+
+\newpage
+\recipecard{Homework 12, Problem 1}
+
+\newpage
+\begin{selfexplanationbox}{Homework 12, Problem 1}
+\workquestion{1. What is the \(\varepsilon\)-\(\delta\) definition of continuity at \(x_0\)?}{1.0in}
+\workquestion{2. In the forward direction, how does openness of \(V\) produce a ball around \(f(x_0)\)?}{1.0in}
+\workquestion{3. Why is \(U=B_\delta(x_0)\) the natural choice after applying continuity?}{0.95in}
+\workquestion{4. In the reverse direction, why should \(V=B_\varepsilon(f(x_0))\) be used?}{1.0in}
+\workquestion{5. How does openness of \(U\) produce the \(\delta\) needed for continuity?}{1.0in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 12, Problem 1}
+\textbf{Forward direction.}
+\workquestion{Assume \(f\) is continuous at \(x_0\). Fix open \(V\subseteq Y\) with \(f(x_0)\in V\). Choose \(\varepsilon>0\) so that:}{0.95in}
+\workquestion{Use continuity at \(x_0\) to choose \(\delta>0\) so that:}{0.95in}
+\workquestion{Set \(U=\)}{0.65in}
+\workquestion{Check \(U\) is open, contains \(x_0\), and \(x\in U\Rightarrow f(x)\in V\):}{0.95in}
+
+\textbf{Reverse direction.}
+\workquestion{Assume the open-neighborhood condition. Fix \(\varepsilon>0\) and set \(V=\)}{0.8in}
+\workquestion{Use the hypothesis to get open \(U\ni x_0\) with \(f(U)\subseteq V\):}{0.85in}
+\workquestion{Use openness of \(U\) to choose \(\delta>0\) with \(B_\delta(x_0)\subseteq U\):}{0.85in}
+\workquestion{Conclude the \(\varepsilon\)-\(\delta\) condition:}{0.8in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 12, Problem 1}{Use this page for the forward direction.}
+
+\newpage
+\fullproofpage{Homework 12, Problem 1}{Use this page for the reverse direction.}
+
+\newpage
+\begin{solutionbox}{Student-Derived Solution (No official solution available yet)}
+\(\Rightarrow\) Assume \(f\) is continuous at \(x_0\). Let \(V\subseteq Y\) be open with \(f(x_0)\in V\). Since \(V\) is open, there is \(\varepsilon>0\) such that
+\[
+  B_\varepsilon(f(x_0))\subseteq V.
+\]
+By continuity at \(x_0\), there is \(\delta>0\) such that
+\[
+  d_X(x,x_0)<\delta
+  \quad\Longrightarrow\quad
+  d_Y(f(x),f(x_0))<\varepsilon.
+\]
+Let \(U=B_\delta(x_0)\). Then \(U\) is open, \(x_0\in U\), and if \(x\in U\), then \(f(x)\in B_\varepsilon(f(x_0))\subseteq V\).
+
+\(\Leftarrow\) Assume the open-set condition. Let \(\varepsilon>0\), and set \(V=B_\varepsilon(f(x_0))\). Then \(V\) is open and contains \(f(x_0)\), so there is an open set \(U\subseteq X\) with \(x_0\in U\) and \(f(U)\subseteq V\). Since \(U\) is open and \(x_0\in U\), there is \(\delta>0\) such that \(B_\delta(x_0)\subseteq U\). Thus if \(d_X(x,x_0)<\delta\), then \(x\in U\), so \(f(x)\in V\), meaning
+\[
+  d_Y(f(x),f(x_0))<\varepsilon.
+\]
+Therefore \(f\) is continuous at \(x_0\).
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 12, Problem 1}
+
+% ---------------------------------------------------------------------------
+% HW12 Problem 2
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 2}
+
+\begin{problemstatementbox}{Homework 12, Problem 2}
+Let \((X,d_X)\) and \((Y,d_Y)\) be metric spaces and \(f:X\to Y\) a function. Prove that \(f\) is continuous if and only if \(f(\closure{A})\subseteq\closure{f(A)}\) for any \(A\subseteq X\).
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 12, Problem 2}
+
+\newpage
+\recipecard{Homework 12, Problem 2}
+
+\newpage
+\begin{selfexplanationbox}{Homework 12, Problem 2}
+\workquestion{1. What does \(x\in\closure{A}\) mean sequentially in a metric space?}{1.0in}
+\workquestion{2. In the forward direction, how does continuity move a convergent sequence from \(X\) to \(Y\)?}{1.0in}
+\workquestion{3. Why does \(f(a_n)\to f(x)\) prove \(f(x)\in\closure{f(A)}\)?}{0.95in}
+\workquestion{4. In the reverse direction, why choose \(A=X\setminus f^{-1}(V)\) for an open \(V\subseteq Y\)?}{1.1in}
+\workquestion{5. Why does \(x\notin\closure{A}\) produce an open neighborhood \(U\) of \(x\) with \(f(U)\subseteq V\)?}{1.05in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 12, Problem 2}
+\textbf{Forward direction.}
+\workquestion{Assume \(f\) is continuous. Fix \(A\subseteq X\) and \(x\in\closure{A}\). Choose a sequence \(a_n\in A\) such that:}{0.95in}
+\workquestion{Use continuity to show \(f(a_n)\to\)}{0.75in}
+\workquestion{Conclude \(f(x)\in\closure{f(A)}\), hence \(f(\closure{A})\subseteq\closure{f(A)}\):}{0.9in}
+
+\textbf{Reverse direction.}
+\workquestion{Assume \(f(\closure{A})\subseteq\closure{f(A)}\) for every \(A\subseteq X\). Fix open \(V\subseteq Y\) with \(f(x)\in V\):}{0.85in}
+\workquestion{Define \(A=X\setminus f^{-1}(V)\). Suppose for contradiction that \(x\in\closure{A}\):}{0.9in}
+\workquestion{Use the closure hypothesis to force \(f(x)\in\closure{f(A)}\):}{0.8in}
+\workquestion{Use \(f(A)\subseteq Y\setminus V\) and \(Y\setminus V\) closed to contradict \(f(x)\in V\):}{0.9in}
+\workquestion{From \(x\notin\closure{A}\), build an open \(U\ni x\) with \(U\subseteq f^{-1}(V)\), then apply Problem 1:}{0.95in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 12, Problem 2}{Use this page for the forward direction.}
+
+\newpage
+\fullproofpage{Homework 12, Problem 2}{Use this page for the reverse direction.}
+
+\newpage
+\begin{solutionbox}{Student-Derived Solution (No official solution available yet)}
+\(\Rightarrow\) Assume \(f\) is continuous. Let \(A\subseteq X\), and let \(x\in\closure{A}\). By the sequential characterization of closure, there is a sequence \(\{a_n\}\subseteq A\) such that \(a_n\to x\). Since \(f\) is continuous,
+\[
+  f(a_n)\to f(x).
+\]
+Each \(f(a_n)\in f(A)\), so \(f(x)\in\closure{f(A)}\). Therefore
+\[
+  f(\closure{A})\subseteq\closure{f(A)}.
+\]
+
+\(\Leftarrow\) Assume that for every \(A\subseteq X\),
+\[
+  f(\closure{A})\subseteq\closure{f(A)}.
+\]
+We prove continuity using Problem 1. Let \(V\subseteq Y\) be open and suppose \(f(x)\in V\). Set
+\[
+  A=X\setminus f^{-1}(V).
+\]
+We claim \(x\notin\closure{A}\). If \(x\in\closure{A}\), then by the hypothesis
+\[
+  f(x)\in f(\closure{A})\subseteq\closure{f(A)}.
+\]
+But if \(a\in A\), then \(f(a)\notin V\), so \(f(A)\subseteq Y\setminus V\). Since \(Y\setminus V\) is closed,
+\[
+  \closure{f(A)}\subseteq Y\setminus V.
+\]
+This would imply \(f(x)\notin V\), contradicting \(f(x)\in V\). Thus \(x\notin\closure{A}\).
+
+Since \(x\notin\closure{A}\), there exists an open set \(U\subseteq X\) containing \(x\) such that \(U\cap A=\varnothing\). Hence
+\[
+  U\subseteq X\setminus A=f^{-1}(V),
+\]
+so \(f(U)\subseteq V\). By Problem 1, \(f\) is continuous at \(x\). Since \(x\in X\) was arbitrary, \(f\) is continuous.
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 12, Problem 2}
+
+% ---------------------------------------------------------------------------
+% HW12 Problem 3
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 3}
+
+\begin{problemstatementbox}{Homework 12, Problem 3}
+Let \(f:\R\to\R\) be the function
+\[
+  f(x)=\frac{1}{1+x^2}.
+\]
+
+\begin{enumerate}[label=(\alph*)]
+  \item Prove that \(f\) is continuous.
+  \item Find an open set \(U\subseteq\R\) so that \(f(U)\) is not open.
+  \item Find a closed set \(F\subseteq\R\) so that \(f(F)\) is not closed.
+  \item Find a set \(A\subseteq\R\) so that \(f(\closure{A})\neq\closure{f(A)}\).
+\end{enumerate}
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 12, Problem 3}
+
+\newpage
+\recipecard{Homework 12, Problem 3}
+
+\newpage
+\begin{selfexplanationbox}{Homework 12, Problem 3}
+\workquestion{1. Which standard limit laws prove continuity of \(f(x)=1/(1+x^2)\)?}{0.95in}
+\workquestion{2. What is the range of \(f\) on all of \(\R\)?}{0.9in}
+\workquestion{3. Why is \((0,1]\) not open in \(\R\)?}{0.9in}
+\workquestion{4. Why is \((0,1]\) not closed in \(\R\)?}{0.9in}
+\workquestion{5. For \(A=(0,\infty)\), compare \(f(\closure{A})\) with \(\closure{f(A)}\). Where does the extra endpoint come from?}{1.15in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 12, Problem 3}
+\textbf{Part (a): continuity.}
+\workquestion{Use sequences or limit laws: if \(x_n\to x\), then \(x_n^2\to\)}{0.8in}
+\workquestion{Conclude \(1+x_n^2\to1+x^2\), and since denominators stay nonzero:}{0.85in}
+
+\textbf{Parts (b) and (c): image counterexamples.}
+\workquestion{For an open set, try \(U=\R\). Compute \(f(U)=\)}{0.75in}
+\workquestion{Explain why that image is not open:}{0.75in}
+\workquestion{For a closed set, try \(F=[0,\infty)\). Compute \(f(F)=\)}{0.75in}
+\workquestion{Explain why that image is not closed:}{0.75in}
+
+\textbf{Part (d): closure/image mismatch.}
+\workquestion{Try \(A=(0,\infty)\). Then \(\closure{A}=\)}{0.65in}
+\workquestion{Compute \(f(\closure{A})\), \(f(A)\), and \(\closure{f(A)}\):}{1.0in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 12, Problem 3}{Use this page for parts (a) and (b).}
+
+\newpage
+\fullproofpage{Homework 12, Problem 3}{Use this page for parts (c) and (d).}
+
+\newpage
+\begin{solutionbox}{Student-Derived Solution (No official solution available yet)}
+\begin{enumerate}[label=(\alph*)]
+  \item Let \(x_n\to x\) in \(\R\). Then by the standard limit laws,
+  \[
+    x_n^2\to x^2,
+    \qquad
+    1+x_n^2\to 1+x^2.
+  \]
+  Since \(1+x^2\neq0\), the reciprocal limit law gives
+  \[
+    \frac{1}{1+x_n^2}\to \frac{1}{1+x^2}.
+  \]
+  Hence \(f(x_n)\to f(x)\), so \(f\) is continuous.
+
+  \item Let \(U=\R\), which is open. Then
+  \[
+    f(U)=(0,1].
+  \]
+  This is not open in \(\R\), since \(1\in(0,1]\) but no open interval around \(1\) is contained in \((0,1]\).
+
+  \item Let \(F=[0,\infty)\), which is closed in \(\R\). Then
+  \[
+    f(F)=(0,1].
+  \]
+  This set is not closed in \(\R\), since \(0\) is a limit point of \((0,1]\) but \(0\notin(0,1]\).
+
+  \item Let \(A=(0,\infty)\). Then \(\closure{A}=[0,\infty)\), so
+  \[
+    f(\closure{A})=f([0,\infty))=(0,1].
+  \]
+  On the other hand,
+  \[
+    f(A)=f((0,\infty))=(0,1),
+    \qquad
+    \closure{f(A)}=[0,1].
+  \]
+  Therefore
+  \[
+    f(\closure{A})=(0,1]\neq[0,1]=\closure{f(A)}.
+  \]
+\end{enumerate}
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 12, Problem 3}
+
+% ---------------------------------------------------------------------------
+% HW12 Problem 4
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 4}
+
+\begin{problemstatementbox}{Homework 12, Problem 4}
+Consider the metric spaces \((\R,|\cdot|)\) and \((\R^2,d_2)\).
+
+\begin{enumerate}[label=(\alph*)]
+  \item Prove that the functions \(f,g:\R^2\to\R\) given by \(f(x,y)=x\) and \(g(x,y)=y\) are continuous. (Hint: Use sequences.)
+  \item Prove that if \(h:[0,1]\to\R^2\) is a continuous function such that \(h(0)=(x_0,y_0)\), \(h(1)=(x_1,y_1)\), and \(x_0<0<x_1\), then there exists a point \(t\in(0,1)\) so that \(h(t)\) lies on the \(y\)-axis.
+\end{enumerate}
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 12, Problem 4}
+
+\newpage
+\recipecard{Homework 12, Problem 4}
+
+\newpage
+\begin{selfexplanationbox}{Homework 12, Problem 4}
+\workquestion{1. How does convergence in \((\R^2,d_2)\) imply coordinatewise convergence?}{1.0in}
+\workquestion{2. Why does \(|x_n-x|\le d_2((x_n,y_n),(x,y))\) prove continuity of the first projection?}{1.05in}
+\workquestion{3. What scalar function should be formed from the path \(h\) in part (b)?}{0.95in}
+\workquestion{4. Why is \(\phi(t)=f(h(t))\) continuous?}{0.9in}
+\workquestion{5. How does the Intermediate Value Theorem produce a point on the \(y\)-axis?}{1.1in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 12, Problem 4}
+\textbf{Part (a): projections are continuous.}
+\workquestion{Let \((x_n,y_n)\to(x,y)\) in \((\R^2,d_2)\). Write the coordinate inequality for \(x_n\):}{0.95in}
+\workquestion{Use squeeze to prove \(x_n\to x\), hence \(f(x_n,y_n)\to f(x,y)\):}{0.9in}
+\workquestion{Repeat the coordinate inequality for \(y_n\):}{0.85in}
+
+\textbf{Part (b): path crosses the \(y\)-axis.}
+\workquestion{Define \(\phi:[0,1]\to\R\) by \(\phi(t)=\)}{0.7in}
+\workquestion{Explain why \(\phi\) is continuous:}{0.85in}
+\workquestion{Compute \(\phi(0)\) and \(\phi(1)\), and record their signs:}{0.9in}
+\workquestion{Apply the Intermediate Value Theorem to get \(t\in(0,1)\) with \(\phi(t)=0\):}{0.9in}
+\workquestion{Translate \(\phi(t)=0\) into "\(h(t)\) lies on the \(y\)-axis":}{0.8in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 12, Problem 4}{Use this page for part (a).}
+
+\newpage
+\fullproofpage{Homework 12, Problem 4}{Use this page for part (b).}
+
+\newpage
+\begin{solutionbox}{Student-Derived Solution (No official solution available yet)}
+\begin{enumerate}[label=(\alph*)]
+  \item We prove continuity of \(f(x,y)=x\). Let \((x_n,y_n)\to(x,y)\) in \((\R^2,d_2)\). Then
+  \[
+    d_2((x_n,y_n),(x,y))
+    =
+    \sqrt{(x_n-x)^2+(y_n-y)^2}\to0.
+  \]
+  Since
+  \[
+    |x_n-x|\le d_2((x_n,y_n),(x,y)),
+  \]
+  the squeeze theorem gives \(x_n\to x\). Thus
+  \[
+    f(x_n,y_n)=x_n\to x=f(x,y),
+  \]
+  so \(f\) is continuous. The proof for \(g(x,y)=y\) is the same: use
+  \[
+    |y_n-y|\le d_2((x_n,y_n),(x,y))
+  \]
+  to get \(y_n\to y\), hence \(g(x_n,y_n)\to g(x,y)\).
+
+  \item Let \(f:\R^2\to\R\) be the first-coordinate projection from part (a), and define
+  \[
+    \phi:[0,1]\to\R,
+    \qquad
+    \phi(t)=f(h(t)).
+  \]
+  Since \(h\) is continuous and \(f\) is continuous, \(\phi=f\circ h\) is continuous. Also
+  \[
+    \phi(0)=f(h(0))=f(x_0,y_0)=x_0<0,
+  \]
+  and
+  \[
+    \phi(1)=f(h(1))=f(x_1,y_1)=x_1>0.
+  \]
+  By the Intermediate Value Theorem, there exists \(t\in(0,1)\) such that \(\phi(t)=0\). This means the first coordinate of \(h(t)\) is \(0\), so \(h(t)\in\{(0,y):y\in\R\}\). Therefore \(h(t)\) lies on the \(y\)-axis.
+\end{enumerate}
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 12, Problem 4}
+
+% ---------------------------------------------------------------------------
+% HW12 Problem 5
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 5}
+
+\begin{problemstatementbox}{Homework 12, Problem 5}
+Going forward, you may assume (no proof necessary) any fact about \(\sin x\) and \(\cos x\) from calculus, such as \(\sin,\cos:\R\to[-1,1]\) are continuous functions.
+
+Prove that the function \(f:\R^2\to\R\) given by
+\[
+  f(x,y)=x^2+y^2+\sin(x-y)
+\]
+has a global minimum. (Hint: Notice that we cannot directly apply the extreme value theorem here. However, we can apply it to any compact subset of \(\R^2\).)
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 12, Problem 5}
+
+\newpage
+\recipecard{Homework 12, Problem 5}
+
+\newpage
+\begin{selfexplanationbox}{Homework 12, Problem 5}
+\workquestion{1. Why can the extreme value theorem not be applied directly on all of \(\R^2\)?}{1.0in}
+\workquestion{2. Why is \(f\) continuous?}{0.95in}
+\workquestion{3. What lower bound follows from \(\sin(x-y)\ge -1\)?}{0.95in}
+\workquestion{4. Why does the closed unit disk capture a global minimizer?}{1.1in}
+\workquestion{5. Why is it useful to find one point inside the disk where \(f<0\)?}{1.0in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 12, Problem 5}
+\textbf{Continuity and coercive estimate.}
+\workquestion{Show \(f\) is continuous as a sum/composition of continuous functions:}{0.85in}
+\workquestion{Use \(\sin(x-y)\ge -1\) to prove \(f(x,y)\ge\)}{0.75in}
+\workquestion{Conclude that if \(x^2+y^2\ge1\), then \(f(x,y)\ge\)}{0.65in}
+
+\textbf{Find a compact region where the minimum occurs.}
+\workquestion{Choose \(p=(-1/2,1/2)\). Compute \(f(p)=\)}{0.8in}
+\workquestion{Explain why \(f(p)<0\):}{0.75in}
+\workquestion{Let \(K=\{(x,y):x^2+y^2\le1\}\). Explain why \(K\) is compact:}{0.85in}
+\workquestion{Apply the extreme value theorem to \(f|_K\):}{0.85in}
+\workquestion{Compare points inside \(K\) and outside \(K\) to prove the minimizer on \(K\) is global:}{1.0in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 12, Problem 5}{Use this page for the setup and compact restriction.}
+
+\newpage
+\fullproofpage{Homework 12, Problem 5}{Use this page to prove the minimum is global.}
+
+\newpage
+\begin{solutionbox}{Student-Derived Solution (No official solution available yet)}
+First, \(f\) is continuous on \(\R^2\). The map \((x,y)\mapsto x^2+y^2\) is continuous, the map \((x,y)\mapsto x-y\) is continuous, and \(\sin\) is continuous by the allowed calculus facts. Hence \((x,y)\mapsto \sin(x-y)\) is continuous, and so \(f\) is continuous.
+
+Since \(\sin(x-y)\ge -1\), we have
+\[
+  f(x,y)=x^2+y^2+\sin(x-y)\ge x^2+y^2-1.
+\]
+In particular, if \(x^2+y^2\ge1\), then \(f(x,y)\ge0\).
+
+Now consider
+\[
+  p=\left(-\frac12,\frac12\right).
+\]
+Then
+\[
+  f(p)
+  =
+  \frac14+\frac14+\sin(-1)
+  =
+  \frac12-\sin(1)
+  <0.
+\]
+Also \(p\) lies in the closed unit disk
+\[
+  K=\{(x,y)\in\R^2:x^2+y^2\le1\}.
+\]
+The set \(K\) is closed and bounded in \(\R^2\), hence compact. By the extreme value theorem, since \(f\) is continuous, there exists \(q\in K\) such that
+\[
+  f(q)\le f(z)
+  \qquad\text{for all }z\in K.
+\]
+We claim \(q\) is a global minimizer on \(\R^2\). If \(z\in K\), this is true by the choice of \(q\). If \(z\notin K\), then \(z=(x,y)\) satisfies \(x^2+y^2>1\), so \(f(z)\ge0\). But
+\[
+  f(q)\le f(p)<0\le f(z).
+\]
+Thus \(f(q)\le f(z)\) for every \(z\in\R^2\). Therefore \(f\) has a global minimum.
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 12, Problem 5}
+
+% ---------------------------------------------------------------------------
+% HW12 Problem 6
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 6}
+
+\begin{problemstatementbox}{Homework 12, Problem 6}
+Let \(X\) and \(Y\) be metric spaces and \(f:X\to Y\) a function. Prove that if \(X\) is compact and \(f\) is continuous and bijective, then the inverse function \(f^{-1}:Y\to X\) is also continuous. (Hint: It suffices to show that the preimage of any closed subset of \(X\) under \(f^{-1}\) is closed in \(Y\).)
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 12, Problem 6}
+
+\newpage
+\recipecard{Homework 12, Problem 6}
+
+\newpage
+\begin{selfexplanationbox}{Homework 12, Problem 6}
+\workquestion{1. Which closed-set criterion for continuity is suggested by the hint?}{1.0in}
+\workquestion{2. If \(C\subseteq X\) is closed, why is \(C\) compact?}{0.95in}
+\workquestion{3. Why is \(f(C)\) compact in \(Y\)?}{0.95in}
+\workquestion{4. Why is \(f(C)\) closed in \(Y\)?}{0.95in}
+\workquestion{5. Why is \((f^{-1})^{-1}(C)=f(C)\) when \(f\) is bijective?}{1.05in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 12, Problem 6}
+\textbf{Use the closed-set criterion for \(f^{-1}\).}
+\workquestion{Let \(C\subseteq X\) be closed. Since \(X\) is compact, conclude \(C\) is:}{0.85in}
+\workquestion{Since \(f\) is continuous, conclude \(f(C)\) is:}{0.85in}
+\workquestion{Since \(Y\) is a metric space, compact subsets of \(Y\) are:}{0.85in}
+\workquestion{Use bijectivity to compute \((f^{-1})^{-1}(C)=\)}{0.75in}
+\workquestion{Conclude the preimage under \(f^{-1}\) of every closed set \(C\subseteq X\) is closed in \(Y\):}{0.95in}
+\workquestion{Apply the closed-set criterion to finish:}{0.75in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 12, Problem 6}{Use this page for the complete proof.}
+
+\newpage
+\begin{solutionbox}{Student-Derived Solution (No official solution available yet)}
+We prove that \(f^{-1}:Y\to X\) is continuous using the closed-set criterion.
+
+Let \(C\subseteq X\) be closed. Since \(X\) is compact and \(C\) is closed in \(X\), \(C\) is compact. Since \(f:X\to Y\) is continuous, the image of a compact set under \(f\) is compact. Therefore \(f(C)\) is compact in \(Y\).
+
+Because \(Y\) is a metric space, compact subsets of \(Y\) are closed. Hence \(f(C)\) is closed in \(Y\).
+
+Since \(f\) is bijective,
+\[
+  (f^{-1})^{-1}(C)=f(C).
+\]
+Thus the preimage under \(f^{-1}\) of every closed subset \(C\subseteq X\) is closed in \(Y\). By the closed-set criterion for continuity, \(f^{-1}\) is continuous.
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 12, Problem 6}
 
 \end{document}
