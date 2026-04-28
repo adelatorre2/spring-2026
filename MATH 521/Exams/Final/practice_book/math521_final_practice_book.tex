@@ -1,6 +1,6 @@
 % MATH 521 | Final Practice Workbook
 % University of Wisconsin--Madison, Spring 2026
-% Workbook build: Homework 5 through Homework 12
+% Workbook build: Homework 1 through Homework 12
 
 \documentclass[12pt]{article}
 
@@ -214,7 +214,7 @@
 {\large Spring 2026\par}
 \vspace{1.7cm}
 
-{\normalsize\itshape Current build: Homework 5 through Homework 12\par}
+{\normalsize\itshape Current build: Homework 1 through Homework 12\par}
 \vspace{2.8cm}
 
 {\large\bfseries Name:\enspace\hrulefill\par}
@@ -246,6 +246,2091 @@ Only after Pass 5 should you compare your work to the official or reference solu
 
 \newpage
 \pagenumbering{arabic}
+
+\section{Homework 1}
+
+% ---------------------------------------------------------------------------
+% HW1 Problem 1
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 1}
+
+\begin{problemstatementbox}{Homework 1, Problem 1}
+Using induction, prove that for all \(n\in\N\) we have
+\[
+  3+11+\cdots+(8n-5)=4n^2-n.
+\]
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 1, Problem 1}
+
+\newpage
+\recipecard{Homework 1, Problem 1}
+
+\newpage
+\begin{selfexplanationbox}{Homework 1, Problem 1}
+\workquestion{1. What is the statement \(P(n)\) that should be proved by induction?}{0.95in}
+\workquestion{2. What is the base case, and what are both sides when \(n=1\)?}{0.9in}
+\workquestion{3. What is the next term added when passing from \(n\) to \(n+1\)?}{0.95in}
+\workquestion{4. How does \(4n^2-n+(8n+3)\) simplify?}{0.9in}
+\workquestion{5. Why is that expression equal to \(4(n+1)^2-(n+1)\)?}{0.9in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 1, Problem 1}
+\workquestion{Define \(P(n)\) precisely:}{0.8in}
+\workquestion{Base case \(n=1\): verify left-hand side equals right-hand side:}{0.85in}
+\workquestion{Inductive hypothesis: assume \(P(n)\) for some \(n\in\N\):}{0.85in}
+\workquestion{Add the next term \(8(n+1)-5=\) to both sides:}{0.85in}
+\workquestion{Simplify the right-hand side and match the formula for \(P(n+1)\):}{0.95in}
+\workquestion{Invoke the principle of mathematical induction:}{0.75in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 1, Problem 1}{Use this page for the complete induction proof.}
+
+\newpage
+\begin{solutionbox}{Student-Derived Solution (No official solution available)}
+For \(n\in\N\), let \(P(n)\) denote the statement
+\[
+  3+11+\cdots+(8n-5)=4n^2-n.
+\]
+We argue by induction.
+
+Base case. For \(n=1\), the left-hand side is \(3\), while the right-hand side is
+\[
+  4\cdot 1^2-1=3.
+\]
+Hence \(P(1)\) holds.
+
+Inductive step. Assume \(P(n)\) holds for some \(n\in\N\), i.e.
+\[
+  3+11+\cdots+(8n-5)=4n^2-n.
+\]
+We must show that \(P(n+1)\) holds. The next term in the sum is
+\[
+  8(n+1)-5=8n+3.
+\]
+Adding this term to both sides of the inductive hypothesis gives
+\[
+  3+11+\cdots+(8n-5)+(8n+3)
+  =
+  (4n^2-n)+(8n+3).
+\]
+The right-hand side simplifies to
+\[
+  4n^2+7n+3.
+\]
+On the other hand,
+\[
+  4(n+1)^2-(n+1)
+  =
+  4(n^2+2n+1)-n-1
+  =
+  4n^2+7n+3.
+\]
+Therefore
+\[
+  3+11+\cdots+(8(n+1)-5)=4(n+1)^2-(n+1),
+\]
+so \(P(n+1)\) holds. By the principle of mathematical induction, \(P(n)\) is true for all \(n\in\N\).
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 1, Problem 1}
+
+% ---------------------------------------------------------------------------
+% HW1 Problem 2
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 2}
+
+\begin{problemstatementbox}{Homework 1, Problem 2}
+Compute the following sum:
+\[
+  \frac1{1\cdot4}+\frac1{4\cdot7}+\cdots+\frac1{(3n-2)(3n+1)}.
+\]
+Prove that your answer is true for all \(n\in\N\) using induction.
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 1, Problem 2}
+
+\newpage
+\recipecard{Homework 1, Problem 2}
+
+\newpage
+\begin{selfexplanationbox}{Homework 1, Problem 2}
+\workquestion{1. What closed form does the telescoping computation suggest?}{0.95in}
+\workquestion{2. What is the partial fraction decomposition of \(\frac1{(3k-2)(3k+1)}\)?}{1.0in}
+\workquestion{3. What is the induction statement \(P(n)\)?}{0.9in}
+\workquestion{4. In the inductive step, what is the next term?}{0.85in}
+\workquestion{5. What algebra turns \(\frac n{3n+1}+\frac1{(3n+1)(3n+4)}\) into \(\frac{n+1}{3n+4}\)?}{1.0in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 1, Problem 2}
+\workquestion{First compute the suspected formula using partial fractions/telescoping:}{1.0in}
+\workquestion{State \(P(n)\):}{0.8in}
+\workquestion{Base case \(n=1\):}{0.75in}
+\workquestion{Inductive hypothesis: assume the sum through \(n\) equals \(\frac n{3n+1}\):}{0.85in}
+\workquestion{Add the term \(\frac1{(3n+1)(3n+4)}\) and combine fractions:}{1.0in}
+\workquestion{Conclude \(P(n+1)\) and invoke induction:}{0.75in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 1, Problem 2}{Use this page for the telescoping computation and induction proof.}
+
+\newpage
+\begin{solutionbox}{Student-Derived Solution (No official solution available)}
+For \(n\in\N\), let \(P(n)\) denote the statement
+\[
+  \frac1{1\cdot4}+\frac1{4\cdot7}+\cdots+\frac1{(3n-2)(3n+1)}
+  =
+  \frac n{3n+1}.
+\]
+We prove \(P(n)\) for all \(n\in\N\) by induction.
+
+Base case. \(P(1)\) says
+\[
+  \frac1{1\cdot4}=\frac1{3\cdot1+1},
+\]
+which is true.
+
+Inductive step. Assume \(P(n)\) is true for some \(n\in\N\), that is,
+\[
+  \frac1{1\cdot4}+\frac1{4\cdot7}+\cdots+\frac1{(3n-2)(3n+1)}
+  =
+  \frac n{3n+1}.
+\]
+Adding the next term \(\frac1{(3n+1)(3n+4)}\) to both sides gives
+\[
+  \frac1{1\cdot4}+\cdots+\frac1{(3n-2)(3n+1)}+\frac1{(3n+1)(3n+4)}
+  =
+  \frac n{3n+1}+\frac1{(3n+1)(3n+4)}.
+\]
+The right-hand side is
+\[
+  \frac1{3n+1}\left(n+\frac1{3n+4}\right)
+  =
+  \frac1{3n+1}\cdot\frac{n(3n+4)+1}{3n+4}.
+\]
+Since
+\[
+  n(3n+4)+1=3n^2+4n+1=(3n+1)(n+1),
+\]
+we obtain
+\[
+  \frac n{3n+1}+\frac1{(3n+1)(3n+4)}
+  =
+  \frac{n+1}{3n+4}
+  =
+  \frac{n+1}{3(n+1)+1}.
+\]
+Thus \(P(n+1)\) holds. By induction,
+\[
+  \frac1{1\cdot4}+\frac1{4\cdot7}+\cdots+\frac1{(3n-2)(3n+1)}
+  =
+  \frac n{3n+1}
+\]
+for all \(n\in\N\).
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 1, Problem 2}
+
+% ---------------------------------------------------------------------------
+% HW1 Problem 3
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 3}
+
+\begin{problemstatementbox}{Homework 1, Problem 3}
+Let \(f:A\to B\) be a function.
+\begin{enumerate}[label=(\alph*)]
+  \item Prove that \(f\) is injective if and only if \(f^{-1}(f(X))=X\) for all \(X\subseteq A\).
+  \item Prove that \(f\) is surjective if and only if \(f(f^{-1}(Y))=Y\) for all \(Y\subseteq B\).
+\end{enumerate}
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 1, Problem 3}
+
+\newpage
+\recipecard{Homework 1, Problem 3}
+
+\newpage
+\begin{selfexplanationbox}{Homework 1, Problem 3}
+\workquestion{1. Why is \(X\subseteq f^{-1}(f(X))\) always true?}{0.95in}
+\workquestion{2. Where is injectivity used to prove \(f^{-1}(f(X))\subseteq X\)?}{0.95in}
+\workquestion{3. To prove injectivity from the set identity, why choose \(X=\{a_1\}\)?}{0.95in}
+\workquestion{4. Why is \(f(f^{-1}(Y))\subseteq Y\) always true?}{0.95in}
+\workquestion{5. Where is surjectivity used to prove \(Y\subseteq f(f^{-1}(Y))\)?}{0.95in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 1, Problem 3}
+\textbf{Part (a), injective \(\Rightarrow\) identity.}
+\workquestion{Fix \(X\subseteq A\). Prove \(X\subseteq f^{-1}(f(X))\):}{0.85in}
+\workquestion{Let \(a\in f^{-1}(f(X))\). Choose \(x\in X\) with \(f(a)=f(x)\), then use injectivity:}{0.95in}
+
+\textbf{Part (a), identity \(\Rightarrow\) injective.}
+\workquestion{Assume \(f(a_1)=f(a_2)\). Let \(X=\{a_1\}\) and show \(a_2\in f^{-1}(f(X))=X\):}{0.95in}
+
+\textbf{Part (b).}
+\workquestion{For surjective \(\Rightarrow\) identity, prove both inclusions for \(Y\subseteq B\):}{0.95in}
+\workquestion{For identity \(\Rightarrow\) surjective, apply the identity to \(Y=\{b\}\) for arbitrary \(b\in B\):}{0.95in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 1, Problem 3}{Use this page for part (a).}
+
+\newpage
+\fullproofpage{Homework 1, Problem 3}{Use this page for part (b).}
+
+\newpage
+\begin{solutionbox}{Student-Derived Solution (No official solution available)}
+(a) Suppose first that \(f\) is injective. Let \(X\subseteq A\). If \(x\in X\), then \(f(x)\in f(X)\), so \(x\in f^{-1}(f(X))\). Hence \(X\subseteq f^{-1}(f(X))\).
+
+Conversely, let \(a\in f^{-1}(f(X))\). Then \(f(a)\in f(X)\), so there exists \(x\in X\) such that \(f(a)=f(x)\). Since \(f\) is injective, \(a=x\in X\). Thus \(f^{-1}(f(X))\subseteq X\), so \(f^{-1}(f(X))=X\).
+
+Now suppose \(f^{-1}(f(X))=X\) for all \(X\subseteq A\). Let \(a_1,a_2\in A\) and assume \(f(a_1)=f(a_2)\). Set \(X=\{a_1\}\). Then \(f(a_2)=f(a_1)\in f(X)\), so
+\[
+  a_2\in f^{-1}(f(X))=X=\{a_1\}.
+\]
+Hence \(a_2=a_1\), and \(f\) is injective.
+
+(b) Suppose first that \(f\) is surjective. Let \(Y\subseteq B\). For any function, \(f(f^{-1}(Y))\subseteq Y\): if \(b\in f(f^{-1}(Y))\), then \(b=f(a)\) for some \(a\in f^{-1}(Y)\), hence \(f(a)\in Y\), so \(b\in Y\).
+
+For the reverse inclusion, let \(y\in Y\). Since \(f\) is surjective, there exists \(a\in A\) such that \(f(a)=y\). Then \(a\in f^{-1}(Y)\), so \(y=f(a)\in f(f^{-1}(Y))\). Thus \(Y\subseteq f(f^{-1}(Y))\), and \(f(f^{-1}(Y))=Y\).
+
+Conversely, suppose \(f(f^{-1}(Y))=Y\) for all \(Y\subseteq B\). Fix \(b\in B\). Let \(Y=\{b\}\). Then
+\[
+  f(f^{-1}(\{b\}))=\{b\}.
+\]
+Thus \(f^{-1}(\{b\})\neq\varnothing\), so there exists \(a\in A\) with \(f(a)=b\). Since \(b\in B\) was arbitrary, \(f\) is surjective.
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 1, Problem 3}
+
+% ---------------------------------------------------------------------------
+% HW1 Problem 4
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 4}
+
+\begin{problemstatementbox}{Homework 1, Problem 4}
+Let \(f:A\to B\) be a function. Prove that the following two statements are equivalent:
+\begin{enumerate}[label=(\alph*)]
+  \item The function \(f\) is surjective.
+  \item For any set \(C\) and for any functions \(g:B\to C\) and \(h:B\to C\) such that \(g\circ f=h\circ f\), we have \(g=h\).
+\end{enumerate}
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 1, Problem 4}
+
+\newpage
+\recipecard{Homework 1, Problem 4}
+
+\newpage
+\begin{selfexplanationbox}{Homework 1, Problem 4}
+\workquestion{1. Why does surjectivity let you test equality of \(g,h:B\to C\) after composing with \(f\)?}{1.0in}
+\workquestion{2. In the forward direction, after fixing \(b\in B\), what element of \(A\) do you need?}{0.9in}
+\workquestion{3. To prove the reverse direction, what does it mean for \(f\) not to be surjective?}{0.9in}
+\workquestion{4. Why choose \(C=\{0,1\}\) in the counterexample construction?}{0.95in}
+\workquestion{5. How can \(g\circ f=h\circ f\) hold while \(g\neq h\)?}{0.95in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 1, Problem 4}
+\textbf{Surjective \(\Rightarrow\) cancellation.}
+\workquestion{Assume \(g\circ f=h\circ f\). Fix \(b\in B\), choose \(a\in A\) with \(f(a)=b\):}{0.95in}
+\workquestion{Compute \(g(b)=g(f(a))=(g\circ f)(a)=\cdots=h(b)\):}{0.85in}
+
+\textbf{Cancellation \(\Rightarrow\) surjective.}
+\workquestion{Assume \(f\) is not surjective; choose \(b_0\in B\setminus f(A)\):}{0.85in}
+\workquestion{Set \(C=\{0,1\}\), define \(g\) constantly \(0\), and define \(h\) to differ only at \(b_0\):}{1.0in}
+\workquestion{Show \(g\circ f=h\circ f\) because \(f(a)\neq b_0\) for all \(a\):}{0.95in}
+\workquestion{Contradict the cancellation property and conclude \(f\) is surjective:}{0.85in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 1, Problem 4}{Use this page for the forward direction.}
+
+\newpage
+\fullproofpage{Homework 1, Problem 4}{Use this page for the reverse direction.}
+
+\newpage
+\begin{solutionbox}{Student-Derived Solution (No official solution available)}
+\(\Rightarrow\) Assume that \(f\) is surjective. Let \(C\) be any set, and let \(g,h:B\to C\) satisfy \(g\circ f=h\circ f\). We show \(g=h\). Fix \(b\in B\). Since \(f\) is surjective, there exists \(a\in A\) such that \(f(a)=b\). Then
+\[
+  g(b)=g(f(a))=(g\circ f)(a)=(h\circ f)(a)=h(f(a))=h(b).
+\]
+Since \(b\in B\) was arbitrary, \(g=h\).
+
+\(\Leftarrow\) Assume the cancellation property in (b). Suppose, for contradiction, that \(f\) is not surjective. Then there exists \(b_0\in B\setminus f(A)\). Let \(C=\{0,1\}\), and define \(g,h:B\to C\) by
+\[
+  g(b)=0 \quad \text{for all } b\in B,
+\]
+and
+\[
+  h(b)=
+  \begin{cases}
+    1, & b=b_0,\\
+    0, & b\neq b_0.
+  \end{cases}
+\]
+Then \(g\neq h\), since \(g(b_0)=0\) but \(h(b_0)=1\). However, for every \(a\in A\), we have \(f(a)\neq b_0\), so
+\[
+  (g\circ f)(a)=g(f(a))=0=h(f(a))=(h\circ f)(a).
+\]
+Thus \(g\circ f=h\circ f\), and by the assumed property this forces \(g=h\), a contradiction. Therefore \(f\) is surjective.
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 1, Problem 4}
+
+% ---------------------------------------------------------------------------
+% HW1 Problem 5
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 5}
+
+\begin{problemstatementbox}{Homework 1, Problem 5}
+Let \(f:B\to C\) be a function. Prove that the following two statements are equivalent:
+\begin{enumerate}[label=(\alph*)]
+  \item The function \(f\) is injective.
+  \item For any set \(A\) and for any functions \(g:A\to B\) and \(h:A\to B\) such that \(f\circ g=f\circ h\), we have \(g=h\).
+\end{enumerate}
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 1, Problem 5}
+
+\newpage
+\recipecard{Homework 1, Problem 5}
+
+\newpage
+\begin{selfexplanationbox}{Homework 1, Problem 5}
+\workquestion{1. Why is this a left-cancellation property for injective maps?}{0.95in}
+\workquestion{2. In the forward direction, what equality do we get after evaluating at \(a\in A\)?}{0.9in}
+\workquestion{3. Where is injectivity used to conclude \(g(a)=h(a)\)?}{0.85in}
+\workquestion{4. In the reverse direction, why does choosing \(A=\{1\}\) suffice?}{0.95in}
+\workquestion{5. How do the test maps \(g(1)=b_1\), \(h(1)=b_2\) force \(b_1=b_2\)?}{0.95in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 1, Problem 5}
+\textbf{Injective \(\Rightarrow\) cancellation.}
+\workquestion{Assume \(f\circ g=f\circ h\). Fix \(a\in A\) and write the equality after evaluating at \(a\):}{0.9in}
+\workquestion{Use injectivity of \(f\) to conclude \(g(a)=h(a)\):}{0.85in}
+\workquestion{Since \(a\) was arbitrary, conclude \(g=h\):}{0.75in}
+
+\textbf{Cancellation \(\Rightarrow\) injective.}
+\workquestion{Fix \(b_1,b_2\in B\) with \(f(b_1)=f(b_2)\):}{0.8in}
+\workquestion{Define \(g,h:\{1\}\to B\) by \(g(1)=b_1\), \(h(1)=b_2\):}{0.9in}
+\workquestion{Show \(f\circ g=f\circ h\), apply the property, and conclude \(b_1=b_2\):}{0.95in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 1, Problem 5}{Use this page for both directions.}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+\((a)\Rightarrow(b)\): Suppose that \(f\) is injective. We want to show that property (b) is true.
+
+Let \(A\) be a set and \(g,h:A\to B\) be functions such that \(f\circ g=f\circ h\). This means that for any \(a\in A\), we have
+\[
+  f(g(a))=f(h(a)).
+\]
+In other words, \(g(a)\) and \(h(a)\) are two points in \(B\) which \(f\) maps to the same point in \(C\). As \(f\) is injective, we must have
+\[
+  g(a)=h(a).
+\]
+This holds for any \(a\in A\), and so the functions \(g\) and \(h\) are equal.
+
+\((a)\Leftarrow(b)\): Suppose that \(f\) satisfies property (b). We want to show that \(f\) is injective.
+
+Fix \(b_1,b_2\in B\) such that \(f(b_1)=f(b_2)\). Consider the functions \(g,h:\{1\}\to B\) given by
+\[
+  g(1)=b_1 \qquad \text{and} \qquad h(1)=b_2.
+\]
+Then we have \(f\circ g=f\circ h\), since
+\[
+  f(g(1))=f(b_1)=f(b_2)=f(h(1)).
+\]
+Therefore, by property (b) we must have \(g=h\), and so
+\[
+  b_1=g(1)=h(1)=b_2.
+\]
+Thus \(b_1=b_2\), as desired.
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 1, Problem 5}
+
+% ---------------------------------------------------------------------------
+% HW1 Problem 6
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 6}
+
+\begin{problemstatementbox}{Homework 1, Problem 6}
+Let \(f:A\to B\) be a function. Suppose that there exists a function \(g:B\to A\) such that \((g\circ f)(a)=a\) for all \(a\in A\) and \((f\circ g)(b)=b\) for all \(b\in B\). Prove that \(f\) is bijective.
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 1, Problem 6}
+
+\newpage
+\recipecard{Homework 1, Problem 6}
+
+\newpage
+\begin{selfexplanationbox}{Homework 1, Problem 6}
+\workquestion{1. What do the equations \(g\circ f=\mathrm{id}_A\) and \(f\circ g=\mathrm{id}_B\) mean pointwise?}{1.0in}
+\workquestion{2. To prove injectivity, what should we assume about \(f(a_1)\) and \(f(a_2)\)?}{0.9in}
+\workquestion{3. Why does applying \(g\) to both sides prove \(a_1=a_2\)?}{0.9in}
+\workquestion{4. To prove surjectivity, how should an arbitrary \(b\in B\) be written as \(f(a)\)?}{0.95in}
+\workquestion{5. Why do injective plus surjective imply bijective?}{0.85in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 1, Problem 6}
+\textbf{Injectivity.}
+\workquestion{Assume \(f(a_1)=f(a_2)\). Apply \(g\) and use \(g(f(a))=a\):}{0.95in}
+\workquestion{Conclude \(a_1=a_2\), so \(f\) is injective:}{0.75in}
+
+\textbf{Surjectivity.}
+\workquestion{Fix \(b\in B\). Set \(a=\)}{0.75in}
+\workquestion{Use \(f(g(b))=b\) to show \(b\in f(A)\):}{0.85in}
+\workquestion{Conclude every \(b\in B\) is hit, and finish:}{0.75in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 1, Problem 6}{Use this page for the complete proof.}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+First, we will show that \(f\) is injective. Suppose that \(f(a_1)=f(a_2)\) for some \(a_1,a_2\in A\). Then
+\[
+  a_1=g(f(a_1))=g(f(a_2))=a_2.
+\]
+
+Next, we will show that \(f\) is surjective. Fix \(b\in B\). Set \(a=g(b)\). Then \(a\in A\) and
+\[
+  f(a)=f(g(b))=b.
+\]
+
+Together, we conclude that \(f\) is bijective.
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 1, Problem 6}
+
+\section{Homework 2}
+
+% ---------------------------------------------------------------------------
+% HW2 Problem 1
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 1}
+
+\begin{problemstatementbox}{Homework 2, Problem 1}
+Prove that if \(A\) and \(B\) are both countable sets and \(A\cap B=\varnothing\), then \(A\cup B\) is countable. (Hint: We proved that \(\Z\) is countable in class. Try using a similar idea here.)
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 2, Problem 1}
+
+\newpage
+\recipecard{Homework 2, Problem 1}
+
+\newpage
+\begin{selfexplanationbox}{Homework 2, Problem 1}
+\workquestion{1. What does it mean for \(A\) and \(B\) to be countable in terms of bijections with \(\N\)?}{0.95in}
+\workquestion{2. Why does disjointness make the odd/even coding well-defined?}{0.95in}
+\workquestion{3. Which natural numbers should encode elements of \(A\), and which should encode elements of \(B\)?}{0.95in}
+\workquestion{4. How is the inverse map \(\phi:\N\to A\cup B\) defined on odd and even integers?}{1.0in}
+\workquestion{5. Why do the two composition identities prove bijectivity?}{0.9in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 2, Problem 1}
+\workquestion{Choose bijections \(g:A\to\N\) and \(h:B\to\N\):}{0.8in}
+\workquestion{Define \(f:A\cup B\to\N\) by odd values on \(A\) and even values on \(B\):}{0.95in}
+\workquestion{Define \(\phi:\N\to A\cup B\) separately for odd and even \(n\):}{1.0in}
+\workquestion{Verify \(f\circ\phi=\mathrm{id}_{\N}\):}{0.95in}
+\workquestion{Verify \(\phi\circ f=\mathrm{id}_{A\cup B}\):}{0.95in}
+\workquestion{Apply HW1\#6 and conclude \(A\cup B\) is countable:}{0.75in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 2, Problem 1}{Use this page for the complete proof.}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+As \(A\) and \(B\) are countable, there exist functions \(g:A\to\N\) and \(h:B\to\N\) that are bijective.
+
+Define the function \(f:A\cup B\to\N\) by
+\[
+  f(x)=
+  \begin{cases}
+    2g(x)-1, & x\in A,\\
+    2h(x), & x\in B.
+  \end{cases}
+\]
+As \(A\cap B=\varnothing\), these two cases are mutually exclusive and so \(f\) is indeed a function.
+
+We want to show that \(f\) is bijective. To this end, consider the function \(\phi:\N\to A\cup B\) given by
+\[
+  \phi(n)=
+  \begin{cases}
+    g^{-1}\left(\frac{n+1}{2}\right), & n\text{ odd},\\
+    h^{-1}\left(\frac n2\right), & n\text{ even}.
+  \end{cases}
+\]
+For \(n\in\N\) odd, note that \(\phi(n)=g^{-1}\left(\frac{n+1}{2}\right)\in A\), and so
+\[
+  (f\circ\phi)(n)
+  =
+  f\left(g^{-1}\left(\frac{n+1}{2}\right)\right)
+  =
+  2g\left(g^{-1}\left(\frac{n+1}{2}\right)\right)-1
+  =
+  n.
+\]
+Similarly, for \(n\in\N\) even, \(\phi(n)=h^{-1}(\frac n2)\in B\), and
+\[
+  (f\circ\phi)(n)
+  =
+  f\left(h^{-1}\left(\frac n2\right)\right)
+  =
+  2h\left(h^{-1}\left(\frac n2\right)\right)
+  =
+  n.
+\]
+Together, \((f\circ\phi)(n)=n\) for all \(n\in\N\).
+
+On the other hand, for \(x\in A\), \(f(x)=2g(x)-1\) is odd, and so
+\[
+  (\phi\circ f)(x)
+  =
+  \phi(2g(x)-1)
+  =
+  g^{-1}\left(\frac{2g(x)-1+1}{2}\right)
+  =
+  g^{-1}(g(x))
+  =
+  x.
+\]
+Likewise, for \(x\in B\), \(f(x)=2h(x)\) is even, and so
+\[
+  (\phi\circ f)(x)
+  =
+  \phi(2h(x))
+  =
+  h^{-1}\left(\frac{2h(x)}{2}\right)
+  =
+  h^{-1}(h(x))
+  =
+  x.
+\]
+Together, \((\phi\circ f)(x)=x\) for all \(x\in A\cup B\). Combining the previous two paragraphs, \(f\) is bijective by HW1\#6.
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 2, Problem 1}
+
+% ---------------------------------------------------------------------------
+% HW2 Problem 2
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 2}
+
+\begin{problemstatementbox}{Homework 2, Problem 2}
+Let \(A_n\) be a countable set for each \(n\in\N\), and suppose that \(A_m\cap A_n=\varnothing\) whenever \(m\neq n\). Prove that the union \(A=A_1\cup A_2\cup A_3\cup\cdots\) is countable. (Hint: We proved that \(\N\times\N\) is countable in class. Try using a similar idea here.)
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 2, Problem 2}
+
+\newpage
+\recipecard{Homework 2, Problem 2}
+
+\newpage
+\begin{selfexplanationbox}{Homework 2, Problem 2}
+\workquestion{1. For each \(A_n\), what enumeration or bijection should be chosen?}{0.95in}
+\workquestion{2. Why does an element of the union have a unique first coordinate \(n\)?}{0.95in}
+\workquestion{3. What map \(h:\N\times\N\to A\) naturally lists all elements?}{0.95in}
+\workquestion{4. How does disjointness prove injectivity of \(h\)?}{0.95in}
+\workquestion{5. How does countability of \(\N\times\N\) finish the proof?}{0.9in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 2, Problem 2}
+\workquestion{For each \(n\), choose a bijection \(f_n:\N\to A_n\):}{0.8in}
+\workquestion{Define \(h:\N\times\N\to A\) by \(h(n,k)=\)}{0.8in}
+\workquestion{Prove \(h\) is surjective by taking \(x\in A\) and locating \(x\in A_n\):}{0.95in}
+\workquestion{Prove \(h\) is injective using pairwise disjointness and injectivity of \(f_n\):}{1.0in}
+\workquestion{Compose with a bijection \(\N\to\N\times\N\) and conclude \(A\) is countable:}{0.9in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 2, Problem 2}{Use this page for the complete proof.}
+
+\newpage
+\begin{solutionbox}{Student-Derived Solution (No official solution available)}
+For each \(n\in\N\), since \(A_n\) is countable, choose a bijection
+\[
+  f_n:\N\to A_n.
+\]
+Define \(h:\N\times\N\to A\) by
+\[
+  h(n,k)=f_n(k).
+\]
+We show that \(h\) is bijective.
+
+Surjectivity. Let \(x\in A\). Since \(A=\bigcup_{n\in\N}A_n\), there exists \(n\in\N\) such that \(x\in A_n\). Since \(f_n\) is surjective, there exists \(k\in\N\) such that \(f_n(k)=x\). Hence \(h(n,k)=x\).
+
+Injectivity. Suppose \(h(n,k)=h(m,\ell)\). Then
+\[
+  f_n(k)=f_m(\ell).
+\]
+The left side lies in \(A_n\) and the right side lies in \(A_m\). If \(n\neq m\), this contradicts the assumption that \(A_n\cap A_m=\varnothing\). Hence \(n=m\). With \(n=m\), we have \(f_n(k)=f_n(\ell)\), and since \(f_n\) is injective, \(k=\ell\). Therefore \((n,k)=(m,\ell)\), so \(h\) is injective.
+
+Thus \(h\) is a bijection \(\N\times\N\to A\). Since \(\N\times\N\) is countable, there exists a bijection \(\phi:\N\to\N\times\N\). Then \(h\circ\phi:\N\to A\) is a bijection, so \(A\) is countable.
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 2, Problem 2}
+
+% ---------------------------------------------------------------------------
+% HW2 Problem 3
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 3}
+
+\begin{problemstatementbox}{Homework 2, Problem 3}
+Recall that given two sets \(A\) and \(B\), we write \(A\sim B\) if and only if there exists a bijective function \(f:A\to B\). Prove that \(\sim\) is an equivalence relation.
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 2, Problem 3}
+
+\newpage
+\recipecard{Homework 2, Problem 3}
+
+\newpage
+\begin{selfexplanationbox}{Homework 2, Problem 3}
+\workquestion{1. What are the three properties of an equivalence relation?}{0.9in}
+\workquestion{2. Which bijection proves \(A\sim A\)?}{0.85in}
+\workquestion{3. Why does a bijection \(A\to B\) give a bijection \(B\to A\)?}{0.95in}
+\workquestion{4. Why is the composition of bijections bijective?}{0.95in}
+\workquestion{5. How do these three facts match reflexivity, symmetry, and transitivity?}{0.9in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 2, Problem 3}
+\workquestion{Reflexivity: define the identity map \(f:A\to A\) and show it is bijective:}{0.9in}
+\workquestion{Symmetry: start with a bijection \(g:A\to B\) and use \(g^{-1}:B\to A\):}{0.95in}
+\workquestion{Transitivity: compose bijections \(h_1:A\to B\) and \(h_2:B\to C\):}{0.95in}
+\workquestion{State that \(\sim\) is reflexive, symmetric, and transitive:}{0.75in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 2, Problem 3}{Use this page for the complete proof.}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+Reflexivity: Let \(A\) be a set. We want to show that \(A\sim A\). Consider the function \(f:A\to A\) given by \(f(a)=a\). Notice that \((f\circ f)(a)=a\) for all \(a\in A\), and so \(f\) is bijective by HW1\#6. Therefore \(A\sim A\).
+
+Symmetry: Suppose that \(A,B\) are sets such that \(A\sim B\). Then there exists a bijective function \(g:A\to B\). Consider the function \(g^{-1}:B\to A\). By Lecture 3 we know that \((g^{-1}\circ g)(a)=a\) for all \(a\in A\) and \((g\circ g^{-1})(b)=b\) for all \(b\in B\), and so \(g^{-1}\) is bijective by HW1\#6. Therefore \(B\sim A\).
+
+Transitivity: Suppose that \(A,B,C\) are sets such that \(A\sim B\) and \(B\sim C\). Then there exist bijective functions \(h_1:A\to B\) and \(h_2:B\to C\). By Lecture 3, the composition \(h_2\circ h_1:A\to C\) is also bijective, and so \(A\sim C\).
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 2, Problem 3}
+
+% ---------------------------------------------------------------------------
+% HW2 Problem 4
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 4}
+
+\begin{problemstatementbox}{Homework 2, Problem 4}
+For \(a,b\in\Z\), define \(a\sim b\) if and only if \(b-a\) is divisible by \(2\).
+\begin{enumerate}[label=(\alph*)]
+  \item Prove that \(\sim\) is an equivalence relation on \(\Z\).
+  \item Find the equivalence classes.
+\end{enumerate}
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 2, Problem 4}
+
+\newpage
+\recipecard{Homework 2, Problem 4}
+
+\newpage
+\begin{selfexplanationbox}{Homework 2, Problem 4}
+\workquestion{1. What does it mean for an integer to be divisible by \(2\)?}{0.9in}
+\workquestion{2. Why is \(a-a=0\) enough for reflexivity?}{0.85in}
+\workquestion{3. Why does \(b-a=2k\) imply \(a-b\) is divisible by \(2\)?}{0.9in}
+\workquestion{4. How does adding \(b-a\) and \(c-b\) prove transitivity?}{0.95in}
+\workquestion{5. Why are the equivalence classes exactly the even and odd integers?}{0.95in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 2, Problem 4}
+\textbf{Part (a).}
+\workquestion{Reflexive: show \(a-a\) is divisible by \(2\):}{0.75in}
+\workquestion{Symmetric: assume \(b-a=2k\), then write \(a-b=\)}{0.8in}
+\workquestion{Transitive: assume \(b-a=2k\) and \(c-b=2\ell\), then compute \(c-a\):}{0.9in}
+
+\textbf{Part (b).}
+\workquestion{Show \([0]=\{2k:k\in\Z\}\):}{0.9in}
+\workquestion{Show \([1]=\{2k+1:k\in\Z\}\):}{0.9in}
+\workquestion{Explain why these are the only two classes:}{0.75in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 2, Problem 4}{Use this page for part (a).}
+
+\newpage
+\fullproofpage{Homework 2, Problem 4}{Use this page for part (b).}
+
+\newpage
+\begin{solutionbox}{Student-Derived Solution (No official solution available)}
+(a) We show that \(\sim\) is reflexive, symmetric, and transitive on \(\Z\).
+
+Reflexive. Let \(a\in\Z\). Then \(a-a=0=2\cdot0\), so \(a-a\) is divisible by \(2\). Hence \(a\sim a\).
+
+Symmetric. Suppose \(a\sim b\). Then \(b-a=2k\) for some \(k\in\Z\). Hence
+\[
+  a-b=-(b-a)=-2k=2(-k),
+\]
+so \(a-b\) is divisible by \(2\). Thus \(b\sim a\).
+
+Transitive. Suppose \(a\sim b\) and \(b\sim c\). Then \(b-a=2k\) and \(c-b=2\ell\) for some \(k,\ell\in\Z\). Adding,
+\[
+  c-a=(c-b)+(b-a)=2\ell+2k=2(k+\ell),
+\]
+so \(c-a\) is divisible by \(2\). Hence \(a\sim c\).
+
+Therefore \(\sim\) is an equivalence relation.
+
+(b) The equivalence classes are the parity classes. First,
+\[
+  [0]=\{n\in\Z:n-0\text{ is divisible by }2\}=\{2k:k\in\Z\}=2\Z.
+\]
+Similarly,
+\[
+  [1]=\{n\in\Z:n-1\text{ is divisible by }2\}=\{2k+1:k\in\Z\}=2\Z+1.
+\]
+Every integer is either even or odd, so these are the only equivalence classes.
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 2, Problem 4}
+
+% ---------------------------------------------------------------------------
+% HW2 Problem 5
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 5}
+
+\begin{problemstatementbox}{Homework 2, Problem 5}
+Let \((F,+,\cdot)\) be a field.
+\begin{enumerate}[label=(\alph*)]
+  \item Prove that for any \(x\in F\), the function \(f:F\to F\), \(f(y)=x+y\) is bijective.
+  \item Prove that for any \(x\in F\setminus\{0\}\), the function \(g:F\to F\), \(g(y)=x\cdot y\) is bijective.
+\end{enumerate}
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 2, Problem 5}
+
+\newpage
+\recipecard{Homework 2, Problem 5}
+
+\newpage
+\begin{selfexplanationbox}{Homework 2, Problem 5}
+\workquestion{1. What operation undoes adding a fixed \(x\)?}{0.85in}
+\workquestion{2. Which field axiom gives the additive inverse \(-x\)?}{0.85in}
+\workquestion{3. What operation undoes multiplying by a fixed nonzero \(x\)?}{0.9in}
+\workquestion{4. Which field axiom gives \(x^{-1}\)?}{0.85in}
+\workquestion{5. Why does exhibiting a two-sided inverse function prove bijectivity?}{0.95in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 2, Problem 5}
+\textbf{Part (a).}
+\workquestion{Define \(h:F\to F\) by \(h(z)=\)}{0.75in}
+\workquestion{Compute \((f\circ h)(z)\) using associativity, inverse, and identity axioms:}{0.95in}
+\workquestion{Compute \((h\circ f)(y)\):}{0.9in}
+\workquestion{Conclude \(f\) is bijective by HW1\#6:}{0.75in}
+
+\textbf{Part (b).}
+\workquestion{Define \(h:F\to F\) by \(h(z)=\)}{0.75in}
+\workquestion{Compute \((g\circ h)(z)\) and \((h\circ g)(y)\):}{1.0in}
+\workquestion{Conclude \(g\) is bijective:}{0.75in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 2, Problem 5}{Use this page for part (a).}
+
+\newpage
+\fullproofpage{Homework 2, Problem 5}{Use this page for part (b).}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+(a) Fix \(x\in F\). By (A5), there exists an additive inverse \(-x\in F\) for \(x\), so that
+\[
+  x+(-x)=0=-x+x.
+\]
+Consider the function \(h:F\to F\) given by \(h(z)=-x+z\). Then, for any \(z\in F\),
+\[
+  (f\circ h)(z)=f(-x+z)=x+(-x+z)
+  =
+  (x+(-x))+z
+  =
+  0+z
+  =
+  z.
+\]
+Similarly, for \(y\in F\),
+\[
+  (h\circ f)(y)=h(x+y)=-x+(x+y)
+  =
+  (-x+x)+y
+  =
+  0+y
+  =
+  y.
+\]
+Therefore \(f\) is bijective by HW1\#6.
+
+(b) Fix \(x\in F\setminus\{0\}\). As \(x\neq0\), there exists a multiplicative inverse \(x^{-1}\in F\) for \(x\), so that
+\[
+  x\cdot x^{-1}=1=x^{-1}\cdot x.
+\]
+Consider the function \(h:F\to F\) given by \(h(z)=x^{-1}\cdot z\). Then, for any \(z\in F\),
+\[
+  (g\circ h)(z)=g(x^{-1}\cdot z)=x\cdot(x^{-1}\cdot z)
+  =
+  (x\cdot x^{-1})\cdot z
+  =
+  1\cdot z
+  =
+  z.
+\]
+Similarly, for \(y\in F\),
+\[
+  (h\circ g)(y)=h(x\cdot y)=x^{-1}\cdot(x\cdot y)
+  =
+  (x^{-1}\cdot x)\cdot y
+  =
+  1\cdot y
+  =
+  y.
+\]
+Therefore \(g\) is bijective by HW1\#6.
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 2, Problem 5}
+
+% ---------------------------------------------------------------------------
+% HW2 Problem 6
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 6}
+
+\begin{problemstatementbox}{Homework 2, Problem 6}
+Let \((F,+,\cdot)\) be a field. Suppose that \(F=\{0,1,a,b\}\) is a set with exactly four elements, where \(0\) and \(1\) denote the identities for \(+\) and \(\cdot\) respectively, and \(a,b\) denote the remaining two elements of \(F\). Fill in the addition and multiplication tables below, and justify your answer.
+\[
+\begin{array}{c|cccc}
++&0&1&a&b\\ \hline
+0&&&&\\
+1&&&&\\
+a&&&&\\
+b&&&&
+\end{array}
+\qquad
+\begin{array}{c|cccc}
+\cdot&0&1&a&b\\ \hline
+0&&&&\\
+1&&&&\\
+a&&&&\\
+b&&&&
+\end{array}
+\]
+(Hint: Using the previous problem, show that each row and column in the addition table contains every element of \(F\) exactly once, like a Sudoku puzzle. Show that the same is true for the nonzero rows and columns of the multiplication table. Note that for each entry, there is only one correct answer.)
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 2, Problem 6}
+
+\newpage
+\recipecard{Homework 2, Problem 6}
+
+\newpage
+\begin{selfexplanationbox}{Homework 2, Problem 6}
+\workquestion{1. How does Problem 5 imply each addition row/column is a permutation of \(F\)?}{0.95in}
+\workquestion{2. How does Problem 5 imply each nonzero multiplication row/column is a permutation of \(F\setminus\{0\}\)?}{1.0in}
+\workquestion{3. Which entries are forced immediately by additive and multiplicative identities?}{0.95in}
+\workquestion{4. Why must \(a\cdot b=1\) in the multiplication table?}{0.95in}
+\workquestion{5. How does distributivity rule out the wrong addition-table entries?}{1.0in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 2, Problem 6}
+\workquestion{Fill the \(0\) and \(1\) rows/columns in the multiplication table:}{0.95in}
+\workquestion{Use the nonzero row/column permutation rule to force \(a\cdot b=1\), \(a^2=b\), and \(b^2=a\):}{1.0in}
+\workquestion{Fill the \(0\) row/column in the addition table:}{0.85in}
+\workquestion{Use distributivity to rule out \(1+a=0\), hence force \(1+a=b\):}{1.0in}
+\workquestion{Similarly force \(1+b=a\) and \(a+b=1\):}{0.95in}
+\workquestion{Write the completed tables:}{0.9in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 2, Problem 6}{Use this page for the multiplication table.}
+
+\newpage
+\fullproofpage{Homework 2, Problem 6}{Use this page for the addition table and justification.}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+There are many ways to do this problem. Here's one option that works.
+
+Step 1: Start with the multiplication table. We can fill in the \(0\) and \(1\) rows and columns using what we know from lecture:
+\[
+\begin{array}{c|cccc}
+\cdot&0&1&a&b\\ \hline
+0&0&0&0&0\\
+1&0&1&a&b\\
+a&0&a&&\\
+b&0&b&&
+\end{array}
+\]
+
+Step 2: The only possibility for the \(a\cdot b\) entry is \(1\), since the other three elements already appear in this row and column. This in turn leaves only one option for the remaining entries:
+\[
+\begin{array}{c|cccc}
+\cdot&0&1&a&b\\ \hline
+0&0&0&0&0\\
+1&0&1&a&b\\
+a&0&a&b&1\\
+b&0&b&1&a
+\end{array}
+\]
+
+Step 3: Now turn to the addition table. We can fill in the \(0\) row and column using (A4):
+\[
+\begin{array}{c|cccc}
++&0&1&a&b\\ \hline
+0&0&1&a&b\\
+1&1&&&\\
+a&a&&&\\
+b&b&&&
+\end{array}
+\]
+
+Step 4: Consider the entry for \(1+a\). There are two elements that we can choose from, \(0\) and \(b\), since the other two elements already appear in this row and column. Suppose \(1+a=0\). This forces
+\[
+  0=0\cdot b=(1+a)\cdot b=1\cdot b+a\cdot b=b+1,
+\]
+by distributivity and the multiplication table. But this would mean that \(0\) appears twice in a row/column, which is a contradiction. Therefore \(1+a=b\). Similarly, if \(1+b=0\), then
+\[
+  0=0\cdot b=(1+b)\cdot a=1\cdot a+b\cdot a=a+1,
+\]
+which contradicts the current entry for \(a+1\). So \(1+b=a\).
+
+Step 5: Consider the entry for \(a+b\). There are two elements that we can choose from, \(0\) and \(1\), since the other two elements already appear in this row and column. Suppose \(a+b=0\). This forces
+\[
+  0=0\cdot b=(a+b)\cdot b=a\cdot b+b\cdot b=1+a,
+\]
+by distributivity and the multiplication table. This contradicts the current entry for \(1+a\), so \(a+b=1\). This leaves the completed addition table:
+\[
+\begin{array}{c|cccc}
++&0&1&a&b\\ \hline
+0&0&1&a&b\\
+1&1&0&b&a\\
+a&a&b&0&1\\
+b&b&a&1&0
+\end{array}
+\]
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 2, Problem 6}
+
+\section{Homework 3}
+
+% ---------------------------------------------------------------------------
+% HW3 Problem 1
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 1}
+
+\begin{problemstatementbox}{Homework 3, Problem 1}
+Let \((F,+,\cdot)\) be a field.
+\begin{enumerate}[label=(\alph*)]
+  \item Prove that the multiplicative identity is unique: If \(b\in F\) satisfies \(b\cdot a=a\cdot b=a\) for all \(a\in F\), then \(b=1\).
+  \item Prove that multiplicative inverses are unique: If \(a\in F\setminus\{0\}\) and \(b\in F\) satisfy \(b\cdot a=a\cdot b=1\), then \(b=a^{-1}\).
+  \item Prove that if \(a\cdot b=a\cdot c\) and \(a\neq0\), then \(b=c\).
+  \item Prove that if \(a,b\in F\) then \(-a+(-b)=-(a+b)\).
+  \item Prove that if \(a,b\in F\) and \(a,b\neq0\), then \(a^{-1}\cdot b^{-1}=(ab)^{-1}\).
+\end{enumerate}
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 3, Problem 1}
+
+\newpage
+\recipecard{Homework 3, Problem 1}
+
+\newpage
+\begin{selfexplanationbox}{Homework 3, Problem 1}
+\workquestion{1. In part (a), what two ways can you compute \(b\cdot1\)?}{0.9in}
+\workquestion{2. In part (b), why is multiplying by \(a^{-1}\) legitimate?}{0.9in}
+\workquestion{3. In part (c), what field axioms justify cancellation?}{0.9in}
+\workquestion{4. In part (d), how do you prove an element is the additive inverse of \(a+b\)?}{0.95in}
+\workquestion{5. In part (e), what product must be checked to show \(a^{-1}b^{-1}\) is \((ab)^{-1}\)?}{0.95in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 3, Problem 1}
+\textbf{Parts (a)--(c).}
+\workquestion{For (a), use the usual identity with \(a=b\) and the alternative identity with \(a=1\):}{0.95in}
+\workquestion{For (b), start from \(b\cdot a=1\) and multiply on the right by \(a^{-1}\):}{0.95in}
+\workquestion{For (c), multiply \(a\cdot b=a\cdot c\) on the left by \(a^{-1}\):}{0.9in}
+
+\textbf{Parts (d)--(e).}
+\workquestion{For (d), compute \(((-a)+(-b))+(a+b)\) and rearrange using commutativity/associativity:}{1.0in}
+\workquestion{For (e), compute \((a^{-1}b^{-1})(ab)\) and use commutativity/associativity:}{1.0in}
+\workquestion{Invoke uniqueness from earlier parts where needed:}{0.75in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 3, Problem 1}{Use this page for parts (a)--(c).}
+
+\newpage
+\fullproofpage{Homework 3, Problem 1}{Use this page for parts (d)--(e).}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+(a) We know that \(1,b\in F\) satisfy:
+\begin{itemize}
+  \item \(a\cdot1=1\cdot a=a\) for all \(a\in F\);
+  \item \(a\cdot b=b\cdot a=a\) for all \(a\in F\).
+\end{itemize}
+Taking \(a=b\) in the first bullet point, we see that
+\[
+  b\cdot1=b.
+\]
+Taking \(a=1\) in the second bullet point, we obtain
+\[
+  b\cdot1=1.
+\]
+Comparing the previous two equalities, we conclude \(b=1\).
+
+(b) As \(a\neq0\), by (M5) there exists \(a^{-1}\in F\) so that
+\[
+  a\cdot a^{-1}=a^{-1}\cdot a=1.
+\]
+Multiplying \(b\cdot a=1\) by \(a^{-1}\) on the right, we obtain
+\[
+  (b\cdot a)\cdot a^{-1}=1\cdot a^{-1}
+  \Longrightarrow
+  b\cdot(a\cdot a^{-1})=a^{-1}
+  \Longrightarrow
+  b\cdot1=a^{-1}
+  \Longrightarrow
+  b=a^{-1}.
+\]
+
+(c) As \(a\neq0\), by (M5) there exists \(a^{-1}\in F\) so that
+\[
+  a\cdot a^{-1}=a^{-1}\cdot a=1.
+\]
+Multiplying \(a\cdot b=a\cdot c\) by \(a^{-1}\) on the left, we obtain
+\[
+  a^{-1}\cdot(a\cdot b)=a^{-1}\cdot(a\cdot c)
+  \Longrightarrow
+  (a^{-1}\cdot a)\cdot b=(a^{-1}\cdot a)\cdot c
+  \Longrightarrow
+  1\cdot b=1\cdot c
+  \Longrightarrow
+  b=c.
+\]
+
+(d) Fix \(a,b\in F\). Then
+\[
+  ((-a)+(-b))+(a+b)
+  =
+  ((-a)+(-b))+(b+a)
+\]
+\[
+  =
+  -a+((-b)+b)+a
+  =
+  -a+0+a
+  =
+  -a+a
+  =
+  0.
+\]
+In other words, \((-a)+(-b)\) is the additive inverse of \(a+b\). As additive inverses are unique, we conclude
+\[
+  -a+(-b)=-(a+b).
+\]
+
+(e) Fix \(a,b\neq0\). Then
+\[
+  (a^{-1}\cdot b^{-1})\cdot(ab)
+  =
+  (a^{-1}\cdot b^{-1})\cdot(ba)
+  =
+  a^{-1}\cdot(b^{-1}b)\cdot a
+  =
+  a^{-1}\cdot1\cdot a
+  =
+  a^{-1}\cdot a
+  =
+  1.
+\]
+In other words, \(a^{-1}\cdot b^{-1}\) is the multiplicative inverse of \(ab\). As multiplicative inverses are unique by part (b), we conclude
+\[
+  a^{-1}\cdot b^{-1}=(ab)^{-1}.
+\]
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 3, Problem 1}
+
+% ---------------------------------------------------------------------------
+% HW3 Problem 2
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 2}
+
+\begin{problemstatementbox}{Homework 3, Problem 2}
+Given two points \((x_1,y_1)\) and \((x_2,y_2)\) in \(\R^2=\{(x,y):x,y\in\R\}\), we write
+\[
+  (x_1,y_1)<(x_2,y_2)
+  \quad \Longleftrightarrow \quad
+  x_1<x_2\text{ or }(x_1=x_2\text{ and }y_1<y_2).
+\]
+\begin{enumerate}[label=(\alph*)]
+  \item Prove that \(<\) is an order relation on \(\R^2\).
+  \item Prove that \((\R^2,<)\) does not satisfy the least upper bound property. (Hint: Consider the set of all points on the \(y\)-axis.)
+\end{enumerate}
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 3, Problem 2}
+
+\newpage
+\recipecard{Homework 3, Problem 2}
+
+\newpage
+\begin{selfexplanationbox}{Homework 3, Problem 2}
+\workquestion{1. What are trichotomy and transitivity for an order relation?}{0.9in}
+\workquestion{2. Why does the first coordinate decide most comparisons in lexicographic order?}{0.95in}
+\workquestion{3. What set on the \(y\)-axis should be used in part (b)?}{0.85in}
+\workquestion{4. Why is that set bounded above by \((1,0)\)?}{0.9in}
+\workquestion{5. Why must any upper bound have positive first coordinate, and why can it be lowered?}{1.0in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 3, Problem 2}
+\textbf{Part (a).}
+\workquestion{For trichotomy, split into \(x<x'\), \(x>x'\), and \(x=x'\):}{0.95in}
+\workquestion{For transitivity, split into the cases from the definition of \(<\):}{1.0in}
+\workquestion{Conclude \(<\) is an order relation:}{0.75in}
+
+\textbf{Part (b).}
+\workquestion{Let \(Y=\{(0,y):y\in\R\}\). Show \(Y\) is nonempty and bounded above:}{0.9in}
+\workquestion{Assume \((a,b)\) is a least upper bound. Prove \(a>0\):}{0.95in}
+\workquestion{Show \((a/2,b)\) is also an upper bound and is strictly smaller:}{0.95in}
+\workquestion{State the contradiction to leastness:}{0.75in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 3, Problem 2}{Use this page for part (a).}
+
+\newpage
+\fullproofpage{Homework 3, Problem 2}{Use this page for part (b).}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+(a) By definition of an order relation, there are two properties to check.
+
+Trichotomy: Fix \((x,y),(x',y')\in\R^2\). We prove that in every possible case, exactly one of the statements \(<\), \(=\), or \(>\) is true.
+\begin{itemize}
+  \item Case: \(x<x'\). Then \((x,y)<(x',y')\).
+  \item Case: \(x>x'\). Then \((x,y)>(x',y')\).
+  \item Case: \(x=x'\). If \(y<y'\), then \((x,y)<(x',y')\). If \(y>y'\), then \((x,y)>(x',y')\). If \(y=y'\), then \((x,y)=(x',y')\).
+\end{itemize}
+
+Transitivity: Suppose \((x_1,y_1)<(x_2,y_2)\) and \((x_2,y_2)<(x_3,y_3)\). By definition of \(<\), there are four possible cases.
+\begin{itemize}
+  \item If \(x_1<x_2\) and \(x_2<x_3\), then \(x_1<x_3\).
+  \item If \(x_1<x_2\), \(x_2=x_3\), and \(y_2<y_3\), then \(x_1<x_3\).
+  \item If \(x_1=x_2\), \(y_1<y_2\), and \(x_2<x_3\), then \(x_1<x_3\).
+  \item If \(x_1=x_2\), \(y_1<y_2\), \(x_2=x_3\), and \(y_2<y_3\), then \(x_1=x_3\) and \(y_1<y_3\).
+\end{itemize}
+So, in all cases, \((x_1,y_1)<(x_3,y_3)\).
+
+(b) Suppose toward a contradiction that \((\R^2,<)\) satisfies the least upper bound property. Set
+\[
+  Y=\{(0,y):y\in\R\}.
+\]
+Then \(Y\) is nonempty, since \((0,0)\in Y\), and \(Y\) is bounded above by \((1,0)\). Therefore there exists a least upper bound \((a,b)\in\R^2\) for \(Y\).
+
+Claim: \(a>0\). If \(a<0\), then \((0,0)\in Y\) would satisfy \((0,0)>(a,b)\), contradicting that \((a,b)\) is an upper bound for \(Y\). If \(a=0\), then \((0,b+1)\in Y\) and \((0,b+1)>(a,b)\), again contradicting that \((a,b)\) is an upper bound. Thus \(a>0\).
+
+As \(a>0\), \((a/2,b)\) is also an upper bound for \(Y\), since
+\[
+  0<a/2 \quad \Longrightarrow \quad (0,y)<(a/2,b)\quad \text{for all }y\in\R.
+\]
+But \(a/2<a\), so \((a/2,b)<(a,b)\). This contradicts that \((a,b)\) was the least upper bound.
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 3, Problem 2}
+
+% ---------------------------------------------------------------------------
+% HW3 Problem 3
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 3}
+
+\begin{problemstatementbox}{Homework 3, Problem 3}
+Recall that the set of complex numbers \(\mathbb C\) consists of all numbers of the form \(a+ib\) for \(a,b\in\R\). We can add and multiply complex numbers as follows:
+\[
+  (a+ib)+(c+id)=(a+c)+i(b+d)
+\]
+and
+\[
+  (a+ib)\cdot(c+id)=(ac-bd)+i(ad+bc).
+\]
+With these operations, it turns out \((\mathbb C,+,\cdot)\) is a field (but you do not need to prove this).
+\begin{enumerate}[label=(\alph*)]
+  \item The definition of a field says that for any \(a+ib\neq0+i0\), there exists \(c+id\in\mathbb C\) so that \((a+ib)\cdot(c+id)=1+i0\). What are \(c,d\in\R\) in terms of \(a,b\in\R\)? Prove your answer.
+  \item Prove that there is no order relation \(<\) on \(\mathbb C\) that makes \((\mathbb C,+,\cdot,<)\) an ordered field. (Hint: Can \(i=0+i1\) be positive? Negative? Zero?)
+\end{enumerate}
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 3, Problem 3}
+
+\newpage
+\recipecard{Homework 3, Problem 3}
+
+\newpage
+\begin{selfexplanationbox}{Homework 3, Problem 3}
+\workquestion{1. What equations result from \((a+ib)(c+id)=1+i0\)?}{0.95in}
+\workquestion{2. Why is \(a^2+b^2\neq0\) when \(a+ib\neq0+i0\)?}{0.9in}
+\workquestion{3. What are the formulas for \(c\) and \(d\)?}{0.85in}
+\workquestion{4. In an ordered field, why is \(x^2>0\) for every nonzero \(x\)?}{0.95in}
+\workquestion{5. Why does \(i^2=-1\) contradict ordered-field behavior?}{0.95in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 3, Problem 3}
+\textbf{Part (a).}
+\workquestion{Set \(c=\frac{a}{a^2+b^2}\), \(d=-\frac{b}{a^2+b^2}\):}{0.85in}
+\workquestion{Verify \(ac-bd=1\):}{0.85in}
+\workquestion{Verify \(ad+bc=0\):}{0.85in}
+
+\textbf{Part (b).}
+\workquestion{Assume \(\mathbb C\) is an ordered field. Since \(i\neq0\), use the ordered-field fact that \(i^2>0\):}{0.95in}
+\workquestion{Use \(i^2=-1\) and \(1>0\) to get a contradiction:}{0.95in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 3, Problem 3}{Use this page for part (a).}
+
+\newpage
+\fullproofpage{Homework 3, Problem 3}{Use this page for part (b).}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+(a) Set
+\[
+  c=\frac{a}{a^2+b^2},
+  \qquad
+  d=-\frac{b}{a^2+b^2}.
+\]
+Then
+\[
+  ac-bd=\frac{a^2}{a^2+b^2}+\frac{b^2}{a^2+b^2}=1,
+\]
+and
+\[
+  ad+bc=-\frac{ab}{a^2+b^2}+\frac{ab}{a^2+b^2}=0.
+\]
+Therefore \((a+ib)\cdot(c+id)=1\).
+
+(b) Suppose toward a contradiction that \((\mathbb C,+,\cdot,<)\) is an ordered field. As \(i\neq0\), a proposition from lecture gives
+\[
+  0<i^2=-1.
+\]
+On the other hand, we also proved in lecture that
+\[
+  1>0,
+  \qquad \text{and so} \qquad
+  -1<0.
+\]
+Altogether we have both \(-1>0\) and \(-1<0\), which is a contradiction.
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 3, Problem 3}
+
+% ---------------------------------------------------------------------------
+% HW3 Problem 4
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 4}
+
+\begin{problemstatementbox}{Homework 3, Problem 4}
+Let \(A\subseteq\R\) be a nonempty and bounded set, let \(c\in\R\) be a number, and define
+\[
+  B=\{c\cdot a:a\in A\}.
+\]
+\begin{enumerate}[label=(\alph*)]
+  \item Prove that if \(c>0\), then \(\sup B=c\cdot\sup A\).
+  \item Prove that if \(c<0\), then \(\sup B=c\cdot\inf A\).
+\end{enumerate}
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 3, Problem 4}
+
+\newpage
+\recipecard{Homework 3, Problem 4}
+
+\newpage
+\begin{selfexplanationbox}{Homework 3, Problem 4}
+\workquestion{1. What two facts prove that a candidate is a supremum?}{0.9in}
+\workquestion{2. Why does multiplying by \(c>0\) preserve inequalities?}{0.9in}
+\workquestion{3. Why does multiplying by \(c<0\) reverse inequalities?}{0.9in}
+\workquestion{4. In part (a), how does an upper bound \(L\) for \(B\) produce an upper bound \(L/c\) for \(A\)?}{1.0in}
+\workquestion{5. In part (b), how does an upper bound \(L\) for \(B\) produce a lower bound \(L/c\) for \(A\)?}{1.0in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 3, Problem 4}
+\textbf{Part (a), \(c>0\).}
+\workquestion{Show \(c\sup A\) is an upper bound for \(B\):}{0.9in}
+\workquestion{Let \(L\) be any upper bound for \(B\). From \(ca\le L\), prove \(a\le L/c\):}{0.95in}
+\workquestion{Use \(\sup A\le L/c\) to conclude \(c\sup A\le L\):}{0.85in}
+
+\textbf{Part (b), \(c<0\).}
+\workquestion{Show \(c\inf A\) is an upper bound for \(B\):}{0.9in}
+\workquestion{Let \(L\) be any upper bound for \(B\). From \(ca\le L\), prove \(a\ge L/c\):}{0.95in}
+\workquestion{Use \(L/c\le\inf A\), then multiply by \(c<0\):}{0.85in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 3, Problem 4}{Use this page for part (a).}
+
+\newpage
+\fullproofpage{Homework 3, Problem 4}{Use this page for part (b).}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+(a) As \(A\) is nonempty and bounded, \(\sup A\in\R\) exists.
+
+Claim: \(c\sup A\) is an upper bound for \(B\). As \(\sup A\) is an upper bound for \(A\), we know that
+\[
+  a\le\sup A \qquad \text{for all }a\in A,
+\]
+and so
+\[
+  ca\le c\sup A \qquad \text{for all }a\in A.
+\]
+Therefore \(c\sup A\) is an upper bound for \(B\).
+
+Claim: If \(L\) is an upper bound for \(B\), then \(L\ge c\sup A\). As \(L\) is an upper bound for \(B\), we have
+\[
+  ca\le L \qquad \text{for all }a\in A,
+\]
+and so
+\[
+  a\le \frac Lc \qquad \text{for all }a\in A.
+\]
+In other words, \(\frac Lc\) is an upper bound for \(A\). As \(\sup A\) is the least upper bound, \(\sup A\le\frac Lc\), and therefore \(c\sup A\le L\). Collecting the previous two claims, \(\sup B=c\sup A\).
+
+(b) As \(A\) is nonempty and bounded, \(\inf A\in\R\) exists.
+
+Claim: \(c\inf A\) is an upper bound for \(B\). As \(\inf A\) is a lower bound for \(A\), we know that
+\[
+  a\ge\inf A \qquad \text{for all }a\in A,
+\]
+and so
+\[
+  ca\le c\inf A \qquad \text{for all }a\in A.
+\]
+Therefore \(c\inf A\) is an upper bound for \(B\).
+
+Claim: If \(L\) is an upper bound for \(B\), then \(L\ge c\inf A\). As \(L\) is an upper bound for \(B\), we have
+\[
+  ca\le L \qquad \text{for all }a\in A,
+\]
+and so
+\[
+  a\ge \frac Lc \qquad \text{for all }a\in A.
+\]
+Thus \(\frac Lc\) is a lower bound for \(A\). As \(\inf A\) is the greatest lower bound, \(\inf A\ge\frac Lc\), and therefore \(c\inf A\le L\). Collecting the previous two claims, \(\sup B=c\inf A\).
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 3, Problem 4}
+
+% ---------------------------------------------------------------------------
+% HW3 Problem 5
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 5}
+
+\begin{problemstatementbox}{Homework 3, Problem 5}
+Let \(A,B\subseteq\R\) be nonempty and bounded sets, and define
+\[
+  S=\{a+b:a\in A\text{ and }b\in B\}.
+\]
+Prove that \(\sup S=\sup A+\sup B\).
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 3, Problem 5}
+
+\newpage
+\recipecard{Homework 3, Problem 5}
+
+\newpage
+\begin{selfexplanationbox}{Homework 3, Problem 5}
+\workquestion{1. Why do \(\sup A\) and \(\sup B\) exist?}{0.85in}
+\workquestion{2. Why is \(\sup A+\sup B\) an upper bound for \(S\)?}{0.95in}
+\workquestion{3. How does the proof by contradiction use \(L<\sup A+\sup B\)?}{0.95in}
+\workquestion{4. Why can you find \(a_0\in A\) with \(a_0>\sup A-\varepsilon\)?}{0.95in}
+\workquestion{5. How do the choices of \(a_0,b_0\) contradict \(L\) being an upper bound?}{0.95in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 3, Problem 5}
+\workquestion{Let \(\alpha=\sup A\) and \(\beta=\sup B\):}{0.75in}
+\workquestion{Show \(\alpha+\beta\) is an upper bound for \(S\):}{0.9in}
+\workquestion{Let \(L\) be an upper bound and suppose \(L<\alpha+\beta\). Set \(\varepsilon=\)}{0.85in}
+\workquestion{Use non-leastness of \(\alpha-\varepsilon\) and \(\beta-\varepsilon\) to choose \(a_0,b_0\):}{1.0in}
+\workquestion{Show \(a_0+b_0>L\), contradiction:}{0.9in}
+\workquestion{Conclude \(\sup S=\alpha+\beta\):}{0.75in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 3, Problem 5}{Use this page for the complete proof.}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+As \(A,B\subseteq\R\) are nonempty and bounded, \(\sup A\) and \(\sup B\) exist.
+
+Claim: \(\sup A+\sup B\) is an upper bound for \(S\). As \(\sup A\) is an upper bound for \(A\), we know
+\[
+  a\le\sup A \qquad \text{for all }a\in A.
+\]
+Similarly, \(\sup B\) is an upper bound for \(B\), and so
+\[
+  b\le\sup B \qquad \text{for all }b\in B.
+\]
+Adding these two inequalities, we conclude that
+\[
+  a+b\le\sup A+\sup B
+  \qquad \text{for all }a\in A,\ b\in B.
+\]
+Therefore \(\sup A+\sup B\) is an upper bound for \(S\).
+
+Claim: If \(L\) is an upper bound for \(S\), then \(L\ge\sup A+\sup B\). Suppose toward a contradiction that \(L\) is an upper bound for \(S\) but \(L<\sup A+\sup B\). Set
+\[
+  \varepsilon=\frac12(\sup A+\sup B-L)>0.
+\]
+As \(\sup A-\varepsilon<\sup A\), then \(\sup A-\varepsilon\) cannot be an upper bound for \(A\), and so there exists \(a_0\in A\) such that
+\[
+  a_0>\sup A-\varepsilon.
+\]
+Similarly, there exists \(b_0\in B\) such that
+\[
+  b_0>\sup B-\varepsilon.
+\]
+Adding these inequalities and using the definition of \(\varepsilon\),
+\[
+  a_0+b_0>\sup A+\sup B-2\varepsilon=L.
+\]
+This contradicts that \(L\) is an upper bound for \(S\), so \(L\ge\sup A+\sup B\).
+
+Therefore \(\sup S=\sup A+\sup B\).
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 3, Problem 5}
+
+% ---------------------------------------------------------------------------
+% HW3 Problem 6
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 6}
+
+\begin{problemstatementbox}{Homework 3, Problem 6}
+Let \(A,B\subseteq\R\) be nonempty and bounded sets. Prove or disprove the following statements:
+\begin{enumerate}[label=(\alph*)]
+  \item If \(a\le b\) for all \(a\in A\) and for all \(b\in B\), then \(\sup A\le\inf B\).
+  \item If \(a<b\) for all \(a\in A\) and for all \(b\in B\), then \(\sup A<\inf B\).
+\end{enumerate}
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 3, Problem 6}
+
+\newpage
+\recipecard{Homework 3, Problem 6}
+
+\newpage
+\begin{selfexplanationbox}{Homework 3, Problem 6}
+\workquestion{1. In part (a), why is each \(b\in B\) an upper bound for \(A\)?}{0.95in}
+\workquestion{2. Why does that imply \(\sup A\le b\) for all \(b\in B\)?}{0.95in}
+\workquestion{3. Why is \(\sup A\) then a lower bound for \(B\)?}{0.9in}
+\workquestion{4. In part (b), why might strict pointwise inequalities fail to create a strict gap between sup and inf?}{1.0in}
+\workquestion{5. What counterexample has \(\sup A=\inf B\) but \(a<b\) for all choices?}{0.95in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 3, Problem 6}
+\textbf{Part (a).}
+\workquestion{Fix \(b\in B\). Use the hypothesis to show \(b\) is an upper bound for \(A\):}{0.9in}
+\workquestion{Conclude \(\sup A\le b\) for all \(b\in B\):}{0.85in}
+\workquestion{Use the definition of \(\inf B\) to get \(\sup A\le\inf B\):}{0.9in}
+
+\textbf{Part (b).}
+\workquestion{Give the counterexample \(A=\{1-\frac1n:n\in\N\}\), \(B=\{1\}\):}{0.95in}
+\workquestion{Verify nonempty and bounded:}{0.75in}
+\workquestion{Verify \(a<b\) for all \(a\in A,b\in B\), but \(\sup A=\inf B\):}{0.95in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 3, Problem 6}{Use this page for part (a).}
+
+\newpage
+\fullproofpage{Homework 3, Problem 6}{Use this page for part (b).}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+(a) Prove: As \(A,B\subseteq\R\) are nonempty and bounded, both \(\sup A,\inf B\in\R\) exist.
+
+Let \(b\in B\). As \(a\le b\) for all \(a\in A\), \(b\) is an upper bound for \(A\), and so
+\[
+  \sup A\le b.
+\]
+This is true for all \(b\in B\). Therefore \(\sup A\) is a lower bound for \(B\), and so
+\[
+  \sup A\le\inf B.
+\]
+
+(b) Disprove: Consider the sets
+\[
+  A=\left\{1-\frac1n:n\in\N\right\},
+  \qquad
+  B=\{1\}.
+\]
+Note that \(\inf B=\min B=1\), and recall from lecture that \(\sup A=1\).
+
+Altogether:
+\begin{itemize}
+  \item \(A,B\) are nonempty.
+  \item \(A,B\) are bounded: \(0\) is a lower bound and \(1\) is an upper bound for both \(A\) and \(B\).
+  \item \(a<b\) for all \(a\in A\) and \(b\in B\), since \(1-\frac1n<1\) for all \(n\ge1\).
+  \item \(\sup A\not<\inf B\), since \(\sup A=1=\inf B\).
+\end{itemize}
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 3, Problem 6}
+
+\section{Homework 4}
+
+% ---------------------------------------------------------------------------
+% HW4 Problem 1
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 1}
+
+\begin{problemstatementbox}{Homework 4, Problem 1}
+Let \(\{a_n\}_{n\ge1}\) be a sequence.
+\begin{enumerate}[label=(\alph*)]
+  \item Prove that if \(\{a_n\}_{n\ge1}\) converges to \(a\), then the sequence \(\{|a_n|\}_{n\ge1}\) converges to \(|a|\). (Hint: \(\bigl||x|-|y|\bigr|\le |x-y|\) for any \(x,y\in\R\).)
+  \item Provide an example where \(\{|a_n|\}_{n\ge1}\) converges, but \(\{a_n\}_{n\ge1}\) diverges.
+\end{enumerate}
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 4, Problem 1}
+
+\newpage
+\recipecard{Homework 4, Problem 1}
+
+\newpage
+\begin{selfexplanationbox}{Homework 4, Problem 1}
+\workquestion{1. What does \(a_n\to a\) mean in \(\varepsilon\)-\(N\) language?}{0.9in}
+\workquestion{2. How does the reverse triangle inequality compare \(\bigl||a_n|-|a|\bigr|\) with \(|a_n-a|\)?}{0.95in}
+\workquestion{3. Why does the same \(N\) work for \(|a_n|\to|a|\)?}{0.9in}
+\workquestion{4. What is a simple sign-oscillating sequence whose absolute values are constant?}{0.95in}
+\workquestion{5. Why does that sequence fail to converge?}{0.9in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 4, Problem 1}
+\textbf{Part (a).}
+\workquestion{Fix \(\varepsilon>0\). Since \(a_n\to a\), choose \(N\) with:}{0.85in}
+\workquestion{Apply \(\bigl||x|-|y|\bigr|\le |x-y|\) with \(x=a_n\), \(y=a\):}{0.9in}
+\workquestion{Conclude \(|a_n|\to|a|\):}{0.75in}
+
+\textbf{Part (b).}
+\workquestion{Choose \(a_n=(-1)^n\):}{0.75in}
+\workquestion{Show \(|a_n|=1\) converges, while \(a_n\) diverges:}{0.9in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 4, Problem 1}{Use this page for parts (a) and (b).}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+(a) Fix \(\varepsilon>0\). As \(\lim_{n\to\infty}a_n=a\), there exists \(N\in\N\) so that
+\[
+  |a_n-a|<\varepsilon \qquad \text{for all }n\ge N.
+\]
+By the reverse triangle inequality, we have
+\[
+  \bigl||a_n|-|a|\bigr|\le |a_n-a|<\varepsilon
+  \qquad \text{for all }n\ge N.
+\]
+So \(\lim_{n\to\infty}|a_n|=|a|\).
+
+(b) By Lecture 10, the sequence \(\{a_n\}_{n\ge1}\) where \(a_n=(-1)^n\) diverges. On the other hand, \(|a_n|=1\) for all \(n\ge1\), and so \(\{|a_n|\}_{n\ge1}\) converges to \(1\).
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 4, Problem 1}
+
+% ---------------------------------------------------------------------------
+% HW4 Problem 2
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 2}
+
+\begin{problemstatementbox}{Homework 4, Problem 2}
+(Squeeze theorem). Prove that if \(\{a_n\}_{n\ge1}\), \(\{b_n\}_{n\ge1}\), and \(\{c_n\}_{n\ge1}\) are sequences such that
+\[
+  a_n\le b_n\le c_n\quad\text{for all }n\ge1
+\]
+and
+\[
+  \lim_{n\to\infty}a_n=L=\lim_{n\to\infty}c_n,
+\]
+then \(\{b_n\}_{n\ge1}\) converges and \(\lim_{n\to\infty}b_n=L\).
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 4, Problem 2}
+
+\newpage
+\recipecard{Homework 4, Problem 2}
+
+\newpage
+\begin{selfexplanationbox}{Homework 4, Problem 2}
+\workquestion{1. What does convergence of \(a_n\) to \(L\) give for a fixed \(\varepsilon>0\)?}{0.9in}
+\workquestion{2. What does convergence of \(c_n\) to \(L\) give?}{0.9in}
+\workquestion{3. Why should \(N=\max\{N_1,N_2\}\) be used?}{0.85in}
+\workquestion{4. How do \(a_n\le b_n\le c_n\) and the two convergence estimates trap \(b_n\)?}{1.0in}
+\workquestion{5. Why is \(L-\varepsilon<b_n<L+\varepsilon\) equivalent to \(|b_n-L|<\varepsilon\)?}{0.95in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 4, Problem 2}
+\workquestion{Fix \(\varepsilon>0\). Choose \(N_1\) so \(|a_n-L|<\varepsilon\) for \(n\ge N_1\):}{0.9in}
+\workquestion{Choose \(N_2\) so \(|c_n-L|<\varepsilon\) for \(n\ge N_2\):}{0.9in}
+\workquestion{Let \(N=\max\{N_1,N_2\}\), then for \(n\ge N\) write the full chain:}{1.0in}
+\workquestion{Conclude \(|b_n-L|<\varepsilon\):}{0.8in}
+\workquestion{State \(b_n\to L\):}{0.75in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 4, Problem 2}{Use this page for the complete proof.}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+Fix \(\varepsilon>0\). As \(\lim_{n\to\infty}a_n=L\), there exists \(N_1\in\N\) so that
+\[
+  |a_n-L|<\varepsilon \qquad \text{for all } n\ge N_1.
+\]
+Similarly, as \(\lim_{n\to\infty}c_n=L\), there exists \(N_2\in\N\) so that
+\[
+  |c_n-L|<\varepsilon \qquad \text{for all } n\ge N_2.
+\]
+Set \(N=\max\{N_1,N_2\}\). Then, for \(n\ge N\),
+\[
+  b_n-L\le c_n-L<\varepsilon
+  \qquad \text{and} \qquad
+  b_n-L\ge a_n-L>-\varepsilon.
+\]
+Together, we conclude
+\[
+  |b_n-L|<\varepsilon \qquad \text{for all } n\ge N.
+\]
+So \(\lim_{n\to\infty}b_n=L\), as desired.
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 4, Problem 2}
+
+% ---------------------------------------------------------------------------
+% HW4 Problem 3
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 3}
+
+\begin{problemstatementbox}{Homework 4, Problem 3}
+Suppose that the sequence \(\{a_n\}_{n\ge1}\) converges.
+\begin{enumerate}[label=(\alph*)]
+  \item Prove that if \(a_n\ge m\) for all but finitely many \(n\), then \(\lim_{n\to\infty}a_n\ge m\).
+  \item Prove that if \(a_n\le M\) for all but finitely many \(n\), then \(\lim_{n\to\infty}a_n\le M\).
+\end{enumerate}
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 4, Problem 3}
+
+\newpage
+\recipecard{Homework 4, Problem 3}
+
+\newpage
+\begin{selfexplanationbox}{Homework 4, Problem 3}
+\workquestion{1. What does "for all but finitely many \(n\)" mean in terms of an \(N_1\)?}{0.95in}
+\workquestion{2. Why is it useful to evaluate the convergent sequence at \(N=\max\{N_1,N_2\}\)?}{0.95in}
+\workquestion{3. In part (a), how does \(a-a_N\) get controlled by \(\varepsilon\)?}{0.95in}
+\workquestion{4. Why does \(a-m>-\varepsilon\) for all \(\varepsilon>0\) imply \(a\ge m\)?}{1.0in}
+\workquestion{5. How is part (b) the symmetric argument?}{0.9in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 4, Problem 3}
+\textbf{Part (a).}
+\workquestion{Let \(a=\lim a_n\). Choose \(N_1\) so \(a_n\ge m\) for all \(n\ge N_1\):}{0.9in}
+\workquestion{For \(\varepsilon>0\), choose \(N_2\) so \(|a_n-a|<\varepsilon\) for all \(n\ge N_2\):}{0.9in}
+\workquestion{Set \(N=\max\{N_1,N_2\}\) and show \(a-m=(a-a_N)+(a_N-m)>-\varepsilon\):}{1.0in}
+\workquestion{Conclude \(a\ge m\):}{0.75in}
+
+\textbf{Part (b).}
+\workquestion{Repeat with \(a_n\le M\) to get \(a-M<\varepsilon\) for all \(\varepsilon>0\):}{0.95in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 4, Problem 3}{Use this page for both parts.}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+(a) Set \(a=\lim_{n\to\infty}a_n\). Let \(N_1\in\N\) be larger than the largest index \(n\) for which \(a_n\not\ge m\). Then
+\[
+  a_n\ge m \qquad \text{for all } n\ge N_1.
+\]
+Fix \(\varepsilon>0\). As \(\lim_{n\to\infty}a_n=a\), there exists \(N_2\in\N\) so that
+\[
+  |a_n-a|<\varepsilon \qquad \text{for all }n\ge N_2.
+\]
+Set \(N=\max\{N_1,N_2\}\). Then
+\[
+  a-m=(a-a_N)+(a_N-m)>-\varepsilon+0.
+\]
+As \(\varepsilon>0\) was arbitrary, we must have \(a-m\ge0\). Otherwise, picking \(\varepsilon=m-a>0\) would yield a contradiction.
+
+(b) Set \(a=\lim_{n\to\infty}a_n\). Let \(N_1\in\N\) be larger than the largest index \(n\) for which \(a_n\not\le M\). Then
+\[
+  a_n\le M \qquad \text{for all }n\ge N_1.
+\]
+Fix \(\varepsilon>0\). As \(\lim_{n\to\infty}a_n=a\), there exists \(N_2\in\N\) so that
+\[
+  |a_n-a|<\varepsilon \qquad \text{for all }n\ge N_2.
+\]
+Set \(N=\max\{N_1,N_2\}\). Then
+\[
+  a-M=(a-a_N)+(a_N-M)<\varepsilon+0.
+\]
+As \(\varepsilon>0\) was arbitrary, we must have \(a-M\le0\).
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 4, Problem 3}
+
+% ---------------------------------------------------------------------------
+% HW4 Problem 4
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 4}
+
+\begin{problemstatementbox}{Homework 4, Problem 4}
+Suppose that the sequence \(\{a_n\}_{n\ge1}\) converges. Prove or disprove the following statements:
+\begin{enumerate}[label=(\alph*)]
+  \item If \(\lim_{n\to\infty}a_n\ge m\), then there exists \(N\in\N\) so that \(a_n\ge m\) for all \(n\ge N\).
+  \item If \(\lim_{n\to\infty}a_n>m\), then there exists \(N\in\N\) so that \(a_n>m\) for all \(n\ge N\).
+\end{enumerate}
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 4, Problem 4}
+
+\newpage
+\recipecard{Homework 4, Problem 4}
+
+\newpage
+\begin{selfexplanationbox}{Homework 4, Problem 4}
+\workquestion{1. Why is the weak inequality in part (a) suspicious?}{0.95in}
+\workquestion{2. What counterexample converges to \(0\) from below?}{0.9in}
+\workquestion{3. Why does that counterexample never satisfy \(a_n\ge0\)?}{0.85in}
+\workquestion{4. In part (b), why does \(\lim a_n>m\) give a positive gap?}{0.9in}
+\workquestion{5. What choice of \(\varepsilon\) keeps \(a_n\) eventually above \(m\)?}{0.95in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 4, Problem 4}
+\textbf{Part (a).}
+\workquestion{Disprove using \(a_n=-1/n\) and \(m=0\):}{0.9in}
+\workquestion{Verify \(\lim a_n=0\ge0\) but \(a_n<0\) for every \(n\):}{0.9in}
+
+\textbf{Part (b).}
+\workquestion{Let \(a=\lim a_n\), assume \(a>m\), and set \(\varepsilon=a-m\):}{0.85in}
+\workquestion{Use convergence to get \(|a_n-a|<\varepsilon\) eventually:}{0.85in}
+\workquestion{Show \(a_n-m=(a_n-a)+(a-m)>0\):}{0.9in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 4, Problem 4}{Use this page for both parts.}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+(a) Disprove. Consider the sequence \(\{a_n\}_{n\ge1}\) with
+\[
+  a_n=-\frac1n.
+\]
+From Lecture 10, \(\lim_{n\to\infty}\frac1n=0\), and so \(a=\lim_{n\to\infty}a_n=0\) by the limit law for multiplication by a constant. So \(m=0\) satisfies
+\[
+  a=0\ge0=m.
+\]
+On the other hand,
+\[
+  a_n=-\frac1n\not\ge0=m
+\]
+for all \(n\in\N\), and so no such \(N\) can exist.
+
+(b) Prove. Suppose \(a>m\) and set
+\[
+  \varepsilon=a-m.
+\]
+Then \(\varepsilon>0\), and so there exists \(N\in\N\) such that
+\[
+  |a_n-a|<\varepsilon \qquad \text{for all } n\ge N.
+\]
+Then, for \(n\ge N\),
+\[
+  a_n-m=(a_n-a)+(a-m)>-\varepsilon+(a-m)=0.
+\]
+Therefore \(a_n>m\) for all \(n\ge N\), as desired.
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 4, Problem 4}
+
+% ---------------------------------------------------------------------------
+% HW4 Problem 5
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 5}
+
+\begin{problemstatementbox}{Homework 4, Problem 5}
+Prove that if \(\{a_n\}_{n\ge1}\) is a sequence of positive numbers that converges to \(a>0\), then the sequence \(\{\sqrt{a_n}\}_{n\ge1}\) converges to \(\sqrt a\).
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 4, Problem 5}
+
+\newpage
+\recipecard{Homework 4, Problem 5}
+
+\newpage
+\begin{selfexplanationbox}{Homework 4, Problem 5}
+\workquestion{1. What algebraic identity rationalizes \(\sqrt{a_n}-\sqrt a\)?}{0.95in}
+\workquestion{2. Why is the denominator \(\sqrt{a_n}+\sqrt a\) bounded below by \(\sqrt a\)?}{0.95in}
+\workquestion{3. What tolerance for \(|a_n-a|\) should be used to make \(|\sqrt{a_n}-\sqrt a|<\varepsilon\)?}{1.0in}
+\workquestion{4. Where is the assumption \(a>0\) used?}{0.9in}
+\workquestion{5. Where is the assumption \(a_n>0\) used?}{0.9in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 4, Problem 5}
+\workquestion{Fix \(\varepsilon>0\). Since \(a_n\to a\), choose \(N\) so \(|a_n-a|<\sqrt a\,\varepsilon\):}{0.95in}
+\workquestion{For \(n\ge N\), write \(|\sqrt{a_n}-\sqrt a|=\frac{|a_n-a|}{\sqrt{a_n}+\sqrt a}\):}{1.0in}
+\workquestion{Use \(\sqrt{a_n}+\sqrt a\ge\sqrt a\):}{0.85in}
+\workquestion{Conclude \(|\sqrt{a_n}-\sqrt a|<\varepsilon\):}{0.8in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 4, Problem 5}{Use this page for the complete proof.}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+Fix \(\varepsilon>0\). As \(\lim_{n\to\infty}a_n=a\) and \(a>0\), there exists \(N\in\N\) so that
+\[
+  |a_n-a|<\sqrt a\,\varepsilon
+  \qquad \text{for all } n\ge N.
+\]
+Then, for \(n\ge N\),
+\[
+  |\sqrt{a_n}-\sqrt a|
+  =
+  \frac{|(\sqrt{a_n}-\sqrt a)(\sqrt{a_n}+\sqrt a)|}{\sqrt{a_n}+\sqrt a}
+  =
+  \frac{|a_n-a|}{\sqrt{a_n}+\sqrt a}
+  \le
+  \frac{|a_n-a|}{\sqrt a}
+  <
+  \frac{\sqrt a\,\varepsilon}{\sqrt a}
+  =
+  \varepsilon.
+\]
+In the inequality above, we used \(\sqrt{a_n}+\sqrt a\ge\sqrt a\) since \(a_n>0\). Therefore \(\lim_{n\to\infty}\sqrt{a_n}=\sqrt a\), as desired.
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 4, Problem 5}
+
+% ---------------------------------------------------------------------------
+% HW4 Problem 6
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 6}
+
+\begin{problemstatementbox}{Homework 4, Problem 6}
+Consider the following sequence:
+\[
+  a_1=\sqrt2
+  \qquad\text{and}\qquad
+  a_{n+1}=\sqrt{2+a_n}
+  \quad\text{for all }n\ge1.
+\]
+\begin{enumerate}[label=(\alph*)]
+  \item Prove that the sequence \(\{a_n\}_{n\ge1}\) is bounded.
+  \item Prove that the sequence is increasing.
+  \item Conclude that the sequence converges, and find its limit.
+\end{enumerate}
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 4, Problem 6}
+
+\newpage
+\recipecard{Homework 4, Problem 6}
+
+\newpage
+\begin{selfexplanationbox}{Homework 4, Problem 6}
+\workquestion{1. What upper and lower bounds should be proved by induction?}{0.95in}
+\workquestion{2. Why does \(a_n<2\) imply \(a_{n+1}<2\)?}{0.9in}
+\workquestion{3. Why is comparing \(a_n\le a_{n+1}\) equivalent to comparing squares?}{0.95in}
+\workquestion{4. How does \((a_n-2)(a_n+1)<0\) prove monotonicity?}{0.95in}
+\workquestion{5. After convergence, what equation does the limit satisfy?}{0.95in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 4, Problem 6}
+\textbf{Part (a).}
+\workquestion{Prove \(\sqrt2\le a_n<2\) by induction: base case:}{0.85in}
+\workquestion{Inductive step: from \(\sqrt2\le a_n<2\), show \(\sqrt2\le a_{n+1}<2\):}{0.95in}
+
+\textbf{Part (b).}
+\workquestion{Use \(a_n>0\) and compare \(a_n\le\sqrt{2+a_n}\) by squaring:}{0.95in}
+\workquestion{Factor \(a_n^2-a_n-2=(a_n-2)(a_n+1)\):}{0.85in}
+
+\textbf{Part (c).}
+\workquestion{Invoke monotone convergence. Let \(a=\lim a_n\):}{0.85in}
+\workquestion{Use Problem 5 and limit laws to pass to the limit in \(a_{n+1}=\sqrt{2+a_n}\):}{0.95in}
+\workquestion{Solve \(a=\sqrt{2+a}\) and choose the valid root:}{0.9in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 4, Problem 6}{Use this page for parts (a) and (b).}
+
+\newpage
+\fullproofpage{Homework 4, Problem 6}{Use this page for part (c).}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+(a) We will prove \(\sqrt2\le a_n<2\) for all \(n\in\N\) by induction.
+
+Base case: For \(n=1\), the statement \(\sqrt2\le\sqrt2<2\) is true.
+
+Inductive step: Suppose \(\sqrt2\le a_n<2\) for some \(n\in\N\). Then
+\[
+  a_{n+1}=\sqrt{2+a_n}>\sqrt{2+0}=\sqrt2,
+\]
+and
+\[
+  a_{n+1}=\sqrt{2+a_n}<\sqrt{2+2}=2.
+\]
+Together, \(\sqrt2\le a_{n+1}<2\). By induction, \(\sqrt2\le a_n<2\) for all \(n\in\N\).
+
+(b) Fix \(n\in\N\). Then
+\[
+  a_n\le a_{n+1}=\sqrt{2+a_n}
+  \Longleftrightarrow
+  a_n^2\le 2+a_n
+  \Longleftrightarrow
+  0\ge a_n^2-a_n-2=(a_n-2)(a_n+1),
+\]
+where the first equivalence uses \(a_n>0\) from part (a). By part (a), \(a_n-2<0\) and \(a_n+1>0\), so \((a_n-2)(a_n+1)<0\). Working backwards, \(a_n\le a_{n+1}\).
+
+(c) As \(\{a_n\}_{n\ge1}\) is increasing and bounded, it converges by Lecture 11. By part (a) and Problem 3,
+\[
+  a=\lim_{n\to\infty}a_n
+  \quad\text{satisfies}\quad
+  \sqrt2\le a\le2.
+\]
+By the limit law for addition and Problem 5,
+\[
+  \lim_{n\to\infty}(2+a_n)=2+a>0,
+  \qquad
+  \lim_{n\to\infty}\sqrt{2+a_n}=\sqrt{2+a}.
+\]
+Taking the limit \(n\to\infty\) in
+\[
+  a_{n+1}=\sqrt{2+a_n},
+\]
+we see that \(a\) satisfies
+\[
+  a=\sqrt{2+a}.
+\]
+Thus
+\[
+  a^2=2+a
+  \Longrightarrow
+  0=a^2-a-2=(a-2)(a+1),
+\]
+so \(a=2\) or \(a=-1\). The case \(a=-1\) is not possible, since \(a\ge\sqrt2\). Therefore \(a=2\).
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 4, Problem 6}
 
 \section{Homework 5}
 
