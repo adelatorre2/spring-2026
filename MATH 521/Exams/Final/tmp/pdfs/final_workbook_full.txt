@@ -1,0 +1,9283 @@
+               MATH 521
+                   Real Analysis
+
+
+
+
+        Final Practice Book
+               Write-On Workbook
+
+
+          University of Wisconsin–Madison
+                     Spring 2026
+
+
+
+         Current build: Homework 5–Homework 12
+
+
+
+
+Name:
+
+
+Date:
+                                       Contents
+How to Use This Workbook                                                                     iii
+
+1 Homework 5                                                                                  1
+  1.1 Problem 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     2
+  1.2 Problem 2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    11
+  1.3 Problem 3 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    20
+  1.4 Problem 4 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    28
+
+2 Homework 6                                                                                37
+  2.1 Problem 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   38
+  2.2 Problem 2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   46
+  2.3 Problem 3 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   55
+  2.4 Problem 4 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   65
+  2.5 Problem 5 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   73
+  2.6 Problem 6 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   82
+
+3 Homework 7                                                                                 92
+  3.1 Problem 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    93
+  3.2 Problem 2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   103
+  3.3 Problem 3 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   112
+  3.4 Problem 4 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   122
+  3.5 Problem 5 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   132
+  3.6 Problem 6 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   142
+
+4 Homework 8                                                                              152
+  4.1 Problem 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 153
+  4.2 Problem 2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 163
+  4.3 Problem 3 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 173
+  4.4 Problem 4 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 181
+  4.5 Problem 5 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 190
+  4.6 Problem 6 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 198
+
+5 Homework 9                                                                              207
+  5.1 Problem 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 208
+  5.2 Problem 2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 218
+  5.3 Problem 3 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 228
+  5.4 Problem 4 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 238
+  5.5 Problem 5 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 247
+  5.6 Problem 6 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 257
+
+6 Homework 10                                                                             266
+  6.1 Problem 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 267
+  6.2 Problem 2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 276
+
+
+                                               i
+   6.3   Problem 3 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 285
+   6.4   Problem 4 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 295
+
+7 Homework 11                                                                             304
+  7.1 Problem 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 305
+  7.2 Problem 2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 315
+  7.3 Problem 3 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 325
+  7.4 Problem 4 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 333
+  7.5 Problem 5 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 341
+  7.6 Problem 6 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 349
+
+8 Homework 12                                                                             359
+  8.1 Problem 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 360
+  8.2 Problem 2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 370
+  8.3 Problem 3 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 380
+  8.4 Problem 4 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 390
+  8.5 Problem 5 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 400
+  8.6 Problem 6 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 410
+
+
+
+
+                                               ii
+                      How to Use This Workbook
+This workbook is for active proof practice. For each problem, work through the diagnosis,
+recipe card, self-explanation, skeleton, and full proof attempt before reading the reference
+solution.
+Pass 1      Diagnose the topic, task, relevant definitions, and likely proof method.
+
+Pass 2      Convert the problem into hypotheses, conclusion, tools, and a proof plan.
+
+Pass 3      Answer targeted questions that expose the proof’s logic.
+
+Pass 4      Reconstruct the proof from a skeleton without reading the full solution.
+
+Pass 5      Write a complete proof from scratch in the blank writing space.
+Only after Pass 5 should you compare your work to the official or reference solution.
+
+
+
+
+                                             iii
+Homework 5
+
+
+
+
+    1
+Problem 1
+
+ Problem Statement                                     Homework 5, Problem 1
+
+ Let {an }n≥1 be a sequence of positive real numbers. Prove that limn→∞ an = +∞ if
+ and only if limn→∞ a1n = 0.
+
+
+
+
+                                        2
+Pass 1 – First Diagnosis                       Homework 5, Problem 1
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                     3
+Pass 2 – Proof Recipe Card         Homework 5, Problem 1
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               4
+Pass 3 – Self-Explanation                          Homework 5, Problem 1
+1. What is the definition of an → +∞?
+
+
+
+
+2. Why is positivity of an essential before taking reciprocals?
+
+
+
+
+3. In the forward direction, what should M be in terms of ε?
+
+
+
+
+4. In the reverse direction, what should ε be in terms of M ?
+
+
+
+
+5. Where does the inequality reversal happen?
+
+
+
+
+                                     5
+Pass 4 – Skeleton Proof                       Homework 5, Problem 1
+Forward direction.
+Fix ε > 0. Use an → +∞ with M =
+
+
+
+
+For all n ≥ N , take reciprocals to obtain:
+
+
+
+
+Conclude    1
+           an
+              −0   < ε:
+
+
+
+
+Reverse direction.
+Fix M > 0. Use a1n → 0 with ε =
+
+
+
+
+Use positivity to convert a1n < M1 into:
+
+
+
+
+                                       6
+State the definition this verifies:
+
+
+
+
+                                      7
+Pass 5 – Full Proof Attempt              Homework 5, Problem 1
+Use this page for both directions.
+
+
+
+
+                                     8
+Official Solution (Professor)
+
+⇒ Fix ε > 0. As lim an = +∞, then there exists N so that
+                                      1
+                               an >       for all n ≥ N.
+                                      ε
+So, for n ≥ N we have
+                                1                    1
+                     −ε < 0 <      <ε      =⇒           − 0 < ε.
+                                an                   an
+
+Therefore lim a1n = 0.
+⇐ Fix M > 0. As lim a1n = 0, then there exists N so that
+
+                            1       1
+                               −0 <           for all n ≥ N.
+                            an      M
+
+Note that    1
+            an
+               −0   = a1n > 0. So
+
+                              an > M      for all n ≥ N.
+
+Therefore lim an = +∞.
+
+
+
+
+                                          9
+Reflection & Variation                           Homework 5, Problem 1
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  10
+Problem 2
+
+ Problem Statement                                           Homework 5, Problem 2
+
+ Let {an }n≥1 be a sequence. Prove that if {akn }n≥1 is a subsequence of {an }n≥1 that
+ converges to L ∈ R, then
+
+                             lim inf an ≤ L ≤ lim sup an .
+                              n→∞               n→∞
+
+ (Hint: As {an }n≥1 is not necessarily bounded, we have to consider the cases
+ lim inf n→∞ an = ±∞ and lim supn→∞ an = ±∞. However, the proof is much eas-
+ ier in these cases.)
+
+
+
+
+                                          11
+Pass 1 – First Diagnosis                       Homework 5, Problem 2
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    12
+Pass 2 – Proof Recipe Card          Homework 5, Problem 2
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               13
+Pass 3 – Self-Explanation                          Homework 5, Problem 2
+
+1. What do lim sup an and lim inf an measure using tail suprema/infima?
+
+
+
+
+2. Why does kn ≥ n imply that a fixed tail eventually contains the subse-
+quence terms?
+
+
+
+
+3. Why is the case lim sup an = +∞ immediate?
+
+
+
+
+4. Why is the case lim sup an = −∞ impossible when L ∈ R?
+
+
+
+
+5. How do you get akn ≤ sup{am : m ≥ N } for all large n?
+
+
+
+
+                                     14
+Pass 4 – Skeleton Proof                           Homework 5, Problem 2
+Prove L ≤ lim sup an .
+Separate the easy cases lim sup an = +∞ and lim sup an = −∞:
+
+
+
+
+Assume lim sup an ∈ R. For fixed N , compare akn to the tail supremum for
+all large n:
+
+
+
+
+Pass n → ∞ to get L ≤ sup{am : m ≥ N }:
+
+
+
+
+Pass N → ∞ to obtain L ≤ lim sup an :
+
+
+
+
+Prove lim inf an ≤ L.
+Repeat the same argument using tail infima and reverse inequalities:
+
+
+
+
+                                        15
+Pass 5 – Full Proof Attempt                 Homework 5, Problem 2
+Use this page for the lim sup inequality.
+
+
+
+
+                                      16
+Pass 5 – Full Proof Attempt                        Homework 5, Problem 2
+Use this page for the lim inf inequality and endpoint cases.
+
+
+
+
+                                     17
+Official Solution (Professor)
+
+Let’s start with the second inequality:
+
+                                    L ≤ lim sup an .
+                                            n→∞
+
+Case: lim sup an = +∞. Then the statement is automatically true, since every real
+number L satisfies L < +∞.
+Case: lim sup an = −∞. As lim inf an ≤ lim sup an , then we must have lim inf an =
+−∞ = lim sup an . This means that lim an = −∞ by Lecture 14.
+Fix m < 0. As lim an = −∞, there exists N so that
+
+                              an < m        for all n ≥ N.
+
+As kn ≥ n for all n, this implies
+
+                              ak n < m      for all n ≥ N.
+
+Therefore L = lim akn = −∞. This contradicts that L ∈ R, and so this case is
+impossible.
+Case: lim sup an ∈ R. For N ≥ 1, notice that
+
+                      akn ≤ sup{an : n ≥ N }       for all n ≥ N.
+
+We know that the sequence {akn } converges to L. So, by HW4#3, we have
+
+                           L = lim akn ≤ sup{an : n ≥ N }.
+
+On the other hand, vN = sup{an : n ≥ N } is a sequence that converges to lim sup an .
+So, using HW4#3 again, we conclude that
+
+                       L ≤ lim sup{an : n ≥ N } = lim sup an .
+                            N →∞
+
+Exercise: Using similar steps, prove that
+
+                                    lim inf an ≤ L.
+                                      n→∞
+
+
+
+
+                                            18
+Reflection & Variation                           Homework 5, Problem 2
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  19
+Problem 3
+
+ Problem Statement                                          Homework 5, Problem 3
+
+ Let {an }n≥1 and {bn }n≥1 be two bounded sequences. Prove that
+
+                      lim sup(an + bn ) ≤ lim sup an + lim sup bn .
+                       n→∞                  n→∞          n→∞
+
+
+
+
+                                           20
+Pass 1 – First Diagnosis                       Homework 5, Problem 3
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    21
+Pass 2 – Proof Recipe Card          Homework 5, Problem 3
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               22
+Pass 3 – Self-Explanation                       Homework 5, Problem 3
+1. Why does boundedness guarantee finite tail suprema for an , bn , and
+an + bn ?
+
+
+
+
+2. For a fixed N , what upper bounds do the tail suprema give for an and
+bn ?
+
+
+
+
+3. Why does adding two pointwise upper bounds produce an upper bound
+for an + bn ?
+
+
+
+
+4. How does an upper bound for every tail term become an inequality of
+suprema?
+
+
+
+
+5. Which limit law finishes the proof after passing N → ∞?
+
+
+
+
+                                   23
+Pass 4 – Skeleton Proof                           Homework 5, Problem 3
+Fix N ≥ 1. Write the two tail upper bounds for all n ≥ N :
+
+
+
+
+Add them to get an upper bound for an + bn :
+
+
+
+
+Take the supremum over n ≥ N to obtain:
+
+
+
+
+Let N → ∞ and identify each term with a limsup:
+
+
+
+
+State the final inequality:
+
+
+
+
+                                    24
+Pass 5 – Full Proof Attempt             Homework 5, Problem 3
+Use this page for the complete proof.
+
+
+
+
+                                   25
+Official Solution (Professor)
+
+Fix N ≥ 1. For n ≥ N we have
+
+                 an ≤ sup{an : n ≥ N },        bn ≤ sup{bn : n ≥ N },
+
+and so
+                   an + bn ≤ sup{an : n ≥ N } + sup{bn : n ≥ N }.
+In other words, sup{an : n ≥ N } + sup{bn : n ≥ N } is an upper bound for the set
+{an + bn : n ≥ N }. Therefore
+
+            sup{an + bn : n ≥ N } ≤ sup{an : n ≥ N } + sup{bn : n ≥ N }.
+
+Altogether, we have shown that for any N ≥ 1 we have
+
+            sup{an + bn : n ≥ N } ≤ sup{an : n ≥ N } + sup{bn : n ≥ N }.
+
+As {an } is a bounded sequence, we know from lecture that the sequence vN = sup{an :
+n ≥ N } converges to v = lim sup an ∈ R. Similarly, as {bn } is bounded, the sequence
+sup{bn : n ≥ N } converges to lim sup bn as N → ∞. By the inequality above, we see
+that the sequence sup{an + bn : n ≥ N } is also bounded above. Therefore lim sup(an +
+bn ) is a finite number, and sup{an + bn : n ≥ N } converges to lim sup(an + bn ) as
+N → ∞.
+By the limit laws, the sequence
+
+            sup{an + bn : n ≥ N } − sup{an : n ≥ N } − sup{bn : n ≥ N }
+
+converges as N → ∞. We also know that it is ≤ 0 for all N ≥ 1. Therefore, by
+HW4#3, the limit is also ≤ 0:
+
+                    lim sup(an + bn ) − lim sup an − lim sup bn ≤ 0
+
+and hence
+                     lim sup(an + bn ) ≤ lim sup an + lim sup bn .
+                       n→∞                 n→∞          n→∞
+
+
+
+
+                                          26
+Reflection & Variation                           Homework 5, Problem 3
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  27
+Problem 4
+
+ Problem Statement                                        Homework 5, Problem 4
+
+ Let {an }n≥1 be a sequence. Prove that lim supn→∞ |an | = 0 if and only if limn→∞ an =
+ 0.
+
+
+
+
+                                          28
+Pass 1 – First Diagnosis                       Homework 5, Problem 4
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    29
+Pass 2 – Proof Recipe Card          Homework 5, Problem 4
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               30
+Pass 3 – Self-Explanation                                Homework 5, Problem 4
+
+1. Why is lim inf |an | ≥ 0 automatic?
+
+
+
+
+2. How does lim inf |an | = lim sup |an | = 0 imply |an | → 0?
+
+
+
+
+3. Why is |an | → 0 exactly the same as an → 0?
+
+
+
+
+4. In the reverse direction, which earlier homework result gives |an | → 0?
+
+
+
+
+5. How does Lecture 14 connect ordinary limits with liminf and limsup?
+
+
+
+
+                                         31
+Pass 4 – Skeleton Proof                              Homework 5, Problem 4
+Forward direction.
+Assume lim sup |an | = 0. Prove lim inf |an | ≥ 0:
+
+
+
+
+Use lim inf |an | ≤ lim sup |an | to conclude:
+
+
+
+
+Invoke the liminf/limsup convergence criterion to get |an | → 0:
+
+
+
+
+Translate |an | → 0 into an → 0:
+
+
+
+
+Reverse direction.
+Assume an → 0. Use HW4#1 to get:
+
+
+
+
+                                           32
+Use Lecture 14 to identify lim sup |an |:
+
+
+
+
+                                       33
+Pass 5 – Full Proof Attempt               Homework 5, Problem 4
+Use this page for both directions.
+
+
+
+
+                                     34
+Official Solution (Professor)
+
+⇒ Suppose lim sup |an | = 0.
+Claim: lim inf |an | ≥ 0. As |an | ≥ 0 for all n, we have
+
+                              inf |an | ≥ 0         for all N ≥ 1.
+                              n≥N
+
+Therefore
+                                      lim inf |an | ≥ 0
+                                     N →∞ n≥N
+
+by HW4#3.
+Altogether, we have
+                            0 ≤ lim inf |an | ≤ lim sup |an | = 0.
+Therefore
+                              lim inf |an | = 0 = lim sup |an |.
+By Lecture 10, this means that
+                                        lim |an | = 0.
+In other words: for all ε > 0 there exists N so that
+
+                             ||an | − 0| < ε        for all n ≥ N.
+
+This is the same as: for all ε > 0 there exists N so that
+
+                              |an − 0| < ε          for all n ≥ N.
+
+So lim an = 0.
+⇐ Suppose lim an = 0. By HW4#1, this implies
+
+                                        lim |an | = 0.
+
+By Lecture 14, we have
+                              lim inf |an | = 0 = lim sup |an |.
+So lim sup |an | = 0, as desired.
+
+
+
+
+                                               35
+Reflection & Variation                           Homework 5, Problem 4
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  36
+Homework 6
+
+
+
+
+    37
+Problem 1
+
+ Problem Statement                                      Homework 6, Problem 1
+ Prove that the series          ∞
+                                X          1
+                                n=1 (3n − 2)(3n + 1)
+
+ converges, and find its value. (Hint: You computed the partial sums on Homework 1.)
+
+
+
+
+                                         38
+Pass 1 – First Diagnosis                       Homework 6, Problem 1
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    39
+Pass 2 – Proof Recipe Card          Homework 6, Problem 1
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               40
+Pass 3 – Self-Explanation                        Homework 6, Problem 1
+1. What does it mean for a series to converge in terms of partial sums?
+
+
+
+
+2. What partial fraction decomposition should be used?
+
+
+
+
+3. Which terms cancel in the N th partial sum?
+
+
+
+
+4. What explicit formula for SN should remain after cancellation?
+
+
+
+
+5. What limit gives the value of the series?
+
+
+
+
+                                    41
+Pass 4 – Skeleton Proof                           Homework 6, Problem 1
+Define the N th partial sum SN =
+
+
+
+
+Rewrite the summand using partial fractions:
+
+
+
+
+Write the telescoping sum and identify the surviving first and last terms:
+
+
+
+
+Compute limN →∞ SN :
+
+
+
+
+State convergence and the value of the series:
+
+
+
+
+                                    42
+Pass 5 – Full Proof Attempt             Homework 6, Problem 1
+Use this page for the complete proof.
+
+
+
+
+                                   43
+Student-Derived Solution (No official solution available)
+
+Let
+                                                 1
+                                  an =
+                                          (3n − 2)(3n + 1)
+and let SN =    n=1 an . Using partial fractions,
+               PN
+
+
+                             1           1   1      1
+                                                                 
+                                       =         −       .
+                      (3n − 2)(3n + 1)   3 3n − 2 3n + 1
+
+Hence
+                                      1X N
+                                              1      1
+                                                             
+                            SN =                  −       .
+                                      3 n=1 3n − 2 3n + 1
+Writing out the terms gives
+                 1           1   1 1           1      1
+                                                                 
+            SN =          1−   +  −  + ··· +       −                        .
+                 3           4   4 7         3N − 2 3N + 1
+All intermediate terms cancel, so
+                                1      1        N
+                                                     
+                           SN =   1−        =        .
+                                3    3N + 1   3N + 1
+Therefore
+                                               N        1
+                              lim SN = lim           = .
+                            N →∞       N →∞ 3N + 1      3
+Since the sequence of partial sums converges, the series converges, and its value is
+                                  ∞
+                                         1          1
+                                                   = .
+                                  X
+
+                              n=1 (3n − 2)(3n + 1)  3
+
+
+
+
+                                              44
+Reflection & Variation                           Homework 6, Problem 1
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  45
+Problem 2
+
+ Problem Statement                                                       Homework 6, Problem 2
+ Let ∞ n=1 an and   n=1 bn be convergent series.
+     P            P ∞
+
+  (a) Prove that for any k ∈ R, the series ∞ n=1 kan converges and
+                                          P
+
+                                          ∞              ∞
+                                               kan = k
+                                          X              X
+                                                               an .
+                                         n=1             n=1
+
+  (b) Prove that the series    n=1 (an + bn ) converges and
+                              P∞
+
+                                   ∞                  ∞            ∞
+                                       (an + bn ) =         an +
+                                   X                  X            X
+                                                                         bn .
+                                n=1                   n=1          n=1
+
+
+
+
+                                                46
+Pass 1 – First Diagnosis                       Homework 6, Problem 2
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    47
+Pass 2 – Proof Recipe Card          Homework 6, Problem 2
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               48
+Pass 3 – Self-Explanation                              Homework 6, Problem 2
+1. How is the sum of a convergent series defined using partial sums?
+
+
+
+
+                                                 P
+2. In part (a), what are the partial sums of         kan in terms of the partial
+        P
+sums of an ?
+
+
+
+
+3. Which sequence limit law proves convergence in part (a)?
+
+
+
+
+                                             (an + bn ) split?
+                                             P
+4. In part (b), how do the partial sums of
+
+
+
+
+5. Which limit law gives the final identity for the sum?
+
+
+
+
+                                    49
+Pass 4 – Skeleton Proof                              Homework 6, Problem 2
+
+Part (a).
+Let sn = nj=1 aj . The partial sums of kan are:
+         P                            P
+
+
+
+
+Use sn →
+           P
+               an and the constant multiple limit law:
+
+
+
+
+Translate the limit of partial sums into the series identity:
+
+
+
+
+Part (b).
+Let sn = nj=1 aj and tn = nj=1 bj . The partial sums are:
+         P               P
+
+
+
+
+Use the addition limit law and state the resulting sum:
+
+
+
+
+                                       50
+Pass 5 – Full Proof Attempt        Homework 6, Problem 2
+
+Use this page for part (a).
+
+
+
+
+                              51
+Pass 5 – Full Proof Attempt        Homework 6, Problem 2
+
+Use this page for part (b).
+
+
+
+
+                              52
+Official Solution (Professor)
+
+(a) Let sn = nj=1 aj denote the nth partial sum. As an converges, we know that
+              P                                         P
+
+the sequence {sn } converges.
+Fix k ∈ R. Then the partial sums nj=1 kaj are equal to ksn . By the limit law for
+                                        P
+
+multiplication by a constant, we conclude that the sequence {ksn }n≥1 converges and
+lim(ksn ) = k lim sn . By definition, this is exactly what it means for the series kan
+                                                                                  P
+
+to converge to the number k an .
+                               P
+
+(b) Let sn = nj=1 aj and tn = nj=1 bj denote the nth partial sums. As an and bn
+              P                  P                                        P        P
+
+converge, we know that the sequences {sn } and {tn } converge.
+Note that the partial sums nj=1 (aj + bj ) are equal to sn + tn . By the limit law for
+                              P
+
+addition, we conclude that the sequence {sn + tn }n≥1 converges and lim(sn + tn ) =
+lim sn + lim tn . By definition, this is exactly what it means for the series (an + bn )
+                                                                             P
+
+to converge to the number an + bn .
+                             P        P
+
+
+
+
+                                          53
+Reflection & Variation                           Homework 6, Problem 2
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  54
+Problem 3
+
+ Problem Statement                                   Homework 6, Problem 3
+
+  (a) Prove that
+                                    ∞
+                                      n−1      1
+                                             =
+                                    X
+                                                 .
+                                    n=1 2      2
+                                         n+1
+
+
+      (Hint: 2k−1
+               k+1 = 2k − 2k+1 .)
+                     k    k+1
+
+  (b) Use part (a) to compute
+                                       ∞
+                                       X n
+                                                .
+                                       n=1 2
+                                            n
+
+
+
+
+                                       55
+Pass 1 – First Diagnosis                       Homework 6, Problem 3
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    56
+Pass 2 – Proof Recipe Card          Homework 6, Problem 3
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               57
+Pass 3 – Self-Explanation                           Homework 6, Problem 3
+
+1. What identity turns the summand in part (a) into a telescoping differ-
+ence?
+
+
+
+
+2. What formula should the nth partial sum satisfy?
+
+
+
+
+3. Why does 2nn → 0?
+
+
+
+
+4. In part (b), how do you rewrite 2nn using 2n−1       1
+                                               n+1 and 2n ?
+
+
+
+
+5. Which geometric series value is needed?
+
+
+
+
+                                      58
+Pass 4 – Skeleton Proof                             Homework 6, Problem 3
+
+Part (a).
+                   k+1 . Prove by induction that sn =
+Define sn = nk=1 2k−1
+           P
+
+
+
+
+Base case n = 1:
+
+
+
+
+                       k+1 = 2k − 2k+1 :
+                             k    k+1
+Inductive step using 2k−1
+
+
+
+
+Pass to the limit using 2nn → 0:
+
+
+
+
+Part (b).
+Rewrite nk=1 2kk as 2 2k−1
+                        k+1 +
+         P           P        P 1
+                                2k
+                                   :
+
+
+
+
+                                           59
+Use part (a) and the geometric series to compute the value:
+
+
+
+
+                                   60
+Pass 5 – Full Proof Attempt        Homework 6, Problem 3
+
+Use this page for part (a).
+
+
+
+
+                              61
+Pass 5 – Full Proof Attempt        Homework 6, Problem 3
+
+Use this page for part (b).
+
+
+
+
+                              62
+Official Solution (Professor)
+
+(a) Let sn = nk=1 2k−1
+                    k+1 .
+              P
+
+We will prove that
+                                 1 n+1
+                                 sn =
+                                   − n+1                 for n ≥ 1
+                                 2    2
+by induction. For the base case, we note that
+                                               0  1 2
+                                        s1 =     = − .
+                                               4  2 4
+For the inductive step, assume that sn = 12 − 2n+1
+                                                n+1 for some n ≥ 1. Then
+
+
+                             n         1 n+1 n+1 n+2        1 n+2
+            sn+1 = sn +            =     − n+1 + n+1 − n+2 = − n+2 .
+                            2n+2       2   2     2     2    2  2
+Together, we conclude that our formula for sn holds for all n ≥ 1 by induction.
+Next, we claim that lim 2nn = 0. Notice that n ≤ (3/2)n for all n ≥ 1, and so
+
+                                          (3/2)n   3
+                                                           n
+                                      n
+                                   0≤ n ≤        =                .
+                                     2      2n     4
+The right-hand side converges to zero as n → ∞. Therefore, 2nn also converges to zero
+by the squeeze theorem.
+Altogether, we conclude
+                                                   1 n+1    1
+                                                             
+                              lim sn = lim           − n+1 = .
+                                                   2   2    2
+
+                                        n+1 is a subsequence of 2n , and therefore also
+(In the last equality, we noted that 2n+1                        n
+
+converges to zero.) By definition of a convergent series, we conclude that
+                                         ∞
+                                           n−1           1
+                                                        = .
+                                         X
+
+                                         n=1   2n+1      2
+
+(b) Note that
+                                 n
+                                   k         n
+                                                k−1 X   n
+                                                           1
+                                        = 2          +
+                                 X          X
+                                                              .
+                                 k=1 2      k=1 2      k=1 2
+                                      k          k+1        k
+
+
+By part (a),    k−1
+                     converges to 12 , and thus 2 2k−1  converges to 1 by problem 2.
+              P                                          P
+                2k+1                              Pk+1
+From lecture, we know that the geometric series       1
+                                                     2k
+                                                        converges to 1−(1/2)
+                                                                        1
+                                                                             − 1 = 1.
+(Notice that we are starting at k = 1, not k = 0.) Together, we conclude ∞          k
+                                                                              P
+                                                                                k=1 2k
+converges to 1 + 1 = 2.
+
+
+
+
+                                                   63
+Reflection & Variation                           Homework 6, Problem 3
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  64
+Problem 4
+
+ Problem Statement                                     Homework 6, Problem 4
+
+ Prove that if ∞    a converges absolutely and {bn }n≥1 is a bounded sequence, then
+              P
+           P∞ n=1 n
+ the series n=1 an bn also converges. (Hint: Use the Cauchy criterion.)
+
+
+
+
+                                        65
+Pass 1 – First Diagnosis                       Homework 6, Problem 4
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    66
+Pass 2 – Proof Recipe Card          Homework 6, Problem 4
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               67
+Pass 3 – Self-Explanation                                    Homework 6, Problem 4
+
+                                                                    |an |?
+                                            P                   P
+1. What does absolute convergence of            an say about
+
+
+
+
+2. What bound does boundedness of {bn } provide?
+
+
+
+
+3. What is the Cauchy criterion for convergence of a series?
+
+
+
+
+            Pn                                Pn
+4. How can |   k=m ak bk | be controlled by     k=m |ak |?
+
+
+
+
+5. Why is M + 1 used in the denominator of the tail estimate?
+
+
+
+
+                                       68
+Pass 4 – Skeleton Proof                                Homework 6, Problem 4
+
+Choose M ≥ 0 such that |bn | ≤ M for all n:
+
+
+
+
+                                    |an | with tolerance ε/(M + 1):
+                                P
+Use the Cauchy criterion for
+
+
+
+
+                          Pn
+For n ≥ m ≥ N , estimate |   k=m ak bk |:
+
+
+
+
+                                        P
+Conclude the Cauchy criterion for           an b n :
+
+
+
+
+                                            69
+Pass 5 – Full Proof Attempt             Homework 6, Problem 4
+Use this page for the complete proof.
+
+
+
+
+                                   70
+Student-Derived Solution (No official solution available)
+
+Since    n=1 an converges absolutely, the series
+        P∞
+
+                                                ∞
+                                                X
+                                                       |an |
+                                                n=1
+
+converges. By the Cauchy criterion for series, given ε > 0, there exists N ∈ N such
+that                 n
+                                  ε
+                                           for all n ≥ m ≥ N,
+                    X
+                        |ak | <
+                    k=m         M +1
+where M ≥ 0 is chosen so that
+
+                                 |bn | ≤ M             for all n ∈ N.
+
+Such an M exists because {bn } is bounded.
+Now let n ≥ m ≥ N . Then
+                    n               n                  n                        n
+                                          |ak bk | =
+                    X               X                  X                        X
+                         ak b k ≤                              |ak ||bk | ≤ M         |ak |.
+                   k=m              k=m                k=m                      k=m
+
+Therefore
+                                 n
+                                 X                          ε
+                                       ak b k < M ·            < ε.
+                                 k=m                      M +1
+Thus, for every ε > 0, there exists N ∈ N such that
+                            n
+                                                       for all n ≥ m ≥ N.
+                            X
+                                 ak b k < ε
+                           k=m
+
+By the Cauchy criterion for series,          n=1 an bn converges.
+                                           P∞
+
+
+
+
+                                                   71
+Reflection & Variation                           Homework 6, Problem 4
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  72
+Problem 5
+
+ Problem Statement                                         Homework 6, Problem 5
+
+                    n=1 an converges absolutely, then the series
+  (a) Prove that if ∞                                             n=1 an also converges.
+                   P                                            P ∞    2
+
+  (b) Provide an example where ∞  n=1 an diverges and     n=1 an converges.
+                                P                      P∞      2
+
+
+
+
+                                           73
+Pass 1 – First Diagnosis                       Homework 6, Problem 5
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    74
+Pass 2 – Proof Recipe Card          Homework 6, Problem 5
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               75
+Pass 3 – Self-Explanation                          Homework 6, Problem 5
+1. Why does absolute convergence imply an → 0?
+
+
+
+
+2. Why does an → 0 imply |an | < 1 eventually?
+
+
+
+
+3. For |x| < 1, why is x2 ≤ |x|?
+
+
+
+
+                                          P 2
+4. Which comparison proves the tail of     a converges?
+                                             n
+
+
+
+
+                                   P                    P 2
+5. What standard example makes         an diverge but    a converge?
+                                                          n
+
+
+
+
+                                    76
+Pass 4 – Skeleton Proof                               Homework 6, Problem 5
+
+Part (a).
+From absolute convergence, write the convergent positive series:
+
+
+
+
+                         an to get an → 0, then choose N with |an | < 1:
+                     P
+Use convergence of
+
+
+
+
+For n ≥ N , compare a2n with |an |:
+
+
+
+
+Use the comparison test and finite initial terms:
+
+
+
+
+Part (b).
+Choose an = and cite the harmonic and p-series facts:
+
+
+
+
+                                       77
+Pass 5 – Full Proof Attempt        Homework 6, Problem 5
+
+Use this page for part (a).
+
+
+
+
+                              78
+Pass 5 – Full Proof Attempt        Homework 6, Problem 5
+
+Use this page for part (b).
+
+
+
+
+                              79
+Official Solution (Professor)
+
+(a) Note that x2 ≤ |x| for any x ∈ [−1, 1]. (I recommend that you draw the graphs of
+x2 and |x| to check that this is true.)
+As an converges, then we have lim an = 0, and so there exists an N so that |an | < 1
+    P
+
+for all n ≥ N . By the previous paragraph, this means that a2n ≤ |an | for all n ≥ N .
+As |an | converges, then ∞   n=N an also P
+                                         converges by the comparison test. Adding the
+    P                      P       2
+
+first N − 1 terms back in, we conclude ∞   n=1 an converges as well.
+                                                2
+
+(b) Consider an = n . In lecture, we proved that n diverges and n12 converges.
+                   1                               P1                P
+
+
+
+
+                                         80
+Reflection & Variation                           Homework 6, Problem 5
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  81
+Problem 6
+
+ Problem Statement                                         Homework 6, Problem 6
+ For each of the following series, determine if it converges and prove your answer.
+                ∞
+                          1              ∞ √          √             ∞
+          (a)                      (b)          n+1−            (c)       (−1)n
+                X                        X                            X
+                                                        n
+                n=2 [n + (−1) ]
+                             n 2
+                                         n=1                          n=1
+
+
+
+
+                                           82
+Pass 1 – First Diagnosis                       Homework 6, Problem 6
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    83
+Pass 2 – Proof Recipe Card          Homework 6, Problem 6
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               84
+Pass 3 – Self-Explanation                          Homework 6, Problem 6
+
+1. In part (a), what lower bound can you put on n + (−1)n for n ≥ 2?
+
+
+
+
+2. Which convergent p-series controls part (a)?
+
+
+
+
+3. In part (b), what is the N th partial sum after telescoping?
+
+
+
+
+4. Why does that partial sum sequence diverge to +∞?
+
+
+
+
+5. In part (c), what necessary condition for convergence fails?
+
+
+
+
+                                     85
+Pass 4 – Skeleton Proof                            Homework 6, Problem 6
+
+Part (a).
+For n ≥ 2, show n + (−1)n ≥ n − 1, then compare:
+
+
+
+
+                                   1/(n − 1)2 :
+                               P
+Use the comparison test with
+
+
+
+
+Part (b).      √       √
+Let sn = nk=1 ( k + 1 − k). Prove by induction/telescoping that sn =
+         P
+
+
+
+
+Show sn → +∞, so the series diverges:
+
+
+
+
+Part (c).
+Suppose the series converged. Then its terms would satisfy:
+
+
+
+
+                                       86
+Explain why (−1)n does not satisfy this:
+
+
+
+
+                                    87
+Pass 5 – Full Proof Attempt                 Homework 6, Problem 6
+
+Use this page for parts (a) and (b).
+
+
+
+
+                                       88
+Pass 5 – Full Proof Attempt                         Homework 6, Problem 6
+
+Use this page for part (c) and final conclusions.
+
+
+
+
+                                     89
+Official Solution (Professor)
+
+(a) We will prove that this series converges. For n ≥ 2, we have
+                                     1            1
+                                             ≤          .
+                               [n + (−1) ]
+                                        n  2   (n − 1)2
+
+From lecture, we know that the series
+                                 ∞
+                                        1         ∞
+                                                     1
+                                               =
+                                 X               X
+
+                                 n=2 (n − 1)
+                                             2         2
+                                                 k=1 k
+
+converges. Therefore our series [n+(−1)1
+                                          n ]2 also converges by the comparison test.
+                                P
+
+(b) We will prove that this series diverges. Let
+                                       n √           √
+                                sn =     ( k+1−
+                                       X
+                                                         k)
+                                       k=1
+
+denote the nth
+             √ partial sum.
+Claim: sn = n + 1 − 1 for all n ≥ 1. We will argue using induction.
+ • Base case: For n = 1, we have
+                                    √    √     √
+                               s1 = 2 − 1 = 2 − 1.
+                                     √
+ • Inductive step: Suppose that sn = n + 1 − 1 for some n ≥ 1. Then the formula
+    for sn+1 holds, since
+                 √        √          √              √        √        √
+    sn+1 = sn +( n + 2− n + 1) = ( n + 1−1)+( n + 2− n + 1) = n + 2−1.
+                                   √
+By induction, we conclude that√sn = n + 1 − 1 holds for all n ≥ 1.
+Notice that the sequence sn = n + 1 − 1 diverges to +∞. Indeed, given M > 0, pick
+N ∈ N so that N > (M + 1)2 , and then for any n ≥ N we have
+                    √              √       q
+                        n + 1 − 1 ≥ N − 1 > (M + 1)2 − 1 = M.
+                                               P √          √
+As the sequence {sn } diverges, then the series ( n + 1 − n) diverges.
+(c) We will prove that this series diverges. Suppose towards a contradiction that
+  (−1)n converges. Then lim(−1)n = 0 by Lecture 16. However, we know that the
+P
+
+sequence {(−1)n } diverges by Lecture 10, and so this is a contradiction.
+
+
+
+
+                                             90
+Reflection & Variation                           Homework 6, Problem 6
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  91
+Homework 7
+
+
+
+
+    92
+Problem 1
+
+ Problem Statement                                         Homework 7, Problem 1
+ For each of the following series, determine if it converges and prove your answer.
+                           ∞
+                                 1           ∞
+                                               n−1             ∞
+                                                                 n2
+                     (a)               (b)               (c)
+                           X                 X                 X
+
+                           n=2 log n         n=1   n2          n=1 n!
+
+
+
+
+                                             93
+Pass 1 – First Diagnosis                       Homework 7, Problem 1
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    94
+Pass 2 – Proof Recipe Card          Homework 7, Problem 1
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               95
+Pass 3 – Self-Explanation                             Homework 7, Problem 1
+
+                                                1/ log n, and why?
+                                            P
+1. Which convergence test is adapted to
+
+
+
+
+2. In part (a), why do the dyadic terms fail the term test?
+
+
+
+
+3. In part (b), how does (n − 1)/n2 compare to 1/(2n)?
+
+
+
+
+4. In part (c), why is the ratio test natural for n2 /n!?
+
+
+
+
+5. Which parts converge and which diverge?
+
+
+
+
+                                      96
+Pass 4 – Skeleton Proof                            Homework 7, Problem 1
+
+Part (a).
+Reindex with ak = 1/ log(k + 1) and state the dyadic criterion:
+
+
+
+
+Estimate 2n a2n from below and explain why the terms do not go to zero:
+
+
+
+
+Part (b).
+For n ≥ 2, prove n−1
+                  n2
+                        1
+                     ≥ 2n :
+
+
+
+
+Use comparison with the harmonic series:
+
+
+
+
+Part (c).
+           2
+Set an = nn! . Compute an+1 /an :
+
+
+
+
+                                     97
+Apply the ratio test:
+
+
+
+
+                        98
+Pass 5 – Full Proof Attempt                 Homework 7, Problem 1
+
+Use this page for parts (a) and (b).
+
+
+
+
+                                       99
+Pass 5 – Full Proof Attempt                         Homework 7, Problem 1
+
+Use this page for part (c) and final conclusions.
+
+
+
+
+                                    100
+Official Solution (Professor)
+
+(a) We’ll use the dyadic criterion. Consider the series ∞   k=1 ak with ak = log(k+1) for
+                                                           P                     1
+
+k ≥ 1. (Strictly speaking, in order to apply the dyadic criterion we need a series that
+starts at n = 1, so we reindexed.)
+Then {ak }k≥1 is a decreasing sequence of nonnegative numbers. Therefore, by the
+dyadic criterion, ∞  k=1 ak converges if and only if the series     n=0 2 a2n converges.
+                   P                                              P∞     n
+
+Note that
+                                2n             2n         1      2n
+                   2n a2n =             ≥             =       ·      .
+                            log(2n + 1)    log(2n+1 )   log 2 n + 1
+                      n
+Now, the sequence n+1
+                    2
+                         diverges to +∞, and so it cannot converge to 0. Multiplying
+this by the constant log 2 , we see that 2n a2n also cannot converge to 0. Therefore the
+                       1
+
+series 2n a2n diverges, and thus ak diverges as well.
+      P                             P
+
+(b) We’ll use the comparison test. For n ≥ 2, we have
+
+                              n   n                  n−1   n/2    1
+                 n−1≥n−         =          =⇒            ≥     =    .
+                              2   2                   n2   n2    2n
+From lecture we know that the series n1 diverges, and thus ∞       n=2 2n diverges as well.
+                                                                        1
+                                       P                        P
+
+Therefore, by the comparison test, n=2 n2 also diverges. Note that n−1         is equal to
+                                      P∞ n−1
+                                                                            n2
+zero for n = 1, so ∞          and             are the same series.
+                   P     n−1      P∞ n−1
+                     n=2 n2          n=1 n2
+                                         2
+(c) We’ll use the ratio test. Set an = nn! . Then
+
+                  an+1  (n + 1)2 · n!   n+1
+                       = 2            =     −→ 0            as n → ∞.
+                   an   n · (n + 1)!     n2
+
+Therefore
+                                  an+1         an+1
+                           lim sup       = lim      = 0 < 1,
+                                   an           an
+and so the series converges by the ratio test.
+
+
+
+
+                                           101
+Reflection & Variation                           Homework 7, Problem 1
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  102
+Problem 2
+
+ Problem Statement                                         Homework 7, Problem 2
+ For each of the following series, determine if it converges and prove your answer.
+                           ∞
+                             n4            ∞
+                                                 n!           ∞
+                                                                2n
+                     (a)             (b)                (c)
+                           X               X                  X
+
+                           n=1 4           n=1 n + 3
+                                n               4
+                                                              n=1 n!
+
+
+
+
+                                            103
+Pass 1 – First Diagnosis                       Homework 7, Problem 2
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    104
+Pass 2 – Proof Recipe Card           Homework 7, Problem 2
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               105
+Pass 3 – Self-Explanation                         Homework 7, Problem 2
+1. Why does a polynomial-over-exponential series suggest the ratio test?
+
+
+
+
+2. In part (b), what necessary condition for convergence should be checked?
+
+
+
+
+3. How does factorial growth compare to n4 + 3?
+
+
+
+
+4. In part (c), what ratio do successive terms have?
+
+
+
+
+5. Which of these three series fail because the terms do not go to 0?
+
+
+
+
+                                   106
+Pass 4 – Skeleton Proof                              Homework 7, Problem 2
+
+Part (a).
+           4
+Set an = 4nn . Compute an+1 /an and its limit:
+
+
+
+
+Apply the ratio test:
+
+
+
+
+Part (b).
+       4
+Show n n!+3 → 0, for example using n! ≥ n(n − 1)(n − 2)(n − 3)(n − 4):
+
+
+
+
+Use HW5#1 to conclude n4n!+3 → +∞, hence the series diverges:
+
+
+
+
+Part (c).
+           n
+Set an = 2n! . Compute an+1 /an and apply the ratio test:
+
+
+
+
+                                      107
+Pass 5 – Full Proof Attempt                  Homework 7, Problem 2
+
+Use this page for parts (a) and (b).
+
+
+
+
+                                       108
+Pass 5 – Full Proof Attempt                         Homework 7, Problem 2
+
+Use this page for part (c) and final conclusions.
+
+
+
+
+                                    109
+Official Solution (Professor)
+                                        4
+(a) We’ll use the ratio test. Set an = 4nn . Then
+
+                an+1   (n + 1)4 · 4n   (n + 1)4    1
+                     =               =          −→          as n → ∞.
+                 an      n ·4
+                          4   n+1        4n4       4
+
+Therefore lim sup an+1
+                    an
+                         = 14 < 1, and so the series converges by the ratio test.
+(b) This series diverges. In brief, the sequence n4n!+3 diverges to +∞, and so it cannot
+converge to zero. More concretely, notice that for n ≥ 5 we have
+
+                          n! ≥ n(n − 1)(n − 2)(n − 3)(n − 4),
+
+and so
+            n4 + 3              n4 + 3
+                   ≤                               −→ 0         as n → ∞.
+              n!     n(n − 1)(n − 2)(n − 3)(n − 4)
+Therefore the sequence n4n!+3 → +∞ by HW5#1. In particular, there must exist an N
+so that n4n!+3 ≥ 1 for all n ≥ N , and so n4n!+3 cannot converge to 0.
+                                         n
+(c) We’ll use the ratio test. Set an = 2n! . Then
+
+                  an+1     2n+1 · n!      2
+                       =               =     −→ 0         as n → ∞.
+                   an    (n + 1)! · 2n   n+1
+
+Therefore lim sup an+1
+                   an
+                       = 0 < 1, and so the series converges by the ratio test.
+
+
+
+
+                                            110
+Reflection & Variation                           Homework 7, Problem 2
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  111
+Problem 3
+
+ Problem Statement                                                Homework 7, Problem 3
+ For each of the following series, determine if it converges and prove your answer.
+                          ∞
+                              1           ∞
+                                            n!              ∞
+                                                              (−1)n n!
+                    (a)             (b)               (c)
+                          X               X                 X
+
+                          n=1 n
+                               n
+                                          n=1 n
+                                                  n
+                                                            n=1     2n
+
+
+
+
+                                           112
+Pass 1 – First Diagnosis                       Homework 7, Problem 3
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    113
+Pass 2 – Proof Recipe Card           Homework 7, Problem 3
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               114
+Pass 3 – Self-Explanation                        Homework 7, Problem 3
+
+1. Why does n1n suggest the root test?
+
+
+
+
+2. What lecture result gives (n!)1/n /n → 1/e?
+
+
+
+
+3. Why does 1/e < 1 prove convergence in part (b)?
+
+
+
+
+4. In part (c), why should you check whether the terms go to 0?
+
+
+
+
+5. How does HW5#1 convert 2n /n! → 0 into n!/2n → +∞?
+
+
+
+
+                                     115
+Pass 4 – Skeleton Proof                           Homework 7, Problem 3
+
+Part (a).
+Set an = 1/nn . Compute |an |1/n :
+
+
+
+
+Apply the root test:
+
+
+
+
+Part (b).
+Set an = n!/nn . Compute |an |1/n :
+
+
+
+
+Use Lecture 15 to identify the limit and apply the root test:
+
+
+
+
+Part (c).
+                           n
+Use Problem 2(c) to know 2n! → 0:
+
+
+
+
+                                      116
+Apply HW5#1 to show 2n!n → +∞, then conclude the terms do not go to 0:
+
+
+
+
+                                 117
+Pass 5 – Full Proof Attempt                  Homework 7, Problem 3
+
+Use this page for parts (a) and (b).
+
+
+
+
+                                       118
+Pass 5 – Full Proof Attempt                         Homework 7, Problem 3
+
+Use this page for part (c) and final conclusions.
+
+
+
+
+                                    119
+Official Solution (Professor)
+
+(a) We’ll use the root test. Set an = n1n . Then
+
+                                          1
+                             |an |1/n =     −→ 0          as n → ∞.
+                                          n
+Therefore lim sup |an |1/n = 0 < 1, and so the series converges by the root test.
+(b) We’ll use the root test. Set an = nn!n , and consider the sequence
+                                                   !1/n
+                                              n!              (n!)1/n
+                                   1/n
+                               |an |      =               =           .
+                                              nn                 n
+
+In Lecture 15 we showed that this sequence converges to 1/e. Therefore
+
+                                 lim sup |an |1/n = 1/e < 1,
+
+and so the series converges by the root test.
+                                                        n n!
+(c) This series diverges, because the sequence (−1)  2 n     does not converge to 0. Specifi-
+                                     n
+cally, we know that the sequence 2n! converges to 0. (Indeed, we proved in problem 2c
+                P n
+that the series 2n! converges, and so its terms must converge to 0.) So, by HW5#1,
+the sequence 2n!n diverges to +∞. In particular, there exists an N so that 2n!n ≥ 1 for
+                            n n!                                             n n!
+all n ≥ N . Therefore (−1)2n
+                                 ≥ 1 for all n ≥ N , and so the terms (−1) 2n
+                                                                                  in our series
+cannot converge to 0.
+
+
+
+
+                                               120
+Reflection & Variation                           Homework 7, Problem 3
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  121
+Problem 4
+
+ Problem Statement                                           Homework 7, Problem 4
+ Consider the series
+                   ∞
+                             n        1 1  1  1  1   1
+                         2(−1) −n =    + +   + +   +   + ··· .
+                   X
+
+                   n=1                4 2 16 8 64 32
+
+  (a) Show that the ratio test is inconclusive.
+  (b) Prove that the series converges using the root test.
+
+
+
+
+                                           122
+Pass 1 – First Diagnosis                       Homework 7, Problem 4
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    123
+Pass 2 – Proof Recipe Card           Homework 7, Problem 4
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               124
+Pass 3 – Self-Explanation                         Homework 7, Problem 4
+
+1. What are the first few terms of an+1 /an ?
+
+
+
+
+2. Why does the ratio sequence have two subsequential limits?
+
+
+
+
+3. What does it mean for the ratio test to be inconclusive?
+
+
+
+
+4. Why does the root test handle 2(−1) −n better than the ratio test?
+                                        n
+
+
+
+
+5. What is lim |an |1/n ?
+
+
+
+
+                                     125
+Pass 4 – Skeleton Proof                                Homework 7, Problem 4
+
+Part (a).
+Set an = 2(−1) −n . Compute the first few ratios |an+1 /an |:
+              n
+
+
+
+
+Identify the liminf and limsup of the ratio sequence:
+
+
+
+
+State why this makes the ratio test inconclusive:
+
+
+
+
+Part (b).
+Compute |an |1/n = 2((−1) /n)−1 :
+                         n
+
+
+
+
+Use (−1)n /n → 0 to find the root-test limit:
+
+
+
+
+                                       126
+Conclude convergence by the root test:
+
+
+
+
+                                  127
+Pass 5 – Full Proof Attempt         Homework 7, Problem 4
+
+Use this page for part (a).
+
+
+
+
+                              128
+Pass 5 – Full Proof Attempt         Homework 7, Problem 4
+
+Use this page for part (b).
+
+
+
+
+                              129
+Official Solution (Professor)
+
+(a) Set an = 2(−1) −n . Then the sequence                   is
+                     n                             an+1
+                                                    an
+
+                  1/2            1/16  1            1/8                    1/64  1
+                      = 2,            = ,                = 2,                   = ,...
+                  1/4             1/2  8            1/16                   1/8   8
+
+In other words, the even terms of this sequence are 18 and the odd terms are 2. Therefore
+
+                                   an+1  1                             an+1
+                         lim inf        = ,             lim sup             = 2,
+                                    an   8                              an
+and so
+                                        an+1               an+1
+                              lim inf        ≤ 1 ≤ lim sup      .
+                                         an                 an
+(b) Set an = 2(−1) −n . Then
+                     n
+
+                                                        (−1)n
+                                         |an |1/n = 2     n
+                                                              −1
+                                                                   .
+        (−1)n
+Since    n
+                → 0, we get
+                                                1
+                                         lim |an |1/n =
+                                                  < 1.
+                                        n→∞     2
+Therefore the series converges by the root test.
+
+
+
+
+                                                 130
+Reflection & Variation                           Homework 7, Problem 4
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  131
+Problem 5
+
+ Problem Statement                                           Homework 7, Problem 5
+ Below are two series ∞  n=1 an and the numbers s ∈ R to which they converge. For
+                        P
+
+ each of these series, what is the set of all numbers se ∈ R such that there exists a
+ rearrangement that satisfies ∞     e n = se? Prove your answer.
+                              P
+                                n=1 a
+
+                        ∞
+                          (−1)n                       ∞
+                                                        (−1)n         π2
+                  (a)             = − log 2     (b)              =−
+                        X                             X
+
+                        n=1   n                       n=1   n2        12
+
+ (Hint: Your proof should be quite short, because we already did most of the work in
+ lecture.)
+
+
+
+
+                                          132
+Pass 1 – First Diagnosis                       Homework 7, Problem 5
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    133
+Pass 2 – Proof Recipe Card           Homework 7, Problem 5
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               134
+Pass 3 – Self-Explanation                        Homework 7, Problem 5
+1. What is the difference between conditional and absolute convergence for
+rearrangements?
+
+
+
+
+2. Why is the alternating harmonic series conditionally convergent?
+
+
+
+
+3. What does Riemann’s rearrangement theorem say about possible sums?
+
+
+
+
+               (−1)n /n2 converge absolutely?
+              P
+4. Why does
+
+
+
+
+5. What theorem says every rearrangement of an absolutely convergent
+series has the same sum?
+
+
+
+
+                                   135
+Pass 4 – Skeleton Proof                            Homework 7, Problem 5
+
+Part (a).
+Show (−1)n /n converges but not absolutely:
+      P
+
+
+
+
+Apply Riemann’s rearrangement result with α = se = β:
+
+
+
+
+Conclude the set of possible rearranged sums is:
+
+
+
+
+Part (b).
+Show (−1)n /n2 converges absolutely:
+      P
+
+
+
+
+Apply the theorem on rearrangements of absolutely convergent series:
+
+
+
+
+                                   136
+Conclude the set of possible rearranged sums is:
+
+
+
+
+                                   137
+Pass 5 – Full Proof Attempt         Homework 7, Problem 5
+
+Use this page for part (a).
+
+
+
+
+                              138
+Pass 5 – Full Proof Attempt         Homework 7, Problem 5
+
+Use this page for part (b).
+
+
+
+
+                              139
+Official Solution (Professor)
+
+(a) We claim that the set is R. Note that:
+     P (−1)n
+ •       n
+              converges: by the alternating series test, since { n1 } is a decreasing sequence
+      that converges to 0.
+      P (−1)n                                       (−1)n
+  •           does not converge absolutely:  since         = n1 , and we know n1 diverges
+                                                                                  P
+          n                                           n
+      by Lecture 11.
+Fix se ∈ R. Applying the Riemann rearrangement result (with α = se = β), we deduce
+that there exists a rearrangement aen that converges to se. This works for any se ∈ R,
+                                    P
+
+and so R is the desired set.
+                                     2                P (−1)n
+(b) We claim that the set is {− π12 }. Note that           n2
+                                                                converges absolutely, since
+ (−1)n
+        = n2 and we know
+            1
+                                    converges by Lecture 16. Suppose that aen is a
+                              P 1                                                    P
+   n2                            n2
+rearrangement that converges to some se ∈ R. Applying the second theorem from
+                                     2                                                  2
+Lecture 20, we deduce that se = − π12 . This works for any rearrangement, so − π12 is the
+only value that can be attained.
+
+
+
+
+                                             140
+Reflection & Variation                           Homework 7, Problem 5
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  141
+Problem 6
+
+ Problem Statement                                         Homework 7, Problem 6
+ Prove or disprove the following statements:
+  (a) If ∞n=1 an converges, then    n=1 a2n converges.
+        P                        P∞
+
+  (b) If n=1 an converges absolutely, then ∞   n=1 a2n converges absolutely.
+        P∞                                   P
+
+
+
+
+                                          142
+Pass 1 – First Diagnosis                       Homework 7, Problem 6
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    143
+Pass 2 – Proof Recipe Card           Homework 7, Problem 6
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               144
+Pass 3 – Self-Explanation                       Homework 7, Problem 6
+1. Why can ordinary convergence depend on cancellation between odd and
+even terms?
+
+
+
+
+2. What standard alternating example disproves part (a)?
+
+
+
+
+3. What is a2n for that example?
+
+
+
+
+4. Why does absolute convergence survive passing to a subseries?
+
+
+
+
+5. How does the Cauchy criterion prove part (b)?
+
+
+
+
+                                   145
+Pass 4 – Skeleton Proof                                    Homework 7, Problem 6
+
+Part (a).
+Choose an = so that an is alternating harmonic:
+                   P
+
+
+
+
+Compute a2n and identify the divergent series:
+
+
+
+
+State the counterexample conclusion:
+
+
+
+
+Part (b).
+Assume |an | converges. Use the Cauchy criterion to choose N :
+        P
+
+
+
+
+                          Pn
+For n ≥ m ≥ N , compare    k=m |a2k | to a tail of       |aj |:
+                                                     P
+
+
+
+
+                                      146
+               |a2n | converges:
+           P
+Conclude
+
+
+
+
+                                   147
+Pass 5 – Full Proof Attempt         Homework 7, Problem 6
+
+Use this page for part (a).
+
+
+
+
+                              148
+Pass 5 – Full Proof Attempt         Homework 7, Problem 6
+
+Use this page for part (b).
+
+
+
+
+                              149
+Official Solution (Professor)
+                                                   n
+(a) Disprove: Consider the series an = (−1)n
+                                             . Then:
+  •    an converges: by the alternating series test, since n1 is a decreasing sequence
+     P
+
+     that converges to 0.
+  •    a2n =        diverges: This is 12 times the series    , which we know diverges
+     P        P 1                                         P1
+                 2n                                        n
+     by lecture.
+(b) Prove: We will use the Cauchy criterion. Fix ε > 0. As |an | converges, then
+                                                                 P
+
+there exists an N so that
+                           n
+                                                  for all n ≥ m ≥ N.
+                           X
+                                |ak | < ε
+                          k=m
+
+Then for n ≥ m ≥ N , we have
+                                  n
+                                  X                2n
+                                                   X
+                                       |a2k | ≤          |aj | < ε.
+                                 k=m              j=2m
+
+
+(Note that first sum above consists of only even terms |a2m | + |a2m+2 | + · · · + |a2n |,
+which differs from the second sum |a2m | + |a2m+1 | + |a2m+2 | + · · · + |a2n | by only the
+odd terms, each of which is nonnegative.) Therefore |a2n | converges by the Cauchy
+                                                      P
+
+criterion.
+
+
+
+
+                                              150
+Reflection & Variation                           Homework 7, Problem 6
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  151
+Homework 8
+
+
+
+
+    152
+Problem 1
+
+ Problem Statement                                        Homework 8, Problem 1
+
+ Consider the metric space (R, d) with the usual metric d(x, y) = |x − y|. For each of
+ the following sets A ⊆ R, find its interior and prove your answer.
+  (a) A = [0, 1)
+  (b) A = Z
+  (c) A = {x ∈ Q : 0 < x < 1}
+
+
+
+
+                                         153
+Pass 1 – First Diagnosis                       Homework 8, Problem 1
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    154
+Pass 2 – Proof Recipe Card           Homework 8, Problem 1
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               155
+Pass 3 – Self-Explanation                             Homework 8, Problem 1
+1. What does it mean for x to be an interior point of A?
+
+
+
+
+2. Why is every point of (0, 1) interior to [0, 1)?
+
+
+
+
+3. Why is 0 not an interior point of [0, 1)?
+
+
+
+
+4. Why can no open interval in R be contained in Z?
+
+
+
+
+5. How does density of irrational numbers show {x ∈ Q : 0 < x < 1}◦ = ∅?
+
+
+
+
+                                      156
+Pass 4 – Skeleton Proof                               Homework 8, Problem 1
+
+Part (a).
+Show (0, 1) ⊆ A◦ by choosing r = 21 min{x, 1 − x}:
+
+
+
+
+Show 0 ∈
+       / A◦ by finding a point in (−r, r) \ [0, 1):
+
+
+
+
+Conclude A◦ = (0, 1):
+
+
+
+
+Part (b).
+Fix n ∈ Z and r > 0. Find a noninteger point in (n − r, n + r):
+
+
+
+
+Conclude Z◦ = ∅:
+
+
+
+
+Part (c).
+
+
+
+
+                                       157
+Fix a ∈ A and r > 0. Use density of R \ Q to find y ∈ (a − r, a + r) \ A:
+
+
+
+
+                                      158
+Pass 5 – Full Proof Attempt                  Homework 8, Problem 1
+
+Use this page for parts (a) and (b).
+
+
+
+
+                                       159
+Pass 5 – Full Proof Attempt                         Homework 8, Problem 1
+
+Use this page for part (c) and final conclusions.
+
+
+
+
+                                    160
+Official Solution (Professor)
+
+(a) Claim: A◦ = (0, 1). As A◦ is the largest open subset of A, and (0, 1) is one open
+subset, we must have (0, 1) ⊆ A◦ ⊆ [0, 1). Note that 0 is not an interior point: given
+r > 0 we have (−r, r) ̸⊆ [0, 1), since − 2r is a point in (−r, r) that is not in [0, 1).
+(b) Claim: A◦ = ∅. Fix n ∈ Z; we will show that n is not an interior point. Given
+r > 0 we have (n − r, n + r) ̸⊆ Z, since min{n + 2r , n + 21 } is in (n − r, n + r) but not
+in Z.
+(c) Claim: A◦ = ∅. Fix a ∈ A; we will show that a is not an interior point. As the
+irrational numbers are dense in R, then for any r > 0 we can find a point y ∈ Qc
+between a − r and a. This y is a point in (a − r, a + r) that is not in A, and so
+(a − r, a + r) ̸⊆ A.
+
+
+
+
+                                           161
+Reflection & Variation                           Homework 8, Problem 1
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  162
+Problem 2
+
+ Problem Statement                                            Homework 8, Problem 2
+
+ Recall that d1 and d∞ are both metrics on R2 .
+  (a) Prove that d∞ (x, y) ≤ d1 (x, y) ≤ 2d∞ (x, y) for all x, y ∈ R2 .
+ (b) Prove that for any x ∈ R2 and r > 0 we have
+
+       {y ∈ R2 : d∞ (x, y) < r/2} ⊆ {y ∈ R2 : d1 (x, y) < r} ⊆ {y ∈ R2 : d∞ (x, y) < r}.
+
+      I recommend that you draw a picture of these three sets.
+  (c) Prove that a set A ⊆ R2 is open in the metric space (R2 , d1 ) if and only if it is
+      open in the metric space (R2 , d∞ ).
+
+
+
+
+                                             163
+Pass 1 – First Diagnosis                       Homework 8, Problem 2
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    164
+Pass 2 – Proof Recipe Card           Homework 8, Problem 2
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               165
+Pass 3 – Self-Explanation                           Homework 8, Problem 2
+
+1. What are the formulas for d1 (x, y) and d∞ (x, y) in coordinates?
+
+
+
+
+2. Why is the maximum of two nonnegative numbers at most their sum?
+
+
+
+
+3. Why is the sum of two nonnegative numbers at most twice their maxi-
+mum?
+
+
+
+
+4. How do metric inequalities translate into ball containments?
+
+
+
+
+5. How do the ball containments prove the two metrics define the same
+open sets?
+
+
+
+
+                                     166
+Pass 4 – Skeleton Proof                                      Homework 8, Problem 2
+
+Part (a).
+Write x = (x1 , x2 ), y = (y1 , y2 ), and expand d1 , d∞ :
+
+
+
+
+Prove d∞ ≤ d1 :
+
+
+
+
+Prove d1 ≤ 2d∞ :
+
+
+
+
+Part (b).
+If d∞ (x, y) < r/2, use part (a) to prove d1 (x, y) < r:
+
+
+
+
+If d1 (x, y) < r, use part (a) to prove d∞ (x, y) < r:
+
+
+
+
+Part (c).
+
+
+
+
+                                           167
+For d∞ -open ⇒ d1 -open, use Br1 (a) ⊆ Br∞ (a):
+
+
+
+
+                              ∞
+For d1 -open ⇒ d∞ -open, use Br/2 (a) ⊆ Br1 (a):
+
+
+
+
+                                       168
+Pass 5 – Full Proof Attempt                  Homework 8, Problem 2
+
+Use this page for parts (a) and (b).
+
+
+
+
+                                       169
+Pass 5 – Full Proof Attempt         Homework 8, Problem 2
+
+Use this page for part (c).
+
+
+
+
+                              170
+Official Solution (Professor)
+
+(a) Fix x = (x1 , x2 ) and y = (y1 , y2 ) in R2 . Then
+
+                       |x1 − y1 | ≤ |x1 − y1 | + |x2 − y2 | = d1 (x, y),
+
+                       |x2 − y2 | ≤ |x1 − y1 | + |x2 − y2 | = d1 (x, y),
+and so
+                           max{|x1 − y1 |, |x2 − y2 |} ≤ d1 (x, y).
+This proves the first inequality: d∞ (x, y) ≤ d1 (x, y). On the other hand, note that
+
+                    |x1 − y1 | ≤ max{|x1 − y1 |, |x2 − y2 |} = d∞ (x, y),
+
+                    |x2 − y2 | ≤ max{|x1 − y1 |, |x2 − y2 |} = d∞ (x, y),
+and so
+                             |x1 − y1 | + |x2 − y2 | ≤ 2d∞ (x, y).
+This proves that d1 (x, y) ≤ 2d∞ (x, y).
+(b) Let’s start with the first containment:
+
+                  {y ∈ R2 : d∞ (x, y) < r/2} ⊆ {y ∈ R2 : d1 (x, y) < r}.
+
+Fix y ∈ R2 so that d∞ (x, y) < r/2. Then by the second inequality in part (a) we have
+                                                            r
+                             d1 (x, y) ≤ 2d∞ (x, y) < 2 ·     = r,
+                                                            2
+and so d1 (x, y) < r.
+Next, we turn to the second containment:
+
+                   {y ∈ R2 : d1 (x, y) < r} ⊆ {y ∈ R2 : d∞ (x, y) < r}.
+
+Fix y ∈ R2 so that d1 (x, y) < r. Then by the first inequality in part (a), we have
+
+                                  d∞ (x, y) ≤ d1 (x, y) < r,
+
+and so d∞ (x, y) < r.
+(c) ⇐ Suppose that A is open in (R2 , d∞ ). Fix a ∈ A. Then there exists r > 0 so that
+
+                         Br∞ (a) = {x ∈ R2 : d∞ (x, a) < r} ⊆ A.
+
+Note that Br1 (a) ⊆ Br∞ (a) by part (b), and so Br1 (a) ⊆ Br∞ (a) ⊆ A. As a ∈ A was
+arbitrary, we conclude that A is open in (R2 , d1 ).
+⇒ Suppose that A is open in (R2 , d1 ). Fix a ∈ A. Then there exists r > 0 so that
+Br1 (a) ⊆ A. Note that Br/2
+                         ∞
+                            (a) ⊆ Br1 (a) by part (b), and so Br/2
+                                                               ∞
+                                                                   (a) ⊆ Br1 (a) ⊆ A. As
+a ∈ A was arbitrary, we conclude that A is open in (R2 , d∞ ).
+
+
+
+                                             171
+Reflection & Variation                           Homework 8, Problem 2
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  172
+Problem 3
+
+ Problem Statement                                        Homework 8, Problem 3
+ Let X be a nonempty set, and recall that the discrete metric d is a metric on X. Prove
+ that every set A ⊆ X is open in the metric space (X, d).
+
+
+
+
+                                          173
+Pass 1 – First Diagnosis                       Homework 8, Problem 3
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    174
+Pass 2 – Proof Recipe Card           Homework 8, Problem 3
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               175
+Pass 3 – Self-Explanation                           Homework 8, Problem 3
+1. What is the definition of the discrete metric?
+
+
+
+
+2. What is B1/2 (a) in the discrete metric?
+
+
+
+
+3. Why is {a} ⊆ A whenever a ∈ A?
+
+
+
+
+4. How does this prove every point of A is interior?
+
+
+
+
+5. Why does the proof also work when A = ∅?
+
+
+
+
+                                     176
+Pass 4 – Skeleton Proof                           Homework 8, Problem 3
+Fix A ⊆ X and a ∈ A:
+
+
+
+
+Compute B1/2 (a) = {x ∈ X : d(x, a) < 1/2}:
+
+
+
+
+Use B1/2 (a) = {a} ⊆ A to show a is interior:
+
+
+
+
+Conclude A is open because a ∈ A was arbitrary:
+
+
+
+
+                                      177
+Pass 5 – Full Proof Attempt              Homework 8, Problem 3
+Use this page for the complete proof.
+
+
+
+
+                                   178
+Official Solution (Professor)
+
+Fix A ⊆ X and a ∈ A. Notice that
+
+                      B1/2 (a) = {x ∈ X : d(x, a) < 1/2} = {a}.
+
+(Indeed, d(x, a) is either equal to 0 or 1, and so the only time that d(x, a) < 1/2 is
+when d(x, a) = 0.) Then a ∈ B1/2 (a) ⊆ A, and so a is an interior point for A. As
+a ∈ A was arbitrary, we conclude that A is open.
+
+
+
+
+                                         179
+Reflection & Variation                           Homework 8, Problem 3
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  180
+Problem 4
+
+ Problem Statement                                         Homework 8, Problem 4
+
+ Let (X, d) be any metric space. Define the function de : X × X → R by
+                                e y) = min{d(x, y), 1}.
+                                d(x,
+
+  (a) Prove that de is also a metric on X.
+  (b) Prove that a set A ⊆ X is open in (X, d) if and only if it is open in (X, d).
+                                                                                e
+
+
+
+
+                                           181
+Pass 1 – First Diagnosis                       Homework 8, Problem 4
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    182
+Pass 2 – Proof Recipe Card           Homework 8, Problem 4
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               183
+Pass 3 – Self-Explanation                          Homework 8, Problem 4
+
+1. Which metric axioms are immediate from the definition of d?
+                                                            e
+
+
+
+
+2. Why is definiteness preserved by taking min{d(x, y), 1}?
+
+
+
+
+3. What are the key cases for the triangle inequality?
+
+
+
+
+4. Why do d and de agree on distances less than 1?
+
+
+
+
+5. Why does shrinking a radius to min{r, 1/2} transfer openness?
+
+
+
+
+                                    184
+Pass 4 – Skeleton Proof                             Homework 8, Problem 4
+
+Part (a).
+Check nonnegativity, definiteness, and symmetry:
+
+
+
+
+For the triangle inequality, split into cases depending on whether d(x, y) < 1
+and d(y, z) < 1:
+
+
+
+
+Conclude de is a metric:
+
+
+
+
+Part (b).
+Assume A is open in (X, d).   e a) ≤ d(x, a) to get a d-ball inside A:
+                        e Use d(x,
+
+
+
+
+Assume A is open in (X, d). Set r2 = min{r1 , 1/2} and prove the d-ball
+                                                                 e      is
+inside the d-ball:
+
+
+
+
+                                     185
+Pass 5 – Full Proof Attempt         Homework 8, Problem 4
+
+Use this page for part (a).
+
+
+
+
+                              186
+Pass 5 – Full Proof Attempt         Homework 8, Problem 4
+
+Use this page for part (b).
+
+
+
+
+                              187
+Official Solution (Professor)
+
+(a) There are 4 properties to check.
+  1. d(x,
+     e y) ≥ 0 for all x, y ∈ X. Note that d(x, e y) is equal to 1 or d(x, y). Both of
+     these are nonnegative; we know d(x, y) ≥ 0 since d is a metric on X.
+  2. d(x,
+     e y) = 0 ⇐⇒ x = y. If x = y, then d(x, y) = 0, so d(x,   e y) = min{0, 1} = 0.
+     Conversely, if d(x,
+                     e y) = 0, then d(x,  e y) ̸= 1 and so we must have d(x, y) =
+     d(x, y) = 0. As d is a metric, this can only mean that x = y.
+     e
+
+  3. d(x,
+     e y) = d(y,
+               e x) for all x, y ∈ X. As d is a metric, we know that d(x, y) = d(y, x),
+     and so
+                   e y) = min{d(x, y), 1} = min{d(y, x), 1} = d(y,
+                   d(x,                                          e x).
+
+  4. d(x,      e y) + d(y,
+     e z) ≤ d(x,        e z) for all x, y, z ∈ X. We distinguish 4 possible cases:
+
+       • d(x, y) < 1 and d(y, z) < 1: Then
+                      e z) ≤ d(x, z) ≤ d(x, y) + d(y, z) = d(x,
+                      d(x,                                 e y) + d(y,
+                                                                  e z).
+
+       • d(x, y) < 1 and d(y, z) ≥ 1: Then
+                             e z) ≤ 1 ≤ d(x, y) + 1 = d(x,
+                             d(x,                     e y) + d(y,
+                                                             e z).
+
+       • d(x, y) ≥ 1 and d(y, z) < 1: Then
+                             e z) ≤ 1 ≤ 1 + d(y, z) = d(x,
+                             d(x,                     e y) + d(y,
+                                                             e z).
+
+       • d(x, y) ≥ 1 and d(y, z) ≥ 1: Then
+                                  e z) ≤ 1 ≤ 1 + 1 = d(x,
+                                  d(x,               e y) + d(y,
+                                                            e z).
+
+In all cases, the triangle inequality holds.
+(b) ⇐ Suppose that A is open in (X, d).  e Fix a ∈ A. Then there exists r > 0 so that
+
+
+                          Brd (a) = {x ∈ X : d(x,
+                                             e a) < r} ⊆ A.
+                              e
+
+
+Note that Brd (a) ⊆ Brde(a), since
+
+                  x ∈ Brd (a) =⇒ d(x,
+                                 e a) ≤ d(x, a) < r =⇒ x ∈ B d (a).
+                                                                e
+                                                            r
+
+So Brd (a) ⊆ Brde(a) ⊆ A. As a ∈ A was arbitrary, we conclude that A is open in (X, d).
+⇒ Suppose that A is open in (X, d). Fix a ∈ A. Then there exists r1 > 0 so that
+Brd1 (a) ⊆ A. Set r2 = min{r1 , 12 }. Note that Brde2 (a) ⊆ Brd1 (a), since
+                                                                    1
+                   x ∈ Brd2 (a) =⇒ d(x,
+                                   e a) = min{d(x, a), 1} < r ≤
+                         e
+                                                             2
+                                                                    2
+                       =⇒ d(x,
+                          e a) = d(x, a) =⇒ d(x, a) < r ≤ r .
+                                                       2   1
+
+So Brde2 (a) ⊆ Brd1 (a) ⊆ A. As a ∈ A was arbitrary, we conclude that A is open in
+(X, d).
+    e
+
+
+
+                                            188
+Reflection & Variation                           Homework 8, Problem 4
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  189
+Problem 5
+
+ Problem Statement                                       Homework 8, Problem 5
+
+ Let (X, d) be a metric space, A ⊆ X, and x ∈ X. Prove that x is in A◦ if and only if
+ there exists an open set U so that x ∈ U ⊆ A.
+
+
+
+
+                                         190
+Pass 1 – First Diagnosis                       Homework 8, Problem 5
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    191
+Pass 2 – Proof Recipe Card           Homework 8, Problem 5
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               192
+Pass 3 – Self-Explanation                        Homework 8, Problem 5
+1. What is the definition of x ∈ A◦ ?
+
+
+
+
+2. Why is an open ball an open set?
+
+
+
+
+3. In the forward direction, what should U be?
+
+
+
+
+4. In the reverse direction, why does openness of U give a ball around x?
+
+
+
+
+5. How does Br (x) ⊆ U ⊆ A finish the proof?
+
+
+
+
+                                        193
+Pass 4 – Skeleton Proof                         Homework 8, Problem 5
+Forward direction.
+Assume x ∈ A◦ . Choose r > 0 with Br (x) ⊆ A:
+
+
+
+
+Set U = and verify open, x ∈ U , and U ⊆ A:
+
+
+
+
+Reverse direction.
+Assume x ∈ U ⊆ A with U open. Choose r > 0 with:
+
+
+
+
+Use Br (x) ⊆ U ⊆ A to conclude x ∈ A◦ :
+
+
+
+
+                                     194
+Pass 5 – Full Proof Attempt                Homework 8, Problem 5
+Use this page for both directions.
+
+
+
+
+                                     195
+Official Solution (Professor)
+
+⇒ Suppose that x ∈ A◦ . Then there exists r > 0 such that Br (x) ⊆ A. Notice that
+U = Br (x) is an open set that satisfies x ∈ U ⊆ A.
+⇐ Suppose that x ∈ U ⊆ A for some open set U . As U is open, there exists r > 0 so
+that Br (x) ⊆ U . Together we have Br (x) ⊆ U ⊆ A, and so x ∈ A◦ .
+
+
+
+
+                                       196
+Reflection & Variation                           Homework 8, Problem 5
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  197
+Problem 6
+
+ Problem Statement                                         Homework 8, Problem 6
+
+ Let (X, d) be a metric space and let A be a nonempty subset of X. Prove that A is
+ open if and only if there exists a set I, positive numbers ri > 0, and points ai ∈ X so
+ that
+                                      A=      Bri (ai ).
+                                           [
+
+                                         i∈I
+
+
+
+
+                                          198
+Pass 1 – First Diagnosis                       Homework 8, Problem 6
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    199
+Pass 2 – Proof Recipe Card           Homework 8, Problem 6
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               200
+Pass 3 – Self-Explanation                         Homework 8, Problem 6
+1. Why should open sets be expressible as unions of balls?
+
+
+
+
+2. In the forward direction, what index set I is the natural choice?
+
+
+
+
+3. Why does every point a ∈ A belong to its chosen ball Bra (a)?
+
+
+
+
+4. Why is each ball Bri (ai ) open?
+
+
+
+
+5. Which theorem says arbitrary unions of open sets are open?
+
+
+
+
+                                      201
+Pass 4 – Skeleton Proof                                      Homework 8, Problem 6
+Forward direction.
+Assume A is open. For each a ∈ A, choose ra > 0 with Bra (a) ⊆ A:
+
+
+
+
+Use I = A, and for each i = a ∈ A, set the center ai = a and radius ri = ra :
+
+
+
+
+Prove both inclusions A ⊆       a∈A Bra (a) and       a∈A Bra (a) ⊆ A:
+                            S                     S
+
+
+
+
+Reverse direction.
+Assume A = i∈I Bri (ai ):
+            S
+
+
+
+
+Each ball is open, and arbitrary unions of open sets are open. Conclude:
+
+
+
+
+                                        202
+Pass 5 – Full Proof Attempt                Homework 8, Problem 6
+Use this page for the forward direction.
+
+
+
+
+                                   203
+Pass 5 – Full Proof Attempt                Homework 8, Problem 6
+Use this page for the reverse direction.
+
+
+
+
+                                    204
+Student-Derived Solution (No official solution available)
+
+We prove both directions.
+Suppose first that A is open. Since A is nonempty, for each a ∈ A choose ra > 0 such
+that
+                                     Bra (a) ⊆ A.
+Then
+                                  A=         Bra (a).
+                                        [
+
+                                       a∈A
+
+Indeed, if x ∈ A, then x ∈ Brx (x), so x ∈ a∈A Bra (a). Conversely, each Bra (a) ⊆ A,
+                                             S
+
+so the union is contained in A. Thus A has the required form, with index set I = A,
+and for each index i = a ∈ A, center ai = a and radius ri = ra .
+Conversely, suppose there exist a set I, positive numbers ri > 0, and points ai ∈ X
+such that
+                                    A=     Bri (ai ).
+                                         [
+
+                                       i∈I
+
+Each ball Bri (ai ) is open in (X, d), and an arbitrary union of open sets is open.
+Therefore A is open.
+
+
+
+
+                                        205
+Reflection & Variation                           Homework 8, Problem 6
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  206
+Homework 9
+
+
+
+
+    207
+Problem 1
+
+ Problem Statement                                          Homework 9, Problem 1
+
+ Consider the metric space (R, d) with the usual metric d(x, y) = |x − y|. For each of
+ the following sets A ⊆ R, find its closure, isolated points, and limit points. Prove your
+ answer.
+  (a) A = [0, 1)
+  (b) A = Z
+  (c) A = {x ∈ Q : 0 < x < 1}
+
+
+
+
+                                           208
+Pass 1 – First Diagnosis                       Homework 9, Problem 1
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    209
+Pass 2 – Proof Recipe Card           Homework 9, Problem 1
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               210
+Pass 3 – Self-Explanation                         Homework 9, Problem 1
+1. For each set, which points are obvious members of the closure, and
+which boundary points require a ball argument?
+
+
+
+
+2. How do you prove that a point is not in Z? What radius separates it
+from all integers?
+
+
+
+
+3. What is the difference between proving a ∈ A is isolated and proving
+a ∈ A is a limit point?
+
+
+
+
+4. Where is density of Q used in part (c), and why is it not enough just to
+say “there are rationals nearby”?
+
+
+
+
+5. How does the identity A = (isolated points) ∪ A′ finish the limit-point
+computations?
+
+
+
+
+                                   211
+Pass 4 – Skeleton Proof                           Homework 9, Problem 1
+
+Part (a): A = [0, 1)
+Closure: show [0, 1) ⊆ A ⊆ [0, 1], then prove 1 ∈ A by choosing a point of A
+in (1 − r, 1 + r):
+
+
+
+
+Isolated points: fix a ∈ A. Given r > 0, choose a second point of A inside
+(a − r, a + r):
+
+
+
+
+Limit points: use the closure/isolated-point relationship to conclude:
+
+
+
+
+Part (b): A = Z
+               / Z, choose n ∈ Z with n < x < n + 1 and radius r =
+Closure: for x ∈
+
+
+
+
+Isolated points and limit points: choose the ball around n ∈ Z:
+
+
+
+
+                                    212
+Pass 4 – Skeleton Proof               Homework 9, Problem 1 (continued)
+
+Part (c): A = {x ∈ Q : 0 < x < 1}
+Closure: prove 0, points in (0, 1], and no points outside [0, 1] behave cor-
+rectly:
+
+
+
+
+Isolated points and limit points: use density of Q to find a second point:
+
+
+
+
+                                    213
+Pass 5 – Full Proof Attempt                  Homework 9, Problem 1
+
+Use this page for parts (a) and (b).
+
+
+
+
+                                       214
+Pass 5 – Full Proof Attempt                     Homework 9, Problem 1
+
+Use this page for part (c) and final cleanup.
+
+
+
+
+                                    215
+Official Solution (Professor)
+
+(a) Closure: A = [0, 1]. Since A is the smallest closed set containing A, and [0, 1] is
+    one such closed set, we must have
+
+                                     [0, 1) ⊆ A ⊆ [0, 1].
+
+    Also 1 ∈ A: given r > 0,
+
+                                 (1 − r, 1 + r) ∩ [0, 1) ̸= ∅,
+
+    since max{1 − r/2, 0} ∈ (1 − r, 1 + r) ∩ [0, 1).
+    Isolated points: ∅. Fix a ∈ A. Given r > 0, the point
+                                           r a+1
+                                                       
+                                    min a + ,
+                                           2 2
+    is in (a − r, a + r) ∩ A and is not a.
+    Limit points: A′ = [0, 1]. By definition, A is the union of isolated points and
+    limit points, and there are no isolated points.
+(b) Closure: A = Z. We automatically have Z ⊆ A. Fix x ∈ Zc . Let n ∈ Z satisfy
+    n < x < n + 1. Then
+                                r = min{x − n, n + 1 − x}
+    is positive and (x − r, x + r) ∩ Z = ∅. Thus x ∈
+                                                   / A.
+    Isolated points: Z. For n ∈ Z,
+
+                                 (n − 1, n + 1) ∩ Z = {n}.
+
+    Limit points: A′ = ∅. Every point of A is isolated.
+(c) Closure: A = [0, 1]. First, A ⊆ [0, 1], and [0, 1] is closed, so A ⊆ [0, 1]. The point
+    0 is adherent to A: given r > 0, choose n > max{1/r, 1}, so 1/n ∈ (−r, r) ∩ A.
+    Now fix x ∈ (0, 1]. By density of Q in R, for every r > 0 there is q ∈ Q between
+    max{x − r, 0} and x, and this q ∈ (x − r, x + r) ∩ A.
+    Isolated points: ∅. Given x ∈ A and r > 0, choose q ∈ Q as above. This q lies
+    in (x − r, x + r) ∩ A and q ̸= x.
+    Limit points: A′ = [0, 1]. There are no isolated points.
+
+
+
+
+                                          216
+Reflection & Variation                           Homework 9, Problem 1
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  217
+Problem 2
+
+ Problem Statement                                      Homework 9, Problem 2
+
+ Let (X, d) be a metric space, let A be a nonempty subset of X, and let U be an open
+ subset of X.
+  (a) Prove that U ∩ A ⊆ U ∩ A.
+  (b) Prove that U ∩ A = U ∩ A. (Hint: Use part (a) and properties of closure from
+      lecture.)
+  (c) Conclude that if U ∩ A = ∅, then U ∩ A = ∅.
+
+
+
+
+                                        218
+Pass 1 – First Diagnosis                       Homework 9, Problem 2
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    219
+Pass 2 – Proof Recipe Card           Homework 9, Problem 2
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               220
+Pass 3 – Self-Explanation                           Homework 9, Problem 2
+
+1. Why is the assumption that U is open essential in part (a)?
+
+
+
+
+2. After fixing x ∈ U ∩ A and r > 0, why do we introduce a second radius
+s > 0?
+
+
+
+
+3. Why is re = min{r, s} the right radius to use?
+
+
+
+
+4. Which closure property turns part (a) into the first inclusion in part
+(b)?
+
+
+
+
+5. In part (c), why does U ∩ A = ∅ force U ∩ A = ∅?
+
+
+
+
+                                     221
+Pass 4 – Skeleton Proof                            Homework 9, Problem 2
+
+Part (a): prove U ∩ A ⊆ U ∩ A.
+Fix x ∈                    . To show x ∈ U ∩ A, fix r > 0 and aim to find a
+point in:
+
+
+
+
+Use openness of U : since x ∈ U , choose s > 0 such that:
+
+
+
+
+Use x ∈ A with re = min{r, s} to choose y ∈:
+
+
+
+
+Check the three memberships y ∈ A, y ∈ U , and y ∈ Br (x):
+
+
+
+
+                                     222
+Pass 4 – Skeleton Proof              Homework 9, Problem 2 (continued)
+
+Part (b): prove equality of closures.
+First inclusion from part (a) and monotonicity of closure:
+
+
+
+
+Second inclusion from A ⊆ A:
+
+
+
+
+Part (c): empty-set conclusion.
+Start from U ∩ A = ∅, take closures, use part (b), and then use B ⊆ B:
+
+
+
+
+                                   223
+Pass 5 – Full Proof Attempt                  Homework 9, Problem 2
+
+Use this page for parts (a) and (b).
+
+
+
+
+                                       224
+Pass 5 – Full Proof Attempt                     Homework 9, Problem 2
+
+Use this page for part (c) and final cleanup.
+
+
+
+
+                                    225
+Official Solution (Professor)
+
+(a) Fix x ∈ U ∩A. We show x ∈ U ∩ A, i.e., for any r > 0, Br (x)∩U ∩A is nonempty.
+    Fix r > 0. Since x ∈ U and U is open, there exists s > 0 such that Bs (x) ⊆ U .
+    Set re = min{r, s}. Since x ∈ A, the set Bre(x) ∩ A is nonempty, so choose
+    y ∈ Bre(x) ∩ A.
+    Then y ∈ A. Also y ∈ Br (x), since d(y, x) < re ≤ r. Finally y ∈ U , since
+    d(y, x) < re ≤ s, so y ∈ Bs (x) ⊆ U . Hence y ∈ Br (x) ∩ U ∩ A, as desired.
+(b) Recall that B ⊆ C implies B ⊆ C. Applying this to part (a),
+
+                                   U ∩ A ⊆ U ∩ A.
+
+    On the other hand, A ⊆ A, so U ∩ A ⊆ U ∩ A. Therefore
+
+                                   U ∩ A ⊆ U ∩ A.
+
+    Together,
+                                   U ∩ A = U ∩ A.
+(c) For any set B, B ⊆ B. If U ∩ A = ∅, then U ∩ A = ∅. By part (b),
+
+                                     U ∩ A = ∅.
+
+    Therefore U ∩ A = ∅.
+
+
+
+
+                                       226
+Reflection & Variation                           Homework 9, Problem 2
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  227
+Problem 3
+
+ Problem Statement                                           Homework 9, Problem 3
+
+ Recall that d2 is a metric on R2 . Consider the subspace
+
+                                   Y = {(x, 0) : x ∈ R}
+
+ with the induced metric dY .
+  (a) Provide an example of a set A ⊆ Y where A is open in (Y, dY ) but not open in
+      (R2 , d2 ).
+  (b) Prove that for any B ⊆ Y , if B is closed in (Y, dY ) then B is closed in (R2 , d2 ).
+
+
+
+
+                                            228
+Pass 1 – First Diagnosis                       Homework 9, Problem 3
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    229
+Pass 2 – Proof Recipe Card           Homework 9, Problem 3
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               230
+Pass 3 – Self-Explanation                           Homework 9, Problem 3
+1. What does a ball in the subspace Y look like compared with a ball in
+R2 ?
+
+
+
+
+2. Why is the line segment (−1, 1) × {0} open in Y ?
+
+
+
+
+3. Why does the point (0, r/2) prove that this set is not open in R2 ?
+
+
+
+
+4. What lecture result lets us reduce part (b) to proving that Y is closed
+in R2 ?
+
+
+
+
+5. How does the vertical coordinate x2 ̸= 0 give a ball contained in Y c ?
+
+
+
+
+                                     231
+Pass 4 – Skeleton Proof                              Homework 9, Problem 3
+
+Part (a): example open in Y , not open in R2 .
+Choose A =
+
+
+
+
+To prove A is open in Y , fix x = (x1 , 0) ∈ A and choose r =
+
+
+
+
+If y ∈ BrY (x), show |y1 | < 1, hence y ∈ A:
+
+
+
+
+To prove A is not open in R2 , fix r > 0 around (0, 0) and find an off-axis
+point:
+
+
+
+
+Part (b): closedness transfer.
+State the lecture corollary being used:
+
+
+
+
+                                        232
+Pass 4 – Skeleton Proof                  Homework 9, Problem 3 (continued)
+
+Part (b): closedness transfer, continued.
+Prove Y is closed by fixing x = (x1 , x2 ) ∈ Y c , so x2 ̸= 0, and choosing radius
+r=
+
+
+
+
+Show BrR (x) ⊆ Y c using the inequality involving |x2 − y2 |:
+         2
+
+
+
+
+                                       233
+Pass 5 – Full Proof Attempt         Homework 9, Problem 3
+
+Use this page for part (a).
+
+
+
+
+                              234
+Pass 5 – Full Proof Attempt         Homework 9, Problem 3
+
+Use this page for part (b).
+
+
+
+
+                              235
+Official Solution (Professor)
+
+(a) Consider
+                               A = {(x1 , 0) : −1 < x1 < 1}.
+    First, A is open in (Y, dY ). Fix x = (x1 , 0) ∈ A, and set r = 1 − |x1 |. Then r > 0,
+    and
+                           BrY (x) = {y ∈ Y : dY (x, y) < r} ⊆ A,
+    since
+                                                  q
+             y ∈ BrY (x) =⇒ r > dY (x, y) =           |x1 − y1 |2 + |0 − 0|2 = |x1 − y1 |
+
+    and therefore
+                           |y1 | ≤ |x1 | + |y1 − x1 | < |x1 | + r = 1.
+    Next, A is not open in (R2 , d2 ), because (0, 0) ∈ A is not an interior point. For
+    any r > 0, the point (0, r/2) lies in BrR ((0, 0)) but not in A.
+                                              2
+
+
+
+(b) By the corollary from Lecture 24, it suffices to show that Y is closed in (R2 , d2 ).
+    Fix x = (x1 , x2 ) ∈ Y c . Then x2 ̸= 0. Set r = |x2 |. If y ∈ BrR (x), then
+                                                                      2
+
+
+                                      q
+                    r > d2 (x, y) =       |x1 − y1 |2 + |x2 − y2 |2 ≥ |x2 − y2 |.
+
+    Hence
+                           |y2 | ≥ |x2 | − |x2 − y2 | > |x2 | − r = 0.
+    Thus y2 ̸= 0, so y ∈ Y c . Therefore BrR (x) ⊆ Y c . Since every point of Y c is
+                                                      2
+
+
+    interior to Y c , Y c is open, and Y is closed.
+
+
+
+
+                                              236
+Reflection & Variation                           Homework 9, Problem 3
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  237
+Problem 4
+
+ Problem Statement                                        Homework 9, Problem 4
+
+ Let (X, d) be a metric space, {xn }n≥1 a sequence in X, and x ∈ X. Prove that the
+ sequence {xn }n≥1 converges to x if and only if for every open set U that contains x,
+ we have xn ∈ U for all but finitely many n ∈ N.
+
+
+
+
+                                         238
+Pass 1 – First Diagnosis                       Homework 9, Problem 4
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    239
+Pass 2 – Proof Recipe Card           Homework 9, Problem 4
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               240
+Pass 3 – Self-Explanation                          Homework 9, Problem 4
+1. In the forward direction, how does openness of U connect an arbitrary
+neighborhood to a ball around x?
+
+
+
+
+2. What does “for all but finitely many n” mean in terms of choosing an
+N?
+
+
+
+
+3. In the reverse direction, why is Br (x) the correct open set to test?
+
+
+
+
+4. Why is it enough to prove xn ∈ Br (x) eventually for each r > 0?
+
+
+
+
+5. What is the main logical difference between the two directions?
+
+
+
+
+                                     241
+Pass 4 – Skeleton Proof                            Homework 9, Problem 4
+Forward direction: assume xn → x.
+Fix an open set U ⊆ X with x ∈ U . By openness, choose r > 0 such that:
+
+
+
+
+By convergence, choose N such that for all n ≥ N :
+
+
+
+
+Conclude xn ∈ U for all but finitely many n:
+
+
+
+
+Reverse direction: assume eventual membership in every open U ∋ x.
+Fix r > 0. Apply the hypothesis to the open set:
+
+
+
+
+Convert “all but finitely many” into an N so that for all n ≥ N :
+
+
+
+
+                                    242
+Translate xn ∈ Br (x) into the metric convergence inequality:
+
+
+
+
+Conclude because r > 0 was arbitrary:
+
+
+
+
+                                    243
+Pass 5 – Full Proof Attempt                Homework 9, Problem 4
+Use this page for both directions.
+
+
+
+
+                                     244
+Official Solution (Professor)
+
+⇒ Suppose xn → x in (X, d) as n → ∞. Fix an open set U ⊆ X such that x ∈ U .
+Since U is open, there exists r > 0 such that Br (x) ⊆ U . By definition of convergence,
+there exists N such that d(xn , x) < r for all n ≥ N . Therefore xn ∈ Br (x) ⊆ U for all
+n ≥ N.
+⇐ Suppose that for every open set U containing x, we have xn ∈ U for all but
+finitely many n ∈ N. Fix r > 0. Apply the assumption to the open set Br (x). Then
+xn ∈ Br (x) for all but finitely many n ∈ N. Let N be larger than the largest index for
+which xn ∈/ Br (x). Then for every n ≥ N , xn ∈ Br (x), and hence d(xn , x) < r. Since
+r > 0 was arbitrary, {xn }n≥1 converges to x in (X, d).
+
+
+
+
+                                          245
+Reflection & Variation                           Homework 9, Problem 4
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  246
+Problem 5
+
+ Problem Statement                                           Homework 9, Problem 5
+
+ Recall that d2 is a metric on R2 . Suppose that xn = (xn1 , xn2 ) is a sequence of points
+ in R2 .
+  (a) Prove that |xn1 − x1 | ≤ d2 (xn , x) for any x = (x1 , x2 ) ∈ R2 .
+  (b) Prove that the sequence {xn }n≥1 converges in (R2 , d2 ) if and only if the sequences
+      {xn1 }n≥1 and {xn2 }n≥1 of real numbers both converge.
+
+
+
+
+                                            247
+Pass 1 – First Diagnosis                       Homework 9, Problem 5
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    248
+Pass 2 – Proof Recipe Card           Homework 9, Problem 5
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               249
+Pass 3 – Self-Explanation                           Homework 9, Problem 5
+
+1. Why does the Euclidean distance d2 (xn , x) control each coordinate dif-
+ference?
+
+
+
+
+2. In the forward direction, what is squeezed between 0 and d2 (xn , x)?
+
+
+
+
+3. Why do the coordinate sequences converge to the coordinates of the
+same point x?
+
+
+
+
+4. In the reverse direction, how do the real limit laws imply d2 (xn , x) → 0?
+
+
+
+
+5. What would change if the problem were in R3 or Rm ?
+
+
+
+
+                                     250
+Pass 4 – Skeleton Proof                                  Homework 9, Problem 5
+
+Part (a): coordinate estimate.
+Write the formula for d2 (xn , x):
+
+
+
+
+Use |xn2 − x2 |2 ≥ 0 to get the desired inequality:
+
+
+
+
+Part (b), forward direction.
+Assume xn → x = (x1 , x2 ) in (R2 , d2 ). Then d2 (xn , x) →
+
+
+
+
+Use part (a) and squeeze to prove xn1 → x1 :
+
+
+
+
+Repeat the same argument for the second coordinate:
+
+
+
+
+                                         251
+Pass 4 – Skeleton Proof                  Homework 9, Problem 5 (continued)
+
+Part (b), reverse direction.
+Assume xn1 → x1 and xn2 → x2 . Set x =
+
+
+
+
+Use the formula for d2 (xn , x) and the limit laws to conclude:
+
+
+
+
+                                     252
+Pass 5 – Full Proof Attempt                       Homework 9, Problem 5
+
+Use this page for part (a) and the forward direction of part (b).
+
+
+
+
+                                    253
+Pass 5 – Full Proof Attempt                        Homework 9, Problem 5
+
+Use this page for the reverse direction of part (b).
+
+
+
+
+                                    254
+Official Solution (Professor)
+
+(a) Recall that
+                                                                        1/2
+                           d2 (xn , x) = |xn1 − x1 |2 + |xn2 − x2 |2            .
+    Since |xn2 − x2 |2 ≥ 0,
+                                                           1/2
+                         d2 (xn , x) ≥ |xn1 − x1 |2 + 0            ≥ |xn1 − x1 |.
+
+(b) ⇒ Suppose {xn }n≥1 converges to x in (R2 , d2 ). Then
+
+                                               d2 (xn , x) → 0.
+
+    By part (a),
+                                    0 ≤ |xn1 − x1 | ≤ d2 (xn , x).
+    By the squeeze theorem, |xn1 − x1 | → 0, so {xn1 }n≥1 converges to x1 . Similarly,
+
+                                    0 ≤ |xn2 − x2 | ≤ d2 (xn , x),
+
+    so {xn2 }n≥1 converges to x2 .
+    ⇐ Suppose {xn1 }n≥1 converges to x1 and {xn2 }n≥1 converges to x2 . Then
+
+                           |xn1 − x1 | → 0          and      |xn2 − x2 | → 0.
+
+    By the limit laws,
+                                                                      1/2
+                         d2 (xn , x) = |xn1 − x1 |2 + |xn2 − x2 |2            → 0.
+
+    Thus {xn }n≥1 converges to x in (R2 , d2 ).
+
+
+
+
+                                                  255
+Reflection & Variation                           Homework 9, Problem 5
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  256
+Problem 6
+
+ Problem Statement                                      Homework 9, Problem 6
+
+ Let (X, d) be a metric space and {xn }n≥1 a sequence in X. Prove that if {xn }n≥1
+ converges to x ∈ X, then for any y ∈ X, the sequence {d(xn , y)}n≥1 of real numbers
+ converges to d(x, y).
+
+
+
+
+                                        257
+Pass 1 – First Diagnosis                       Homework 9, Problem 6
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    258
+Pass 2 – Proof Recipe Card           Homework 9, Problem 6
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               259
+Pass 3 – Self-Explanation                          Homework 9, Problem 6
+1. What real-valued sequence are we trying to prove converges?
+
+
+
+
+2. Why should the triangle inequality compare d(xn , y) and d(x, y)?
+
+
+
+
+3. How do two applications of the triangle inequality produce an absolute
+value estimate?
+
+
+
+
+4. What quantity goes to 0, and why does it squeeze the distance error?
+
+
+
+
+5. How is this problem a sequence version of continuity of the map z 7→
+d(z, y)?
+
+
+
+
+                                    260
+Pass 4 – Skeleton Proof                           Homework 9, Problem 6
+Setup.
+Fix y ∈ X. Since xn → x, we know d(xn , x) →
+
+
+
+
+Triangle inequality estimates.
+First apply triangle inequality to bound d(xn , y) in terms of d(xn , x) and
+d(x, y):
+
+
+
+
+Rearrange to get d(xn , y) − d(x, y) ≤
+
+
+
+
+Apply triangle inequality again to bound d(x, y) in terms of d(x, xn ) and
+d(xn , y):
+
+
+
+
+Rearrange to get d(x, y) − d(xn , y) ≤
+
+
+
+
+                                         261
+Pass 4 – Skeleton Proof              Homework 9, Problem 6 (continued)
+
+Finish.
+Combine the two inequalities into an absolute value estimate:
+
+
+
+
+Use squeeze theorem to conclude:
+
+
+
+
+                                   262
+Pass 5 – Full Proof Attempt              Homework 9, Problem 6
+Use this page for the complete proof.
+
+
+
+
+                                   263
+Official Solution (Professor)
+
+Fix y ∈ X. By the triangle inequality,
+
+            d(xn , y) ≤ d(xn , x) + d(x, y)    =⇒ d(xn , y) − d(x, y) ≤ d(xn , x),
+             d(x, y) ≤ d(x, xn ) + d(xn , y)   =⇒ d(x, y) − d(xn , y) ≤ d(xn , x).
+
+Together,
+                               |d(xn , y) − d(x, y)| ≤ d(xn , x).
+Since {xn }n≥1 converges to x in (X, d), the right-hand side converges to 0. Therefore,
+by the squeeze theorem,
+                               |d(xn , y) − d(x, y)| → 0,
+and thus d(xn , y) converges to d(x, y).
+
+
+
+
+                                               264
+Reflection & Variation                           Homework 9, Problem 6
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  265
+Homework 10
+
+
+
+
+    266
+Problem 1
+
+ Problem Statement                                       Homework 10, Problem 1
+
+ Let (X, d) be a metric space and let Y ⊆ X. We call the set Y complete if the subspace
+ Y with the induced metric is complete. Prove that if Y is complete, then Y is closed
+ in X. (Hint: It suffices to show Y ⊆ Y . Use sequences.)
+
+
+
+
+                                          267
+Pass 1 – First Diagnosis                       Homework 10, Problem 1
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    268
+Pass 2 – Proof Recipe Card           Homework 10, Problem 1
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               269
+Pass 3 – Self-Explanation                       Homework 10, Problem 1
+1. What does it mean for Y to be complete as a subspace of X?
+
+
+
+
+2. What sequential characterization of closure should be used after fixing
+x∈Y?
+
+
+
+
+3. Why is a sequence converging in X automatically Cauchy in X?
+
+
+
+
+4. Why is the same sequence Cauchy in the induced metric on Y ?
+
+
+
+
+5. Where is uniqueness of limits in a metric space used?
+
+
+
+
+                                   270
+Pass 4 – Skeleton Proof                         Homework 10, Problem 1
+Goal: prove Y is closed.
+It suffices to show Y ⊆ Y . Fix:
+
+
+
+
+Use the sequential characterization of closure to get a sequence {yn } ⊆ Y
+such that:
+
+
+
+
+Explain why {yn } is Cauchy in Y :
+
+
+
+
+Use completeness of Y to get y ∈ Y with:
+
+
+
+
+Compare convergence in Y with convergence in X, then use uniqueness of
+limits:
+
+
+
+
+                                     271
+Conclude Y ⊆ Y , hence Y is closed:
+
+
+
+
+                                      272
+Pass 5 – Full Proof Attempt              Homework 10, Problem 1
+Use this page for the complete proof.
+
+
+
+
+                                   273
+Student-Derived Solution (No official solution available)
+
+We show that Y ⊆ Y . Since always Y ⊆ Y , this implies Y = Y , and hence Y is closed
+in X.
+Let x ∈ Y . By the sequential characterization of closure, there exists a sequence
+{yn }n≥1 in Y such that
+                              yn → x      in (X, d).
+Every convergent sequence in a metric space is Cauchy, so {yn } is Cauchy in (X, d).
+Since the induced metric on Y is the restriction of d, the same sequence is Cauchy in
+(Y, dY ).
+Because Y is complete, there is some y ∈ Y such that
+
+                               yn → y      in (Y, dY ).
+
+Convergence in the subspace metric is the same distance condition as convergence in
+X, so yn → y in (X, d). Thus the sequence {yn } converges to both x and y in X. By
+uniqueness of limits in metric spaces, x = y. Since y ∈ Y , we have x ∈ Y .
+Therefore Y ⊆ Y , so Y is closed in X.
+
+
+
+
+                                        274
+Reflection & Variation                           Homework 10, Problem 1
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  275
+Problem 2
+
+ Problem Statement                                     Homework 10, Problem 2
+
+ Let (X, d) be a metric space. Prove that if A, B ⊆ X are both compact then A ∪ B is
+ compact.
+
+
+
+
+                                        276
+Pass 1 – First Diagnosis                       Homework 10, Problem 2
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    277
+Pass 2 – Proof Recipe Card           Homework 10, Problem 2
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               278
+Pass 3 – Self-Explanation                        Homework 10, Problem 2
+1. What definition of compactness is most direct for a finite union?
+
+
+
+
+2. Why does an open cover of A∪B automatically cover A and B separately?
+
+
+
+
+3. What finite subcover do you get from compactness of A?
+
+
+
+
+4. What finite subcover do you get from compactness of B?
+
+
+
+
+5. Why is the union of the two finite index sets still finite and enough to
+cover A ∪ B?
+
+
+
+
+                                   279
+Pass 4 – Skeleton Proof                             Homework 10, Problem 2
+Open-cover setup.
+Let {Ui }i∈I be an arbitrary open cover of A ∪ B:
+
+
+
+
+Restrict the same cover to A, and use compactness of A to choose a finite
+JA ⊆ I:
+
+
+
+
+Restrict the same cover to B, and use compactness of B to choose a finite
+JB ⊆ I:
+
+
+
+
+Set J =
+
+
+
+
+Check J is finite and {Ui }i∈J covers A ∪ B:
+
+
+
+
+                                     280
+Conclude compactness because the original open cover was arbitrary:
+
+
+
+
+                                  281
+Pass 5 – Full Proof Attempt              Homework 10, Problem 2
+Use this page for the complete proof.
+
+
+
+
+                                   282
+Student-Derived Solution (No official solution available)
+
+Let {Ui }i∈I be an open cover of A ∪ B. Thus each Ui is open in X, and
+                                                  [
+                                    A∪B ⊆               Ui .
+                                                  i∈I
+
+Since A ⊆ A ∪ B, the same family is an open cover of A. Because A is compact, there
+is a finite set JA ⊆ I such that         [
+                                    A⊆      Ui .
+                                               i∈JA
+
+Similarly, {Ui }i∈I is an open cover of B, so compactness of B gives a finite set JB ⊆ I
+such that                                    [
+                                       B⊆       Ui .
+                                               i∈JB
+
+Set J = JA ∪ JB . Then J is finite, and
+                                                            
+
+                                                             Ui  =
+                                    [                 [               [
+                       A∪B ⊆            Ui  ∪                            Ui .
+                                  i∈JA                i∈JB            i∈J
+
+
+Thus every open cover of A ∪ B has a finite subcover. Therefore A ∪ B is compact.
+
+
+
+
+                                            283
+Reflection & Variation                           Homework 10, Problem 2
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  284
+Problem 3
+
+ Problem Statement                                      Homework 10, Problem 3
+
+ Let (X, d) be a metric space.
+  (a) Prove that if A ⊆ B ⊆ X, A is closed in X, and B is compact, then A is compact.
+      (Hint: Given an open cover of A, we can add Ac to get an open cover of B.)
+  (b) Prove that if C, D ⊆ X are both compact, then C ∩ D is compact. (Hint: Use
+      (a).)
+
+
+
+
+                                         285
+Pass 1 – First Diagnosis                       Homework 10, Problem 3
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    286
+Pass 2 – Proof Recipe Card           Homework 10, Problem 3
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               287
+Pass 3 – Self-Explanation                        Homework 10, Problem 3
+1. Why does adding Ac to an open cover of A help cover all of B?
+
+
+
+
+2. Where is the assumption that A is closed used?
+
+
+
+
+3. After compactness of B gives a finite subcover, why can Ac be discarded
+when covering A?
+
+
+
+
+4. Which lecture result says compact subsets of a metric space are closed?
+
+
+
+
+5. In part (b), which compact set plays the role of B in part (a)?
+
+
+
+
+                                    288
+Pass 4 – Skeleton Proof                            Homework 10, Problem 3
+
+Part (a): closed subset of a compact set.
+Let {Ui }i∈I be an open cover of A. Since A is closed, Ac is:
+
+
+
+
+Show {Ac } ∪ {Ui }i∈I covers B:
+
+
+
+
+Use compactness of B to extract a finite subcover:
+
+
+
+
+Restrict back to A and remove the Ac part:
+
+
+
+
+Part (b): compact intersection.
+Use compactness ⇒ closed to show C ∩ D is closed in X:
+
+
+
+
+                                     289
+Apply part (a) with A = C ∩ D and B =
+
+
+
+
+                                 290
+Pass 5 – Full Proof Attempt         Homework 10, Problem 3
+
+Use this page for part (a).
+
+
+
+
+                              291
+Pass 5 – Full Proof Attempt         Homework 10, Problem 3
+
+Use this page for part (b).
+
+
+
+
+                              292
+Official Solution (Professor)
+
+(a) Let {Ui }i∈I be an open cover of A. Since A is closed, Ac is open. Thus
+
+                                     {Ac } ∪ {Ui }i∈I
+
+    is an open cover of B, because
+
+                            B ⊆ X = Ac ∪ A ⊆ Ac ∪
+                                                                 [
+                                                                       Ui .
+                                                                 i∈I
+
+    Since B is compact, there is a finite subcover for B. We may write it as
+
+                                     {Ac } ∪ {Ui }i∈J
+
+    for some finite J ⊆ I. Then
+
+                                     B ⊆ Ac ∪
+                                                    [
+                                                          Ui .
+                                                    i∈J
+
+    Since A ⊆ B and A ∩ Ac = ∅, it follows that
+                                              [
+                                       A⊆           Ui .
+                                              i∈J
+
+    Hence {Ui }i∈J is a finite subcover of A. Therefore A is compact.
+(b) Since C and D are compact, they are closed by Lecture 27. Hence C ∩D is closed.
+    Also C ∩ D ⊆ C, and C is compact. By part (a), C ∩ D is compact.
+
+
+
+
+                                        293
+Reflection & Variation                           Homework 10, Problem 3
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  294
+Problem 4
+
+ Problem Statement                                    Homework 10, Problem 4
+
+ Let (X, d) be a metric space and let Y ⊆ X. Prove that if Y is compact, then Y is
+ complete.
+
+
+
+
+                                       295
+Pass 1 – First Diagnosis                       Homework 10, Problem 4
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    296
+Pass 2 – Proof Recipe Card           Homework 10, Problem 4
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               297
+Pass 3 – Self-Explanation                     Homework 10, Problem 4
+1. To prove completeness, what kind of sequence in Y should you start
+with?
+
+
+
+
+2. Which compactness theorem gives a convergent subsequence in Y ?
+
+
+
+
+3. Why is a convergent subsequence not enough by itself to prove com-
+pleteness?
+
+
+
+
+4. How does the Cauchy property transfer convergence from a subsequence
+to the full sequence?
+
+
+
+
+5. Why does the final limit lie in Y ?
+
+
+
+
+                                     298
+Pass 4 – Skeleton Proof                          Homework 10, Problem 4
+Setup: prove every Cauchy sequence in Y converges in Y .
+Let {yn } be a Cauchy sequence in Y :
+
+
+
+
+Use compactness and Lecture 26 to obtain a subsequence {ykn } and point
+y ∈ Y such that:
+
+
+
+
+Fix r > 0. From subsequence convergence choose N1 such that:
+
+
+
+
+From the Cauchy property choose N2 such that:
+
+
+
+
+Use triangle inequality with yn , ykn , and y:
+
+
+
+
+                                      299
+Conclude the whole sequence converges to y ∈ Y :
+
+
+
+
+                                  300
+Pass 5 – Full Proof Attempt              Homework 10, Problem 4
+Use this page for the complete proof.
+
+
+
+
+                                   301
+Official Solution (Professor)
+
+Let {yn }n≥1 be a Cauchy sequence in Y . We show that it converges to some point of
+Y.
+Since Y is compact, by Lecture 26 there exists a subsequence {ykn }n≥1 that converges
+to some point y ∈ Y .
+We prove the whole sequence converges to y. Fix r > 0. Since ykn → y, there exists
+N1 such that
+                                        r
+                           d(ykn , y) <      for all n ≥ N1 .
+                                        2
+Since {yn } is Cauchy, there exists N2 such that
+                                         r
+                         d(yn , ym ) <        for all n, m ≥ N2 .
+                                         2
+Set N = max{N1 , N2 }. For n ≥ N , we have kn ≥ n ≥ N , and so
+                                                              r r
+                    d(yn , y) ≤ d(yn , ykn ) + d(ykn , y) <    + = r.
+                                                              2 2
+Since r > 0 was arbitrary, yn → y. Because y ∈ Y , every Cauchy sequence in Y
+converges in Y . Therefore Y is complete.
+
+
+
+
+                                             302
+Reflection & Variation                           Homework 10, Problem 4
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  303
+Homework 11
+
+
+
+
+    304
+Problem 1
+
+ Problem Statement                                        Homework 11, Problem 1
+
+ Consider the metric space (R, d) with the usual metric d(x, y) = |x − y|. Note that the
+ set Q is not an interval, and so from lecture we know that it must be disconnected.
+  (a) Find two sets A, B ⊆ R that are nonempty and separated so that Q = A ∪ B,
+      and prove your answer.
+  (b) Find a set ∅ ̸= C ⊊ Q that is both open and closed in Q, and prove your answer.
+
+
+
+
+                                          305
+Pass 1 – First Diagnosis                       Homework 11, Problem 1
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    306
+Pass 2 – Proof Recipe Card           Homework 11, Problem 1
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               307
+Pass 3 – Self-Explanation                          Homework 11, Problem 1
+1. Why is cutting Q at an irrational number better than cutting it at a
+rational number?
+
+
+
+
+2. What does it mean for two subsets of R to be separated?
+
+
+
+
+                                        √            √
+3. What are the closures in R of (−∞,    2) ∩ Q and ( 2, ∞) ∩ Q?
+
+
+
+
+              √
+4. Why does       2∈
+                   / Q make the separation work?
+
+
+
+
+5. How does the subspace characterization of open and closed sets in Q
+prove part (b)?
+
+
+
+
+                                    308
+Pass 4 – Skeleton Proof                         Homework 11, Problem 1
+
+Part (a): separated decomposition of Q.
+Choose an irrational cut point and define A =
+
+
+
+
+Define B =
+
+
+
+
+Check A and B are nonempty and A ∪ B = Q:
+
+
+
+
+Compute A and B in R:
+
+
+
+
+Use those closures to prove A ∩ B = ∅ and A ∩ B = ∅:
+
+
+
+
+Part (b): clopen subset of Q.
+
+
+
+
+                                   309
+Choose C =
+
+
+
+
+Prove C is nonempty and proper:
+
+
+
+
+Show C is open in Q and closed in Q using subspace results:
+
+
+
+
+                                  310
+Pass 5 – Full Proof Attempt         Homework 11, Problem 1
+
+Use this page for part (a).
+
+
+
+
+                              311
+Pass 5 – Full Proof Attempt         Homework 11, Problem 1
+
+Use this page for part (b).
+
+
+
+
+                              312
+Student-Derived Solution (No official solution available)
+
+(a) Define                      √                   √
+                     A = (−∞,    2) ∩ Q,       B = ( 2, ∞) ∩ Q.
+    Both sets are nonempty, for instance 1 ∈√A and 2 ∈ B. Also√A ∪ B =√ Q, since
+    every rational number is either less than 2 or greater than 2, and 2 ∈
+                                                                         / Q.
+    In R,                              √            √
+                           A = (−∞, 2],       B = [ 2, ∞).
+    Hence                            √        √         
+                      A ∩ B = (−∞,       2] ∩ ( 2, ∞) ∩ Q = ∅,
+    and similarly                √         √
+                      A ∩ B = (−∞, 2) ∩ Q ∩ [ 2, ∞) = ∅.
+    Therefore A and B are separated, nonempty, and satisfy Q = A ∪ B.
+(b) Let                                   √
+                                C = (−∞, 2) ∩ Q.
+    Then C ̸= ∅, since
+                 √ 1 ∈ C, and C ⊊ Q, since 2 ∈√Q \ C.
+    The set (−∞, √2) is open in R, so C = (−∞,
+                                             √ 2) ∩ Q is open in the subspace
+    Q. Also (−∞, 2] is closed in R, and since 2 ∈
+                                                / Q,
+                              √               √
+                        (−∞, 2] ∩ Q = (−∞, 2) ∩ Q = C.
+
+    Thus C is closed in Q. Therefore C is a nonempty proper subset of Q that is
+    both open and closed in Q.
+
+
+
+
+                                     313
+Reflection & Variation                           Homework 11, Problem 1
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  314
+Problem 2
+
+ Problem Statement                                     Homework 11, Problem 2
+
+ Let (X, d) be a metric space.
+  (a) Prove that if F ⊆ X is disconnected and closed in X, then there exist A, B ⊆ X
+      that are nonempty, separated, and closed in X so that F = A ∪ B.
+  (b) Prove that if U ⊆ X is disconnected and open in X, then there exist A, B ⊆ X
+      that are nonempty, separated, and open in X so that U = A ∪ B.
+
+
+
+
+                                        315
+Pass 1 – First Diagnosis                       Homework 11, Problem 2
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    316
+Pass 2 – Proof Recipe Card           Homework 11, Problem 2
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               317
+Pass 3 – Self-Explanation                        Homework 11, Problem 2
+1. Which Lecture 29 characterization of disconnectedness gives a nontrivial
+clopen subset of F or U ?
+
+
+
+
+2. In part (a), why does closed in F plus F closed in X imply closed in X?
+
+
+
+
+3. In part (b), why does open in U plus U open in X imply open in X?
+
+
+
+
+4. Why are the two pieces nonempty?
+
+
+
+
+5. How do closedness or openness of the pieces imply they are separated?
+
+
+
+
+                                   318
+Pass 4 – Skeleton Proof                         Homework 11, Problem 2
+
+Part (a): closed disconnected set.
+Use disconnectedness of F to choose A ̸= ∅, F that is both open and closed
+in F . Set B =
+
+
+
+
+Explain why A and B are nonempty and F = A ∪ B:
+
+
+
+
+Use F closed in X to prove A and B are closed in X:
+
+
+
+
+Use closedness and disjointness to prove separatedness:
+
+
+
+
+Part (b): open disconnected set.
+Use disconnectedness of U to choose A ̸= ∅, U clopen in U , and set B =
+
+
+
+
+                                   319
+Use U open in X to prove A and B are open in X:
+
+
+
+
+Use complements of open sets to prove separatedness:
+
+
+
+
+                                  320
+Pass 5 – Full Proof Attempt         Homework 11, Problem 2
+
+Use this page for part (a).
+
+
+
+
+                              321
+Pass 5 – Full Proof Attempt         Homework 11, Problem 2
+
+Use this page for part (b).
+
+
+
+
+                              322
+Official Solution (Professor)
+
+(a) Since F is disconnected, by Lecture 29 there exists a set A ̸= ∅, F that is both
+    open and closed in F . Set B = F \ A.
+    The sets A and B are nonempty because A ̸= ∅ and A ̸= F . Since A is closed
+    in F and F is closed in X, A is closed in X by Lecture 24. Also B = F \ A is
+    closed in F , because A is open in F ; hence B is closed in X.
+    Finally, A ∩ B = ∅. Since A and B are closed in X, A = A and B = B. Thus
+
+                              A ∩ B = ∅,       A ∩ B = ∅.
+
+    Therefore A and B are nonempty, separated, closed in X, and F = A ∪ B.
+(b) Since U is disconnected, by Lecture 29 there exists a set A ̸= ∅, U that is both
+    open and closed in U . Set B = U \ A.
+    The sets A and B are nonempty. Since A is open in U and U is open in X, A
+    is open in X by Lecture 24. Since A is closed in U , B = U \ A is open in U ;
+    because U is open in X, B is open in X.
+    Since A ∩ B = ∅, we have A ⊆ B c . Because B is open, B c is closed, so A ⊆ B c ,
+    and hence A ∩ B = ∅. Similarly, B ∩ A = ∅. Therefore A and B are separated,
+    open in X, nonempty, and U = A ∪ B.
+
+
+
+
+                                        323
+Reflection & Variation                           Homework 11, Problem 2
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  324
+Problem 3
+
+ Problem Statement                                       Homework 11, Problem 3
+
+ Suppose that (X, d) is a metric space such that for any pair of points a, b ∈ X, there
+ exists a connected set C ⊆ X so that a, b ∈ C. Prove that X is connected.
+
+
+
+
+                                          325
+Pass 1 – First Diagnosis                       Homework 11, Problem 3
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    326
+Pass 2 – Proof Recipe Card           Homework 11, Problem 3
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               327
+Pass 3 – Self-Explanation                        Homework 11, Problem 3
+1. Why is contradiction the natural proof method here?
+
+
+
+
+2. What does a separation of X give you?
+
+
+
+
+3. Why can you choose one point a from one side and one point b from the
+other?
+
+
+
+
+4. Which Lecture 29 result says a connected set inside a union of separated
+sets lies in one side?
+
+
+
+
+5. Why does the connected set containing both a and b contradict the
+separation?
+
+
+
+
+                                   328
+Pass 4 – Skeleton Proof                          Homework 11, Problem 3
+Contradiction setup.
+Assume X is disconnected. Then choose nonempty separated sets A, B ⊆ X
+such that:
+
+
+
+
+Choose a ∈ A and b ∈ B. By hypothesis, choose connected C ⊆ X such that:
+
+
+
+
+Since C ⊆ X = A ∪ B, apply the connected-set/separated-union result:
+
+
+
+
+Use a ∈ A ∩ C and b ∈ B ∩ C to rule out both alternatives:
+
+
+
+
+Conclude X is connected:
+
+
+
+
+                                    329
+Pass 5 – Full Proof Attempt              Homework 11, Problem 3
+Use this page for the complete proof.
+
+
+
+
+                                   330
+Official Solution (Professor)
+
+Suppose toward a contradiction that X is disconnected. Then there exist sets A, B ⊆
+X such that
+                       X = A ∪ B,       A ̸= ∅,     B ̸= ∅,
+and A and B are separated.
+Choose a ∈ A and b ∈ B. By the hypothesis, there exists a connected set C ⊆ X such
+that a, b ∈ C. Since C ⊆ X = A ∪ B, and A and B are separated, Lecture 29 implies
+that either C ⊆ A or C ⊆ B.
+Because a ∈ A∩C, the only possible case is C ⊆ A. But then B ∩C = ∅, contradicting
+b ∈ B ∩ C. Therefore X cannot be disconnected, so X is connected.
+
+
+
+
+                                       331
+Reflection & Variation                           Homework 11, Problem 3
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  332
+Problem 4
+
+ Problem Statement                                  Homework 11, Problem 4
+
+ Let (X, d) be a metric space and A ⊆ X. Prove that if A is connected, then A is
+ connected.
+
+
+
+
+                                      333
+Pass 1 – First Diagnosis                       Homework 11, Problem 4
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    334
+Pass 2 – Proof Recipe Card           Homework 11, Problem 4
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               335
+Pass 3 – Self-Explanation                       Homework 11, Problem 4
+
+1. Why should the proof begin by assuming A is disconnected?
+
+
+
+
+2. If A = B ∪ C with B, C separated, what does connectedness of A ⊆ B ∪ C
+imply?
+
+
+
+
+3. Why can one assume A ⊆ B after relabeling?
+
+
+
+
+4. How does A ⊆ B imply A ⊆ B?
+
+
+
+
+5. Why does separatedness then force the other side to be empty?
+
+
+
+
+                                   336
+Pass 4 – Skeleton Proof                          Homework 11, Problem 4
+Contradiction setup.
+Assume A is disconnected, so A = B ∪ C with B, C nonempty and separated:
+
+
+
+
+Apply connectedness of A to the separated union B ∪ C:
+
+
+
+
+After relabeling, assume A ⊆ B. Then conclude A ⊆
+
+
+
+
+Use separatedness B ∩ C = ∅ to show A ∩ C = ∅:
+
+
+
+
+Explain why this contradicts C ̸= ∅ and C ⊆ A:
+
+
+
+
+                                  337
+Pass 5 – Full Proof Attempt              Homework 11, Problem 4
+Use this page for the complete proof.
+
+
+
+
+                                   338
+Official Solution (Professor)
+
+Suppose toward a contradiction that A is disconnected. Then there exist sets B, C ⊆ X
+such that
+                       A = B ∪ C,         B ̸= ∅,    C ̸= ∅,
+and B and C are separated.
+Since A is connected and A ⊆ A = B ∪ C, Lecture 29 implies that either A ⊆ B or
+A ⊆ C. After swapping B and C if necessary, assume A ⊆ B. Then
+
+                                      A ⊆ B.
+
+Because B and C are separated, B ∩ C = ∅. Hence
+
+                                    A ∩ C = ∅.
+
+But C ⊆ A, since A = B ∪ C. Therefore C = ∅, a contradiction. Thus A is connected.
+
+
+
+
+                                        339
+Reflection & Variation                           Homework 11, Problem 4
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  340
+Problem 5
+
+ Problem Statement                                     Homework 11, Problem 5
+
+ Let (X, d) be a metric space and A, B ⊆ X. Prove that if A and B are both connected
+ and A ∩ B ̸= ∅, then A ∪ B is connected.
+
+
+
+
+                                        341
+Pass 1 – First Diagnosis                       Homework 11, Problem 5
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    342
+Pass 2 – Proof Recipe Card           Homework 11, Problem 5
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               343
+Pass 3 – Self-Explanation                       Homework 11, Problem 5
+1. Why does the assumption A ∩ B ̸= ∅ prevent A and B from lying in
+different sides of a separation?
+
+
+
+
+2. If A ∪ B = C ∪ D is a separation, what does connectedness of A imply?
+
+
+
+
+3. What does connectedness of B imply?
+
+
+
+
+4. How does a shared point force A and B into the same separated side?
+
+
+
+
+5. Why does this make the other side empty?
+
+
+
+
+                                   344
+Pass 4 – Skeleton Proof                         Homework 11, Problem 5
+Contradiction setup.
+Assume A ∪ B is disconnected. Choose nonempty separated C, D ⊆ X such
+that:
+
+
+
+
+Use connectedness of A ⊆ C ∪ D to conclude:
+
+
+
+
+After relabeling, assume A ⊆ C. Use A ∩ B ̸= ∅ to show B has a point in C:
+
+
+
+
+Use connectedness of B to conclude B ⊆ C:
+
+
+
+
+Then A ∪ B ⊆ C, contradicting:
+
+
+
+
+                                   345
+Pass 5 – Full Proof Attempt              Homework 11, Problem 5
+Use this page for the complete proof.
+
+
+
+
+                                   346
+Official Solution (Professor)
+
+Suppose toward a contradiction that A ∪ B is disconnected. Then there exist sets
+C, D ⊆ X such that
+                        A ∪ B = C ∪ D,       C, D ̸= ∅,
+and C and D are separated.
+Since A ⊆ C ∪ D and A is connected, Lecture 29 implies that either A ⊆ C or A ⊆ D.
+After swapping C and D, assume A ⊆ C.
+Similarly, since B ⊆ C ∪ D and B is connected, either B ⊆ C or B ⊆ D. But A ⊆ C
+and A ∩ B ̸= ∅, so at least one point of B lies in C. Therefore B cannot be contained
+in D, and we must have B ⊆ C.
+Thus A∪B ⊆ C. Since A∪B = C ∪D, this forces D = ∅, contradicting the separation.
+Therefore A ∪ B is connected.
+
+
+
+
+                                        347
+Reflection & Variation                           Homework 11, Problem 5
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  348
+Problem 6
+
+ Problem Statement                                    Homework 11, Problem 6
+
+ Let (X, d) be a metric space.
+  (a) Let A, B, C ⊆ X. Prove that if the sets A and B are separated and the sets A
+      and C are separated, then the sets A and B ∪ C are separated.
+  (b) Prove that if F, G ⊆ X are closed and F ∪ G and F ∩ G are connected, then F
+      is connected.
+
+
+
+
+                                       349
+Pass 1 – First Diagnosis                       Homework 11, Problem 6
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    350
+Pass 2 – Proof Recipe Card           Homework 11, Problem 6
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               351
+Pass 3 – Self-Explanation                        Homework 11, Problem 6
+1. What two closure-intersection conditions define separated sets?
+
+
+
+
+2. In part (a), how do unions distribute over intersections with A?
+
+
+
+
+3. For part (b), why is contradiction a natural strategy?
+
+
+
+
+4. If F = A ∪ B is a separation, how does connectedness of F ∩ G force F ∩ G
+into one side?
+
+
+
+
+5. Why does proving B is separated from A ∪ G contradict connectedness
+of F ∪ G?
+
+
+
+
+                                    352
+Pass 4 – Skeleton Proof                       Homework 11, Problem 6
+
+Part (a): separated from a union.
+Write what it means that A is separated from B and from C:
+
+
+
+
+Compute A ∩ (B ∪ C):
+
+
+
+
+Use B ∪ C = B ∪ C to compute A ∩ B ∪ C:
+
+
+
+
+Conclude A and B ∪ C are separated:
+
+
+
+
+Part (b): contradiction.
+Assume F is disconnected and choose F = A ∪ B with A, B nonempty sepa-
+rated:
+
+
+
+
+                                  353
+Use connectedness of F ∩ G to assume, after relabeling, F ∩ G ⊆ A:
+
+
+
+
+Show B and G are separated, using closedness of G:
+
+
+
+
+Apply part (a) to show B and A ∪ G are separated, yielding a separation of
+F ∪ G:
+
+
+
+
+                                   354
+Pass 5 – Full Proof Attempt         Homework 11, Problem 6
+
+Use this page for part (a).
+
+
+
+
+                              355
+Pass 5 – Full Proof Attempt         Homework 11, Problem 6
+
+Use this page for part (b).
+
+
+
+
+                              356
+Official Solution (Professor)
+
+(a) Since A and B are separated,
+
+                            A∩B =∅         and    A ∩ B = ∅.
+
+    Since A and C are separated,
+
+                            A∩C =∅         and    A ∩ C = ∅.
+
+    Therefore
+                           A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C) = ∅.
+    Also, by Lecture 23,
+                                     B ∪ C = B ∪ C.
+    Hence
+                           A ∩ B ∪ C = (A ∩ B) ∪ (A ∩ C) = ∅.
+    Thus A and B ∪ C are separated.
+(b) Suppose toward a contradiction that F is disconnected. Then there exist A, B ⊆
+    X such that
+                             F = A ∪ B,       A, B ̸= ∅,
+    and A and B are separated.
+    Since F ∩ G is connected and F ∩ G ⊆ A ∪ B, Lecture 29 implies that either
+    F ∩G ⊆ A or F ∩G ⊆ B. After swapping A and B if necessary, assume F ∩G ⊆ A.
+    We claim that B and G are separated. First B ∩ G = ∅, because any point in
+    B ∩ G would lie in F ∩ G ⊆ A, contradicting A ∩ B = ∅. Since G is closed,
+    G = G, and this gives B ∩ G = ∅. Also, if x ∈ G = G, then either x ∈ G \ F or
+    x ∈ F ∩ G ⊆ A, so x ∈/ B. Hence B ∩ G = ∅. Thus B and G are separated.
+    Since A and B are separated, part (a) implies that B and A ∪ G are separated.
+    Both are nonempty, and
+
+                           F ∪ G = (A ∪ B) ∪ G = (A ∪ G) ∪ B.
+
+    Therefore F ∪ G is disconnected, contradicting the hypothesis. Hence F is con-
+    nected.
+
+
+
+
+                                         357
+Reflection & Variation                           Homework 11, Problem 6
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  358
+Homework 12
+
+
+
+
+    359
+Problem 1
+
+ Problem Statement                                       Homework 12, Problem 1
+
+ Let (X, dX ) and (Y, dY ) be metric spaces, f : X → Y , and x0 ∈ X. Prove that f is
+ continuous at x0 if and only if for any open set V ⊆ Y containing f (x0 ), there is an
+ open set U ⊆ X containing x0 so that x ∈ U implies f (x) ∈ V .
+
+
+
+
+                                          360
+Pass 1 – First Diagnosis                       Homework 12, Problem 1
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    361
+Pass 2 – Proof Recipe Card           Homework 12, Problem 1
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               362
+Pass 3 – Self-Explanation                             Homework 12, Problem 1
+1. What is the ε-δ definition of continuity at x0 ?
+
+
+
+
+2. In the forward direction, how does openness of V produce a ball around
+f (x0 )?
+
+
+
+
+3. Why is U = Bδ (x0 ) the natural choice after applying continuity?
+
+
+
+
+4. In the reverse direction, why should V = Bε (f (x0 )) be used?
+
+
+
+
+5. How does openness of U produce the δ needed for continuity?
+
+
+
+
+                                     363
+Pass 4 – Skeleton Proof                            Homework 12, Problem 1
+Forward direction.
+Assume f is continuous at x0 . Fix open V ⊆ Y with f (x0 ) ∈ V . Choose ε > 0
+so that:
+
+
+
+
+Use continuity at x0 to choose δ > 0 so that:
+
+
+
+
+Set U =
+
+
+
+
+Check U is open, contains x0 , and x ∈ U ⇒ f (x) ∈ V :
+
+
+
+
+Reverse direction.
+Assume the open-neighborhood condition. Fix ε > 0 and set V =
+
+
+
+
+                                     364
+Use the hypothesis to get open U ∋ x0 with f (U ) ⊆ V :
+
+
+
+
+Use openness of U to choose δ > 0 with Bδ (x0 ) ⊆ U :
+
+
+
+
+Conclude the ε-δ condition:
+
+
+
+
+                                     365
+Pass 5 – Full Proof Attempt                Homework 12, Problem 1
+Use this page for the forward direction.
+
+
+
+
+                                   366
+Pass 5 – Full Proof Attempt                Homework 12, Problem 1
+Use this page for the reverse direction.
+
+
+
+
+                                    367
+Student-Derived Solution (No official solution available yet)
+
+⇒ Assume f is continuous at x0 . Let V ⊆ Y be open with f (x0 ) ∈ V . Since V is
+open, there is ε > 0 such that
+                                 Bε (f (x0 )) ⊆ V.
+By continuity at x0 , there is δ > 0 such that
+
+                      dX (x, x0 ) < δ    =⇒      dY (f (x), f (x0 )) < ε.
+
+Let U = Bδ (x0 ). Then U is open, x0 ∈ U , and if x ∈ U , then f (x) ∈ Bε (f (x0 )) ⊆ V .
+⇐ Assume the open-set condition. Let ε > 0, and set V = Bε (f (x0 )). Then V is open
+and contains f (x0 ), so there is an open set U ⊆ X with x0 ∈ U and f (U ) ⊆ V . Since
+U is open and x0 ∈ U , there is δ > 0 such that Bδ (x0 ) ⊆ U . Thus if dX (x, x0 ) < δ,
+then x ∈ U , so f (x) ∈ V , meaning
+
+                                    dY (f (x), f (x0 )) < ε.
+
+Therefore f is continuous at x0 .
+
+
+
+
+                                             368
+Reflection & Variation                           Homework 12, Problem 1
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  369
+Problem 2
+
+ Problem Statement                                      Homework 12, Problem 2
+
+ Let (X, dX ) and (Y, dY ) be metric spaces and f : X → Y a function. Prove that f is
+ continuous if and only if f (A) ⊆ f (A) for any A ⊆ X.
+
+
+
+
+                                         370
+Pass 1 – First Diagnosis                       Homework 12, Problem 2
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    371
+Pass 2 – Proof Recipe Card           Homework 12, Problem 2
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               372
+Pass 3 – Self-Explanation                          Homework 12, Problem 2
+
+1. What does x ∈ A mean sequentially in a metric space?
+
+
+
+
+2. In the forward direction, how does continuity move a convergent se-
+quence from X to Y ?
+
+
+
+
+3. Why does f (an ) → f (x) prove f (x) ∈ f (A)?
+
+
+
+
+4. In the reverse direction, why choose A = X \ f −1 (V ) for an open V ⊆ Y ?
+
+
+
+
+              / A produce an open neighborhood U of x with f (U ) ⊆ V ?
+5. Why does x ∈
+
+
+
+
+                                      373
+Pass 4 – Skeleton Proof                            Homework 12, Problem 2
+Forward direction.
+Assume f is continuous. Fix A ⊆ X and x ∈ A. Choose a sequence an ∈ A
+such that:
+
+
+
+
+Use continuity to show f (an ) →
+
+
+
+
+Conclude f (x) ∈ f (A), hence f (A) ⊆ f (A):
+
+
+
+
+Reverse direction.
+Assume f (A) ⊆ f (A) for every A ⊆ X. Fix open V ⊆ Y with f (x) ∈ V :
+
+
+
+
+Define A = X \ f −1 (V ). Suppose for contradiction that x ∈ A:
+
+
+
+
+                                      374
+Use the closure hypothesis to force f (x) ∈ f (A):
+
+
+
+
+Use f (A) ⊆ Y \ V and Y \ V closed to contradict f (x) ∈ V :
+
+
+
+
+       / A, build an open U ∋ x with U ⊆ f −1 (V ), then apply Problem 1:
+From x ∈
+
+
+
+
+                                     375
+Pass 5 – Full Proof Attempt                Homework 12, Problem 2
+Use this page for the forward direction.
+
+
+
+
+                                   376
+Pass 5 – Full Proof Attempt                Homework 12, Problem 2
+Use this page for the reverse direction.
+
+
+
+
+                                    377
+Student-Derived Solution (No official solution available yet)
+
+⇒ Assume f is continuous. Let A ⊆ X, and let x ∈ A. By the sequential char-
+acterization of closure, there is a sequence {an } ⊆ A such that an → x. Since f is
+continuous,
+                                     f (an ) → f (x).
+Each f (an ) ∈ f (A), so f (x) ∈ f (A). Therefore
+
+                                     f (A) ⊆ f (A).
+
+⇐ Assume that for every A ⊆ X,
+
+                                     f (A) ⊆ f (A).
+
+We prove continuity using Problem 1. Let V ⊆ Y be open and suppose f (x) ∈ V . Set
+
+                                    A = X \ f −1 (V ).
+
+We claim x ∈
+           / A. If x ∈ A, then by the hypothesis
+
+                                  f (x) ∈ f (A) ⊆ f (A).
+
+But if a ∈ A, then f (a) ∈
+                         / V , so f (A) ⊆ Y \ V . Since Y \ V is closed,
+
+                                     f (A) ⊆ Y \ V.
+
+This would imply f (x) ∈/ V , contradicting f (x) ∈ V . Thus x ∈
+                                                               / A.
+        / A, there exists an open set U ⊆ X containing x such that U ∩ A = ∅. Hence
+Since x ∈
+
+                                 U ⊆ X \ A = f −1 (V ),
+
+so f (U ) ⊆ V . By Problem 1, f is continuous at x. Since x ∈ X was arbitrary, f is
+continuous.
+
+
+
+
+                                           378
+Reflection & Variation                           Homework 12, Problem 2
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  379
+Problem 3
+
+ Problem Statement                                        Homework 12, Problem 3
+ Let f : R → R be the function
+                                                 1
+                                     f (x) =          .
+                                               1 + x2
+  (a) Prove that f is continuous.
+  (b) Find an open set U ⊆ R so that f (U ) is not open.
+  (c) Find a closed set F ⊆ R so that f (F ) is not closed.
+  (d) Find a set A ⊆ R so that f (A) ̸= f (A).
+
+
+
+
+                                           380
+Pass 1 – First Diagnosis                       Homework 12, Problem 3
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    381
+Pass 2 – Proof Recipe Card           Homework 12, Problem 3
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               382
+Pass 3 – Self-Explanation                         Homework 12, Problem 3
+
+1. Which standard limit laws prove continuity of f (x) = 1/(1 + x2 )?
+
+
+
+
+2. What is the range of f on all of R?
+
+
+
+
+3. Why is (0, 1] not open in R?
+
+
+
+
+4. Why is (0, 1] not closed in R?
+
+
+
+
+5. For A = (0, ∞), compare f (A) with f (A). Where does the extra endpoint
+come from?
+
+
+
+
+                                     383
+Pass 4 – Skeleton Proof                              Homework 12, Problem 3
+
+Part (a): continuity.
+Use sequences or limit laws: if xn → x, then x2n →
+
+
+
+
+Conclude 1 + x2n → 1 + x2 , and since denominators stay nonzero:
+
+
+
+
+Parts (b) and (c): image counterexamples.
+For an open set, try U = R. Compute f (U ) =
+
+
+
+
+Explain why that image is not open:
+
+
+
+
+For a closed set, try F = [0, ∞). Compute f (F ) =
+
+
+
+
+Explain why that image is not closed:
+
+
+
+
+                                    384
+Part (d): closure/image mismatch.
+Try A = (0, ∞). Then A =
+
+
+
+
+Compute f (A), f (A), and f (A):
+
+
+
+
+                                    385
+Pass 5 – Full Proof Attempt                  Homework 12, Problem 3
+
+Use this page for parts (a) and (b).
+
+
+
+
+                                       386
+Pass 5 – Full Proof Attempt                  Homework 12, Problem 3
+
+Use this page for parts (c) and (d).
+
+
+
+
+                                       387
+Student-Derived Solution (No official solution available yet)
+
+(a) Let xn → x in R. Then by the standard limit laws,
+
+                               x2n → x2 ,     1 + x2n → 1 + x2 .
+
+    Since 1 + x2 ̸= 0, the reciprocal limit law gives
+                                         1       1
+                                             →        .
+                                      1 + xn
+                                           2   1 + x2
+
+    Hence f (xn ) → f (x), so f is continuous.
+(b) Let U = R, which is open. Then
+
+                                        f (U ) = (0, 1].
+
+    This is not open in R, since 1 ∈ (0, 1] but no open interval around 1 is contained
+    in (0, 1].
+(c) Let F = [0, ∞), which is closed in R. Then
+
+                                        f (F ) = (0, 1].
+
+    This set is not closed in R, since 0 is a limit point of (0, 1] but 0 ∈
+                                                                          / (0, 1].
+(d) Let A = (0, ∞). Then A = [0, ∞), so
+
+                                  f (A) = f ([0, ∞)) = (0, 1].
+
+    On the other hand,
+
+                       f (A) = f ((0, ∞)) = (0, 1),        f (A) = [0, 1].
+
+    Therefore
+                                f (A) = (0, 1] ̸= [0, 1] = f (A).
+
+
+
+
+                                            388
+Reflection & Variation                           Homework 12, Problem 3
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  389
+Problem 4
+
+ Problem Statement                                          Homework 12, Problem 4
+
+ Consider the metric spaces (R, | · |) and (R2 , d2 ).
+  (a) Prove that the functions f, g : R2 → R given by f (x, y) = x and g(x, y) = y are
+      continuous. (Hint: Use sequences.)
+  (b) Prove that if h : [0, 1] → R2 is a continuous function such that h(0) = (x0 , y0 ),
+      h(1) = (x1 , y1 ), and x0 < 0 < x1 , then there exists a point t ∈ (0, 1) so that h(t)
+      lies on the y-axis.
+
+
+
+
+                                            390
+Pass 1 – First Diagnosis                       Homework 12, Problem 4
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    391
+Pass 2 – Proof Recipe Card           Homework 12, Problem 4
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               392
+Pass 3 – Self-Explanation                              Homework 12, Problem 4
+
+1. How does convergence in (R2 , d2 ) imply coordinatewise convergence?
+
+
+
+
+2. Why does |xn − x| ≤ d2 ((xn , yn ), (x, y)) prove continuity of the first projec-
+tion?
+
+
+
+
+3. What scalar function should be formed from the path h in part (b)?
+
+
+
+
+4. Why is ϕ(t) = f (h(t)) continuous?
+
+
+
+
+5. How does the Intermediate Value Theorem produce a point on the
+y-axis?
+
+
+
+
+                                        393
+Pass 4 – Skeleton Proof                                 Homework 12, Problem 4
+
+Part (a): projections are continuous.
+Let (xn , yn ) → (x, y) in (R2 , d2 ). Write the coordinate inequality for xn :
+
+
+
+
+Use squeeze to prove xn → x, hence f (xn , yn ) → f (x, y):
+
+
+
+
+Repeat the coordinate inequality for yn :
+
+
+
+
+Part (b): path crosses the y-axis.
+Define ϕ : [0, 1] → R by ϕ(t) =
+
+
+
+
+Explain why ϕ is continuous:
+
+
+
+
+                                         394
+Compute ϕ(0) and ϕ(1), and record their signs:
+
+
+
+
+Apply the Intermediate Value Theorem to get t ∈ (0, 1) with ϕ(t) = 0:
+
+
+
+
+Translate ϕ(t) = 0 into "h(t) lies on the y-axis":
+
+
+
+
+                                      395
+Pass 5 – Full Proof Attempt         Homework 12, Problem 4
+
+Use this page for part (a).
+
+
+
+
+                              396
+Pass 5 – Full Proof Attempt         Homework 12, Problem 4
+
+Use this page for part (b).
+
+
+
+
+                              397
+Student-Derived Solution (No official solution available yet)
+
+(a) We prove continuity of f (x, y) = x. Let (xn , yn ) → (x, y) in (R2 , d2 ). Then
+                                                 q
+                     d2 ((xn , yn ), (x, y)) =     (xn − x)2 + (yn − y)2 → 0.
+
+    Since
+                                 |xn − x| ≤ d2 ((xn , yn ), (x, y)),
+    the squeeze theorem gives xn → x. Thus
+
+                                 f (xn , yn ) = xn → x = f (x, y),
+
+    so f is continuous. The proof for g(x, y) = y is the same: use
+
+                                 |yn − y| ≤ d2 ((xn , yn ), (x, y))
+
+    to get yn → y, hence g(xn , yn ) → g(x, y).
+(b) Let f : R2 → R be the first-coordinate projection from part (a), and define
+
+                              ϕ : [0, 1] → R,          ϕ(t) = f (h(t)).
+
+    Since h is continuous and f is continuous, ϕ = f ◦ h is continuous. Also
+
+                            ϕ(0) = f (h(0)) = f (x0 , y0 ) = x0 < 0,
+
+    and
+                            ϕ(1) = f (h(1)) = f (x1 , y1 ) = x1 > 0.
+    By the Intermediate Value Theorem, there exists t ∈ (0, 1) such that ϕ(t) = 0.
+    This means the first coordinate of h(t) is 0, so h(t) ∈ {(0, y) : y ∈ R}. Therefore
+    h(t) lies on the y-axis.
+
+
+
+
+                                                 398
+Reflection & Variation                           Homework 12, Problem 4
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  399
+Problem 5
+
+ Problem Statement                                        Homework 12, Problem 5
+
+ Going forward, you may assume (no proof necessary) any fact about sin x and cos x
+ from calculus, such as sin, cos : R → [−1, 1] are continuous functions.
+ Prove that the function f : R2 → R given by
+
+                            f (x, y) = x2 + y 2 + sin(x − y)
+
+ has a global minimum. (Hint: Notice that we cannot directly apply the extreme value
+ theorem here. However, we can apply it to any compact subset of R2 .)
+
+
+
+
+                                          400
+Pass 1 – First Diagnosis                       Homework 12, Problem 5
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    401
+Pass 2 – Proof Recipe Card           Homework 12, Problem 5
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               402
+Pass 3 – Self-Explanation                        Homework 12, Problem 5
+1. Why can the extreme value theorem not be applied directly on all of
+R2 ?
+
+
+
+
+2. Why is f continuous?
+
+
+
+
+3. What lower bound follows from sin(x − y) ≥ −1?
+
+
+
+
+4. Why does the closed unit disk capture a global minimizer?
+
+
+
+
+5. Why is it useful to find one point inside the disk where f < 0?
+
+
+
+
+                                    403
+Pass 4 – Skeleton Proof                           Homework 12, Problem 5
+Continuity and coercive estimate.
+Show f is continuous as a sum/composition of continuous functions:
+
+
+
+
+Use sin(x − y) ≥ −1 to prove f (x, y) ≥
+
+
+
+
+Conclude that if x2 + y 2 ≥ 1, then f (x, y) ≥
+
+
+
+
+Find a compact region where the minimum occurs.
+Choose p = (−1/2, 1/2). Compute f (p) =
+
+
+
+
+Explain why f (p) < 0:
+
+
+
+
+Let K = {(x, y) : x2 + y 2 ≤ 1}. Explain why K is compact:
+
+
+
+
+                                       404
+Apply the extreme value theorem to f |K :
+
+
+
+
+Compare points inside K and outside K to prove the minimizer on K is
+global:
+
+
+
+
+                                   405
+Pass 5 – Full Proof Attempt                     Homework 12, Problem 5
+Use this page for the setup and compact restriction.
+
+
+
+
+                                   406
+Pass 5 – Full Proof Attempt                     Homework 12, Problem 5
+Use this page to prove the minimum is global.
+
+
+
+
+                                  407
+Student-Derived Solution (No official solution available yet)
+
+First, f is continuous on R2 . The map (x, y) 7→ x2 + y 2 is continuous, the map
+(x, y) 7→ x − y is continuous, and sin is continuous by the allowed calculus facts.
+Hence (x, y) 7→ sin(x − y) is continuous, and so f is continuous.
+Since sin(x − y) ≥ −1, we have
+
+                    f (x, y) = x2 + y 2 + sin(x − y) ≥ x2 + y 2 − 1.
+
+In particular, if x2 + y 2 ≥ 1, then f (x, y) ≥ 0.
+Now consider
+                                               1 1
+                                                  
+                                       p= − ,        .
+                                               2 2
+Then
+                                1 1                  1
+                       f (p) = + + sin(−1) = − sin(1) < 0.
+                                4 4                  2
+Also p lies in the closed unit disk
+
+                          K = {(x, y) ∈ R2 : x2 + y 2 ≤ 1}.
+
+The set K is closed and bounded in R2 , hence compact. By the extreme value theorem,
+since f is continuous, there exists q ∈ K such that
+
+                            f (q) ≤ f (z)     for all z ∈ K.
+
+We claim q is a global minimizer on R2 . If z ∈ K, this is true by the choice of q. If
+ / K, then z = (x, y) satisfies x2 + y 2 > 1, so f (z) ≥ 0. But
+z∈
+
+                               f (q) ≤ f (p) < 0 ≤ f (z).
+
+Thus f (q) ≤ f (z) for every z ∈ R2 . Therefore f has a global minimum.
+
+
+
+
+                                            408
+Reflection & Variation                           Homework 12, Problem 5
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  409
+Problem 6
+
+ Problem Statement                                    Homework 12, Problem 6
+ Let X and Y be metric spaces and f : X → Y a function. Prove that if X is compact
+ and f is continuous and bijective, then the inverse function f −1 : Y → X is also
+ continuous. (Hint: It suffices to show that the preimage of any closed subset of X
+ under f −1 is closed in Y .)
+
+
+
+
+                                        410
+Pass 1 – First Diagnosis                       Homework 12, Problem 6
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    411
+Pass 2 – Proof Recipe Card           Homework 12, Problem 6
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               412
+Pass 3 – Self-Explanation                              Homework 12, Problem 6
+1. Which closed-set criterion for continuity is suggested by the hint?
+
+
+
+
+2. If C ⊆ X is closed, why is C compact?
+
+
+
+
+3. Why is f (C) compact in Y ?
+
+
+
+
+4. Why is f (C) closed in Y ?
+
+
+
+
+5. Why is (f −1 )−1 (C) = f (C) when f is bijective?
+
+
+
+
+                                      413
+Pass 4 – Skeleton Proof                          Homework 12, Problem 6
+
+Use the closed-set criterion for f −1 .
+Let C ⊆ X be closed. Since X is compact, conclude C is:
+
+
+
+
+Since f is continuous, conclude f (C) is:
+
+
+
+
+Since Y is a metric space, compact subsets of Y are:
+
+
+
+
+Use bijectivity to compute (f −1 )−1 (C) =
+
+
+
+
+Conclude the preimage under f −1 of every closed set C ⊆ X is closed in Y :
+
+
+
+
+Apply the closed-set criterion to finish:
+
+
+
+
+                                      414
+Pass 5 – Full Proof Attempt              Homework 12, Problem 6
+Use this page for the complete proof.
+
+
+
+
+                                   415
+Student-Derived Solution (No official solution available yet)
+
+We prove that f −1 : Y → X is continuous using the closed-set criterion.
+Let C ⊆ X be closed. Since X is compact and C is closed in X, C is compact. Since
+f : X → Y is continuous, the image of a compact set under f is compact. Therefore
+f (C) is compact in Y .
+Because Y is a metric space, compact subsets of Y are closed. Hence f (C) is closed
+in Y .
+Since f is bijective,
+                               (f −1 )−1 (C) = f (C).
+Thus the preimage under f −1 of every closed subset C ⊆ X is closed in Y . By the
+closed-set criterion for continuity, f −1 is continuous.
+
+
+
+
+                                       416
+Reflection & Variation                           Homework 12, Problem 6
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  417
+

@@ -1,6 +1,6 @@
 % MATH 521 | Final Practice Workbook
 % University of Wisconsin--Madison, Spring 2026
-% Workbook build: Homework 9 through Homework 12
+% Workbook build: Homework 5 through Homework 12
 
 \documentclass[12pt]{article}
 
@@ -214,7 +214,7 @@
 {\large Spring 2026\par}
 \vspace{1.7cm}
 
-{\normalsize\itshape Step 1 build: Homework 9\par}
+{\normalsize\itshape Current build: Homework 5 through Homework 12\par}
 \vspace{2.8cm}
 
 {\large\bfseries Name:\enspace\hrulefill\par}
@@ -246,6 +246,1854 @@ Only after Pass 5 should you compare your work to the official or reference solu
 
 \newpage
 \pagenumbering{arabic}
+
+\section{Homework 5}
+
+% ---------------------------------------------------------------------------
+% HW5 Problem 1
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 1}
+
+\begin{problemstatementbox}{Homework 5, Problem 1}
+Let \(\{a_n\}_{n\ge1}\) be a sequence of positive real numbers. Prove that \(\lim_{n\to\infty} a_n=+\infty\) if and only if \(\lim_{n\to\infty}\frac{1}{a_n}=0\).
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 5, Problem 1}
+
+\newpage
+\recipecard{Homework 5, Problem 1}
+
+\newpage
+\begin{selfexplanationbox}{Homework 5, Problem 1}
+\workquestion{1. What is the definition of \(a_n\to+\infty\)?}{1.0in}
+\workquestion{2. Why is positivity of \(a_n\) essential before taking reciprocals?}{0.95in}
+\workquestion{3. In the forward direction, what should \(M\) be in terms of \(\varepsilon\)?}{0.95in}
+\workquestion{4. In the reverse direction, what should \(\varepsilon\) be in terms of \(M\)?}{0.95in}
+\workquestion{5. Where does the inequality reversal happen?}{0.95in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 5, Problem 1}
+\textbf{Forward direction.}
+\workquestion{Fix \(\varepsilon>0\). Use \(a_n\to+\infty\) with \(M=\)}{0.85in}
+\workquestion{For all \(n\ge N\), take reciprocals to obtain:}{0.85in}
+\workquestion{Conclude \(\left|\frac1{a_n}-0\right|<\varepsilon\):}{0.8in}
+
+\textbf{Reverse direction.}
+\workquestion{Fix \(M>0\). Use \(\frac1{a_n}\to0\) with \(\varepsilon=\)}{0.85in}
+\workquestion{Use positivity to convert \(\frac1{a_n}<\frac1M\) into:}{0.85in}
+\workquestion{State the definition this verifies:}{0.75in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 5, Problem 1}{Use this page for both directions.}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+\(\Rightarrow\) Fix \(\varepsilon>0\). As \(\lim a_n=+\infty\), then there exists \(N\) so that
+\[
+  a_n>\frac1\varepsilon \qquad \text{for all } n\ge N.
+\]
+So, for \(n\ge N\) we have
+\[
+  -\varepsilon<0<\frac1{a_n}<\varepsilon
+  \qquad \Longrightarrow \qquad
+  \left|\frac1{a_n}-0\right|<\varepsilon.
+\]
+Therefore \(\lim \frac1{a_n}=0\).
+
+\(\Leftarrow\) Fix \(M>0\). As \(\lim \frac1{a_n}=0\), then there exists \(N\) so that
+\[
+  \left|\frac1{a_n}-0\right|<\frac1M
+  \qquad \text{for all } n\ge N.
+\]
+Note that \(\left|\frac1{a_n}-0\right|=\frac1{a_n}>0\). So
+\[
+  a_n>M \qquad \text{for all } n\ge N.
+\]
+Therefore \(\lim a_n=+\infty\).
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 5, Problem 1}
+
+% ---------------------------------------------------------------------------
+% HW5 Problem 2
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 2}
+
+\begin{problemstatementbox}{Homework 5, Problem 2}
+Let \(\{a_n\}_{n\ge1}\) be a sequence. Prove that if \(\{a_{k_n}\}_{n\ge1}\) is a subsequence of \(\{a_n\}_{n\ge1}\) that converges to \(L\in\R\), then
+\[
+  \liminf_{n\to\infty} a_n \le L \le \limsup_{n\to\infty} a_n.
+\]
+
+(Hint: As \(\{a_n\}_{n\ge1}\) is not necessarily bounded, we have to consider the cases \(\liminf_{n\to\infty}a_n=\pm\infty\) and \(\limsup_{n\to\infty}a_n=\pm\infty\). However, the proof is much easier in these cases.)
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 5, Problem 2}
+
+\newpage
+\recipecard{Homework 5, Problem 2}
+
+\newpage
+\begin{selfexplanationbox}{Homework 5, Problem 2}
+\workquestion{1. What do \(\limsup a_n\) and \(\liminf a_n\) measure using tail suprema/infima?}{1.0in}
+\workquestion{2. Why does \(k_n\ge n\) imply that a fixed tail eventually contains the subsequence terms?}{1.0in}
+\workquestion{3. Why is the case \(\limsup a_n=+\infty\) immediate?}{0.9in}
+\workquestion{4. Why is the case \(\limsup a_n=-\infty\) impossible when \(L\in\R\)?}{1.05in}
+\workquestion{5. How do you get \(a_{k_n}\le \sup\{a_m:m\ge N\}\) for all large \(n\)?}{0.95in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 5, Problem 2}
+\textbf{Prove \(L\le\limsup a_n\).}
+\workquestion{Separate the easy cases \(\limsup a_n=+\infty\) and \(\limsup a_n=-\infty\):}{1.0in}
+\workquestion{Assume \(\limsup a_n\in\R\). For fixed \(N\), compare \(a_{k_n}\) to the tail supremum for all large \(n\):}{1.0in}
+\workquestion{Pass \(n\to\infty\) to get \(L\le\sup\{a_m:m\ge N\}\):}{0.85in}
+\workquestion{Pass \(N\to\infty\) to obtain \(L\le\limsup a_n\):}{0.85in}
+
+\textbf{Prove \(\liminf a_n\le L\).}
+\workquestion{Repeat the same argument using tail infima and reverse inequalities:}{1.0in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 5, Problem 2}{Use this page for the \(\limsup\) inequality.}
+
+\newpage
+\fullproofpage{Homework 5, Problem 2}{Use this page for the \(\liminf\) inequality and endpoint cases.}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+Let's start with the second inequality:
+\[
+  L\le \limsup_{n\to\infty} a_n.
+\]
+Case: \(\limsup a_n=+\infty\). Then the statement is automatically true, since every real number \(L\) satisfies \(L<+\infty\).
+
+Case: \(\limsup a_n=-\infty\). As \(\liminf a_n\le \limsup a_n\), then we must have \(\liminf a_n=-\infty=\limsup a_n\). This means that \(\lim a_n=-\infty\) by Lecture 14.
+
+Fix \(m<0\). As \(\lim a_n=-\infty\), there exists \(N\) so that
+\[
+  a_n<m \qquad \text{for all } n\ge N.
+\]
+As \(k_n\ge n\) for all \(n\), this implies
+\[
+  a_{k_n}<m \qquad \text{for all } n\ge N.
+\]
+Therefore \(L=\lim a_{k_n}=-\infty\). This contradicts that \(L\in\R\), and so this case is impossible.
+
+Case: \(\limsup a_n\in\R\). For \(N\ge1\), notice that
+\[
+  a_{k_n}\le \sup\{a_n:n\ge N\}
+  \qquad \text{for all } n\ge N.
+\]
+We know that the sequence \(\{a_{k_n}\}\) converges to \(L\). So, by HW4\#3, we have
+\[
+  L=\lim a_{k_n}\le \sup\{a_n:n\ge N\}.
+\]
+On the other hand, \(v_N=\sup\{a_n:n\ge N\}\) is a sequence that converges to \(\limsup a_n\). So, using HW4\#3 again, we conclude that
+\[
+  L\le \lim_{N\to\infty}\sup\{a_n:n\ge N\}=\limsup a_n.
+\]
+Exercise: Using similar steps, prove that
+\[
+  \liminf_{n\to\infty} a_n\le L.
+\]
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 5, Problem 2}
+
+% ---------------------------------------------------------------------------
+% HW5 Problem 3
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 3}
+
+\begin{problemstatementbox}{Homework 5, Problem 3}
+Let \(\{a_n\}_{n\ge1}\) and \(\{b_n\}_{n\ge1}\) be two bounded sequences. Prove that
+\[
+  \limsup_{n\to\infty}(a_n+b_n)
+  \le
+  \limsup_{n\to\infty}a_n+\limsup_{n\to\infty}b_n.
+\]
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 5, Problem 3}
+
+\newpage
+\recipecard{Homework 5, Problem 3}
+
+\newpage
+\begin{selfexplanationbox}{Homework 5, Problem 3}
+\workquestion{1. Why does boundedness guarantee finite tail suprema for \(a_n\), \(b_n\), and \(a_n+b_n\)?}{1.0in}
+\workquestion{2. For a fixed \(N\), what upper bounds do the tail suprema give for \(a_n\) and \(b_n\)?}{1.0in}
+\workquestion{3. Why does adding two pointwise upper bounds produce an upper bound for \(a_n+b_n\)?}{0.95in}
+\workquestion{4. How does an upper bound for every tail term become an inequality of suprema?}{1.0in}
+\workquestion{5. Which limit law finishes the proof after passing \(N\to\infty\)?}{0.9in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 5, Problem 3}
+\workquestion{Fix \(N\ge1\). Write the two tail upper bounds for all \(n\ge N\):}{1.0in}
+\workquestion{Add them to get an upper bound for \(a_n+b_n\):}{0.9in}
+\workquestion{Take the supremum over \(n\ge N\) to obtain:}{0.9in}
+\workquestion{Let \(N\to\infty\) and identify each term with a limsup:}{1.0in}
+\workquestion{State the final inequality:}{0.75in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 5, Problem 3}{Use this page for the complete proof.}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+Fix \(N\ge1\). For \(n\ge N\) we have
+\[
+  a_n\le \sup\{a_n:n\ge N\}, \qquad
+  b_n\le \sup\{b_n:n\ge N\},
+\]
+and so
+\[
+  a_n+b_n\le \sup\{a_n:n\ge N\}+\sup\{b_n:n\ge N\}.
+\]
+In other words, \(\sup\{a_n:n\ge N\}+\sup\{b_n:n\ge N\}\) is an upper bound for the set \(\{a_n+b_n:n\ge N\}\). Therefore
+\[
+  \sup\{a_n+b_n:n\ge N\}
+  \le
+  \sup\{a_n:n\ge N\}+\sup\{b_n:n\ge N\}.
+\]
+
+Altogether, we have shown that for any \(N\ge1\) we have
+\[
+  \sup\{a_n+b_n:n\ge N\}
+  \le
+  \sup\{a_n:n\ge N\}+\sup\{b_n:n\ge N\}.
+\]
+As \(\{a_n\}\) is a bounded sequence, we know from lecture that the sequence \(v_N=\sup\{a_n:n\ge N\}\) converges to \(v=\limsup a_n\in\R\). Similarly, as \(\{b_n\}\) is bounded, the sequence \(\sup\{b_n:n\ge N\}\) converges to \(\limsup b_n\) as \(N\to\infty\). By the inequality above, we see that the sequence \(\sup\{a_n+b_n:n\ge N\}\) is also bounded above. Therefore \(\limsup(a_n+b_n)\) is a finite number, and \(\sup\{a_n+b_n:n\ge N\}\) converges to \(\limsup(a_n+b_n)\) as \(N\to\infty\).
+
+By the limit laws, the sequence
+\[
+  \sup\{a_n+b_n:n\ge N\}
+  -\sup\{a_n:n\ge N\}
+  -\sup\{b_n:n\ge N\}
+\]
+converges as \(N\to\infty\). We also know that it is \(\le0\) for all \(N\ge1\). Therefore, by HW4\#3, the limit is also \(\le0\):
+\[
+  \limsup(a_n+b_n)-\limsup a_n-\limsup b_n\le0
+\]
+and hence
+\[
+  \limsup_{n\to\infty}(a_n+b_n)
+  \le
+  \limsup_{n\to\infty}a_n+\limsup_{n\to\infty}b_n.
+\]
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 5, Problem 3}
+
+% ---------------------------------------------------------------------------
+% HW5 Problem 4
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 4}
+
+\begin{problemstatementbox}{Homework 5, Problem 4}
+Let \(\{a_n\}_{n\ge1}\) be a sequence. Prove that \(\limsup_{n\to\infty}|a_n|=0\) if and only if \(\lim_{n\to\infty}a_n=0\).
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 5, Problem 4}
+
+\newpage
+\recipecard{Homework 5, Problem 4}
+
+\newpage
+\begin{selfexplanationbox}{Homework 5, Problem 4}
+\workquestion{1. Why is \(\liminf |a_n|\ge0\) automatic?}{0.9in}
+\workquestion{2. How does \(\liminf |a_n|=\limsup |a_n|=0\) imply \(|a_n|\to0\)?}{1.0in}
+\workquestion{3. Why is \(|a_n|\to0\) exactly the same as \(a_n\to0\)?}{0.95in}
+\workquestion{4. In the reverse direction, which earlier homework result gives \(|a_n|\to0\)?}{0.95in}
+\workquestion{5. How does Lecture 14 connect ordinary limits with liminf and limsup?}{0.95in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 5, Problem 4}
+\textbf{Forward direction.}
+\workquestion{Assume \(\limsup |a_n|=0\). Prove \(\liminf |a_n|\ge0\):}{0.95in}
+\workquestion{Use \(\liminf |a_n|\le\limsup |a_n|\) to conclude:}{0.85in}
+\workquestion{Invoke the liminf/limsup convergence criterion to get \(|a_n|\to0\):}{0.85in}
+\workquestion{Translate \(|a_n|\to0\) into \(a_n\to0\):}{0.85in}
+
+\textbf{Reverse direction.}
+\workquestion{Assume \(a_n\to0\). Use HW4\#1 to get:}{0.8in}
+\workquestion{Use Lecture 14 to identify \(\limsup |a_n|\):}{0.8in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 5, Problem 4}{Use this page for both directions.}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+\(\Rightarrow\) Suppose \(\limsup |a_n|=0\).
+
+Claim: \(\liminf |a_n|\ge0\). As \(|a_n|\ge0\) for all \(n\), we have
+\[
+  \inf_{n\ge N}|a_n|\ge0
+  \qquad \text{for all } N\ge1.
+\]
+Therefore
+\[
+  \lim_{N\to\infty}\inf_{n\ge N}|a_n|\ge0
+\]
+by HW4\#3.
+
+Altogether, we have
+\[
+  0\le \liminf |a_n|\le \limsup |a_n|=0.
+\]
+Therefore
+\[
+  \liminf |a_n|=0=\limsup |a_n|.
+\]
+By Lecture 10, this means that
+\[
+  \lim |a_n|=0.
+\]
+In other words: for all \(\varepsilon>0\) there exists \(N\) so that
+\[
+  ||a_n|-0|<\varepsilon \qquad \text{for all } n\ge N.
+\]
+This is the same as: for all \(\varepsilon>0\) there exists \(N\) so that
+\[
+  |a_n-0|<\varepsilon \qquad \text{for all } n\ge N.
+\]
+So \(\lim a_n=0\).
+
+\(\Leftarrow\) Suppose \(\lim a_n=0\). By HW4\#1, this implies
+\[
+  \lim |a_n|=0.
+\]
+By Lecture 14, we have
+\[
+  \liminf |a_n|=0=\limsup |a_n|.
+\]
+So \(\limsup |a_n|=0\), as desired.
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 5, Problem 4}
+
+\section{Homework 6}
+
+% ---------------------------------------------------------------------------
+% HW6 Problem 1
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 1}
+
+\begin{problemstatementbox}{Homework 6, Problem 1}
+Prove that the series
+\[
+  \sum_{n=1}^{\infty}\frac{1}{(3n-2)(3n+1)}
+\]
+converges, and find its value. (Hint: You computed the partial sums on Homework 1.)
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 6, Problem 1}
+
+\newpage
+\recipecard{Homework 6, Problem 1}
+
+\newpage
+\begin{selfexplanationbox}{Homework 6, Problem 1}
+\workquestion{1. What does it mean for a series to converge in terms of partial sums?}{0.95in}
+\workquestion{2. What partial fraction decomposition should be used?}{0.95in}
+\workquestion{3. Which terms cancel in the \(N\)th partial sum?}{1.0in}
+\workquestion{4. What explicit formula for \(S_N\) should remain after cancellation?}{0.95in}
+\workquestion{5. What limit gives the value of the series?}{0.85in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 6, Problem 1}
+\workquestion{Define the \(N\)th partial sum \(S_N=\)}{0.8in}
+\workquestion{Rewrite the summand using partial fractions:}{0.9in}
+\workquestion{Write the telescoping sum and identify the surviving first and last terms:}{1.05in}
+\workquestion{Compute \(\lim_{N\to\infty}S_N\):}{0.9in}
+\workquestion{State convergence and the value of the series:}{0.75in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 6, Problem 1}{Use this page for the complete proof.}
+
+\newpage
+\begin{solutionbox}{Student-Derived Solution (No official solution available)}
+Let
+\[
+  a_n=\frac{1}{(3n-2)(3n+1)}
+\]
+and let \(S_N=\sum_{n=1}^N a_n\). Using partial fractions,
+\[
+  \frac{1}{(3n-2)(3n+1)}
+  =
+  \frac13\left(\frac1{3n-2}-\frac1{3n+1}\right).
+\]
+Hence
+\[
+  S_N
+  =
+  \frac13\sum_{n=1}^N
+  \left(\frac1{3n-2}-\frac1{3n+1}\right).
+\]
+Writing out the terms gives
+\[
+  S_N
+  =
+  \frac13\left[
+    \left(1-\frac14\right)
+    +
+    \left(\frac14-\frac17\right)
+    +\cdots+
+    \left(\frac1{3N-2}-\frac1{3N+1}\right)
+  \right].
+\]
+All intermediate terms cancel, so
+\[
+  S_N=\frac13\left(1-\frac1{3N+1}\right)=\frac{N}{3N+1}.
+\]
+Therefore
+\[
+  \lim_{N\to\infty}S_N
+  =
+  \lim_{N\to\infty}\frac{N}{3N+1}
+  =
+  \frac13.
+\]
+Since the sequence of partial sums converges, the series converges, and its value is
+\[
+  \sum_{n=1}^{\infty}\frac{1}{(3n-2)(3n+1)}=\frac13.
+\]
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 6, Problem 1}
+
+% ---------------------------------------------------------------------------
+% HW6 Problem 2
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 2}
+
+\begin{problemstatementbox}{Homework 6, Problem 2}
+Let \(\sum_{n=1}^{\infty} a_n\) and \(\sum_{n=1}^{\infty} b_n\) be convergent series.
+
+\begin{enumerate}[label=(\alph*)]
+  \item Prove that for any \(k\in\R\), the series \(\sum_{n=1}^{\infty}ka_n\) converges and
+  \[
+    \sum_{n=1}^{\infty}ka_n
+    =
+    k\sum_{n=1}^{\infty}a_n.
+  \]
+  \item Prove that the series \(\sum_{n=1}^{\infty}(a_n+b_n)\) converges and
+  \[
+    \sum_{n=1}^{\infty}(a_n+b_n)
+    =
+    \sum_{n=1}^{\infty}a_n+\sum_{n=1}^{\infty}b_n.
+  \]
+\end{enumerate}
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 6, Problem 2}
+
+\newpage
+\recipecard{Homework 6, Problem 2}
+
+\newpage
+\begin{selfexplanationbox}{Homework 6, Problem 2}
+\workquestion{1. How is the sum of a convergent series defined using partial sums?}{0.95in}
+\workquestion{2. In part (a), what are the partial sums of \(\sum ka_n\) in terms of the partial sums of \(\sum a_n\)?}{1.0in}
+\workquestion{3. Which sequence limit law proves convergence in part (a)?}{0.9in}
+\workquestion{4. In part (b), how do the partial sums of \(\sum(a_n+b_n)\) split?}{1.0in}
+\workquestion{5. Which limit law gives the final identity for the sum?}{0.9in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 6, Problem 2}
+\textbf{Part (a).}
+\workquestion{Let \(s_n=\sum_{j=1}^n a_j\). The partial sums of \(\sum ka_n\) are:}{0.95in}
+\workquestion{Use \(s_n\to \sum a_n\) and the constant multiple limit law:}{0.95in}
+\workquestion{Translate the limit of partial sums into the series identity:}{0.85in}
+
+\textbf{Part (b).}
+\workquestion{Let \(s_n=\sum_{j=1}^n a_j\) and \(t_n=\sum_{j=1}^n b_j\). The partial sums are:}{0.95in}
+\workquestion{Use the addition limit law and state the resulting sum:}{0.95in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 6, Problem 2}{Use this page for part (a).}
+
+\newpage
+\fullproofpage{Homework 6, Problem 2}{Use this page for part (b).}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+(a) Let \(s_n=\sum_{j=1}^n a_j\) denote the \(n\)th partial sum. As \(\sum a_n\) converges, we know that the sequence \(\{s_n\}\) converges.
+
+Fix \(k\in\R\). Then the partial sums \(\sum_{j=1}^n ka_j\) are equal to \(ks_n\). By the limit law for multiplication by a constant, we conclude that the sequence \(\{ks_n\}_{n\ge1}\) converges and \(\lim(ks_n)=k\lim s_n\). By definition, this is exactly what it means for the series \(\sum ka_n\) to converge to the number \(k\sum a_n\).
+
+(b) Let \(s_n=\sum_{j=1}^n a_j\) and \(t_n=\sum_{j=1}^n b_j\) denote the \(n\)th partial sums. As \(\sum a_n\) and \(\sum b_n\) converge, we know that the sequences \(\{s_n\}\) and \(\{t_n\}\) converge.
+
+Note that the partial sums \(\sum_{j=1}^n(a_j+b_j)\) are equal to \(s_n+t_n\). By the limit law for addition, we conclude that the sequence \(\{s_n+t_n\}_{n\ge1}\) converges and \(\lim(s_n+t_n)=\lim s_n+\lim t_n\). By definition, this is exactly what it means for the series \(\sum(a_n+b_n)\) to converge to the number \(\sum a_n+\sum b_n\).
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 6, Problem 2}
+
+% ---------------------------------------------------------------------------
+% HW6 Problem 3
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 3}
+
+\begin{problemstatementbox}{Homework 6, Problem 3}
+\begin{enumerate}[label=(\alph*)]
+  \item Prove that
+  \[
+    \sum_{n=1}^{\infty}\frac{n-1}{2^{n+1}}=\frac12.
+  \]
+  (Hint: \(\frac{k-1}{2^{k+1}}=\frac{k}{2^k}-\frac{k+1}{2^{k+1}}\).)
+  \item Use part (a) to compute
+  \[
+    \sum_{n=1}^{\infty}\frac{n}{2^n}.
+  \]
+\end{enumerate}
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 6, Problem 3}
+
+\newpage
+\recipecard{Homework 6, Problem 3}
+
+\newpage
+\begin{selfexplanationbox}{Homework 6, Problem 3}
+\workquestion{1. What identity turns the summand in part (a) into a telescoping difference?}{0.95in}
+\workquestion{2. What formula should the \(n\)th partial sum satisfy?}{0.95in}
+\workquestion{3. Why does \(\frac{n}{2^n}\to0\)?}{0.95in}
+\workquestion{4. In part (b), how do you rewrite \(\frac{n}{2^n}\) using \(\frac{n-1}{2^{n+1}}\) and \(\frac1{2^n}\)?}{1.0in}
+\workquestion{5. Which geometric series value is needed?}{0.85in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 6, Problem 3}
+\textbf{Part (a).}
+\workquestion{Define \(s_n=\sum_{k=1}^n \frac{k-1}{2^{k+1}}\). Prove by induction that \(s_n=\)}{0.95in}
+\workquestion{Base case \(n=1\):}{0.75in}
+\workquestion{Inductive step using \(\frac{k-1}{2^{k+1}}=\frac{k}{2^k}-\frac{k+1}{2^{k+1}}\):}{1.0in}
+\workquestion{Pass to the limit using \(\frac{n}{2^n}\to0\):}{0.9in}
+
+\textbf{Part (b).}
+\workquestion{Rewrite \(\sum_{k=1}^n\frac{k}{2^k}\) as \(2\sum\frac{k-1}{2^{k+1}}+\sum\frac1{2^k}\):}{0.95in}
+\workquestion{Use part (a) and the geometric series to compute the value:}{0.85in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 6, Problem 3}{Use this page for part (a).}
+
+\newpage
+\fullproofpage{Homework 6, Problem 3}{Use this page for part (b).}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+(a) Let \(s_n=\sum_{k=1}^n\frac{k-1}{2^{k+1}}\).
+
+We will prove that
+\[
+  s_n=\frac12-\frac{n+1}{2^{n+1}}
+  \qquad \text{for } n\ge1
+\]
+by induction. For the base case, we note that
+\[
+  s_1=\frac04=\frac12-\frac24.
+\]
+For the inductive step, assume that \(s_n=\frac12-\frac{n+1}{2^{n+1}}\) for some \(n\ge1\). Then
+\[
+  s_{n+1}
+  =
+  s_n+\frac{n}{2^{n+2}}
+  =
+  \frac12-\frac{n+1}{2^{n+1}}+\frac{n+1}{2^{n+1}}-\frac{n+2}{2^{n+2}}
+  =
+  \frac12-\frac{n+2}{2^{n+2}}.
+\]
+Together, we conclude that our formula for \(s_n\) holds for all \(n\ge1\) by induction.
+
+Next, we claim that \(\lim\frac{n}{2^n}=0\). Notice that \(n\le(3/2)^n\) for all \(n\ge1\), and so
+\[
+  0\le \frac{n}{2^n}\le \frac{(3/2)^n}{2^n}=\left(\frac34\right)^n.
+\]
+The right-hand side converges to zero as \(n\to\infty\). Therefore, \(\frac{n}{2^n}\) also converges to zero by the squeeze theorem.
+
+Altogether, we conclude
+\[
+  \lim s_n
+  =
+  \lim\left(\frac12-\frac{n+1}{2^{n+1}}\right)
+  =
+  \frac12.
+\]
+(In the last equality, we noted that \(\frac{n+1}{2^{n+1}}\) is a subsequence of \(\frac{n}{2^n}\), and therefore also converges to zero.) By definition of a convergent series, we conclude that
+\[
+  \sum_{n=1}^{\infty}\frac{n-1}{2^{n+1}}=\frac12.
+\]
+
+(b) Note that
+\[
+  \sum_{k=1}^n\frac{k}{2^k}
+  =
+  2\sum_{k=1}^n\frac{k-1}{2^{k+1}}
+  +
+  \sum_{k=1}^n\frac1{2^k}.
+\]
+By part (a), \(\sum\frac{k-1}{2^{k+1}}\) converges to \(\frac12\), and thus \(2\sum\frac{k-1}{2^{k+1}}\) converges to \(1\) by problem 2. From lecture, we know that the geometric series \(\sum\frac1{2^k}\) converges to \(\frac1{1-(1/2)}-1=1\). (Notice that we are starting at \(k=1\), not \(k=0\).) Together, we conclude \(\sum_{k=1}^{\infty}\frac{k}{2^k}\) converges to \(1+1=2\).
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 6, Problem 3}
+
+% ---------------------------------------------------------------------------
+% HW6 Problem 4
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 4}
+
+\begin{problemstatementbox}{Homework 6, Problem 4}
+Prove that if \(\sum_{n=1}^{\infty}a_n\) converges absolutely and \(\{b_n\}_{n\ge1}\) is a bounded sequence, then the series \(\sum_{n=1}^{\infty}a_nb_n\) also converges. (Hint: Use the Cauchy criterion.)
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 6, Problem 4}
+
+\newpage
+\recipecard{Homework 6, Problem 4}
+
+\newpage
+\begin{selfexplanationbox}{Homework 6, Problem 4}
+\workquestion{1. What does absolute convergence of \(\sum a_n\) say about \(\sum |a_n|\)?}{0.95in}
+\workquestion{2. What bound does boundedness of \(\{b_n\}\) provide?}{0.9in}
+\workquestion{3. What is the Cauchy criterion for convergence of a series?}{1.0in}
+\workquestion{4. How can \(\left|\sum_{k=m}^n a_kb_k\right|\) be controlled by \(\sum_{k=m}^n |a_k|\)?}{1.0in}
+\workquestion{5. Why is \(M+1\) used in the denominator of the tail estimate?}{0.9in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 6, Problem 4}
+\workquestion{Choose \(M\ge0\) such that \(|b_n|\le M\) for all \(n\):}{0.8in}
+\workquestion{Use the Cauchy criterion for \(\sum|a_n|\) with tolerance \(\varepsilon/(M+1)\):}{1.0in}
+\workquestion{For \(n\ge m\ge N\), estimate \(\left|\sum_{k=m}^n a_kb_k\right|\):}{1.05in}
+\workquestion{Conclude the Cauchy criterion for \(\sum a_nb_n\):}{0.85in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 6, Problem 4}{Use this page for the complete proof.}
+
+\newpage
+\begin{solutionbox}{Student-Derived Solution (No official solution available)}
+Since \(\sum_{n=1}^{\infty}a_n\) converges absolutely, the series
+\[
+  \sum_{n=1}^{\infty}|a_n|
+\]
+converges. By the Cauchy criterion for series, given \(\varepsilon>0\), there exists \(N\in\N\) such that
+\[
+  \sum_{k=m}^{n}|a_k|<\frac{\varepsilon}{M+1}
+  \qquad \text{for all } n\ge m\ge N,
+\]
+where \(M\ge0\) is chosen so that
+\[
+  |b_n|\le M \qquad \text{for all } n\in\N.
+\]
+Such an \(M\) exists because \(\{b_n\}\) is bounded.
+
+Now let \(n\ge m\ge N\). Then
+\[
+  \left|\sum_{k=m}^{n}a_kb_k\right|
+  \le
+  \sum_{k=m}^{n}|a_kb_k|
+  =
+  \sum_{k=m}^{n}|a_k||b_k|
+  \le
+  M\sum_{k=m}^{n}|a_k|.
+\]
+Therefore
+\[
+  \left|\sum_{k=m}^{n}a_kb_k\right|
+  <
+  M\cdot\frac{\varepsilon}{M+1}
+  <
+  \varepsilon.
+\]
+Thus, for every \(\varepsilon>0\), there exists \(N\in\N\) such that
+\[
+  \left|\sum_{k=m}^{n}a_kb_k\right|<\varepsilon
+  \qquad \text{for all } n\ge m\ge N.
+\]
+By the Cauchy criterion for series, \(\sum_{n=1}^{\infty}a_nb_n\) converges.
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 6, Problem 4}
+
+% ---------------------------------------------------------------------------
+% HW6 Problem 5
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 5}
+
+\begin{problemstatementbox}{Homework 6, Problem 5}
+\begin{enumerate}[label=(\alph*)]
+  \item Prove that if \(\sum_{n=1}^{\infty}a_n\) converges absolutely, then the series \(\sum_{n=1}^{\infty}a_n^2\) also converges.
+  \item Provide an example where \(\sum_{n=1}^{\infty}a_n\) diverges and \(\sum_{n=1}^{\infty}a_n^2\) converges.
+\end{enumerate}
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 6, Problem 5}
+
+\newpage
+\recipecard{Homework 6, Problem 5}
+
+\newpage
+\begin{selfexplanationbox}{Homework 6, Problem 5}
+\workquestion{1. Why does absolute convergence imply \(a_n\to0\)?}{0.95in}
+\workquestion{2. Why does \(a_n\to0\) imply \(|a_n|<1\) eventually?}{0.9in}
+\workquestion{3. For \(|x|<1\), why is \(x^2\le |x|\)?}{0.95in}
+\workquestion{4. Which comparison proves the tail of \(\sum a_n^2\) converges?}{0.95in}
+\workquestion{5. What standard example makes \(\sum a_n\) diverge but \(\sum a_n^2\) converge?}{0.95in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 6, Problem 5}
+\textbf{Part (a).}
+\workquestion{From absolute convergence, write the convergent positive series:}{0.85in}
+\workquestion{Use convergence of \(\sum a_n\) to get \(a_n\to0\), then choose \(N\) with \(|a_n|<1\):}{0.95in}
+\workquestion{For \(n\ge N\), compare \(a_n^2\) with \(|a_n|\):}{0.9in}
+\workquestion{Use the comparison test and finite initial terms:}{0.9in}
+
+\textbf{Part (b).}
+\workquestion{Choose \(a_n=\) and cite the harmonic and \(p\)-series facts:}{0.95in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 6, Problem 5}{Use this page for part (a).}
+
+\newpage
+\fullproofpage{Homework 6, Problem 5}{Use this page for part (b).}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+(a) Note that \(x^2\le |x|\) for any \(x\in[-1,1]\). (I recommend that you draw the graphs of \(x^2\) and \(|x|\) to check that this is true.)
+
+As \(\sum a_n\) converges, then we have \(\lim a_n=0\), and so there exists an \(N\) so that \(|a_n|<1\) for all \(n\ge N\). By the previous paragraph, this means that \(a_n^2\le |a_n|\) for all \(n\ge N\). As \(\sum |a_n|\) converges, then \(\sum_{n=N}^{\infty}a_n^2\) also converges by the comparison test. Adding the first \(N-1\) terms back in, we conclude \(\sum_{n=1}^{\infty}a_n^2\) converges as well.
+
+(b) Consider \(a_n=\frac1n\). In lecture, we proved that \(\sum\frac1n\) diverges and \(\sum\frac1{n^2}\) converges.
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 6, Problem 5}
+
+% ---------------------------------------------------------------------------
+% HW6 Problem 6
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 6}
+
+\begin{problemstatementbox}{Homework 6, Problem 6}
+For each of the following series, determine if it converges and prove your answer.
+\[
+  \text{(a) }\sum_{n=2}^{\infty}\frac{1}{[n+(-1)^n]^2}
+  \qquad
+  \text{(b) }\sum_{n=1}^{\infty}\left(\sqrt{n+1}-\sqrt n\right)
+  \qquad
+  \text{(c) }\sum_{n=1}^{\infty}(-1)^n
+\]
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 6, Problem 6}
+
+\newpage
+\recipecard{Homework 6, Problem 6}
+
+\newpage
+\begin{selfexplanationbox}{Homework 6, Problem 6}
+\workquestion{1. In part (a), what lower bound can you put on \(n+(-1)^n\) for \(n\ge2\)?}{0.95in}
+\workquestion{2. Which convergent \(p\)-series controls part (a)?}{0.85in}
+\workquestion{3. In part (b), what is the \(N\)th partial sum after telescoping?}{0.95in}
+\workquestion{4. Why does that partial sum sequence diverge to \(+\infty\)?}{0.95in}
+\workquestion{5. In part (c), what necessary condition for convergence fails?}{0.9in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 6, Problem 6}
+\textbf{Part (a).}
+\workquestion{For \(n\ge2\), show \(n+(-1)^n\ge n-1\), then compare:}{0.95in}
+\workquestion{Use the comparison test with \(\sum 1/(n-1)^2\):}{0.85in}
+
+\textbf{Part (b).}
+\workquestion{Let \(s_n=\sum_{k=1}^n(\sqrt{k+1}-\sqrt{k})\). Prove by induction/telescoping that \(s_n=\)}{0.95in}
+\workquestion{Show \(s_n\to+\infty\), so the series diverges:}{0.85in}
+
+\textbf{Part (c).}
+\workquestion{Suppose the series converged. Then its terms would satisfy:}{0.8in}
+\workquestion{Explain why \((-1)^n\) does not satisfy this:}{0.8in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 6, Problem 6}{Use this page for parts (a) and (b).}
+
+\newpage
+\fullproofpage{Homework 6, Problem 6}{Use this page for part (c) and final conclusions.}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+(a) We will prove that this series converges. For \(n\ge2\), we have
+\[
+  \frac{1}{[n+(-1)^n]^2}\le \frac{1}{(n-1)^2}.
+\]
+From lecture, we know that the series
+\[
+  \sum_{n=2}^{\infty}\frac{1}{(n-1)^2}
+  =
+  \sum_{k=1}^{\infty}\frac1{k^2}
+\]
+converges. Therefore our series \(\sum \frac1{[n+(-1)^n]^2}\) also converges by the comparison test.
+
+(b) We will prove that this series diverges. Let
+\[
+  s_n=\sum_{k=1}^n(\sqrt{k+1}-\sqrt{k})
+\]
+denote the \(n\)th partial sum.
+
+Claim: \(s_n=\sqrt{n+1}-1\) for all \(n\ge1\). We will argue using induction.
+
+\begin{itemize}
+  \item Base case: For \(n=1\), we have
+  \[
+    s_1=\sqrt2-\sqrt1=\sqrt2-1.
+  \]
+  \item Inductive step: Suppose that \(s_n=\sqrt{n+1}-1\) for some \(n\ge1\). Then the formula for \(s_{n+1}\) holds, since
+  \[
+    s_{n+1}
+    =
+    s_n+(\sqrt{n+2}-\sqrt{n+1})
+    =
+    (\sqrt{n+1}-1)+(\sqrt{n+2}-\sqrt{n+1})
+    =
+    \sqrt{n+2}-1.
+  \]
+\end{itemize}
+By induction, we conclude that \(s_n=\sqrt{n+1}-1\) holds for all \(n\ge1\).
+
+Notice that the sequence \(s_n=\sqrt{n+1}-1\) diverges to \(+\infty\). Indeed, given \(M>0\), pick \(N\in\N\) so that \(N>(M+1)^2\), and then for any \(n\ge N\) we have
+\[
+  \sqrt{n+1}-1\ge \sqrt N-1>\sqrt{(M+1)^2}-1=M.
+\]
+As the sequence \(\{s_n\}\) diverges, then the series \(\sum(\sqrt{n+1}-\sqrt n)\) diverges.
+
+(c) We will prove that this series diverges. Suppose towards a contradiction that \(\sum(-1)^n\) converges. Then \(\lim(-1)^n=0\) by Lecture 16. However, we know that the sequence \(\{(-1)^n\}\) diverges by Lecture 10, and so this is a contradiction.
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 6, Problem 6}
+
+\section{Homework 7}
+
+% ---------------------------------------------------------------------------
+% HW7 Problem 1
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 1}
+
+\begin{problemstatementbox}{Homework 7, Problem 1}
+For each of the following series, determine if it converges and prove your answer.
+\[
+  \text{(a) }\sum_{n=2}^{\infty}\frac1{\log n}
+  \qquad
+  \text{(b) }\sum_{n=1}^{\infty}\frac{n-1}{n^2}
+  \qquad
+  \text{(c) }\sum_{n=1}^{\infty}\frac{n^2}{n!}
+\]
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 7, Problem 1}
+
+\newpage
+\recipecard{Homework 7, Problem 1}
+
+\newpage
+\begin{selfexplanationbox}{Homework 7, Problem 1}
+\workquestion{1. Which convergence test is adapted to \(\sum 1/\log n\), and why?}{1.0in}
+\workquestion{2. In part (a), why do the dyadic terms fail the term test?}{0.95in}
+\workquestion{3. In part (b), how does \((n-1)/n^2\) compare to \(1/(2n)\)?}{0.95in}
+\workquestion{4. In part (c), why is the ratio test natural for \(n^2/n!\)?}{0.9in}
+\workquestion{5. Which parts converge and which diverge?}{0.9in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 7, Problem 1}
+\textbf{Part (a).}
+\workquestion{Reindex with \(a_k=1/\log(k+1)\) and state the dyadic criterion:}{0.95in}
+\workquestion{Estimate \(2^n a_{2^n}\) from below and explain why the terms do not go to zero:}{1.0in}
+
+\textbf{Part (b).}
+\workquestion{For \(n\ge2\), prove \(\frac{n-1}{n^2}\ge\frac1{2n}\):}{0.95in}
+\workquestion{Use comparison with the harmonic series:}{0.85in}
+
+\textbf{Part (c).}
+\workquestion{Set \(a_n=\frac{n^2}{n!}\). Compute \(a_{n+1}/a_n\):}{0.9in}
+\workquestion{Apply the ratio test:}{0.8in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 7, Problem 1}{Use this page for parts (a) and (b).}
+
+\newpage
+\fullproofpage{Homework 7, Problem 1}{Use this page for part (c) and final conclusions.}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+(a) We'll use the dyadic criterion. Consider the series \(\sum_{k=1}^{\infty}a_k\) with \(a_k=\frac1{\log(k+1)}\) for \(k\ge1\). (Strictly speaking, in order to apply the dyadic criterion we need a series that starts at \(n=1\), so we reindexed.)
+
+Then \(\{a_k\}_{k\ge1}\) is a decreasing sequence of nonnegative numbers. Therefore, by the dyadic criterion, \(\sum_{k=1}^{\infty}a_k\) converges if and only if the series \(\sum_{n=0}^{\infty}2^n a_{2^n}\) converges. Note that
+\[
+  2^n a_{2^n}
+  =
+  \frac{2^n}{\log(2^n+1)}
+  \ge
+  \frac{2^n}{\log(2^{n+1})}
+  =
+  \frac1{\log2}\cdot\frac{2^n}{n+1}.
+\]
+Now, the sequence \(\frac{2^n}{n+1}\) diverges to \(+\infty\), and so it cannot converge to \(0\). Multiplying this by the constant \(\frac1{\log2}\), we see that \(2^n a_{2^n}\) also cannot converge to \(0\). Therefore the series \(\sum 2^n a_{2^n}\) diverges, and thus \(\sum a_k\) diverges as well.
+
+(b) We'll use the comparison test. For \(n\ge2\), we have
+\[
+  n-1\ge n-\frac n2=\frac n2
+  \qquad \Longrightarrow \qquad
+  \frac{n-1}{n^2}\ge \frac{n/2}{n^2}=\frac1{2n}.
+\]
+From lecture we know that the series \(\sum \frac1n\) diverges, and thus \(\sum_{n=2}^{\infty}\frac1{2n}\) diverges as well. Therefore, by the comparison test, \(\sum_{n=2}^{\infty}\frac{n-1}{n^2}\) also diverges. Note that \(\frac{n-1}{n^2}\) is equal to zero for \(n=1\), so \(\sum_{n=2}^{\infty}\frac{n-1}{n^2}\) and \(\sum_{n=1}^{\infty}\frac{n-1}{n^2}\) are the same series.
+
+(c) We'll use the ratio test. Set \(a_n=\frac{n^2}{n!}\). Then
+\[
+  \frac{a_{n+1}}{a_n}
+  =
+  \frac{(n+1)^2\cdot n!}{n^2\cdot (n+1)!}
+  =
+  \frac{n+1}{n^2}
+  \longrightarrow 0
+  \qquad \text{as } n\to\infty.
+\]
+Therefore
+\[
+  \limsup\left|\frac{a_{n+1}}{a_n}\right|
+  =
+  \lim\frac{a_{n+1}}{a_n}
+  =
+  0<1,
+\]
+and so the series converges by the ratio test.
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 7, Problem 1}
+
+% ---------------------------------------------------------------------------
+% HW7 Problem 2
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 2}
+
+\begin{problemstatementbox}{Homework 7, Problem 2}
+For each of the following series, determine if it converges and prove your answer.
+\[
+  \text{(a) }\sum_{n=1}^{\infty}\frac{n^4}{4^n}
+  \qquad
+  \text{(b) }\sum_{n=1}^{\infty}\frac{n!}{n^4+3}
+  \qquad
+  \text{(c) }\sum_{n=1}^{\infty}\frac{2^n}{n!}
+\]
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 7, Problem 2}
+
+\newpage
+\recipecard{Homework 7, Problem 2}
+
+\newpage
+\begin{selfexplanationbox}{Homework 7, Problem 2}
+\workquestion{1. Why does a polynomial-over-exponential series suggest the ratio test?}{0.95in}
+\workquestion{2. In part (b), what necessary condition for convergence should be checked?}{0.95in}
+\workquestion{3. How does factorial growth compare to \(n^4+3\)?}{0.95in}
+\workquestion{4. In part (c), what ratio do successive terms have?}{0.9in}
+\workquestion{5. Which of these three series fail because the terms do not go to \(0\)?}{0.9in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 7, Problem 2}
+\textbf{Part (a).}
+\workquestion{Set \(a_n=\frac{n^4}{4^n}\). Compute \(a_{n+1}/a_n\) and its limit:}{1.0in}
+\workquestion{Apply the ratio test:}{0.75in}
+
+\textbf{Part (b).}
+\workquestion{Show \(\frac{n^4+3}{n!}\to0\), for example using \(n!\ge n(n-1)(n-2)(n-3)(n-4)\):}{1.1in}
+\workquestion{Use HW5\#1 to conclude \(\frac{n!}{n^4+3}\to+\infty\), hence the series diverges:}{0.95in}
+
+\textbf{Part (c).}
+\workquestion{Set \(a_n=\frac{2^n}{n!}\). Compute \(a_{n+1}/a_n\) and apply the ratio test:}{0.95in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 7, Problem 2}{Use this page for parts (a) and (b).}
+
+\newpage
+\fullproofpage{Homework 7, Problem 2}{Use this page for part (c) and final conclusions.}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+(a) We'll use the ratio test. Set \(a_n=\frac{n^4}{4^n}\). Then
+\[
+  \frac{a_{n+1}}{a_n}
+  =
+  \frac{(n+1)^4\cdot 4^n}{n^4\cdot 4^{n+1}}
+  =
+  \frac{(n+1)^4}{4n^4}
+  \longrightarrow \frac14
+  \qquad \text{as } n\to\infty.
+\]
+Therefore \(\limsup\left|\frac{a_{n+1}}{a_n}\right|=\frac14<1\), and so the series converges by the ratio test.
+
+(b) This series diverges. In brief, the sequence \(\frac{n!}{n^4+3}\) diverges to \(+\infty\), and so it cannot converge to zero. More concretely, notice that for \(n\ge5\) we have
+\[
+  n!\ge n(n-1)(n-2)(n-3)(n-4),
+\]
+and so
+\[
+  \frac{n^4+3}{n!}
+  \le
+  \frac{n^4+3}{n(n-1)(n-2)(n-3)(n-4)}
+  \longrightarrow 0
+  \qquad \text{as } n\to\infty.
+\]
+Therefore the sequence \(\frac{n!}{n^4+3}\to+\infty\) by HW5\#1. In particular, there must exist an \(N\) so that \(\frac{n!}{n^4+3}\ge1\) for all \(n\ge N\), and so \(\frac{n!}{n^4+3}\) cannot converge to \(0\).
+
+(c) We'll use the ratio test. Set \(a_n=\frac{2^n}{n!}\). Then
+\[
+  \frac{a_{n+1}}{a_n}
+  =
+  \frac{2^{n+1}\cdot n!}{(n+1)!\cdot 2^n}
+  =
+  \frac2{n+1}
+  \longrightarrow 0
+  \qquad \text{as } n\to\infty.
+\]
+Therefore \(\limsup\left|\frac{a_{n+1}}{a_n}\right|=0<1\), and so the series converges by the ratio test.
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 7, Problem 2}
+
+% ---------------------------------------------------------------------------
+% HW7 Problem 3
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 3}
+
+\begin{problemstatementbox}{Homework 7, Problem 3}
+For each of the following series, determine if it converges and prove your answer.
+\[
+  \text{(a) }\sum_{n=1}^{\infty}\frac1{n^n}
+  \qquad
+  \text{(b) }\sum_{n=1}^{\infty}\frac{n!}{n^n}
+  \qquad
+  \text{(c) }\sum_{n=1}^{\infty}\frac{(-1)^n n!}{2^n}
+\]
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 7, Problem 3}
+
+\newpage
+\recipecard{Homework 7, Problem 3}
+
+\newpage
+\begin{selfexplanationbox}{Homework 7, Problem 3}
+\workquestion{1. Why does \(\frac1{n^n}\) suggest the root test?}{0.9in}
+\workquestion{2. What lecture result gives \((n!)^{1/n}/n\to 1/e\)?}{0.95in}
+\workquestion{3. Why does \(1/e<1\) prove convergence in part (b)?}{0.9in}
+\workquestion{4. In part (c), why should you check whether the terms go to \(0\)?}{0.95in}
+\workquestion{5. How does HW5\#1 convert \(2^n/n!\to0\) into \(n!/2^n\to+\infty\)?}{1.0in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 7, Problem 3}
+\textbf{Part (a).}
+\workquestion{Set \(a_n=1/n^n\). Compute \(|a_n|^{1/n}\):}{0.9in}
+\workquestion{Apply the root test:}{0.75in}
+
+\textbf{Part (b).}
+\workquestion{Set \(a_n=n!/n^n\). Compute \(|a_n|^{1/n}\):}{0.9in}
+\workquestion{Use Lecture 15 to identify the limit and apply the root test:}{0.95in}
+
+\textbf{Part (c).}
+\workquestion{Use Problem 2(c) to know \(\frac{2^n}{n!}\to0\):}{0.85in}
+\workquestion{Apply HW5\#1 to show \(\frac{n!}{2^n}\to+\infty\), then conclude the terms do not go to \(0\):}{1.0in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 7, Problem 3}{Use this page for parts (a) and (b).}
+
+\newpage
+\fullproofpage{Homework 7, Problem 3}{Use this page for part (c) and final conclusions.}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+(a) We'll use the root test. Set \(a_n=\frac1{n^n}\). Then
+\[
+  |a_n|^{1/n}=\frac1n \longrightarrow 0
+  \qquad \text{as } n\to\infty.
+\]
+Therefore \(\limsup |a_n|^{1/n}=0<1\), and so the series converges by the root test.
+
+(b) We'll use the root test. Set \(a_n=\frac{n!}{n^n}\), and consider the sequence
+\[
+  |a_n|^{1/n}
+  =
+  \left(\frac{n!}{n^n}\right)^{1/n}
+  =
+  \frac{(n!)^{1/n}}{n}.
+\]
+In Lecture 15 we showed that this sequence converges to \(1/e\). Therefore
+\[
+  \limsup |a_n|^{1/n}=1/e<1,
+\]
+and so the series converges by the root test.
+
+(c) This series diverges, because the sequence \(\frac{(-1)^n n!}{2^n}\) does not converge to \(0\). Specifically, we know that the sequence \(\frac{2^n}{n!}\) converges to \(0\). (Indeed, we proved in problem 2c that the series \(\sum\frac{2^n}{n!}\) converges, and so its terms must converge to \(0\).) So, by HW5\#1, the sequence \(\frac{n!}{2^n}\) diverges to \(+\infty\). In particular, there exists an \(N\) so that \(\frac{n!}{2^n}\ge1\) for all \(n\ge N\). Therefore \(\left|\frac{(-1)^n n!}{2^n}\right|\ge1\) for all \(n\ge N\), and so the terms \(\frac{(-1)^n n!}{2^n}\) in our series cannot converge to \(0\).
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 7, Problem 3}
+
+% ---------------------------------------------------------------------------
+% HW7 Problem 4
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 4}
+
+\begin{problemstatementbox}{Homework 7, Problem 4}
+Consider the series
+\[
+  \sum_{n=1}^{\infty}2^{(-1)^n-n}
+  =
+  \frac14+\frac12+\frac1{16}+\frac18+\frac1{64}+\frac1{32}+\cdots.
+\]
+\begin{enumerate}[label=(\alph*)]
+  \item Show that the ratio test is inconclusive.
+  \item Prove that the series converges using the root test.
+\end{enumerate}
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 7, Problem 4}
+
+\newpage
+\recipecard{Homework 7, Problem 4}
+
+\newpage
+\begin{selfexplanationbox}{Homework 7, Problem 4}
+\workquestion{1. What are the first few terms of \(a_{n+1}/a_n\)?}{0.95in}
+\workquestion{2. Why does the ratio sequence have two subsequential limits?}{0.95in}
+\workquestion{3. What does it mean for the ratio test to be inconclusive?}{0.9in}
+\workquestion{4. Why does the root test handle \(2^{(-1)^n-n}\) better than the ratio test?}{0.95in}
+\workquestion{5. What is \(\lim |a_n|^{1/n}\)?}{0.9in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 7, Problem 4}
+\textbf{Part (a).}
+\workquestion{Set \(a_n=2^{(-1)^n-n}\). Compute the first few ratios \(|a_{n+1}/a_n|\):}{1.0in}
+\workquestion{Identify the liminf and limsup of the ratio sequence:}{0.9in}
+\workquestion{State why this makes the ratio test inconclusive:}{0.75in}
+
+\textbf{Part (b).}
+\workquestion{Compute \(|a_n|^{1/n}=2^{((-1)^n/n)-1}\):}{0.9in}
+\workquestion{Use \((-1)^n/n\to0\) to find the root-test limit:}{0.9in}
+\workquestion{Conclude convergence by the root test:}{0.75in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 7, Problem 4}{Use this page for part (a).}
+
+\newpage
+\fullproofpage{Homework 7, Problem 4}{Use this page for part (b).}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+(a) Set \(a_n=2^{(-1)^n-n}\). Then the sequence \(\left|\frac{a_{n+1}}{a_n}\right|\) is
+\[
+  \frac{1/2}{1/4}=2,\qquad
+  \frac{1/16}{1/2}=\frac18,\qquad
+  \frac{1/8}{1/16}=2,\qquad
+  \frac{1/64}{1/8}=\frac18,\ldots
+\]
+In other words, the even terms of this sequence are \(\frac18\) and the odd terms are \(2\). Therefore
+\[
+  \liminf\left|\frac{a_{n+1}}{a_n}\right|=\frac18,
+  \qquad
+  \limsup\left|\frac{a_{n+1}}{a_n}\right|=2,
+\]
+and so
+\[
+  \liminf\left|\frac{a_{n+1}}{a_n}\right|
+  \le 1
+  \le
+  \limsup\left|\frac{a_{n+1}}{a_n}\right|.
+\]
+
+(b) Set \(a_n=2^{(-1)^n-n}\). Then
+\[
+  |a_n|^{1/n}
+  =
+  2^{\frac{(-1)^n}{n}-1}.
+\]
+Since \(\frac{(-1)^n}{n}\to0\), we get
+\[
+  \lim_{n\to\infty}|a_n|^{1/n}=\frac12<1.
+\]
+Therefore the series converges by the root test.
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 7, Problem 4}
+
+% ---------------------------------------------------------------------------
+% HW7 Problem 5
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 5}
+
+\begin{problemstatementbox}{Homework 7, Problem 5}
+Below are two series \(\sum_{n=1}^{\infty}a_n\) and the numbers \(s\in\R\) to which they converge. For each of these series, what is the set of all numbers \(\widetilde{s}\in\R\) such that there exists a rearrangement that satisfies \(\sum_{n=1}^{\infty}\widetilde{a}_n=\widetilde{s}\)? Prove your answer.
+\[
+  \text{(a) }\sum_{n=1}^{\infty}\frac{(-1)^n}{n}=-\log2
+  \qquad
+  \text{(b) }\sum_{n=1}^{\infty}\frac{(-1)^n}{n^2}=-\frac{\pi^2}{12}
+\]
+(Hint: Your proof should be quite short, because we already did most of the work in lecture.)
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 7, Problem 5}
+
+\newpage
+\recipecard{Homework 7, Problem 5}
+
+\newpage
+\begin{selfexplanationbox}{Homework 7, Problem 5}
+\workquestion{1. What is the difference between conditional and absolute convergence for rearrangements?}{1.0in}
+\workquestion{2. Why is the alternating harmonic series conditionally convergent?}{0.95in}
+\workquestion{3. What does Riemann's rearrangement theorem say about possible sums?}{0.95in}
+\workquestion{4. Why does \(\sum (-1)^n/n^2\) converge absolutely?}{0.9in}
+\workquestion{5. What theorem says every rearrangement of an absolutely convergent series has the same sum?}{0.95in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 7, Problem 5}
+\textbf{Part (a).}
+\workquestion{Show \(\sum (-1)^n/n\) converges but not absolutely:}{1.0in}
+\workquestion{Apply Riemann's rearrangement result with \(\alpha=\widetilde{s}=\beta\):}{0.95in}
+\workquestion{Conclude the set of possible rearranged sums is:}{0.75in}
+
+\textbf{Part (b).}
+\workquestion{Show \(\sum (-1)^n/n^2\) converges absolutely:}{0.9in}
+\workquestion{Apply the theorem on rearrangements of absolutely convergent series:}{0.95in}
+\workquestion{Conclude the set of possible rearranged sums is:}{0.75in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 7, Problem 5}{Use this page for part (a).}
+
+\newpage
+\fullproofpage{Homework 7, Problem 5}{Use this page for part (b).}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+(a) We claim that the set is \(\R\). Note that:
+\begin{itemize}
+  \item \(\sum \frac{(-1)^n}{n}\) converges: by the alternating series test, since \(\{\frac1n\}\) is a decreasing sequence that converges to \(0\).
+  \item \(\sum \frac{(-1)^n}{n}\) does not converge absolutely: since \(\left|\frac{(-1)^n}{n}\right|=\frac1n\), and we know \(\sum\frac1n\) diverges by Lecture 11.
+\end{itemize}
+Fix \(\widetilde{s}\in\R\). Applying the Riemann rearrangement result (with \(\alpha=\widetilde{s}=\beta\)), we deduce that there exists a rearrangement \(\sum \widetilde{a}_n\) that converges to \(\widetilde{s}\). This works for any \(\widetilde{s}\in\R\), and so \(\R\) is the desired set.
+
+(b) We claim that the set is \(\{-\frac{\pi^2}{12}\}\). Note that \(\sum\frac{(-1)^n}{n^2}\) converges absolutely, since \(\left|\frac{(-1)^n}{n^2}\right|=\frac1{n^2}\) and we know \(\sum\frac1{n^2}\) converges by Lecture 16. Suppose that \(\sum \widetilde{a}_n\) is a rearrangement that converges to some \(\widetilde{s}\in\R\). Applying the second theorem from Lecture 20, we deduce that \(\widetilde{s}=-\frac{\pi^2}{12}\). This works for any rearrangement, so \(-\frac{\pi^2}{12}\) is the only value that can be attained.
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 7, Problem 5}
+
+% ---------------------------------------------------------------------------
+% HW7 Problem 6
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 6}
+
+\begin{problemstatementbox}{Homework 7, Problem 6}
+Prove or disprove the following statements:
+\begin{enumerate}[label=(\alph*)]
+  \item If \(\sum_{n=1}^{\infty}a_n\) converges, then \(\sum_{n=1}^{\infty}a_{2n}\) converges.
+  \item If \(\sum_{n=1}^{\infty}a_n\) converges absolutely, then \(\sum_{n=1}^{\infty}a_{2n}\) converges absolutely.
+\end{enumerate}
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 7, Problem 6}
+
+\newpage
+\recipecard{Homework 7, Problem 6}
+
+\newpage
+\begin{selfexplanationbox}{Homework 7, Problem 6}
+\workquestion{1. Why can ordinary convergence depend on cancellation between odd and even terms?}{1.0in}
+\workquestion{2. What standard alternating example disproves part (a)?}{0.95in}
+\workquestion{3. What is \(a_{2n}\) for that example?}{0.95in}
+\workquestion{4. Why does absolute convergence survive passing to a subseries?}{0.95in}
+\workquestion{5. How does the Cauchy criterion prove part (b)?}{0.95in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 7, Problem 6}
+\textbf{Part (a).}
+\workquestion{Choose \(a_n=\) so that \(\sum a_n\) is alternating harmonic:}{0.85in}
+\workquestion{Compute \(a_{2n}\) and identify the divergent series:}{0.95in}
+\workquestion{State the counterexample conclusion:}{0.75in}
+
+\textbf{Part (b).}
+\workquestion{Assume \(\sum|a_n|\) converges. Use the Cauchy criterion to choose \(N\):}{0.95in}
+\workquestion{For \(n\ge m\ge N\), compare \(\sum_{k=m}^n |a_{2k}|\) to a tail of \(\sum |a_j|\):}{1.05in}
+\workquestion{Conclude \(\sum |a_{2n}|\) converges:}{0.8in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 7, Problem 6}{Use this page for part (a).}
+
+\newpage
+\fullproofpage{Homework 7, Problem 6}{Use this page for part (b).}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+(a) Disprove: Consider the series \(a_n=\frac{(-1)^n}{n}\). Then:
+\begin{itemize}
+  \item \(\sum a_n\) converges: by the alternating series test, since \(\frac1n\) is a decreasing sequence that converges to \(0\).
+  \item \(\sum a_{2n}=\sum \frac1{2n}\) diverges: This is \(\frac12\) times the series \(\sum\frac1n\), which we know diverges by lecture.
+\end{itemize}
+
+(b) Prove: We will use the Cauchy criterion. Fix \(\varepsilon>0\). As \(\sum |a_n|\) converges, then there exists an \(N\) so that
+\[
+  \sum_{k=m}^{n}|a_k|<\varepsilon
+  \qquad \text{for all } n\ge m\ge N.
+\]
+Then for \(n\ge m\ge N\), we have
+\[
+  \sum_{k=m}^{n}|a_{2k}|
+  \le
+  \sum_{j=2m}^{2n}|a_j|
+  <
+  \varepsilon.
+\]
+(Note that first sum above consists of only even terms \(|a_{2m}|+|a_{2m+2}|+\cdots+|a_{2n}|\), which differs from the second sum \(|a_{2m}|+|a_{2m+1}|+|a_{2m+2}|+\cdots+|a_{2n}|\) by only the odd terms, each of which is nonnegative.) Therefore \(\sum |a_{2n}|\) converges by the Cauchy criterion.
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 7, Problem 6}
+
+\section{Homework 8}
+
+% ---------------------------------------------------------------------------
+% HW8 Problem 1
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 1}
+
+\begin{problemstatementbox}{Homework 8, Problem 1}
+Consider the metric space \((\R,d)\) with the usual metric \(d(x,y)=|x-y|\). For each of the following sets \(A\subseteq\R\), find its interior and prove your answer.
+\begin{enumerate}[label=(\alph*)]
+  \item \(A=[0,1)\)
+  \item \(A=\Z\)
+  \item \(A=\{x\in\Q:0<x<1\}\)
+\end{enumerate}
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 8, Problem 1}
+
+\newpage
+\recipecard{Homework 8, Problem 1}
+
+\newpage
+\begin{selfexplanationbox}{Homework 8, Problem 1}
+\workquestion{1. What does it mean for \(x\) to be an interior point of \(A\)?}{0.95in}
+\workquestion{2. Why is every point of \((0,1)\) interior to \([0,1)\)?}{0.95in}
+\workquestion{3. Why is \(0\) not an interior point of \([0,1)\)?}{0.9in}
+\workquestion{4. Why can no open interval in \(\R\) be contained in \(\Z\)?}{0.95in}
+\workquestion{5. How does density of irrational numbers show \(\{x\in\Q:0<x<1\}^\circ=\varnothing\)?}{1.0in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 8, Problem 1}
+\textbf{Part (a).}
+\workquestion{Show \((0,1)\subseteq A^\circ\) by choosing \(r=\frac12\min\{x,1-x\}\):}{1.0in}
+\workquestion{Show \(0\notin A^\circ\) by finding a point in \((-r,r)\setminus[0,1)\):}{0.95in}
+\workquestion{Conclude \(A^\circ=(0,1)\):}{0.75in}
+
+\textbf{Part (b).}
+\workquestion{Fix \(n\in\Z\) and \(r>0\). Find a noninteger point in \((n-r,n+r)\):}{0.95in}
+\workquestion{Conclude \(\Z^\circ=\varnothing\):}{0.75in}
+
+\textbf{Part (c).}
+\workquestion{Fix \(a\in A\) and \(r>0\). Use density of \(\R\setminus\Q\) to find \(y\in(a-r,a+r)\setminus A\):}{0.95in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 8, Problem 1}{Use this page for parts (a) and (b).}
+
+\newpage
+\fullproofpage{Homework 8, Problem 1}{Use this page for part (c) and final conclusions.}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+(a) Claim: \(A^\circ=(0,1)\). As \(A^\circ\) is the largest open subset of \(A\), and \((0,1)\) is one open subset, we must have \((0,1)\subseteq A^\circ\subseteq[0,1)\). Note that \(0\) is not an interior point: given \(r>0\) we have \((-r,r)\not\subseteq[0,1)\), since \(-\frac r2\) is a point in \((-r,r)\) that is not in \([0,1)\).
+
+(b) Claim: \(A^\circ=\varnothing\). Fix \(n\in\Z\); we will show that \(n\) is not an interior point. Given \(r>0\) we have \((n-r,n+r)\not\subseteq\Z\), since \(\min\{n+\frac r2,n+\frac12\}\) is in \((n-r,n+r)\) but not in \(\Z\).
+
+(c) Claim: \(A^\circ=\varnothing\). Fix \(a\in A\); we will show that \(a\) is not an interior point. As the irrational numbers are dense in \(\R\), then for any \(r>0\) we can find a point \(y\in\Q^c\) between \(a-r\) and \(a\). This \(y\) is a point in \((a-r,a+r)\) that is not in \(A\), and so \((a-r,a+r)\not\subseteq A\).
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 8, Problem 1}
+
+% ---------------------------------------------------------------------------
+% HW8 Problem 2
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 2}
+
+\begin{problemstatementbox}{Homework 8, Problem 2}
+Recall that \(d_1\) and \(d_\infty\) are both metrics on \(\R^2\).
+\begin{enumerate}[label=(\alph*)]
+  \item Prove that \(d_\infty(x,y)\le d_1(x,y)\le 2d_\infty(x,y)\) for all \(x,y\in\R^2\).
+  \item Prove that for any \(x\in\R^2\) and \(r>0\) we have
+  \[
+    \{y\in\R^2:d_\infty(x,y)<r/2\}
+    \subseteq
+    \{y\in\R^2:d_1(x,y)<r\}
+    \subseteq
+    \{y\in\R^2:d_\infty(x,y)<r\}.
+  \]
+  I recommend that you draw a picture of these three sets.
+  \item Prove that a set \(A\subseteq\R^2\) is open in the metric space \((\R^2,d_1)\) if and only if it is open in the metric space \((\R^2,d_\infty)\).
+\end{enumerate}
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 8, Problem 2}
+
+\newpage
+\recipecard{Homework 8, Problem 2}
+
+\newpage
+\begin{selfexplanationbox}{Homework 8, Problem 2}
+\workquestion{1. What are the formulas for \(d_1(x,y)\) and \(d_\infty(x,y)\) in coordinates?}{0.95in}
+\workquestion{2. Why is the maximum of two nonnegative numbers at most their sum?}{0.9in}
+\workquestion{3. Why is the sum of two nonnegative numbers at most twice their maximum?}{0.95in}
+\workquestion{4. How do metric inequalities translate into ball containments?}{1.0in}
+\workquestion{5. How do the ball containments prove the two metrics define the same open sets?}{1.0in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 8, Problem 2}
+\textbf{Part (a).}
+\workquestion{Write \(x=(x_1,x_2)\), \(y=(y_1,y_2)\), and expand \(d_1,d_\infty\):}{0.95in}
+\workquestion{Prove \(d_\infty\le d_1\):}{0.85in}
+\workquestion{Prove \(d_1\le2d_\infty\):}{0.85in}
+
+\textbf{Part (b).}
+\workquestion{If \(d_\infty(x,y)<r/2\), use part (a) to prove \(d_1(x,y)<r\):}{0.9in}
+\workquestion{If \(d_1(x,y)<r\), use part (a) to prove \(d_\infty(x,y)<r\):}{0.9in}
+
+\textbf{Part (c).}
+\workquestion{For \(d_\infty\)-open \(\Rightarrow\) \(d_1\)-open, use \(B_r^1(a)\subseteq B_r^\infty(a)\):}{0.9in}
+\workquestion{For \(d_1\)-open \(\Rightarrow\) \(d_\infty\)-open, use \(B_{r/2}^\infty(a)\subseteq B_r^1(a)\):}{0.9in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 8, Problem 2}{Use this page for parts (a) and (b).}
+
+\newpage
+\fullproofpage{Homework 8, Problem 2}{Use this page for part (c).}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+(a) Fix \(x=(x_1,x_2)\) and \(y=(y_1,y_2)\) in \(\R^2\). Then
+\[
+  |x_1-y_1|\le |x_1-y_1|+|x_2-y_2|=d_1(x,y),
+\]
+\[
+  |x_2-y_2|\le |x_1-y_1|+|x_2-y_2|=d_1(x,y),
+\]
+and so
+\[
+  \max\{|x_1-y_1|,|x_2-y_2|\}\le d_1(x,y).
+\]
+This proves the first inequality: \(d_\infty(x,y)\le d_1(x,y)\). On the other hand, note that
+\[
+  |x_1-y_1|\le \max\{|x_1-y_1|,|x_2-y_2|\}=d_\infty(x,y),
+\]
+\[
+  |x_2-y_2|\le \max\{|x_1-y_1|,|x_2-y_2|\}=d_\infty(x,y),
+\]
+and so
+\[
+  |x_1-y_1|+|x_2-y_2|\le 2d_\infty(x,y).
+\]
+This proves that \(d_1(x,y)\le2d_\infty(x,y)\).
+
+(b) Let's start with the first containment:
+\[
+  \{y\in\R^2:d_\infty(x,y)<r/2\}
+  \subseteq
+  \{y\in\R^2:d_1(x,y)<r\}.
+\]
+Fix \(y\in\R^2\) so that \(d_\infty(x,y)<r/2\). Then by the second inequality in part (a) we have
+\[
+  d_1(x,y)\le2d_\infty(x,y)<2\cdot\frac r2=r,
+\]
+and so \(d_1(x,y)<r\).
+
+Next, we turn to the second containment:
+\[
+  \{y\in\R^2:d_1(x,y)<r\}
+  \subseteq
+  \{y\in\R^2:d_\infty(x,y)<r\}.
+\]
+Fix \(y\in\R^2\) so that \(d_1(x,y)<r\). Then by the first inequality in part (a), we have
+\[
+  d_\infty(x,y)\le d_1(x,y)<r,
+\]
+and so \(d_\infty(x,y)<r\).
+
+(c) \(\Leftarrow\) Suppose that \(A\) is open in \((\R^2,d_\infty)\). Fix \(a\in A\). Then there exists \(r>0\) so that
+\[
+  B_r^\infty(a)=\{x\in\R^2:d_\infty(x,a)<r\}\subseteq A.
+\]
+Note that \(B_r^1(a)\subseteq B_r^\infty(a)\) by part (b), and so \(B_r^1(a)\subseteq B_r^\infty(a)\subseteq A\). As \(a\in A\) was arbitrary, we conclude that \(A\) is open in \((\R^2,d_1)\).
+
+\(\Rightarrow\) Suppose that \(A\) is open in \((\R^2,d_1)\). Fix \(a\in A\). Then there exists \(r>0\) so that \(B_r^1(a)\subseteq A\). Note that \(B_{r/2}^\infty(a)\subseteq B_r^1(a)\) by part (b), and so \(B_{r/2}^\infty(a)\subseteq B_r^1(a)\subseteq A\). As \(a\in A\) was arbitrary, we conclude that \(A\) is open in \((\R^2,d_\infty)\).
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 8, Problem 2}
+
+% ---------------------------------------------------------------------------
+% HW8 Problem 3
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 3}
+
+\begin{problemstatementbox}{Homework 8, Problem 3}
+Let \(X\) be a nonempty set, and recall that the discrete metric \(d\) is a metric on \(X\). Prove that every set \(A\subseteq X\) is open in the metric space \((X,d)\).
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 8, Problem 3}
+
+\newpage
+\recipecard{Homework 8, Problem 3}
+
+\newpage
+\begin{selfexplanationbox}{Homework 8, Problem 3}
+\workquestion{1. What is the definition of the discrete metric?}{0.9in}
+\workquestion{2. What is \(B_{1/2}(a)\) in the discrete metric?}{0.95in}
+\workquestion{3. Why is \(\{a\}\subseteq A\) whenever \(a\in A\)?}{0.85in}
+\workquestion{4. How does this prove every point of \(A\) is interior?}{0.9in}
+\workquestion{5. Why does the proof also work when \(A=\varnothing\)?}{0.9in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 8, Problem 3}
+\workquestion{Fix \(A\subseteq X\) and \(a\in A\):}{0.75in}
+\workquestion{Compute \(B_{1/2}(a)=\{x\in X:d(x,a)<1/2\}\):}{0.95in}
+\workquestion{Use \(B_{1/2}(a)=\{a\}\subseteq A\) to show \(a\) is interior:}{0.9in}
+\workquestion{Conclude \(A\) is open because \(a\in A\) was arbitrary:}{0.8in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 8, Problem 3}{Use this page for the complete proof.}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+Fix \(A\subseteq X\) and \(a\in A\). Notice that
+\[
+  B_{1/2}(a)=\{x\in X:d(x,a)<1/2\}=\{a\}.
+\]
+(Indeed, \(d(x,a)\) is either equal to \(0\) or \(1\), and so the only time that \(d(x,a)<1/2\) is when \(d(x,a)=0\).) Then \(a\in B_{1/2}(a)\subseteq A\), and so \(a\) is an interior point for \(A\). As \(a\in A\) was arbitrary, we conclude that \(A\) is open.
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 8, Problem 3}
+
+% ---------------------------------------------------------------------------
+% HW8 Problem 4
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 4}
+
+\begin{problemstatementbox}{Homework 8, Problem 4}
+Let \((X,d)\) be any metric space. Define the function \(\widetilde{d}:X\times X\to\R\) by
+\[
+  \widetilde{d}(x,y)=\min\{d(x,y),1\}.
+\]
+\begin{enumerate}[label=(\alph*)]
+  \item Prove that \(\widetilde{d}\) is also a metric on \(X\).
+  \item Prove that a set \(A\subseteq X\) is open in \((X,d)\) if and only if it is open in \((X,\widetilde{d})\).
+\end{enumerate}
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 8, Problem 4}
+
+\newpage
+\recipecard{Homework 8, Problem 4}
+
+\newpage
+\begin{selfexplanationbox}{Homework 8, Problem 4}
+\workquestion{1. Which metric axioms are immediate from the definition of \(\widetilde d\)?}{0.95in}
+\workquestion{2. Why is definiteness preserved by taking \(\min\{d(x,y),1\}\)?}{0.95in}
+\workquestion{3. What are the key cases for the triangle inequality?}{1.0in}
+\workquestion{4. Why do \(d\) and \(\widetilde d\) agree on distances less than \(1\)?}{0.95in}
+\workquestion{5. Why does shrinking a radius to \(\min\{r,1/2\}\) transfer openness?}{1.0in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 8, Problem 4}
+\textbf{Part (a).}
+\workquestion{Check nonnegativity, definiteness, and symmetry:}{1.0in}
+\workquestion{For the triangle inequality, split into cases depending on whether \(d(x,y)<1\) and \(d(y,z)<1\):}{1.1in}
+\workquestion{Conclude \(\widetilde d\) is a metric:}{0.75in}
+
+\textbf{Part (b).}
+\workquestion{Assume \(A\) is open in \((X,\widetilde d)\). Use \(\widetilde d(x,a)\le d(x,a)\) to get a \(d\)-ball inside \(A\):}{1.0in}
+\workquestion{Assume \(A\) is open in \((X,d)\). Set \(r_2=\min\{r_1,1/2\}\) and prove the \(\widetilde d\)-ball is inside the \(d\)-ball:}{1.1in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 8, Problem 4}{Use this page for part (a).}
+
+\newpage
+\fullproofpage{Homework 8, Problem 4}{Use this page for part (b).}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+(a) There are \(4\) properties to check.
+\begin{enumerate}[label=\arabic*.]
+  \item \(\widetilde d(x,y)\ge0\) for all \(x,y\in X\). Note that \(\widetilde d(x,y)\) is equal to \(1\) or \(d(x,y)\). Both of these are nonnegative; we know \(d(x,y)\ge0\) since \(d\) is a metric on \(X\).
+  \item \(\widetilde d(x,y)=0\Longleftrightarrow x=y\). If \(x=y\), then \(d(x,y)=0\), so \(\widetilde d(x,y)=\min\{0,1\}=0\). Conversely, if \(\widetilde d(x,y)=0\), then \(\widetilde d(x,y)\ne1\) and so we must have \(d(x,y)=\widetilde d(x,y)=0\). As \(d\) is a metric, this can only mean that \(x=y\).
+  \item \(\widetilde d(x,y)=\widetilde d(y,x)\) for all \(x,y\in X\). As \(d\) is a metric, we know that \(d(x,y)=d(y,x)\), and so
+  \[
+    \widetilde d(x,y)=\min\{d(x,y),1\}=\min\{d(y,x),1\}=\widetilde d(y,x).
+  \]
+  \item \(\widetilde d(x,z)\le \widetilde d(x,y)+\widetilde d(y,z)\) for all \(x,y,z\in X\). We distinguish \(4\) possible cases:
+  \begin{itemize}
+    \item \(d(x,y)<1\) and \(d(y,z)<1\): Then
+    \[
+      \widetilde d(x,z)\le d(x,z)\le d(x,y)+d(y,z)=\widetilde d(x,y)+\widetilde d(y,z).
+    \]
+    \item \(d(x,y)<1\) and \(d(y,z)\ge1\): Then
+    \[
+      \widetilde d(x,z)\le1\le d(x,y)+1=\widetilde d(x,y)+\widetilde d(y,z).
+    \]
+    \item \(d(x,y)\ge1\) and \(d(y,z)<1\): Then
+    \[
+      \widetilde d(x,z)\le1\le1+d(y,z)=\widetilde d(x,y)+\widetilde d(y,z).
+    \]
+    \item \(d(x,y)\ge1\) and \(d(y,z)\ge1\): Then
+    \[
+      \widetilde d(x,z)\le1\le1+1=\widetilde d(x,y)+\widetilde d(y,z).
+    \]
+  \end{itemize}
+\end{enumerate}
+In all cases, the triangle inequality holds.
+
+(b) \(\Leftarrow\) Suppose that \(A\) is open in \((X,\widetilde d)\). Fix \(a\in A\). Then there exists \(r>0\) so that
+\[
+  B_r^{\widetilde d}(a)=\{x\in X:\widetilde d(x,a)<r\}\subseteq A.
+\]
+Note that \(B_r^d(a)\subseteq B_r^{\widetilde d}(a)\), since
+\[
+  x\in B_r^d(a)
+  \Longrightarrow
+  \widetilde d(x,a)\le d(x,a)<r
+  \Longrightarrow
+  x\in B_r^{\widetilde d}(a).
+\]
+So \(B_r^d(a)\subseteq B_r^{\widetilde d}(a)\subseteq A\). As \(a\in A\) was arbitrary, we conclude that \(A\) is open in \((X,d)\).
+
+\(\Rightarrow\) Suppose that \(A\) is open in \((X,d)\). Fix \(a\in A\). Then there exists \(r_1>0\) so that \(B_{r_1}^d(a)\subseteq A\). Set \(r_2=\min\{r_1,\frac12\}\). Note that \(B_{r_2}^{\widetilde d}(a)\subseteq B_{r_1}^d(a)\), since
+\[
+  x\in B_{r_2}^{\widetilde d}(a)
+  \Longrightarrow
+  \widetilde d(x,a)=\min\{d(x,a),1\}<r_2\le\frac12
+\]
+\[
+  \Longrightarrow
+  \widetilde d(x,a)=d(x,a)
+  \Longrightarrow
+  d(x,a)<r_2\le r_1.
+\]
+So \(B_{r_2}^{\widetilde d}(a)\subseteq B_{r_1}^d(a)\subseteq A\). As \(a\in A\) was arbitrary, we conclude that \(A\) is open in \((X,\widetilde d)\).
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 8, Problem 4}
+
+% ---------------------------------------------------------------------------
+% HW8 Problem 5
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 5}
+
+\begin{problemstatementbox}{Homework 8, Problem 5}
+Let \((X,d)\) be a metric space, \(A\subseteq X\), and \(x\in X\). Prove that \(x\) is in \(A^\circ\) if and only if there exists an open set \(U\) so that \(x\in U\subseteq A\).
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 8, Problem 5}
+
+\newpage
+\recipecard{Homework 8, Problem 5}
+
+\newpage
+\begin{selfexplanationbox}{Homework 8, Problem 5}
+\workquestion{1. What is the definition of \(x\in A^\circ\)?}{0.9in}
+\workquestion{2. Why is an open ball an open set?}{0.9in}
+\workquestion{3. In the forward direction, what should \(U\) be?}{0.85in}
+\workquestion{4. In the reverse direction, why does openness of \(U\) give a ball around \(x\)?}{0.95in}
+\workquestion{5. How does \(B_r(x)\subseteq U\subseteq A\) finish the proof?}{0.9in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 8, Problem 5}
+\textbf{Forward direction.}
+\workquestion{Assume \(x\in A^\circ\). Choose \(r>0\) with \(B_r(x)\subseteq A\):}{0.85in}
+\workquestion{Set \(U=\) and verify open, \(x\in U\), and \(U\subseteq A\):}{0.95in}
+
+\textbf{Reverse direction.}
+\workquestion{Assume \(x\in U\subseteq A\) with \(U\) open. Choose \(r>0\) with:}{0.9in}
+\workquestion{Use \(B_r(x)\subseteq U\subseteq A\) to conclude \(x\in A^\circ\):}{0.85in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 8, Problem 5}{Use this page for both directions.}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+\(\Rightarrow\) Suppose that \(x\in A^\circ\). Then there exists \(r>0\) such that \(B_r(x)\subseteq A\). Notice that \(U=B_r(x)\) is an open set that satisfies \(x\in U\subseteq A\).
+
+\(\Leftarrow\) Suppose that \(x\in U\subseteq A\) for some open set \(U\). As \(U\) is open, there exists \(r>0\) so that \(B_r(x)\subseteq U\). Together we have \(B_r(x)\subseteq U\subseteq A\), and so \(x\in A^\circ\).
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 8, Problem 5}
+
+% ---------------------------------------------------------------------------
+% HW8 Problem 6
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 6}
+
+\begin{problemstatementbox}{Homework 8, Problem 6}
+Let \((X,d)\) be a metric space and let \(A\) be a nonempty subset of \(X\). Prove that \(A\) is open if and only if there exists a set \(I\), positive numbers \(r_i>0\), and points \(a_i\in X\) so that
+\[
+  A=\bigcup_{i\in I}B_{r_i}(a_i).
+\]
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 8, Problem 6}
+
+\newpage
+\recipecard{Homework 8, Problem 6}
+
+\newpage
+\begin{selfexplanationbox}{Homework 8, Problem 6}
+\workquestion{1. Why should open sets be expressible as unions of balls?}{0.95in}
+\workquestion{2. In the forward direction, what index set \(I\) is the natural choice?}{0.95in}
+\workquestion{3. Why does every point \(a\in A\) belong to its chosen ball \(B_{r_a}(a)\)?}{0.9in}
+\workquestion{4. Why is each ball \(B_{r_i}(a_i)\) open?}{0.9in}
+\workquestion{5. Which theorem says arbitrary unions of open sets are open?}{0.95in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 8, Problem 6}
+\textbf{Forward direction.}
+\workquestion{Assume \(A\) is open. For each \(a\in A\), choose \(r_a>0\) with \(B_{r_a}(a)\subseteq A\):}{0.95in}
+\workquestion{Use \(I=A\), and for each \(i=a\in A\), set the center \(a_i=a\) and radius \(r_i=r_a\):}{0.95in}
+\workquestion{Prove both inclusions \(A\subseteq\bigcup_{a\in A}B_{r_a}(a)\) and \(\bigcup_{a\in A}B_{r_a}(a)\subseteq A\):}{1.05in}
+
+\textbf{Reverse direction.}
+\workquestion{Assume \(A=\bigcup_{i\in I}B_{r_i}(a_i)\):}{0.75in}
+\workquestion{Each ball is open, and arbitrary unions of open sets are open. Conclude:}{0.9in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 8, Problem 6}{Use this page for the forward direction.}
+
+\newpage
+\fullproofpage{Homework 8, Problem 6}{Use this page for the reverse direction.}
+
+\newpage
+\begin{solutionbox}{Student-Derived Solution (No official solution available)}
+We prove both directions.
+
+Suppose first that \(A\) is open. Since \(A\) is nonempty, for each \(a\in A\) choose \(r_a>0\) such that
+\[
+  B_{r_a}(a)\subseteq A.
+\]
+Then
+\[
+  A=\bigcup_{a\in A}B_{r_a}(a).
+\]
+Indeed, if \(x\in A\), then \(x\in B_{r_x}(x)\), so \(x\in\bigcup_{a\in A}B_{r_a}(a)\). Conversely, each \(B_{r_a}(a)\subseteq A\), so the union is contained in \(A\). Thus \(A\) has the required form, with index set \(I=A\), and for each index \(i=a\in A\), center \(a_i=a\) and radius \(r_i=r_a\).
+
+Conversely, suppose there exist a set \(I\), positive numbers \(r_i>0\), and points \(a_i\in X\) such that
+\[
+  A=\bigcup_{i\in I}B_{r_i}(a_i).
+\]
+Each ball \(B_{r_i}(a_i)\) is open in \((X,d)\), and an arbitrary union of open sets is open. Therefore \(A\) is open.
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 8, Problem 6}
 
 \section{Homework 9}
 
