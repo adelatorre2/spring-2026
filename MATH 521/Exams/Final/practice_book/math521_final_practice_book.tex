@@ -1,0 +1,767 @@
+% MATH 521 | Final Practice Workbook
+% University of Wisconsin--Madison, Spring 2026
+% Step 1 build: Homework 9 only
+
+\documentclass[12pt]{article}
+
+\usepackage[
+  paperwidth=8.5in,
+  paperheight=11in,
+  top=1.0in,
+  bottom=1.0in,
+  left=1.0in,
+  right=1.0in
+]{geometry}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage{parskip}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+\usepackage{hyperref}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!60!black,
+  urlcolor=blue!60!black
+}
+
+\definecolor{probblue}{RGB}{215,232,255}
+\definecolor{pass1green}{RGB}{218,245,218}
+\definecolor{pass2yellow}{RGB}{255,252,215}
+\definecolor{pass3orange}{RGB}{255,236,210}
+\definecolor{pass4purple}{RGB}{240,218,255}
+\definecolor{pass5gray}{RGB}{238,238,238}
+\definecolor{solgreen}{RGB}{208,240,210}
+\definecolor{reflectcyan}{RGB}{208,245,252}
+
+\setcounter{tocdepth}{2}
+\setlist[enumerate]{leftmargin=2.2em, itemsep=0.25em, topsep=0.25em}
+\setlist[itemize]{leftmargin=2.0em, itemsep=0.25em, topsep=0.25em}
+
+\titleformat{\section}
+  [block]{\Large\bfseries\centering}{}{0em}{}[\vspace{2pt}\titlerule]
+\titleformat{\subsection}
+  [block]{\large\bfseries}{}{0em}{}[\vspace{1pt}\titlerule]
+\titlespacing{\section}{0pt}{1.2em}{1em}
+\titlespacing{\subsection}{0pt}{0.8em}{0.8em}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\closure}[1]{\overline{#1}}
+\newcommand{\ball}[2]{B_{#1}(#2)}
+\newcommand{\writespace}[1]{\vspace*{#1}}
+
+\newcommand{\fillfield}[1]{%
+  \par\noindent\textbf{#1:}\enspace\hrulefill\par\vspace{0.25in}%
+}
+
+\newcommand{\fillfieldbig}[2]{%
+  \par\noindent\textbf{#1:}\par
+  \writespace{#2}
+  \noindent\rule{\linewidth}{0.35pt}\par\vspace{0.15in}%
+}
+
+\newcommand{\workquestion}[2]{%
+  \par\noindent\textbf{#1}\par
+  \writespace{#2}
+  \noindent\rule{\linewidth}{0.35pt}\par\vspace{0.18in}%
+}
+
+\newenvironment{problemstatementbox}[1]{%
+  \begin{tcolorbox}[
+    enhanced,
+    breakable,
+    colback=probblue,
+    colframe=blue!55!black,
+    fonttitle=\bfseries,
+    title={Problem Statement\hfill #1}
+  ]
+}{%
+  \end{tcolorbox}
+}
+
+\newcommand{\firstdiagnosis}[1]{%
+  \begin{tcolorbox}[
+    enhanced,
+    colback=pass1green,
+    colframe=green!55!black,
+    fonttitle=\bfseries,
+    title={Pass 1 -- First Diagnosis\hfill #1},
+    height=8.45in
+  ]
+  \fillfield{Topic}
+  \fillfieldbig{What is being asked?}{1.05in}
+  \fillfieldbig{Definitions likely relevant}{1.15in}
+  \fillfieldbig{Theorem/proof method likely relevant}{1.15in}
+  \fillfieldbig{What should the first line of the proof be?}{1.1in}
+  \end{tcolorbox}
+}
+
+\newcommand{\recipecard}[1]{%
+  \begin{tcolorbox}[
+    enhanced,
+    colback=pass2yellow,
+    colframe=yellow!65!black,
+    fonttitle=\bfseries,
+    title={Pass 2 -- Proof Recipe Card\hfill #1},
+    height=8.45in
+  ]
+  \fillfieldbig{Hypotheses}{0.75in}
+  \fillfieldbig{Conclusion}{0.75in}
+  \fillfieldbig{Definitions to unpack}{0.95in}
+  \fillfieldbig{Useful theorem/lemma}{0.85in}
+  \fillfieldbig{Key inequality/identity}{0.8in}
+  \fillfieldbig{One-sentence proof strategy}{0.9in}
+  \end{tcolorbox}
+}
+
+\newenvironment{selfexplanationbox}[1]{%
+  \begin{tcolorbox}[
+    enhanced,
+    colback=pass3orange,
+    colframe=orange!65!black,
+    fonttitle=\bfseries,
+    title={Pass 3 -- Self-Explanation\hfill #1},
+    height=8.45in
+  ]
+}{%
+  \end{tcolorbox}
+}
+
+\newenvironment{skeletonbox}[1]{%
+  \begin{tcolorbox}[
+    enhanced,
+    breakable,
+    colback=pass4purple,
+    colframe=purple!55!black,
+    fonttitle=\bfseries,
+    title={Pass 4 -- Skeleton Proof\hfill #1}
+  ]
+}{%
+  \end{tcolorbox}
+}
+
+\newcommand{\fullproofpage}[2]{%
+  \begin{tcolorbox}[
+    enhanced,
+    colback=white,
+    colframe=gray!60!black,
+    fonttitle=\bfseries,
+    title={Pass 5 -- Full Proof Attempt\hfill #1},
+    height=8.45in
+  ]
+  \textbf{#2}
+
+  \writespace{7.65in}
+  \end{tcolorbox}
+}
+
+\newenvironment{solutionbox}[1]{%
+  \begin{tcolorbox}[
+    enhanced,
+    breakable,
+    colback=solgreen,
+    colframe=green!45!black,
+    fonttitle=\bfseries,
+    title={#1}
+  ]
+}{%
+  \end{tcolorbox}
+}
+
+\newcommand{\reflectionpage}[1]{%
+  \begin{tcolorbox}[
+    enhanced,
+    colback=reflectcyan,
+    colframe=cyan!55!black,
+    fonttitle=\bfseries,
+    title={Reflection \& Variation\hfill #1},
+    height=8.45in
+  ]
+  \fillfieldbig{What was the key definition?}{1.15in}
+  \fillfieldbig{What was the key proof move?}{1.15in}
+  \fillfieldbig{What step would I forget under time pressure?}{1.15in}
+  \fillfieldbig{What nearby exam variation could appear?}{1.35in}
+  \end{tcolorbox}
+}
+
+\begin{document}
+
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\centering
+\vspace*{2.35cm}
+{\Huge\bfseries MATH 521\par}
+\vspace{0.35cm}
+{\Large Real Analysis\par}
+\vspace{1.1cm}
+\rule{0.55\linewidth}{1pt}
+\vspace{1.1cm}
+
+{\huge\bfseries Final Practice Book\par}
+\vspace{0.7cm}
+{\Large Write-On Workbook\par}
+\vspace{1.5cm}
+
+{\large University of Wisconsin--Madison\par}
+{\large Spring 2026\par}
+\vspace{1.7cm}
+
+{\normalsize\itshape Step 1 build: Homework 9\par}
+\vspace{2.8cm}
+
+{\large\bfseries Name:\enspace\hrulefill\par}
+\vspace{0.9cm}
+{\large\bfseries Date:\enspace\hrulefill\par}
+\end{titlepage}
+\hypersetup{pageanchor=true}
+
+\pagenumbering{roman}
+\tableofcontents
+\newpage
+
+\section*{How to Use This Workbook}
+\addcontentsline{toc}{section}{How to Use This Workbook}
+
+This workbook is for active proof practice. For each problem, work through the diagnosis,
+recipe card, self-explanation, skeleton, and full proof attempt before reading the reference
+solution.
+
+\begin{description}[leftmargin=2.2cm, labelwidth=2.0cm, labelsep=0.2cm, itemsep=4pt]
+  \item[Pass 1] Diagnose the topic, task, relevant definitions, and likely proof method.
+  \item[Pass 2] Convert the problem into hypotheses, conclusion, tools, and a proof plan.
+  \item[Pass 3] Answer targeted questions that expose the proof's logic.
+  \item[Pass 4] Reconstruct the proof from a skeleton without reading the full solution.
+  \item[Pass 5] Write a complete proof from scratch in the blank writing space.
+\end{description}
+
+Only after Pass 5 should you compare your work to the official or reference solution.
+
+\newpage
+\pagenumbering{arabic}
+
+\section{Homework 9}
+
+% ---------------------------------------------------------------------------
+% HW9 Problem 1
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 1}
+
+\begin{problemstatementbox}{Homework 9, Problem 1}
+Consider the metric space \((\R,d)\) with the usual metric \(d(x,y)=|x-y|\). For each of the following sets \(A\subseteq\R\), find its closure, isolated points, and limit points. Prove your answer.
+
+\begin{enumerate}[label=(\alph*)]
+  \item \(A=[0,1)\)
+  \item \(A=\Z\)
+  \item \(A=\{x\in\Q:0<x<1\}\)
+\end{enumerate}
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 9, Problem 1}
+
+\newpage
+\recipecard{Homework 9, Problem 1}
+
+\newpage
+\begin{selfexplanationbox}{Homework 9, Problem 1}
+\workquestion{1. For each set, which points are obvious members of the closure, and which boundary points require a ball argument?}{0.95in}
+\workquestion{2. How do you prove that a point is not in \(\closure{\Z}\)? What radius separates it from all integers?}{0.95in}
+\workquestion{3. What is the difference between proving \(a\in A\) is isolated and proving \(a\in A\) is a limit point?}{0.95in}
+\workquestion{4. Where is density of \(\Q\) used in part (c), and why is it not enough just to say ``there are rationals nearby''?}{1.05in}
+\workquestion{5. How does the identity \(\closure{A}=(\text{isolated points})\cup A'\) finish the limit-point computations?}{0.95in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 9, Problem 1}
+\textbf{Part (a): \(A=[0,1)\)}
+\workquestion{Closure: show \([0,1)\subseteq\closure{A}\subseteq[0,1]\), then prove \(1\in\closure{A}\) by choosing a point of \(A\) in \((1-r,1+r)\):}{1.0in}
+\workquestion{Isolated points: fix \(a\in A\). Given \(r>0\), choose a second point of \(A\) inside \((a-r,a+r)\):}{0.85in}
+\workquestion{Limit points: use the closure/isolated-point relationship to conclude:}{0.55in}
+
+\textbf{Part (b): \(A=\Z\)}
+\workquestion{Closure: for \(x\notin\Z\), choose \(n\in\Z\) with \(n<x<n+1\) and radius \(r=\)}{0.75in}
+\workquestion{Isolated points and limit points: choose the ball around \(n\in\Z\):}{0.75in}
+\end{skeletonbox}
+
+\newpage
+\begin{skeletonbox}{Homework 9, Problem 1 (continued)}
+\textbf{Part (c): \(A=\{x\in\Q:0<x<1\}\)}
+\workquestion{Closure: prove \(0\), points in \((0,1]\), and no points outside \([0,1]\) behave correctly:}{0.95in}
+\workquestion{Isolated points and limit points: use density of \(\Q\) to find a second point:}{0.75in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 9, Problem 1}{Use this page for parts (a) and (b).}
+
+\newpage
+\fullproofpage{Homework 9, Problem 1}{Use this page for part (c) and final cleanup.}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+\begin{enumerate}[label=(\alph*)]
+  \item Closure: \(\closure{A}=[0,1]\). Since \(\closure{A}\) is the smallest closed set containing \(A\), and \([0,1]\) is one such closed set, we must have
+  \[
+    [0,1)\subseteq\closure{A}\subseteq[0,1].
+  \]
+  Also \(1\in\closure{A}\): given \(r>0\),
+  \[
+    (1-r,1+r)\cap[0,1)\neq\varnothing,
+  \]
+  since \(\max\{1-r/2,0\}\in(1-r,1+r)\cap[0,1)\).
+
+  Isolated points: \(\varnothing\). Fix \(a\in A\). Given \(r>0\), the point
+  \[
+    \min\left\{a+\frac r2,\frac{a+1}{2}\right\}
+  \]
+  is in \((a-r,a+r)\cap A\) and is not \(a\).
+
+  Limit points: \(A'=[0,1]\). By definition, \(\closure{A}\) is the union of isolated points and limit points, and there are no isolated points.
+
+  \item Closure: \(\closure{A}=\Z\). We automatically have \(\Z\subseteq\closure{A}\). Fix \(x\in\Z^c\). Let \(n\in\Z\) satisfy \(n<x<n+1\). Then
+  \[
+    r=\min\{x-n,n+1-x\}
+  \]
+  is positive and \((x-r,x+r)\cap\Z=\varnothing\). Thus \(x\notin\closure{A}\).
+
+  Isolated points: \(\Z\). For \(n\in\Z\),
+  \[
+    (n-1,n+1)\cap\Z=\{n\}.
+  \]
+
+  Limit points: \(A'=\varnothing\). Every point of \(A\) is isolated.
+
+  \item Closure: \(\closure{A}=[0,1]\). First, \(A\subseteq[0,1]\), and \([0,1]\) is closed, so \(\closure{A}\subseteq[0,1]\). The point \(0\) is adherent to \(A\): given \(r>0\), choose \(n>\max\{1/r,1\}\), so \(1/n\in(-r,r)\cap A\). Now fix \(x\in(0,1]\). By density of \(\Q\) in \(\R\), for every \(r>0\) there is \(q\in\Q\) between \(\max\{x-r,0\}\) and \(x\), and this \(q\in(x-r,x+r)\cap A\).
+
+  Isolated points: \(\varnothing\). Given \(x\in A\) and \(r>0\), choose \(q\in\Q\) as above. This \(q\) lies in \((x-r,x+r)\cap A\) and \(q\neq x\).
+
+  Limit points: \(A'=[0,1]\). There are no isolated points.
+\end{enumerate}
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 9, Problem 1}
+
+% ---------------------------------------------------------------------------
+% HW9 Problem 2
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 2}
+
+\begin{problemstatementbox}{Homework 9, Problem 2}
+Let \((X,d)\) be a metric space, let \(A\) be a nonempty subset of \(X\), and let \(U\) be an open subset of \(X\).
+
+\begin{enumerate}[label=(\alph*)]
+  \item Prove that \(U\cap\closure{A}\subseteq\closure{U\cap A}\).
+  \item Prove that \(\closure{U\cap\closure{A}}=\closure{U\cap A}\). (Hint: Use part (a) and properties of closure from lecture.)
+  \item Conclude that if \(U\cap A=\varnothing\), then \(U\cap\closure{A}=\varnothing\).
+\end{enumerate}
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 9, Problem 2}
+
+\newpage
+\recipecard{Homework 9, Problem 2}
+
+\newpage
+\begin{selfexplanationbox}{Homework 9, Problem 2}
+\workquestion{1. Why is the assumption that \(U\) is open essential in part (a)?}{1.05in}
+\workquestion{2. After fixing \(x\in U\cap\closure{A}\) and \(r>0\), why do we introduce a second radius \(s>0\)?}{1.0in}
+\workquestion{3. Why is \(\widetilde r=\min\{r,s\}\) the right radius to use?}{0.95in}
+\workquestion{4. Which closure property turns part (a) into the first inclusion in part (b)?}{0.95in}
+\workquestion{5. In part (c), why does \(\closure{U\cap\closure{A}}=\varnothing\) force \(U\cap\closure{A}=\varnothing\)?}{1.0in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 9, Problem 2}
+\textbf{Part (a): prove \(U\cap\closure{A}\subseteq\closure{U\cap A}\).}
+\workquestion{Fix \(x\in\underline{\hspace{1.6in}}\). To show \(x\in\closure{U\cap A}\), fix \(r>0\) and aim to find a point in:}{0.85in}
+\workquestion{Use openness of \(U\): since \(x\in U\), choose \(s>0\) such that:}{0.75in}
+\workquestion{Use \(x\in\closure{A}\) with \(\widetilde r=\min\{r,s\}\) to choose \(y\in\):}{0.75in}
+\workquestion{Check the three memberships \(y\in A\), \(y\in U\), and \(y\in B_r(x)\):}{0.95in}
+\end{skeletonbox}
+
+\newpage
+\begin{skeletonbox}{Homework 9, Problem 2 (continued)}
+\textbf{Part (b): prove equality of closures.}
+\workquestion{First inclusion from part (a) and monotonicity of closure:}{0.75in}
+\workquestion{Second inclusion from \(A\subseteq\closure{A}\):}{0.75in}
+
+\textbf{Part (c): empty-set conclusion.}
+\workquestion{Start from \(U\cap A=\varnothing\), take closures, use part (b), and then use \(B\subseteq\closure{B}\):}{0.85in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 9, Problem 2}{Use this page for parts (a) and (b).}
+
+\newpage
+\fullproofpage{Homework 9, Problem 2}{Use this page for part (c) and final cleanup.}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+\begin{enumerate}[label=(\alph*)]
+  \item Fix \(x\in U\cap\closure{A}\). We show \(x\in\closure{U\cap A}\), i.e., for any \(r>0\), \(\ball{r}{x}\cap U\cap A\) is nonempty.
+
+  Fix \(r>0\). Since \(x\in U\) and \(U\) is open, there exists \(s>0\) such that \(\ball{s}{x}\subseteq U\). Set \(\widetilde r=\min\{r,s\}\). Since \(x\in\closure{A}\), the set \(\ball{\widetilde r}{x}\cap A\) is nonempty, so choose \(y\in\ball{\widetilde r}{x}\cap A\).
+
+  Then \(y\in A\). Also \(y\in\ball{r}{x}\), since \(d(y,x)<\widetilde r\le r\). Finally \(y\in U\), since \(d(y,x)<\widetilde r\le s\), so \(y\in\ball{s}{x}\subseteq U\). Hence \(y\in\ball{r}{x}\cap U\cap A\), as desired.
+
+  \item Recall that \(B\subseteq C\) implies \(\closure{B}\subseteq\closure{C}\). Applying this to part (a),
+  \[
+    \closure{U\cap\closure{A}}\subseteq\closure{U\cap A}.
+  \]
+  On the other hand, \(A\subseteq\closure{A}\), so \(U\cap A\subseteq U\cap\closure{A}\). Therefore
+  \[
+    \closure{U\cap A}\subseteq\closure{U\cap\closure{A}}.
+  \]
+  Together,
+  \[
+    \closure{U\cap\closure{A}}=\closure{U\cap A}.
+  \]
+
+  \item For any set \(B\), \(B\subseteq\closure{B}\). If \(U\cap A=\varnothing\), then \(\closure{U\cap A}=\varnothing\). By part (b),
+  \[
+    \closure{U\cap\closure{A}}=\varnothing.
+  \]
+  Therefore \(U\cap\closure{A}=\varnothing\).
+\end{enumerate}
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 9, Problem 2}
+
+% ---------------------------------------------------------------------------
+% HW9 Problem 3
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 3}
+
+\begin{problemstatementbox}{Homework 9, Problem 3}
+Recall that \(d_2\) is a metric on \(\R^2\). Consider the subspace
+\[
+  Y=\{(x,0):x\in\R\}
+\]
+with the induced metric \(d_Y\).
+
+\begin{enumerate}[label=(\alph*)]
+  \item Provide an example of a set \(A\subseteq Y\) where \(A\) is open in \((Y,d_Y)\) but not open in \((\R^2,d_2)\).
+  \item Prove that for any \(B\subseteq Y\), if \(B\) is closed in \((Y,d_Y)\) then \(B\) is closed in \((\R^2,d_2)\).
+\end{enumerate}
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 9, Problem 3}
+
+\newpage
+\recipecard{Homework 9, Problem 3}
+
+\newpage
+\begin{selfexplanationbox}{Homework 9, Problem 3}
+\workquestion{1. What does a ball in the subspace \(Y\) look like compared with a ball in \(\R^2\)?}{1.05in}
+\workquestion{2. Why is the line segment \((-1,1)\times\{0\}\) open in \(Y\)?}{1.0in}
+\workquestion{3. Why does the point \((0,r/2)\) prove that this set is not open in \(\R^2\)?}{0.95in}
+\workquestion{4. What lecture result lets us reduce part (b) to proving that \(Y\) is closed in \(\R^2\)?}{0.95in}
+\workquestion{5. How does the vertical coordinate \(x_2\neq0\) give a ball contained in \(Y^c\)?}{1.0in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 9, Problem 3}
+\textbf{Part (a): example open in \(Y\), not open in \(\R^2\).}
+\workquestion{Choose \(A=\)}{0.65in}
+\workquestion{To prove \(A\) is open in \(Y\), fix \(x=(x_1,0)\in A\) and choose \(r=\)}{0.8in}
+\workquestion{If \(y\in B_r^Y(x)\), show \(|y_1|<1\), hence \(y\in A\):}{0.95in}
+\workquestion{To prove \(A\) is not open in \(\R^2\), fix \(r>0\) around \((0,0)\) and find an off-axis point:}{0.85in}
+
+\textbf{Part (b): closedness transfer.}
+\workquestion{State the lecture corollary being used:}{0.85in}
+\end{skeletonbox}
+
+\newpage
+\begin{skeletonbox}{Homework 9, Problem 3 (continued)}
+\textbf{Part (b): closedness transfer, continued.}
+\workquestion{Prove \(Y\) is closed by fixing \(x=(x_1,x_2)\in Y^c\), so \(x_2\neq0\), and choosing radius \(r=\)}{0.9in}
+\workquestion{Show \(B_r^{\R^2}(x)\subseteq Y^c\) using the inequality involving \(|x_2-y_2|\):}{1.0in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 9, Problem 3}{Use this page for part (a).}
+
+\newpage
+\fullproofpage{Homework 9, Problem 3}{Use this page for part (b).}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+\begin{enumerate}[label=(\alph*)]
+  \item Consider
+  \[
+    A=\{(x_1,0):-1<x_1<1\}.
+  \]
+  First, \(A\) is open in \((Y,d_Y)\). Fix \(x=(x_1,0)\in A\), and set \(r=1-|x_1|\). Then \(r>0\), and
+  \[
+    B_r^Y(x)=\{y\in Y:d_Y(x,y)<r\}\subseteq A,
+  \]
+  since
+  \[
+    y\in B_r^Y(x)
+    \Longrightarrow
+    r>d_Y(x,y)=\sqrt{|x_1-y_1|^2+|0-0|^2}=|x_1-y_1|
+  \]
+  and therefore
+  \[
+    |y_1|\le |x_1|+|y_1-x_1|<|x_1|+r=1.
+  \]
+
+  Next, \(A\) is not open in \((\R^2,d_2)\), because \((0,0)\in A\) is not an interior point. For any \(r>0\), the point \((0,r/2)\) lies in \(B_r^{\R^2}((0,0))\) but not in \(A\).
+
+  \item By the corollary from Lecture 24, it suffices to show that \(Y\) is closed in \((\R^2,d_2)\). Fix \(x=(x_1,x_2)\in Y^c\). Then \(x_2\neq0\). Set \(r=|x_2|\). If \(y\in B_r^{\R^2}(x)\), then
+  \[
+    r>d_2(x,y)=\sqrt{|x_1-y_1|^2+|x_2-y_2|^2}\ge |x_2-y_2|.
+  \]
+  Hence
+  \[
+    |y_2|\ge |x_2|-|x_2-y_2|>|x_2|-r=0.
+  \]
+  Thus \(y_2\neq0\), so \(y\in Y^c\). Therefore \(B_r^{\R^2}(x)\subseteq Y^c\). Since every point of \(Y^c\) is interior to \(Y^c\), \(Y^c\) is open, and \(Y\) is closed.
+\end{enumerate}
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 9, Problem 3}
+
+% ---------------------------------------------------------------------------
+% HW9 Problem 4
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 4}
+
+\begin{problemstatementbox}{Homework 9, Problem 4}
+Let \((X,d)\) be a metric space, \(\{x_n\}_{n\geq1}\) a sequence in \(X\), and \(x\in X\). Prove that the sequence \(\{x_n\}_{n\geq1}\) converges to \(x\) if and only if for every open set \(U\) that contains \(x\), we have \(x_n\in U\) for all but finitely many \(n\in\N\).
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 9, Problem 4}
+
+\newpage
+\recipecard{Homework 9, Problem 4}
+
+\newpage
+\begin{selfexplanationbox}{Homework 9, Problem 4}
+\workquestion{1. In the forward direction, how does openness of \(U\) connect an arbitrary neighborhood to a ball around \(x\)?}{1.05in}
+\workquestion{2. What does ``for all but finitely many \(n\)'' mean in terms of choosing an \(N\)?}{1.0in}
+\workquestion{3. In the reverse direction, why is \(B_r(x)\) the correct open set to test?}{1.0in}
+\workquestion{4. Why is it enough to prove \(x_n\in B_r(x)\) eventually for each \(r>0\)?}{1.0in}
+\workquestion{5. What is the main logical difference between the two directions?}{0.95in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 9, Problem 4}
+\textbf{Forward direction: assume \(x_n\to x\).}
+\workquestion{Fix an open set \(U\subseteq X\) with \(x\in U\). By openness, choose \(r>0\) such that:}{0.9in}
+\workquestion{By convergence, choose \(N\) such that for all \(n\ge N\):}{0.85in}
+\workquestion{Conclude \(x_n\in U\) for all but finitely many \(n\):}{0.75in}
+
+\textbf{Reverse direction: assume eventual membership in every open \(U\ni x\).}
+\workquestion{Fix \(r>0\). Apply the hypothesis to the open set:}{0.8in}
+\workquestion{Convert ``all but finitely many'' into an \(N\) so that for all \(n\ge N\):}{0.9in}
+\workquestion{Translate \(x_n\in B_r(x)\) into the metric convergence inequality:}{0.85in}
+\workquestion{Conclude because \(r>0\) was arbitrary:}{0.65in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 9, Problem 4}{Use this page for both directions.}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+\(\Rightarrow\) Suppose \(x_n\to x\) in \((X,d)\) as \(n\to\infty\). Fix an open set \(U\subseteq X\) such that \(x\in U\). Since \(U\) is open, there exists \(r>0\) such that \(\ball{r}{x}\subseteq U\). By definition of convergence, there exists \(N\) such that \(d(x_n,x)<r\) for all \(n\ge N\). Therefore \(x_n\in\ball{r}{x}\subseteq U\) for all \(n\ge N\).
+
+\(\Leftarrow\) Suppose that for every open set \(U\) containing \(x\), we have \(x_n\in U\) for all but finitely many \(n\in\N\). Fix \(r>0\). Apply the assumption to the open set \(\ball{r}{x}\). Then \(x_n\in\ball{r}{x}\) for all but finitely many \(n\in\N\). Let \(N\) be larger than the largest index for which \(x_n\notin\ball{r}{x}\). Then for every \(n\ge N\), \(x_n\in\ball{r}{x}\), and hence \(d(x_n,x)<r\). Since \(r>0\) was arbitrary, \(\{x_n\}_{n\ge1}\) converges to \(x\) in \((X,d)\).
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 9, Problem 4}
+
+% ---------------------------------------------------------------------------
+% HW9 Problem 5
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 5}
+
+\begin{problemstatementbox}{Homework 9, Problem 5}
+Recall that \(d_2\) is a metric on \(\R^2\). Suppose that \(x^n=(x_1^n,x_2^n)\) is a sequence of points in \(\R^2\).
+
+\begin{enumerate}[label=(\alph*)]
+  \item Prove that \(|x_1^n-x_1|\leq d_2(x^n,x)\) for any \(x=(x_1,x_2)\in\R^2\).
+  \item Prove that the sequence \(\{x^n\}_{n\geq1}\) converges in \((\R^2,d_2)\) if and only if the sequences \(\{x_1^n\}_{n\geq1}\) and \(\{x_2^n\}_{n\geq1}\) of real numbers both converge.
+\end{enumerate}
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 9, Problem 5}
+
+\newpage
+\recipecard{Homework 9, Problem 5}
+
+\newpage
+\begin{selfexplanationbox}{Homework 9, Problem 5}
+\workquestion{1. Why does the Euclidean distance \(d_2(x^n,x)\) control each coordinate difference?}{1.05in}
+\workquestion{2. In the forward direction, what is squeezed between \(0\) and \(d_2(x^n,x)\)?}{0.95in}
+\workquestion{3. Why do the coordinate sequences converge to the coordinates of the same point \(x\)?}{0.95in}
+\workquestion{4. In the reverse direction, how do the real limit laws imply \(d_2(x^n,x)\to0\)?}{1.05in}
+\workquestion{5. What would change if the problem were in \(\R^3\) or \(\R^m\)?}{0.95in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 9, Problem 5}
+\textbf{Part (a): coordinate estimate.}
+\workquestion{Write the formula for \(d_2(x^n,x)\):}{0.8in}
+\workquestion{Use \(|x_2^n-x_2|^2\ge0\) to get the desired inequality:}{0.9in}
+
+\textbf{Part (b), forward direction.}
+\workquestion{Assume \(x^n\to x=(x_1,x_2)\) in \((\R^2,d_2)\). Then \(d_2(x^n,x)\to\)}{0.7in}
+\workquestion{Use part (a) and squeeze to prove \(x_1^n\to x_1\):}{0.85in}
+\workquestion{Repeat the same argument for the second coordinate:}{0.75in}
+\end{skeletonbox}
+
+\newpage
+\begin{skeletonbox}{Homework 9, Problem 5 (continued)}
+\textbf{Part (b), reverse direction.}
+\workquestion{Assume \(x_1^n\to x_1\) and \(x_2^n\to x_2\). Set \(x=\)}{0.65in}
+\workquestion{Use the formula for \(d_2(x^n,x)\) and the limit laws to conclude:}{0.95in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 9, Problem 5}{Use this page for part (a) and the forward direction of part (b).}
+
+\newpage
+\fullproofpage{Homework 9, Problem 5}{Use this page for the reverse direction of part (b).}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+\begin{enumerate}[label=(\alph*)]
+  \item Recall that
+  \[
+    d_2(x^n,x)=\left(|x_1^n-x_1|^2+|x_2^n-x_2|^2\right)^{1/2}.
+  \]
+  Since \(|x_2^n-x_2|^2\ge0\),
+  \[
+    d_2(x^n,x)\ge \left(|x_1^n-x_1|^2+0\right)^{1/2}\ge |x_1^n-x_1|.
+  \]
+
+  \item \(\Rightarrow\) Suppose \(\{x^n\}_{n\ge1}\) converges to \(x\) in \((\R^2,d_2)\). Then
+  \[
+    d_2(x^n,x)\to0.
+  \]
+  By part (a),
+  \[
+    0\le |x_1^n-x_1|\le d_2(x^n,x).
+  \]
+  By the squeeze theorem, \(|x_1^n-x_1|\to0\), so \(\{x_1^n\}_{n\ge1}\) converges to \(x_1\). Similarly,
+  \[
+    0\le |x_2^n-x_2|\le d_2(x^n,x),
+  \]
+  so \(\{x_2^n\}_{n\ge1}\) converges to \(x_2\).
+
+  \(\Leftarrow\) Suppose \(\{x_1^n\}_{n\ge1}\) converges to \(x_1\) and \(\{x_2^n\}_{n\ge1}\) converges to \(x_2\). Then
+  \[
+    |x_1^n-x_1|\to0
+    \qquad\text{and}\qquad
+    |x_2^n-x_2|\to0.
+  \]
+  By the limit laws,
+  \[
+    d_2(x^n,x)
+    =
+    \left(|x_1^n-x_1|^2+|x_2^n-x_2|^2\right)^{1/2}
+    \to0.
+  \]
+  Thus \(\{x^n\}_{n\ge1}\) converges to \(x\) in \((\R^2,d_2)\).
+\end{enumerate}
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 9, Problem 5}
+
+% ---------------------------------------------------------------------------
+% HW9 Problem 6
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Problem 6}
+
+\begin{problemstatementbox}{Homework 9, Problem 6}
+Let \((X,d)\) be a metric space and \(\{x_n\}_{n\geq1}\) a sequence in \(X\). Prove that if \(\{x_n\}_{n\geq1}\) converges to \(x\in X\), then for any \(y\in X\), the sequence \(\{d(x_n,y)\}_{n\geq1}\) of real numbers converges to \(d(x,y)\).
+\end{problemstatementbox}
+
+\newpage
+\firstdiagnosis{Homework 9, Problem 6}
+
+\newpage
+\recipecard{Homework 9, Problem 6}
+
+\newpage
+\begin{selfexplanationbox}{Homework 9, Problem 6}
+\workquestion{1. What real-valued sequence are we trying to prove converges?}{0.95in}
+\workquestion{2. Why should the triangle inequality compare \(d(x_n,y)\) and \(d(x,y)\)?}{1.05in}
+\workquestion{3. How do two applications of the triangle inequality produce an absolute value estimate?}{1.05in}
+\workquestion{4. What quantity goes to \(0\), and why does it squeeze the distance error?}{1.0in}
+\workquestion{5. How is this problem a sequence version of continuity of the map \(z\mapsto d(z,y)\)?}{1.0in}
+\end{selfexplanationbox}
+
+\newpage
+\begin{skeletonbox}{Homework 9, Problem 6}
+\textbf{Setup.}
+\workquestion{Fix \(y\in X\). Since \(x_n\to x\), we know \(d(x_n,x)\to\)}{0.75in}
+
+\textbf{Triangle inequality estimates.}
+\workquestion{First apply triangle inequality to bound \(d(x_n,y)\) in terms of \(d(x_n,x)\) and \(d(x,y)\):}{0.9in}
+\workquestion{Rearrange to get \(d(x_n,y)-d(x,y)\le\)}{0.7in}
+\workquestion{Apply triangle inequality again to bound \(d(x,y)\) in terms of \(d(x,x_n)\) and \(d(x_n,y)\):}{0.9in}
+\workquestion{Rearrange to get \(d(x,y)-d(x_n,y)\le\)}{0.7in}
+\end{skeletonbox}
+
+\newpage
+\begin{skeletonbox}{Homework 9, Problem 6 (continued)}
+\textbf{Finish.}
+\workquestion{Combine the two inequalities into an absolute value estimate:}{0.8in}
+\workquestion{Use squeeze theorem to conclude:}{0.75in}
+\end{skeletonbox}
+
+\newpage
+\fullproofpage{Homework 9, Problem 6}{Use this page for the complete proof.}
+
+\newpage
+\begin{solutionbox}{Official Solution (Professor)}
+Fix \(y\in X\). By the triangle inequality,
+\[
+\begin{aligned}
+  d(x_n,y)&\le d(x_n,x)+d(x,y)
+  &&\Longrightarrow&
+  d(x_n,y)-d(x,y)&\le d(x_n,x),\\
+  d(x,y)&\le d(x,x_n)+d(x_n,y)
+  &&\Longrightarrow&
+  d(x,y)-d(x_n,y)&\le d(x_n,x).
+\end{aligned}
+\]
+Together,
+\[
+  |d(x_n,y)-d(x,y)|\le d(x_n,x).
+\]
+Since \(\{x_n\}_{n\ge1}\) converges to \(x\) in \((X,d)\), the right-hand side converges to \(0\). Therefore, by the squeeze theorem,
+\[
+  |d(x_n,y)-d(x,y)|\to0,
+\]
+and thus \(d(x_n,y)\) converges to \(d(x,y)\).
+\end{solutionbox}
+
+\newpage
+\reflectionpage{Homework 9, Problem 6}
+
+\end{document}

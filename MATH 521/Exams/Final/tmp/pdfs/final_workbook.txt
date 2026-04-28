@@ -1,0 +1,1314 @@
+              MATH 521
+                 Real Analysis
+
+
+
+
+        Final Practice Book
+             Write-On Workbook
+
+
+         University of Wisconsin–Madison
+                   Spring 2026
+
+
+
+              Step 1 build: Homework 9
+
+
+
+
+Name:
+
+
+Date:
+                                       Contents
+How to Use This Workbook                                                                    ii
+
+1 Homework 9                                                                                 1
+  1.1 Problem 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    2
+  1.2 Problem 2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   12
+  1.3 Problem 3 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   22
+  1.4 Problem 4 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   32
+  1.5 Problem 5 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   41
+  1.6 Problem 6 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   51
+
+
+
+
+                                               i
+                      How to Use This Workbook
+This workbook is for active proof practice. For each problem, work through the diagnosis,
+recipe card, self-explanation, skeleton, and full proof attempt before reading the reference
+solution.
+Pass 1      Diagnose the topic, task, relevant definitions, and likely proof method.
+
+Pass 2      Convert the problem into hypotheses, conclusion, tools, and a proof plan.
+
+Pass 3      Answer targeted questions that expose the proof’s logic.
+
+Pass 4      Reconstruct the proof from a skeleton without reading the full solution.
+
+Pass 5      Write a complete proof from scratch in the blank writing space.
+Only after Pass 5 should you compare your work to the official or reference solution.
+
+
+
+
+                                             ii
+Homework 9
+
+
+
+
+    1
+Problem 1
+
+ Problem Statement                                          Homework 9, Problem 1
+
+ Consider the metric space (R, d) with the usual metric d(x, y) = |x − y|. For each of
+ the following sets A ⊆ R, find its closure, isolated points, and limit points. Prove your
+ answer.
+  (a) A = [0, 1)
+  (b) A = Z
+  (c) A = {x ∈ Q : 0 < x < 1}
+
+
+
+
+                                            2
+Pass 1 – First Diagnosis                       Homework 9, Problem 1
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                     3
+Pass 2 – Proof Recipe Card         Homework 9, Problem 1
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               4
+Pass 3 – Self-Explanation                         Homework 9, Problem 1
+1. For each set, which points are obvious members of the closure, and
+which boundary points require a ball argument?
+
+
+
+
+2. How do you prove that a point is not in Z? What radius separates it
+from all integers?
+
+
+
+
+3. What is the difference between proving a ∈ A is isolated and proving
+a ∈ A is a limit point?
+
+
+
+
+4. Where is density of Q used in part (c), and why is it not enough just to
+say “there are rationals nearby”?
+
+
+
+
+5. How does the identity A = (isolated points) ∪ A′ finish the limit-point
+computations?
+
+
+
+
+                                    5
+Pass 4 – Skeleton Proof                           Homework 9, Problem 1
+
+Part (a): A = [0, 1)
+Closure: show [0, 1) ⊆ A ⊆ [0, 1], then prove 1 ∈ A by choosing a point of A
+in (1 − r, 1 + r):
+
+
+
+
+Isolated points: fix a ∈ A. Given r > 0, choose a second point of A inside
+(a − r, a + r):
+
+
+
+
+Limit points: use the closure/isolated-point relationship to conclude:
+
+
+
+
+Part (b): A = Z
+Closure: for x ∈
+               / Z, choose n ∈ Z with n < x < n + 1 and radius r =
+
+
+
+
+Isolated points and limit points: choose the ball around n ∈ Z:
+
+
+
+
+                                     6
+Pass 4 – Skeleton Proof               Homework 9, Problem 1 (continued)
+
+Part (c): A = {x ∈ Q : 0 < x < 1}
+Closure: prove 0, points in (0, 1], and no points outside [0, 1] behave cor-
+rectly:
+
+
+
+
+Isolated points and limit points: use density of Q to find a second point:
+
+
+
+
+                                     7
+Pass 5 – Full Proof Attempt                Homework 9, Problem 1
+
+Use this page for parts (a) and (b).
+
+
+
+
+                                       8
+Pass 5 – Full Proof Attempt                     Homework 9, Problem 1
+
+Use this page for part (c) and final cleanup.
+
+
+
+
+                                     9
+Official Solution (Professor)
+
+(a) Closure: A = [0, 1]. Since A is the smallest closed set containing A, and [0, 1] is
+    one such closed set, we must have
+
+                                     [0, 1) ⊆ A ⊆ [0, 1].
+
+    Also 1 ∈ A: given r > 0,
+
+                                 (1 − r, 1 + r) ∩ [0, 1) ̸= ∅,
+
+    since max{1 − r/2, 0} ∈ (1 − r, 1 + r) ∩ [0, 1).
+    Isolated points: ∅. Fix a ∈ A. Given r > 0, the point
+                                           r a+1
+                                                       
+                                    min a + ,
+                                           2 2
+    is in (a − r, a + r) ∩ A and is not a.
+    Limit points: A′ = [0, 1]. By definition, A is the union of isolated points and
+    limit points, and there are no isolated points.
+(b) Closure: A = Z. We automatically have Z ⊆ A. Fix x ∈ Zc . Let n ∈ Z satisfy
+    n < x < n + 1. Then
+                                r = min{x − n, n + 1 − x}
+    is positive and (x − r, x + r) ∩ Z = ∅. Thus x ∈
+                                                   / A.
+    Isolated points: Z. For n ∈ Z,
+
+                                 (n − 1, n + 1) ∩ Z = {n}.
+
+    Limit points: A′ = ∅. Every point of A is isolated.
+(c) Closure: A = [0, 1]. First, A ⊆ [0, 1], and [0, 1] is closed, so A ⊆ [0, 1]. The point
+    0 is adherent to A: given r > 0, choose n > max{1/r, 1}, so 1/n ∈ (−r, r) ∩ A.
+    Now fix x ∈ (0, 1]. By density of Q in R, for every r > 0 there is q ∈ Q between
+    max{x − r, 0} and x, and this q ∈ (x − r, x + r) ∩ A.
+    Isolated points: ∅. Given x ∈ A and r > 0, choose q ∈ Q as above. This q lies
+    in (x − r, x + r) ∩ A and q ̸= x.
+    Limit points: A′ = [0, 1]. There are no isolated points.
+
+
+
+
+                                             10
+Reflection & Variation                           Homework 9, Problem 1
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  11
+Problem 2
+
+ Problem Statement                                      Homework 9, Problem 2
+
+ Let (X, d) be a metric space, let A be a nonempty subset of X, and let U be an open
+ subset of X.
+  (a) Prove that U ∩ A ⊆ U ∩ A.
+  (b) Prove that U ∩ A = U ∩ A. (Hint: Use part (a) and properties of closure from
+      lecture.)
+  (c) Conclude that if U ∩ A = ∅, then U ∩ A = ∅.
+
+
+
+
+                                         12
+Pass 1 – First Diagnosis                       Homework 9, Problem 2
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    13
+Pass 2 – Proof Recipe Card          Homework 9, Problem 2
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               14
+Pass 3 – Self-Explanation                           Homework 9, Problem 2
+
+1. Why is the assumption that U is open essential in part (a)?
+
+
+
+
+2. After fixing x ∈ U ∩ A and r > 0, why do we introduce a second radius
+s > 0?
+
+
+
+
+3. Why is re = min{r, s} the right radius to use?
+
+
+
+
+4. Which closure property turns part (a) into the first inclusion in part
+(b)?
+
+
+
+
+5. In part (c), why does U ∩ A = ∅ force U ∩ A = ∅?
+
+
+
+
+                                      15
+Pass 4 – Skeleton Proof                            Homework 9, Problem 2
+
+Part (a): prove U ∩ A ⊆ U ∩ A.
+Fix x ∈                    . To show x ∈ U ∩ A, fix r > 0 and aim to find a
+point in:
+
+
+
+
+Use openness of U : since x ∈ U , choose s > 0 such that:
+
+
+
+
+Use x ∈ A with re = min{r, s} to choose y ∈:
+
+
+
+
+Check the three memberships y ∈ A, y ∈ U , and y ∈ Br (x):
+
+
+
+
+                                      16
+Pass 4 – Skeleton Proof              Homework 9, Problem 2 (continued)
+
+Part (b): prove equality of closures.
+First inclusion from part (a) and monotonicity of closure:
+
+
+
+
+Second inclusion from A ⊆ A:
+
+
+
+
+Part (c): empty-set conclusion.
+Start from U ∩ A = ∅, take closures, use part (b), and then use B ⊆ B:
+
+
+
+
+                                    17
+Pass 5 – Full Proof Attempt                 Homework 9, Problem 2
+
+Use this page for parts (a) and (b).
+
+
+
+
+                                       18
+Pass 5 – Full Proof Attempt                     Homework 9, Problem 2
+
+Use this page for part (c) and final cleanup.
+
+
+
+
+                                    19
+Official Solution (Professor)
+
+(a) Fix x ∈ U ∩A. We show x ∈ U ∩ A, i.e., for any r > 0, Br (x)∩U ∩A is nonempty.
+    Fix r > 0. Since x ∈ U and U is open, there exists s > 0 such that Bs (x) ⊆ U .
+    Set re = min{r, s}. Since x ∈ A, the set Bre(x) ∩ A is nonempty, so choose
+    y ∈ Bre(x) ∩ A.
+    Then y ∈ A. Also y ∈ Br (x), since d(y, x) < re ≤ r. Finally y ∈ U , since
+    d(y, x) < re ≤ s, so y ∈ Bs (x) ⊆ U . Hence y ∈ Br (x) ∩ U ∩ A, as desired.
+(b) Recall that B ⊆ C implies B ⊆ C. Applying this to part (a),
+
+                                   U ∩ A ⊆ U ∩ A.
+
+    On the other hand, A ⊆ A, so U ∩ A ⊆ U ∩ A. Therefore
+
+                                   U ∩ A ⊆ U ∩ A.
+
+    Together,
+                                   U ∩ A = U ∩ A.
+(c) For any set B, B ⊆ B. If U ∩ A = ∅, then U ∩ A = ∅. By part (b),
+
+                                     U ∩ A = ∅.
+
+    Therefore U ∩ A = ∅.
+
+
+
+
+                                       20
+Reflection & Variation                           Homework 9, Problem 2
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  21
+Problem 3
+
+ Problem Statement                                           Homework 9, Problem 3
+
+ Recall that d2 is a metric on R2 . Consider the subspace
+
+                                   Y = {(x, 0) : x ∈ R}
+
+ with the induced metric dY .
+  (a) Provide an example of a set A ⊆ Y where A is open in (Y, dY ) but not open in
+      (R2 , d2 ).
+  (b) Prove that for any B ⊆ Y , if B is closed in (Y, dY ) then B is closed in (R2 , d2 ).
+
+
+
+
+                                            22
+Pass 1 – First Diagnosis                       Homework 9, Problem 3
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    23
+Pass 2 – Proof Recipe Card          Homework 9, Problem 3
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               24
+Pass 3 – Self-Explanation                           Homework 9, Problem 3
+1. What does a ball in the subspace Y look like compared with a ball in
+R2 ?
+
+
+
+
+2. Why is the line segment (−1, 1) × {0} open in Y ?
+
+
+
+
+3. Why does the point (0, r/2) prove that this set is not open in R2 ?
+
+
+
+
+4. What lecture result lets us reduce part (b) to proving that Y is closed
+in R2 ?
+
+
+
+
+5. How does the vertical coordinate x2 ̸= 0 give a ball contained in Y c ?
+
+
+
+
+                                     25
+Pass 4 – Skeleton Proof                              Homework 9, Problem 3
+
+Part (a): example open in Y , not open in R2 .
+Choose A =
+
+
+
+
+To prove A is open in Y , fix x = (x1 , 0) ∈ A and choose r =
+
+
+
+
+If y ∈ BrY (x), show |y1 | < 1, hence y ∈ A:
+
+
+
+
+To prove A is not open in R2 , fix r > 0 around (0, 0) and find an off-axis
+point:
+
+
+
+
+Part (b): closedness transfer.
+State the lecture corollary being used:
+
+
+
+
+                                         26
+Pass 4 – Skeleton Proof                  Homework 9, Problem 3 (continued)
+
+Part (b): closedness transfer, continued.
+Prove Y is closed by fixing x = (x1 , x2 ) ∈ Y c , so x2 ̸= 0, and choosing radius
+r=
+
+
+
+
+         2
+Show BrR (x) ⊆ Y c using the inequality involving |x2 − y2 |:
+
+
+
+
+                                       27
+Pass 5 – Full Proof Attempt        Homework 9, Problem 3
+
+Use this page for part (a).
+
+
+
+
+                              28
+Pass 5 – Full Proof Attempt        Homework 9, Problem 3
+
+Use this page for part (b).
+
+
+
+
+                              29
+Official Solution (Professor)
+
+(a) Consider
+                               A = {(x1 , 0) : −1 < x1 < 1}.
+    First, A is open in (Y, dY ). Fix x = (x1 , 0) ∈ A, and set r = 1 − |x1 |. Then r > 0,
+    and
+                           BrY (x) = {y ∈ Y : dY (x, y) < r} ⊆ A,
+    since
+                                                    q
+             y ∈ BrY (x) =⇒ r > dY (x, y) =             |x1 − y1 |2 + |0 − 0|2 = |x1 − y1 |
+
+    and therefore
+                           |y1 | ≤ |x1 | + |y1 − x1 | < |x1 | + r = 1.
+    Next, A is not open in (R2 , d2 ), because (0, 0) ∈ A is not an interior point. For
+                                              2
+    any r > 0, the point (0, r/2) lies in BrR ((0, 0)) but not in A.
+(b) By the corollary from Lecture 24, it suffices to show that Y is closed in (R2 , d2 ).
+                                                                      2
+    Fix x = (x1 , x2 ) ∈ Y c . Then x2 ̸= 0. Set r = |x2 |. If y ∈ BrR (x), then
+                                      q
+                    r > d2 (x, y) =       |x1 − y1 |2 + |x2 − y2 |2 ≥ |x2 − y2 |.
+
+    Hence
+                           |y2 | ≥ |x2 | − |x2 − y2 | > |x2 | − r = 0.
+                                                        2
+    Thus y2 ̸= 0, so y ∈ Y c . Therefore BrR (x) ⊆ Y c . Since every point of Y c is
+    interior to Y c , Y c is open, and Y is closed.
+
+
+
+
+                                               30
+Reflection & Variation                           Homework 9, Problem 3
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  31
+Problem 4
+
+ Problem Statement                                        Homework 9, Problem 4
+
+ Let (X, d) be a metric space, {xn }n≥1 a sequence in X, and x ∈ X. Prove that the
+ sequence {xn }n≥1 converges to x if and only if for every open set U that contains x,
+ we have xn ∈ U for all but finitely many n ∈ N.
+
+
+
+
+                                          32
+Pass 1 – First Diagnosis                       Homework 9, Problem 4
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    33
+Pass 2 – Proof Recipe Card          Homework 9, Problem 4
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               34
+Pass 3 – Self-Explanation                          Homework 9, Problem 4
+1. In the forward direction, how does openness of U connect an arbitrary
+neighborhood to a ball around x?
+
+
+
+
+2. What does “for all but finitely many n” mean in terms of choosing an
+N?
+
+
+
+
+3. In the reverse direction, why is Br (x) the correct open set to test?
+
+
+
+
+4. Why is it enough to prove xn ∈ Br (x) eventually for each r > 0?
+
+
+
+
+5. What is the main logical difference between the two directions?
+
+
+
+
+                                     35
+Pass 4 – Skeleton Proof                            Homework 9, Problem 4
+Forward direction: assume xn → x.
+Fix an open set U ⊆ X with x ∈ U . By openness, choose r > 0 such that:
+
+
+
+
+By convergence, choose N such that for all n ≥ N :
+
+
+
+
+Conclude xn ∈ U for all but finitely many n:
+
+
+
+
+Reverse direction: assume eventual membership in every open U ∋ x.
+Fix r > 0. Apply the hypothesis to the open set:
+
+
+
+
+Convert “all but finitely many” into an N so that for all n ≥ N :
+
+
+
+
+                                     36
+Translate xn ∈ Br (x) into the metric convergence inequality:
+
+
+
+
+Conclude because r > 0 was arbitrary:
+
+
+
+
+                                     37
+Pass 5 – Full Proof Attempt               Homework 9, Problem 4
+Use this page for both directions.
+
+
+
+
+                                     38
+Official Solution (Professor)
+
+⇒ Suppose xn → x in (X, d) as n → ∞. Fix an open set U ⊆ X such that x ∈ U .
+Since U is open, there exists r > 0 such that Br (x) ⊆ U . By definition of convergence,
+there exists N such that d(xn , x) < r for all n ≥ N . Therefore xn ∈ Br (x) ⊆ U for all
+n ≥ N.
+⇐ Suppose that for every open set U containing x, we have xn ∈ U for all but
+finitely many n ∈ N. Fix r > 0. Apply the assumption to the open set Br (x). Then
+xn ∈ Br (x) for all but finitely many n ∈ N. Let N be larger than the largest index for
+which xn ∈/ Br (x). Then for every n ≥ N , xn ∈ Br (x), and hence d(xn , x) < r. Since
+r > 0 was arbitrary, {xn }n≥1 converges to x in (X, d).
+
+
+
+
+                                          39
+Reflection & Variation                           Homework 9, Problem 4
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  40
+Problem 5
+
+ Problem Statement                                           Homework 9, Problem 5
+
+ Recall that d2 is a metric on R2 . Suppose that xn = (xn1 , xn2 ) is a sequence of points
+ in R2 .
+  (a) Prove that |xn1 − x1 | ≤ d2 (xn , x) for any x = (x1 , x2 ) ∈ R2 .
+  (b) Prove that the sequence {xn }n≥1 converges in (R2 , d2 ) if and only if the sequences
+      {xn1 }n≥1 and {xn2 }n≥1 of real numbers both converge.
+
+
+
+
+                                            41
+Pass 1 – First Diagnosis                       Homework 9, Problem 5
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    42
+Pass 2 – Proof Recipe Card          Homework 9, Problem 5
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               43
+Pass 3 – Self-Explanation                           Homework 9, Problem 5
+
+1. Why does the Euclidean distance d2 (xn , x) control each coordinate dif-
+ference?
+
+
+
+
+2. In the forward direction, what is squeezed between 0 and d2 (xn , x)?
+
+
+
+
+3. Why do the coordinate sequences converge to the coordinates of the
+same point x?
+
+
+
+
+4. In the reverse direction, how do the real limit laws imply d2 (xn , x) → 0?
+
+
+
+
+5. What would change if the problem were in R3 or Rm ?
+
+
+
+
+                                      44
+Pass 4 – Skeleton Proof                                  Homework 9, Problem 5
+
+Part (a): coordinate estimate.
+Write the formula for d2 (xn , x):
+
+
+
+
+Use |xn2 − x2 |2 ≥ 0 to get the desired inequality:
+
+
+
+
+Part (b), forward direction.
+Assume xn → x = (x1 , x2 ) in (R2 , d2 ). Then d2 (xn , x) →
+
+
+
+
+Use part (a) and squeeze to prove xn1 → x1 :
+
+
+
+
+Repeat the same argument for the second coordinate:
+
+
+
+
+                                          45
+Pass 4 – Skeleton Proof                  Homework 9, Problem 5 (continued)
+
+Part (b), reverse direction.
+Assume xn1 → x1 and xn2 → x2 . Set x =
+
+
+
+
+Use the formula for d2 (xn , x) and the limit laws to conclude:
+
+
+
+
+                                      46
+Pass 5 – Full Proof Attempt                       Homework 9, Problem 5
+
+Use this page for part (a) and the forward direction of part (b).
+
+
+
+
+                                    47
+Pass 5 – Full Proof Attempt                        Homework 9, Problem 5
+
+Use this page for the reverse direction of part (b).
+
+
+
+
+                                     48
+Official Solution (Professor)
+
+(a) Recall that
+                                                                        1/2
+                           d2 (xn , x) = |xn1 − x1 |2 + |xn2 − x2 |2            .
+    Since |xn2 − x2 |2 ≥ 0,
+                                                           1/2
+                         d2 (xn , x) ≥ |xn1 − x1 |2 + 0            ≥ |xn1 − x1 |.
+
+(b) ⇒ Suppose {xn }n≥1 converges to x in (R2 , d2 ). Then
+
+                                               d2 (xn , x) → 0.
+
+    By part (a),
+                                    0 ≤ |xn1 − x1 | ≤ d2 (xn , x).
+    By the squeeze theorem, |xn1 − x1 | → 0, so {xn1 }n≥1 converges to x1 . Similarly,
+
+                                    0 ≤ |xn2 − x2 | ≤ d2 (xn , x),
+
+    so {xn2 }n≥1 converges to x2 .
+    ⇐ Suppose {xn1 }n≥1 converges to x1 and {xn2 }n≥1 converges to x2 . Then
+
+                           |xn1 − x1 | → 0          and      |xn2 − x2 | → 0.
+
+    By the limit laws,
+                                                                      1/2
+                         d2 (xn , x) = |xn1 − x1 |2 + |xn2 − x2 |2            → 0.
+
+    Thus {xn }n≥1 converges to x in (R2 , d2 ).
+
+
+
+
+                                                  49
+Reflection & Variation                           Homework 9, Problem 5
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  50
+Problem 6
+
+ Problem Statement                                      Homework 9, Problem 6
+
+ Let (X, d) be a metric space and {xn }n≥1 a sequence in X. Prove that if {xn }n≥1
+ converges to x ∈ X, then for any y ∈ X, the sequence {d(xn , y)}n≥1 of real numbers
+ converges to d(x, y).
+
+
+
+
+                                         51
+Pass 1 – First Diagnosis                       Homework 9, Problem 6
+Topic:
+
+What is being asked?:
+
+
+
+
+Definitions likely relevant:
+
+
+
+
+Theorem/proof method likely relevant:
+
+
+
+
+What should the first line of the proof be?:
+
+
+
+
+                                    52
+Pass 2 – Proof Recipe Card          Homework 9, Problem 6
+Hypotheses:
+
+
+
+
+Conclusion:
+
+
+
+
+Definitions to unpack:
+
+
+
+
+Useful theorem/lemma:
+
+
+
+
+Key inequality/identity:
+
+
+
+
+One-sentence proof strategy:
+
+
+
+
+                               53
+Pass 3 – Self-Explanation                          Homework 9, Problem 6
+1. What real-valued sequence are we trying to prove converges?
+
+
+
+
+2. Why should the triangle inequality compare d(xn , y) and d(x, y)?
+
+
+
+
+3. How do two applications of the triangle inequality produce an absolute
+value estimate?
+
+
+
+
+4. What quantity goes to 0, and why does it squeeze the distance error?
+
+
+
+
+5. How is this problem a sequence version of continuity of the map z 7→
+d(z, y)?
+
+
+
+
+                                     54
+Pass 4 – Skeleton Proof                           Homework 9, Problem 6
+Setup.
+Fix y ∈ X. Since xn → x, we know d(xn , x) →
+
+
+
+
+Triangle inequality estimates.
+First apply triangle inequality to bound d(xn , y) in terms of d(xn , x) and
+d(x, y):
+
+
+
+
+Rearrange to get d(xn , y) − d(x, y) ≤
+
+
+
+
+Apply triangle inequality again to bound d(x, y) in terms of d(x, xn ) and
+d(xn , y):
+
+
+
+
+Rearrange to get d(x, y) − d(xn , y) ≤
+
+
+
+
+                                         55
+Pass 4 – Skeleton Proof              Homework 9, Problem 6 (continued)
+
+Finish.
+Combine the two inequalities into an absolute value estimate:
+
+
+
+
+Use squeeze theorem to conclude:
+
+
+
+
+                                   56
+Pass 5 – Full Proof Attempt             Homework 9, Problem 6
+Use this page for the complete proof.
+
+
+
+
+                                   57
+Official Solution (Professor)
+
+Fix y ∈ X. By the triangle inequality,
+
+            d(xn , y) ≤ d(xn , x) + d(x, y)    =⇒ d(xn , y) − d(x, y) ≤ d(xn , x),
+             d(x, y) ≤ d(x, xn ) + d(xn , y)   =⇒ d(x, y) − d(xn , y) ≤ d(xn , x).
+
+Together,
+                               |d(xn , y) − d(x, y)| ≤ d(xn , x).
+Since {xn }n≥1 converges to x in (X, d), the right-hand side converges to 0. Therefore,
+by the squeeze theorem,
+                               |d(xn , y) − d(x, y)| → 0,
+and thus d(xn , y) converges to d(x, y).
+
+
+
+
+                                               58
+Reflection & Variation                           Homework 9, Problem 6
+What was the key definition?:
+
+
+
+
+What was the key proof move?:
+
+
+
+
+What step would I forget under time pressure?:
+
+
+
+
+What nearby exam variation could appear?:
+
+
+
+
+                                  59
+
