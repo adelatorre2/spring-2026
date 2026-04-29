@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <g stroke="#2D8B3F" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Bag body with rounded bottom corners -->
+    <path d="M14 22 L11 50 a5 5 0 0 0 5 5 h32 a5 5 0 0 0 5 -5 L49 22 z"/>
+    <!-- Handle arc -->
+    <path d="M22 22 a10 10 0 0 1 20 0"/>
+    <!-- Small leaf accent inside bag (subtle "fresh / organic" hint) -->
+    <path d="M28 38 q4 -4 8 0 q-4 4 -8 0 z" fill="#2D8B3F" stroke="none"/>
+  </g>
+</svg>
